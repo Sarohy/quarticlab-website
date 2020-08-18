@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css'
 import Footer from '../components/footer'
 import Navbar from '../components/navbar'
 import ServiceCard from '../components/serviceCard'
+import Feeback from '../components/feedback'
 
 export default function Home() {
   return (
@@ -52,6 +53,22 @@ export default function Home() {
                       </div>
                       <div className="col-md-4">
                         <ServiceCard />
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section className={styles.feedback}>
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-md-12">
+                        <h2>Customers Feedback</h2>
+                        <p className={styles.feedback_desc}>Lorem Ipsum is simply dummy text of the printing and typesetting has been the industrys standard dummy text ever since</p>
+                      </div>
+                      <div className="col-md-6">
+                        <Feeback />
+                      </div>
+                      <div className="col-md-6">
+                        <Feeback />
                       </div>
                     </div>
                   </div>
@@ -109,6 +126,10 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
+                </section>
+                <section className={styles.message}>
+                  <h2>How May We Help You!</h2>
+                  <img src="/element19.png" alt="element" className={styles.message_bg} />
                 </section>
               </main>
             </div>

@@ -16,7 +16,7 @@ const Navbar = () => {
                             <div className={styles.menu_wrap}>
                                 <div className={styles.main_navigation}>
                                 <nav className="navbar navbar-expand-lg">>
-                                    <div class="collapse navbar-collapse">
+                                    <div className="collapse navbar-collapse">
                                     <ul className={styles.menu}>
                                         <li className={styles.mega_menu}>
                                             <a href="#">Home</a>
