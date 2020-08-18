@@ -4,7 +4,7 @@ import styles from '../styles/Footer.module.css'
 const Footer = () => {
     return(
         <footer>
-            <div classNameName={styles.footer_area}>
+            <div className={styles.footer_area}>
                 <div className={styles.footer_top_area}>
                     <div className="container">
                         <div className="row">

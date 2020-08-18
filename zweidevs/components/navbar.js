@@ -15,7 +15,8 @@ const Navbar = () => {
                             </div>
                             <div className={styles.menu_wrap}>
                                 <div className={styles.main_navigation}>
-                                <nav>
+                                <nav className="navbar navbar-expand-lg">>
+                                    <div class="collapse navbar-collapse">
                                     <ul className={styles.menu}>
                                         <li className={styles.mega_menu}>
                                             <a href="#">Home</a>
@@ -67,15 +68,6 @@ const Navbar = () => {
                                             </ul> */}
                                         </li>
                                         <li className={styles.mega_menu}>
-                                            <a href="#">Shop</a>
-                                            {/* <ul className="sub-menu">
-                                                <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2955"><a href="https://radiustheme.com/demo/wordpress/themes/digeco/shop/">Shop</a></li>
-                                                <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2954"><a href="https://radiustheme.com/demo/wordpress/themes/digeco/cart/">Cart</a></li>
-                                                <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2953"><a href="https://radiustheme.com/demo/wordpress/themes/digeco/checkout/">Checkout</a></li>
-                                                <li className="menu-item menu-item-type-post_type menu-item-object-product menu-item-2956"><a href="https://radiustheme.com/demo/wordpress/themes/digeco/product/planning-idea2/">Single Product</a></li>
-                                            </ul> */}
-                                        </li>
-                                        <li className={styles.mega_menu}>
                                             <a href="#">Pages</a>
                                         </li>
                                         <li className={styles.mega_menu}>
@@ -85,13 +77,16 @@ const Navbar = () => {
                                             <a href="https://radiustheme.com/demo/wordpress/themes/digeco/contact/">Contact</a>
                                         </li>
                                     </ul>
+                                    </div>
                                 </nav>
                                 </div>
                             </div>
-                            <div className="menu-right-wrap header-icon-area">
-                                <div className="header-search-box"> <a href="#header-search" title="Search"> <i className="flaticon-search"></i> </a></div>
-                                <div className="header-button-wrap">
-                                <div className="header-button"> <a className="button-btn" target="_self" href="#">Get A Quote</a></div>
+                            <div className={`${styles.menu_right_wrap} ${styles.header_icon_area}`}>
+                                {/* <div className="header-search-box"> <a href="#header-search" title="Search"> <i className="flaticon-search"></i> </a></div> */}
+                                <div className={styles.header_button_wrap}>
+                                    <div className={styles.header_button}> 
+                                        <a className={styles.button_btn} target="_self" href="#">Get A Quote</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
