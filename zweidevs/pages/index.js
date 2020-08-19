@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Zweidews</title>
+        <title>Zweidews | Home</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
       </Head>
@@ -67,7 +67,17 @@ export default function Home() {
                         <span>About Us</span>
                         <h2>Work With Tried and True Digital Marketing Experts</h2>
                         <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more a ametion to dummy about at consectetur elit. Vesti at bulum nec odioipsumm ipsum that dolocons rsus mal suada and fadolorit to the mo consectetur elit. Grursus mal suada faci lisis is Lorem ipsum is dolarorit the more a ametion consectetur elit. Vesti at bulum nec odio aea the and the dumm ipsumm ipsum that dolocons rsus mal suada and the fadolorit to the umm than consectetur elit. ipsumm ipsum that dolocons rsus mal suada and fadolorit rsus mal suada and fadolorit to the and consectetur dummy text her now elit.</p>
-                        <Button />
+                        <Button text="Discover More" type="button" />
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section className={styles.projects_gallery}>
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-md-12">
+                      <h2>Project Gallery</h2>
+                      <p className={styles.project_desc}>Lorem Ipsum is simply dummy text of the printing and typesetting has been the industrys standard dummy text ever since</p>
                       </div>
                     </div>
                   </div>
@@ -181,7 +191,7 @@ export default function Home() {
                               </div>
                             </div>
                           </div>
-                          <Button />
+                          <Button text="Submit Now" type="button" />
                         </form>
                       </div>
                       <div className="col-md-6">
@@ -196,7 +206,9 @@ export default function Home() {
         </div>
       </div>
 
-
+      <a href="#" className={styles.scrollToTop}>
+        <img src="/angle.svg" alt="scroll up icon" />
+      </a>
       <Footer />
     </div>
   )
