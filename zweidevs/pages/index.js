@@ -59,8 +59,20 @@ export default function Home() {
                     </div>
                   </div>
                 </section>
+                <section className={styles.about_us}>
+                  <img className={styles.about_media} src="/element2.svg" alt="" />
+                  <div className="container">
+                    <div className="row">
+                      <div className={`col-md-6 offset-md-6 ${styles.about_desc}`}>
+                        <span>About Us</span>
+                        <h2>Work With Tried and True Digital Marketing Experts</h2>
+                        <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more a ametion to dummy about at consectetur elit. Vesti at bulum nec odioipsumm ipsum that dolocons rsus mal suada and fadolorit to the mo consectetur elit. Grursus mal suada faci lisis is Lorem ipsum is dolarorit the more a ametion consectetur elit. Vesti at bulum nec odio aea the and the dumm ipsumm ipsum that dolocons rsus mal suada and the fadolorit to the umm than consectetur elit. ipsumm ipsum that dolocons rsus mal suada and fadolorit rsus mal suada and fadolorit to the and consectetur dummy text her now elit.</p>
+                        <Button />
+                      </div>
+                    </div>
+                  </div>
+                </section>
                 <section className={styles.feedback}>
-                  {/* <img src="/element2.svg" alt="" /> */}
                   <div className="container">
                     <div className="row">
                       <div className="col-md-12">

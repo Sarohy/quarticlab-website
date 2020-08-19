@@ -5,6 +5,10 @@
   position: relative;
 }
 
+.content_area section {
+  padding-bottom: 7rem;
+}
+
 .animated_shape{
   position: absolute;
   top: -1.875rem;
@@ -88,13 +92,37 @@
   right: -10%;
   transform: translateY(-50%);
 }
+.about_us {
+  position: relative;
+}
 
-.feedback>img{
+.about_us .about_desc>h2 {
+  font-weight: 700;
+  color: #1d2124;
+  line-height: 5rem;
+  position: relative;
+  margin-bottom: 15px;
+  padding-top: 1rem;
+}
+.about_us .about_desc>span{
+  font-size: 1.5rem;
+  letter-spacing: .25rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+.about_us .about_desc>p {
+  line-height: 30px;
+}
+
+.about_us img.about_media{
   position: absolute;
-  z-index: 0;
-  right: 0;
-  transform: translateY(13%);
-  z-index: 1;
+  z-index: -1;
+  left: 0;
+  top: 50%;
+  width: 50%;
+  -webkit-transform: translate(-20%,-50%);
+  -ms-transform: translate(-20%,-50%);
+  transform: translate(-20%,-50%);
 }
 
 .services .service_desc,
@@ -108,6 +136,7 @@
 
 .project_numbers {
   position: relative;
+  padding-bottom: 0 !important;
 }
 
 .project_numbers .gradient {
