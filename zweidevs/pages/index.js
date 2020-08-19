@@ -22,20 +22,20 @@ export default function Home() {
               <main id="main" class={styles.site_main}>
                 <section>
                   <img className={styles.animated_shape} src="/layout.png" alt="svg"/>
-                  <div className={styles.intro}>
-                    <div className={styles.intro_img}>
-                      <img src="/illustration.png" alt="main-illustration"/>
-                    </div>
-                    <div className={styles.intro_desc}>
+                </section>
+                <section className={styles.intro}>
+                  <div className={styles.intro_img}>
+                    <img src="/illustration.png" alt="main-illustration"/>
+                  </div>
+                  <div className={styles.intro_desc}>
                     <h1>
-                          The Perfect Clean Design
-                          <br />
-                          Framework for Startup Your
-                          <br />
-                          Own Businesses
-                        </h1>
-                        <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion the consectetur dumm ipsumm text dolocons. </p>
-                    </div>
+                      The Perfect Clean Design
+                      <br />
+                      Framework for Startup Your
+                      <br />
+                      Own Businesses
+                    </h1>
+                    <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion the consectetur dumm ipsumm text dolocons. </p>
                   </div>
                 </section>
                 <section className={styles.services}>
@@ -129,7 +129,7 @@ export default function Home() {
                 </section>
                 <section className={styles.message}>
                   <h2>How May We Help You!</h2>
-                  <img src="/element19.png" alt="element" className={styles.message_bg} />
+                  {/* <img src="/element19.png" alt="element" className={styles.message_bg} /> */}
                 </section>
               </main>
             </div>
@@ -138,7 +138,7 @@ export default function Home() {
       </div>
 
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
