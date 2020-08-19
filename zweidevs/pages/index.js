@@ -48,13 +48,13 @@ export default function Home() {
                         <p className={styles.service_desc}>Lorem Ipsum is simply dummy text of the printing and typesetting has been the industrys standard dummy text ever since</p>
                       </div>
                       <div className="col-md-4">
-                        <ServiceCard />
+                        <ServiceCard title="Web Marketing" icon="/shout.svg" />
                       </div>
                       <div className="col-md-4">
-                        <ServiceCard />
+                        <ServiceCard title="Development" icon="/growth.svg" />
                       </div>
                       <div className="col-md-4">
-                        <ServiceCard />
+                        <ServiceCard title="Creative Layout" icon="/report.svg" />
                       </div>
                     </div>
                   </div>
