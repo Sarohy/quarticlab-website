@@ -10,13 +10,22 @@ const Footer = () => {
                         <div className="row">
                             <div className="col-lg-3 col-sm-6 col-12">
                                 <div className={`${styles.widget} ${styles.widget_media_image}`}>
-                                    <img src="" className="image" alt="" />
+                                    <img className={styles.logo} src="/Zweidevs.svg" alt="company logo" />
                                 </div>
                                 <div className={`${styles.widget} ${styles.widget_digeco_address}`}>
                                     <ul className={styles.corporate_address}>
-                                        <li><i className={styles.footer_icon}></i>113 Sassnex, White House, USA</li>
-                                        <li><i className={styles.footer_icon}></i> <a href="tel:+001-548-159-2491">+001-548-159-2491</a></li>
-                                        <li><i className={styles.footer_icon}></i> <a href="mailto:info@yourdomain.com">info@yourdomain.com</a></li>
+                                        <li>
+                                            <img src="/pin.svg" alt="locattion" className={styles.footer_icon} />
+                                            <a href="#">113 Sassnex, White House, USA</a>
+                                        </li>
+                                        <li>
+                                        <img src="/phone.svg" alt="phone number" className={styles.footer_icon} />
+                                            <a href="tel:+001-548-159-2491">+001-548-159-2491</a>
+                                        </li>
+                                        <li>
+                                        <img src="/plane.svg" alt="email address" className={styles.footer_icon} />
+                                            <a href="mailto:info@yourdomain.com">info@yourdomain.com</a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div className={`${styles.widget} ${styles.rt_footer_social_widget}`}>
@@ -99,7 +108,7 @@ const Footer = () => {
                 <div className={styles.footer_bottom_area}>
                     <div className="container">
                         <div className={styles.copyright_wrap}>
-                        <div className={styles.copyright}>© 2020 digeco. All Rights Reserved by <a target="_blank" rel="nofollow" href="http://radiustheme.com/">RadiusTheme</a></div>
+                        <div className={styles.copyright}>© 2020 Zweidevs. All Rights Reserved by <a target="_blank" rel="nofollow" href="#">Zweidevs</a></div>
                         <div className={styles.copyright_widget}>
                             <div className={`${styles.widget} ${styles.widget_nav_menu}`}>
                                 <div>

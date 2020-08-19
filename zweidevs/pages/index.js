@@ -128,8 +128,51 @@ export default function Home() {
                   </div>
                 </section>
                 <section className={styles.message}>
-                  <h2>How May We Help You!</h2>
-                  {/* <img src="/element19.png" alt="element" className={styles.message_bg} /> */}
+                  <img src="/element19.png" alt="element" className={styles.message_bg} />
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-md-6">
+                        <h2>How May We Help You!</h2>
+                        <p>Grursus mal suada faci lisis Lorem ipsum consectetur elit. Grursus mal suada faci lisis Lorem ipsum consectetur elit.</p>
+                        <form>
+                          <div className="row">
+                            <div className="col">
+                              <div className={styles.form_group}>
+                                <input type="text" className={styles.form_control} placeholder="First name" />
+                              </div>
+                            </div>
+                            <div className="col">
+                              <div className={styles.form_group}>
+                                <input type="text" className={styles.form_control} placeholder="Last name" />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="row">
+                            <div className="col">
+                              <div className={styles.form_group}>
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                  <option selected>Choose...</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="row">
+                            <div className="col">
+                              <div className={styles.form_group}>
+                                <textarea name="textarea-652" cols="40" rows="5" className={styles.form_control} aria-invalid="false" placeholder="Message" spellcheck="false"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div className="col-md-6">
+                        <img src="/illustration21.png" alt="illustration"/>
+                      </div>
+                    </div>
+                  </div>
                 </section>
               </main>
             </div>
@@ -138,7 +181,7 @@ export default function Home() {
       </div>
 
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }

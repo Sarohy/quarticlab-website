@@ -118,6 +118,20 @@ img {
 	}
 }
 
+::-webkit-input-placeholder { /* Edge */
+	font-size: 1.6rem;
+	color: #B8B8B8;
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	font-size: 1.6rem;
+	color: #B8B8B8;
+}
+  
+::placeholder {
+	font-size: 1.6rem;
+	color: #B8B8B8;
+}
 
 ::-webkit-scrollbar{
     width: 8px;
