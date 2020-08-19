@@ -18,6 +18,23 @@
     position: relative;
     transition: all .5s ease-out;
 }
+/* 
+.fixed_menu {
+    display: none;
+} */
+
+.sticky_menu {
+    display: none;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 1000;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
+    transition: all .3s ease 0s;
+}
 
 .menu_full_wrap {
     display: flex;
@@ -64,7 +81,7 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 22px;
-    color: #fff;
+    color: #000;
     text-transform: capitalize;
     font-style: normal;
     transition: all .3s ease-out 0s;
@@ -72,7 +89,7 @@
 }
 
 .site_header .main_navigation nav>ul>li>a:before {
-    background: #fff;
+    background: #000;
     position: absolute;
     z-index: 1;
     content: "";
@@ -92,70 +109,7 @@
 }
 
 .site_header .main_navigation nav ul li a:hover {
-    color: #fff;
-}
-
-.site_header .main_navigation ul li.mega_menu>ul.sub_menu {
-    background-color: #fff !important;
-    padding: 20px 0;
-    width: 520px !important;
-    max-width: 1210px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    padding: 15px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.site_header .main_navigation ul li.mega_menu>ul.sub_menu>li{
-    display: block;
-    float: left;
-    margin: 0;
-    width: 220px;
-    border: none;
-    background-color: inherit;
-    padding: 0 5px;
-}
-
-
-.site_header .main_navigation ul li.mega_menu>ul.sub_menu>li ul {
-    position: relative;
-    width: inherit;
-    left: inherit;
-    border: none;
-    box-shadow: none;
-}
-
-.site_header .main_navigation ul li.mega_menu ul.sub_menu li {
-    background-color: inherit;
-    padding: 0 5px;
-}
-
-.site_header .main_navigation ul li.mega_menu ul.sub_menu>li a{
-    padding-left: 0;
-    margin-left: 0;
-}
-
-.site_header .main_navigation ul li ul li{
-    display: block;
-    border-bottom: none;
-    border-left: none;
-    transition: all .3s ease-out 0s;
-    margin-bottom: 10px;
-}
-
-.site_header .main_navigation ul li ul li {
-    font-family: Roboto,sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 22px;
-    color: #4c4b4b;
-    text-transform: inherit;
-    font-style: normal;
-    margin: 4px 25px;
-    padding: 0;
+    color: #000;
 }
 
 .menu_right_wrap {
@@ -171,8 +125,8 @@
 }
 
 .header_button_wrap .header_button .button_btn {
-    border-color: #fff;
-    color: #fff;
+    border-color: #000;
+    color: #000;
 
     font-weight: 500;
     font-size: 1.6rem;
@@ -198,27 +152,58 @@
 }
 
 .header_button_wrap .header_button .button_btn:hover {
-    color: #1d2124;
-    background-color: #fff;
-    border-color: #fff;
+    color: var(--primary-color);
+    background-color: #000;
+    border-color: #000;
 }
-
-.navbar_toggler {
-    padding: .25rem .75rem;
-    font-size: 1.25rem;
-    line-height: 1;
-    background-color: transparent;
-    border: 1px solid #fff;
-    border-radius: .25rem;
+.mini_menu {
+    position: relative;
 }
-
-.navbar_toggler_icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+.mini_menu span {
+    width: 3rem;
+    height: 2px;
+    background-color: var(--primary-color);
     display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
-    vertical-align: middle;
+    margin: 1rem 0;
+}
+
+.mini_menu span::before,
+.mini_menu span::after {
     content: "";
-    background: no-repeat center center;
-    background-size: 100% 100%;
-} 
+    position: absolute;
+    left: 0;
+    transition: all .2s;
+    width: 3rem;
+    height: 2px;
+    background-color: var(--primary-color);
+    display: inline-block;
+}
+
+.mini_menu span::before {
+    top: -0.8rem;
+}
+
+.mini_menu span::after {
+    top: 0.8rem;
+}
+
+.sticky_menu .main_navigation nav ul li a,
+.sticky_menu .main_navigation nav ul li a:hover{
+    color: var(--primary-color);
+}
+
+.site_header .sticky_menu .main_navigation nav>ul>li>a:before {
+    background: var(--primary-color);
+}
+
+.sticky_menu .header_button_wrap .header_button .button_btn {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.sticky_menu .header_button_wrap .header_button .button_btn:hover {
+    color: #000;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+

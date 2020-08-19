@@ -30,7 +30,7 @@
 .intro .intro_img {
   grid-column-start: 2;
   grid-column-end: 3;
-  z-index: 300;
+  z-index: 1;
 }
 
 .intro .intro_img img {
