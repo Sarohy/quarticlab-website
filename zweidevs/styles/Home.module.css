@@ -82,6 +82,21 @@
   text-align: center;
 }
 
+.services>img{
+  position: absolute;
+  z-index: 0;
+  right: -10%;
+  transform: translateY(-50%);
+}
+
+.feedback>img{
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  transform: translateY(13%);
+  z-index: 1;
+}
+
 .services .service_desc,
 .feedback .feedback_desc {
   width: 50%;
@@ -96,7 +111,7 @@
 }
 
 .project_numbers .gradient {
-  background-image: linear-gradient(to right, var(--primary-color) , #DE7300);
+  background-image: var(--linear-gradient);
   position: absolute;
   top: 0;
   left: -15px;

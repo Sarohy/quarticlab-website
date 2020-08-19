@@ -4,6 +4,7 @@ import Footer from '../components/footer'
 import Navbar from '../components/navbar'
 import ServiceCard from '../components/serviceCard'
 import Feeback from '../components/feedback'
+import Button from '../components/button'
 
 export default function Home() {
   return (
@@ -39,6 +40,7 @@ export default function Home() {
                   </div>
                 </section>
                 <section className={styles.services}>
+                  <img src="/element1.svg" alt="" />
                   <div className="container">
                     <div className="row">
                       <div className="col-md-12">
@@ -58,6 +60,7 @@ export default function Home() {
                   </div>
                 </section>
                 <section className={styles.feedback}>
+                  {/* <img src="/element2.svg" alt="" /> */}
                   <div className="container">
                     <div className="row">
                       <div className="col-md-12">
@@ -166,6 +169,7 @@ export default function Home() {
                               </div>
                             </div>
                           </div>
+                          <Button />
                         </form>
                       </div>
                       <div className="col-md-6">

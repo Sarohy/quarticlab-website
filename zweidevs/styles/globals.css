@@ -3,6 +3,7 @@
 
 :root {
 	--primary-color: #ff9700;
+	--linear-gradient: linear-gradient(to right, var(--primary-color) , #DE7300);
 }
 
 
