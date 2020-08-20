@@ -7,7 +7,7 @@ const Feeback = (props) => {
                 <div className={styles.feedback_thumb}>
                     <img 
                         src="https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/01/testimonial1.png" 
-                        class={styles.thumbnail} alt="" />
+                        className={styles.thumbnail} alt="" />
                 </div>
                 <div className={styles.media_body}>
                     <h3 className={styles.media_title}>Robert Bruce</h3>

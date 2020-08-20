@@ -1,117 +1,59 @@
 import Link from 'next/link';
+import NavbarItems from './navbarItems';
 import { useEffect, useState } from 'react'
 import styles from '../styles/Navbar.module.css'
 
 const Navbar = () => {
-    const [scroll, setScroll] = useState(1)
+    const [scroll, setScroll] = useState(0);
+    const [navlist_toogle, setNavlist_toogle] = useState(false);
 
-    // useEffect(() => {
-    //     document.addEventListener("scroll", () => {
-    //       const scrollCheck = window.scrollY < 100
-    //       if (scrollCheck !== scroll) {
-    //         setScroll(scrollCheck)
-    //       }
-    //     })
-    // })
+    useEffect(() => {
+        document.addEventListener("scroll", () => {
+          const scrollCheck = window.scrollY < 100
+          if (scrollCheck !== scroll) {
+            setScroll(scrollCheck)
+          }
+        })
+    })
+
 
     return(
         <header className={styles.site_header}>
             <div className={`${styles.header_area} ${styles.header_fixed}`}>
             {scroll == true ? 
                 (<div className={styles.fixed_menu} id="sticker">
-                    <div className="container">
-                        <div className={styles.menu_full_wrap}>
-                            <div className={styles.site_branding}>
-                                <a className={styles.logo} href="/">
-                                    <img src="/logo.png" alt="Zweidevs" />
-                                </a>
-                            </div>
-                            <div className={`d-none d-lg-block ${styles.menu_wrap}`}>
-                                <div className={styles.main_navigation}>
-                                    <nav>
-                                        <ul className={styles.menu}>
-                                            <li className={styles.mega_menu}>
-                                                <a href="#">Home</a>
-                                            </li>
-                                            <li className={styles.mega_menu}>
-                                                <a href="#">Services</a>
-                                            </li>
-                                            <li className={styles.mega_menu}>
-                                                <a href="#">Portfolio</a>
-                                            </li>
-                                            <li className={styles.mega_menu}>
-                                                <a href="#">Pages</a>
-                                            </li>
-                                            <li className={styles.mega_menu}>
-                                                <a href="#">Blog</a>
-                                            </li>
-                                            <li className={styles.mega_menu}>
-                                                <a href="https://radiustheme.com/demo/wordpress/themes/digeco/contact/">Contact</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div className={`${styles.menu_right_wrap} ${styles.header_icon_area}`}>
-                                <div className={styles.header_button_wrap}>
-                                    <div className={styles.header_button}> 
-                                        <a className={styles.button_btn} target="_self" href="#">Get A Quote</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" className={`d-block d-lg-none ${styles.mini_menu}`}>
-                                <span class="navigation__icon">&nbsp;</span>
-                            </a>
-                        </div>
-                    </div>
+                    <NavbarItems click_toggle={(display)=>setNavlist_toogle(display)}/>
                 </div> ) :
                 
                 ( <div className={styles.sticky_menu}>
-                    <div className="container">
-                            <div className={styles.menu_full_wrap}>
-                                <div className={styles.site_branding}>
-                                    <a className={styles.logo} href="/">
-                                        <img src="/logo.png" alt="Zweidevs" />
-                                    </a>
-                                </div>
-                                <div className={styles.menu_wrap}>
-                                    <div className={styles.main_navigation}>
-                                        <nav>
-                                            <ul className={styles.menu}>
-                                                <li className={styles.mega_menu}>
-                                                    <a href="#">Home</a>
-                                                </li>
-                                                <li className={styles.mega_menu}>
-                                                    <a href="#">Services</a>
-                                                </li>
-                                                <li className={styles.mega_menu}>
-                                                    <a href="#">Portfolio</a>
-                                                </li>
-                                                <li className={styles.mega_menu}>
-                                                    <a href="#">Pages</a>
-                                                </li>
-                                                <li className={styles.mega_menu}>
-                                                    <a href="#">Blog</a>
-                                                </li>
-                                                <li className={styles.mega_menu}>
-                                                    <a href="https://radiustheme.com/demo/wordpress/themes/digeco/contact/">Contact</a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                                <div className={`${styles.menu_right_wrap} ${styles.header_icon_area}`}>
-                                    <div className={styles.header_button_wrap}>
-                                        <div className={styles.header_button}> 
-                                            <a className={styles.button_btn} target="_self" href="#">Get A Quote</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <NavbarItems sticky_nav={true} click_toggle={(display)=>setNavlist_toogle(display)} nav_toggle={navlist_toogle} />
                 </div> ) 
             }
             </div>
+            { navlist_toogle ? (<nav className={styles.mobile_nav_list} id="mobile_nav">
+                    <ul className={styles.mobile_menu}>
+                        <li className={styles.mobile_mega_menu}>
+                            <a href="#">Home</a>
+                        </li>
+                        <li className={styles.mobile_mega_menu}>
+                            <a href="#">Services</a>
+                        </li>
+                        <li className={styles.mobile_mega_menu}>
+                            <a href="#">Portfolio</a>
+                        </li>
+                        <li className={styles.mobile_mega_menu}>
+                            <a href="#">Pages</a>
+                        </li>
+                        <li className={styles.mobile_mega_menu}>
+                            <a href="#">Blog</a>
+                        </li>
+                        <li className={styles.mobile_mega_menu}>
+                            <a href="https://radiustheme.com/demo/wordpress/themes/digeco/contact/">Contact</a>
+                        </li>
+                    </ul>
+                </nav>) : null
+            }
+            
         </header>
     );
 }

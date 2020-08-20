@@ -39,6 +39,7 @@
 .intro .intro_desc {
   justify-content: center;
   align-self: center;
+  z-index: 1;
 }
 .intro .intro_desc h1 {
   z-index: 11;

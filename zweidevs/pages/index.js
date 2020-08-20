@@ -16,11 +16,11 @@ export default function Home() {
       </Head>
       <Navbar />
 
-      <div class={styles.content_area}>
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-12 col-12">
-              <main id="main" class={styles.site_main}>
+      <div className={styles.content_area}>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-sm-12 col-12">
+              <main id="main" className={styles.site_main}>
                 <section>
                   <img className={styles.animated_shape} src="/layout.png" alt="svg"/>
                 </section>
@@ -47,13 +47,13 @@ export default function Home() {
                         <h2>Our Services</h2>
                         <p className={styles.service_desc}>Lorem Ipsum is simply dummy text of the printing and typesetting has been the industrys standard dummy text ever since</p>
                       </div>
-                      <div className="col-md-4">
+                      <div className="col-md-6 col-lg-4">
                         <ServiceCard title="Web Marketing" icon="/shout.svg" />
                       </div>
-                      <div className="col-md-4">
+                      <div className="col-md-6 col-lg-4">
                         <ServiceCard title="Development" icon="/growth.svg" />
                       </div>
-                      <div className="col-md-4">
+                      <div className="col-md-12 col-lg-4">
                         <ServiceCard title="Creative Layout" icon="/report.svg" />
                       </div>
                     </div>
@@ -175,8 +175,8 @@ export default function Home() {
                           <div className="row">
                             <div className="col">
                               <div className={styles.form_group}>
-                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                  <option selected>Choose...</option>
+                                <select className="custom-select mr-sm-2" id="inlineFormCustomSelect" defaultValue="0">
+                                  <option value="0">Choose...</option>
                                   <option value="1">One</option>
                                   <option value="2">Two</option>
                                   <option value="3">Three</option>
@@ -187,7 +187,7 @@ export default function Home() {
                           <div className="row">
                             <div className="col">
                               <div className={styles.form_group}>
-                                <textarea name="textarea-652" cols="40" rows="5" className={styles.form_control} aria-invalid="false" placeholder="Message" spellcheck="false"></textarea>
+                                <textarea name="textarea-652" cols="40" rows="5" className={styles.form_control} aria-invalid="false" placeholder="Message"></textarea>
                               </div>
                             </div>
                           </div>
