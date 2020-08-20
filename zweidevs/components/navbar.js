@@ -5,7 +5,7 @@ import styles from '../styles/Navbar.module.css'
 
 const Navbar = () => {
     const [scroll, setScroll] = useState(0);
-    const [navlist_toogle, setNavlist_toogle] = useState(false);
+    const [navlist_toggle, setNavlist_toogle] = useState(false);
 
     useEffect(() => {
         document.addEventListener("scroll", () => {
@@ -22,15 +22,15 @@ const Navbar = () => {
             <div className={`${styles.header_area} ${styles.header_fixed}`}>
             {scroll == true ? 
                 (<div className={styles.fixed_menu} id="sticker">
-                    <NavbarItems click_toggle={(display)=>setNavlist_toogle(display)}/>
+                    <NavbarItems click_toggle={(display)=>setNavlist_toogle(display)} nav_toggle={navlist_toggle} />
                 </div> ) :
                 
                 ( <div className={styles.sticky_menu}>
-                    <NavbarItems sticky_nav={true} click_toggle={(display)=>setNavlist_toogle(display)} nav_toggle={navlist_toogle} />
+                    <NavbarItems sticky_nav={true} click_toggle={(display)=>setNavlist_toogle(display)} nav_toggle={navlist_toggle} />
                 </div> ) 
             }
             </div>
-            { navlist_toogle ? (<nav className={styles.mobile_nav_list} id="mobile_nav">
+            { navlist_toggle ? (<nav className={styles.mobile_nav_list} id="mobile_nav">
                     <ul className={styles.mobile_menu}>
                         <li className={styles.mobile_mega_menu}>
                             <a href="#">Home</a>

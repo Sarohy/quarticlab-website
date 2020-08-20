@@ -125,7 +125,7 @@
 .mini_menu span {
     width: 3rem;
     height: 2px;
-    background-color: var(--primary-color);
+    background-color: #000;
     display: inline-block;
 }
 
@@ -137,7 +137,7 @@
     transition: all .2s;
     width: 3rem;
     height: 2px;
-    background-color: var(--primary-color);
+    background-color: #000;
     display: inline-block;
 }
 
@@ -185,4 +185,14 @@
     color: #000;
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+}
+
+
+.sticky_nav_list .mini_menu span {
+    background-color: var(--primary-color);
+}
+
+.sticky_nav_list .mini_menu span::before,
+.sticky_nav_list .mini_menu span::after {
+    background-color: var(--primary-color);
 }
