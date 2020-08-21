@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import styles from '../styles/Navbar.module.css'
 
 const Navbar = () => {
-    const [scroll, setScroll] = useState(0);
+    const [scroll, setScroll] = useState(1);
     const [navlist_toggle, setNavlist_toogle] = useState(false);
 
     useEffect(() => {

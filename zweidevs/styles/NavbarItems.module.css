@@ -79,7 +79,11 @@
     height: 100%;
     position: relative;
     font-size: 20px;
-    margin-left: 8px;
+    /* margin-left: 8px; */
+}
+
+.right_menu {
+    display: flex;
 }
 
 .header_button_wrap .header_button .button_btn {
@@ -152,7 +156,7 @@
 }
 
 .cross .mini_menu span {
-    background-color: transparent;
+    background-color: transparent !important;
 }
 
 .cross .mini_menu span::before {
@@ -195,4 +199,17 @@
 .sticky_nav_list .mini_menu span::before,
 .sticky_nav_list .mini_menu span::after {
     background-color: var(--primary-color);
+}
+
+
+@media (max-width: 996px) {
+    .header_icon_area {
+        margin-right: 5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .header_icon_area {
+        margin-right: 1rem;
+    }
 }

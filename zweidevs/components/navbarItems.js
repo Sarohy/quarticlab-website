@@ -6,7 +6,7 @@ const NavbarItems = (props) => {
             <div className={`${styles.menu_full_wrap} ${props.sticky_nav ? styles.sticky_nav_list : ""}`}>
                 <div className={styles.site_branding}>
                     <a className={styles.logo} href="/">
-                        <img src="/logo.png" alt="Zweidevs" />
+                        <img src={props.sticky_nav ? '/logo-dark.svg' : '/logo-light.svg'} alt="Zweidevs" />
                     </a>
                 </div>
                 <div className={`d-none d-lg-block ${styles.menu_wrap}`}>
@@ -36,24 +36,26 @@ const NavbarItems = (props) => {
                     </div>
                 </div>
 
-                <div className={`${styles.menu_right_wrap} ${styles.header_icon_area}`}>
-                    <div className={styles.header_button_wrap}>
-                        <div className={styles.header_button}> 
-                            <a className={styles.button_btn} target="_self" href="#">Get A Quote</a>
+                <div className={styles.right_menu}>
+                    <div className={`${styles.menu_right_wrap} ${styles.header_icon_area}`}>
+                        <div className={styles.header_button_wrap}>
+                            <div className={styles.header_button}> 
+                                <a className={styles.button_btn} target="_self" href="#">Get A Quote</a>
+                            </div>
                         </div>
                     </div>
+                    {
+                        props.nav_toggle == false ? (<div  className={`d-block d-lg-none ${styles.nav_toggler}`}>
+                                <a className={styles.mini_menu} onClick={()=>{props.click_toggle(true)}}>
+                                    <span className="navigation__icon">&nbsp;</span>
+                                </a>
+                            </div>) : (<div  className={`d-block d-lg-none ${styles.nav_toggler} ${styles.cross}`}>
+                                <a className={styles.mini_menu} onClick={()=>{props.click_toggle(false)}}>
+                                    <span className="navigation__icon">&nbsp;</span>
+                                </a>
+                            </div>)
+                    }
                 </div>
-                {
-                    props.nav_toggle == false ? (<div  className={`d-block d-lg-none ${styles.nav_toggler}`}>
-                            <a className={styles.mini_menu} onClick={()=>{props.click_toggle(true)}}>
-                                <span className="navigation__icon">&nbsp;</span>
-                            </a>
-                        </div>) : (<div  className={`d-block d-lg-none ${styles.nav_toggler} ${styles.cross}`}>
-                            <a className={styles.mini_menu} onClick={()=>{props.click_toggle(false)}}>
-                                <span className="navigation__icon">&nbsp;</span>
-                            </a>
-                        </div>)
-                }
 
             </div>
         </div>

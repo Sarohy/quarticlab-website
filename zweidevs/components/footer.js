@@ -10,7 +10,7 @@ const Footer = () => {
                         <div className="row">
                             <div className="col-lg-3 col-sm-6 col-12">
                                 <div className={`${styles.widget} ${styles.widget_media_image}`}>
-                                    <img className={styles.logo} src="/Zweidevs.svg" alt="company logo" />
+                                    <img className={styles.logo} src="/logo-dark.svg" alt="company logo" />
                                 </div>
                                 <div className={`${styles.widget} ${styles.widget_digeco_address}`}>
                                     <ul className={styles.corporate_address}>
@@ -83,23 +83,26 @@ const Footer = () => {
                                                 <a href="#">Our Media</a>
                                             </li>
                                             <li className={styles.menu_item}>
-                                                <a href="https://radiustheme.com/demo/wordpress/themes/digeco/contact/">Contact Us</a>
+                                                <a href="#">Contact Us</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-lg-3 col-sm-6 col-12">
-                                <div className={`${styles.widget} ${styles.widget_recent_entries}`}>
-                                    <h3 className={styles.widget_title}>Recent Posts</h3>
-                                    <ul className={styles.menu}>
-                                        <li className={styles.menu_item}>
-                                            <a href="https://radiustheme.com/demo/wordpress/themes/digeco/5-ways-technology-today-at-improved-business/">5 Ways Technology Today at Improved Business.</a> <span className="post-date">January 6, 2020</span>
-                                        </li>
-                                        <li className={styles.menu_item}> 
-                                            <a href="https://radiustheme.com/demo/wordpress/themes/digeco/how-wireless-technology-more-changing-business/">How Wireless Technology more Changing Business.</a> <span className="post-date">January 6, 2020</span>
-                                        </li>
-                                    </ul>
+                                <div className={`${styles.widget} ${styles.widget_social_links}`}>
+                                    <h3 className={styles.widget_title}>Social Links</h3>
+                                    <div className={styles.links}>
+                                        <a href="#">
+                                            <img src="/facebook.svg" alt="Zweidevs-facebook Page" />
+                                        </a>
+                                        <a href="#">
+                                            <img src="/twitter.svg" alt="Zweidevs-twitter Page" />
+                                        </a>
+                                        <a href="#">
+                                            <img src="/instagram.svg" alt="Zweidevs-instagram Page" />
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

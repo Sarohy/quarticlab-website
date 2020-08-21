@@ -78,6 +78,19 @@
     color: var(--primary-color);
 }
 
+.widget_social_links .links {
+    display: flex;
+}
+
+.widget_social_links .links a {
+    margin: 1rem;
+}
+
+.widget_social_links .links img{
+    width: 3.2rem;
+    height: 3.2rem;
+}
+
 .footer_icon {
     color: var(--primary-color);
     font-size: 1.5rem;
