@@ -13,6 +13,8 @@ export default function Home() {
         <title>Zweidews | Home</title>
         <link rel="icon" href="/favicon-dark.ico" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
       </Head>
       <Navbar />
 
@@ -89,12 +91,46 @@ export default function Home() {
                         <h2>Customers Feedback</h2>
                         <p className={styles.feedback_desc}>Lorem Ipsum is simply dummy text of the printing and typesetting has been the industrys standard dummy text ever since</p>
                       </div>
-                      <div className="col-md-6">
+                      <div className="col-md-12">
+                        <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+                          <div className="carousel-inner">
+                            <div className="carousel-item active">
+                              <div className="row">
+                                <div className="col-md-6">
+                                  <Feeback name="Robert Bruce" />
+                                </div>
+                                <div className="col-md-6">
+                                  <Feeback name="John Doe" />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="carousel-item">
+                              <div className="row">
+                                <div className="col-md-6">
+                                  <Feeback name="Robert Bruce" />
+                                </div>
+                                <div className="col-md-6">
+                                  <Feeback name="John Doe" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="sr-only">Previous</span>
+                          </a>
+                          <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="sr-only">Next</span>
+                          </a>
+                        </div>
+                      </div>
+                      {/* <div className="col-md-6">
                         <Feeback />
                       </div>
                       <div className="col-md-6">
                         <Feeback />
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </section>

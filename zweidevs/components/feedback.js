@@ -10,7 +10,7 @@ const Feeback = (props) => {
                         className={styles.thumbnail} alt="" />
                 </div>
                 <div className={styles.media_body}>
-                    <h3 className={styles.media_title}>Robert Bruce</h3>
+                    <h3 className={styles.media_title}>{props.name}</h3>
                     <div className={styles.media_designation}>
                         <span>Apps Developer</span>
                     </div>
