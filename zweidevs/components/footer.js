@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className={styles.footer_top_area}>
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-3 col-sm-6 col-12">
+                            <div className="col-lg-4 col-sm-6 col-12">
                                 <div className={`${styles.widget} ${styles.widget_media_image}`}>
                                     <img className={styles.logo} src="/logo-dark.svg" alt="company logo" />
                                 </div>
@@ -41,7 +41,7 @@ const Footer = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-lg-3 col-sm-6 col-12">
+                            {/* <div className="col-lg-3 col-sm-6 col-12">
                                 <div className={`${styles.widget} ${styles.widget_nav_menu}`}>
                                     <h3 className={styles.widget_title}>Our Services</h3>
                                     <div>
@@ -64,8 +64,8 @@ const Footer = () => {
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="col-lg-3 col-sm-6 col-12">
+                            </div> */}
+                            <div className="col-lg-4 col-sm-6 col-12 text-center">
                                 <div className={`${styles.widget} ${styles.widget_nav_menu}`}>
                                     <h3 className={styles.widget_title}>Important Link</h3>
                                     <div>
@@ -89,7 +89,7 @@ const Footer = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-lg-3 col-sm-6 col-12">
+                            <div className="col-lg-4 col-sm-12 col-12 text-center">
                                 <div className={`${styles.widget} ${styles.widget_social_links}`}>
                                     <h3 className={styles.widget_title}>Social Links</h3>
                                     <div className={styles.links}>

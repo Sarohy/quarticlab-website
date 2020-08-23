@@ -80,6 +80,7 @@
 
 .widget_social_links .links {
     display: flex;
+    justify-content: center;
 }
 
 .widget_social_links .links a {
@@ -105,6 +106,10 @@
     font-size: 2.2rem;
     font-weight: 600;
     margin-bottom: 20px;
+}
+
+.footer_top_area .row>div {
+    text-align: center;
 }
 
 .footer_top_area .menu_item {

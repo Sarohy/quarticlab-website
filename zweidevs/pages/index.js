@@ -5,6 +5,7 @@ import Navbar from '../components/navbar'
 import ServiceCard from '../components/serviceCard'
 import Feeback from '../components/feedback'
 import Button from '../components/button'
+import LogoCard from '../components/logoCard'
 
 export default function Home() {
   return (
@@ -92,7 +93,7 @@ export default function Home() {
                         <p className={styles.feedback_desc}>Lorem Ipsum is simply dummy text of the printing and typesetting has been the industrys standard dummy text ever since</p>
                       </div>
                       <div className="col-md-12">
-                        <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+                        <div id="carouselExampleControls" className={`carousel slide ${styles.carousel_controls}`} data-ride="carousel">
                           <div className="carousel-inner">
                             <div className="carousel-item active">
                               <div className="row">
@@ -107,7 +108,7 @@ export default function Home() {
                             <div className="carousel-item">
                               <div className="row">
                                 <div className="col-md-6">
-                                  <Feeback name="Robert Bruce" />
+                                  <Feeback name="Robert Bruce_2" />
                                 </div>
                                 <div className="col-md-6">
                                   <Feeback name="John Doe" />
@@ -115,22 +116,34 @@ export default function Home() {
                               </div>
                             </div>
                           </div>
-                          <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <a className={styles.carousel_control_prev} href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span className={styles.carousel_control_prev_icon} aria-hidden="true"></span>
                             <span className="sr-only">Previous</span>
                           </a>
-                          <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                          <a className={styles.carousel_control_next} href="#carouselExampleControls" role="button" data-slide="next">
+                            <span className={styles.carousel_control_next_icon} aria-hidden="true"></span>
                             <span className="sr-only">Next</span>
                           </a>
                         </div>
                       </div>
-                      {/* <div className="col-md-6">
-                        <Feeback />
+                    </div>
+                  </div>
+                </section>
+                <section className={styles.companies_logo}>
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-md-3">
+                        <LogoCard logo="https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/05_Logo.png" />
                       </div>
-                      <div className="col-md-6">
-                        <Feeback />
-                      </div> */}
+                      <div className="col-md-3">
+                        <LogoCard logo="https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/06_Logo.png" />
+                      </div>
+                      <div className="col-md-3">
+                        <LogoCard logo="https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/04_Logo.png" />
+                      </div>
+                      <div className="col-md-3">
+                        <LogoCard logo="https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/05_Logo.png" />
+                      </div>
                     </div>
                   </div>
                 </section>

@@ -144,6 +144,62 @@
   text-align: center;
 }
 
+.feedback .carousel_controls:hover .carousel_control_prev,
+.feedback .carousel_controls:hover .carousel_control_next {
+  display: flex;
+  opacity: .5;
+}
+
+.feedback .carousel_control_prev,
+.feedback .carousel_control_next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 15%;
+  text-align: center;
+  opacity: 0;
+}
+
+.feedback .carousel_control_prev {
+  left: -10%;
+}
+
+.feedback .carousel_control_next {
+  right: -10%;
+}
+
+.feedback .carousel_control_prev:hover,
+.feedback .carousel_control_next:hover { 
+  opacity: 1 !important;
+}
+
+.feedback .carousel_control_prev_icon,
+.feedback .carousel_control_next_icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: no-repeat 50%/100% 100%;
+}
+
+.feedback .carousel_control_prev_icon {
+  background-image: url('../public/previous.svg') !important;
+}
+
+.feedback .carousel_control_next_icon {
+  background-image: url('../public/next.svg') !important;
+}
+
+.companies_logo {
+  
+}
+
 .project_numbers {
   position: relative;
   padding-bottom: 0 !important;
@@ -279,6 +335,17 @@ textarea.form_control {
   .intro .intro_img img {
     height: 491px;
   }
+  .feedback .carousel_control_prev,
+  .feedback .carousel_control_next {
+    top: 105%;
+  }
+  .feedback .carousel_control_prev {
+    left: 35%;
+  }
+  
+  .feedback .carousel_control_next {
+    right: 35%;
+  }
 }
 
 @media (max-width: 767px) {
@@ -298,6 +365,10 @@ textarea.form_control {
   .feedback .feedback_desc,
   .projects_gallery .project_desc {
     width: 100%;
+  }
+  .feedback .carousel_control_prev,
+  .feedback .carousel_control_next {
+    opacity: 1;
   }
 }
 
