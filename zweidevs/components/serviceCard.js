@@ -9,7 +9,7 @@ const ServiceCard = (props) => {
             </div>
             <div className={styles.card_items_content}>
                 <h3>{props.title}</h3>
-                <p>Grursus mal suada faci ipsum and our the more at dolarorit ametion consectetur elit bulum odio suada text.</p>
+                <p>{props.desc}</p>
             </div>
         </div>
     );

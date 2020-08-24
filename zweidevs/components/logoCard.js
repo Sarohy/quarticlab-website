@@ -5,7 +5,7 @@ const LogoCard = (props) => {
     return(
         <div className={styles.card_item}>
             <figure> 
-                <img src={props.logo} class={styles.item_attachment} alt="" />
+                <img src={props.logo} className={styles.item_attachment} alt="" />
             </figure>
         </div>
     );

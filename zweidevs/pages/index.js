@@ -29,17 +29,13 @@ export default function Home() {
                 </section>
                 <section className={styles.intro}>
                   <div className={styles.intro_img}>
-                    <img src="/illustration.png" alt="main-illustration"/>
+                    <img src="/version-control-animate.svg" alt="main-illustration"/>
                   </div>
                   <div className={styles.intro_desc}>
                     <h1>
-                      The Perfect Clean Design
-                      <br />
-                      Framework for Startup Your
-                      <br />
-                      Own Businesses
+                      Empowering the Innovations.
                     </h1>
-                    <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion the consectetur dumm ipsumm text dolocons. </p>
+                    <p>Zweidevs provides dedicated remote teams that work closely with you to design and build your idea.</p>
                   </div>
                 </section>
                 <section className={styles.services}>
@@ -48,16 +44,49 @@ export default function Home() {
                     <div className="row">
                       <div className="col-md-12">
                         <h2>Our Services</h2>
-                        <p className={styles.service_desc}>Lorem Ipsum is simply dummy text of the printing and typesetting has been the industrys standard dummy text ever since</p>
+                        <p className={styles.service_desc}>We offer complete product development solutions, that fit your product's unique requirements.</p>
                       </div>
                       <div className="col-md-6 col-lg-4">
-                        <ServiceCard title="Web Marketing" icon="/shout.svg" />
+                        <ServiceCard 
+                          title="Mobile App Development" 
+                          icon="/shout.svg"
+                          desc="We develop sleek looking native and hybrid mobile apps for iOS & Android to ensure the customer satisfaction and  performance at the core."
+                        />
                       </div>
                       <div className="col-md-6 col-lg-4">
-                        <ServiceCard title="Development" icon="/growth.svg" />
+                        <ServiceCard 
+                          title="UI/UX Design" 
+                          icon="/growth.svg"
+                          desc="Our team is trained to solve problems and provide innovative solutions by following an entire process of UI/UX development."
+                        />
                       </div>
                       <div className="col-md-12 col-lg-4">
-                        <ServiceCard title="Creative Layout" icon="/report.svg" />
+                        <ServiceCard 
+                          title="IOT" 
+                          icon="/report.svg"
+                          desc="We are experts in building embedded systems with integrated sensors, and wired and wireless communication with mobile and web apps."
+                        />
+                      </div>
+                      <div className="col-md-12 col-lg-4">
+                        <ServiceCard 
+                          title="Web Development" 
+                          icon="/report.svg"
+                          desc="We are your creative web development  team, who aim to  leverage the latest technological advances with thoughtful design and serious engineering to build tailored solutions for any industry."
+                        />
+                      </div>
+                      <div className="col-md-12 col-lg-4">
+                        <ServiceCard 
+                          title="DevOps" 
+                          icon="/report.svg"
+                          desc="Looking for certified AWS/Google Cloud engineers? Here we are!!"
+                        />
+                      </div>
+                      <div className="col-md-12 col-lg-4">
+                        <ServiceCard 
+                          title="E-Commerce" 
+                          icon="/report.svg"
+                          desc="We are here to help you in increasing the  global reach of your product or business, by smoothly transitioning  your offline stores to global web."
+                        />
                       </div>
                     </div>
                   </div>
@@ -69,7 +98,7 @@ export default function Home() {
                       <div className={`col-md-6 offset-md-6 ${styles.about_desc}`}>
                         <span>About Us</span>
                         <h2>Work With Tried and True Digital Marketing Experts</h2>
-                        <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more a ametion to dummy about at consectetur elit. Vesti at bulum nec odioipsumm ipsum that dolocons rsus mal suada and fadolorit to the mo consectetur elit. Grursus mal suada faci lisis is Lorem ipsum is dolarorit the more a ametion consectetur elit. Vesti at bulum nec odio aea the and the dumm ipsumm ipsum that dolocons rsus mal suada and the fadolorit to the umm than consectetur elit. ipsumm ipsum that dolocons rsus mal suada and fadolorit rsus mal suada and fadolorit to the and consectetur dummy text her now elit.</p>
+                        <p>Zweidevs is a service-oriented company providing creative and innovative solutions for your business domain. We believe in exceeding your expectations by delivering thoughtfully innovated eye-catching products on your desk. We take a pride in engineering your requirements into robust software using our mobile, web, cloud and e-commerce capabilities.</p>
                         <Button text="Discover More" type="button" />
                       </div>
                     </div>
@@ -79,8 +108,52 @@ export default function Home() {
                   <div className="container">
                     <div className="row">
                       <div className="col-md-12">
-                      <h2>Project Gallery</h2>
-                      <p className={styles.project_desc}>Lorem Ipsum is simply dummy text of the printing and typesetting has been the industrys standard dummy text ever since</p>
+                        <h2>Project Gallery</h2>
+                        <p className={styles.project_desc}>Lorem Ipsum is simply dummy text of the printing and typesetting has been the industrys standard dummy text ever since</p>
+                      </div>
+                      <div className={`col-md-4 col-sm-6 col-xs-12 ${styles.project_item}`}>
+                        <a href="https://www.shineriteco.com/"> 
+                          <img src="/new 2.png" width="100%" alt="" />
+                          <div className={styles.project_details}>
+                            <div className={styles.project_info}>
+                              <h2>ShineRite</h2>
+                              <p>React | Angular | Node</p>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <div className={`col-md-4 col-sm-6 col-xs-12 ${styles.project_item}`}>
+                        <a href="https://www.shineriteco.com/"> 
+                          <img src="/new 3.png" width="100%" alt="" />
+                          <div className={styles.project_details}>
+                            <div className={styles.project_info}>
+                              <h2>ShineRite</h2>
+                              <p>React | Angular | Node</p>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <div className={`col-md-4 col-sm-6 col-xs-12 ${styles.project_item}`}>
+                        <a href="https://www.shineriteco.com/"> 
+                          <img src="/new 4.png" width="100%" alt="" />
+                          <div className={styles.project_details}>
+                            <div className={styles.project_info}>
+                              <h2>ShineRite</h2>
+                              <p>React | Angular | Node</p>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <div className={`col-md-4 col-sm-6 col-xs-12 ${styles.project_item}`}>
+                        <a href="https://www.shineriteco.com/"> 
+                          <img src="/new 5.png" width="100%" alt="" />
+                          <div className={styles.project_details}>
+                            <div className={styles.project_info}>
+                              <h2>ShineRite</h2>
+                              <p>React | Angular | Node</p>
+                            </div>
+                          </div>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -244,7 +317,7 @@ export default function Home() {
                         </form>
                       </div>
                       <div className="col-md-6">
-                        <img src="/illustration21.png" alt="illustration"/>
+                        <img src="/get-in-touch-animate.svg" alt="illustration"/>
                       </div>
                     </div>
                   </div>
