@@ -156,15 +156,15 @@
   left: 0;
   top: 0;
   display: block;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .project_details::after {
   content: "";
   position: absolute;
-  width: 100%;
+  width: 93%;
   height: 100%;
-  left: 0;
+  left: 3.5%;
   top: 0;
   background: #000;
   opacity: 0;

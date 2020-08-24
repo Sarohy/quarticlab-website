@@ -6,20 +6,13 @@ import ServiceCard from '../components/serviceCard'
 import Feeback from '../components/feedback'
 import Button from '../components/button'
 import LogoCard from '../components/logoCard'
-import {services, clients} from '../constant/data';
+import {services, clients, projects} from '../constant/data';
+import Layout from '../components/layout'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Zweidews | Home</title>
-        <link rel="icon" href="/favicon-dark.ico" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-      </Head>
-      <Navbar />
-
+    <Layout>
+      <div className={styles.container}>
       <div className={styles.content_area}>
         <div className="container-fluid">
           <div className="row">
@@ -84,50 +77,23 @@ export default function Home() {
                         <h2>Project Gallery</h2>
                         <p className={styles.project_desc}>Lorem Ipsum is simply dummy text of the printing and typesetting has been the industrys standard dummy text ever since</p>
                       </div>
-                      <div className={`col-md-4 col-sm-6 col-xs-12 ${styles.project_item}`}>
-                        <a href="https://www.shineriteco.com/"> 
-                          <img src="/new 2.png" width="100%" alt="" />
-                          <div className={styles.project_details}>
-                            <div className={styles.project_info}>
-                              <h2>ShineRite</h2>
-                              <p>React | Angular | Node</p>
+                      {
+                        projects.map((value,index)=>{
+                          return (
+                            <div className={`col-md-4 col-sm-6 col-xs-12 ${styles.project_item}`}>
+                              <a href={value.link}> 
+                                <img src={value.image} width="100%" alt="" />
+                                <div className={styles.project_details}>
+                                  <div className={styles.project_info}>
+                                    <h2>{value.name}</h2>
+                                    <p>{value.technologies}</p>
+                                  </div>
+                                </div>
+                              </a>
                             </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div className={`col-md-4 col-sm-6 col-xs-12 ${styles.project_item}`}>
-                        <a href="https://www.shineriteco.com/"> 
-                          <img src="/new 3.png" width="100%" alt="" />
-                          <div className={styles.project_details}>
-                            <div className={styles.project_info}>
-                              <h2>ShineRite</h2>
-                              <p>React | Angular | Node</p>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div className={`col-md-4 col-sm-6 col-xs-12 ${styles.project_item}`}>
-                        <a href="https://www.shineriteco.com/"> 
-                          <img src="/new 4.png" width="100%" alt="" />
-                          <div className={styles.project_details}>
-                            <div className={styles.project_info}>
-                              <h2>ShineRite</h2>
-                              <p>React | Angular | Node</p>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div className={`col-md-4 col-sm-6 col-xs-12 ${styles.project_item}`}>
-                        <a href="https://www.shineriteco.com/"> 
-                          <img src="/new 5.png" width="100%" alt="" />
-                          <div className={styles.project_details}>
-                            <div className={styles.project_info}>
-                              <h2>ShineRite</h2>
-                              <p>React | Angular | Node</p>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
+                          );
+                        })
+                      }
                     </div>
                   </div>
                 </section>
@@ -255,19 +221,19 @@ export default function Home() {
                           <div className="row">
                             <div className="col">
                               <div className={styles.form_group}>
-                                <input type="text" className={styles.form_control} placeholder="First name" />
+                                <input type="text" className={styles.form_control} name="first_name" placeholder="First name" />
                               </div>
                             </div>
                             <div className="col">
                               <div className={styles.form_group}>
-                                <input type="text" className={styles.form_control} placeholder="Last name" />
+                                <input type="text" className={styles.form_control} name="last_name" placeholder="Last name" />
                               </div>
                             </div>
                           </div>
                           <div className="row">
                             <div className="col">
                               <div className={styles.form_group}>
-                                <select className="custom-select mr-sm-2" id="inlineFormCustomSelect" defaultValue="0">
+                                <select className="custom-select mr-sm-2" id="inlineFormCustomSelect" defaultValue="0" name="type">
                                   <option value="0">Choose...</option>
                                   <option value="1">One</option>
                                   <option value="2">Two</option>
@@ -279,7 +245,7 @@ export default function Home() {
                           <div className="row">
                             <div className="col">
                               <div className={styles.form_group}>
-                                <textarea name="textarea-652" cols="40" rows="5" className={styles.form_control} aria-invalid="false" placeholder="Message"></textarea>
+                                <textarea name="msg_textarea" cols="40" rows="5" className={styles.form_control} aria-invalid="false" placeholder="Message"></textarea>
                               </div>
                             </div>
                           </div>
@@ -301,7 +267,7 @@ export default function Home() {
       <a href="#" className={styles.scrollToTop}>
         <img src="/angle.svg" alt="scroll up icon" />
       </a>
-      <Footer />
     </div>
+    </Layout>
   )
 }
