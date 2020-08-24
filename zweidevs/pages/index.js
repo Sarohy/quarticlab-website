@@ -6,6 +6,7 @@ import ServiceCard from '../components/serviceCard'
 import Feeback from '../components/feedback'
 import Button from '../components/button'
 import LogoCard from '../components/logoCard'
+import {services, clients} from '../constant/data';
 
 export default function Home() {
   return (
@@ -46,48 +47,20 @@ export default function Home() {
                         <h2>Our Services</h2>
                         <p className={styles.service_desc}>We offer complete product development solutions, that fit your product's unique requirements.</p>
                       </div>
-                      <div className="col-md-6 col-lg-4">
-                        <ServiceCard 
-                          title="Mobile App Development" 
-                          icon="/shout.svg"
-                          desc="We develop sleek looking native and hybrid mobile apps for iOS & Android to ensure the customer satisfaction and  performance at the core."
-                        />
-                      </div>
-                      <div className="col-md-6 col-lg-4">
-                        <ServiceCard 
-                          title="UI/UX Design" 
-                          icon="/growth.svg"
-                          desc="Our team is trained to solve problems and provide innovative solutions by following an entire process of UI/UX development."
-                        />
-                      </div>
-                      <div className="col-md-12 col-lg-4">
-                        <ServiceCard 
-                          title="IOT" 
-                          icon="/report.svg"
-                          desc="We are experts in building embedded systems with integrated sensors, and wired and wireless communication with mobile and web apps."
-                        />
-                      </div>
-                      <div className="col-md-12 col-lg-4">
-                        <ServiceCard 
-                          title="Web Development" 
-                          icon="/report.svg"
-                          desc="We are your creative web development  team, who aim to  leverage the latest technological advances with thoughtful design and serious engineering to build tailored solutions for any industry."
-                        />
-                      </div>
-                      <div className="col-md-12 col-lg-4">
-                        <ServiceCard 
-                          title="DevOps" 
-                          icon="/report.svg"
-                          desc="Looking for certified AWS/Google Cloud engineers? Here we are!!"
-                        />
-                      </div>
-                      <div className="col-md-12 col-lg-4">
-                        <ServiceCard 
-                          title="E-Commerce" 
-                          icon="/report.svg"
-                          desc="We are here to help you in increasing the  global reach of your product or business, by smoothly transitioning  your offline stores to global web."
-                        />
-                      </div>
+                      {
+                        services.map((value,index)=>{
+                          return (
+                            <div className="col-md-6 col-lg-4">
+                              <ServiceCard 
+                                title={value.title} 
+                                icon={value.icon}
+                                icon_desc={value.icon_desc}
+                                desc={value.desc}
+                              />
+                            </div>
+                          )
+                        })
+                      }
                     </div>
                   </div>
                 </section>
@@ -202,21 +175,18 @@ export default function Home() {
                     </div>
                   </div>
                 </section>
-                <section className={styles.companies_logo}>
+                <section className={styles.clients}>
                   <div className="container">
                     <div className="row">
-                      <div className="col-md-3">
-                        <LogoCard logo="https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/05_Logo.png" />
-                      </div>
-                      <div className="col-md-3">
-                        <LogoCard logo="https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/06_Logo.png" />
-                      </div>
-                      <div className="col-md-3">
-                        <LogoCard logo="https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/04_Logo.png" />
-                      </div>
-                      <div className="col-md-3">
-                        <LogoCard logo="https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/05_Logo.png" />
-                      </div>
+                      {
+                        clients.map((value,index)=>{
+                          return (
+                            <div className="col-md-3">
+                              <LogoCard logo={value.logo} />
+                            </div>
+                          );
+                        })
+                      }
                     </div>
                   </div>
                 </section>

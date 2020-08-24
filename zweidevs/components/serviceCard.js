@@ -5,7 +5,7 @@ const ServiceCard = (props) => {
     return(
         <div className={styles.card_items}>
             <div className={styles.card_items_icon}>
-                <img src={props.icon} alt="Shout"/>
+                <img src={props.icon} alt={props.icon_desc} />
             </div>
             <div className={styles.card_items_content}>
                 <h3>{props.title}</h3>
