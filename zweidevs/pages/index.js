@@ -1,11 +1,9 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import Footer from '../components/footer'
-import Navbar from '../components/navbar'
-import ServiceCard from '../components/serviceCard'
-import Feeback from '../components/feedback'
-import Button from '../components/button'
-import LogoCard from '../components/logoCard'
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
+import ServiceCard from '../components/serviceCard';
+import Feeback from '../components/feedback';
+import Button from '../components/button';
+import LogoCard from '../components/logoCard';
 import {services, clients, projects} from '../constant/data';
 import Layout from '../components/layout'
 
@@ -21,7 +19,7 @@ export default function Home() {
                 <section>
                   <img className={styles.animated_shape} src="/layout.png" alt="svg"/>
                 </section>
-                <section className={styles.intro}>
+                <section className={styles.intro} id="home">
                   <div className={styles.intro_img}>
                     <img src="/version-control-animate.svg" alt="main-illustration"/>
                   </div>
@@ -32,7 +30,7 @@ export default function Home() {
                     <p>Zweidevs provides dedicated remote teams that work closely with you to design and build your idea.</p>
                   </div>
                 </section>
-                <section className={styles.services}>
+                <section className={styles.services} id="services">
                   <img src="/element1.svg" alt="" />
                   <div className="container">
                     <div className="row">
@@ -57,7 +55,7 @@ export default function Home() {
                     </div>
                   </div>
                 </section>
-                <section className={styles.about_us}>
+                <section className={styles.about_us} id="about_us">
                   <img className={styles.about_media} src="/element2.svg" alt="" />
                   <div className="container">
                     <div className="row">
@@ -70,7 +68,7 @@ export default function Home() {
                     </div>
                   </div>
                 </section>
-                <section className={styles.projects_gallery}>
+                <section className={styles.projects_gallery} id="projects">
                   <div className="container">
                     <div className="row">
                       <div className="col-md-12">
@@ -81,12 +79,15 @@ export default function Home() {
                         projects.map((value,index)=>{
                           return (
                             <div className={`col-md-4 col-sm-6 col-xs-12 ${styles.project_item}`}>
-                              <a href={value.link}> 
+                              <a href={value.link} target="_blank">
                                 <img src={value.image} width="100%" alt="" />
                                 <div className={styles.project_details}>
                                   <div className={styles.project_info}>
                                     <h2>{value.name}</h2>
                                     <p>{value.technologies}</p>
+                                    <a href={value.link} target="_blank">
+                                      <img src="/search.svg" alt="zweidews search logo" />
+                                    </a>
                                   </div>
                                 </div>
                               </a>
@@ -97,7 +98,7 @@ export default function Home() {
                     </div>
                   </div>
                 </section>
-                <section className={styles.feedback}>
+                <section className={styles.feedback} id="feeback">
                   <div className="container">
                     <div className="row">
                       <div className="col-md-12">
@@ -141,7 +142,7 @@ export default function Home() {
                     </div>
                   </div>
                 </section>
-                <section className={styles.clients}>
+                <section className={styles.clients} id="clients">
                   <div className="container">
                     <div className="row">
                       {
@@ -156,7 +157,7 @@ export default function Home() {
                     </div>
                   </div>
                 </section>
-                <section className={styles.project_numbers}>
+                <section className={styles.project_numbers} id="project_numbers">
                   <div className={styles.gradient}></div>
                   <div className="container">
                     <div className={`${styles.pn_box} row`}>
@@ -210,7 +211,7 @@ export default function Home() {
                     </div>
                   </div>
                 </section>
-                <section className={styles.message}>
+                <section className={styles.message} id="contact">
                   <img src="/element19.png" alt="element" className={styles.message_bg} />
                   <div className="container">
                     <div className="row">

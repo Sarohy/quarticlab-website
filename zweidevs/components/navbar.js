@@ -33,22 +33,22 @@ const Navbar = () => {
             { navlist_toggle ? (<nav className={styles.mobile_nav_list} id="mobile_nav">
                     <ul className={styles.mobile_menu}>
                         <li className={styles.mobile_mega_menu}>
-                            <a href="#">Home</a>
+                            <a href="#home">Home</a>
                         </li>
                         <li className={styles.mobile_mega_menu}>
-                            <a href="#">Services</a>
+                            <a href="#services">Services</a>
                         </li>
                         <li className={styles.mobile_mega_menu}>
-                            <a href="#">Portfolio</a>
+                            <a href="#about_us">About Us</a>
                         </li>
                         <li className={styles.mobile_mega_menu}>
-                            <a href="#">Pages</a>
+                            <a href="#projects">Projects</a>
                         </li>
                         <li className={styles.mobile_mega_menu}>
-                            <a href="#">Blog</a>
+                            <a href="#feeback">feeback</a>
                         </li>
                         <li className={styles.mobile_mega_menu}>
-                            <a href="https://radiustheme.com/demo/wordpress/themes/digeco/contact/">Contact</a>
+                            <a href="#clients">Clients</a>
                         </li>
                     </ul>
                 </nav>) : null

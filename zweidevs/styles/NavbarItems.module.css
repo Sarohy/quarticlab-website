@@ -173,6 +173,7 @@
 .sticky_nav_list ul li a,
 .sticky_nav_list ul li a:hover{
     color: var(--primary-color);
+    text-transform: capitalize;
 }
 
 .sticky_nav_list ul>li>a:before {

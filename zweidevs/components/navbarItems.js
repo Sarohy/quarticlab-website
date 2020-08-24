@@ -14,22 +14,22 @@ const NavbarItems = (props) => {
                         <nav className={styles.nav_list}>
                             <ul className={styles.menu}>
                                 <li className={styles.mega_menu}>
-                                    <a href="#">Home</a>
+                                    <a href="#home">Home</a>
                                 </li>
                                 <li className={styles.mega_menu}>
-                                    <a href="#">Services</a>
+                                    <a href="#services">Services</a>
                                 </li>
                                 <li className={styles.mega_menu}>
-                                    <a href="#">Portfolio</a>
+                                    <a href="#about_us">About Us</a>
                                 </li>
                                 <li className={styles.mega_menu}>
-                                    <a href="#">Pages</a>
+                                    <a href="#projects">Projects</a>
                                 </li>
                                 <li className={styles.mega_menu}>
-                                    <a href="#">Blog</a>
+                                    <a href="#feeback">feeback</a>
                                 </li>
                                 <li className={styles.mega_menu}>
-                                    <a href="https://radiustheme.com/demo/wordpress/themes/digeco/contact/">Contact</a>
+                                    <a href="#clients">Clients</a>
                                 </li>
                             </ul>
                         </nav>
@@ -40,7 +40,7 @@ const NavbarItems = (props) => {
                     <div className={`${styles.menu_right_wrap} ${styles.header_icon_area}`}>
                         <div className={styles.header_button_wrap}>
                             <div className={styles.header_button}> 
-                                <a className={styles.button_btn} target="_self" href="#">Get A Quote</a>
+                                <a className={styles.button_btn} target="_self" href="#contact">Get A Quote</a>
                             </div>
                         </div>
                     </div>

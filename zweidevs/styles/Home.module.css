@@ -179,14 +179,14 @@
 
 .project_info {
   text-align: center;
-  margin-top: 25%;
+  margin-top: 20%;
   top: -15px;
   position: relative;
 }
 
 .project_info p,
 .project_info h2,
-.project_info i {
+.project_info img {
   position: relative;
   z-index: 2;
   color: var(--primary-color);
@@ -195,9 +195,18 @@
   transition: all 0.3s;
 }
 
+.project_info h2 {
+  margin-bottom: 0;
+}
+
+.project_info img {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
 .project_item:hover .project_info p,
 .project_item:hover .project_info h2,
-.project_item:hover .project_info i {
+.project_item:hover .project_info img {
   opacity: 1;
   top: 0;
 }

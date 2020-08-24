@@ -116,12 +116,24 @@ const Footer = () => {
                             <div className={`${styles.widget} ${styles.widget_nav_menu}`}>
                                 <div>
                                     <ul className={styles.menu}>
-                                        <li className={styles.menu_item}><a className={styles.menu_item_link} href="#">Home</a></li>
-                                        <li className={styles.menu_item}><a className={styles.menu_item_link} href="#">About Us</a></li>
-                                        <li className={styles.menu_item}><a className={styles.menu_item_link} href="#">Services</a></li>
-                                        <li className={styles.menu_item}><a className={styles.menu_item_link} href="#">Portfolios</a></li>
-                                        <li className={styles.menu_item}><a className={styles.menu_item_link} href="#/">Blogs</a></li>
-                                        <li className={styles.menu_item}><a className={styles.menu_item_link} href="#/">Contact</a></li>
+                                        <li className={styles.menu_item}>
+                                            <a className={styles.menu_item_link} href="#home">Home</a>
+                                        </li>
+                                        <li className={styles.menu_item}>
+                                            <a className={styles.menu_item_link} href="#services">Services</a>
+                                        </li>
+                                        <li className={styles.menu_item}>
+                                            <a className={styles.menu_item_link} href="#about_us">About Us</a>
+                                        </li>
+                                        <li className={styles.menu_item}>
+                                            <a className={styles.menu_item_link} href="#projects">Projects</a>
+                                        </li>
+                                        <li className={styles.menu_item}>
+                                            <a className={styles.menu_item_link} href="#feeback">Feeback</a>
+                                        </li>
+                                        <li className={styles.menu_item}>
+                                            <a className={styles.menu_item_link} href="#clients">Clients</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
