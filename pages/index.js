@@ -272,18 +272,18 @@ export default function Home() {
                                   <input
                                     type="text"
                                     className={styles.form_control}
-                                    name="first_name"
-                                    placeholder="First name"
+                                    name="name"
+                                    placeholder="Name"
                                   />
                                 </div>
                               </div>
                               <div className="col">
                                 <div className={styles.form_group}>
                                   <input
-                                    type="text"
+                                    type="email"
                                     className={styles.form_control}
-                                    name="last_name"
-                                    placeholder="Last name"
+                                    name="email"
+                                    placeholder="Email"
                                   />
                                 </div>
                               </div>
@@ -291,17 +291,22 @@ export default function Home() {
                             <div className="row">
                               <div className="col">
                                 <div className={styles.form_group}>
-                                  <select
-                                    className="custom-select mr-sm-2"
-                                    id="inlineFormCustomSelect"
-                                    defaultValue="0"
-                                    name="type"
-                                  >
-                                    <option value="0">Choose...</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                                  <input
+                                    type="email"
+                                    className={styles.form_control}
+                                    name="phone_number"
+                                    placeholder="Phone Number"
+                                  />
+                                </div>
+                              </div>
+                              <div className="col">
+                                <div className={styles.form_group}>
+                                  <input
+                                    type="email"
+                                    className={styles.form_control}
+                                    name="country"
+                                    placeholder="Country"
+                                  />
                                 </div>
                               </div>
                             </div>
@@ -314,7 +319,7 @@ export default function Home() {
                                     rows="5"
                                     className={styles.form_control}
                                     aria-invalid="false"
-                                    placeholder="Message"
+                                    placeholder="Short Brief"
                                   ></textarea>
                                 </div>
                               </div>
