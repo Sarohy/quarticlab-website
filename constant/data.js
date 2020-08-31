@@ -38,53 +38,57 @@ export const services = [
 ];
 
 export const clients = [
-    {
-        'logo':'https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/05_Logo.png',
-        'logo_desc':''
-    },
-    {
-        'logo':'https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/06_Logo.png',
-        'logo_desc':''
-    },
-    {
-        'logo':'https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/04_Logo.png',
-        'logo_desc':''
-    },
-    {
-        'logo':'https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/05_Logo.png',
-        'logo_desc':''
-    },
-]
+  {
+    logo:
+      "https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/05_Logo.png",
+    logo_desc: "",
+  },
+  {
+    logo:
+      "https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/06_Logo.png",
+    logo_desc: "",
+  },
+  {
+    logo:
+      "https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/04_Logo.png",
+    logo_desc: "",
+  },
+  {
+    logo:
+      "https://radiustheme.com/demo/wordpress/themes/digeco/wp-content/uploads/2020/03/05_Logo.png",
+    logo_desc: "",
+  },
+];
 
 export const projects = [
-    {
-        'link':'https://www.shineriteco.com/',
-        'image':'/new 2.png',
-        'name':'ShineRite',
-        'technologies':''
-    },
-    {
-        'link':'https://www.medycle.com/',
-        'image':'/new 3.png',
-        'name':'Medycle',
-        'technologies':''
-    },
-    {
-        'link':'https://www.leoboost.com/',
-        'image':'/new 4.png',
-        'name':'LeoBoost',
-        'technologies':''
-    },
-    {
-        'link':'https://checkin.fortyeight.ai/',
-        'image':'/new 5.png',
-        'name':'Fortyeight',
-        'technologies':''
-    },
-    {
-        'link':'https://www.officersurvey.com/',
-        'image':'/new 6.png',
-        'name':'OfficerSurvey',
-        'technologies':'Django | AWS'
-    }
-]
+  {
+    link: "https://www.shineriteco.com/",
+    image: "/new 2.png",
+    name: "ShineRite",
+    technologies: "Django | React",
+  },
+  {
+    link: "https://www.medycle.com/",
+    image: "/new 3.png",
+    name: "Medycle",
+    technologies: "React Native | Django | Vue",
+  },
+  {
+    link: "https://www.leoboost.com/",
+    image: "/new 4.png",
+    name: "LeoBoost",
+    technologies: "",
+  },
+  {
+    link: "https://checkin.fortyeight.ai/",
+    image: "/new 5.png",
+    name: "Fortyeight",
+    technologies: "",
+  },
+  {
+    link: "https://www.officersurvey.com/",
+    image: "/new 6.png",
+    name: "OfficerSurvey",
+    technologies: "Django | AWS",
+  },
+];
