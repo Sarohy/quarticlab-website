@@ -210,7 +210,7 @@ export default function Home() {
                     <div className={styles.gradient}></div>
                     <div className="container">
                       <div className={`${styles.pn_box} row`}>
-                        <div className="col-md-3 text-center">
+                        <div className="col-md-4 text-center">
                           <div className={styles.pn_icon}>
                             <img src="/projector.svg" alt="Projects" />
                           </div>
@@ -224,7 +224,7 @@ export default function Home() {
                           </div>
                         </div>
 
-                        <div className="col-md-3  text-center">
+                        <div className="col-md-4 text-center">
                           <div className={styles.pn_icon}>
                             <img src="/smile.svg" alt="smile" />
                           </div>
@@ -238,7 +238,7 @@ export default function Home() {
                           </div>
                         </div>
 
-                        <div className="col-md-3 text-center">
+                        <div className="col-md-4 text-center">
                           <div className={styles.pn_icon}>
                             <img src="/review.svg" alt="reviews" />
                           </div>

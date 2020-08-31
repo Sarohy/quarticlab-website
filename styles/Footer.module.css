@@ -7,7 +7,7 @@
 .copyright_wrap {
 	display: flex;
 	align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 22px 0;
     position: relative;
     z-index: 1;
@@ -124,6 +124,10 @@
 
 .footer_top_area .menu_item:hover {
     color: var(--primary-color);
+}
+
+.contact_numbers>a:last-child {
+    margin-left: 15%;
 }
 
 @media(max-width:575px) {

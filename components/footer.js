@@ -8,7 +8,7 @@ const Footer = () => {
         <div className={styles.footer_top_area}>
           <div className="container">
             <div className="row">
-              <div className="col-lg-4 col-sm-6 col-12">
+              <div className="col-lg-3 col-sm-6 col-12 align-self-center">
                 <div
                   className={`${styles.widget} ${styles.widget_media_image}`}
                 >
@@ -18,9 +18,57 @@ const Footer = () => {
                     alt="company logo"
                   />
                 </div>
+              </div>
+
+
+              <div className="col-lg-3 col-sm-12 col-12">
+                <div className={`${styles.widget} ${styles.widget_direct_links}`}>
+                  <h3 className={styles.widget_title}>Important Links</h3>
+                    <div className={styles.links}>
+                      <div>
+                        <ul className={styles.menu}>
+                          <li className={styles.menu_item}>
+                            <a className={styles.menu_item_link} href="#home">
+                              Home
+                            </a>
+                          </li>
+                          <li className={styles.menu_item}>
+                            <a className={styles.menu_item_link} href="#services">
+                              Services
+                            </a>
+                          </li>
+                          <li className={styles.menu_item}>
+                            <a className={styles.menu_item_link} href="#about_us">
+                              About Us
+                            </a>
+                          </li>
+                          <li className={styles.menu_item}>
+                            <a className={styles.menu_item_link} href="#projects">
+                              Projects
+                            </a>
+                          </li>
+                          <li className={styles.menu_item}>
+                            <a className={styles.menu_item_link} href="#feeback">
+                              Feeback
+                            </a>
+                          </li>
+                          <li className={styles.menu_item}>
+                            <a className={styles.menu_item_link} href="#clients">
+                              Clients
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+
+              <div className="col-lg-3 col-sm-6 col-12">
                 <div
                   className={`${styles.widget} ${styles.widget_digeco_address}`}
                 >
+                  <h3 className={styles.widget_title}>Our Location</h3>
                   <ul className={styles.corporate_address}>
                     <li>
                       <img
@@ -30,7 +78,7 @@ const Footer = () => {
                       />
                       <a href="#">3-AA, Phase 4, DHA, Lahore</a>
                     </li>
-                    <li>
+                    <li className={styles.contact_numbers}>
                       <img
                         src="/phone.svg"
                         alt="phone number"
@@ -115,7 +163,9 @@ const Footer = () => {
                                     </div>
                                 </div>
                             </div> */}
-              <div className="col-lg-4 col-sm-12 col-12 text-center">
+              
+
+              <div className="col-lg-3 col-sm-12 col-12 text-center">
                 <div
                   className={`${styles.widget} ${styles.widget_social_links}`}
                 >
@@ -133,19 +183,20 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
         <div className={styles.footer_bottom_area}>
           <div className="container">
-            <div className={styles.copyright_wrap}>
+            <div className={`${styles.copyright_wrap}`}>
               <div className={styles.copyright}>
                 © 2020 Zweidevs. All Rights Reserved by{" "}
                 <a target="_blank" rel="nofollow" href="#">
                   Zweidevs
                 </a>
               </div>
-              <div className={styles.copyright_widget}>
+              {/* <div className={styles.copyright_widget}>
                 <div className={`${styles.widget} ${styles.widget_nav_menu}`}>
                   <div>
                     <ul className={styles.menu}>
@@ -182,7 +233,7 @@ const Footer = () => {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
