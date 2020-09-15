@@ -126,7 +126,16 @@
     color: var(--primary-color);
 }
 
-.contact_numbers>a:last-child {
+.contact_numbers>a:not(:first-of-type),
+.corporate_address>li>a:not(:first-of-type) {
+    margin-left: 15%;
+}
+
+.corporate_address a:first-child{
+    line-height: 10px;
+}
+
+.corporate_address a:first-child>span{
     margin-left: 15%;
 }
 

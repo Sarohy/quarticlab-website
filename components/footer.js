@@ -76,7 +76,10 @@ const Footer = () => {
                         alt="locattion"
                         className={styles.footer_icon}
                       />
+                      <a href="#">168 W. Main Street New Market<span> MD 21774, US</span></a>
+                      <br />
                       <a href="#">3-AA, Phase 4, DHA, Lahore</a>
+
                     </li>
                     <li className={styles.contact_numbers}>
                       <img
@@ -87,6 +90,8 @@ const Footer = () => {
                       <a href="tel:+923351094915">+923351094915</a>
                       <br />
                       <a href="tel:+923060228518">+923060228518</a>
+                      <br />
+                      <a href="tel:+1202-630-0593">+1 202-630-0593</a>
                     </li>
                     <li>
                       <img

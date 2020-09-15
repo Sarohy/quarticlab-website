@@ -143,20 +143,28 @@ export default function Home() {
                               <div className="carousel-item active">
                                 <div className="row">
                                   <div className="col-md-6">
-                                    <Feeback name="Robert Bruce" />
+                                    <Feeback name="Mudassir Malik"
+                                      designation="Co-founder of Officer Survey"
+                                      feedback="When we first spoke with the Zweidevs team, right off the bat we knew, they’re were powerful, credible and most importantly effective. We had a very complex task which they were able to build for us. They overcame many of the challenges that we faced along the way and were able to deliver a complete and functional software a week ahead of the deadline. You guys are the best! Keep up the great work! Thank you so much for the job well done. We will definitely hire them again!" />
                                   </div>
                                   <div className="col-md-6">
-                                    <Feeback name="John Doe" />
+                                    <Feeback name="Radu"
+                                      designation="Founder of Social Wing"
+                                      feedback="I found Zweidevs Team very professional and hard working. They just didn't only develop my web app but actually guided me as well through different phases. Thank you will definitely use your services again" />
                                   </div>
                                 </div>
                               </div>
                               <div className="carousel-item">
                                 <div className="row">
                                   <div className="col-md-6">
-                                    <Feeback name="Robert Bruce_2" />
+                                    <Feeback name="Wenner" 
+                                      designation="COO"
+                                      feedback="I’ve had a pleasure working with Ali and his team at Zweidevs on a very complex software project. I’ve felt very comfortable working with them and we plan on using this team for all of our software needs. I would highly recommend this team. Thank you!!" />
                                   </div>
                                   <div className="col-md-6">
-                                    <Feeback name="John Doe" />
+                                    <Feeback name="Kyle" 
+                                      designation="CTO of Shine Rite"
+                                      feedback="Zweidevs has been great to work with. They follow a solid Agile process so all development work is well planned and clearly priced. Their code is solid and the end result was top notch!" />
                                   </div>
                                 </div>
                               </div>
