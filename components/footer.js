@@ -8,7 +8,7 @@ const Footer = () => {
         <div className={styles.footer_top_area}>
           <div className="container">
             <div className="row">
-              <div className="col-lg-3 col-sm-6 col-12 align-self-center">
+              <div className="col-lg-3 col-sm-12 col-12 align-self-center">
                 <div
                   className={`${styles.widget} ${styles.widget_media_image}`}
                 >
@@ -64,12 +64,13 @@ const Footer = () => {
               </div>
 
 
-              <div className="col-lg-3 col-sm-6 col-12">
+              <div className="col-lg-4 col-sm-12 col-12">
                 <div
                   className={`${styles.widget} ${styles.widget_digeco_address}`}
                 >
                   <h3 className={styles.widget_title}>Our Location</h3>
                   <ul className={styles.corporate_address}>
+                    <li><h4>United States Office</h4></li>
                     <li>
                       <img
                         src="/pin.svg"
@@ -77,9 +78,6 @@ const Footer = () => {
                         className={styles.footer_icon}
                       />
                       <a href="#">168 W. Main Street New Market<span> MD 21774, US</span></a>
-                      <br />
-                      <a href="#">3-AA, Phase 4, DHA, Lahore</a>
-
                     </li>
                     <li className={styles.contact_numbers}>
                       <img
@@ -87,11 +85,26 @@ const Footer = () => {
                         alt="phone number"
                         className={styles.footer_icon}
                       />
-                      <a href="tel:+923351094915">+923351094915</a>
-                      <br />
-                      <a href="tel:+923060228518">+923060228518</a>
-                      <br />
                       <a href="tel:+1202-630-0593">+1 202-630-0593</a>
+                    </li>
+
+
+                    <li><h4>Lahore Office</h4></li>
+                    <li>
+                      <img
+                        src="/pin.svg"
+                        alt="locattion"
+                        className={styles.footer_icon}
+                      />
+                      <a href="#">3-AA, Phase 4, DHA, Lahore</a>
+                    </li>
+                    <li className={styles.contact_numbers}>
+                      <img
+                        src="/phone.svg"
+                        alt="phone number"
+                        className={styles.footer_icon}
+                      />
+                      <a href="tel:+923351094915">+923351094915 | +923060228518</a>
                     </li>
                     <li>
                       <img
@@ -170,7 +183,7 @@ const Footer = () => {
                             </div> */}
               
 
-              <div className="col-lg-3 col-sm-12 col-12 text-center">
+              <div className="col-lg-2 col-sm-12 col-12 text-center">
                 <div
                   className={`${styles.widget} ${styles.widget_social_links}`}
                 >
