@@ -198,7 +198,7 @@ export default function Home() {
                       </div>
                     </div>
                   </section>
-                  <section className={styles.clients} id="clients">
+                  {/* <section className={styles.clients} id="clients">
                     <div className="container">
                       <div className="row">
                         {clients.map((value, index) => {
@@ -210,7 +210,7 @@ export default function Home() {
                         })}
                       </div>
                     </div>
-                  </section>
+                  </section> */}
                   <section
                     className={styles.project_numbers}
                     id="project_numbers"
