@@ -80,5 +80,17 @@
 }
 
 .feedback_desc {
-    height: 200px;
+    height: 220px;
+}
+
+@media(max-width:767px) {
+    .feedback_desc {
+        height: 180px;
+    }
+}
+
+@media(max-width:400px) {
+    .feedback_desc {
+        height: 220px;
+    }
 }
