@@ -45,11 +45,11 @@ const Navbar = () => {
                             <a href="#projects">Projects</a>
                         </li>
                         <li className={styles.mobile_mega_menu}>
-                            <a href="#feeback">feeback</a>
+                            <a href="#feeback">feedback</a>
                         </li>
-                        <li className={styles.mobile_mega_menu}>
+                        {/* <li className={styles.mobile_mega_menu}>
                             <a href="#clients">Clients</a>
-                        </li>
+                        </li> */}
                     </ul>
                 </nav>) : null
             }

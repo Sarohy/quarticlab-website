@@ -52,11 +52,11 @@ const Footer = () => {
                               Feeback
                             </a>
                           </li>
-                          <li className={styles.menu_item}>
+                          {/* <li className={styles.menu_item}>
                             <a className={styles.menu_item_link} href="#clients">
                               Clients
                             </a>
-                          </li>
+                          </li> */}
                         </ul>
                       </div>
                     </div>
@@ -189,13 +189,13 @@ const Footer = () => {
                 >
                   <h3 className={styles.widget_title}>Social Links</h3>
                   <div className={styles.links}>
-                    <a href="#">
+                    <a href="https://www.facebook.com/zweidevs" target="_blank">
                       <img src="/facebook.svg" alt="Zweidevs-facebook Page" />
                     </a>
-                    <a href="#">
-                      <img src="/twitter.svg" alt="Zweidevs-twitter Page" />
+                    <a href="https://www.linkedin.com/company/zweidevs/" target="_blank">
+                      <img src="/linkedin.svg" alt="Zweidevs-linkedin Page" />
                     </a>
-                    <a href="#">
+                    <a href="https://www.instagram.com/zweidevs/" target="_blank">
                       <img src="/instagram.svg" alt="Zweidevs-instagram Page" />
                     </a>
                   </div>

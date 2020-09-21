@@ -26,11 +26,11 @@ const NavbarItems = (props) => {
                                     <a href="#projects">Projects</a>
                                 </li>
                                 <li className={styles.mega_menu}>
-                                    <a href="#feeback">feeback</a>
+                                    <a href="#feeback">feedback</a>
                                 </li>
-                                <li className={styles.mega_menu}>
+                                {/* <li className={styles.mega_menu}>
                                     <a href="#clients">Clients</a>
-                                </li>
+                                </li> */}
                             </ul>
                         </nav>
                     </div>

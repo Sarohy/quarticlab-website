@@ -90,7 +90,7 @@ export default function Home() {
                             using our mobile, web, cloud and e-commerce
                             capabilities.
                           </p>
-                          <Button text="Discover More" type="button" />
+                          {/* <Button text="Discover More" type="button" /> */}
                         </div>
                       </div>
                     </div>
