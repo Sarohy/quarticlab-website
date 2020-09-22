@@ -6,7 +6,7 @@ const NavbarItems = (props) => {
             <div className={`${styles.menu_full_wrap} ${props.sticky_nav ? styles.sticky_nav_list : ""}`}>
                 <div className={styles.site_branding}>
                     <a className={styles.logo} href="/">
-                        <img src={props.sticky_nav ? '/logo-dark.svg' : '/logo-light.svg'} alt="Zweidevs" />
+                        <img src={props.sticky_nav ? '/logo-dark.png' : '/logo-light.png'} alt="Zweidevs" />
                     </a>
                 </div>
                 <div className={`d-none d-lg-block ${styles.menu_wrap}`}>
