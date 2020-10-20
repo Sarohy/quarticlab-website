@@ -14,7 +14,7 @@ const Footer = () => {
                 >
                   <img
                     className={styles.logo}
-                    src="/logo-dark.svg"
+                    src="/logo-dark.png"
                     alt="company logo"
                   />
                 </div>
