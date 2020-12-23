@@ -1,13 +1,49 @@
-import Head from "next/head";
+import React, { useState } from "react";
 import styles from "../styles/Home.module.css";
 import ServiceCard from "../components/serviceCard";
 import Feeback from "../components/feedback";
 import Button from "../components/button";
-import LogoCard from "../components/logoCard";
-import { services, clients, projects } from "../constant/data";
+import { services, projects } from "../constant/data";
 import Layout from "../components/layout";
+import { postAPI } from "./api/api";
+import { emailFormatVerification } from "../functions/utils/helpers";
+import Form from "react-bootstrap/Form";
 
 export default function Home() {
+  const [qouteData, setQouteData] = useState({
+    name: "",
+    email: "",
+    phone_number: "",
+    country: "",
+    des: "",
+  });
+  const url = "/dev/contact";
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    postQoute();
+  };
+  const postQoute = async () => {
+    try {
+      const res = await postAPI(url, {
+        name: qouteData.name,
+        email: qouteData.email,
+        phone_number: qouteData.phone_number,
+        country: qouteData.country,
+        des: qouteData.des,
+      });
+    } catch (error) {
+      console.log("This is the Error");
+    }
+  };
+  const handleQuoteDataChange = (e) => {
+    const { value, name } = e.target;
+    setQouteData({
+      ...qouteData,
+      [name]: value,
+    });
+  };
+
   return (
     <Layout>
       <div className={styles.container}>
@@ -49,7 +85,7 @@ export default function Home() {
                             that fit your product's unique requirements.
                           </p>
                         </div>
-                        {services.map((value, index) => {
+                        {services.map((value) => {
                           return (
                             <div className="col-md-6 col-lg-4">
                               <ServiceCard
@@ -101,7 +137,7 @@ export default function Home() {
                         <div className="col-md-12">
                           <h2>Project Gallery</h2>
                         </div>
-                        {projects.map((value, index) => {
+                        {projects.map((value) => {
                           return (
                             <div
                               className={`col-md-4 col-sm-6 col-xs-12 ${styles.project_item}`}
@@ -143,28 +179,36 @@ export default function Home() {
                               <div className="carousel-item active">
                                 <div className="row">
                                   <div className="col-md-6">
-                                    <Feeback name="Mudassir Malik"
+                                    <Feeback
+                                      name="Mudassir Malik"
                                       designation="Co-founder of Officer Survey"
-                                      feedback="When we first spoke with the Zweidevs team, right off the bat we knew, they’re were powerful, credible and most importantly effective. We had a very complex task which they were able to build for us. They overcame many of the challenges that we faced along the way and were able to deliver a complete and functional software a week ahead of the deadline. You guys are the best! Keep up the great work! Thank you so much for the job well done. We will definitely hire them again!" />
+                                      feedback="When we first spoke with the Zweidevs team, right off the bat we knew, they’re were powerful, credible and most importantly effective. We had a very complex task which they were able to build for us. They overcame many of the challenges that we faced along the way and were able to deliver a complete and functional software a week ahead of the deadline. You guys are the best! Keep up the great work! Thank you so much for the job well done. We will definitely hire them again!"
+                                    />
                                   </div>
                                   <div className="col-md-6">
-                                    <Feeback name="Radu"
+                                    <Feeback
+                                      name="Radu"
                                       designation="Founder of Social Wing"
-                                      feedback="I found Zweidevs Team very professional and hard working. They just didn't only develop my web app but actually guided me as well through different phases. Thank you will definitely use your services again" />
+                                      feedback="I found Zweidevs Team very professional and hard working. They just didn't only develop my web app but actually guided me as well through different phases. Thank you will definitely use your services again"
+                                    />
                                   </div>
                                 </div>
                               </div>
                               <div className="carousel-item">
                                 <div className="row">
                                   <div className="col-md-6">
-                                    <Feeback name="Wenner" 
+                                    <Feeback
+                                      name="Wenner"
                                       designation="COO"
-                                      feedback="I’ve had a pleasure working with Ali and his team at Zweidevs on a very complex software project. I’ve felt very comfortable working with them and we plan on using this team for all of our software needs. I would highly recommend this team. Thank you!!" />
+                                      feedback="I’ve had a pleasure working with Ali and his team at Zweidevs on a very complex software project. I’ve felt very comfortable working with them and we plan on using this team for all of our software needs. I would highly recommend this team. Thank you!!"
+                                    />
                                   </div>
                                   <div className="col-md-6">
-                                    <Feeback name="Kyle" 
+                                    <Feeback
+                                      name="Kyle"
                                       designation="CTO of Shine Rite"
-                                      feedback="Zweidevs has been great to work with. They follow a solid Agile process so all development work is well planned and clearly priced. Their code is solid and the end result was top notch!" />
+                                      feedback="Zweidevs has been great to work with. They follow a solid Agile process so all development work is well planned and clearly priced. Their code is solid and the end result was top notch!"
+                                    />
                                   </div>
                                 </div>
                               </div>
@@ -273,67 +317,87 @@ export default function Home() {
                         <div className="col-md-6">
                           <h2>How May We Help You!</h2>
                           <p>Let's Talk about your amazing idea!</p>
-                          <form>
+
+                          <Form onSubmit={handleSubmit} method="post">
                             <div className="row">
                               <div className="col">
                                 <div className={styles.form_group}>
-                                  <input
-                                    type="text"
-                                    className={styles.form_control}
-                                    name="name"
-                                    placeholder="Name"
-                                  />
+                                  <Form.Group>
+                                    <Form.Label>Name</Form.Label>
+                                    <Form.Control
+                                      placeholder="Enter Name"
+                                      name="name"
+                                      onChange={handleQuoteDataChange}
+                                      className={styles.form_control}
+                                      required
+                                    />
+                                  </Form.Group>
                                 </div>
                               </div>
                               <div className="col">
                                 <div className={styles.form_group}>
-                                  <input
-                                    type="email"
-                                    className={styles.form_control}
-                                    name="email"
-                                    placeholder="Email"
-                                  />
+                                  <Form.Group controlId="formBasicEmail">
+                                    <Form.Label>Email address</Form.Label>
+                                    <Form.Control
+                                      className={styles.form_control}
+                                      type="email"
+                                      placeholder="Enter email"
+                                      name="email"
+                                      onChange={handleQuoteDataChange}
+                                      required
+                                    />
+                                  </Form.Group>
                                 </div>
                               </div>
                             </div>
                             <div className="row">
                               <div className="col">
                                 <div className={styles.form_group}>
-                                  <input
-                                    type="email"
-                                    className={styles.form_control}
-                                    name="phone_number"
-                                    placeholder="Phone Number"
-                                  />
+                                  <Form.Group>
+                                    <Form.Label>Phone Number</Form.Label>
+                                    <Form.Control
+                                      required
+                                      placeholder="Enter Phone Number"
+                                      name="phone_number"
+                                      onChange={handleQuoteDataChange}
+                                      className={styles.form_control}
+                                    />
+                                  </Form.Group>
                                 </div>
                               </div>
                               <div className="col">
                                 <div className={styles.form_group}>
-                                  <input
-                                    type="email"
-                                    className={styles.form_control}
-                                    name="country"
-                                    placeholder="Country"
-                                  />
+                                  <Form.Group>
+                                    <Form.Label>Country</Form.Label>
+                                    <Form.Control
+                                      required
+                                      placeholder="Enter Country"
+                                      name="country"
+                                      onChange={handleQuoteDataChange}
+                                      className={styles.form_control}
+                                    />
+                                  </Form.Group>
                                 </div>
                               </div>
                             </div>
                             <div className="row">
                               <div className="col">
                                 <div className={styles.form_group}>
-                                  <textarea
-                                    name="msg_textarea"
-                                    cols="40"
-                                    rows="5"
-                                    className={styles.form_control}
-                                    aria-invalid="false"
-                                    placeholder="Short Brief"
-                                  ></textarea>
+                                  <Form.Group>
+                                    <Form.Label>Description</Form.Label>
+                                    <Form.Control
+                                      required
+                                      placeholder="Enter Description"
+                                      name="des"
+                                      onChange={handleQuoteDataChange}
+                                      className={styles.form_control}
+                                    />
+                                  </Form.Group>
                                 </div>
                               </div>
                             </div>
-                            <Button text="Submit Now" type="button" />
-                          </form>
+                            <Button text="Submit Now" type="submit" />
+                          </Form>
                         </div>
                         <div className="col-md-6">
                           <img
