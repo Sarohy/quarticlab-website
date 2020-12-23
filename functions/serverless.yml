@@ -113,8 +113,7 @@ functions:
           cors:
             origins:
               - "http://localhost:3000"
-              - "https://www.iot-dev.ovon.io"
-              - "https://develop.d9qj70kgqd52t.amplifyapp.com"
+              - "https://www.zweidevs.com"
             headers:
               - Accept
               - Origin
