@@ -17,6 +17,7 @@ export default function Home() {
     country: "",
     des: "",
   });
+  const [showSpinner, setShowSpinner] = useState(false);
   const url = "/dev/contact";
 
   const handleSubmit = (e) => {
@@ -25,6 +26,7 @@ export default function Home() {
   };
   const postQoute = async () => {
     try {
+      setShowSpinner(true);
       const res = await postAPI(url, {
         name: qouteData.name,
         email: qouteData.email,
@@ -32,7 +34,9 @@ export default function Home() {
         country: qouteData.country,
         des: qouteData.des,
       });
+      setShowSpinner(false);
     } catch (error) {
+      setShowSpinner(false);
       console.log("This is the Error");
     }
   };
@@ -396,7 +400,11 @@ export default function Home() {
                                 </div>
                               </div>
                             </div>
-                            <Button text="Submit Now" type="submit" />
+                            <Button
+                              text="Submit Now"
+                              type="submit"
+                              showSpinnerProp={showSpinner}
+                            />
                           </Form>
                         </div>
                         <div className="col-md-6">
