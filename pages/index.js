@@ -5,6 +5,7 @@ import Feeback from "../components/feedback";
 import Button from "../components/button";
 import { services, projects } from "../constant/data";
 import Layout from "../components/layout";
+import Snackbar from "@material-ui/core/Snackbar";
 import { postAPI } from "./api/api";
 import { emailFormatVerification } from "../functions/utils/helpers";
 import Form from "react-bootstrap/Form";
@@ -17,6 +18,7 @@ export default function Home() {
     country: "",
     des: "",
   });
+  const [open, setOpen] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
   const url = "/dev/contact";
 
@@ -24,9 +26,11 @@ export default function Home() {
     e.preventDefault();
     postQoute();
   };
+
   const postQoute = async () => {
     try {
       setShowSpinner(true);
+      setOpen(true);
       const res = await postAPI(url, {
         name: qouteData.name,
         email: qouteData.email,
@@ -35,7 +39,9 @@ export default function Home() {
         des: qouteData.des,
       });
       setShowSpinner(false);
+      setOpen(false);
     } catch (error) {
+      setOpen(false);
       setShowSpinner(false);
       console.log("This is the Error");
     }
@@ -405,6 +411,17 @@ export default function Home() {
                               type="submit"
                               showSpinnerProp={showSpinner}
                             />
+                            <Snackbar
+                              open={open}
+                              autoHideDuration={6000}
+                              size
+                              anchorOrigin={{
+                                vertical: "bottom",
+                                horizontal: "right",
+                              }}
+                              message={"Submitted Successfully"}
+                              color="yellow"
+                            ></Snackbar>
                           </Form>
                         </div>
                         <div className="col-md-6">
