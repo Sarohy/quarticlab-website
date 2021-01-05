@@ -166,7 +166,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/zweidevs-backend/dev/1608619992464-2020-12-22T06:53:12.464Z/zweidevs-backend.zip"
+          "S3Key": "serverless/zweidevs-backend/dev/1608716882643-2020-12-23T09:48:02.643Z/zweidevs-backend.zip"
         },
         "FunctionName": "zweidevs-backend-dev-hello",
         "Handler": "handler.hello",
@@ -185,14 +185,14 @@
         "HelloLogGroup"
       ]
     },
-    "HelloLambdaVersionm9h0LHdrWTtS6cg7xwB9YAk10MBTSBgp4dAMotdIgQ": {
+    "HelloLambdaVersionGyRxxf7M75Qg8SeFxLsQoAnLY5OJgLSfaZaHwCqso": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "HelloLambdaFunction"
         },
-        "CodeSha256": "qIc1DzwnYs1TO3Hh8Ygbg3vbLUKle3HoeFNtlxNG3eI=",
+        "CodeSha256": "DTmmv+T7w0LR988Wsu3xgLYgGRddM9gWvZrgygRbZ+c=",
         "Description": "Api to create a new cognito user"
       }
     },
@@ -203,7 +203,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/zweidevs-backend/dev/1608619992464-2020-12-22T06:53:12.464Z/zweidevs-backend.zip"
+          "S3Key": "serverless/zweidevs-backend/dev/1608716882643-2020-12-23T09:48:02.643Z/zweidevs-backend.zip"
         },
         "FunctionName": "zweidevs-backend-dev-contact",
         "Handler": "apis/contact.contact",
@@ -222,14 +222,14 @@
         "ContactLogGroup"
       ]
     },
-    "ContactLambdaVersionQ2QZngelIFGG920v5CK8RoEFsjorgDfpxk0Fzry6iY": {
+    "ContactLambdaVersionv3eEtdmOjfyCpR0dGiAxINtoiVCchz7EvGI3XRYE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ContactLambdaFunction"
         },
-        "CodeSha256": "qIc1DzwnYs1TO3Hh8Ygbg3vbLUKle3HoeFNtlxNG3eI=",
+        "CodeSha256": "DTmmv+T7w0LR988Wsu3xgLYgGRddM9gWvZrgygRbZ+c=",
         "Description": "Api to create a new cognito user"
       }
     },
@@ -352,7 +352,7 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\"http://localhost:3000\") || $origin.matches(\"https://www[.]iot-dev[.]ovon[.]io\") || $origin.matches(\"https://develop[.]d9qj70kgqd52t[.]amplifyapp[.]com\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\"http://localhost:3000\") || $origin.matches(\"https://www[.]zweidevs[.]com\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
@@ -451,7 +451,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1608619979649": {
+    "ApiGatewayDeployment1608716868419": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -550,13 +550,13 @@
     "HelloLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "HelloLambdaVersionm9h0LHdrWTtS6cg7xwB9YAk10MBTSBgp4dAMotdIgQ"
+        "Ref": "HelloLambdaVersionGyRxxf7M75Qg8SeFxLsQoAnLY5OJgLSfaZaHwCqso"
       }
     },
     "ContactLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ContactLambdaVersionQ2QZngelIFGG920v5CK8RoEFsjorgDfpxk0Fzry6iY"
+        "Ref": "ContactLambdaVersionv3eEtdmOjfyCpR0dGiAxINtoiVCchz7EvGI3XRYE"
       }
     },
     "ServiceEndpoint": {
