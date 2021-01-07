@@ -5,7 +5,7 @@ import Feeback from "../components/feedback";
 import Button from "../components/button";
 import { services, projects } from "../constant/data";
 import Layout from "../components/layout";
-import Snackbar from "@material-ui/core/Snackbar";
+import { Snackbar, Box } from "@material-ui/core";
 import { postAPI } from "./api/api";
 import { emailFormatVerification } from "../functions/utils/helpers";
 import Form from "react-bootstrap/Form";
@@ -21,7 +21,6 @@ export default function Home() {
   const [open, setOpen] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
   const url = "/dev/contact";
-
   const handleSubmit = (e) => {
     e.preventDefault();
     postQoute();
@@ -82,8 +81,19 @@ export default function Home() {
                         Zweidevs provides dedicated remote teams that work
                         closely with you to design and build your idea.
                       </p>
+                      <div>
+                        <Button
+                          text="Instant Booking"
+                          onClick={() =>
+                            window.location.assign(
+                              "https://calendly.com/zweidevs/get-quote"
+                            )
+                          }
+                        />
+                      </div>
                     </div>
                   </section>
+
                   <section className={styles.services} id="services">
                     <img src="/element1.svg" alt="" />
                     <div className="container">
@@ -327,6 +337,19 @@ export default function Home() {
                         <div className="col-md-6">
                           <h2>How May We Help You!</h2>
                           <p>Let's Talk about your amazing idea!</p>
+                          <div className={styles.instantBookingButton}>
+                            <Button
+                              text="Instant Booking"
+                              onClick={() =>
+                                window.location.assign(
+                                  "https://calendly.com/zweidevs/get-quote"
+                                )
+                              }
+                            />
+                          </div>
+                          <div className={styles.media_designation}>
+                            <p>OR</p>
+                          </div>
 
                           <Form onSubmit={handleSubmit} method="post">
                             <div className="row">
