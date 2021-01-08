@@ -102,7 +102,7 @@ const Footer = () => {
                         className={styles.footer_icon}
                       />
                       <a href="#">
-                        First floor,Plot No 300,Y Block,Phase 3,DHA(Commercial)
+                        First Floor, Plot No 300, Y Block, Phase 3, DHA
                       </a>
                     </li>
                     <li className={styles.contact_numbers}>

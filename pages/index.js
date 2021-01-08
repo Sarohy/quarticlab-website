@@ -348,7 +348,7 @@ export default function Home() {
                             />
                           </div>
                           <div className={styles.media_designation}>
-                            <p>OR</p>
+                            <p>&#9668;-----OR-----&#9658;</p>
                           </div>
 
                           <Form onSubmit={handleSubmit} method="post">
