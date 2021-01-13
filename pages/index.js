@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/Home.module.css";
 import ServiceCard from "../components/serviceCard";
 import Feeback from "../components/feedback";
@@ -9,6 +9,7 @@ import { Snackbar, Box } from "@material-ui/core";
 import { postAPI } from "./api/api";
 import { emailFormatVerification } from "../functions/utils/helpers";
 import Form from "react-bootstrap/Form";
+import { initGA, logPageView } from "../components/googleAnalytics";
 
 export default function Home() {
   const [qouteData, setQouteData] = useState({
@@ -53,6 +54,13 @@ export default function Home() {
     });
   };
 
+  useEffect(() => {
+    if (!window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+    logPageView();
+  }, []);
   return (
     <Layout>
       <div className={styles.container}>
@@ -81,16 +89,15 @@ export default function Home() {
                         Zweidevs provides dedicated remote teams that work
                         closely with you to design and build your idea.
                       </p>
-                      <div>
-                        <Button
-                          text="Instant Booking"
-                          onClick={() =>
-                            window.location.assign(
-                              "https://calendly.com/zweidevs/get-quote"
-                            )
-                          }
-                        />
-                      </div>
+
+                      <Button
+                        text="Instant Booking"
+                        onClick={() =>
+                          window.location.assign(
+                            "https://calendly.com/zweidevs/get-quote"
+                          )
+                        }
+                      />
                     </div>
                   </section>
 
