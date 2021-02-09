@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "../styles/Footer.module.css";
+import {getDynamicDate} from "./helpers"; 
 
 const Footer = () => {
   return (
@@ -222,7 +223,7 @@ const Footer = () => {
           <div className="container">
             <div className={`${styles.copyright_wrap}`}>
               <div className={styles.copyright}>
-                © 2020 Zweidevs. All Rights Reserved by{" "}
+                © {getDynamicDate()} Zweidevs. All Rights Reserved by{" "}
                 <a target="_blank" rel="nofollow" href="#">
                   Zweidevs
                 </a>

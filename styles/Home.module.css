@@ -40,6 +40,12 @@
   justify-content: center;
   align-self: center;
   z-index: 1;
+   margin-left: 6vh;
+}
+.intro_button {
+  display: flex;
+  justify-content: center;
+  align-self: center;
 }
 .intro .intro_desc h1 {
   z-index: 11;
