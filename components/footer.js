@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "../styles/Footer.module.css";
-import {getDynamicDate} from "./helpers"; 
+import {getCurrentYear} from "./helpers"; 
 
 const Footer = () => {
   return (
@@ -223,7 +223,7 @@ const Footer = () => {
           <div className="container">
             <div className={`${styles.copyright_wrap}`}>
               <div className={styles.copyright}>
-                © {getDynamicDate()} Zweidevs. All Rights Reserved by{" "}
+                © {getCurrentYear()} Zweidevs. All Rights Reserved by{" "}
                 <a target="_blank" rel="nofollow" href="#">
                   Zweidevs
                 </a>
