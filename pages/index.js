@@ -94,7 +94,7 @@ export default function Home() {
                         text="Instant Booking"
                         onClick={() =>
                           window.location.assign(
-                            "https://calendly.com/zweidevs/get-quote"
+                            "https://calendly.com/contact-zweidevs/get-quote"
                           )
                         }
                       />
@@ -350,7 +350,7 @@ export default function Home() {
                               text="Instant Booking"
                               onClick={() =>
                                 window.location.assign(
-                                  "https://calendly.com/zweidevs/get-quote"
+                                  "https://calendly.com/contact-zweidevs/get-quote"
                                 )
                               }
                             />
