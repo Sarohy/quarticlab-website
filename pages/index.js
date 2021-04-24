@@ -89,7 +89,7 @@ export default function Home() {
                         Zweidevs provides dedicated remote teams that work
                         closely with you to design and build your idea.
                       </p>
-
+                      <div className={styles.intro_button}>
                       <Button
                         text="Instant Booking"
                         onClick={() =>
@@ -98,7 +98,8 @@ export default function Home() {
                           )
                         }
                       />
-                    </div>
+                      </div>
+                    </div>  
                   </section>
 
                   <section className={styles.services} id="services">
