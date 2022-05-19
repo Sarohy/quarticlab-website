@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "../styles/Footer.module.css";
+import {getCurrentYear} from "./helpers"; 
 
 const Footer = () => {
   return (
@@ -102,7 +103,7 @@ const Footer = () => {
                         className={styles.footer_icon}
                       />
                       <a href="#">
-                        First Floor, Plot No 300, Y Block, Phase 3, DHA
+                       6-B phase 1 Johar Town Lahore
                       </a>
                     </li>
                     <li className={styles.contact_numbers}>
@@ -207,7 +208,7 @@ const Footer = () => {
                       <img src="/linkedin.svg" alt="Zweidevs-linkedin Page" />
                     </a>
                     <a
-                      href="https://www.instagram.com/zweidevs/"
+                      href="https://instagram.com/zweidevs.official?igshid=YmMyMTA2M2Y="
                       target="_blank"
                     >
                       <img src="/instagram.svg" alt="Zweidevs-instagram Page" />
@@ -222,7 +223,7 @@ const Footer = () => {
           <div className="container">
             <div className={`${styles.copyright_wrap}`}>
               <div className={styles.copyright}>
-                © 2020 Zweidevs. All Rights Reserved by{" "}
+                © {getCurrentYear()} Zweidevs. All Rights Reserved by{" "}
                 <a target="_blank" rel="nofollow" href="#">
                   Zweidevs
                 </a>
