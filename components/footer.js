@@ -103,7 +103,7 @@ const Footer = () => {
                         className={styles.footer_icon}
                       />
                       <a href="#">
-                        First Floor, Plot No 300, Y Block, Phase 3, DHA
+                       6-B phase 1 Johar Town Lahore
                       </a>
                     </li>
                     <li className={styles.contact_numbers}>
@@ -208,7 +208,7 @@ const Footer = () => {
                       <img src="/linkedin.svg" alt="Zweidevs-linkedin Page" />
                     </a>
                     <a
-                      href="https://www.instagram.com/zweidevs/"
+                      href="https://instagram.com/zweidevs.official?igshid=YmMyMTA2M2Y="
                       target="_blank"
                     >
                       <img src="/instagram.svg" alt="Zweidevs-instagram Page" />
