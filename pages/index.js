@@ -90,16 +90,16 @@ export default function Home() {
                         closely with you to design and build your idea.
                       </p>
                       <div className={styles.intro_button}>
-                      <Button
-                        text="Instant Booking"
-                        onClick={() =>
-                          window.location.assign(
-                            "https://calendly.com/contact-zweidevs/get-quote"
-                          )
-                        }
-                      />
+                        <Button
+                          text="Instant Booking"
+                          onClick={() =>
+                            window.location.assign(
+                              "https://calendly.com/contact-zweidevs/get-quote"
+                            )
+                          }
+                        />
                       </div>
-                    </div>  
+                    </div>
                   </section>
 
                   <section className={styles.services} id="services">

@@ -1,27 +1,46 @@
 .card_items {
-    border: 1px solid #d9d9d9;
-    padding: 55px 40px 50px;
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    height: 40rem;
-    background-color: #fff;
-  }
-  
-  .card_items_icon {
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
-  }
+  border: 1px solid #d9d9d9;
+  padding: 55px 40px 50px;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  height: 40rem;
+  transition: 1s all ease;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
 
-  .card_items_icon img {
-    width: 5.6rem;
-    height: 5.6rem;
-  }
-  
-  .card_items_icon i {
-    font-size: 3.5rem;
-    color: #1d2124;
-    line-height: 1;
-    display: inline-block;
-  }
+.card_items::before {
+  background: red;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: 0.8s all ease;
+  height: 87%;
+  width: 0;
+}
+
+.card_items:hover::before {
+  width: 92%;
+}
+
+.card_items_icon {
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.card_items_icon img {
+  width: 5.6rem;
+  height: 5.6rem;
+}
+
+.card_items_icon i {
+  font-size: 3.5rem;
+  color: #1d2124;
+  line-height: 1;
+  display: inline-block;
+}
