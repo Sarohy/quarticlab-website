@@ -2,9 +2,27 @@
   left: 0;
   position: absolute;
   right: 0;
+  top: 0;
   z-index: 99;
-  background-image: var(--linear-gradient);
+  /* background-image: var(--linear-gradient); */
+  background-color: white;
   padding: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 0px 0px 25px 25px;
+  animation: anim 1s ease;
+}
+@keyframes anim {
+  0% {
+    top: -80px;
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 .header_area {

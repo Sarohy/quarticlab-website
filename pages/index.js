@@ -72,16 +72,52 @@ export default function Home() {
                   <section>
                     <img
                       className={styles.animated_shape}
-                      src="/layout.png"
+                      src="/zweidevsBackgroundImage.png"
                       alt="svg"
                     />
                   </section>
                   <section className={styles.intro} id="home">
                     <div className={styles.intro_img}>
-                      <img
-                        src="/version-control-animate.svg"
-                        alt="main-illustration"
-                      />
+                      <div
+                        id="carouselExampleControls"
+                        className={`carousel slide ${styles.carousel_controls}`}
+                        data-ride="carousel"
+                      >
+                        <div className="carousel-inner">
+                          <div className="carousel-item active">
+                            <div className="row">
+                              <div className="col-md-06">
+                                <img
+                                  src="/version-control-animate.svg"
+                                  alt="main-illustration"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="carousel-item">
+                            <div className="row">
+                              <div className="col-md-06">
+                                <img
+                                  className={styles.idk}
+                                  src="/carouselmage2.png"
+                                  alt="main-illustration"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="carousel-item">
+                            <div className="row">
+                              <div className="col-md-06">
+                                <img
+                                  className={styles.idk}
+                                  src="/carouselmage3.png"
+                                  alt="main-illustration"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div className={styles.intro_desc}>
                       <h1>Empowering the Innovations.</h1>
