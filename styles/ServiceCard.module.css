@@ -9,7 +9,17 @@
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
+.card_items_content > p {
+  opacity: 0;
+  margin-top: 150px;
+  transition: all 0.5s ease-in-out;
+  color: white;
+}
 
+.card_items:hover .serviceDisc {
+  opacity: 1;
+  margin-top: 0px;
+}
 .card_items::before {
   background: red;
   content: "";
