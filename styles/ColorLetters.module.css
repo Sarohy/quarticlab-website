@@ -1,0 +1,40 @@
+.textColor {
+  z-index: 11;
+  height: auto;
+  width: auto;
+  text-decoration: none;
+  min-height: 0px;
+  min-width: 0px;
+  max-height: none;
+  max-width: none;
+  text-align: left;
+  line-height: 6.5rem;
+  letter-spacing: 0px;
+  font-weight: 500;
+  font-size: 5rem;
+  transform-origin: 50% 50%;
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px);
+  visibility: visible;
+  animation: headingAnim 1s ease;
+  color: black;
+  transition: all 0.2s ease-in-out;
+}
+.textColor:hover {
+  color: #fe9600;
+  font-size: 5.4rem;
+}
+
+@keyframes headingAnim {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}

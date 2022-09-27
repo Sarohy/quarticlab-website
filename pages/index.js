@@ -1,17 +1,48 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Home.module.css";
-import ServiceCard from "../components/serviceCard";
 import Feeback from "../components/feedback";
 import Button from "../components/button";
-import { services, projects } from "../constant/data";
+import { projects } from "../constant/data";
 import Layout from "../components/layout";
 import { Snackbar, Box } from "@material-ui/core";
 import { postAPI } from "./api/api";
 import { emailFormatVerification } from "../functions/utils/helpers";
 import Form from "react-bootstrap/Form";
 import { initGA, logPageView } from "../components/googleAnalytics";
+import ServiceCarousel from "../components/serviceCarousel";
+import ColorLetters from "../components/colorLetters";
 
 export default function Home() {
+  const nameArray = [
+    "E",
+    "m",
+    "p",
+    "o",
+    "w",
+    "e",
+    "r",
+    "i",
+    "n",
+    "g",
+    " ",
+    "t",
+    "h",
+    "e",
+    " ",
+    "I",
+    "n",
+    "n",
+    "o",
+    "v",
+    "a",
+    "t",
+    "i",
+    "o",
+    "n",
+    "s",
+    ".",
+  ];
+
   const [qouteData, setQouteData] = useState({
     name: "",
     email: "",
@@ -69,75 +100,41 @@ export default function Home() {
             <div className="row">
               <div className="col-sm-12 col-12">
                 <main id="main" className={styles.site_main}>
-                  <section>
-                    <img
-                      className={styles.animated_shape}
-                      src="/zweidevsBackgroundImage.png"
-                      alt="svg"
-                    />
-                  </section>
-                  <section className={styles.intro} id="home">
-                    <div className={styles.intro_img}>
-                      <div
-                        id="carouselExampleControls"
-                        className={`carousel slide ${styles.carousel_controls}`}
-                        data-ride="carousel"
-                      >
-                        <div className="carousel-inner">
-                          <div className="carousel-item active">
-                            <div className="row">
-                              <div className="col-md-06">
-                                <img
-                                  src="/version-control-animate.svg"
-                                  alt="main-illustration"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <div className="carousel-item">
-                            <div className="row">
-                              <div className="col-md-06">
-                                <img
-                                  className={styles.idk}
-                                  src="/carouselmage2.png"
-                                  alt="main-illustration"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <div className="carousel-item">
-                            <div className="row">
-                              <div className="col-md-06">
-                                <img
-                                  className={styles.idk}
-                                  src="/carouselmage3.png"
-                                  alt="main-illustration"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                  <section className={styles.headerContainer}>
+                    <div>
+                      <img
+                        className={styles.animated_shape}
+                        src="/zweidevsBackgroundImage.jpg"
+                        alt="svg"
+                      />
                     </div>
-                    <div className={styles.intro_desc}>
-                      <h1>Empowering the Innovations.</h1>
-                      <p>
-                        Zweidevs provides dedicated remote teams that work
-                        closely with you to design and build your idea.
-                      </p>
-                      <div className={styles.intro_button}>
-                        <Button
-                          text="Instant Booking"
-                          onClick={() =>
-                            window.location.assign(
-                              "https://calendly.com/contact-zweidevs/get-quote"
-                            )
-                          }
+                    <section className={styles.intro} id="home">
+                      <div className={styles.intro_img}>
+                        <img
+                          src="/version-control-animate.svg"
+                          alt="main-illustration"
                         />
                       </div>
-                    </div>
+                      <div className={styles.intro_desc}>
+                        {/* <h1>Empowering the Innovations.</h1> */}
+                        <ColorLetters strArray={nameArray} />
+                        <p>
+                          Zweidevs provides dedicated remote teams that work
+                          closely with you to design and build your idea.
+                        </p>
+                        <div className={styles.intro_button}>
+                          <Button
+                            text="Instant Booking"
+                            onClick={() =>
+                              window.location.assign(
+                                "https://calendly.com/contact-zweidevs/get-quote"
+                              )
+                            }
+                          />
+                        </div>
+                      </div>
+                    </section>
                   </section>
-
                   <section className={styles.services} id="services">
                     <img src="/element1.svg" alt="" />
                     <div className="container">
@@ -149,18 +146,7 @@ export default function Home() {
                             that fit your product's unique requirements.
                           </p>
                         </div>
-                        {services.map((value) => {
-                          return (
-                            <div className="col-md-6 col-lg-4">
-                              <ServiceCard
-                                title={value.title}
-                                icon={value.icon}
-                                icon_desc={value.icon_desc}
-                                desc={value.desc}
-                              />
-                            </div>
-                          );
-                        })}
+                        <ServiceCarousel />
                       </div>
                     </div>
                   </section>

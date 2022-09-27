@@ -6,14 +6,31 @@
   margin-top: 30px;
   height: 40rem;
   transition: 1s all ease;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-inline: 20px;
+  z-index: 10000;
 }
 .card_items_content > p {
   opacity: 0;
   margin-top: 150px;
-  transition: all 0.5s ease-in-out;
-  color: white;
+  transition: 0.5s all ease-in-out;
+}
+
+.carouselBtn > a {
+  width: 35px;
+  height: 35px;
+  margin: auto 0;
+  background-color: #ff9700;
+  border-radius: 50%;
+  margin-inline: -50px;
+}
+.carouselBars > li {
+  height: 12px;
+  width: 12px;
+  background-color: #ff9700;
+  margin-bottom: -50px;
+  border-radius: 50%;
+  border: 2px solid black;
 }
 
 .card_items:hover .serviceDisc {
@@ -21,7 +38,7 @@
   margin-top: 0px;
 }
 .card_items::before {
-  background: red;
+  background-image: var(--linear-gradient);
   content: "";
   position: absolute;
   top: 50%;
@@ -34,13 +51,21 @@
 }
 
 .card_items:hover::before {
-  width: 92%;
+  width: 82%;
+}
+.card_items_icon {
+  transform: translateY(70%);
+  transition: 0.5s all ease-in-out;
 }
 
-.card_items_icon {
+.card_items_icon > img {
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
+}
+
+.card_items:hover .card_items_icon {
+  transform: translateY(0);
 }
 
 .card_items_icon img {
