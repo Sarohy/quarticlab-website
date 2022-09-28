@@ -78,31 +78,61 @@ export const projects = [
   {
     link: "https://www.shineriteco.com/",
     image: "/new 2.png",
-    name: "ShineRite",
+    name: "Elemental Universe ",
     technologies: "Django | React",
+    discription:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut risus vel sem molestie auctor.",
+    animation: "fade-up",
+    duration: 300,
+  },
+  {
+    link: "https://www.shineriteco.com/",
+    image: "/new 2.png",
+    name: "Cyber Legends",
+    technologies: "Django | React",
+    discription:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut risus vel sem molestie auctor.",
+    animation: "fade-up",
+    duration: 500,
   },
   {
     link: "https://www.medycle.com/",
     image: "/new 3.png",
-    name: "Medycle",
+    name: "Pink Dragon",
     technologies: "React Native | Django | Vue",
+    discription:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut risus vel sem molestie auctor.",
+    animation: "fade-up",
+    duration: 700,
   },
   {
     link: "https://www.leoboost.com/",
     image: "/new 4.png",
-    name: "LeoBoost",
-    technologies: "",
+    name: "iSynced/Trademimic",
+    technologies: "Laravel | PHP",
+    discription:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut risus vel sem molestie auctor.",
+    animation: "fade-up",
+    duration: 300,
   },
   {
     link: "https://checkin.fortyeight.ai/",
     image: "/new 5.png",
-    name: "Fortyeight",
-    technologies: "",
+    name: "You Salon",
+    technologies: "React | Solidity",
+    discription:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut risus vel sem molestie auctor.",
+    animation: "fade-up",
+    duration: 500,
   },
   {
     link: "https://www.officersurvey.com/",
     image: "/new 6.png",
     name: "OfficerSurvey",
     technologies: "Django | AWS",
+    discription:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut risus vel sem molestie auctor.",
+    animation: "fade-up",
+    duration: 700,
   },
 ];

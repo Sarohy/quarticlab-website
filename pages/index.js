@@ -43,7 +43,7 @@ export default function Home() {
     "s",
     ".",
   ];
-  const nameArray2 = [
+  const ourServices = [
     "O",
     "u",
     "r",
@@ -56,6 +56,43 @@ export default function Home() {
     "c",
     "e",
     "s",
+  ];
+  const projectGallery = [
+    "P",
+    "r",
+    "o",
+    "j",
+    "e",
+    "c",
+    "t",
+    " ",
+    "G",
+    "a",
+    "l",
+    "l",
+    "e",
+    "r",
+    "y",
+  ];
+  const customersFeedback = [
+    "C",
+    "u",
+    "s",
+    "t",
+    "o",
+    "m",
+    "e",
+    "r",
+    "s",
+    " ",
+    "F",
+    "e",
+    "e",
+    "d",
+    "b",
+    "a",
+    "c",
+    "k",
   ];
 
   const [qouteData, setQouteData] = useState({
@@ -134,7 +171,7 @@ export default function Home() {
                         />
                       </div>
                       <div className={`${styles.intro_desc} display-2`}>
-                        <ColorLetters strArray={nameArray} />
+                        <ColorLetters strArray={nameArray} main />
                         <p>
                           Zweidevs provides dedicated remote teams that work
                           closely with you to design and build your idea.
@@ -161,7 +198,7 @@ export default function Home() {
                     <div className="container">
                       <div className="row">
                         <div className="col-md-12 display-4 text-center">
-                          <ColorLetters strArray={nameArray2} />
+                          <ColorLetters strArray={ourServices} />
                           <p className={styles.service_desc}>
                             We offer complete product development solutions,
                             that fit your product's unique requirements.
@@ -205,29 +242,41 @@ export default function Home() {
                   <section className={styles.projects_gallery} id="projects">
                     <div className="container">
                       <div className="row">
-                        <div className="col-md-12">
-                          <h2>Project Gallery</h2>
+                        <div className="col-md-12 display-4 text-center mb-5">
+                          <ColorLetters strArray={projectGallery} />
                         </div>
                         {projects.map((value) => {
                           return (
                             <div
-                              className={`col-md-4 col-sm-6 col-xs-12 ${styles.project_item}`}
+                              className={`col-md-4 col-sm-6 col-xs-12 ${styles.mainContainerProject}`}
                             >
-                              <a href={value.link} target="_blank">
-                                <img src={value.image} width="100%" alt="" />
-                                <div className={styles.project_details}>
-                                  <div className={styles.project_info}>
-                                    <h2>{value.name}</h2>
-                                    <p>{value.technologies}</p>
-                                    <a href={value.link} target="_blank">
-                                      <img
-                                        src="/search.svg"
-                                        alt="zweidews search logo"
-                                      />
-                                    </a>
+                              <div
+                                data-aos={value.animation}
+                                data-aos-delay={value.duration}
+                                // style={{ transition: "0.7s" }}
+                                className={`${styles.project_item}`}
+                              >
+                                <a href={value.link} target="_blank">
+                                  <img src={value.image} width="100%" alt="" />
+                                  <div className={styles.project_details}>
+                                    <div className={styles.project_info}>
+                                      <h2>{value.name}</h2>
+                                      <p
+                                        className={`container ${styles.discription}`}
+                                      >
+                                        {value.discription}
+                                      </p>
+                                      <p>{value.technologies}</p>
+                                      <a href={value.link} target="_blank">
+                                        <img
+                                          src="/search.svg"
+                                          alt="zweidews search logo"
+                                        />
+                                      </a>
+                                    </div>
                                   </div>
-                                </div>
-                              </a>
+                                </a>
+                              </div>
                             </div>
                           );
                         })}
@@ -237,8 +286,8 @@ export default function Home() {
                   <section className={styles.feedback} id="feeback">
                     <div className="container">
                       <div className="row">
-                        <div className="col-md-12">
-                          <h2>Customers Feedback</h2>
+                        <div className="col-md-12 display-4 text-center">
+                          <ColorLetters strArray={customersFeedback} />
                         </div>
                         <div className="col-md-12">
                           <div

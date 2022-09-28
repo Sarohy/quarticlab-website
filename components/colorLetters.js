@@ -1,10 +1,13 @@
 import styles from "../styles/ColorLetters.module.css";
 
-const ColorLetters = ({ strArray }) => {
+const ColorLetters = ({ strArray, main }) => {
   return (
-    <span className={styles.colorLetterContainer}>
+    <span>
       {strArray.map((char, i) => (
-        <span key={char + i} className={`${styles.textColor}`}>
+        <span
+          key={char + i}
+          className={main ? `${styles.main}` : `${styles.textColor}`}
+        >
           {char}
         </span>
       ))}
