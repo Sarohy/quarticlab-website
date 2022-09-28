@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../styles/ServiceCarousel.module.css";
 import { services } from "../constant/data";
+import Aos from "aos";
 
 function ServiceCarousel() {
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+    });
+  }, []);
   return (
     <div
       id="carouselExampleControlsTwo"
@@ -138,6 +144,7 @@ function ServiceCarousel() {
           href="#carouselExampleControlsTwo"
           role="button"
           data-slide="prev"
+          data-aos="fade-left"
         >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
@@ -149,6 +156,7 @@ function ServiceCarousel() {
           href="#carouselExampleControlsTwo"
           role="button"
           data-slide="next"
+          data-aos="fade-right"
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>

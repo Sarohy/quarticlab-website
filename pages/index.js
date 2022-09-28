@@ -11,6 +11,7 @@ import Form from "react-bootstrap/Form";
 import { initGA, logPageView } from "../components/googleAnalytics";
 import ServiceCarousel from "../components/serviceCarousel";
 import ColorLetters from "../components/colorLetters";
+import Aos from "aos";
 
 export default function Home() {
   const nameArray = [
@@ -41,6 +42,20 @@ export default function Home() {
     "n",
     "s",
     ".",
+  ];
+  const nameArray2 = [
+    "O",
+    "u",
+    "r",
+    " ",
+    "S",
+    "e",
+    "r",
+    "v",
+    "i",
+    "c",
+    "e",
+    "s",
   ];
 
   const [qouteData, setQouteData] = useState({
@@ -92,6 +107,9 @@ export default function Home() {
     }
     logPageView();
   }, []);
+  useEffect(() => {
+    Aos.init({ duration: 1500 });
+  }, []);
   return (
     <Layout>
       <div className={styles.container}>
@@ -115,8 +133,7 @@ export default function Home() {
                           alt="main-illustration"
                         />
                       </div>
-                      <div className={styles.intro_desc}>
-                        {/* <h1>Empowering the Innovations.</h1> */}
+                      <div className={`${styles.intro_desc} display-2`}>
                         <ColorLetters strArray={nameArray} />
                         <p>
                           Zweidevs provides dedicated remote teams that work
@@ -135,12 +152,16 @@ export default function Home() {
                       </div>
                     </section>
                   </section>
-                  <section className={styles.services} id="services">
+                  <section
+                    className={styles.services}
+                    id="services"
+                    data-aos="fade-up"
+                  >
                     <img src="/element1.svg" alt="" />
                     <div className="container">
                       <div className="row">
-                        <div className="col-md-12">
-                          <h2>Our Services</h2>
+                        <div className="col-md-12 display-4 text-center">
+                          <ColorLetters strArray={nameArray2} />
                           <p className={styles.service_desc}>
                             We offer complete product development solutions,
                             that fit your product's unique requirements.
@@ -159,14 +180,14 @@ export default function Home() {
                     <div className="container">
                       <div className="row">
                         <div
-                          className={`col-md-6 offset-md-6 ${styles.about_desc}`}
+                          className={`col-md-6 offset-md-6 aboutUsContainer ${styles.about_desc}`}
                         >
-                          <span>About Us</span>
-                          <h2>
+                          <span data-aos="fade-left">About Us</span>
+                          <h2 data-aos="fade-right">
                             Work with top notch designers and developers to get
                             amazing products.
                           </h2>
-                          <p>
+                          <p data-aos="fade-up">
                             Zweidevs is a service-oriented company providing
                             creative and innovative solutions for your business
                             domain. We believe in exceeding your expectations by
