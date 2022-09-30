@@ -1,6 +1,8 @@
 .footer_area {
   border-top: 1px solid #f8fbff;
-  position: relative;
+  position: absolute;
+  right: 0;
+  left: 0;
   overflow: hidden;
   background-color: #f0f0f0;
 }
