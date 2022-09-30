@@ -12,6 +12,7 @@ import { initGA, logPageView } from "../components/googleAnalytics";
 import ServiceCarousel from "../components/serviceCarousel";
 import ColorLetters from "../components/colorLetters";
 import Aos from "aos";
+import CircularProgressBar from "../components/circularProgressBar";
 
 export default function Home() {
   const nameArray = [
@@ -379,52 +380,47 @@ export default function Home() {
                     className={styles.project_numbers}
                     id="project_numbers"
                   >
-                    <div className={styles.gradient}></div>
-                    <div className="container">
-                      <div className={`${styles.pn_box} row`}>
-                        <div className="col-md-4 text-center">
-                          <div className={styles.pn_icon}>
-                            <img src="/projector.svg" alt="Projects" />
-                          </div>
-                          <div className={styles.counter}>
-                            <span>50+</span>
-                          </div>
-                          <div className={styles.pn_content}>
-                            <h3 className={styles.content_title}>
-                              Projects Done
-                            </h3>
-                          </div>
-                        </div>
+                    <div className={`${styles.pn_box}`}>
+                      <CircularProgressBar
+                        trailValue={60}
+                        value={150}
+                        backgroundColor="#de7300"
+                        text="Project Completed"
+                        unit="+"
+                      />
 
-                        <div className="col-md-4 text-center">
-                          <div className={styles.pn_icon}>
-                            <img src="/smile.svg" alt="smile" />
-                          </div>
-                          <div className={styles.counter}>
-                            <span>20+</span>
-                          </div>
-                          <div className={styles.pn_content}>
-                            <h3 className={styles.content_title}>
-                              Happy Clients
-                            </h3>
-                          </div>
-                        </div>
+                      <CircularProgressBar
+                        trailValue={70}
+                        value={3500}
+                        backgroundColor="#ff9700"
+                        text="Funding Raised"
+                        unit="$"
+                      />
+                      <CircularProgressBar
+                        trailValue={80}
+                        value={300}
+                        backgroundColor="#de7300"
+                        text="Hours Worked"
+                        unit="+"
+                      />
 
-                        <div className="col-md-4 text-center">
-                          <div className={styles.pn_icon}>
-                            <img src="/review.svg" alt="reviews" />
-                          </div>
-                          <div className={styles.counter}>
-                            <span>5000+</span>
-                          </div>
-                          <div className={styles.pn_content}>
-                            <h3 className={styles.content_title}>
-                              Hours Worked
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
+                      <CircularProgressBar
+                        trailValue={65}
+                        value={70}
+                        backgroundColor="#ff9700"
+                        text="Clients Served"
+                        unit="+"
+                      />
+
+                      <CircularProgressBar
+                        trailValue={40}
+                        value={35}
+                        backgroundColor="#de7300"
+                        text="No. of Employee"
+                        unit="+"
+                      />
                     </div>
+                    <div className={styles.line}></div>
                   </section>
                   <section className={styles.message} id="contact">
                     <img

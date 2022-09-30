@@ -274,21 +274,24 @@
   padding-bottom: 0 !important;
 }
 
-.project_numbers .gradient {
-  background-image: var(--linear-gradient);
-  position: absolute;
-  top: 0;
-  left: -15px;
-  width: 100vw;
-  height: 100%;
-}
-
 .pn_box {
-  padding: 7rem 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 2rem 0;
 }
 
 .pn_icon {
   margin-bottom: 2rem;
+}
+
+.line {
+  width: 30%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  height: 15px;
+  border-bottom: 2px solid red;
 }
 
 .pn_icon img {

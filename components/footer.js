@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "../styles/Footer.module.css";
-import {getCurrentYear} from "./helpers"; 
+import { getCurrentYear } from "./helpers";
 
 const Footer = () => {
   return (
@@ -84,14 +84,6 @@ const Footer = () => {
                         168 W. Main Street New Market<span> MD 21774, US</span>
                       </a>
                     </li>
-                    <li className={styles.contact_numbers}>
-                      <img
-                        src="/phone.svg"
-                        alt="phone number"
-                        className={styles.footer_icon}
-                      />
-                      <a href="tel:+1202-630-0593">+1 202-630-0593</a>
-                    </li>
 
                     <li>
                       <h4>Lahore Office</h4>
@@ -102,20 +94,9 @@ const Footer = () => {
                         alt="locattion"
                         className={styles.footer_icon}
                       />
-                      <a href="#">
-                       6-B phase 1 Johar Town Lahore
-                      </a>
+                      <a href="#">6-B phase 1 Johar Town Lahore</a>
                     </li>
-                    <li className={styles.contact_numbers}>
-                      <img
-                        src="/phone.svg"
-                        alt="phone number"
-                        className={styles.footer_icon}
-                      />
-                      <a href="tel:+923351094915">
-                        +923351094915 | +923060228518
-                      </a>
-                    </li>
+
                     <li>
                       <img
                         src="/plane.svg"
