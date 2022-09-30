@@ -6,6 +6,8 @@
 }
 .headerContainer {
   height: 90vh;
+  display: flex;
+  align-items: center;
 }
 
 .content_area section {
@@ -36,6 +38,18 @@
   grid-column-start: 2;
   grid-column-end: 3;
   z-index: 1;
+  animation: imageAnim 2s infinite ease-in-out;
+}
+@keyframes imageAnim {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(2%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 
 .intro .intro_img img {
@@ -45,7 +59,7 @@
   justify-content: center;
   align-self: center;
   z-index: 1;
-  margin-left: 6vh;
+  margin-inline: 3vh;
 }
 
 .intro_button {
@@ -73,6 +87,9 @@
   transform: translate3d(0px, 0px, 0px);
   visibility: visible;
   color: rgb(29, 33, 36);
+}
+.services {
+  margin-top: 7rem;
 }
 
 .services h2,
