@@ -53,7 +53,9 @@
 }
 
 .intro .intro_img img {
-  height: 540px;
+  object-fit: cover;
+  width: 100%;
+  height: 450px;
   margin-left: 20px;
 }
 .intro .intro_desc {
@@ -79,6 +81,7 @@
   font-size: 18px;
   transform-origin: 50% 50%;
   opacity: 1;
+  text-align: center;
   transform: translate3d(0px, 0px, 0px);
   visibility: visible;
   color: rgb(29, 33, 36);
@@ -95,9 +98,21 @@
   text-align: center;
 }
 
-.services > img {
+.bottomImage {
+  animation: imageAnim 3s infinite ease-in-out;
+}
+
+.aboutUs {
   position: absolute;
   z-index: 0;
+  width: 28%;
+  top: 10px;
+  left: 8%;
+}
+
+.services > img {
+  position: absolute;
+  z-index: -50;
   right: -10%;
   transform: translateY(-45%);
   opacity: 0.7;
@@ -106,6 +121,10 @@
   position: relative;
 }
 
+
+.submitNowBtn {
+  text-align: center;
+}
 .about_us .about_desc > h2,
 .projects_gallery h2 {
   font-weight: 700;
@@ -114,15 +133,27 @@
   position: relative;
   margin-bottom: 15px;
   padding-top: 1rem;
+  text-align: center;
 }
 .about_us .about_desc > span {
   font-size: 3.5rem;
   letter-spacing: 0.25rem;
   font-weight: 500;
   color: var(--primary-color);
+  display: flex;
+  justify-content: center;
 }
 .about_us .about_desc > p {
   line-height: 30px;
+  text-align: center;
+
+}
+
+.intro_desc_color_text {
+  text-align: center;
+}
+.intro_button {
+  text-align: center;
 }
 
 .about_us img.about_media {
@@ -324,6 +355,11 @@
   line-height: 1;
   z-index: 3;
   position: relative;
+  text-align: center;
+}
+
+.contentContainer p,
+.contentContainer h2 {
   text-align: center;
 }
 

@@ -27,10 +27,6 @@ export default function Home() {
     "n",
     "g",
     " ",
-    "t",
-    "h",
-    "e",
-    " ",
     "I",
     "n",
     "n",
@@ -41,8 +37,6 @@ export default function Home() {
     "i",
     "o",
     "n",
-    "s",
-    ".",
   ];
   const ourServices = [
     "O",
@@ -172,6 +166,7 @@ export default function Home() {
                           data-ride="carousel"
                           data-interval="2800"
                           data-wrap="true"
+                          data-pause="false"
                         >
                           <div className="carousel-inner">
                             <div className="carousel-item active carousel-slideshow">
@@ -221,7 +216,9 @@ export default function Home() {
                         </div>
                       </div>
                       <div className={`${styles.intro_desc} display-2`}>
-                        <ColorLetters strArray={nameArray} main />
+                        <div className={styles.intro_desc_color_text}>
+                          <ColorLetters strArray={nameArray} main />
+                        </div>
                         <p>
                           Zweidevs provides dedicated remote teams that work
                           closely with you to design and build your idea.
@@ -263,6 +260,11 @@ export default function Home() {
                       className={styles.about_media}
                       src="/element2.svg"
                       alt=""
+                    />
+                    <img
+                      src="/about_us.png"
+                      className={styles.aboutUs}
+                      data-aos="fade-right"
                     />
                     <div className="container">
                       <div className="row">
@@ -341,7 +343,7 @@ export default function Home() {
                         </div>
                         <div className="col-md-12">
                           <div
-                            id="carouselExampleControls"
+                            id="carouselExampleControlsComments"
                             className={`carousel slide ${styles.carousel_controls}`}
                             data-ride="carousel"
                           >
@@ -385,7 +387,7 @@ export default function Home() {
                             </div>
                             <a
                               className={styles.carousel_control_prev}
-                              href="#carouselExampleControls"
+                              href="#carouselExampleControlsComments"
                               role="button"
                               data-slide="prev"
                             >
@@ -397,7 +399,7 @@ export default function Home() {
                             </a>
                             <a
                               className={styles.carousel_control_next}
-                              href="#carouselExampleControls"
+                              href="#carouselExampleControlsComments"
                               role="button"
                               data-slide="next"
                             >
@@ -440,14 +442,14 @@ export default function Home() {
 
                       <CircularProgressBar
                         trailValue={70}
-                        value={3500}
+                        value={3.5}
                         backgroundColor="#ff9700"
                         text="Funding Raised"
-                        unit="$"
+                        unit="M $"
                       />
                       <CircularProgressBar
                         trailValue={80}
-                        value={300}
+                        value={3000}
                         backgroundColor="#de7300"
                         text="Hours Worked"
                         unit="+"
@@ -479,7 +481,7 @@ export default function Home() {
                     />
                     <div className="container">
                       <div className="row">
-                        <div className="col-md-6">
+                        <div className={`col-md-6 ${styles.contentContainer}`}>
                           <h2>How May We Help You!</h2>
                           <p>Let's Talk about your amazing idea!</p>
                           <div className={styles.instantBookingButton}>
@@ -574,11 +576,13 @@ export default function Home() {
                                 </div>
                               </div>
                             </div>
-                            <Button
-                              text="Submit Now"
-                              type="submit"
-                              showSpinnerProp={showSpinner}
-                            />
+                            <div className={styles.submitNowBtn}>
+                              <Button
+                                text="Submit Now"
+                                type="submit"
+                                showSpinnerProp={showSpinner}
+                              />
+                            </div>
                             <Snackbar
                               open={open}
                               autoHideDuration={6000}
@@ -596,6 +600,7 @@ export default function Home() {
                           <img
                             src="/get-in-touch-animate.svg"
                             alt="illustration"
+                            className={styles.bottomImage}
                           />
                         </div>
                       </div>

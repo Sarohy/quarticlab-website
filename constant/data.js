@@ -27,7 +27,7 @@ export const services = [
     title: "DevOps",
     icon: "/devops.svg",
     icon_desc: "",
-    desc: "Looking for certified AWS/Google Cloud engineers? Here we are!!",
+    desc: "DevOps evolve and improve products at a faster pace. We have a dedicated team of DevOps to make the deployment of applications correct and make sure to run the automation correctly and accordingly.",
   },
   {
     title: "E-Commerce",
@@ -39,11 +39,11 @@ export const services = [
     title: "Blockchain",
     icon: "/blockchain.svg",
     icon_desc: "",
-    desc: "We are here to help you in increasing the  Blockchain reach of your product or business, by smoothly transitioning  your offline stores to global web.",
+    desc: "Blockchain is the backbone Technology of Digital CryptoCurrency BitCoin. A distributed database of records of all transactions.We have a team of Blockchain developers to make the deployment correct.",
   },
   {
     title: "Metaverse",
-    icon: "/ecommerce.svg",
+    icon: "/metaverse.svg",
     icon_desc: "",
     desc: "We are here to help you in increasing the  Metaverse reach of your product or business, by smoothly transitioning  your offline stores to global web.",
   },
