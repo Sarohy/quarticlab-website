@@ -9,7 +9,7 @@ export const services = [
     title: "UI/UX Design",
     icon: "/ux.svg",
     icon_desc: "",
-    desc: "Our team is trained to solve problems and provide innovative solutions by following an entire process of UI/UX development.",
+    desc: "The UI/UX Design brings a design-centric approach to user interface and user experience.Our team is trained to solve problems and provide innovative solutions by following an entire process of UI/UX development.",
   },
   {
     title: "IOT",
@@ -45,7 +45,7 @@ export const services = [
     title: "Metaverse",
     icon: "/metaverse.svg",
     icon_desc: "",
-    desc: "We are here to help you in increasing the  Metaverse reach of your product or business, by smoothly transitioning  your offline stores to global web.",
+    desc: "Metaverse is immersive virtual world that is facilitated by the use of virtual reality and augmented reality headsets.We are here to help you in increasing the  Metaverse reach of your product.",
   },
   {
     title: "NFT Experts",
@@ -77,11 +77,11 @@ export const clients = [
 export const projects = [
   {
     link: "https://develop.dft058q9upge7.amplifyapp.com/market",
-    image: "/new 2.png",
+    image: "/elemental_universe.png",
     name: "Elemental Universe ",
     technologies: "Django | React",
     discription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut risus vel sem molestie auctor.",
+      "NFT Marketplace and NFT Minting platform with NFT based PvP battle Game.",
     animation: "fade-up",
     duration: 300,
   },
@@ -90,18 +90,16 @@ export const projects = [
     image: "/new 2.png",
     name: "Cyber Legends",
     technologies: "Django | React",
-    discription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut risus vel sem molestie auctor.",
+    discription: "Edtech application.",
     animation: "fade-up",
     duration: 500,
   },
   {
     link: "https://apps.apple.com/pk/app/pink-dragon/id1548947114",
     image: "/new 3.png",
-    name: "Pink Dragon",
+    name: "Hooked Health",
     technologies: "React Native | Django | Vue",
-    discription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut risus vel sem molestie auctor.",
+    discription: "Fitness Application.",
     animation: "fade-up",
     duration: 700,
   },
@@ -110,8 +108,7 @@ export const projects = [
     image: "/new 4.png",
     name: "iSynced/Trademimic",
     technologies: "Laravel | PHP",
-    discription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut risus vel sem molestie auctor.",
+    discription: "Forex Copy Trading Application.",
     animation: "fade-up",
     duration: 300,
   },
@@ -120,8 +117,7 @@ export const projects = [
     image: "/new 5.png",
     name: "You Salon",
     technologies: "React | Solidity",
-    discription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut risus vel sem molestie auctor.",
+    discription: "Salon Booking Application.",
     animation: "fade-up",
     duration: 500,
   },
@@ -130,8 +126,7 @@ export const projects = [
     image: "/new 6.png",
     name: "OfficerSurvey",
     technologies: "Django | AWS",
-    discription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut risus vel sem molestie auctor.",
+    discription: "Survey Application with Dashboards.",
     animation: "fade-up",
     duration: 700,
   },
