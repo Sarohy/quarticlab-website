@@ -14,7 +14,7 @@ function ServiceCarousel() {
       id="carouselExampleControlsTwo"
       className="carousel slide col-12"
       data-ride="carousel"
-      data-interval="5000"
+      data-interval="2500"
     >
       <ol class={`carousel-indicators ${styles.carouselBars}`}>
         <li

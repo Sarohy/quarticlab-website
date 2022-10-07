@@ -67,10 +67,15 @@
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
+  filter: invert(68%) sepia(88%) saturate(3703%) hue-rotate(3deg)
+    brightness(105%) contrast(104%);
 }
 
 .card_items:hover .card_items_icon {
   transform: translateY(0);
+}
+.card_items:hover .card_items_icon > img {
+  filter: none;
 }
 
 .card_items_icon img {

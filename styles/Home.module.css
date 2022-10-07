@@ -37,7 +37,8 @@
   grid-column-start: 2;
   grid-column-end: 3;
   z-index: 1;
-  animation: imageAnim 2s infinite ease-in-out;
+  margin-left: 20px;
+  animation: imageAnim 3s infinite ease-in-out;
 }
 @keyframes imageAnim {
   0% {
@@ -53,18 +54,13 @@
 
 .intro .intro_img img {
   height: 540px;
+  margin-left: 20px;
 }
 .intro .intro_desc {
   justify-content: center;
   align-self: center;
   z-index: 1;
   margin-inline: 3vh;
-}
-
-.intro_button {
-  display: flex;
-  justify-content: center;
-  align-self: center;
 }
 
 .intro p {

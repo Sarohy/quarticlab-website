@@ -37,7 +37,7 @@ export const services = [
   },
   {
     title: "Blockchain",
-    icon: "/ecommerce.svg",
+    icon: "/blockchain.svg",
     icon_desc: "",
     desc: "We are here to help you in increasing the  Blockchain reach of your product or business, by smoothly transitioning  your offline stores to global web.",
   },
@@ -49,7 +49,7 @@ export const services = [
   },
   {
     title: "NFT Experts",
-    icon: "/ecommerce.svg",
+    icon: "/nft.svg",
     icon_desc: "",
     desc: "We are here to help you in increasing the  NFT experts reach of your product or business, by smoothly transitioning  your offline stores to global web.",
   },
@@ -76,7 +76,7 @@ export const clients = [
 
 export const projects = [
   {
-    link: "https://www.shineriteco.com/",
+    link: "https://develop.dft058q9upge7.amplifyapp.com/market",
     image: "/new 2.png",
     name: "Elemental Universe ",
     technologies: "Django | React",
@@ -96,7 +96,7 @@ export const projects = [
     duration: 500,
   },
   {
-    link: "https://www.medycle.com/",
+    link: "https://apps.apple.com/pk/app/pink-dragon/id1548947114",
     image: "/new 3.png",
     name: "Pink Dragon",
     technologies: "React Native | Django | Vue",
@@ -106,7 +106,7 @@ export const projects = [
     duration: 700,
   },
   {
-    link: "https://www.leoboost.com/",
+    link: "https://www.dev.isynced.com/",
     image: "/new 4.png",
     name: "iSynced/Trademimic",
     technologies: "Laravel | PHP",
@@ -116,7 +116,7 @@ export const projects = [
     duration: 300,
   },
   {
-    link: "https://checkin.fortyeight.ai/",
+    link: "https://youmediapvt.com/",
     image: "/new 5.png",
     name: "You Salon",
     technologies: "React | Solidity",

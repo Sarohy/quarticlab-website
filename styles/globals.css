@@ -185,3 +185,30 @@ ul {
   background-color: white;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
+
+.carousel-slideshow {
+  -webkit-animation: fadeinout 2.8s linear forwards;
+  animation: fadeinout 2.8s linear forwards;
+}
+
+@-webkit-keyframes fadeinout {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeinout {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

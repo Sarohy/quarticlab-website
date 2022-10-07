@@ -99,8 +99,9 @@
 }
 
 .header_button_wrap .header_button .button_btn {
-  border-color: #fff;
-  color: #000;
+  color: var(--primary-color);
+  background-color: #000;
+  border-color: #000;
 
   font-weight: 500;
   font-size: 1.6rem;
@@ -118,17 +119,10 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background-color: transparent;
   border: 0.125rem solid;
   -webkit-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-}
-
-.header_button_wrap .header_button .button_btn:hover {
-  color: var(--primary-color);
-  background-color: #000;
-  border-color: #000;
 }
 
 .nav_toggler {
@@ -192,11 +186,6 @@
 }
 
 .sticky_nav_list .header_button_wrap .header_button .button_btn {
-  border-color: var(--primary-color) !important;
-  color: var(--primary-color);
-}
-
-.sticky_nav_list .header_button_wrap .header_button .button_btn:hover {
   color: #000;
   background-color: var(--primary-color);
   border-color: var(--primary-color);

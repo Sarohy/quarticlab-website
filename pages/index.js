@@ -166,10 +166,59 @@ export default function Home() {
                     </div>
                     <section className={styles.intro} id="home">
                       <div className={styles.intro_img}>
-                        <img
-                          src="/version-control-animate.svg"
-                          alt="main-illustration"
-                        />
+                        <div
+                          id="carouselExampleControls"
+                          className={`carousel slide carousel-fade ${styles.carousel_controls}`}
+                          data-ride="carousel"
+                          data-interval="2800"
+                          data-wrap="true"
+                        >
+                          <div className="carousel-inner">
+                            <div className="carousel-item active carousel-slideshow">
+                              <div className="row">
+                                <div className="col-md-06">
+                                  <img
+                                    src="/version-control-animate.svg"
+                                    alt="main-illustration"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="carousel-item carousel-slideshow">
+                              <div className="row">
+                                <div className="col-md-06">
+                                  <img
+                                    className={styles.idk}
+                                    src="/carouselmage2.png"
+                                    alt="main-illustration"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="carousel-item carousel-slideshow">
+                              <div className="row">
+                                <div className="col-md-06">
+                                  <img
+                                    className={styles.idk}
+                                    src="/image_16.png"
+                                    alt="main-illustration"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="carousel-item carousel-slideshow">
+                              <div className="row">
+                                <div className="col-md-06">
+                                  <img
+                                    className={styles.idk}
+                                    src="/image_2.png"
+                                    alt="main-illustration"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                       <div className={`${styles.intro_desc} display-2`}>
                         <ColorLetters strArray={nameArray} main />
