@@ -87,7 +87,7 @@ export const projects = [
   },
   {
     link: "https://www.shineriteco.com/",
-    image: "/new 2.png",
+    image: "/cyber_legends.png",
     name: "Cyber Legends",
     technologies: "Django | React",
     discription: "Edtech application.",
@@ -96,7 +96,7 @@ export const projects = [
   },
   {
     link: "https://apps.apple.com/pk/app/pink-dragon/id1548947114",
-    image: "/new 3.png",
+    image: "/pink_dragon.png",
     name: "Hooked Health",
     technologies: "React Native | Django | Vue",
     discription: "Fitness Application.",
@@ -105,7 +105,7 @@ export const projects = [
   },
   {
     link: "https://www.dev.isynced.com/",
-    image: "/new 4.png",
+    image: "/Isynced.png",
     name: "iSynced/Trademimic",
     technologies: "Laravel | PHP",
     discription: "Forex Copy Trading Application.",
@@ -114,7 +114,7 @@ export const projects = [
   },
   {
     link: "https://youmediapvt.com/",
-    image: "/new 5.png",
+    image: "/YOU.png",
     name: "You Salon",
     technologies: "React | Solidity",
     discription: "Salon Booking Application.",
@@ -123,7 +123,7 @@ export const projects = [
   },
   {
     link: "https://www.officersurvey.com/",
-    image: "/new 6.png",
+    image: "/officer_survey.png",
     name: "OfficerSurvey",
     technologies: "Django | AWS",
     discription: "Survey Application with Dashboards.",
