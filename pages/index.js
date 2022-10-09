@@ -1,17 +1,95 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Home.module.css";
-import ServiceCard from "../components/serviceCard";
 import Feeback from "../components/feedback";
 import Button from "../components/button";
-import { services, projects } from "../constant/data";
+import { projects } from "../constant/data";
 import Layout from "../components/layout";
 import { Snackbar, Box } from "@material-ui/core";
 import { postAPI } from "./api/api";
 import { emailFormatVerification } from "../functions/utils/helpers";
 import Form from "react-bootstrap/Form";
 import { initGA, logPageView } from "../components/googleAnalytics";
+import ServiceCarousel from "../components/serviceCarousel";
+import ColorLetters from "../components/colorLetters";
+import Aos from "aos";
+import CircularProgressBar from "../components/circularProgressBar";
 
 export default function Home() {
+  const nameArray = [
+    "E",
+    "m",
+    "p",
+    "o",
+    "w",
+    "e",
+    "r",
+    "i",
+    "n",
+    "g",
+    " ",
+    "I",
+    "n",
+    "n",
+    "o",
+    "v",
+    "a",
+    "t",
+    "i",
+    "o",
+    "n",
+  ];
+  const ourServices = [
+    "O",
+    "u",
+    "r",
+    " ",
+    "S",
+    "e",
+    "r",
+    "v",
+    "i",
+    "c",
+    "e",
+    "s",
+  ];
+  const projectGallery = [
+    "P",
+    "r",
+    "o",
+    "j",
+    "e",
+    "c",
+    "t",
+    " ",
+    "G",
+    "a",
+    "l",
+    "l",
+    "e",
+    "r",
+    "y",
+  ];
+  const customersFeedback = [
+    "C",
+    "u",
+    "s",
+    "t",
+    "o",
+    "m",
+    "e",
+    "r",
+    "s",
+    " ",
+    "F",
+    "e",
+    "e",
+    "d",
+    "b",
+    "a",
+    "c",
+    "k",
+  ];
+
   const [qouteData, setQouteData] = useState({
     name: "",
     email: "",
@@ -61,6 +139,9 @@ export default function Home() {
     }
     logPageView();
   }, []);
+  useEffect(() => {
+    Aos.init({ duration: 1500 });
+  }, []);
   return (
     <Layout>
       <div className={styles.container}>
@@ -69,62 +150,108 @@ export default function Home() {
             <div className="row">
               <div className="col-sm-12 col-12">
                 <main id="main" className={styles.site_main}>
-                  <section>
-                    <img
-                      className={styles.animated_shape}
-                      src="/layout.png"
-                      alt="svg"
-                    />
-                  </section>
-                  <section className={styles.intro} id="home">
-                    <div className={styles.intro_img}>
+                  <section className={styles.headerContainer}>
+                    <div>
                       <img
-                        src="/version-control-animate.svg"
-                        alt="main-illustration"
+                        className={styles.animated_shape}
+                        src="/zweidevsBackgroundImage.jpg"
+                        alt="svg"
                       />
                     </div>
-                    <div className={styles.intro_desc}>
-                      <h1>Empowering the Innovations.</h1>
-                      <p>
-                        Zweidevs provides dedicated remote teams that work
-                        closely with you to design and build your idea.
-                      </p>
-                      <div className={styles.intro_button}>
-                      <Button
-                        text="Instant Booking"
-                        onClick={() =>
-                          window.location.assign(
-                            "https://calendly.com/contact-zweidevs/get-quote"
-                          )
-                        }
-                      />
+                    <section className={styles.intro} id="home">
+                      <div className={styles.intro_img}>
+                        <div
+                          id="carouselExampleControls"
+                          className={`carousel slide carousel-fade ${styles.carousel_controls}`}
+                          data-ride="carousel"
+                          data-interval="2800"
+                          data-wrap="true"
+                          data-pause="false"
+                        >
+                          <div className="carousel-inner">
+                            <div className="carousel-item active carousel-slideshow">
+                              <div className="row">
+                                <div className="col-md-06">
+                                  <img
+                                    src="/version-control-animate.svg"
+                                    alt="main-illustration"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="carousel-item carousel-slideshow">
+                              <div className="row">
+                                <div className="col-md-06">
+                                  <img
+                                    className={styles.idk}
+                                    src="/carouselmage2.png"
+                                    alt="main-illustration"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="carousel-item carousel-slideshow">
+                              <div className="row">
+                                <div className="col-md-06">
+                                  <img
+                                    className={styles.idk}
+                                    src="/image_16.png"
+                                    alt="main-illustration"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="carousel-item carousel-slideshow">
+                              <div className="row">
+                                <div className="col-md-06">
+                                  <img
+                                    className={styles.idk}
+                                    src="/image_2.png"
+                                    alt="main-illustration"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>  
+                      <div className={`${styles.intro_desc} display-2`}>
+                        <div className={styles.intro_desc_color_text}>
+                          <ColorLetters strArray={nameArray} main />
+                        </div>
+                        <p>
+                          Zweidevs provides dedicated remote teams that work
+                          closely with you to design and build your idea.
+                        </p>
+                        <div className={styles.intro_button}>
+                          <Button
+                            text="Instant Booking"
+                            onClick={() =>
+                              window.location.assign(
+                                "https://calendly.com/contact-zweidevs/get-quote"
+                              )
+                            }
+                          />
+                        </div>
+                      </div>
+                    </section>
                   </section>
-
-                  <section className={styles.services} id="services">
+                  <section
+                    className={styles.services}
+                    id="services"
+                    data-aos="fade-up"
+                  >
                     <img src="/element1.svg" alt="" />
                     <div className="container">
                       <div className="row">
-                        <div className="col-md-12">
-                          <h2>Our Services</h2>
+                        <div className="col-md-12 display-4 text-center">
+                          <ColorLetters strArray={ourServices} />
                           <p className={styles.service_desc}>
                             We offer complete product development solutions,
                             that fit your product's unique requirements.
                           </p>
                         </div>
-                        {services.map((value) => {
-                          return (
-                            <div className="col-md-6 col-lg-4">
-                              <ServiceCard
-                                title={value.title}
-                                icon={value.icon}
-                                icon_desc={value.icon_desc}
-                                desc={value.desc}
-                              />
-                            </div>
-                          );
-                        })}
+                        <ServiceCarousel />
                       </div>
                     </div>
                   </section>
@@ -134,17 +261,22 @@ export default function Home() {
                       src="/element2.svg"
                       alt=""
                     />
+                    <img
+                      src="/about_us.png"
+                      className={styles.aboutUs}
+                      data-aos="fade-right"
+                    />
                     <div className="container">
                       <div className="row">
                         <div
-                          className={`col-md-6 offset-md-6 ${styles.about_desc}`}
+                          className={`col-md-6 offset-md-6 aboutUsContainer ${styles.about_desc}`}
                         >
-                          <span>About Us</span>
-                          <h2>
+                          <span data-aos="fade-left">About Us</span>
+                          <h2 data-aos="fade-right">
                             Work with top notch designers and developers to get
                             amazing products.
                           </h2>
-                          <p>
+                          <p data-aos="fade-up">
                             Zweidevs is a service-oriented company providing
                             creative and innovative solutions for your business
                             domain. We believe in exceeding your expectations by
@@ -162,29 +294,41 @@ export default function Home() {
                   <section className={styles.projects_gallery} id="projects">
                     <div className="container">
                       <div className="row">
-                        <div className="col-md-12">
-                          <h2>Project Gallery</h2>
+                        <div className="col-md-12 display-4 text-center mb-5">
+                          <ColorLetters strArray={projectGallery} />
                         </div>
                         {projects.map((value) => {
                           return (
                             <div
-                              className={`col-md-4 col-sm-6 col-xs-12 ${styles.project_item}`}
+                              className={`col-md-4 col-sm-6 col-xs-12 ${styles.mainContainerProject}`}
                             >
-                              <a href={value.link} target="_blank">
-                                <img src={value.image} width="100%" alt="" />
-                                <div className={styles.project_details}>
-                                  <div className={styles.project_info}>
-                                    <h2>{value.name}</h2>
-                                    <p>{value.technologies}</p>
-                                    <a href={value.link} target="_blank">
-                                      <img
-                                        src="/search.svg"
-                                        alt="zweidews search logo"
-                                      />
-                                    </a>
+                              <div
+                                data-aos={value.animation}
+                                data-aos-delay={value.duration}
+                                // style={{ transition: "0.7s" }}
+                                className={`${styles.project_item}`}
+                              >
+                                <a href={value.link} target="_blank">
+                                  <img src={value.image} width="100%" alt="" />
+                                  <div className={styles.project_details}>
+                                    <div className={styles.project_info}>
+                                      <h2>{value.name}</h2>
+                                      <p
+                                        className={`container ${styles.discription}`}
+                                      >
+                                        {value.discription}
+                                      </p>
+                                      <p>{value.technologies}</p>
+                                      <a href={value.link} target="_blank">
+                                        <img
+                                          src="/search.svg"
+                                          alt="zweidews search logo"
+                                        />
+                                      </a>
+                                    </div>
                                   </div>
-                                </div>
-                              </a>
+                                </a>
+                              </div>
                             </div>
                           );
                         })}
@@ -194,12 +338,12 @@ export default function Home() {
                   <section className={styles.feedback} id="feeback">
                     <div className="container">
                       <div className="row">
-                        <div className="col-md-12">
-                          <h2>Customers Feedback</h2>
+                        <div className="col-md-12 display-4 text-center">
+                          <ColorLetters strArray={customersFeedback} />
                         </div>
                         <div className="col-md-12">
                           <div
-                            id="carouselExampleControls"
+                            id="carouselExampleControlsComments"
                             className={`carousel slide ${styles.carousel_controls}`}
                             data-ride="carousel"
                           >
@@ -243,7 +387,7 @@ export default function Home() {
                             </div>
                             <a
                               className={styles.carousel_control_prev}
-                              href="#carouselExampleControls"
+                              href="#carouselExampleControlsComments"
                               role="button"
                               data-slide="prev"
                             >
@@ -255,7 +399,7 @@ export default function Home() {
                             </a>
                             <a
                               className={styles.carousel_control_next}
-                              href="#carouselExampleControls"
+                              href="#carouselExampleControlsComments"
                               role="button"
                               data-slide="next"
                             >
@@ -287,52 +431,47 @@ export default function Home() {
                     className={styles.project_numbers}
                     id="project_numbers"
                   >
-                    <div className={styles.gradient}></div>
-                    <div className="container">
-                      <div className={`${styles.pn_box} row`}>
-                        <div className="col-md-4 text-center">
-                          <div className={styles.pn_icon}>
-                            <img src="/projector.svg" alt="Projects" />
-                          </div>
-                          <div className={styles.counter}>
-                            <span>50+</span>
-                          </div>
-                          <div className={styles.pn_content}>
-                            <h3 className={styles.content_title}>
-                              Projects Done
-                            </h3>
-                          </div>
-                        </div>
+                    <div className={`${styles.pn_box}`}>
+                      <CircularProgressBar
+                        trailValue={60}
+                        value={150}
+                        backgroundColor="#de7300"
+                        text="Project Completed"
+                        unit="+"
+                      />
 
-                        <div className="col-md-4 text-center">
-                          <div className={styles.pn_icon}>
-                            <img src="/smile.svg" alt="smile" />
-                          </div>
-                          <div className={styles.counter}>
-                            <span>20+</span>
-                          </div>
-                          <div className={styles.pn_content}>
-                            <h3 className={styles.content_title}>
-                              Happy Clients
-                            </h3>
-                          </div>
-                        </div>
+                      <CircularProgressBar
+                        trailValue={70}
+                        value={3.5}
+                        backgroundColor="#ff9700"
+                        text="Funding Raised"
+                        unit="M $"
+                      />
+                      <CircularProgressBar
+                        trailValue={80}
+                        value={3000}
+                        backgroundColor="#de7300"
+                        text="Hours Worked"
+                        unit="+"
+                      />
 
-                        <div className="col-md-4 text-center">
-                          <div className={styles.pn_icon}>
-                            <img src="/review.svg" alt="reviews" />
-                          </div>
-                          <div className={styles.counter}>
-                            <span>5000+</span>
-                          </div>
-                          <div className={styles.pn_content}>
-                            <h3 className={styles.content_title}>
-                              Hours Worked
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
+                      <CircularProgressBar
+                        trailValue={65}
+                        value={70}
+                        backgroundColor="#ff9700"
+                        text="Clients Served"
+                        unit="+"
+                      />
+
+                      <CircularProgressBar
+                        trailValue={40}
+                        value={35}
+                        backgroundColor="#de7300"
+                        text="No. of Employee"
+                        unit="+"
+                      />
                     </div>
+                    <div className={styles.line}></div>
                   </section>
                   <section className={styles.message} id="contact">
                     <img
@@ -342,7 +481,7 @@ export default function Home() {
                     />
                     <div className="container">
                       <div className="row">
-                        <div className="col-md-6">
+                        <div className={`col-md-6 ${styles.contentContainer}`}>
                           <h2>How May We Help You!</h2>
                           <p>Let's Talk about your amazing idea!</p>
                           <div className={styles.instantBookingButton}>
@@ -437,11 +576,13 @@ export default function Home() {
                                 </div>
                               </div>
                             </div>
-                            <Button
-                              text="Submit Now"
-                              type="submit"
-                              showSpinnerProp={showSpinner}
-                            />
+                            <div className={styles.submitNowBtn}>
+                              <Button
+                                text="Submit Now"
+                                type="submit"
+                                showSpinnerProp={showSpinner}
+                              />
+                            </div>
                             <Snackbar
                               open={open}
                               autoHideDuration={6000}
@@ -459,6 +600,7 @@ export default function Home() {
                           <img
                             src="/get-in-touch-animate.svg"
                             alt="illustration"
+                            className={styles.bottomImage}
                           />
                         </div>
                       </div>

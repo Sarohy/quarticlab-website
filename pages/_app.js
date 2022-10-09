@@ -1,4 +1,6 @@
 import "../styles/globals.css";
+import "aos/dist/aos.css";
+import "react-circular-progressbar/dist/styles.css";
 
 function MyApp({ Component, pageProps }) {
   return (
