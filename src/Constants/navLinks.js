@@ -1,0 +1,10 @@
+import routesPaths from "./routePaths";
+
+const navLinks = [
+  { href: routesPaths.home, text: "HOME" },
+  { href: routesPaths.services, text: "SERVICES" },
+  { href: routesPaths.aboutUs, text: "ABOUT US" },
+  { href: routesPaths.careers, text: "CAREERS" }
+];
+
+export default navLinks;

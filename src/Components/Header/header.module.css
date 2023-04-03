@@ -1,0 +1,32 @@
+.headerContainer {
+  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5%;
+}
+
+.contentContainer {
+  /* border: 2px solid purple; */
+  width: 57%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagesContainer {
+  width: 63.6%;
+  display: flex;
+  justify-content: space-between;
+  /* border: 2px solid blue; */
+}
+
+.instantBookingBtn {
+  background-color: #ff9700;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.activePage {
+  color: #ff9700;
+}
