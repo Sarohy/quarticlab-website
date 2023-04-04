@@ -1,5 +1,4 @@
 .headerContainer {
-  /* border: 2px solid red; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,7 +24,6 @@
 }
 
 .contentContainer {
-  /* border: 2px solid purple; */
   width: 57%;
   display: flex;
   justify-content: space-between;
@@ -36,7 +34,6 @@
   width: 63.6%;
   display: flex;
   justify-content: space-between;
-  /* border: 2px solid blue; */
 }
 
 .instantBookingBtn {

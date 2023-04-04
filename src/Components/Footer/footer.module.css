@@ -1,0 +1,161 @@
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.footerContentContainer {
+  margin: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerContentContainerMobile {
+  margin: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pages {
+  display: flex;
+  justify-content: space-between;
+  width: max-content;
+  flex-wrap: wrap;
+  font-family: poppins;
+  padding: 25px;
+  width: 30%;
+}
+
+.pagesMobile {
+  display: flex;
+  justify-content: space-between;
+  width: max-content;
+  flex-wrap: wrap;
+  font-family: poppins;
+  padding: 25px;
+  width: 100%;
+}
+
+.pageLabel {
+  width: 50%;
+  font-family: "Poppins";
+  padding: 5px;
+}
+
+.pageLabelMobile {
+  width: 50%;
+  font-family: "Poppins";
+  padding: 5px;
+}
+
+.pageLabel:hover {
+  color: #ff9700;
+}
+
+.footerTextContainer {
+  background-color: #3a3a3a80;
+  text-align: center;
+  padding: 20px;
+  font-family: poppins;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.socialIconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 30%;
+}
+
+.socialIconContainerMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+  width: 100%;
+}
+
+.contactEmailContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 16%;
+  gap: 10px;
+  margin: 25px;
+  width: 30%;
+}
+
+.contactEmailContainerMobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 25px;
+  width: 100%;
+}
+
+.inputLabel {
+  font-family: poppins;
+  text-align: left;
+  min-width: 55%;
+}
+
+.inputLabelMobile {
+  font-family: poppins;
+  text-align: center;
+  min-width: 100%;
+}
+
+.inputField {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  height: 40px;
+}
+
+.inputContainer {
+  border: 1px solid white;
+  min-width: 55%;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 5px;
+}
+
+.inputContainerMobile {
+  border: 1px solid white;
+  width: 100%;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 5px;
+}
+
+.emailError {
+  border: 1px solid red;
+}
+
+.emailButton {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.emailErrorMessage {
+  color: red;
+  font-family: poppins;
+  font-size: 12px;
+}

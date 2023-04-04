@@ -8,8 +8,22 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <>      
-      <h1>HOME</h1>
+    <>
+    <div style={{border:"2px solid yellow", height:"50vh"}} >      
+      <h1>HOME1</h1>
+    </div>
+    <div style={{border:"2px solid yellow", height:"50vh"}} >      
+      <h1>HOME2</h1>
+    </div>
+    <div style={{border:"2px solid yellow", height:"50vh"}} >      
+      <h1>HOME3</h1>
+    </div>
+    <div style={{border:"2px solid yellow", height:"50vh"}} >      
+      <h1>HOME4</h1>
+    </div>
+    <div style={{border:"2px solid yellow", height:"50vh"}} >      
+      <h1>HOME5</h1>
+    </div>
     </>
   )
 }
