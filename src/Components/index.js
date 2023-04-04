@@ -1,7 +1,5 @@
-import Header from "./Header";
-import Footer from "./Footer";
+import * as CommonComponents from "./CommonComponents";
+import * as MainComponents from "./MainComponents";
 import Layout from "./Layout";
-import InstantBookingBanner from "./InstantBookingBanner";
-import Zbutton from "./ZButton";
 
-export { Footer, Header, Layout, InstantBookingBanner,Zbutton };
+export { Layout, CommonComponents, MainComponents };

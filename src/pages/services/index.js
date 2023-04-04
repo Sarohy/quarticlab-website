@@ -1,10 +1,10 @@
-import { InstantBookingBanner } from "@component/Components";
+import { InstantBookingBanner } from "@component/Components/CommonComponents";
 import React from "react";
 
 function Services() {
   return (
     <div>
-      <InstantBookingBanner />
+      <InstantBookingBanner  />
     </div>
   );
 }

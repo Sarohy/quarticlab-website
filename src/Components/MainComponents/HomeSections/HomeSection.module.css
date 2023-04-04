@@ -1,0 +1,68 @@
+/* CSS HOME SECTION 1 BEGINS HERE */
+.HS1Container {
+  height: 85vh;
+  display: flex;
+}
+
+@media screen and (max-width: 900px) {
+  .HS1Container {
+    flex-direction: column;
+    justify-content: space-evenly !important;
+  }
+  .HS1ContainerLeftSide {
+    width: 100% !important;
+  }
+  .HS1ContainerRightSide {
+    width: 100% !important;
+    justify-content: center;
+  }
+  .HS1Image {
+    width: 70% !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .HS1Tag2 {
+    font-size: 2.5rem !important;
+    text-align: left !important;
+  }
+  .HS1ContainerLeftSide {
+    align-items: flex-start !important;
+    padding-left: 5% !important;
+  }
+}
+
+.HS1ContainerLeftSide {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.HS1ContainerRightSide {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.HS1Image {
+  width: 100%;
+  height: max-content;
+}
+
+.HS1Tag1 {
+  font-family: poppins;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.HS1Tag2 {
+  font-family: poppins;
+  text-align: center;
+  font-size: 4rem;
+}
+
+/* CSS HOME SECTION 1 ENDS HERE */
+/* CSS HOME SECTION 2 BEGINS HERE */
