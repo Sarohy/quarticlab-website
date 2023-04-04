@@ -1,0 +1,14 @@
+.zButton {
+  border: none;
+  border-radius: 4px;
+  font-family: poppins;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.zButton:hover {
+  box-shadow: 6px 6px black;
+}

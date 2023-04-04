@@ -149,7 +149,7 @@ function Footer() {
                             <button className={styles.emailButton} onClick={handleEmailButton} ><ArrowRightAltIcon /></button>
                         </div>
                         {!isValidEmail(email) && email !== "" &&
-                            <span className={styles.emailErrorMessage} >
+                            <span className={styles.emailErrorMessageMobile} >
                                 Invalid Email.
                             </span>
                         }

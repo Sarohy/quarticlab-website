@@ -44,12 +44,14 @@
   width: 50%;
   font-family: "Poppins";
   padding: 5px;
+  font-size: 1rem;
 }
 
 .pageLabelMobile {
   width: 50%;
   font-family: "Poppins";
   padding: 5px;
+  font-size: 1rem;
 }
 
 .pageLabel:hover {
@@ -61,7 +63,7 @@
   text-align: center;
   padding: 20px;
   font-family: poppins;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -107,12 +109,14 @@
   font-family: poppins;
   text-align: left;
   min-width: 55%;
+  font-size: 1.1rem;
 }
 
 .inputLabelMobile {
   font-family: poppins;
   text-align: center;
   min-width: 100%;
+  font-size: 1.1rem;
 }
 
 .inputField {
@@ -157,5 +161,13 @@
 .emailErrorMessage {
   color: red;
   font-family: poppins;
-  font-size: 12px;
+  font-size: 0.7rem;
+  width: 55%;
+}
+
+.emailErrorMessageMobile {
+  color: red;
+  font-family: poppins;
+  font-size: 0.7rem;
+  width: 100%;
 }

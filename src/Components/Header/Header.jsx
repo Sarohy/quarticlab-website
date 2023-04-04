@@ -9,6 +9,7 @@ import styles from "./header.module.css"
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Button } from '@mui/material';
+import Zbutton from '../ZButton';
 
 
 function Header() {
@@ -47,21 +48,26 @@ function Header() {
 
     const displayWeb = () => (
         <div className={styles.headerContainer} >
-            <Image src={ZweidevsLogo} width={150} alt="zweidevs logo" />
+            <Image src={ZweidevsLogo} width={180} alt="zweidevs logo" />
             <div className={styles.contentContainer} >
                 <div className={styles.pagesContainer} >
                     {navLinks.map(({ href, text }) => (
                         <Link
                             key={href}
                             href={href}
-                            className={route.pathname === href && styles.activePage}
-                            style={{ fontFamily: "Poppins" }}
+                            className={`${styles.pageLabel} ${route.pathname === href ? styles.activePage : ""}`}
                         >
                             {text}
                         </Link>
                     ))}
                 </div>
-                <Link href={""} className={styles.instantBookingBtn} >INSTANT BOOKING</Link>
+                <Zbutton
+                    text="INSTANT BOOKING"
+                    width="150px"
+                    color="white"
+                    backgroundColor='#ff9700'
+                    showIcon={false}
+                />
             </div>
         </div>
     )
@@ -69,7 +75,7 @@ function Header() {
     const displayMobile = () => (
         <>
             <div className={styles.headerContainer} style={mobileView && { padding: "3%" }} >
-                <Image src={ZweidevsLogo} width={150} alt="zweidevs logo" />
+                <Image src={ZweidevsLogo} width={180} alt="zweidevs logo" />
                 <Button style={{ color: "white" }} onClick={toggleDrawer} > {drawerOpen ? <CloseIcon /> : <MenuIcon />}</Button>
             </div >
             {drawerOpen &&

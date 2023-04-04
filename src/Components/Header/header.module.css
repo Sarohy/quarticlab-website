@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height:15vh;
   padding: 1.5% 2.5%;
 }
 
@@ -20,6 +21,7 @@
   width: 95%;
   text-align: center;
   font-family: roboto;
+  font-size: 1rem;
   padding: 24px 0px 24px 0px;
 }
 
@@ -38,11 +40,17 @@
 
 .instantBookingBtn {
   background-color: #ff9700;
-  font-family: Roboto;
+  font-family: poppins;
+  font-size: 1rem;
   padding: 13px;
   border-radius: 4px;
 }
 
 .activePage {
   color: #ff9700;
+}
+
+.pageLabel{
+  font-family: poppins;
+  font-size: 1rem;
 }
