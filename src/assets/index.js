@@ -1,3 +1,4 @@
-import ZweidevsLogo from "./ZweidevsLogo.svg";
+import ZweidevsLogo from "./zweidevsLogo.svg";
+import MobileBg from "./mobileBg.svg";
 
-export { ZweidevsLogo };
+export { ZweidevsLogo, MobileBg };
