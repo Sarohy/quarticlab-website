@@ -57,15 +57,144 @@
   font-family: poppins;
   font-size: 1.5rem;
   font-weight: 400;
-  color:white
+  color: white;
 }
 
 .HS1Tag2 {
   font-family: poppins;
   text-align: center;
   font-size: 4rem;
-  color:white
+  color: white;
 }
 
 /* CSS HOME SECTION 1 ENDS HERE */
 /* CSS HOME SECTION 2 BEGINS HERE */
+
+.HS2Container {
+  height: 100vh;
+  display: flex;
+  background-color: #101010;
+}
+
+.HS2ContainerLeftSide {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.HS2ContainerRightSide {
+  width: 50%;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.HS2LeftTag1 {
+  color: #ff9700;
+  font-family: poppins;
+  font-weight: 1rem;
+  width: 100%;
+}
+
+.HS2LeftTag2 {
+  color: white;
+  font-family: poppins;
+  font-size: 3.8rem;
+}
+
+.HS2StrategyContainer {
+  height: 83%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  border: 1px solid #ff9700;
+  padding: 0px 25px 0px 30px;
+  border-radius: 5px 0px 0px 5px;
+  border-right: none;
+}
+
+.HS2RightTag1Container {
+  display: flex;
+  align-items: center;
+  color: #ff9700;
+  font-family: poppins;
+  font-size: 1rem;
+}
+
+.HS2RightStrategyContent {
+  font-family: poppins;
+  font-size: 1rem;
+  color: white;
+  width: 80%;
+}
+
+.HS2RightPoints {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.HS2RightContentItem {
+  color: white;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-family: poppins;
+  font-size: 1rem;
+}
+
+.HS2ButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.HS2DiamondBullet {
+  position: absolute;
+  left: 50%;
+  width: 40;
+}
+
+@media screen and (max-width: 900px) {
+  .HS2Container {
+    flex-direction: column;
+  }
+  .HS2LeftTag2 {
+    font-size: 2rem;
+  }
+  .HS2ContainerLeftSide {
+    width: 100%;
+    height: 40vh;
+  }
+
+  .HS2ContainerRightSide {
+    width: 100%;
+    height: 58vh;
+  }
+
+  .HS2StrategyContainer {
+    height: 100%;
+    padding: 20px;
+  }
+
+  .HS2DiamondBullet {
+    left: 0.7%;
+    width: 30px;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .HS2RightStrategyContent {
+    font-size: 0.8rem;
+  }
+  .HS2RightContentItem {
+    font-size: 0.8rem;
+  }
+
+  .HS2DiamondBullet {
+    left: 1.3%;
+  }
+}

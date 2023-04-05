@@ -1,8 +1,15 @@
 import React from 'react'
 
-function HomeSection3() {
+function HomeSection3({ id }) {
   return (
-    <div style={{border:"2px solid red", height:"100vh"}}>HomeSection3</div>
+    <div id={id} style={{
+      // border: "2px solid red",
+      backgroundColor: "#FF9700",
+      height: "100vh"
+    }}
+    >
+      HomeSection3
+    </div>
   )
 }
 
