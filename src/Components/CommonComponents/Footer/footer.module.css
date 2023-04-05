@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  background-color: black;
 }
 
 .footerContentContainer {
@@ -48,6 +49,7 @@
 }
 
 .pageLabelMobile {
+  color: white;
   width: 50%;
   font-family: "Poppins";
   padding: 5px;
@@ -110,6 +112,7 @@
   text-align: left;
   min-width: 55%;
   font-size: 1.1rem;
+  color:white
 }
 
 .inputLabelMobile {
@@ -117,6 +120,7 @@
   text-align: center;
   min-width: 100%;
   font-size: 1.1rem;
+  color:white
 }
 
 .inputField {
@@ -124,6 +128,7 @@
   background-color: transparent;
   outline: none;
   height: 40px;
+  color:white
 }
 
 .inputContainer {

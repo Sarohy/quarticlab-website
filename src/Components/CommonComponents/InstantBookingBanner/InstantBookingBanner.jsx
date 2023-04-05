@@ -10,7 +10,7 @@ function InstantBookingBanner({
     return (
         <div className={styles.iBBContainer} >
             <div className={styles.iBBContentContainer}>
-                <p>{label}</p>
+                <p style={{color:"white"}} >{label}</p>
                 <Zbutton text={buttonText} onClick={buttonOnClick} />
             </div>
         </div>

@@ -2,6 +2,7 @@
 .HS1Container {
   height: 85vh;
   display: flex;
+  background-color: black;
 }
 
 @media screen and (max-width: 900px) {
@@ -56,12 +57,14 @@
   font-family: poppins;
   font-size: 1.5rem;
   font-weight: 400;
+  color:white
 }
 
 .HS1Tag2 {
   font-family: poppins;
   text-align: center;
   font-size: 4rem;
+  color:white
 }
 
 /* CSS HOME SECTION 1 ENDS HERE */

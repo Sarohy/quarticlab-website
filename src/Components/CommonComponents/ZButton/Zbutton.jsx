@@ -11,6 +11,7 @@ function Zbutton({
     padding = "0px",
     showIcon = true,
     whiteShaddow = false,
+    orangeShaddow = false,
     text,
     onClick,
 }) {
@@ -25,7 +26,7 @@ function Zbutton({
         <Button
             onClick={onClick}
             style={buttonStyle}
-            className={whiteShaddow ? styles.whiteShaddow : styles.zButton}>
+            className={whiteShaddow ? styles.whiteShaddow : orangeShaddow ? styles.orangeShaddow : styles.zButton}>
             {showIcon && <ArrowRightAltIcon />}
             <span>
                 {text}

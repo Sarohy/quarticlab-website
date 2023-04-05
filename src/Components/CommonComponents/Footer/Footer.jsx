@@ -134,7 +134,7 @@ function Footer() {
                                     key={href}
                                     href={href}
                                     className={styles.pageLabelMobile}
-                                    style={{textAlign: index % 2 === 0 ? "right" : "left"}}
+                                    style={{ textAlign: index % 2 === 0 ? "right" : "left" }}
                                 >
                                     {text}
                                 </Link>
@@ -146,7 +146,7 @@ function Footer() {
                         <span className={styles.inputLabelMobile} >LET'S WORK TOGETHER</span>
                         <div className={`${styles.inputContainerMobile} ${invalidEmail ? styles.emailError : ""}`} >
                             <input placeholder='Enter Email' className={styles.inputField} value={email} onChange={handleOnChangeEmail} />
-                            <button className={styles.emailButton} onClick={handleEmailButton} ><ArrowRightAltIcon /></button>
+                            <button className={styles.emailButton} onClick={handleEmailButton} ><ArrowRightAltIcon style={{ color: "white" }} /></button>
                         </div>
                         {!isValidEmail(email) && email !== "" &&
                             <span className={styles.emailErrorMessageMobile} >
