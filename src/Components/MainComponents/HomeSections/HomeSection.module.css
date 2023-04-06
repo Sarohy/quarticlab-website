@@ -198,3 +198,66 @@
     left: 1.3%;
   }
 }
+
+/* CSS HOME SECTION 2 ENDS HERE */
+/* CSS HOME SECTION 3 BEGINS HERE */
+
+.HS3Container {
+  background-color: #ff9700;
+  height: 100vh;
+  /* border: 2px solid blue; */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.HS3Tag1 {
+  font-family: poppins;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.HS3TopContainer {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.HS3Tag2 {
+  font-family: poppins;
+  font-size: 3rem;
+  width: 40%;
+}
+
+.HS3Carousel {
+  background-color: #fff;
+}
+
+.HS3CarouselContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.HS3ProjectDetailContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.HS3ProjectName {
+  font-family: poppins;
+  color: #ff9700;
+  font-size: 1.5rem;
+}
+
+.HS3ProjectType {
+  font-family: poppins;
+  letter-spacing: 5px;
+  color: black;
+  font-size: 1.2rem;
+}
