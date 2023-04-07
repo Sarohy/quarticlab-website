@@ -50,10 +50,11 @@
 }
 
 .activePage {
-  color: #ff9700;
+  color: #ff9700 !important;
 }
 
 .pageLabel {
   font-family: poppins;
   font-size: 1rem;
+  color:white;
 }

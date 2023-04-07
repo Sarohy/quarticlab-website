@@ -1,5 +1,5 @@
 import { InstantBookingBanner } from "@component/Components/CommonComponents";
-import { BlockchainIcon, DevopsIcon } from "@component/assets/serviceIcons";
+import { BlockchainIcon, DevopsIcon, UIUXIcon } from "@component/assets/serviceIcons";
 import {
   addProject,
   addService,
@@ -17,10 +17,10 @@ const projectDetails = {
 
 const serviceDetail = {
   serviceDescription:
-    "Blockchain is the backbone Technology of Digital CryptoCurrency BitCoin. A distributed database of records of all transactions.We have a team of Blockchain developers to make the deployment correct.",
-  serviceIcon: BlockchainIcon,
-  serviceId: 2,
-  serviceTitle: "Block Chain"
+    "The UI/UX Design brings a design-centric approach to user interface and user experience.Our team is trained to solve problems and provide innovative solutions by following an entire process of UI/UX development.",
+  serviceIcon: UIUXIcon,
+  serviceId: 3,
+  serviceTitle: "UI/UX Design"
 };
 
 function Services() {

@@ -215,6 +215,7 @@
   font-family: poppins;
   font-size: 1rem;
   font-weight: 400;
+  color: white;
 }
 
 .HS3TopContainer {
@@ -224,24 +225,29 @@
   height: 18vh;
 }
 
+.HS3Tag2Container {
+  width: 100%;
+}
+
 .HS3Tag2 {
+  color: white;
   font-family: poppins;
   font-size: 2.8rem;
-  width: 50%;
-  /* line-height: 50px; */
 }
 
 @media screen and (max-width: 1024px) {
   .HS3Tag2 {
-    width: 70%;
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 912px) {
+  .HS3Tag2 {
+    font-size: 2.5rem;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .HS3Tag2 {
-    width: 100% !important;
-  }
-
   .hidden {
     display: none !important;
   }
@@ -253,10 +259,9 @@
   }
 }
 
-
-@media screen and (max-width: 355px) {
+@media screen and (max-width: 414px) {
   .HS3Tag2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -305,5 +310,61 @@
 @media screen and (min-width: 801px) {
   .hidden_ {
     display: none !important;
+  }
+}
+
+/* CSS HOME SECTION 3 ENDS HERE */
+/* CSS HOME SECTION 4 BEGINS HERE */
+
+.HS4Container {
+  /* border: 2px solid yellowgreen; */
+  background-color: #000;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.HS4Tag1 {
+  font-family: poppins;
+  color: #ff9700;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.HS4Tag2Container {
+  width: 100%;
+  /* border: 2px solid red; */
+  /* font-weight: 400; */
+}
+
+.HS4Tag2 {
+  font-family: poppins;
+  color: white;
+  font-size: 2.5rem;
+}
+
+.HS4ServicesContainer {
+  /* border: 2px solid limegreen; */
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.HS4Button {
+  align-self: flex-end;
+}
+
+@media screen and (max-width: 912px) {
+  .HS4ServicesContainer {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .HS4Tag2 {
+    font-size: 1.5rem;
   }
 }

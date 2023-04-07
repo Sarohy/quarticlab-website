@@ -22,9 +22,12 @@ function HomeSection3({ id }) {
       id={id}
       className={styles.HS3Container}
     >
-      <h5 className={styles.HS3Tag1}>OUR WORK</h5>
+      <h1 className={styles.HS3Tag1}>OUR WORK</h1>
       <div className={styles.HS3TopContainer} >
-        <h1 className={styles.HS3Tag2} >We’ve Done Lot’s Of Awesome Projects</h1>
+        <div className={styles.HS3Tag2Container} >
+          <h1 className={styles.HS3Tag2}>We’ve Done Lot’s Of</h1>
+          <h1 className={styles.HS3Tag2}>Awesome Projects</h1>
+        </div>
         <Zbutton className={styles.hidden} text="VIEW PROJECT" color="#ff9700" backgroundColor='white' onClick={() => router.push(getProjectUrl())} />
       </div>
       <div style={{}} >
