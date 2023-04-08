@@ -1,11 +1,9 @@
-import db from '@component/firebase/firebaseConfig'
 import React, { useEffect, useState } from 'react'
-import styles from "./HomeSection.module.css"
-import ServiceCard from '@component/Components/CommonComponents/ServiceCard'
-import { Zbutton } from '@component/Components/CommonComponents'
-import { getAllServices } from '@component/firebase/firebaseRequests'
 import { useRouter } from 'next/router'
+import { Zbutton, ServiceCard } from '@component/Components/CommonComponents'
+import { getAllServices } from '@component/firebase/firebaseRequests'
 import routePaths from '@component/Constants/routePaths'
+import styles from "./HomeSection.module.css"
 
 function HomeSection4() {
   const [services, setServices] = useState([])
@@ -16,10 +14,6 @@ function HomeSection4() {
       .then(response => setServices(response))
       .catch(error => console.log("Error ==> ", error));
   }, [])
-
-  useEffect(() => {
-    console.log("services ==> ", services)
-  }, [services])
 
   return (
     <div className={styles.HS4Container}>
@@ -32,6 +26,7 @@ function HomeSection4() {
         {
           services.map(
             (service, index) => index < 2 && <ServiceCard
+              key={service + index}
               className={styles.HS4CardClass}
               icon={service.serviceIcon}
               title={service.serviceTitle}

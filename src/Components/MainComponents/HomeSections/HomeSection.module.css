@@ -18,7 +18,7 @@
     justify-content: center;
   }
   .HS1Image {
-    width: 70% !important;
+    width: 50% !important;
   }
 }
 
@@ -30,6 +30,15 @@
   .HS1ContainerLeftSide {
     align-items: flex-start !important;
     padding-left: 5% !important;
+  }
+  .HS1Image {
+    width: 70% !important;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .HS1Image {
+    width: 90% !important;
   }
 }
 
@@ -317,12 +326,12 @@
 /* CSS HOME SECTION 4 BEGINS HERE */
 
 .HS4Container {
-  /* border: 2px solid yellowgreen; */
   background-color: #000;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  gap: 20px;
   padding: 20px;
 }
 
@@ -335,8 +344,6 @@
 
 .HS4Tag2Container {
   width: 100%;
-  /* border: 2px solid red; */
-  /* font-weight: 400; */
 }
 
 .HS4Tag2 {
@@ -346,9 +353,7 @@
 }
 
 .HS4ServicesContainer {
-  /* border: 2px solid limegreen; */
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-between;
   gap: 20px;
 }
@@ -367,4 +372,45 @@
   .HS4Tag2 {
     font-size: 1.5rem;
   }
+}
+
+/* CSS HOME SECTION 4 ENDS HERE */
+/* CSS HOME SECTION 5 BEGINS HERE */
+
+.HS5Container {
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding: 20px;
+}
+
+.HS5Tag1 {
+  font-family: poppins;
+  color: #ff9700;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.HS5Tag2Container {
+  width: 100%;
+}
+
+.HS5Tag2 {
+  font-family: poppins;
+  color: white;
+  font-size: 2.5rem;
+}
+
+@media screen and (max-width: 540px) {
+  .HS5Tag2 {
+    font-size: 1.5rem;
+  }
+}
+
+.HS5ReviewCardsContainer {
+  display: flex;
+  gap: 10px;
 }

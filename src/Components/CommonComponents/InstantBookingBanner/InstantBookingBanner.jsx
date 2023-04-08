@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from "./InstantBookingBanner.module.css"
 import Zbutton from '../ZButton'
+import styles from "./InstantBookingBanner.module.css"
 
 function InstantBookingBanner({
     label = "Are you ready for meaningful results? We can help.",

@@ -29,14 +29,15 @@
 }
 
 .contentContainer {
-  width: 57%;
+  width: max-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 30px;
 }
 
 .pagesContainer {
-  width: 63.6%;
+  gap: 20px;
   display: flex;
   justify-content: space-between;
 }
@@ -56,5 +57,5 @@
 .pageLabel {
   font-family: poppins;
   font-size: 1rem;
-  color:white;
+  color: white;
 }

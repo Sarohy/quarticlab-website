@@ -112,7 +112,7 @@
   text-align: left;
   min-width: 55%;
   font-size: 1.1rem;
-  color:white
+  color: white;
 }
 
 .inputLabelMobile {
@@ -120,7 +120,7 @@
   text-align: center;
   min-width: 100%;
   font-size: 1.1rem;
-  color:white
+  color: white;
 }
 
 .inputField {
@@ -128,7 +128,7 @@
   background-color: transparent;
   outline: none;
   height: 40px;
-  color:white
+  color: white;
 }
 
 .inputContainer {

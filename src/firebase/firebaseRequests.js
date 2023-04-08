@@ -6,44 +6,39 @@ import firebaseConfig from "./firebaseConfig";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// zweidevs projects
-const collectionProjects = collection(
-  db,
-  process.env.NEXT_PUBLIC_collectionProjects
-);
-
-export const getAllProjects = async () => {
-  const projects = [];
-  const getProjects = await getDocs(collectionProjects);
-  getProjects.forEach(project => projects.push(project.data()));
-  return projects;
+// helper function to get all items of a collection
+const getAllItems = async collectionName => {
+  const items = [];
+  const collectionRef = collection(db, collectionName);
+  const querySnapshot = await getDocs(collectionRef);
+  querySnapshot.forEach(doc => items.push(doc.data()));
+  return items;
 };
 
-export const addProject = async data => {
+// helper function to add an item to a collection
+const addItem = async (collectionName, data) => {
   try {
-    return await addDoc(collectionProjects, data);
+    const collectionRef = collection(db, collectionName);
+    return await addDoc(collectionRef, data);
   } catch (error) {
-    console.log("error addProject ==> ", error);
+    console.log(`error adding ${collectionName} ==> `, error);
   }
 };
+
+// zweidevs projects
+const collectionProjects = process.env.NEXT_PUBLIC_collectionProjects;
+
+export const getAllProjects = () => getAllItems(collectionProjects);
+export const addProject = data => addItem(collectionProjects, data);
 
 // zweidevs services
-const collectionServices = collection(
-  db,
-  process.env.NEXT_PUBLIC_collectionServices
-);
+const collectionServices = process.env.NEXT_PUBLIC_collectionServices;
 
-export const getAllServices = async () => {
-  const services = [];
-  const getServices = await getDocs(collectionServices);
-  getServices.forEach(service => services.push(service.data()));
-  return services;
-};
+export const getAllServices = () => getAllItems(collectionServices);
+export const addService = data => addItem(collectionServices, data);
 
-export const addService = async data => {
-  try {
-    return await addDoc(collectionServices, data);
-  } catch (error) {
-    console.log("error addService ==> ", error);
-  }
-};
+// zweidevs reviews
+const collectionReviews = process.env.NEXT_PUBLIC_collectionReviews;
+
+export const getAllReviews = () => getAllItems(collectionReviews);
+export const addReview = data => addItem(collectionReviews, data);

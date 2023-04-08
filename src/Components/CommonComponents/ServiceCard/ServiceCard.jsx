@@ -1,7 +1,6 @@
 import React from 'react'
-import styles from "./ServiceCard.module.css"
 import Image from 'next/image'
-import { BlockchainIcon } from '@component/assets/serviceIcons'
+import styles from "./ServiceCard.module.css"
 
 function ServiceCard({ icon, title, description, onClick, className }) {
     return (

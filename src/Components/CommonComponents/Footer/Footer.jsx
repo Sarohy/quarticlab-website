@@ -51,7 +51,7 @@ function Footer() {
     (
         <>
             <div className={styles.footerContainer} >
-                <Image src={ZweidevsLogo} alt="zweidevs-logo" width={200} />
+                <Image src={ZweidevsLogo} alt="zweidevs" width={200} />
                 <div className={styles.footerContentContainer} >
                     <div className={styles.pages} >
                         {navLinks.map(({ href, text }, index) => {
@@ -108,7 +108,7 @@ function Footer() {
     (
         <>
             <div className={styles.footerContainer} >
-                <Image src={ZweidevsLogo} alt="zweidevs-logo" width={200} />
+                <Image src={ZweidevsLogo} alt="zweidevs" width={200} />
                 <div className={styles.footerContentContainerMobile} >
                     <div className={styles.socialIconContainerMobile} >
                         <a href='https://www.facebook.com/zweidevs' title="Follow us on Facebook." >
@@ -168,7 +168,6 @@ function Footer() {
                     ? null
                     :
                     mobileView ? displayMobile() : displayWeb()
-
             }
         </>
     )

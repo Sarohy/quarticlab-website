@@ -3,14 +3,13 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import navLinks from '@component/Constants/navLinks';
-import { ZweidevsLogo } from '@component/assets';
-import styles from "./header.module.css"
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Button } from '@mui/material';
 import Zbutton from '../ZButton';
-
+import navLinks from '@component/Constants/navLinks';
+import { ZweidevsLogo } from '@component/assets';
+import styles from "./header.module.css"
 
 function Header() {
     const route = useRouter();
@@ -48,7 +47,7 @@ function Header() {
 
     const displayWeb = () => (
         <div className={styles.headerContainer} >
-            <Image src={ZweidevsLogo} width={180} alt="zweidevs logo" />
+            <Image src={ZweidevsLogo} width={180} alt="zweidevs" />
             <div className={styles.contentContainer} >
                 <div className={styles.pagesContainer} >
                     {navLinks.map(({ href, text }) => (
@@ -76,7 +75,7 @@ function Header() {
     const displayMobile = () => (
         <>
             <div className={styles.headerContainer} style={mobileView && { padding: "3%" }} >
-                <Image src={ZweidevsLogo} width={180} alt="zweidevs logo" />
+                <Image src={ZweidevsLogo} width={180} alt="zweidevs" />
                 <Button style={{ color: "white" }} onClick={toggleDrawer} > {drawerOpen ? <CloseIcon /> : <MenuIcon />}</Button>
             </div >
             {drawerOpen &&
@@ -115,7 +114,6 @@ function Header() {
                     ? null
                     :
                     mobileView ? displayMobile() : displayWeb()
-
             }
         </>
 

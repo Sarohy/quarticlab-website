@@ -1,16 +1,27 @@
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import Carousel from 'react-material-ui-carousel'
-import styles from "./HomeSection.module.css"
 import { Zbutton } from '@component/Components/CommonComponents'
 import { getAllProjects } from '@component/firebase/firebaseRequests'
-import { useRouter } from 'next/router'
+import routesPaths from '@component/Constants/routePaths'
+import styles from "./HomeSection.module.css"
 
 function HomeSection3({ id }) {
   const [projects, setProjects] = useState([]);
   const [projectId, setProjectId] = useState(0);
   const router = useRouter();
 
-  const getProjectUrl = () => `/work/${projects[projectId]?.projectName?.replaceAll(" ", "_").replaceAll(".", "")}`
+  const getProjectUrl = () => `${routesPaths.work}/${projects[projectId]?.projectName?.replaceAll(" ", "_").replaceAll(".", "")}`
+
+  const viewProject = (position) => (
+    <Zbutton
+      className={position === "top" ? styles.hidden : styles.hidden_}
+      text="VIEW PROJECT"
+      color="#ff9700"
+      backgroundColor='white'
+      onClick={() => router.push(getProjectUrl())}
+    />
+  )
 
   useEffect(() => {
     getAllProjects()
@@ -28,20 +39,14 @@ function HomeSection3({ id }) {
           <h1 className={styles.HS3Tag2}>We’ve Done Lot’s Of</h1>
           <h1 className={styles.HS3Tag2}>Awesome Projects</h1>
         </div>
-        <Zbutton className={styles.hidden} text="VIEW PROJECT" color="#ff9700" backgroundColor='white' onClick={() => router.push(getProjectUrl())} />
+        {viewProject("top")}
       </div>
       <div style={{}} >
         <Carousel
           className={styles.HS3Carousel}
           navButtonsAlwaysVisible
-          next={(next, active) => {
-            setProjectId(next)
-            // console.log(`we left ${active}, and are now at ${next}`)
-          }}
-          prev={(prev, active) => {
-            setProjectId(prev)
-            // console.log(`we left ${active}, and are now at ${prev}`)
-          }}
+          next={(next) => setProjectId(next)}
+          prev={(prev) => setProjectId(prev)}
         >
           {
             projects.map((project, index) => (
@@ -58,7 +63,7 @@ function HomeSection3({ id }) {
           }
         </Carousel>
       </div>
-      <Zbutton className={styles.hidden_} text="VIEW PROJECT" color="#ff9700" backgroundColor='white' onClick={() => router.push(getProjectUrl())} />
+      {viewProject("bottom")}
     </div>
   )
 }

@@ -4,8 +4,9 @@ import FacebookIcon from "./facebookIcon.svg";
 import InstagramIcon from "./instagramIcon.svg";
 import LinkedInIcon from "./linkedInIcon.svg";
 import TwitterIcon from "./twitterIcon.svg";
-import DiamondBullet from "./diamondBulletPoint.svg"
-import HS1Image from "./homeS1Image.png"
+import DiamondBullet from "./diamondBulletPoint.svg";
+import HS1Image from "./homeS1Image.png";
+import RatingIcon from "./rating.svg";
 
 export {
   ZweidevsLogo,
@@ -15,5 +16,6 @@ export {
   LinkedInIcon,
   TwitterIcon,
   HS1Image,
-  DiamondBullet
+  DiamondBullet,
+  RatingIcon
 };

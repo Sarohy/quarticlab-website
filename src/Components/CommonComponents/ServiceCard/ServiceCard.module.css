@@ -1,11 +1,9 @@
 .serviceCardContainer {
   background-color: #fff;
-  /* max-width: 600px; */
   padding: 20px;
   display: flex;
   gap: 10px;
   min-height: 300px;
-  /* border: 2px solid red; */
 }
 
 @media screen and (max-width: 800px) {
@@ -18,17 +16,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* border: 2px solid yellow; */
 }
 
 .serviceCardTitle {
   color: black;
-  /* border: 2px solid purple; */
   display: flex;
   align-items: center;
   font-family: poppins;
   font-weight: 550;
-  /* height: fit-content; */
 }
 
 .serviceCardContent {
