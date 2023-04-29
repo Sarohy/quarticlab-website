@@ -5,6 +5,7 @@ import InstantBookingBanner from "./InstantBookingBanner";
 import Header from "./Header";
 import ReviewCard from "./ReviewCard";
 import ServiceCard from "./ServiceCard";
+import ServicesCard from "./ServicesCard";
 
 export {
   Footer,
@@ -13,5 +14,6 @@ export {
   InstantBookingBanner,
   Zbutton,
   ReviewCard,
-  ServiceCard
+  ServiceCard,
+  ServicesCard,
 };
