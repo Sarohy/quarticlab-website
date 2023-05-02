@@ -4,11 +4,11 @@
   justify-content: space-between;
   height: 15vh;
   padding: 1.5% 2.5%;
-  background-color: black;
+  background-color: white;
 }
 
 .mobileHeaderMenu {
-  background-color: black;
+  background-color: white;
   background-image: url("../../../assets/mobileBg.svg");
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@
 }
 
 .mobileHeaderMenuItem {
-  color: white;
+  color: black;
   border-bottom: 2px solid rgba(205, 208, 216, 0.5);
   width: 95%;
   text-align: center;
@@ -57,5 +57,20 @@
 .pageLabel {
   font-family: poppins;
   font-size: 1rem;
-  color: white;
+  color: black;
+}
+
+.headerLocationIcon {
+  /* position: absolute; */
+  width: 20px;
+  height: 20px;
+  left: 53px;
+  top: 24px;
+
+  /* background: url(image.png); */
+}
+
+.headerCenterRow {
+  display: flex;
+  align-items: center;
 }

@@ -1,3 +1,4 @@
+// services card logos
 import WebDevIcon from "./webdevIcon.svg";
 import BlockchainIcon from "./blockchainIcon.svg";
 import MobileDevIcon from "./MobDevIcon.svg";

@@ -121,9 +121,9 @@ function Services() {
 
   return (
     <div className="services-root">
+      <InstantBookingBanner />
       <span className="services-header"> Our Services --</span>
       <ServicesCard cardData={cardData} />
-      <InstantBookingBanner />
     </div>
   );
 }
