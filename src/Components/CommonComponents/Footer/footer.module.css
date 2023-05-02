@@ -112,7 +112,7 @@
   text-align: left;
   min-width: 55%;
   font-size: 1.1rem;
-  color: white;
+  color: black;
 }
 
 .inputLabelMobile {
@@ -128,11 +128,11 @@
   background-color: transparent;
   outline: none;
   height: 40px;
-  color: white;
+  color: black;
 }
 
 .inputContainer {
-  border: 1px solid white;
+  border: 1px solid #2b2a35;
   min-width: 55%;
   border-radius: 4px;
   display: flex;
@@ -175,4 +175,77 @@
   font-family: poppins;
   font-size: 0.7rem;
   width: 100%;
+}
+
+.footerFormInput {
+  /* padding: 10px 12px;
+  font-size: 16px; */
+}
+
+.footerLink {
+  width: 60px;
+  height: 30px;
+  left: 581px;
+  top: 4102px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  /* font-size: 20px; */
+  line-height: 150%;
+  font-size: 1rem;
+  /* identical to box height, or 30px */
+
+  /* body */
+
+  color: #596380;
+}
+
+.footerLinkHeading {
+  /* position: absolute; */
+  /* width: 125px; */
+  height: 30px;
+  left: 581px;
+  top: 4026px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height */
+
+  text-transform: capitalize;
+
+  color: #2b2a35;
+}
+
+.footerAboutZweidevs {
+  width: 360px;
+  height: 120px;
+  left: 53px;
+  top: 4110px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  /* or 30px */
+
+  /* body */
+
+  color: #596380;
+}
+
+.footerSocialIconContainer {
+  box-sizing: border-box;
+
+  /* position: absolute; */
+  width: 40.1px;
+  height: 40.1px;
+  left: 53px;
+  top: 4252px;
+
+  border: 0.756563px solid #646464;
 }
