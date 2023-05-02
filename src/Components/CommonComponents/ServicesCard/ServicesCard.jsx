@@ -37,6 +37,7 @@ const ServicesCard = (props) => {
                   className="services-icon"
                   src={element.cardIcon}
                   alt="web-dev-icon"
+                  height={"auto"}
                 />
                 <div className="services-icon-card-title">
                   <div>
@@ -96,6 +97,7 @@ const ServicesCard = (props) => {
                 className="services-icon"
                 src={element.cardIcon}
                 alt="web-dev-icon"
+                height={"auto"}
               />
               <div className="services-icon-card-title">
                 <div>
