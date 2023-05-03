@@ -13,6 +13,7 @@ import styles from "./header.module.css";
 import {
   ZweidevsLogo,
   CalanderIcon,
+  EmailIcon,
   LocationIcon,
   InstantBooking,
   PhoneContainer,
@@ -95,8 +96,8 @@ function Header() {
           <Image
             height={20}
             width={20}
-            src={LocationIcon}
-            alt={"location-icon"}
+            src={EmailIcon}
+            alt={"email-icon"}
           ></Image>
           <span style={{ paddingLeft: "11px" }}>contact@zweidevs.com</span>
           <Image src={PhoneContainer}></Image>

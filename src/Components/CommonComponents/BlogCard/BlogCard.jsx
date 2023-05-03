@@ -10,23 +10,38 @@ import { Box } from "@mui/system";
 export default function blogCard(props) {
   const { data, filter } = props;
   const [cardHeight, setCardHeight] = React.useState("auto");
-
+  const [cardTitleHeight, setCardTitleHeight] = React.useState("auto");
+  const [cardContentHeight, setCardContentHeight] = React.useState("auto");
+  const cardTitleRef = React.useRef(null);
+  const cardContentRef = React.useRef(null);
   React.useEffect(() => {
     // get all card elements
     const cards = document.querySelectorAll(".MuiCard-root");
-
+    const titleHeight = cardTitleRef.current?.clientHeight;
+    const contentHeight = cardContentRef.current?.clientHeight;
     // get the height of the tallest card
     let maxHeight = 0;
+    let maxTitleHeight = 0;
+    let maxContentHeight = 0;
+
     cards.forEach((card) => {
       const height = card.clientHeight;
       if (height > maxHeight) {
         maxHeight = height;
       }
+      if (titleHeight > maxTitleHeight) {
+        maxTitleHeight = titleHeight;
+      }
+      if (contentHeight > maxContentHeight) {
+        maxContentHeight = contentHeight;
+      }
     });
 
     // set the height of all cards to the height of the tallest card
     setCardHeight(maxHeight);
-  }, [data, filter]);
+    setCardContentHeight(maxContentHeight);
+    setCardTitleHeight(maxTitleHeight);
+  }, []);
 
   return (
     <>
@@ -41,10 +56,14 @@ export default function blogCard(props) {
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
-                    height={cardHeight}
+                    // height={cardHeight + 10}
                     //minHeight="100vh"
                   >
-                    <Card key={key} sx={{ width: 280 }}>
+                    <Card
+                      //   style={{ height: cardHeight }}
+                      key={key}
+                      sx={{ width: 280 }}
+                    >
                       <CardActionArea>
                         <CardMedia
                           component="img"
@@ -52,12 +71,27 @@ export default function blogCard(props) {
                           image={element.image}
                           alt="green iguana"
                         />
-                        <CardContent>
+                        <CardContent
+                          style={{
+                            height: cardContentHeight + cardTitleHeight,
+                          }}
+                          ref={cardContentRef}
+                        >
                           <Typography
+                            ref={cardTitleRef}
                             className={styles.blogCardContent}
                             gutterBottom
                             variant="h5"
+                            style={{
+                              marginBottom: cardTitleHeight,
+                              //   height: cardTitleHeight,
+                            }}
                             component="div"
+                            sx={{
+                              fontSize: 18,
+                              fontWeight: 600,
+                              height: 27,
+                            }}
                           >
                             {element.title}
                           </Typography>
