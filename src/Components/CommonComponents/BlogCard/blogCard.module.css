@@ -1,14 +1,14 @@
 .blogCardContent {
   /* width: 351px; */
-  height: 56px;
+  height: 60px;
   /* left: 545px;
   top: 957px; */
 
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
-  line-height: 117%;
+  font-size: 20px !important;
+  /* line-height: 117%; */
   /* or 28px */
   color: #212121;
 }

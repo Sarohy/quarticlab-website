@@ -15,6 +15,7 @@
 
 .blogRoot {
   background-color: white;
+  padding-inline: 20px;
 }
 
 .blogCardContainer {
@@ -22,5 +23,17 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: red;
+  margin-top: 20px;
+}
+
+.blogDflex {
+  justify-content: center;
+  display: flex;
+}
+
+.blogLoadMoreBtn {
+  width: 219px;
+  height: 70px;
+  margin-top: 20px;
+  cursor: pointer;
 }

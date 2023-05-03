@@ -63,6 +63,7 @@ function Header() {
           flexDiretion: "row",
           backgroundColor: "white",
           justifyContent: "space-between",
+          margin: -1,
         }}
       >
         <div
@@ -70,6 +71,8 @@ function Header() {
           style={{
             display: "flex",
             alignItems: "center",
+            paddingLeft: 35,
+            color: "black",
           }}
         >
           <Image

@@ -9,6 +9,25 @@ import { Box } from "@mui/system";
 
 export default function blogCard(props) {
   const { data, filter } = props;
+  const [cardHeight, setCardHeight] = React.useState("auto");
+
+  React.useEffect(() => {
+    // get all card elements
+    const cards = document.querySelectorAll(".MuiCard-root");
+
+    // get the height of the tallest card
+    let maxHeight = 0;
+    cards.forEach((card) => {
+      const height = card.clientHeight;
+      if (height > maxHeight) {
+        maxHeight = height;
+      }
+    });
+
+    // set the height of all cards to the height of the tallest card
+    setCardHeight(maxHeight);
+  }, [data, filter]);
+
   return (
     <>
       {" "}
@@ -22,6 +41,7 @@ export default function blogCard(props) {
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
+                    height={cardHeight}
                     //minHeight="100vh"
                   >
                     <Card key={key} sx={{ width: 280 }}>
