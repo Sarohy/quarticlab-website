@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { Grid, TextField, Button, TextareaAutosize } from "@mui/material";
+import styles from "./footer.module.css";
+import { DashIcon, DashSmIcon } from "@component/assets";
+import Image from "next/image";
+import CustomInputField from "../CustomInputField";
 
 export default function FooterForm() {
   const [isFocused, setIsFocused] = useState(false);
@@ -14,36 +18,30 @@ export default function FooterForm() {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12}>
-        We will call you right Back
+      <Grid className={styles.footerLinkHeading} item xs={12}>
+        <div>
+          We will call you right Back
+          <div>
+            <span style={{ paddingRight: 8 }}>
+              <Image src={DashSmIcon}></Image>
+            </span>
+            <span>
+              <Image src={DashIcon}></Image>
+            </span>
+          </div>
+        </div>
       </Grid>
       <Grid item xs={12}>
-        <TextField className="footerFormInput" label="Name" fullWidth />
+        <CustomInputField label={"Name"} />
       </Grid>
       <Grid item xs={6}>
-        <TextField label="Phone" fullWidth />
+        <CustomInputField label={"Phone"} />
       </Grid>
       <Grid item xs={6}>
-        <TextField label="-Select A Service-" fullWidth />
+        <CustomInputField label={"-Select A Service-"} />
       </Grid>
       <Grid item xs={12}>
-        <TextareaAutosize
-          // as={TextField}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          rowsMin={8}
-          fullWidth
-          placeholder="Message"
-          style={{
-            width: "100%",
-            border: `${isFocused ? "1px solid #89CFF0" : "1px solid #ccc"}`,
-            borderRadius: "5px",
-            padding: "20px 15px",
-            resize: "none",
-            height: 150,
-          }}
-          // sx={{}}
-        />
+        <CustomInputField multiline={true} label={"Message"} />
       </Grid>
       <Grid item>
         <Button

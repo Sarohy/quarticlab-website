@@ -1,0 +1,84 @@
+.pageBannerRoot {
+  background-color: #ff9700;
+  background-image: url("../../../assets/mobileBg.svg");
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  min-height: 275px;
+}
+
+.pageBannerTextContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+.pageBannerImageContainer {
+  position: absolute;
+  right: 0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* .iBBContentContainer {
+  width: 50%;
+  font-family: poppins;
+  font-weight: 700;
+  font-size: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+} */
+
+@media (max-width: 800px) {
+  .iBBContentContainer {
+    font-size: 2.5rem;
+  }
+}
+
+.pageBannerTitle {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 133.5%;
+  /* identical to box height, or 43px */
+
+  text-transform: capitalize;
+
+  color: #2b2a35;
+}
+
+.pageBannerHeading {
+  max-width: 950px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 128%;
+  /* identical to box height, or 46px */
+
+  text-transform: capitalize;
+
+  color: #ffffff;
+}
+
+.pageBannerDesc {
+  max-width: 500px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  /* or 30px */
+
+  color: #ffffff;
+}

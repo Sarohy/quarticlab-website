@@ -68,6 +68,9 @@ const ServicesCard = (props) => {
                         className="services-footer-image"
                         src={image}
                         alt={"node-icon"}
+                        style={{ maxWidth: 60, minHeight: 28 }}
+                        // height={20}
+                        // width={"auto"}
                       />
                     ))}
                 </div>

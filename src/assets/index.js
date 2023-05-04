@@ -7,6 +7,8 @@ import TwitterIcon from "./twitterIcon.svg";
 import DiamondBullet from "./diamondBulletPoint.svg";
 import HS1Image from "./homeS1Image.png";
 import RatingIcon from "./rating.svg";
+import DashIcon from "./dash.svg";
+import DashSmIcon from "./dashsm.svg";
 
 export {
   ZweidevsLogo,
@@ -16,6 +18,8 @@ export {
   LinkedInIcon,
   TwitterIcon,
   HS1Image,
+  DashIcon,
+  DashSmIcon,
   DiamondBullet,
-  RatingIcon
+  RatingIcon,
 };

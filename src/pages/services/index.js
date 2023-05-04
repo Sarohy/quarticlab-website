@@ -44,6 +44,7 @@ import {
 } from "@component/assets/serviceIcons";
 
 import React from "react";
+import PageBanner from "@component/Components/CommonComponents/PageBanner";
 
 function Services() {
   // Services card data
@@ -121,6 +122,7 @@ function Services() {
 
   return (
     <div className="services-root">
+      <PageBanner />
       <span className="services-header"> Our Services --</span>
       <ServicesCard cardData={cardData} />
       {/* <InstantBookingBanner /> */}

@@ -3,7 +3,9 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: white;
+  /* background-color: white; */
+
+  background: #ececec;
 }
 
 .footerContentContainer {
@@ -11,6 +13,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding-top: 50px;
 }
 
 .footerContentContainerMobile {
@@ -204,7 +207,6 @@
 .footerLinkHeading {
   /* position: absolute; */
   /* width: 125px; */
-  height: 30px;
   left: 581px;
   top: 4026px;
 
@@ -225,7 +227,7 @@
   height: 120px;
   left: 53px;
   top: 4110px;
-
+  margin-top: 20px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
@@ -236,6 +238,10 @@
   /* body */
 
   color: #596380;
+}
+
+.footerSocialContainer {
+  padding-top: 20px;
 }
 
 .footerSocialIconContainer {

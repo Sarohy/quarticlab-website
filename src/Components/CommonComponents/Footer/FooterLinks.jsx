@@ -2,13 +2,27 @@ import React from "react";
 import { Grid, Link } from "@mui/material";
 import navLinks from "@component/Constants/navLinks";
 import styles from "./footer.module.css";
+import Image from "next/image";
 
+import { DashIcon, DashSmIcon } from "@component/assets";
+import { useRouter } from "next/router";
 export default function FooterLinks() {
+  const router = useRouter();
   return (
     <Grid container style={{ height: 50 }} spacing={2}>
       <Grid item xs={12}>
         <div className={styles.footerLinkHeading}>What We Do</div>
+        <div>
+          <span style={{ paddingRight: 8 }}>
+            <Image src={DashSmIcon}></Image>
+          </span>
+          <span>
+            <Image src={DashIcon}></Image>
+          </span>
+        </div>
       </Grid>
+      {/* empty grid for margin 20 */}
+      <Grid item xs={12} style={{ marginTop: 0 }}></Grid>
       {navLinks.map(({ href, text }, index) => {
         // if (index === 0) {
         //   return null;
@@ -23,7 +37,6 @@ export default function FooterLinks() {
                 height: "30px",
                 //left: "581px",
                 //top: "4102px",
-
                 fontFamily: "Poppins",
                 fontStyle: "normal",
                 fontWeight: 400,
@@ -33,7 +46,7 @@ export default function FooterLinks() {
 
                 /* body */
 
-                color: "#596380",
+                color: router.pathname === href ? "orange" : "#596380",
               }}
               key={href}
               href={href} //className={styles.pageLabel}

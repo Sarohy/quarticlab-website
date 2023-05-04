@@ -14,6 +14,8 @@ import {
   FbLogo,
   LinkedInLogo,
   TwitterLogo,
+  CopyrightLeftLine,
+  CopyrightRightLine,
 } from "@component/assets/footerIcons";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { isValidEmail } from "@component/utils/helpers";
@@ -21,7 +23,9 @@ import navLinks from "@component/Constants/navLinks";
 import Link from "next/link";
 import { Grid } from "@mui/material";
 import FooterForm from "./FooterForm";
-import FooterLinks from "./FooterLinks";
+import FooterLinks from "./FooterLinks.jsx";
+import { DashIcon, DashSmIcon } from "@component/assets";
+import SocialMedia from "./SocialMedia";
 
 function Footer() {
   const [state, setState] = useState({
@@ -30,6 +34,30 @@ function Footer() {
     mobileView: null,
   });
   const { email, invalidEmail, mobileView } = state;
+
+  const socialMediaData = [
+    {
+      href: "https://www.facebook.com/zweidevs",
+      alt: "zweidevs facebook",
+      image: FbLogo,
+    },
+    {
+      href: "https://www.instagram.com/zweidevs.official",
+      alt: "zweidevs instagram",
+      image: InstaLogo,
+    },
+
+    {
+      href: "#",
+      alt: "zweidevs twitter",
+      image: TwitterLogo,
+    },
+    {
+      href: "https://www.linkedin.com/company/zweidevs/",
+      alt: "zweidevs linkedin",
+      image: LinkedInLogo,
+    },
+  ];
 
   const handleOnChangeEmail = (event) => {
     const { value } = event.target;
@@ -77,107 +105,90 @@ function Footer() {
               you to design and build your idea.
               `}
             </div>
-            <div className={styles.footerSocialContainer}>
-              <a href="https://www.facebook.com/zweidevs">
-                <Image
-                  src={FbLogo}
-                  alt="zweidevs facebook"
-                  style={{
-                    marginRight: 20,
-                  }}
-                  width={40}
-                  height={40}
-                />
-              </a>
-              <a href="https://www.instagram.com/zweidevs.official">
-                <Image
-                  src={InstaLogo}
-                  alt="zweidevs instagram"
-                  style={{
-                    marginRight: 20,
-                  }}
-                  width={40}
-                  height={40}
-                />
-              </a>
-              <a href="#">
-                <Image
-                  src={TwitterLogo}
-                  alt="zweidevs twitter"
-                  style={{
-                    marginRight: 20,
-                  }}
-                  width={40}
-                  height={40}
-                />
-              </a>
-              <a href="https://www.linkedin.com/company/zweidevs/">
-                <Image
-                  src={LinkedInLogo}
-                  alt="zweidevs linkedIn"
-                  style={{
-                    marginRight: 20,
-                  }}
-                  width={40}
-                  height={40}
-                />
-              </a>
-            </div>
+            <SocialMedia data={socialMediaData} />
           </div>
-          {/* <div className={styles.pages}>
-            <div>What we do</div>
-            <div>
-              <Grid
-                container
-                rowSpacing={1}
-                columnSpacing={{ xs: 1, sm: 2, md: 2, lg: 2, xl: 2 }}
-              >
-                {navLinks.map(({ href, text }, index) => {
-                  if (index === 0) {
-                    return null;
-                  }
-                  return (
-                    <Link key={href} href={href} className={styles.pageLabel}>
-                      {text}
-                    </Link>
-                  );
-                })}
-              </Grid>
-            </div>
-          </div> */}
           <FooterLinks />
           <FooterForm />
-          {/* <div className={styles.contactEmailContainer}>
-            <span className={styles.inputLabel}>
-              We Will Call You Right Back
-            </span>
-            <div
-              className={`${styles.inputContainer} ${
-                invalidEmail ? styles.emailError : ""
-              }`}
-            >
-              <input
-                placeholder="Enter Email"
-                className={styles.inputField}
-                value={email}
-                onChange={handleOnChangeEmail}
-              />
-              <button
-                className={styles.emailButton}
-                onClick={handleEmailButton}
-              >
-                <ArrowRightAltIcon />
-              </button>
-            </div>
-            {!isValidEmail(email) && email !== "" && (
-              <span className={styles.emailErrorMessage}>Invalid Email.</span>
-            )}
-          </div> */}
         </div>
+        <Grid
+          sx={{ display: { xs: "none", sm: "none", md: "none", lg: "flex" } }}
+          container
+          spacing={0}
+          style={{ marginBottom: 30, marginTop: 30 }}
+        >
+          <Grid
+            style={{
+              justifyContent: "start",
+              display: "flex",
+              paddingInline: 20,
+            }}
+            item
+            md={2}
+          >
+            <Image src={CopyrightLeftLine}></Image>
+          </Grid>
+
+          <Grid
+            style={{ justifyContent: "center", display: "flex" }}
+            item
+            //xs={8}
+            md={8}
+          >
+            © 2023 Zweidevs. All Rights Reserved.
+          </Grid>
+
+          <Grid style={{ justifyContent: "end", display: "flex" }} item md={2}>
+            <Image src={CopyrightRightLine}></Image>
+          </Grid>
+        </Grid>
+
+        {/* mobile view */}
+        <Grid
+          sx={{
+            display: {
+              xs: "flex",
+              sm: "flex",
+              md: "flex",
+              lg: "none",
+              xl: "none",
+            },
+          }}
+          container
+          spacing={0}
+          style={{ marginBottom: 30, marginTop: 30 }}
+        >
+          <Grid
+            style={{
+              justifyContent: "start",
+              display: "flex",
+              paddingInline: 20,
+            }}
+            item
+            xs={1}
+          >
+            <Image
+              style={{ objectFit: "contain", maxWidth: 200 }}
+              src={CopyrightLeftLine}
+            ></Image>
+          </Grid>
+
+          <Grid
+            style={{ justifyContent: "center", display: "flex" }}
+            item
+            //xs={8}
+            md={10}
+          >
+            © 2023 Zweidevs. All Rights Reserved.
+          </Grid>
+
+          <Grid style={{ justifyContent: "end", display: "flex" }} item xs={1}>
+            <Image
+              style={{ objectFit: "contain", maxWidth: 200 }}
+              src={CopyrightRightLine}
+            ></Image>
+          </Grid>
+        </Grid>
       </div>
-      <footer className={styles.footerTextContainer}>
-        <span>© 2023 Zweidevs. All Rights Reserved by Zweidevs</span>
-      </footer>
     </>
   );
 
@@ -254,9 +265,52 @@ function Footer() {
           </div>
         </div>
       </div>
-      <footer className={styles.footerTextContainer}>
-        <span>© 2023 Zweidevs. All Rights Reserved by Zweidevs</span>
-      </footer>
+      {/* mobile view */}
+      {/* <Grid
+        sx={{
+          display: {
+            xs: "flex",
+            sm: "flex",
+            md: "flex",
+            lg: "none",
+            xl: "none",
+          },
+        }}
+        container
+        spacing={0}
+        style={{ marginBottom: 30, marginTop: 30 }}
+      >
+        <Grid
+          style={{
+            justifyContent: "start",
+            display: "flex",
+            paddingInline: 20,
+          }}
+          item
+          xs={1}
+        >
+          <Image
+            style={{ objectFit: "contain", maxWidth: 200 }}
+            src={CopyrightLeftLine}
+          ></Image>
+        </Grid>
+
+        <Grid
+          style={{ justifyContent: "center", display: "flex" }}
+          item
+          //xs={8}
+          md={10}
+        >
+          © 2023 Zweidevs. All Rights Reserved.
+        </Grid>
+
+        <Grid style={{ justifyContent: "end", display: "flex" }} item xs={1}>
+          <Image
+            style={{ objectFit: "contain", maxWidth: 200 }}
+            src={CopyrightRightLine}
+          ></Image>
+        </Grid>
+      </Grid> */}
     </>
   );
   return (

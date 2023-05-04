@@ -1,5 +1,7 @@
 import LoadMoreBtnSvg from "@component/assets/blogIcons";
+import { InstantBookingBanner } from "@component/Components/CommonComponents";
 import BlogCard from "@component/Components/CommonComponents/BlogCard";
+import PageBanner from "@component/Components/CommonComponents/PageBanner";
 import SmallButton from "@component/Components/CommonComponents/SmallButton";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -59,27 +61,43 @@ const Blog = () => {
     },
   ];
   return (
-    <div className={styles.blogRoot}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <div className={styles.blogArticleHeading}>Latest Article</div>
-        <SmallButton
-          setFilter={setFilter}
-          smallButtonsData={smallButtonsData}
-        />
+    <div>
+      <PageBanner />
+      <div className={styles.blogRoot}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <div className={styles.blogArticleHeading}>Latest Article</div>
+          <SmallButton
+            setFilter={setFilter}
+            smallButtonsData={smallButtonsData}
+          />
+        </div>
+        <div className={styles.blogCardContainer}>
+          <BlogCard filter={filter} data={blogData} />
+        </div>
+        <div className={styles.blogDflex}>
+          <Image className={styles.blogLoadMoreBtn} src={LoadMoreBtnSvg} />
+        </div>
       </div>
-      <div className={styles.blogCardContainer}>
-        <BlogCard filter={filter} data={blogData} />
-      </div>
-      <div className={styles.blogDflex}>
-        <Image className={styles.blogLoadMoreBtn} src={LoadMoreBtnSvg} />
-      </div>
+
+      <InstantBookingBanner
+        label={"Not FInding the RIght Fit? Stay Connected"}
+      />
     </div>
   );
 };
 
 export default Blog;
+
+export async function getStaticProps() {
+  //const { events_categories } = await import('/data/data.json');
+  return {
+    props: {
+      data: [{ image: "jdfksjfsk" }],
+    },
+  };
+}

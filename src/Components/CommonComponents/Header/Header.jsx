@@ -100,8 +100,8 @@ function Header() {
             alt={"email-icon"}
           ></Image>
           <span style={{ paddingLeft: "11px" }}>contact@zweidevs.com</span>
-          <Image src={PhoneContainer}></Image>
-          <Image src={InstantBooking}></Image>
+          <Image src={PhoneContainer} alt="phone"></Image>
+          <Image src={InstantBooking} alt="instant-booking"></Image>
         </div>
       </div>
       <hr style={{ border: "1px solid #E5E5E5" }}></hr>
