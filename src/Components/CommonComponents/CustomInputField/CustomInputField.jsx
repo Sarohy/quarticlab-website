@@ -20,7 +20,7 @@ export const CustomInputField = (props) => {
       className="footerFormInput"
       label={label ? label : "Name"}
       fullWidth
-      minRows={8}
+      minRows={4}
       sx={{
         "& .MuiOutlinedInput-root": {
           "&.Mui-focused fieldset": {

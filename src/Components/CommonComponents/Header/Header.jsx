@@ -91,6 +91,8 @@ function Header() {
           style={{
             display: "flex",
             alignItems: "center",
+            // paddingLeft: 35,
+            color: "black",
           }}
         >
           <Image

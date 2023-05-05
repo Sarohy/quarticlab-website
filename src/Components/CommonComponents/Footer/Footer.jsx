@@ -24,7 +24,6 @@ import Link from "next/link";
 import { Grid } from "@mui/material";
 import FooterForm from "./FooterForm";
 import FooterLinks from "./FooterLinks.jsx";
-import { DashIcon, DashSmIcon } from "@component/assets";
 import SocialMedia from "./SocialMedia";
 
 function Footer() {
@@ -254,7 +253,7 @@ function Footer() {
                 className={styles.emailButton}
                 onClick={handleEmailButton}
               >
-                <ArrowRightAltIcon style={{ color: "white" }} />
+                <ArrowRightAltIcon style={{ color: "#2b2a35" }} />
               </button>
             </div>
             {!isValidEmail(email) && email !== "" && (
