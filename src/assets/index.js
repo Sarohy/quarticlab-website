@@ -9,6 +9,7 @@ import HS1Image from "./homeS1Image.png";
 import RatingIcon from "./rating.svg";
 import DashIcon from "./dash.svg";
 import DashSmIcon from "./dashsm.svg";
+import DashGroupIcon from "./dashGroup.svg";
 
 export {
   ZweidevsLogo,
@@ -22,4 +23,5 @@ export {
   DashSmIcon,
   DiamondBullet,
   RatingIcon,
+  DashGroupIcon,
 };

@@ -48,7 +48,7 @@ import {
 import React from "react";
 import PageBanner from "@component/Components/CommonComponents/PageBanner";
 import Image from "next/image";
-import { DashIcon, DashSmIcon } from "@component/assets";
+import { DashIcon, DashSmIcon, DashGroupIcon } from "@component/assets";
 
 function Services() {
   // Services card data
@@ -128,25 +128,13 @@ function Services() {
     <div className="services-root">
       <PageBanner />
       <div className="servicesHeaderContainer">
-        <span className="services-header"> Our Services </span>
+        <span className="services-header">Our Services</span>
+        <Image
+          style={{ paddingLeft: 8 }}
+          src={DashGroupIcon}
+          alt={"dash-icon"}
+        />
       </div>
-      <span
-        style={{
-          backgroundColor: "red",
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "row",
-        }}
-      >
-        {/* <span
-            style={{
-              paddingRight: 8,
-            }}
-          > */}
-        <Image src={DashSmIcon}></Image>
-
-        <Image src={DashIcon}></Image>
-      </span>
       <ServicesCard cardData={cardData} />
       {/* <InstantBookingBanner /> */}
     </div>

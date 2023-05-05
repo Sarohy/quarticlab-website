@@ -82,7 +82,9 @@ function Header() {
             src={LocationIcon}
             alt={"location-icon"}
           ></Image>
-          <span style={{ paddingLeft: "11px" }}>
+          <span
+            style={{ paddingLeft: "11px", fontFamily: "Poppins", fontSize: 16 }}
+          >
             6-B phase 1 Johar Town Lahore
           </span>
         </div>
@@ -101,7 +103,11 @@ function Header() {
             src={EmailIcon}
             alt={"email-icon"}
           ></Image>
-          <span style={{ paddingLeft: "11px" }}>contact@zweidevs.com</span>
+          <span
+            style={{ paddingLeft: "11px", fontFamily: "Poppins", fontSize: 16 }}
+          >
+            contact@zweidevs.com
+          </span>
           <Image src={PhoneContainer} alt="phone"></Image>
           <Image src={InstantBooking} alt="instant-booking"></Image>
         </div>

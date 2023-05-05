@@ -95,17 +95,17 @@ const ServicesCard = (props) => {
             </Box>
 
             <div className="services-card-details-container">
-              <span className="services-card-details-header">
+              <span className={styles.servicesCardDetailsHeader}>
                 {element.cardTitle}
               </span>
-              <div className="services-card-details">
+              <div className={styles.servicesCardDetails}>
                 {element.cardDetails}{" "}
               </div>
-              <div className="services-card-footer-container">
-                <span className="services-card-footer-header">
+              <div className={styles.servicesCardFooterContainer}>
+                <span className={styles.servicesCardFooterHeader}>
                   {element.footerTitle}:
                 </span>
-                <div className="services-footer-images-container">
+                <div className={styles.servicesFooterImagesContainer}>
                   {element.footerImages &&
                     element.footerImages.map((image, key) => (
                       <Image
@@ -113,7 +113,7 @@ const ServicesCard = (props) => {
                         className="services-footer-image"
                         src={image}
                         alt={"node-icon"}
-                        style={{ maxWidth: 60, minHeight: 28 }}
+                        style={{ width: "auto", height: 42 }}
                         // height={20}
                         // width={"auto"}
                       />

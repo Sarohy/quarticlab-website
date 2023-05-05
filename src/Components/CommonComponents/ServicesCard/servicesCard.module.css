@@ -125,7 +125,7 @@
   display: flex;
 }
 
-.services-card-details-header {
+.servicesCardDetailsHeader {
   width: 312px;
   height: 0px;
   /* left: 506px;
@@ -141,13 +141,13 @@
   color: #2b2a35;
 }
 
-.services-card-details {
+.servicesCardDetails {
   /* width: 811px; */
   max-width: 811px;
   /* height: 96px; */
   /* left: 506px;
     top: 828px; */
-
+  margin-top: 10px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
@@ -160,11 +160,11 @@
   color: #494949;
 }
 
-.services-card-footer-container {
-  margin-top: 20px;
+.servicesCardFooterContainer {
+  margin-top: 10px;
 }
 
-.services-card-footer-header {
+.servicesCardFooterHeader {
   width: 218px;
   height: 30px;
   left: 506px;
@@ -177,6 +177,10 @@
   /* identical to box height, or 30px */
 
   color: #ff9700;
+}
+
+.servicesFooterImagesContainer {
+  margin-top: 10px;
 }
 
 .services-footer-image {
