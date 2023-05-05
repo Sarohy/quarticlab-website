@@ -3,6 +3,8 @@ import {
   ServicesCard,
 } from "@component/Components/CommonComponents";
 
+import "animate.css";
+
 import {
   BlockchainIcon,
   MobileDevIcon,

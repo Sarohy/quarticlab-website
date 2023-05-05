@@ -1,9 +1,49 @@
 import { Box } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
+import styles from "./servicesCard.module.css";
 
 const ServicesCard = (props) => {
   const { cardData } = props;
+
+  const animatedDivRefs = Array.from({ length: cardData.length }, () =>
+    React.useRef(null)
+  );
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Code to handle animation
+            entry.target.classList.remove("hidden");
+            entry.target.classList.add(
+              // "animate__animated",
+              // "animate__bounceIn"
+              // "animate__animated",
+              "animate__backInRight"
+              // "animate__delay-1s"
+            );
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5,
+      }
+    );
+
+    animatedDivRefs.forEach((ref) => {
+      observer.observe(ref.current);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <>
       <Box
@@ -19,7 +59,12 @@ const ServicesCard = (props) => {
         }}
       >
         {cardData.map((element, key) => (
-          <div key={key} className="services-card-container">
+          <div
+            ref={animatedDivRefs[key]}
+            key={key}
+            // className="services-card-container animate__animated animate__backInRight animate__delay-1s"
+            className={`${styles.hidden} services-card-container animate__animated`}
+          >
             <Box
               sx={{
                 display: {

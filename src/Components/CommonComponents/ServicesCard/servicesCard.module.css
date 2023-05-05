@@ -187,3 +187,7 @@
   margin-right: 18px;
   /* background: url(image.png); */
 }
+
+.hidden {
+  opacity: 0;
+}
