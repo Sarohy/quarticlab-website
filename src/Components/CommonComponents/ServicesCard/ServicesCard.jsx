@@ -10,21 +10,111 @@ const ServicesCard = (props) => {
     React.useRef(null)
   );
 
+  const animatedNestedCardDivRefs = Array.from(
+    { length: cardData.length },
+    () => React.useRef(null)
+  );
+
+  // const animatedCardDetailsDivRefs = Array.from(
+  //   { length: cardData.length },
+  //   () => React.useRef(null)
+  // );
+
+  const animatedCardDetailsDivRefs = cardData.map((element, i) => {
+    return element.footerImages.map((image, k) => {
+      return React.useRef(null);
+    });
+  });
+
+  console.log(animatedCardDetailsDivRefs);
+
+  // const animatedCardDetailsDivRefs = Array.from(
+  //   { length: cardData.length },
+  //   () => React.useRef(Array.from({ length: cardData.footerImages.length }))
+  // );
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            const target = entry.target;
+
             // Code to handle animation
-            entry.target.classList.remove("hidden");
-            entry.target.classList.add(
-              // "animate__animated",
-              // "animate__bounceIn"
-              // "animate__animated",
-              "animate__backInRight"
+            // target.classList.remove("hidden");
+            target.style.opacity = 1;
+            target.classList.add(
+              "animate__backInUp"
               // "animate__delay-1s"
             );
-            observer.unobserve(entry.target);
+            target.addEventListener(
+              "animationend",
+              (e) => {
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                animatedNestedCardDivRefs.forEach((ref) => {
+                  observer2.observe(ref.current);
+                });
+              },
+              { once: true }
+            ); // Remove the event listener after it's triggered
+
+            observer.unobserve(target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5,
+      }
+    );
+
+    const observer2 = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target;
+
+            //target.classList.remove("hiddenNestedCard");
+            target.style.opacity = 1;
+            target.classList.add("animate__zoomIn", "animate__delay-1s");
+
+            target.addEventListener(
+              "animationend",
+              (e) => {
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+
+                animatedCardDetailsDivRefs.forEach((i) => {
+                  i.forEach((j) => {
+                    observer3.observe(j.current);
+                  });
+                });
+              },
+              { once: true }
+            ); // Remove the event listener after it's triggered
+
+            observer2.unobserve(target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5,
+      }
+    );
+
+    const observer3 = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, key) => {
+          if (entry.isIntersecting) {
+            const target = entry.target;
+            target.classList.add("animate__tada", "animate__delay-1s");
+            target.style.opacity = 1;
+
+            observer3.unobserve(target);
           }
         });
       },
@@ -77,7 +167,10 @@ const ServicesCard = (props) => {
                 },
               }}
             >
-              <div className="services-icon-card-container">
+              <div
+                ref={animatedNestedCardDivRefs[key]}
+                className={`${styles.hiddenNestedCard} animate__animated services-icon-card-container`}
+              >
                 <Image
                   className="services-icon"
                   src={element.cardIcon}
@@ -94,7 +187,10 @@ const ServicesCard = (props) => {
               </div>
             </Box>
 
-            <div className="services-card-details-container">
+            <div
+              className={`services-card-details-container`}
+              //style={{ display: "none" }}
+            >
               <span className={styles.servicesCardDetailsHeader}>
                 {element.cardTitle}
               </span>
@@ -107,13 +203,14 @@ const ServicesCard = (props) => {
                 </span>
                 <div className={styles.servicesFooterImagesContainer}>
                   {element.footerImages &&
-                    element.footerImages.map((image, key) => (
+                    element.footerImages.map((image, imgkey) => (
                       <Image
-                        key={key}
-                        className="services-footer-image"
+                        key={imgkey}
+                        ref={animatedCardDetailsDivRefs[key][imgkey]}
+                        className={`${styles.hiddenCardDetailss} animate__animated services-footer-image`}
                         src={image}
                         alt={"node-icon"}
-                        style={{ width: "auto", height: 42 }}
+                        style={{ width: "auto", height: 31 }}
                         // height={20}
                         // width={"auto"}
                       />
@@ -139,7 +236,7 @@ const ServicesCard = (props) => {
         }}
       >
         {cardData.map((element, key) => (
-          <Box>
+          <Box key={key}>
             <div className="services-icon-card-container-mobile">
               <Image
                 className="services-icon"

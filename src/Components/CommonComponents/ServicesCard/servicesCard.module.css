@@ -181,6 +181,10 @@
 
 .servicesFooterImagesContainer {
   margin-top: 10px;
+  /* border: 2px solid red !important;
+  display: flex;
+  align-items: center; */
+  /* justify-content: space-evenly; */
 }
 
 .services-footer-image {
@@ -193,5 +197,15 @@
 }
 
 .hidden {
+  opacity: 0;
+}
+
+.hiddenNestedCard {
+  /* opacity: 0; */
+  opacity: 0;
+  /* display: none; */
+}
+
+.hiddenCardDetails {
   opacity: 0;
 }

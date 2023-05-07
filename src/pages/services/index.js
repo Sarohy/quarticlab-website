@@ -129,6 +129,7 @@ function Services() {
       <PageBanner />
       <div className="servicesHeaderContainer">
         <span className="services-header">Our Services</span>
+
         <Image
           style={{ paddingLeft: 8 }}
           src={DashGroupIcon}
