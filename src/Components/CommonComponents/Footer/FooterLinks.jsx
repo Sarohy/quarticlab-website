@@ -14,10 +14,10 @@ export default function FooterLinks() {
         <div className={styles.footerLinkHeading}>What We Do</div>
         <div>
           <span style={{ paddingRight: 8 }}>
-            <Image src={DashSmIcon}></Image>
+            <Image src={DashSmIcon} alt="dash-icon"></Image>
           </span>
           <span>
-            <Image src={DashIcon}></Image>
+            <Image src={DashIcon} alt="dash-icon"></Image>
           </span>
         </div>
       </Grid>
@@ -28,7 +28,7 @@ export default function FooterLinks() {
         //   return null;
         // }
         return (
-          <Grid item xs={6}>
+          <Grid key={index} item xs={6}>
             <Link
               underline="none"
               className="footerLink"

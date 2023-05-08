@@ -52,12 +52,12 @@
   color: #2b2a35;
 }
 
-.services-icon-card-container {
+.servicesIconCardContainer {
   box-sizing: border-box;
-
   /* position: absolute; */
   /* width: 363px; */
   width: 300px;
+  min-height: 250px;
   /* height: 290px; */
   /* left: 78px; */
   /* top: 765px; */

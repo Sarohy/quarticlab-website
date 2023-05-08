@@ -38,3 +38,20 @@
   margin-top: 20px;
   cursor: pointer;
 }
+
+.blogDetails {
+  /* width: 576px;
+  height: 37px;
+  left: 55px;
+  top: 1434px; */
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  margin-top: 20px;
+  /* line-height: 117%; */
+  /* or 37px */
+
+  color: #2b2a35;
+}

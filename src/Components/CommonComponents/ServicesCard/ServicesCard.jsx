@@ -169,7 +169,7 @@ const ServicesCard = (props) => {
             >
               <div
                 ref={animatedNestedCardDivRefs[key]}
-                className={`${styles.hiddenNestedCard} animate__animated services-icon-card-container`}
+                className={`${styles.hiddenNestedCard} animate__animated ${styles.servicesIconCardContainer}`}
               >
                 <Image
                   className="services-icon"

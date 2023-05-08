@@ -16,7 +16,7 @@ function InstantBookingBanner(props) {
         </div>
       </div>
       <div className={styles.pageBannerImageContainer}>
-        <Image height={250} src={DiamondSvg} />
+        <Image height={250} src={DiamondSvg} alt={"diamondSvg"} />
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const SocialMedia = (props) => {
             <Image
               src={element.image}
               color={"red"}
-              alt={element.alt}
+              alt={element.alt || "social-meida-image"}
               onFocus={() => {
                 setIsFocused(key);
                 console.log(isFocused);

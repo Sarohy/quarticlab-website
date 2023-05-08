@@ -4,13 +4,13 @@ import BlogCard from "@component/Components/CommonComponents/BlogCard";
 import PageBanner from "@component/Components/CommonComponents/PageBanner";
 import SmallButton from "@component/Components/CommonComponents/SmallButton";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./blog.module.css";
 
 const Blog = () => {
   const smallButtonsData = ["All", "Marketing", "Technology", "Grow"];
   const [filter, setFilter] = useState("All");
-  const blogData = [
+  const blogDataAPI = [
     {
       image:
         "https://c0.wallpaperflare.com/preview/738/172/52/man-standing-on-edge-of-cliff.jpg",
@@ -60,6 +60,37 @@ const Blog = () => {
       category: "Marketing",
     },
   ];
+  const [blogData, setBlogData] = useState([]);
+  const [startIndex, setStartIndex] = useState(0);
+  let renderCount = 0;
+  useEffect(() => {
+    const fetchBlogData = async () => {
+      try {
+        // const response = await axios.post(
+        //   `http://www.zweidev.com/api/?cursor=${startIndex}&count=${10}`
+        // );
+        const data = blogDataAPI; //response.data;
+        // transform data to the required format
+        const formattedData = data.map((blog) => ({
+          image: blog.image,
+          title: blog.title,
+          description: blog.description,
+          category: blog.category,
+        }));
+        setBlogData((prevData) => [...prevData, ...formattedData]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    // to avoid double rendering problem at initial render
+    if (renderCount !== 1) fetchBlogData();
+    renderCount++;
+  }, [startIndex]);
+
+  const loadMoreHandler = () => {
+    setStartIndex((prevIndex) => prevIndex + 10);
+  };
+
   return (
     <div>
       <PageBanner />
@@ -80,7 +111,12 @@ const Blog = () => {
           <BlogCard filter={filter} data={blogData} />
         </div>
         <div className={styles.blogDflex}>
-          <Image className={styles.blogLoadMoreBtn} src={LoadMoreBtnSvg} />
+          <Image
+            onClick={loadMoreHandler}
+            className={styles.blogLoadMoreBtn}
+            src={LoadMoreBtnSvg}
+            alt="load-more-button"
+          />
         </div>
       </div>
 

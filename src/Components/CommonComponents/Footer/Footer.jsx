@@ -124,7 +124,7 @@ function Footer() {
             item
             md={2}
           >
-            <Image src={CopyrightLeftLine}></Image>
+            <Image src={CopyrightLeftLine} alt={"copy-right-left-line"}></Image>
           </Grid>
 
           <Grid
@@ -137,7 +137,10 @@ function Footer() {
           </Grid>
 
           <Grid style={{ justifyContent: "end", display: "flex" }} item md={2}>
-            <Image src={CopyrightRightLine}></Image>
+            <Image
+              src={CopyrightRightLine}
+              alt={"copyright-right-line"}
+            ></Image>
           </Grid>
         </Grid>
 
@@ -168,6 +171,7 @@ function Footer() {
             <Image
               style={{ objectFit: "contain", maxWidth: 200 }}
               src={CopyrightLeftLine}
+              alt={"copy-right-left-line"}
             ></Image>
           </Grid>
 
@@ -184,6 +188,7 @@ function Footer() {
             <Image
               style={{ objectFit: "contain", maxWidth: 200 }}
               src={CopyrightRightLine}
+              alt={"copyright-right-line"}
             ></Image>
           </Grid>
         </Grid>

@@ -23,10 +23,10 @@ export default function FooterForm() {
           We will call you right Back
           <div>
             <span style={{ paddingRight: 8 }}>
-              <Image src={DashSmIcon}></Image>
+              <Image src={DashSmIcon} alt={"dashicon"}></Image>
             </span>
             <span>
-              <Image src={DashIcon}></Image>
+              <Image src={DashIcon} alt={"dashicon"}></Image>
             </span>
           </div>
         </div>
