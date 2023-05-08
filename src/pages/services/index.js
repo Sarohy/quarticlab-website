@@ -3,6 +3,8 @@ import {
   ServicesCard,
 } from "@component/Components/CommonComponents";
 
+import "animate.css";
+
 import {
   BlockchainIcon,
   MobileDevIcon,
@@ -44,6 +46,9 @@ import {
 } from "@component/assets/serviceIcons";
 
 import React from "react";
+import PageBanner from "@component/Components/CommonComponents/PageBanner";
+import Image from "next/image";
+import { DashIcon, DashSmIcon, DashGroupIcon } from "@component/assets";
 
 function Services() {
   // Services card data
@@ -121,9 +126,24 @@ function Services() {
 
   return (
     <div className="services-root">
-      <InstantBookingBanner />
-      <span className="services-header"> Our Services --</span>
+      <PageBanner
+        title={"Services"}
+        heading={"Everything your business needs under one roof"}
+        description={
+          "Through creative ideas, invention, and determination, Zweidevs speaks to facilitate your marketing journey Using advanced technology."
+        }
+      />
+      <div className="servicesHeaderContainer">
+        <span className="services-header">Our Services</span>
+
+        <Image
+          style={{ paddingLeft: 8 }}
+          src={DashGroupIcon}
+          alt={"dash-icon"}
+        />
+      </div>
       <ServicesCard cardData={cardData} />
+      {/* <InstantBookingBanner /> */}
     </div>
   );
 }

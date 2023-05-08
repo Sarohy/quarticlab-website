@@ -1,176 +1,327 @@
-import React, { useEffect, useState } from 'react'
-import styles from "./footer.module.css"
-import Image from 'next/image'
-import { ZweidevsLogo, FacebookIcon, InstagramIcon, LinkedInIcon, TwitterIcon } from '@component/assets'
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import { isValidEmail } from '@component/utils/helpers';
-import navLinks from '@component/Constants/navLinks';
-import Link from 'next/link';
+import React, { useEffect, useState } from "react";
+import styles from "./footer.module.css";
+import Image from "next/image";
+// import {
+//ZweidevsLogo,
+//   FacebookIcon,
+//   InstagramIcon,
+//   LinkedInIcon,
+//   TwitterIcon,
+// } from "@component/assets";
+import {
+  ZweidevsLogo,
+  InstaLogo,
+  FbLogo,
+  LinkedInLogo,
+  TwitterLogo,
+  CopyrightLeftLine,
+  CopyrightRightLine,
+} from "@component/assets/footerIcons";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import { isValidEmail } from "@component/utils/helpers";
+import navLinks from "@component/Constants/navLinks";
+import Link from "next/link";
+import { Grid } from "@mui/material";
+import FooterForm from "./FooterForm";
+import FooterLinks from "./FooterLinks.jsx";
+import SocialMedia from "./SocialMedia";
 
 function Footer() {
-    const [state, setState] = useState({
-        email: "",
-        invalidEmail: false,
-        mobileView: null
-    })
-    const { email, invalidEmail, mobileView } = state;
+  const [state, setState] = useState({
+    email: "",
+    invalidEmail: false,
+    mobileView: null,
+  });
+  const { email, invalidEmail, mobileView } = state;
 
-    const handleOnChangeEmail = (event) => {
-        const { value } = event.target
-        setState((prevState) => ({ ...prevState, email: value }))
+  const socialMediaData = [
+    {
+      href: "https://www.facebook.com/zweidevs",
+      alt: "zweidevs facebook",
+      image: FbLogo,
+    },
+    {
+      href: "https://www.instagram.com/zweidevs.official",
+      alt: "zweidevs instagram",
+      image: InstaLogo,
+    },
+
+    {
+      href: "#",
+      alt: "zweidevs twitter",
+      image: TwitterLogo,
+    },
+    {
+      href: "https://www.linkedin.com/company/zweidevs/",
+      alt: "zweidevs linkedin",
+      image: LinkedInLogo,
+    },
+  ];
+
+  const handleOnChangeEmail = (event) => {
+    const { value } = event.target;
+    setState((prevState) => ({ ...prevState, email: value }));
+  };
+
+  const handleEmailButton = () => {
+    if (isValidEmail(email) && email !== "") {
+      alert(`Email : ${email}`);
+    } else {
+      alert("Email not valid");
     }
+  };
 
-    const handleEmailButton = () => {
-        if (isValidEmail(email) && email !== "") {
-            alert(`Email : ${email}`)
-        } else {
-            alert("Email not valid")
-        }
-    }
+  useEffect(() => {
+    isValidEmail(email) || email === ""
+      ? setState({ ...state, invalidEmail: false })
+      : setState({ ...state, invalidEmail: true });
+  }, [email]);
 
-    useEffect(() => {
-        isValidEmail(email) || email === ""
-            ? setState({ ...state, invalidEmail: false })
-            : setState({ ...state, invalidEmail: true })
-    }, [email])
+  useEffect(() => {
+    const setResponsiveness = () => {
+      return window.innerWidth < 900
+        ? setState((prevState) => ({ ...prevState, mobileView: true }))
+        : setState((prevState) => ({ ...prevState, mobileView: false }));
+    };
+    setResponsiveness();
+    window.addEventListener("resize", () => setResponsiveness());
+    return () => {
+      window.removeEventListener("resize", () => setResponsiveness());
+    };
+  }, []);
 
-    useEffect(() => {
-        const setResponsiveness = () => {
-            return window.innerWidth < 900
-                ? setState((prevState) => ({ ...prevState, mobileView: true }))
-                : setState((prevState) => ({ ...prevState, mobileView: false }));
-        };
-        setResponsiveness();
-        window.addEventListener("resize", () => setResponsiveness());
-        return () => {
-            window.removeEventListener("resize", () => setResponsiveness());
-        };
-    }, []);
-
-    const displayWeb = () =>
-    (
-        <>
-            <div className={styles.footerContainer} >
-                <Image src={ZweidevsLogo} alt="zweidevs" width={200} />
-                <div className={styles.footerContentContainer} >
-                    <div className={styles.pages} >
-                        {navLinks.map(({ href, text }, index) => {
-                            if (index === 0) {
-                                return null;
-                            }
-                            return (
-                                <Link
-                                    key={href}
-                                    href={href}
-                                    className={styles.pageLabel}
-                                >
-                                    {text}
-                                </Link>
-                            );
-                        })}
-
-                    </div>
-                    <div className={styles.socialIconContainer} >
-                        <a href='https://www.facebook.com/zweidevs'>
-                            <Image src={FacebookIcon} alt="zweidevs facebook" width={30} />
-                        </a>
-                        <a href='https://www.instagram.com/zweidevs.official'>
-                            <Image src={InstagramIcon} alt="zweidevs instagram" width={30} />
-                        </a>
-                        <a href='#'>
-                            <Image src={TwitterIcon} alt="zweidevs twitter" width={30} />
-                        </a>
-                        <a href='https://www.linkedin.com/company/zweidevs/'>
-                            <Image src={LinkedInIcon} alt="zweidevs linkedIn" width={30} />
-                        </a>
-                    </div>
-                    <div className={styles.contactEmailContainer} >
-                        <span className={styles.inputLabel} >LET'S WORK TOGETHER</span>
-                        <div className={`${styles.inputContainer} ${invalidEmail ? styles.emailError : ""}`} >
-                            <input placeholder='Enter Email' className={styles.inputField} value={email} onChange={handleOnChangeEmail} />
-                            <button className={styles.emailButton} onClick={handleEmailButton} ><ArrowRightAltIcon /></button>
-                        </div>
-                        {!isValidEmail(email) && email !== "" &&
-                            <span className={styles.emailErrorMessage} >
-                                Invalid Email.
-                            </span>
-                        }
-                    </div>
-                </div>
+  const displayWeb = () => (
+    <>
+      <div className={styles.footerContainer}>
+        <div className={styles.footerContentContainer}>
+          {/* footer sub-section-1 */}
+          <div>
+            <Image src={ZweidevsLogo} alt="zweidevs" width={200} />
+            <div className={styles.footerAboutZweidevs}>
+              {`
+              Zweidevs provides dedicated \n
+              remote teams that work closely with \n
+              you to design and build your idea.
+              `}
             </div>
-            <footer className={styles.footerTextContainer} >
-                <span>© 2023 Zweidevs. All Rights Reserved by Zweidevs</span>
-            </footer>
-        </>
-    )
+            <SocialMedia data={socialMediaData} />
+          </div>
+          <FooterLinks />
+          <FooterForm />
+        </div>
+        <Grid
+          sx={{ display: { xs: "none", sm: "none", md: "none", lg: "flex" } }}
+          container
+          spacing={0}
+          style={{ marginBottom: 30, marginTop: 30 }}
+        >
+          <Grid
+            style={{
+              justifyContent: "start",
+              display: "flex",
+              paddingInline: 20,
+            }}
+            item
+            md={2}
+          >
+            <Image src={CopyrightLeftLine} alt={"copy-right-left-line"}></Image>
+          </Grid>
 
-    const displayMobile = () =>
-    (
-        <>
-            <div className={styles.footerContainer} >
-                <Image src={ZweidevsLogo} alt="zweidevs" width={200} />
-                <div className={styles.footerContentContainerMobile} >
-                    <div className={styles.socialIconContainerMobile} >
-                        <a href='https://www.facebook.com/zweidevs' title="Follow us on Facebook." >
-                            <Image src={FacebookIcon} alt="zweidevs facebook" width={30} />
-                        </a>
-                        <a href='https://www.instagram.com/zweidevs.official' title="Follow us on Instagram." >
-                            <Image src={InstagramIcon} alt="zweidevs instagram" width={30} />
-                        </a>
-                        <a href='#' title="Follow us on Twitter." >
-                            <Image src={TwitterIcon} alt="zweidevs twitter" width={30} />
-                        </a>
-                        <a href='https://www.linkedin.com/company/zweidevs/' title='Connect with us on LinkedIn.'>
-                            <Image src={LinkedInIcon} alt="zweidevs linkedIn" width={30} />
-                        </a>
-                    </div>
-                    <div className={styles.pagesMobile} >
-                        {navLinks.map(({ href, text }, index) => {
-                            if (index === 0) {
-                                return null;
-                            }
-                            return (
-                                <Link
-                                    key={href}
-                                    href={href}
-                                    className={styles.pageLabelMobile}
-                                    style={{ textAlign: index % 2 === 0 ? "right" : "left" }}
-                                >
-                                    {text}
-                                </Link>
-                            );
-                        })}
+          <Grid
+            style={{ justifyContent: "center", display: "flex" }}
+            item
+            //xs={8}
+            md={8}
+          >
+            © 2023 Zweidevs. All Rights Reserved.
+          </Grid>
 
-                    </div>
-                    <div className={styles.contactEmailContainerMobile} >
-                        <span className={styles.inputLabelMobile} >LET'S WORK TOGETHER</span>
-                        <div className={`${styles.inputContainerMobile} ${invalidEmail ? styles.emailError : ""}`} >
-                            <input placeholder='Enter Email' className={styles.inputField} value={email} onChange={handleOnChangeEmail} />
-                            <button className={styles.emailButton} onClick={handleEmailButton} ><ArrowRightAltIcon style={{ color: "white" }} /></button>
-                        </div>
-                        {!isValidEmail(email) && email !== "" &&
-                            <span className={styles.emailErrorMessageMobile} >
-                                Invalid Email.
-                            </span>
-                        }
-                    </div>
-                </div>
+          <Grid style={{ justifyContent: "end", display: "flex" }} item md={2}>
+            <Image
+              src={CopyrightRightLine}
+              alt={"copyright-right-line"}
+            ></Image>
+          </Grid>
+        </Grid>
+
+        {/* mobile view */}
+        <Grid
+          sx={{
+            display: {
+              xs: "flex",
+              sm: "flex",
+              md: "flex",
+              lg: "none",
+              xl: "none",
+            },
+          }}
+          container
+          spacing={0}
+          style={{ marginBottom: 30, marginTop: 30 }}
+        >
+          <Grid
+            style={{
+              justifyContent: "start",
+              display: "flex",
+              paddingInline: 20,
+            }}
+            item
+            xs={1}
+          >
+            <Image
+              style={{ objectFit: "contain", maxWidth: 200 }}
+              src={CopyrightLeftLine}
+              alt={"copy-right-left-line"}
+            ></Image>
+          </Grid>
+
+          <Grid
+            style={{ justifyContent: "center", display: "flex" }}
+            item
+            //xs={8}
+            md={10}
+          >
+            © 2023 Zweidevs. All Rights Reserved.
+          </Grid>
+
+          <Grid style={{ justifyContent: "end", display: "flex" }} item xs={1}>
+            <Image
+              style={{ objectFit: "contain", maxWidth: 200 }}
+              src={CopyrightRightLine}
+              alt={"copyright-right-line"}
+            ></Image>
+          </Grid>
+        </Grid>
+      </div>
+    </>
+  );
+
+  const displayMobile = () => (
+    <>
+      <div className={styles.footerContainer}>
+        <Image src={ZweidevsLogo} alt="zweidevs" width={200} />
+        <div className={styles.footerContentContainerMobile}>
+          <div className={styles.socialIconContainerMobile}>
+            <a
+              href="https://www.facebook.com/zweidevs"
+              title="Follow us on Facebook."
+            >
+              <Image src={FbLogo} alt="zweidevs facebook" width={30} />
+            </a>
+            <a
+              href="https://www.instagram.com/zweidevs.official"
+              title="Follow us on Instagram."
+            >
+              <Image src={InstaLogo} alt="zweidevs instagram" width={30} />
+            </a>
+            <a href="#" title="Follow us on Twitter.">
+              <Image src={TwitterLogo} alt="zweidevs twitter" width={30} />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/zweidevs/"
+              title="Connect with us on LinkedIn."
+            >
+              <Image src={LinkedInLogo} alt="zweidevs linkedIn" width={30} />
+            </a>
+          </div>
+          <div className={styles.pagesMobile}>
+            {navLinks.map(({ href, text }, index) => {
+              if (index === 0) {
+                return null;
+              }
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  className={styles.pageLabelMobile}
+                  style={{ textAlign: index % 2 === 0 ? "right" : "left" }}
+                >
+                  {text}
+                </Link>
+              );
+            })}
+          </div>
+          <div className={styles.contactEmailContainerMobile}>
+            <span className={styles.inputLabelMobile}>LET'S WORK TOGETHER</span>
+            <div
+              className={`${styles.inputContainerMobile} ${
+                invalidEmail ? styles.emailError : ""
+              }`}
+            >
+              <input
+                placeholder="Enter Email"
+                className={styles.inputField}
+                value={email}
+                onChange={handleOnChangeEmail}
+              />
+              <button
+                className={styles.emailButton}
+                onClick={handleEmailButton}
+              >
+                <ArrowRightAltIcon style={{ color: "#2b2a35" }} />
+              </button>
             </div>
-            <footer className={styles.footerTextContainer} >
-                <span>© 2023 Zweidevs. All Rights Reserved by Zweidevs</span>
-            </footer>
-        </>
-    )
-    return (
-        <>
-            {
-                mobileView === null
-                    ? null
-                    :
-                    mobileView ? displayMobile() : displayWeb()
-            }
-        </>
-    )
+            {!isValidEmail(email) && email !== "" && (
+              <span className={styles.emailErrorMessageMobile}>
+                Invalid Email.
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+      {/* mobile view */}
+      {/* <Grid
+        sx={{
+          display: {
+            xs: "flex",
+            sm: "flex",
+            md: "flex",
+            lg: "none",
+            xl: "none",
+          },
+        }}
+        container
+        spacing={0}
+        style={{ marginBottom: 30, marginTop: 30 }}
+      >
+        <Grid
+          style={{
+            justifyContent: "start",
+            display: "flex",
+            paddingInline: 20,
+          }}
+          item
+          xs={1}
+        >
+          <Image
+            style={{ objectFit: "contain", maxWidth: 200 }}
+            src={CopyrightLeftLine}
+          ></Image>
+        </Grid>
+
+        <Grid
+          style={{ justifyContent: "center", display: "flex" }}
+          item
+          //xs={8}
+          md={10}
+        >
+          © 2023 Zweidevs. All Rights Reserved.
+        </Grid>
+
+        <Grid style={{ justifyContent: "end", display: "flex" }} item xs={1}>
+          <Image
+            style={{ objectFit: "contain", maxWidth: 200 }}
+            src={CopyrightRightLine}
+          ></Image>
+        </Grid>
+      </Grid> */}
+    </>
+  );
+  return (
+    <>
+      {mobileView === null ? null : mobileView ? displayMobile() : displayWeb()}
+    </>
+  );
 }
 
-export default Footer
+export default Footer;

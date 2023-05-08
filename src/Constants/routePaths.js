@@ -4,7 +4,8 @@ const routesPaths = {
   services: "/services",
   aboutUs: "/aboutUs",
   careers: "/careers",
-  blogs: "/blogs"
+  blogs: "/blog",
+  projects: "/projects",
 };
 
 export default routesPaths;

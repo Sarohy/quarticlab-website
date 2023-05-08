@@ -13,6 +13,7 @@ import styles from "./header.module.css";
 import {
   ZweidevsLogo,
   CalanderIcon,
+  EmailIcon,
   LocationIcon,
   InstantBooking,
   PhoneContainer,
@@ -63,6 +64,7 @@ function Header() {
           flexDiretion: "row",
           backgroundColor: "white",
           justifyContent: "space-between",
+          margin: -1,
         }}
       >
         <div
@@ -70,6 +72,8 @@ function Header() {
           style={{
             display: "flex",
             alignItems: "center",
+            paddingLeft: 35,
+            color: "black",
           }}
         >
           <Image
@@ -78,7 +82,9 @@ function Header() {
             src={LocationIcon}
             alt={"location-icon"}
           ></Image>
-          <span style={{ paddingLeft: "11px" }}>
+          <span
+            style={{ paddingLeft: "11px", fontFamily: "Poppins", fontSize: 16 }}
+          >
             6-B phase 1 Johar Town Lahore
           </span>
         </div>
@@ -87,17 +93,23 @@ function Header() {
           style={{
             display: "flex",
             alignItems: "center",
+            // paddingLeft: 35,
+            color: "black",
           }}
         >
           <Image
             height={20}
             width={20}
-            src={LocationIcon}
-            alt={"location-icon"}
+            src={EmailIcon}
+            alt={"email-icon"}
           ></Image>
-          <span style={{ paddingLeft: "11px" }}>contact@zweidevs.com</span>
-          <Image src={PhoneContainer}></Image>
-          <Image src={InstantBooking}></Image>
+          <span
+            style={{ paddingLeft: "11px", fontFamily: "Poppins", fontSize: 16 }}
+          >
+            contact@zweidevs.com
+          </span>
+          <Image src={PhoneContainer} alt="phone"></Image>
+          <Image src={InstantBooking} alt="instant-booking"></Image>
         </div>
       </div>
       <hr style={{ border: "1px solid #E5E5E5" }}></hr>

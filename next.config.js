@@ -2,8 +2,18 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['firebasestorage.googleapis.com'],
+    remotePatterns: [
+      {
+        hostname: "wallpaperaccess.com",
+      },
+      {
+        hostname: "cdn.dribbble.com",
+      },
+      {
+        hostname: "firebasestorage.googleapis.com"
+      }
+    ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
