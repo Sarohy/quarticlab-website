@@ -9,6 +9,9 @@ const nextConfig = {
       {
         hostname: "cdn.dribbble.com",
       },
+      {
+        hostname: "firebasestorage.googleapis.com"
+      }
     ],
   },
 };
