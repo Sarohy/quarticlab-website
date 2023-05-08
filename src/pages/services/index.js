@@ -126,7 +126,13 @@ function Services() {
 
   return (
     <div className="services-root">
-      <PageBanner />
+      <PageBanner
+        title={"Services"}
+        heading={"Everything your business needs under one roof"}
+        description={
+          "Through creative ideas, invention, and determination, Zweidevs speaks to facilitate your marketing journey Using advanced technology."
+        }
+      />
       <div className="servicesHeaderContainer">
         <span className="services-header">Our Services</span>
 
