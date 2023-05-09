@@ -11,55 +11,56 @@ import "animate.css";
 export default function blogCard(props) {
   const { data, filter } = props;
 
-  let animatedDivRefs = data.map(() => {
-    return React.useRef(null);
-  });
+  // let animatedDivRefs = data.map(() => {
+  //   return React.useRef(null);
+  // });
 
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const target = entry.target;
-            // Code to handle animation
-            // target.classList.remove("hidden");
-            target.style.opacity = 1;
-            target.classList.add(
-              "animate__zoomIn",
-              "animate__delay-1s",
-              "animate__animated"
-            );
-            target.addEventListener(
-              "animationend",
-              (e) => {
-                e.stopPropagation();
-                e.stopImmediatePropagation();
-                animatedNestedCardDivRefs.forEach((ref) => {
-                  observer.observe(ref.current);
-                });
-              },
-              { once: true }
-            ); // Remove the event listener after it's triggered
+  // React.useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           const target = entry.target;
 
-            observer.unobserve(target);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.5,
-      }
-    );
+  //           // Code to handle animation
+  //           // target.classList.remove("hidden");
+  //           target.style.opacity = 1;
+  //           target.classList.add(
+  //             "animate__zoomIn",
+  //             "animate__delay-1s",
+  //             "animate__animated"
+  //           );
+  //           // target.addEventListener(
+  //           //   "animationend",
+  //           //   (e) => {
+  //           //     e.stopPropagation();
+  //           //     e.stopImmediatePropagation();
+  //           //     animatedNestedCardDivRefs.forEach((ref) => {
+  //           //       observer2.observe(ref.current);
+  //           //     });
+  //           //   },
+  //           //   { once: true }
+  //           // ); // Remove the event listener after it's triggered
 
-    // animatedDivRefs.forEach((ref) => {
-    //   observer.observe(ref.current);
-    // });
+  //           observer.unobserve(target);
+  //         }
+  //       });
+  //     },
+  //     {
+  //       root: null,
+  //       rootMargin: "0px",
+  //       threshold: 0.5,
+  //     }
+  //   );
 
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  //   // animatedDivRefs.forEach((ref) => {
+  //   //   observer.observe(ref.current);
+  //   // });
+
+  //   return () => {
+  //     observer.disconnect();
+  //   };
+  // }, []);
 
   return (
     <>
