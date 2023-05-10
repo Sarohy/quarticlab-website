@@ -65,19 +65,104 @@
 }
 
 .HS1FooterImage{
-    height: 28.6%;
+    height: 28.4%;
     display: flex;
     align-items: end;
 }
 /* Home section 2 css */
 .HS2MainContainer{
-    height: 672px;
-    background-color: #FFFFFF;
+    height: 700px;
+    background: url("../../../../src/assets/HomeIcons/HS2_background.svg");
+    width: 100%;
+
 }
 
-.HS2LogoContainer{
+.HS2ContentContainer{
+    padding: 0% 3% 0% 3%;
+    height: 170px;
     display: flex;
-    justify-content: end;
+    align-items: end;
+}
+
+.HS2Heading{
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    color: #FF9700;
+}
+
+.HS2SubHeadContainer{
+    margin-top: 2%;
+    height: 16%;
+    padding: 0% 3% 0% 3%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.HS2SubHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 128%;
+    color: #2B2A35;
+    width: 50%
+}
+
+.HS2Button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.HS2CardsContainer{
+    padding: 3%;
+    display: flex;
+}
+
+.HS2Card{
+    width: 227px;
+    height: 331px;
+    border: 1px solid #DADADA;
+    border-radius: 5px;
+    margin-right: 1.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.HS2CardSelected{
+    background-color: #FF9700;
+    color: #FFFFFF;
+}
+
+.HS2CardUnSelected{
+    background: #FFFFFF;
+    color: #979797;
+}
+
+.HS2CardHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center; 
+    margin-top: 2%;
+}
+
+.HS2CardDetails{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 167.5%;
+    text-align: center;
 }
 
 /* Home section 3 css */
@@ -354,90 +439,90 @@
 }
 
 @media screen and (min-width: 821px) and (max-width: 900px) {
-  
-    .HS1Background{
-        height: 585px;
-    }
 
-    .HSLogoContainer{
-        height:320px;
-        width:320px;
-    }
-    .HS1Text{
-        font-size: 40px;
-        margin-left: -5%;
-    }
+.HS1Background{
+    height: 585px;
+}
+
+.HSLogoContainer{
+    height:320px;
+    width:320px;
+}
+.HS1Text{
+    font-size: 40px;
+    margin-left: -5%;
+}
+
+.HS1SubText{
+    font-size: 20px;
+    line-height: 150%;
+    width: 400px;
+    margin-left: 12%;
+}
+
+.HS1ContentLine{
+    width: 90px;  
+}
+
+.HS1ContentButtonContainer{
+    width: 80%;
+    margin-top: 26px;
+    display: flex;
+    align-items: center;
+}
+
+/* Home section 3 css */
+
+.HS3ContentContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0%;
+}
+.HS3TabContainer{
+    width: 40%;
+    padding: 4% 3% 2% 2%;
+}
+.HS3ContentText{
+    margin-top: 6%;
+    font-size: 28px;
+}
+
+.HS3ContentSubText{
+    margin-top: 6%;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.HS3ContactLine1{
+    width: 75px;
+    margin-left: -5%;
+}
+
+.HS3ContactLine2{
+    width: 280px;
+    margin-top: 9%;
+    margin-left: 6%;
+}
+.HSContactBook{
+    font-size: 16px;
+}
+.HS3ContactNum{
+    font-size: 16px;
+}
+
+.HS3ImgWidth{
+    width: 450px;
+}
+
+.HS3ImgContainer{
+    height: 550px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
     
-    .HS1SubText{
-        font-size: 20px;
-        line-height: 150%;
-        width: 400px;
-        margin-left: 12%;
-    }
-    
-    .HS1ContentLine{
-        width: 90px;  
-    }
-    
-    .HS1ContentButtonContainer{
-        width: 80%;
-        margin-top: 26px;
-        display: flex;
-        align-items: center;
-    }
-    
-    /* Home section 3 css */
-    
-    .HS3ContentContainer{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0%;
-    }
-    .HS3TabContainer{
-        width: 40%;
-        padding: 4% 3% 2% 2%;
-    }
-    .HS3ContentText{
-        margin-top: 6%;
-        font-size: 28px;
-    }
-    
-    .HS3ContentSubText{
-        margin-top: 6%;
-        font-size: 14px;
-        text-align: justify;
-    }
-    
-    .HS3ContactLine1{
-        width: 75px;
-        margin-left: -5%;
-    }
-    
-    .HS3ContactLine2{
-        width: 280px;
-        margin-top: 9%;
-        margin-left: 6%;
-    }
-    .HSContactBook{
-        font-size: 16px;
-    }
-    .HS3ContactNum{
-        font-size: 16px;
-    }
-    
-    .HS3ImgWidth{
-        width: 450px;
-    }
-    
-    .HS3ImgContainer{
-        height: 550px;
-        width: 60%;
-        display: flex;
-        align-items: center;
-    }
-      
-    }
+}
 
 
 @media screen and (min-width: 901px) and (max-width: 1140px) {
@@ -465,57 +550,57 @@
   padding: 0% 2% 0% 0%;
 }
             
-        /* Home section 3 css */
-        
-        .HS3ContentContainer{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0%;
-        }
-        .HS3TabContainer{
-            width: 40%;
-            padding: 4% 3% 2% 2%;
-        }
-        .HS3ContentText{
-            margin-top: 6%;
-            font-size: 30px;
-        }
-        
-        .HS3ContentSubText{
-            margin-top: 6%;
-            font-size: 15px;
-            text-align: justify;
-        }
-        
-        .HS3ContactLine1{
-            width: 75px;
-            margin-left: -5%;
-        }
-        
-        .HS3ContactLine2{
-            width: 280px;
-            margin-top: 9%;
-            margin-left: 6%;
-        }
-        .HSContactBook{
-            font-size: 16px;
-        }
-        .HS3ContactNum{
-            font-size: 16px;
-        }
-        
-        .HS3ImgWidth{
-            width: 600px;
-        }
-        
-        .HS3ImgContainer{
-            height: 550px;
-            width: 60%;
-            display: flex;
-            align-items: center;
-        }
-          
-        }
+/* Home section 3 css */
+
+.HS3ContentContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0%;
+}
+.HS3TabContainer{
+    width: 40%;
+    padding: 4% 3% 2% 2%;
+}
+.HS3ContentText{
+    margin-top: 6%;
+    font-size: 30px;
+}
+
+.HS3ContentSubText{
+    margin-top: 6%;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.HS3ContactLine1{
+    width: 75px;
+    margin-left: -5%;
+}
+
+.HS3ContactLine2{
+    width: 280px;
+    margin-top: 9%;
+    margin-left: 6%;
+}
+.HSContactBook{
+    font-size: 16px;
+}
+.HS3ContactNum{
+    font-size: 16px;
+}
+
+.HS3ImgWidth{
+    width: 600px;
+}
+
+.HS3ImgContainer{
+    height: 550px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
     
+}
+
 
