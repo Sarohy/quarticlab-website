@@ -12,7 +12,11 @@ import { InstantBookingBanner } from "@component/Components/CommonComponents";
 // } from "@component/Components/MainComponents/HomeSections";
 
 import { useRef } from "react";
-import { HomeSection1 } from "@component/Components/MainComponents/HomeSectionsFinal";
+import {
+  HomeSection1,
+  HomeSection2,
+  HomeSection3,
+} from "@component/Components/MainComponents/HomeSectionsFinal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +33,9 @@ export default function Home() {
   };
   return (
     <>
-      <HomeSection1 />
+      <HomeSection1 handleButtonClick={handleButtonClickSection1} />
+      <HomeSection2 />
+      <HomeSection3 />
       {/* <HomeSection1 handleButtonClick={handleButtonClickSection1} /> */}
       {/* <HomeSection2
     handleButtonClick={handleButtonClickSection2}
