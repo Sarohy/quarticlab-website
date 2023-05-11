@@ -11,7 +11,7 @@ function HomeSection3({ id }) {
   const [projectId, setProjectId] = useState(0);
   const router = useRouter();
 
-  const getProjectUrl = () => `${routesPaths.work}/${projects[projectId]?.projectName?.replaceAll(" ", "_").replaceAll(".", "")}`
+  const getProjectUrl = () => `${routesPaths.projects}/${projects[projectId]?.projectName?.replaceAll(" ", "_").replaceAll(".", "")}`
 
   const viewProject = (position) => (
     <Zbutton

@@ -8,13 +8,15 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "engines": {"node": "18.x.x" },
+  "engines": {
+    "node": "18.x.x"
+  },
   "dependencies": {
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
     "@fontsource/poppins": "^4.5.10",
+    "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.3",
-    "@mui/styled-engine-sc": "^5.12.0",
     "animate.css": "^4.1.1",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
@@ -22,7 +24,6 @@
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-material-ui-carousel": "^3.4.2",
-    "styled-components": "^5.3.10"
+    "react-material-ui-carousel": "^3.4.2"
   }
 }

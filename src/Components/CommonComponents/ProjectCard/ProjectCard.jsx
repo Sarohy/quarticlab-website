@@ -31,6 +31,7 @@ function ProjectCard({ reverse, projectImageUrl, projectTitle, projectDescriptio
                         !imageLoading && <CircularProgress style={{ position: "absolute" }} />
                     }
                     <Image
+                        sizes='(max-width: 810px) 100%'
                         fill="true"
                         className='project-image'
                         src={projectImageUrl}
