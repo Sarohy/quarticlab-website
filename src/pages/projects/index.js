@@ -41,7 +41,6 @@ function Work() {
       .then(response => {
         setProjects(response);
         setFilteredProjects(response);
-        console.log("response ==> ", response);
       })
       .catch(error => console.log("Error ==> ", error));
   }, []);
