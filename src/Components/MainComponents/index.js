@@ -1,3 +1,3 @@
-import * as HomeSections from "./HomeSections";
+import * as HomeSectionsFinal from "./HomeSectionsFinal";
 
-export { HomeSections };
+export { HomeSectionsFinal };
