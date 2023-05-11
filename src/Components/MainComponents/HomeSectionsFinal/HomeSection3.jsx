@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import styles from "./HomeSection.module.css";
 import { HS3Img, HS3Img1 } from "@component/assets/HomeIcons";
-import styled from "styled-components";
 
 function HomeSection3({ handleButtonClick }) {
   return (
