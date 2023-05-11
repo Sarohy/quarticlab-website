@@ -31,7 +31,6 @@ export const CustomInputField = (props) => {
       }}
       InputLabelProps={{
         style: { color: isFocused ? "orange" : "" },
-        // shrink: false,
       }}
       onFocus={handleFocus}
       onBlur={handleBlur}

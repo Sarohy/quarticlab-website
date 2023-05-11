@@ -26,6 +26,7 @@ function Zbutton({
     padding,
     margin,
   };
+
   return (
     <Button
       onClick={onClick}
@@ -40,7 +41,7 @@ function Zbutton({
     >
       {showIcon && <ArrowRightAltIcon />}
       <span>{text}</span>
-      <span>{icon}</span>
+      {icon != undefined ? <span>{icon}</span> : ""}
     </Button>
   );
 }

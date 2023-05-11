@@ -19,6 +19,7 @@ import {
   HomeSection5,
   HomeSection6,
   HomeSection7,
+  HomeSection8,
 } from "@component/Components/MainComponents/HomeSectionsFinal";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -42,6 +43,7 @@ export default function Home() {
       <HomeSection5 />
       <HomeSection6 />
       <HomeSection7 />
+      <HomeSection8 />
 
       {/* <HomeSection1 handleButtonClick={handleButtonClickSection1} /> */}
       {/* <HomeSection2
