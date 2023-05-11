@@ -14,6 +14,9 @@ import HS7Img1 from "./HS7Img1.svg";
 import HS7Img2 from "./HS7Img2.svg";
 import HS7Img3 from "./HS7Img3.svg";
 import HS7Img4 from "./HS7Img4.svg";
+import HS5Img1 from "./HS5Img.svg";
+import HS5Img2 from "./HS5Img2.svg";
+import HS5Img3 from "./HS5Img3.svg";
 
 export {
   HSLogo,
@@ -27,6 +30,9 @@ export {
   HS2Img3,
   HS2Img4,
   HS2Img5,
+  HS5Img1,
+  HS5Img2,
+  HS5Img3,
   HS6Img,
   HS7Img1,
   HS7Img2,
