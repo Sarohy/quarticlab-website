@@ -16,6 +16,7 @@ import {
   HomeSection1,
   HomeSection2,
   HomeSection3,
+  HomeSection4,
   HomeSection5,
   HomeSection6,
   HomeSection7,
@@ -40,6 +41,7 @@ export default function Home() {
       <HomeSection1 handleButtonClick={handleButtonClickSection1} />
       <HomeSection2 />
       <HomeSection3 />
+      <HomeSection4 />
       <HomeSection5 />
       <HomeSection6 />
       <HomeSection7 />
