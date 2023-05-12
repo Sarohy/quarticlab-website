@@ -29,7 +29,7 @@ function HomeSection2({ handleButtonClick }) {
     {
       key: "hs2Img3",
       image: HS2Img3,
-      heading: "Web Development",
+      heading: "Web Application Development",
       details:
         "We are your creative web development team, who aim to leverage the latest technological advances with thoughtful design and serious engineering to build tailored solutions for any industry.",
     },
@@ -37,7 +37,8 @@ function HomeSection2({ handleButtonClick }) {
       key: "hs2Img4",
       image: HS2Img4,
       heading: "Ecommerce Development",
-      details: "",
+      details:
+        "We are your creative web development team, who aim to leverage the latest technological advances with thoughtful design and serious engineering to build tailored solutions for any industry.",
     },
     {
       key: "hs2Img5",
@@ -86,34 +87,44 @@ function HomeSection2({ handleButtonClick }) {
           {cardData.map((item, index) => {
             return (
               <>
-                <div
-                  className={
-                    selectedKey === item.key
-                      ? `${styles.HS2Card} ${styles.HS2CardSelected}`
-                      : `${styles.HS2Card} ${styles.HS2CardUnSelected}`
-                  }
-                  key={item.key}
-                  onClick={() => {
-                    setSelectedKey(item.key);
-                  }}
-                >
-                  <div>
-                    <Image src={item.image} alt="zweidevs" />
+                <div className={styles.HS2CardMob}>
+                  <div
+                    className={
+                      selectedKey === item.key
+                        ? `${styles.HS2Card} ${styles.HS2CardSelected}`
+                        : `${styles.HS2Card} ${styles.HS2CardUnSelected}`
+                    }
+                    key={item.key}
+                    onClick={() => {
+                      setSelectedKey(item.key);
+                    }}
+                  >
+                    <div>
+                      <Image
+                        src={item.image}
+                        alt="zweidevs"
+                        className={
+                          selectedKey === item.key
+                            ? styles.HS2SelectedImgWhite
+                            : ""
+                        }
+                      />
+                    </div>
+                    <div className={styles.HS2CardHeading}>{item.heading}</div>
+                    <div
+                      className={
+                        selectedKey === item.key
+                          ? styles.HS2CardDetails2
+                          : styles.HS2CardDetails
+                      }
+                    >
+                      {item.details}
+                    </div>
                   </div>
-                  <div className={styles.HS2CardHeading}>{item.heading}</div>
-                  <div className={styles.HS2CardDetails}>{item.details}</div>
                 </div>
               </>
             );
           })}
-
-          {/* <div className={styles.HS2CardUnSeclect}></div>
-          <div className={styles.HS2CardUnSeclect}></div>
-          <div className={styles.HS2CardUnSeclect}></div>
-          <div
-            className={styles.HS2CardUnSeclect}
-            style={{ marginRight: "0%" }}
-          ></div> */}
         </div>
       </div>
     </>

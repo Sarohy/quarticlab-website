@@ -70,11 +70,11 @@
     align-items: end;
 }
 /* Home section 2 css */
+
 .HS2MainContainer{
     height: 700px;
     background: url("../../../../src/assets/HomeIcons/HS2_background.svg");
     width: 100%;
-
 }
 
 .HS2ContentContainer{
@@ -123,7 +123,9 @@
 .HS2CardsContainer{
     padding: 3%;
     display: flex;
+    justify-content: space-around;
 }
+
 
 .HS2Card{
     width: 227px;
@@ -156,7 +158,25 @@
     margin-top: 2%;
 }
 
+.HS2CardDetails2{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 167.5%;
+    text-align: center;
+}
+
+.HS2SelectedImgWhite {
+    filter: hue-rotate(40deg) saturate(1) brightness(200%) saturate(4); 
+}
+
 .HS2CardDetails{
+    display: none;
+}
+
+.HS2CardUnSelected:hover .HS2CardDetails{
+    display: block;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -734,6 +754,40 @@
     align-items: center;
     margin-left: 0%;
 }
+/* home Section 2 */
+
+.HS2ContentContainer{
+    padding: 0% 3% 0% 3%;
+    height: 100px;
+    display: flex;
+    align-items: end;
+}
+
+.HS2Heading{
+    font-size: 14px;
+}
+
+
+.HS2SubHeading{
+    font-size: 18px;
+    width: 70%
+}
+
+.HS2Button{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.HS2CardMob{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0% 3% 0% 3%;
+}
+.HS2CardsContainer{
+    overflow: auto;
+}
 
 /* Home Section 3 */
 
@@ -837,6 +891,20 @@
     height: 100%;
 }
 
+/* home Section 7 */
+
+.HS7Image{
+    margin-right: 25px;
+}
+.HS7ImagesContainer{
+    overflow: auto;  
+}
+
+.HS7Heading{
+    text-align: center;
+    margin-bottom: 10%;
+  
+}
 /* HomeSection 8 */
 
 .HS8InputFieldContainer{
@@ -905,6 +973,31 @@
     margin-left: -11%;
 }
 
+/* home Section 2 */
+
+.HS2ContentContainer{
+    padding: 0% 3% 0% 3%;
+    height: 100px;
+    display: flex;
+    align-items: end;
+}
+
+
+.HS2SubHeading{
+    width: 70%
+}
+
+.HS2CardMob{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0% 3% 0% 3%;
+}
+
+.HS2CardsContainer{
+    overflow: auto;
+}
+
 /* Home section 3 css */
 
 .HS3ContentContainer{
@@ -967,6 +1060,14 @@
     width: 100%;
     height: 100%;
 }
+
+/* home Section 7 */
+
+
+
+.HS7Image{
+    margin-right: 9px;
+}
 /* HomeSection 8 */
 
 .HS8MainContainer{
@@ -1022,6 +1123,27 @@
     margin-top: 26px;
     display: flex;
     align-items: center;
+}
+
+/* home Section 2 */
+.HS2ContentContainer{
+    height: 100px;
+}
+
+
+.HS2SubHeading{
+    width: 60%
+}
+
+.HS2CardMob{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0% 3% 0% 3%;
+}
+
+.HS2CardsContainer{
+    overflow: auto;
 }
 
 /* Home section 3 css */
@@ -1134,7 +1256,20 @@
 .HSLogoContainer{
   padding: 0% 2% 0% 0%;
 }
-            
+      
+
+/* home Section 2 */
+.HS2CardMob{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0% 1.5% 0% 1.5%;
+}
+
+
+.HS2CardsContainer{
+    overflow: auto;
+}
 /* Home section 3 css */
 
 .HS3ContentContainer{
