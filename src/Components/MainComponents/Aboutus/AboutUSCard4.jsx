@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import {
   CD4Img,
@@ -10,6 +10,7 @@ import {
 import styles from "./AboutUs.module.css";
 
 const AboutUsCard4 = () => {
+  const [cardKey, setCardKey] = useState(0);
   const elements = [
     {
       img: CD4Img,
@@ -73,6 +74,7 @@ const AboutUsCard4 = () => {
                   className={styles.AUCd4Cards}
                   style={{ marginLeft: index != 0 ? "30px" : "" }}
                   key={index}
+                  onClick={() => setCardKey(index)}
                 >
                   <div>
                     <Image
@@ -86,13 +88,31 @@ const AboutUsCard4 = () => {
                     {item.subHeading}
                   </div>
                   <div className={styles.AUCd4SocialContainer}>
-                    <div className={styles.AUCd4Social}>
+                    <div
+                      className={
+                        cardKey == index
+                          ? styles.AUCd4SocialSelected
+                          : styles.AUCd4Social
+                      }
+                    >
                       <Image src={item.socialM1} alt="zweidevs" />
                     </div>
-                    <div className={styles.AUCd4Social}>
+                    <div
+                      className={
+                        cardKey == index
+                          ? styles.AUCd4SocialSelected
+                          : styles.AUCd4Social
+                      }
+                    >
                       <Image src={item.socialM2} alt="zweidevs" />
                     </div>
-                    <div className={styles.AUCd4Social}>
+                    <div
+                      className={
+                        cardKey == index
+                          ? styles.AUCd4SocialSelected
+                          : styles.AUCd4Social
+                      }
+                    >
                       <Image src={item.socialM3} alt="zweidevs" />
                     </div>
                   </div>

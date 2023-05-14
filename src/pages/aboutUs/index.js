@@ -3,6 +3,7 @@ import {
   AboutUsCard2,
   AboutUsCard,
   AboutUsCard4,
+  AboutUsCard5,
 } from "@component/Components/MainComponents/Aboutus";
 
 export default function aboutUs() {
@@ -13,6 +14,7 @@ export default function aboutUs() {
         <AboutUsCard2 />
         <AboutUsCard />
         <AboutUsCard4 />
+        <AboutUsCard5 />
       </div>
     </>
   );

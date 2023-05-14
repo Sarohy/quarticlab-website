@@ -4,6 +4,7 @@ import styles from "./HomeSection.module.css";
 import { HSImg2, HSLogo, HSImg1 } from "@component/assets/HomeIcons";
 import { Zbutton } from "@component/Components/CommonComponents";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+
 function HomeSection1({ handleButtonClick }) {
   return (
     <>
