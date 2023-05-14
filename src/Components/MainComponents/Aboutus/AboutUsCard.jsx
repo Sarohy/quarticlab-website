@@ -32,10 +32,16 @@ const AboutUsCard = () => {
           Zweidevs Achievements since 2010
         </div>
         <div className={styles.AUCd3ProjectContainer}>
-          {project.map((item) => {
+          {project.map((item, index) => {
             return (
               <>
-                <div className={styles.AUCd3ProjectItem}>
+                <div
+                  key={index}
+                  className={styles.AUCd3ProjectItem}
+                  style={{
+                    marginTop: index == 1 ? "-3px" : index != 0 ? "1px" : "",
+                  }}
+                >
                   <div>
                     <Image src={item.img} alt="zweidevs" />
                   </div>

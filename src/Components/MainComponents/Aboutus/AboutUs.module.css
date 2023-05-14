@@ -203,10 +203,140 @@
     font-weight: 500;
     font-size: 20px;
     text-align: center;
-    width: 147px;
 }
 
+/* About us card 4 */
 
+.AUCd4Main{
+    width: 100%;
+    height: 786px;
+    background: white;
+    padding: 0% 4% 0% 4%;
+    font-family: 'Poppins';
+    font-style: normal;
+}
+
+.AUCard4Heading{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;    
+    color: #FF9700;
+    display: flex;
+    align-items: center;
+    height: 4%;  
+    padding-top: 11%;
+    margin-bottom: 1%;
+}
+
+.AUCard4HeadingLine1{
+    width: 19px;
+    height: 0px;
+    border: 1px solid #FF9700; 
+    margin-left: 1.5%; 
+}
+
+.AUCard4HeadingLine2{
+    width: 28px;
+    height: 0px;
+    border: 1px solid #FF9700; 
+    margin-left: 5px; 
+}
+
+.AUCard4SubHeading{
+    height: 42px;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 117.5%;
+    color: #2B2A35;
+}
+
+.AUCard4Text{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 167.5%;
+    color: #494949;
+    margin-top: 1%;
+}
+
+.AUCd4CardsContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 490px;
+}
+
+.AUCd4Cards{
+    background: #FFFFFF;
+    border: 1.62841px solid rgba(255, 151, 0, 0.44);
+    border-radius: 26.0545px;  
+    height: 300px;
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 0% 2% 0%;
+
+}
+
+.AUCd4Img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.AUCdCardHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 150%;
+    text-align: center;
+    color: #2B2A35;
+}
+
+.AUCdCardSubHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #646464;
+}
+
+.AUCd4SocialContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+    margin-top: 7%;
+}
+
+.AUCd4Social{
+    width: 40.1px;
+    height: 40.1px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.AUCd4SocialContainer:hover .AUCd4Social{
+    width: 40.1px;
+    height: 40.1px;
+    background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
+    border: 0.756563px solid #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
 
 @media screen and (max-width: 590px) {
 
@@ -298,6 +428,53 @@
 
 }
 
+/* About us card 4 */
+
+
+.AUCard4Heading{
+    font-size: 18px;
+}
+
+
+.AUCard4SubHeading{
+    height: 100%;
+    font-size: 20px;
+}
+
+.AUCard4Text{
+    font-size: 14px;
+    margin-top: 2%;
+}
+
+
+.AUCd4CardsContainer{
+    overflow: auto;
+}
+
+.AUCd4Cards{
+    height: 250px;
+    width: 310px;
+}
+
+.AUCd4Img{
+    width: 90px;
+    height: 90px;
+   
+}
+
+.AUCdCardHeading{
+    font-size: 12px;
+    
+}
+
+.AUCdCardSubHeading{
+    font-size: 10px;
+}
+
+.AUCd4SocialContainer{
+    padding-left: 5%;
+    padding-right: 5%;
+}
 
 }
 
@@ -334,6 +511,23 @@
 .AUCd3ProjectContainer{
     height: 250px;
     overflow: auto;
+}
+
+
+/* About us card 4 */
+
+.AUCdCardHeading{
+    font-size: 16px;  
+}
+
+.AUCdCardSubHeading{
+    font-size: 14px;  
+}
+
+.AUCd4SocialContainer{
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
 }
 }
 

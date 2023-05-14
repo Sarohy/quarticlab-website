@@ -5,5 +5,21 @@ import CD3Img2 from "./CD3Img2.svg";
 import CD3Img3 from "./CD3Img3.svg";
 import CD3Img4 from "./CD3Img4.svg";
 import CD3Img5 from "./CD3Img5.svg";
+import CD4Img from "./CD4Img.svg";
+import CD4Img1 from "./instagram.svg";
+import CD4Img2 from "./twitter.svg";
+import CD4Img3 from "./linkedin.svg";
 
-export { CDImg1, CD2Img1, CD3Img1, CD3Img2, CD3Img3, CD3Img4, CD3Img5 };
+export {
+  CDImg1,
+  CD2Img1,
+  CD3Img1,
+  CD3Img2,
+  CD3Img3,
+  CD3Img4,
+  CD3Img5,
+  CD4Img,
+  CD4Img1,
+  CD4Img2,
+  CD4Img3,
+};
