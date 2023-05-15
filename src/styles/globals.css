@@ -151,7 +151,7 @@ a {
 
 .services-icon-card-title {
   /* width: 163px; */
-  height: 37px;
+  /* height: 37px; */
   left: 178px;
   top: 944px;
 
@@ -212,7 +212,7 @@ a {
 
 .services-icon {
   /* width: 94px; */
-  /* height: 94px; */
+  height: 77px;
   /* left: 213px; */
   /* top: 822px; */
 }
@@ -225,7 +225,6 @@ a {
 .services-card-container {
   margin: 20px;
   box-sizing: border-box;
-
   /* position: absolute; */
   /* width: 1330px; */
   /* height: 342px; */
@@ -236,7 +235,6 @@ a {
   background: #ffffff;
   border: 1px solid #d9d9d9;
   border-radius: 9px;
-
   display: flex;
 }
 
@@ -396,6 +394,14 @@ a {
 .project-card-container {
   display: flex;
   align-items: center;
+}
+
+.HS8MainContainer{
+  width: 100%;
+  background: rgba(243, 243, 243, 0.5);
+  display: flex;
+  align-items: center;
+  flex-direction: column;  
 }
 
 @media screen and (max-width: 960px) {

@@ -210,7 +210,7 @@ const ServicesCard = (props) => {
                         className={`${styles.hiddenCardDetailss} animate__animated services-footer-image`}
                         src={image}
                         alt={"node-icon"}
-                        style={{ width: "auto", height: 31 }}
+                        style={{ width: "auto", height: 38 }}
                         // height={20}
                         // width={"auto"}
                       />
