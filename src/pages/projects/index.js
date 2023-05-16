@@ -1,4 +1,4 @@
-import ProjectCard from "@component/components/CommonComponents/ProjectCard/ProjectCard";
+import ProjectCard from "@component/Components/CommonComponents/ProjectCard/ProjectCard";
 import {
   addProject,
   getAllProjects
