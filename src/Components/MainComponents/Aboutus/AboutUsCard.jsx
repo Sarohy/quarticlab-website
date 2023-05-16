@@ -18,7 +18,7 @@ const AboutUsCard = () => {
     },
     { img: CD3Img2, count: `150+`, detail: "Projects Completed" },
     {
-      img: CD3Img4,
+      img: CD3Img3,
       count: `3.5M+`,
       detail: "Funding Raised",
     },

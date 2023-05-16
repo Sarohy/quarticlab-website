@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import {
-  CD4Img,
-  CD4Img1,
-  CD4Img2,
-  CD4Img3,
-  CD2Img1,
-} from "@component/assets/AboutUs";
+import { CD4Img, CD4Img1, CD4Img2, CD4Img3 } from "@component/assets/AboutUs";
 import styles from "./AboutUs.module.css";
 
 const AboutUsCard4 = () => {
