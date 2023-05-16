@@ -383,31 +383,49 @@
     width: 316px;
 }
 
-.HS4Image1Con{
-    height: 400px;
-    background: url("../../../../src/assets/HomeIcons/HS4Img1.svg");
-    width: 316px;
+.HS4CardDataContainer{
+    display: none;
 }
 
-.HS4Image2Con{
-    height: 400px;
-    background: url("../../../../src/assets/HomeIcons/HS4Img2.svg");
-    width: 402px;
-    
-}
-
-.HS4Image3Con{
-    height: 400px;
-    background: url("../../../../src/assets/HomeIcons/HS4Img3.svg");
-    width: 316px;
-}
-
-.HS4ContentContainer{
+.HS4CardEven:hover .HS4CardDataContainer{
+    background-color:black;
     height: 100%;
+    width: 100%;
+    opacity: 0.7;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+
+.HS4CardOdd:hover .HS4CardDataContainer{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.HS4CardContainer{
+    background-size: "cover";
+    background-repeat: "no-repeat";
+    background-position: "center";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.HS4CardOdd{
+    width: 317px;
+    height: 403px;
+}
+
+.HS4CardEven{
+    width: 398px;
+    height: 396px;
 }
 
 .HS4ContentHeading{
@@ -418,8 +436,8 @@
     line-height: 150%;
     color: #FFFFFF;
     margin-bottom: 10px;
-
 }
+
 .HS4ContentSubHeading{
     font-family: 'Poppins';
     font-style: normal;
@@ -429,6 +447,8 @@
     text-align: center;
     color: #FFFFFF;
     margin-bottom: 10px;
+    padding: 0% 4% 0% 4%;
+
 
 }
 .HS4ContentSubSubHeading{
@@ -817,9 +837,157 @@
 }
 
 /* HomeSection 4 */
-
 /* .HS4MainContainer{
+    height: 100%;
+}
 
+.HS4ContentHeadingContainer{
+    height: 80px;
+}
+
+.HS4SubHeading{
+    font-size: 28px;
+    width: 100%;
+  
+} */
+
+.HS4ButtonContainer{
+    /* height: 100px; */
+    display: none;
+    /* justify-content: space-between;
+    align-items: center;
+    margin: 0% 9% 0% 11%;
+    width: 100%;
+    overflow: auto; */
+}
+
+/* .HS4UnselectButton{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 128%;
+    color: #2B2A35;
+    display: flex;
+    flex-direction: column;
+    height: 78px;
+    text-align: center;
+    justify-content: center;
+}
+
+.HS4SelectedButton{
+    width: 319px;
+    height: 78px;
+    background: #FF9700;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.HS4ButtonUnderLine{
+    width: 252px;
+    height: 0px;
+    border: 2px solid #D2D8D6;
+    margin-top: 8px;
+} */
+
+
+/* .HS4ImageSize{
+    height: 400px;
+    width: 316px;
+} */
+/* 
+.HS4CardDataContainer{
+    display: none;
+}
+
+.HS4CardEven:hover .HS4CardDataContainer{
+    background-color:black;
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.HS4CardOdd:hover .HS4CardDataContainer{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.HS4CardContainer{
+    background-size: "cover";
+    background-repeat: "no-repeat";
+    background-position: "center";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.HS4CardOdd{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.HS4CardEven{
+    width: 150px;
+    height: 150px;
+}
+
+.HS4ContentHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 150%;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.HS4ContentSubHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 167.5%;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    padding: 0% 4% 0% 4%;
+
+
+}
+.HS4ContentSubSubHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 167.5%;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.HS4ArrowContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
 } */
 
 /* Home section 5 */

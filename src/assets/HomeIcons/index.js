@@ -18,9 +18,24 @@ import HS5Img1 from "./HS5Img.svg";
 import HS5Img2 from "./HS5Img2.svg";
 import HS5Img3 from "./HS5Img3.svg";
 import HS4Img from "./HS4Background.svg";
-import HS4Img1 from "./HS4Img1.svg";
-import HS4Img2 from "./HS4Img2.svg";
-import HS4Img3 from "./HS4Img3.svg";
+import Project1_Image1 from "./Project/Project1_image1.svg";
+import Project1_Image2 from "./Project/Project1_image2.svg";
+import Project1_Image3 from "./Project/Project1_image3.svg";
+import Project2_Image1 from "./Project/Project2_image1.svg";
+import Project2_Image2 from "./Project/Project2_image2.svg";
+import Project2_Image3 from "./Project/Project2_image3.svg";
+import Project3_Image1 from "./Project/Project3_image1.svg";
+import Project3_Image2 from "./Project/Project3_image2.svg";
+import Project3_Image3 from "./Project/Project3_image3.svg";
+import Project4_Image1 from "./Project/Project4_image1.svg";
+import Project4_Image2 from "./Project/Project4_image2.svg";
+import Project4_Image3 from "./Project/Project4_image3.svg";
+import Project5_Image1 from "./Project/Project5_image1.svg";
+import Project5_Image2 from "./Project/Project5_image2.svg";
+import Project5_Image3 from "./Project/Project5_image3.svg";
+import Project6_Image1 from "./Project/Project6_image1.svg";
+import Project6_Image2 from "./Project/Project6_image2.svg";
+import Project6_Image3 from "./Project/Project6_image3.svg";
 
 export {
   HSLogo,
@@ -43,7 +58,22 @@ export {
   HS7Img2,
   HS7Img3,
   HS7Img4,
-  HS4Img1,
-  HS4Img2,
-  HS4Img3,
+  Project1_Image1,
+  Project1_Image2,
+  Project1_Image3,
+  Project2_Image1,
+  Project2_Image2,
+  Project2_Image3,
+  Project3_Image1,
+  Project3_Image2,
+  Project3_Image3,
+  Project4_Image1,
+  Project4_Image2,
+  Project4_Image3,
+  Project5_Image1,
+  Project5_Image2,
+  Project5_Image3,
+  Project6_Image1,
+  Project6_Image2,
+  Project6_Image3,
 };

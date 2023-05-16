@@ -1,33 +1,144 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import { Zbutton } from "@component/Components/CommonComponents";
 import styles from "./HomeSection.module.css";
-import { HS4Img1, HS4Img2, HS4Img3 } from "@component/assets/HomeIcons";
+import {
+  Project1_Image1,
+  Project1_Image2,
+  Project1_Image3,
+  Project2_Image1,
+  Project2_Image2,
+  Project2_Image3,
+  Project3_Image1,
+  Project3_Image2,
+  Project3_Image3,
+  Project4_Image1,
+  Project4_Image2,
+  Project4_Image3,
+  Project5_Image1,
+  Project5_Image2,
+  Project5_Image3,
+  Project6_Image1,
+  Project6_Image2,
+  Project6_Image3,
+} from "@component/assets/HomeIcons";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
-function HomeSection4({ handleButtonClick }) {
+
+function HomeSection4() {
   const exp = [
     { index: 1, content: "Website Development" },
     { index: 2, content: "App Development" },
     { index: 3, content: " Graphics Designing" },
   ];
 
-  const project = [
+  const projectData = [
     {
       index: 1,
-      cardURL: HS4Img1,
+      img1: Project1_Image1,
+      img2: Project1_Image2,
+      img3: Project1_Image3,
+      title: "Cryptolinx",
+      content:
+        "Cryptolinx is a web based portal where the users can place all of their social media links under one screen, and can share it with their friends",
     },
     {
       index: 2,
-      cardURL: HS4Img2,
+      img1: Project2_Image1,
+      img2: Project2_Image2,
+      img3: Project2_Image3,
+      title: "Cyber Legends",
+      content:
+        "Cyber Legends is an EdTech platform on a mission to help parents and educators raise safe children in a digital world, with proper gamification learning and parental checks which encourages the children to learn more",
     },
     {
       index: 3,
-      cardURL: HS4Img3,
+      img1: Project3_Image1,
+      img2: Project3_Image2,
+      img3: Project3_Image3,
+      title: "The Daily Stakes",
+      content:
+        "The Daily Stakes is a web application that is used for Sports Betting, by effectively helping the players to get an edge against the books with the help of Analytics",
+    },
+    {
+      index: 4,
+      img1: Project4_Image1,
+      img2: Project4_Image2,
+      img3: Project4_Image3,
+      title: "Seated",
+      content:
+        "Seated is a platform which enables the users to Make Reservations at Local Restaurants so that they can earn back on every dollar that the users spend at the restaurant",
+    },
+    {
+      index: 5,
+      img1: Project5_Image1,
+      img2: Project5_Image2,
+      img3: Project5_Image3,
+      title: "Packet Taxi",
+      content:
+        "Package Taxi provides logistics service for corporate shipments, by providing a fast and safe solution with motor courier and vehicle courier facilities, sending all shipments on the same day or at the time of reservation",
+    },
+    {
+      index: 6,
+      img1: Project6_Image1,
+      img2: Project6_Image2,
+      img3: Project6_Image3,
+      title: "Ovonhome",
+      content:
+        "Ovonhome is a web based platform for IoT based water heaters which provides Smart water heating solutions for homes and offices",
     },
   ];
 
   const [proKey, setProKey] = useState(1);
+  const [startIndex, setStartIndex] = useState(1);
+  const [projectArray, setProjectArray] = useState([
+    {
+      index: 1,
+      img1: Project1_Image1,
+      img2: Project1_Image2,
+      img3: Project1_Image3,
+      title: "Cryptolinx",
+      content:
+        "Cryptolinx is a web based portal where the users can place all of their social media links under one screen, and can share it with their friends",
+    },
+    {
+      index: 2,
+      img1: Project2_Image1,
+      img2: Project2_Image2,
+      img3: Project2_Image3,
+      title: "Cyber Legends",
+      content:
+        "Cyber Legends is an EdTech platform on a mission to help parents and educators raise safe children in a digital world, with proper gamification learning and parental checks which encourages the children to learn more",
+    },
+    {
+      index: 3,
+      img1: Project3_Image1,
+      img2: Project3_Image2,
+      img3: Project3_Image3,
+      title: "The Daily Stakes",
+      content:
+        "The Daily Stakes is a web application that is used for Sports Betting, by effectively helping the players to get an edge against the books with the help of Analytics",
+    },
+  ]);
+
+  const onClickLeftArrow = () => {
+    if (startIndex == 0) setStartIndex(3);
+    else setStartIndex(startIndex - 1);
+    let dataArr = [];
+    for (let index = startIndex; index < startIndex + 3; index++) {
+      dataArr.push(projectData[index]);
+    }
+    setProjectArray(dataArr);
+  };
+
+  const onClickRightArrow = () => {
+    if (startIndex == 3) setStartIndex(0);
+    else setStartIndex(startIndex + 1);
+    let dataArr = [];
+    for (let index = startIndex; index < startIndex + 3; index++) {
+      dataArr.push(projectData[index]);
+    }
+    setProjectArray(dataArr);
+  };
 
   return (
     <>
@@ -67,44 +178,115 @@ function HomeSection4({ handleButtonClick }) {
               </div>
             );
           })}
+        </div>
 
-          {/* <div className={styles.HS4UnselectButton}>
-            App Development
-            <div className={styles.HS4ButtonUnderLine} />
-          </div>
-          <div className={styles.HS4UnselectButton}>
-            Graphics Designing
-            <div className={styles.HS4ButtonUnderLine} />
-          </div> */}
-        </div>
         <div className={styles.HSCardContainer}>
-          <div className={styles.HS4Image1Con}>
-            <div className={styles.HS4ContentContainer}>
-              <div className={styles.HS4ContentHeading}>Elemetal Universe</div>
-              <div className={styles.HS4ContentSubHeading}>
-                NFT Marketplace and NFT Minting platform with NFT based PvP
-                battle Game.
-              </div>
-              <div className={styles.HS4ContentSubSubHeading}>
-                Django | React
-              </div>
-              <div>
-                <Zbutton
-                  onClick={""}
-                  text="Request Demo"
-                  color="orange"
-                  backgroundColor="#FFFFFF"
-                  width="168px"
-                  whiteShaddow={true}
-                  showIcon={false}
-                  height="38px"
-                />
-              </div>
-            </div>
-          </div>
-          <div className={styles.HS4Image2Con}></div>
-          <div className={styles.HS4Image3Con}></div>
+          {projectArray.map((item, index) => {
+            return (
+              <>
+                {index == 0 ? (
+                  <div
+                    style={{
+                      backgroundImage: `url("${item.img1.src}")`,
+                    }}
+                    className={`${styles.HS4CardContainer} ${styles.HS4CardOdd}`}
+                  >
+                    <div className={styles.HS4CardDataContainer}>
+                      <div
+                        className={styles.HS4ContentHeading}
+                        style={{ color: "black" }}
+                      >
+                        {item.title}
+                      </div>
+                      <div
+                        className={styles.HS4ContentSubHeading}
+                        style={{ color: "black" }}
+                      >
+                        {item.content}
+                      </div>
+                      <div
+                        className={styles.HS4ContentSubHeading}
+                        style={{ color: "black" }}
+                      >
+                        Django | React
+                      </div>
+                    </div>
+                  </div>
+                ) : index == 1 ? (
+                  <div
+                    style={{
+                      backgroundImage: `url("${item.img2.src}")`,
+                    }}
+                    className={`${styles.HS4CardContainer} ${styles.HS4CardEven}`}
+                  >
+                    <div className={styles.HS4CardDataContainer}>
+                      <div className={styles.HS4ContentHeading}>
+                        {item.title}
+                      </div>
+                      <div className={styles.HS4ContentSubHeading}>
+                        {item.content}
+                      </div>
+                      <div className={styles.HS4ContentSubHeading}>
+                        Django | React
+                      </div>
+                      <div>
+                        <Zbutton
+                          onClick={""}
+                          text="Request Demo"
+                          color="#ff9700"
+                          backgroundColor="white"
+                          width="168px"
+                          height="48px"
+                          orangeShaddow={true}
+                          showIcon={false}
+                          margin="0px 0px 10px 0px"
+                          icon={
+                            <ArrowCircleRightOutlinedIcon
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                marginLeft: "-20px",
+                              }}
+                            />
+                          }
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      backgroundImage: `url("${item.img3.src}")`,
+                    }}
+                    className={`${styles.HS4CardContainer} ${styles.HS4CardOdd}`}
+                  >
+                    <div className={styles.HS4CardDataContainer}>
+                      <div
+                        className={styles.HS4ContentHeading}
+                        style={{ color: "black" }}
+                      >
+                        {item.title}
+                      </div>
+                      <div
+                        className={styles.HS4ContentSubHeading}
+                        style={{ color: "black" }}
+                      >
+                        {item.content}
+                      </div>
+                      <div
+                        className={styles.HS4ContentSubHeading}
+                        style={{ color: "black" }}
+                      >
+                        Django | React
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </>
+            );
+          })}
         </div>
+
         <div className={styles.HS4ArrowContainer}>
           <ArrowCircleLeftOutlinedIcon
             style={{
@@ -113,9 +295,11 @@ function HomeSection4({ handleButtonClick }) {
               color: "#FF9700",
               marginRight: "10px",
             }}
+            onClick={onClickLeftArrow}
           />
           <ArrowCircleRightOutlinedIcon
             style={{ width: "30px", height: "30px", color: "#FF9700" }}
+            onClick={onClickRightArrow}
           />
         </div>
       </div>
