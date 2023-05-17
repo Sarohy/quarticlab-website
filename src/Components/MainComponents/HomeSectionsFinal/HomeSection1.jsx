@@ -17,7 +17,9 @@ function HomeSection1({ handleButtonClick }) {
           <div className="animate__delay-1s animate__animated animate__zoomIn">
             <div className={styles.HS1Content}>
               <span className={styles.HS1ContentLine} />
-              <span className={styles.HS1Text}>Empowering Innovation</span>
+              <span className={styles.HS1Text}>
+                Empowering <br /> Innovation
+              </span>
             </div>
             <div className={styles.HS1SubText}>
               Zweidevs provides dedicated teams work to design and build your

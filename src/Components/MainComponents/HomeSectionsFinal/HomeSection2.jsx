@@ -18,33 +18,34 @@ function HomeSection2({ handleButtonClick }) {
       key: "hs2Img1",
       image: HS2Img1,
       heading: "Block Chain Development",
-      details: "",
+      details: `Blockchain is the backbone Technology of Digital CryptoCurrency BitCoin. A distributed database of records of all transactions. We have a team of Blockchain developers to make the deployment correct.`,
     },
     {
       key: "hs2Img2",
       image: HS2Img2,
       heading: "DevOps Development",
-      details: "",
+      details: `We possess extensive experience with cloud services. Shorten time to develop and launch new solutions, modernize legacy technology or test and deploy prototypes with IaaS-based applications on Amazon Web Services, Digital Ocean, Heroku, Microsoft Azure or Google Cloud.`,
     },
     {
       key: "hs2Img3",
       image: HS2Img3,
       heading: "Web Application Development",
       details:
-        "We are your creative web development team, who aim to leverage the latest technological advances with thoughtful design and serious engineering to build tailored solutions for any industry.",
+        "We are a creative web development team, who aim to leverage the latest technological advances with thoughtful design and serious engineering to build tailored solutions for our clients.engineering to build tailored solutions for any industry.",
     },
     {
       key: "hs2Img4",
       image: HS2Img4,
       heading: "Ecommerce Development",
       details:
-        "We are your creative web development team, who aim to leverage the latest technological advances with thoughtful design and serious engineering to build tailored solutions for any industry.",
+        "We develop sleek looking native and hybrid mobile apps for iOS & Android to ensure the customer satisfaction and performance at the core.",
     },
     {
       key: "hs2Img5",
       image: HS2Img5,
       heading: "Mobile Development",
-      details: "",
+      details:
+        "We develop sleek looking native and hybrid mobile apps for iOS & Android to ensure the customer satisfaction and performance at the core.",
     },
   ];
   return (
@@ -57,7 +58,9 @@ function HomeSection2({ handleButtonClick }) {
           </div>
         </div>
         <div className={styles.HS2SubHeadContainer}>
-          <div className={styles.HS2SubHeading}>
+          <div
+            className={`${styles.HS2SubHeading} animate__delay-1s animate__animated animate__zoomIn`}
+          >
             Everything your business needs under one roof
           </div>
           <div className={styles.HS2Button}>
