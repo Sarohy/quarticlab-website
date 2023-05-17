@@ -95,7 +95,7 @@ function Footer() {
       <div className={styles.footerContainer}>
         <div className={styles.footerContentContainer}>
           {/* footer sub-section-1 */}
-          <div>
+          <div className="animate__animated animate__slideInLeft">
             <Image src={ZweidevsLogo} alt="zweidevs" width={200} />
             <div className={styles.footerAboutZweidevs}>
               {`
