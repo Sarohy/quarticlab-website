@@ -24,7 +24,7 @@ function HomeSection2({ handleButtonClick }) {
       key: "hs2Img2",
       image: HS2Img2,
       heading: "DevOps Development",
-      details: `We possess extensive experience with cloud services. Shorten time to develop and launch new solutions, modernize legacy technology or test and deploy prototypes with IaaS-based applications on Amazon Web Services, Digital Ocean, Heroku, Microsoft Azure or Google Cloud.`,
+      details: `We possess deep knowledge and extensive experience with cloud services. Shorten time to develop and launch new solutions, modernize legacy technology or test and deploy prototypes with IaaS-based applications on Amazon Web Services, Digital Ocean, Heroku, Microsoft Azure or Google Cloud.`,
     },
     {
       key: "hs2Img3",
@@ -92,11 +92,7 @@ function HomeSection2({ handleButtonClick }) {
               <>
                 <div className={styles.HS2CardMob}>
                   <div
-                    className={
-                      selectedKey === item.key
-                        ? `${styles.HS2Card} ${styles.HS2CardSelected}`
-                        : `${styles.HS2Card} ${styles.HS2CardUnSelected}`
-                    }
+                    className={`${styles.HS2Card} ${styles.HS2CardUnSelected}`}
                     key={item.key}
                     onClick={() => {
                       setSelectedKey(item.key);
@@ -106,23 +102,11 @@ function HomeSection2({ handleButtonClick }) {
                       <Image
                         src={item.image}
                         alt="zweidevs"
-                        className={
-                          selectedKey === item.key
-                            ? styles.HS2SelectedImgWhite
-                            : ""
-                        }
+                        className={styles.HS2SelectedImgWhite}
                       />
                     </div>
                     <div className={styles.HS2CardHeading}>{item.heading}</div>
-                    <div
-                      className={
-                        selectedKey === item.key
-                          ? styles.HS2CardDetails2
-                          : styles.HS2CardDetails
-                      }
-                    >
-                      {item.details}
-                    </div>
+                    <div className={styles.HS2CardDetails}>{item.details}</div>
                   </div>
                 </div>
               </>

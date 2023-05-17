@@ -331,12 +331,28 @@ a {
   height: 40px;
   font-weight: 600;
   cursor: pointer;
+  font-family: poppins;
 }
 
 .workHeaderBtnSelected {
   border-bottom: 4px solid #ff9700;
   color: black;
   border-radius: 2px;
+  font-family: poppins;
+
+}
+
+.workProgress{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+ 
+}
+
+.MuiCircularProgress-colorPrimary {
+  color: #ff9700 !important;
 }
 
 .projects-container {
@@ -447,4 +463,8 @@ a {
   object-fit: contain;
   position: relative !important;
   height: unset !important;
+}
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+font-family: poppins !important;
 }
