@@ -43,7 +43,7 @@
     font-size: 64px;
     line-height: 133.5%;
     color: #FFFFFF;
-    margin-left: -7%;
+    margin-left: -8%;
 }
 
 .HS1SubText{
@@ -54,14 +54,14 @@
     line-height: 150%;
     color: #FFFFFF;
     width: 622px;
-    margin-left: 9%;
+    margin-left: 19%;
 }
 
 .HS1ContentButtonContainer{
     display: flex;
     justify-content: space-between;
     margin-left: 9%;
-    width: 50%;
+    width: 60%;
     margin-top: 26px;
 }
 
@@ -150,6 +150,11 @@
     color: #979797;
 }
 
+.HS2CardUnSelected:hover{
+    background: #FF9700;
+    color: #FFFFFF;
+}
+
 .HS2CardHeading{
     font-family: 'Poppins';
     font-style: normal;
@@ -184,7 +189,7 @@
     font-size: 12px;
     line-height: 167.5%;
     text-align: center;
-    
+    background-color: #FF9700;
 }
 
 /* Home section 3 css */
@@ -402,8 +407,10 @@
 
 
 .HS4CardOdd:hover .HS4CardDataContainer{
+    background-color:black;
     height: 100%;
     width: 100%;
+    opacity: 0.7;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -751,14 +758,14 @@
 
 .HS1Text{
     font-size: 30px;
-    margin-left: -6%;
+    /* margin-left: -6%; */
 }
 
 .HS1SubText{
     font-size: 12px;
     line-height: 150%;
     width: 250px;
-    margin-left: 23%;  
+    margin-left: 29%;  
 
 }
 
@@ -1126,7 +1133,7 @@
     font-size: 12px;
     line-height: 150%;
     width: 250px;
-    margin-left: 14%;
+    margin-left: 23%;
 }
 
 .HS1ContentLine{
@@ -1281,7 +1288,7 @@
     font-size: 20px;
     line-height: 150%;
     width: 400px;
-    margin-left: 12%;
+    margin-left: 18%;
 }
 
 .HS1ContentLine{
@@ -1289,7 +1296,7 @@
 }
 
 .HS1ContentButtonContainer{
-    width: 80%;
+    width: 93%;
     margin-top: 26px;
     display: flex;
     align-items: center;

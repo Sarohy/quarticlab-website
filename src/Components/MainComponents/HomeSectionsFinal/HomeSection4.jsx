@@ -192,22 +192,13 @@ function HomeSection4() {
                     className={`${styles.HS4CardContainer} ${styles.HS4CardOdd}`}
                   >
                     <div className={styles.HS4CardDataContainer}>
-                      <div
-                        className={styles.HS4ContentHeading}
-                        style={{ color: "black" }}
-                      >
+                      <div className={styles.HS4ContentHeading}>
                         {item.title}
                       </div>
-                      <div
-                        className={styles.HS4ContentSubHeading}
-                        style={{ color: "black" }}
-                      >
+                      <div className={styles.HS4ContentSubHeading}>
                         {item.content}
                       </div>
-                      <div
-                        className={styles.HS4ContentSubHeading}
-                        style={{ color: "black" }}
-                      >
+                      <div className={styles.HS4ContentSubHeading}>
                         Django | React
                       </div>
                     </div>
@@ -261,22 +252,13 @@ function HomeSection4() {
                     className={`${styles.HS4CardContainer} ${styles.HS4CardOdd}`}
                   >
                     <div className={styles.HS4CardDataContainer}>
-                      <div
-                        className={styles.HS4ContentHeading}
-                        style={{ color: "black" }}
-                      >
+                      <div className={styles.HS4ContentHeading}>
                         {item.title}
                       </div>
-                      <div
-                        className={styles.HS4ContentSubHeading}
-                        style={{ color: "black" }}
-                      >
+                      <div className={styles.HS4ContentSubHeading}>
                         {item.content}
                       </div>
-                      <div
-                        className={styles.HS4ContentSubHeading}
-                        style={{ color: "black" }}
-                      >
+                      <div className={styles.HS4ContentSubHeading}>
                         Django | React
                       </div>
                     </div>
