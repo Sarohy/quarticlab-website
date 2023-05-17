@@ -4,16 +4,17 @@ import styles from "./HomeSection.module.css";
 import { HSImg2, HSLogo, HSImg1 } from "@component/assets/HomeIcons";
 import { Zbutton } from "@component/Components/CommonComponents";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import "animate.css";
 
 function HomeSection1({ handleButtonClick }) {
   return (
     <>
       <div className={styles.HS1Background}>
-        <div className={styles.HS1HeaderImage}>
+        <div className={`${styles.HS1HeaderImage} `}>
           <Image className={styles.HS1Img1Height} src={HSImg1} alt="zweidevs" />
         </div>
-        <div className={styles.HS1ContentContainer}>
-          <div>
+        <div className={`${styles.HS1ContentContainer}`}>
+          <div className="animate__delay-1s animate__animated animate__zoomIn">
             <div className={styles.HS1Content}>
               <span className={styles.HS1ContentLine} />
               <span className={styles.HS1Text}>Empowering Innovation</span>
@@ -63,11 +64,13 @@ function HomeSection1({ handleButtonClick }) {
               />
             </div>
           </div>
-          <Image
-            className={styles.HSLogoContainer}
-            src={HSLogo}
-            alt="zweidevs"
-          />
+          <div className="animate__delay-1s animate__animated animate__zoomIn">
+            <Image
+              className={styles.HSLogoContainer}
+              src={HSLogo}
+              alt="zweidevs"
+            />
+          </div>
         </div>
         <div className={styles.HS1FooterImage}>
           <Image className={styles.HS1Img2Height} src={HSImg2} alt="zweidevs" />

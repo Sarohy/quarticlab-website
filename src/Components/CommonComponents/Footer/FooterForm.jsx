@@ -17,45 +17,47 @@ export default function FooterForm() {
   };
 
   return (
-    <Grid container spacing={2}>
-      <Grid className={styles.footerLinkHeading} item xs={12}>
-        <div>
-          We will call you right Back
+    <div className="animate__animated animate__slideInRight">
+      <Grid container spacing={2}>
+        <Grid className={styles.footerLinkHeading} item xs={12}>
           <div>
-            <span style={{ paddingRight: 8 }}>
-              <Image src={DashSmIcon} alt={"dashicon"}></Image>
-            </span>
-            <span>
-              <Image src={DashIcon} alt={"dashicon"}></Image>
-            </span>
+            We will call you right Back
+            <div>
+              <span style={{ paddingRight: 8 }}>
+                <Image src={DashSmIcon} alt={"dashicon"}></Image>
+              </span>
+              <span>
+                <Image src={DashIcon} alt={"dashicon"}></Image>
+              </span>
+            </div>
           </div>
-        </div>
+        </Grid>
+        <Grid item xs={12}>
+          <CustomInputField label={"Name"} />
+        </Grid>
+        <Grid item xs={6}>
+          <CustomInputField label={"Phone"} />
+        </Grid>
+        <Grid item xs={6}>
+          <CustomInputField label={"-Select A Service-"} />
+        </Grid>
+        <Grid item xs={12}>
+          <CustomInputField multiline={true} label={"Message"} />
+        </Grid>
+        <Grid item>
+          <Button
+            variant="contained"
+            // color="primary"
+            style={{
+              background: "#FF9700",
+              boxShadow: "0px 4.12579px 10.3145px rgba(255, 151, 0, 0.12)",
+              borderRadius: "5px",
+            }}
+          >
+            Submit Now
+          </Button>
+        </Grid>
       </Grid>
-      <Grid item xs={12}>
-        <CustomInputField label={"Name"} />
-      </Grid>
-      <Grid item xs={6}>
-        <CustomInputField label={"Phone"} />
-      </Grid>
-      <Grid item xs={6}>
-        <CustomInputField label={"-Select A Service-"} />
-      </Grid>
-      <Grid item xs={12}>
-        <CustomInputField multiline={true} label={"Message"} />
-      </Grid>
-      <Grid item>
-        <Button
-          variant="contained"
-          // color="primary"
-          style={{
-            background: "#FF9700",
-            boxShadow: "0px 4.12579px 10.3145px rgba(255, 151, 0, 0.12)",
-            borderRadius: "5px",
-          }}
-        >
-          Submit Now
-        </Button>
-      </Grid>
-    </Grid>
+    </div>
   );
 }

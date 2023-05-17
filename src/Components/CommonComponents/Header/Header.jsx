@@ -114,9 +114,16 @@ function Header() {
       </div>
       <hr style={{ border: "1px solid #E5E5E5" }}></hr>
       <div className={styles.headerContainer}>
-        <Image src={ZweidevsLogo} width={180} alt="zweidevs" />
+        <Image
+          src={ZweidevsLogo}
+          width={180}
+          alt="zweidevs"
+          className="animate__animated animate__slideInLeft"
+        />
         <div className={styles.contentContainer}>
-          <div className={styles.pagesContainer}>
+          <div
+            className={`${styles.pagesContainer} animate__animated animate__slideInRight`}
+          >
             {navLinks.map(({ href, text }) => (
               <Link
                 key={href}

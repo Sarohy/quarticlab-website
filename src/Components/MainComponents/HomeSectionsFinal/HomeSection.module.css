@@ -13,6 +13,7 @@
 .HSLogoContainer{
     height:383px;
     width:383px;
+    animation: bounce;
 }
 
 .HS1ContentContainer{
@@ -183,6 +184,7 @@
     font-size: 12px;
     line-height: 167.5%;
     text-align: center;
+    
 }
 
 /* Home section 3 css */
