@@ -140,10 +140,10 @@
     align-items: center;
 }
 
-.HS2CardSelected{
+/* .HS2CardSelected{
     background-color: #FF9700;
     color: #FFFFFF;
-}
+} */
 
 .HS2CardUnSelected{
     background: #FFFFFF;
@@ -164,16 +164,17 @@
     margin-top: 2%;
 }
 
-.HS2CardDetails2{
+/* .HS2CardDetails2{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 167.5%;
     text-align: center;
-}
+} */
 
-.HS2SelectedImgWhite {
+
+.HS2CardUnSelected:hover .HS2SelectedImgWhite{
     filter: hue-rotate(40deg) saturate(1) brightness(200%) saturate(4); 
 }
 
@@ -186,10 +187,11 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 167.5%;
     text-align: center;
     background-color: #FF9700;
+    width: 198px;
 }
 
 /* Home section 3 css */

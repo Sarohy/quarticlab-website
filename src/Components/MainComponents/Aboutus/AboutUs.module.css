@@ -4,9 +4,17 @@
     height: 376px;
     background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
     display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.AUCdHeading{
+    display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 0% 5% 0% 5%;
+    height: 376px;
 }
 
 .AUCd1Heading{

@@ -6,6 +6,7 @@ import {
   HS7Img2,
   HS7Img3,
   HS7Img4,
+  HS7Img5,
 } from "@component/assets/HomeIcons";
 function HomeSection7({ handleButtonClick }) {
   return (
@@ -33,7 +34,7 @@ function HomeSection7({ handleButtonClick }) {
             src={HS7Img4}
             alt="homeSection7Image"
           />
-          <Image src={HS7Img2} alt="homeSection7Image" />
+          <Image src={HS7Img5} alt="homeSection7Image" />
         </div>
       </div>
     </>
