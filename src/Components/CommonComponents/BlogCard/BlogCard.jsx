@@ -87,9 +87,11 @@ export default function blogCard(props) {
                     <CardActionArea>
                       <CardMedia
                         component="img"
-                        height={"auto"}
+                        height={"152"}
                         image={element.image}
                         alt="green iguana"
+                        width={"272"}
+                        sx={{ objectFit: "contain" }}
                       />
                       <CardContent
                         style={{
@@ -123,6 +125,7 @@ export default function blogCard(props) {
                           height={"5em"}
                           variant="body2"
                           color="text.secondary"
+                          fontFamily="poppins"
                         >
                           {element.description}
                         </Typography>
@@ -135,6 +138,7 @@ export default function blogCard(props) {
                         }}
                         size="small"
                         color="primary"
+                        fontFamily="poppins"
                       >
                         Read More
                       </Button>

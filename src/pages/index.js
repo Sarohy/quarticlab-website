@@ -1,21 +1,15 @@
-import Head from "next/head";
-import Image from "next/image";
+// import Head from "next/head";
+// import Image from "next/image";
 import { Inter } from "next/font/google";
-import styles from "@component/styles/Home.module.css";
-import { InstantBookingBanner } from "@component/Components/CommonComponents";
-// import {
-//   HomeSection1,
-//   HomeSection2,
-//   HomeSection3,
-//   HomeSection4,
-//   HomeSection5,
-// } from "@component/Components/MainComponents/HomeSections";
+// import styles from "@component/styles/Home.module.css";
+// import { InstantBookingBanner } from "@component/Components/CommonComponents";
 
-import { useRef } from "react";
+// import { useRef } from "react";
 import {
   HomeSection1,
   HomeSection2,
   HomeSection3,
+  HomeSection4,
   HomeSection5,
   HomeSection6,
   HomeSection7,
@@ -40,22 +34,11 @@ export default function Home() {
       <HomeSection1 handleButtonClick={handleButtonClickSection1} />
       <HomeSection2 />
       <HomeSection3 />
+      <HomeSection4 />
       <HomeSection5 />
       <HomeSection6 />
       <HomeSection7 />
       <HomeSection8 />
-
-      {/* <HomeSection1 handleButtonClick={handleButtonClickSection1} /> */}
-      {/* <HomeSection2
-    handleButtonClick={handleButtonClickSection2}
-    id={"homeSection2"}
-    />
-    <HomeSection3
-    id={"homeSection3"}
-    />
-    <HomeSection4/>
-    <HomeSection5/>
-    <InstantBookingBanner/> */}
     </>
   );
 }

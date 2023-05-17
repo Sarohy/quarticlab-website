@@ -13,10 +13,26 @@ function HomeSection7({ handleButtonClick }) {
       <div className={styles.HS7MainContainer}>
         <div className={styles.HS7Heading}>Technologies we Work With</div>
         <div className={styles.HS7ImagesContainer}>
-          <Image src={HS7Img1} alt="homeSection7Image" />
-          <Image src={HS7Img2} alt="homeSection7Image" />
-          <Image src={HS7Img1} alt="homeSection7Image" />
-          <Image src={HS7Img4} alt="homeSection7Image" />
+          <Image
+            className={styles.HS7Image}
+            src={HS7Img1}
+            alt="homeSection7Image"
+          />
+          <Image
+            className={styles.HS7Image}
+            src={HS7Img2}
+            alt="homeSection7Image"
+          />
+          <Image
+            className={styles.HS7Image}
+            src={HS7Img1}
+            alt="homeSection7Image"
+          />
+          <Image
+            className={styles.HS7Image}
+            src={HS7Img4}
+            alt="homeSection7Image"
+          />
           <Image src={HS7Img2} alt="homeSection7Image" />
         </div>
       </div>

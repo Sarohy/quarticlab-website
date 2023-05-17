@@ -1,6 +1,6 @@
 .pageBannerRoot {
-  background-color: #ff9700;
-  background-image: url("../../../assets/mobileBg.svg");
+  background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
+  /* background-image: url("../../../assets/mobileBg.svg"); */
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;

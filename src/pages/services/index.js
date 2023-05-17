@@ -57,7 +57,7 @@ function Services() {
       cardIcon: WebDevIcon,
       cardIconTitle: { firstLine: "Website", secondLine: "Development" },
       cardTitle: "Website Development",
-      cardDetails: `We are your creative web development team, who aim to leverage the
+      cardDetails: `We are a creative web development team, who aim to leverage the
       latest technological advances with thoughtful design and serious
       engineering to build tailored solutions for our clients.`,
       footerTitle: "Tools & Technologies",

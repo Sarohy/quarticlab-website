@@ -70,11 +70,11 @@
     align-items: end;
 }
 /* Home section 2 css */
+
 .HS2MainContainer{
     height: 700px;
     background: url("../../../../src/assets/HomeIcons/HS2_background.svg");
     width: 100%;
-
 }
 
 .HS2ContentContainer{
@@ -123,7 +123,9 @@
 .HS2CardsContainer{
     padding: 3%;
     display: flex;
+    justify-content: space-around;
 }
+
 
 .HS2Card{
     width: 227px;
@@ -156,7 +158,25 @@
     margin-top: 2%;
 }
 
+.HS2CardDetails2{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 167.5%;
+    text-align: center;
+}
+
+.HS2SelectedImgWhite {
+    filter: hue-rotate(40deg) saturate(1) brightness(200%) saturate(4); 
+}
+
 .HS2CardDetails{
+    display: none;
+}
+
+.HS2CardUnSelected:hover .HS2CardDetails{
+    display: block;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -177,6 +197,7 @@
     justify-content: space-between;
     padding: 4%;
 }
+
 .HS3ContentHeading{
     font-family: 'Poppins';
     font-style: normal;
@@ -186,10 +207,9 @@
     color: #FF9700;
     display: flex;
     align-items: center;
-    height: 4%;
-
-    
+    height: 4%;   
 }
+
 .HS3ContentLine1{
     width: 19px;
     height: 0px;
@@ -265,6 +285,189 @@
     text-transform: uppercase;
     color: #FF9700;
 }
+
+/* Homesection 4 */
+.HS4MainContainer{
+    height: 900px;
+    background-image: url("../../../../src/assets/HomeIcons/HS4Background.svg");
+    width: 100%;
+    background-repeat: no-repeat;
+    padding: 0% 3% 0% 3%;
+    background-color: white;
+}
+
+.HS4ContentHeadingContainer{
+    display: flex;
+    align-items: end;
+    height: 100px;
+}
+
+.HS4Heading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%; 
+    font-family: 'Poppins';   
+    color: #FF9700;
+    display: flex;
+    align-items: center;
+    height: 4%;   
+}
+
+.HS4SubHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 128%;
+    width: 649px;
+    height: 125px;
+    color: #2B2A35;
+    margin-top: 21px;
+}
+
+.HS4ButtonContainer{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0% 9% 0% 11%;
+}
+
+.HS4UnselectButton{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 128%;
+    color: #2B2A35;
+    display: flex;
+    flex-direction: column;
+    height: 78px;
+    text-align: center;
+    justify-content: center;
+}
+
+.HS4SelectedButton{
+    width: 319px;
+    height: 78px;
+    background: #FF9700;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.HS4ButtonUnderLine{
+    width: 252px;
+    height: 0px;
+    border: 2px solid #D2D8D6;
+    margin-top: 8px;
+}
+
+.HSCardContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0% 4% 0% 4%;
+    margin-top: 4%;
+}
+.HS4ImageSize{
+    height: 400px;
+    width: 316px;
+}
+
+.HS4CardDataContainer{
+    display: none;
+}
+
+.HS4CardEven:hover .HS4CardDataContainer{
+    background-color:black;
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.HS4CardOdd:hover .HS4CardDataContainer{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.HS4CardContainer{
+    background-size: "cover";
+    background-repeat: "no-repeat";
+    background-position: "center";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.HS4CardOdd{
+    width: 317px;
+    height: 403px;
+}
+
+.HS4CardEven{
+    width: 398px;
+    height: 396px;
+}
+
+.HS4ContentHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 150%;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.HS4ContentSubHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 167.5%;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    padding: 0% 4% 0% 4%;
+
+
+}
+.HS4ContentSubSubHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 167.5%;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.HS4ArrowContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+}
 /* HomeSection 5*/
 
 .HS5MainContainer{
@@ -303,6 +506,16 @@
     line-height: 128%;
     color: #2B2A35;
     margin-top: 1.75%;
+}
+
+.HS5SingleCard{
+    background: #FFFFFF;
+    border: 1.73732px solid rgba(255, 151, 0, 0.44);
+    border-radius: 27.7971px;
+    width: 408px;
+    display: flex;
+    justify-content: center;
+    height: 394px;
 }
 
 .HS5OddCard{
@@ -349,6 +562,7 @@
     margin-top: 8%;
  
 }
+
 
 .HS5ContentContainer{
     display: flex;
@@ -560,6 +774,40 @@
     align-items: center;
     margin-left: 0%;
 }
+/* home Section 2 */
+
+.HS2ContentContainer{
+    padding: 0% 3% 0% 3%;
+    height: 100px;
+    display: flex;
+    align-items: end;
+}
+
+.HS2Heading{
+    font-size: 14px;
+}
+
+
+.HS2SubHeading{
+    font-size: 18px;
+    width: 70%
+}
+
+.HS2Button{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.HS2CardMob{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0% 3% 0% 3%;
+}
+.HS2CardsContainer{
+    overflow: auto;
+}
 
 /* Home Section 3 */
 
@@ -588,16 +836,181 @@
     margin-bottom: 12%;
 }
 
+/* HomeSection 4 */
+/* .HS4MainContainer{
+    height: 100%;
+}
+
+.HS4ContentHeadingContainer{
+    height: 80px;
+}
+
+.HS4SubHeading{
+    font-size: 28px;
+    width: 100%;
+  
+} */
+
+.HS4ButtonContainer{
+    /* height: 100px; */
+    display: none;
+    /* justify-content: space-between;
+    align-items: center;
+    margin: 0% 9% 0% 11%;
+    width: 100%;
+    overflow: auto; */
+}
+
+/* .HS4UnselectButton{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 128%;
+    color: #2B2A35;
+    display: flex;
+    flex-direction: column;
+    height: 78px;
+    text-align: center;
+    justify-content: center;
+}
+
+.HS4SelectedButton{
+    width: 319px;
+    height: 78px;
+    background: #FF9700;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.HS4ButtonUnderLine{
+    width: 252px;
+    height: 0px;
+    border: 2px solid #D2D8D6;
+    margin-top: 8px;
+} */
+
+
+/* .HS4ImageSize{
+    height: 400px;
+    width: 316px;
+} */
+/* 
+.HS4CardDataContainer{
+    display: none;
+}
+
+.HS4CardEven:hover .HS4CardDataContainer{
+    background-color:black;
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.HS4CardOdd:hover .HS4CardDataContainer{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.HS4CardContainer{
+    background-size: "cover";
+    background-repeat: "no-repeat";
+    background-position: "center";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.HS4CardOdd{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.HS4CardEven{
+    width: 150px;
+    height: 150px;
+}
+
+.HS4ContentHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 150%;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.HS4ContentSubHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 167.5%;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    padding: 0% 4% 0% 4%;
+
+
+}
+.HS4ContentSubSubHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 167.5%;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.HS4ArrowContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+} */
+
 /* Home section 5 */
+
+
+.HS5SingleCard{
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+}
 
 .HS5OddCard{
     width: 100%;
     height: 250px;
+    border-radius: 10px;
+
 }
 
 .HS5EvenCard{
     width: 100%;
     height: 250px;
+    border-radius: 10px;
+
 }
 
 
@@ -646,6 +1059,20 @@
     height: 100%;
 }
 
+/* home Section 7 */
+
+.HS7Image{
+    margin-right: 25px;
+}
+.HS7ImagesContainer{
+    overflow: auto;  
+}
+
+.HS7Heading{
+    text-align: center;
+    margin-bottom: 10%;
+  
+}
 /* HomeSection 8 */
 
 .HS8InputFieldContainer{
@@ -714,6 +1141,31 @@
     margin-left: -11%;
 }
 
+/* home Section 2 */
+
+.HS2ContentContainer{
+    padding: 0% 3% 0% 3%;
+    height: 100px;
+    display: flex;
+    align-items: end;
+}
+
+
+.HS2SubHeading{
+    width: 70%
+}
+
+.HS2CardMob{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0% 3% 0% 3%;
+}
+
+.HS2CardsContainer{
+    overflow: auto;
+}
+
 /* Home section 3 css */
 
 .HS3ContentContainer{
@@ -776,6 +1228,14 @@
     width: 100%;
     height: 100%;
 }
+
+/* home Section 7 */
+
+
+
+.HS7Image{
+    margin-right: 9px;
+}
 /* HomeSection 8 */
 
 .HS8MainContainer{
@@ -831,6 +1291,27 @@
     margin-top: 26px;
     display: flex;
     align-items: center;
+}
+
+/* home Section 2 */
+.HS2ContentContainer{
+    height: 100px;
+}
+
+
+.HS2SubHeading{
+    width: 60%
+}
+
+.HS2CardMob{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0% 3% 0% 3%;
+}
+
+.HS2CardsContainer{
+    overflow: auto;
 }
 
 /* Home section 3 css */
@@ -943,7 +1424,20 @@
 .HSLogoContainer{
   padding: 0% 2% 0% 0%;
 }
-            
+      
+
+/* home Section 2 */
+.HS2CardMob{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0% 1.5% 0% 1.5%;
+}
+
+
+.HS2CardsContainer{
+    overflow: auto;
+}
 /* Home section 3 css */
 
 .HS3ContentContainer{

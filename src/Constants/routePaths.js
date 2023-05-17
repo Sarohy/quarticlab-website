@@ -2,7 +2,7 @@ const routesPaths = {
   home: "/",
   services: "/services",
   aboutUs: "/aboutUs",
-  careers: "/careers",
+  // careers: "/careers",
   blogs: "/blog",
   projects: "/projects",
 };
