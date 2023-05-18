@@ -9,11 +9,11 @@ const SocialMedia = (props) => {
     <div className={styles.footerSocialContainer}>
       {data &&
         data.map((element, key) => (
-          <a key={key} href={element.href}>
+          <a key={key} href={element.href} className={styles.image}>
             <Image
               src={element.image}
-              color={"red"}
               alt={element.alt || "social-meida-image"}
+              className={styles.HS2SelectedImgWhite}
               onFocus={() => {
                 setIsFocused(key);
                 console.log(isFocused);

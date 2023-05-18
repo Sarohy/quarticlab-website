@@ -256,3 +256,7 @@
 
   border: 0.756563px solid #646464;
 }
+
+.image:hover .HS2SelectedImgWhite{
+  filter: hue-rotate(20%) saturate(1) brightness(400%) saturate(4); 
+}

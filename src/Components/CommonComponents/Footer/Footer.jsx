@@ -157,7 +157,7 @@ function Footer() {
           </div>
           <div
             ref={ref2}
-            style={{ width: "40%", padding: "12px 20px 0px 30px" }}
+            style={{ width: "40%", padding: "12px 70px 0px 70px" }}
           >
             <FooterLinks />
           </div>
