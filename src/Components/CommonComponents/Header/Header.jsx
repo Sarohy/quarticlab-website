@@ -68,7 +68,7 @@ function Header() {
         }}
       >
         <div
-          className="headerCenterRow"
+          className="headerCenterRow animate__animated animate__zoomIn"
           style={{
             display: "flex",
             alignItems: "center",
@@ -89,7 +89,7 @@ function Header() {
           </span>
         </div>
         <div
-          className={"headerCenterRow"}
+          className={"headerCenterRow animate__animated animate__zoomIn"}
           style={{
             display: "flex",
             alignItems: "center",

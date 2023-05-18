@@ -28,10 +28,6 @@ import FooterLinks from "./FooterLinks.jsx";
 import SocialMedia from "./SocialMedia";
 
 function Footer() {
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
-  const ref3 = useRef(null);
-
   const [state, setState] = useState({
     email: "",
     invalidEmail: false,
@@ -95,56 +91,11 @@ function Footer() {
     };
   }, []);
 
-  useEffect(() => {
-    const refClass1 = document.querySelectorAll("ref1");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const target = entry.target;
-
-            // Code to handle animation
-            // target.classList.remove("hidden");
-            //target.style.opacity = 1;
-            target.classList.add(
-              // "animate__animated",
-              "animate__slideInLeft"
-              // ,"animate__delay-2s"
-            );
-
-            observer.unobserve(target);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.5,
-      }
-    );
-
-    // document.addEventListener("DOMContentLoaded", function () {
-    // your instersectionobserver code here
-    if (refClass1) {
-      refClass1.forEach((section) => {
-        observer.observe(section);
-      });
-    }
-    // });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
   const displayWeb = () => (
     <>
       <div className={styles.footerContainer}>
         <div className={styles.footerContentContainer}>
-          {/* footer sub-section-1 */}
-          <div
-            className="ref1 animate__animated" //ref={ref1}
-          >
+          <div>
             <Image src={ZweidevsLogo} alt="zweidevs" width={200} />
             <div className={styles.footerAboutZweidevs}>
               {`
@@ -155,16 +106,10 @@ function Footer() {
             </div>
             <SocialMedia data={socialMediaData} />
           </div>
-          <div
-            ref={ref2}
-            style={{ width: "40%", padding: "12px 70px 0px 70px" }}
-          >
+          <div style={{ width: "40%", padding: "12px 70px 0px 70px" }}>
             <FooterLinks />
           </div>
-          <div
-            ref={ref3}
-            style={{ width: "40%", padding: "12px 20px 0px 12px" }}
-          >
+          <div style={{ width: "40%", padding: "12px 20px 0px 12px" }}>
             <FooterForm />
           </div>
         </div>
@@ -327,52 +272,6 @@ function Footer() {
           </div>
         </div>
       </div>
-      {/* mobile view */}
-      {/* <Grid
-        sx={{
-          display: {
-            xs: "flex",
-            sm: "flex",
-            md: "flex",
-            lg: "none",
-            xl: "none",
-          },
-        }}
-        container
-        spacing={0}
-        style={{ marginBottom: 30, marginTop: 30 }}
-      >
-        <Grid
-          style={{
-            justifyContent: "start",
-            display: "flex",
-            paddingInline: 20,
-          }}
-          item
-          xs={1}
-        >
-          <Image
-            style={{ objectFit: "contain", maxWidth: 200 }}
-            src={CopyrightLeftLine}
-          ></Image>
-        </Grid>
-
-        <Grid
-          style={{ justifyContent: "center", display: "flex" }}
-          item
-          //xs={8}
-          md={10}
-        >
-          © 2023 Zweidevs. All Rights Reserved.
-        </Grid>
-
-        <Grid style={{ justifyContent: "end", display: "flex" }} item xs={1}>
-          <Image
-            style={{ objectFit: "contain", maxWidth: 200 }}
-            src={CopyrightRightLine}
-          ></Image>
-        </Grid>
-      </Grid> */}
     </>
   );
   return (

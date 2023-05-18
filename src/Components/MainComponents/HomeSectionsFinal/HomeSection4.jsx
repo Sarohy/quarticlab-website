@@ -25,6 +25,39 @@ import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOu
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 
 function HomeSection4() {
+  const animatedDivRefs = Array.from({ length: 2 }, () => React.useRef(null));
+  const [proKey, setProKey] = useState(1);
+  const [startIndex, setStartIndex] = useState(1);
+  const [projectArray, setProjectArray] = useState([
+    {
+      index: 1,
+      img1: Project1_Image1,
+      img2: Project1_Image2,
+      img3: Project1_Image3,
+      title: "Cryptolinx",
+      content:
+        "Cryptolinx is a web based portal where the users can place all of their social media links under one screen, and can share it with their friends",
+    },
+    {
+      index: 2,
+      img1: Project2_Image1,
+      img2: Project2_Image2,
+      img3: Project2_Image3,
+      title: "Cyber Legends",
+      content:
+        "Cyber Legends is an EdTech platform on a mission to help parents and educators raise safe children in a digital world, with proper gamification learning and parental checks which encourages the children to learn more",
+    },
+    {
+      index: 3,
+      img1: Project3_Image1,
+      img2: Project3_Image2,
+      img3: Project3_Image3,
+      title: "The Daily Stakes",
+      content:
+        "The Daily Stakes is a web application that is used for Sports Betting, by effectively helping the players to get an edge against the books with the help of Analytics",
+    },
+  ]);
+
   const exp = [
     { index: 1, content: "Website Development" },
     { index: 2, content: "App Development" },
@@ -88,38 +121,6 @@ function HomeSection4() {
     },
   ];
 
-  const [proKey, setProKey] = useState(1);
-  const [startIndex, setStartIndex] = useState(1);
-  const [projectArray, setProjectArray] = useState([
-    {
-      index: 1,
-      img1: Project1_Image1,
-      img2: Project1_Image2,
-      img3: Project1_Image3,
-      title: "Cryptolinx",
-      content:
-        "Cryptolinx is a web based portal where the users can place all of their social media links under one screen, and can share it with their friends",
-    },
-    {
-      index: 2,
-      img1: Project2_Image1,
-      img2: Project2_Image2,
-      img3: Project2_Image3,
-      title: "Cyber Legends",
-      content:
-        "Cyber Legends is an EdTech platform on a mission to help parents and educators raise safe children in a digital world, with proper gamification learning and parental checks which encourages the children to learn more",
-    },
-    {
-      index: 3,
-      img1: Project3_Image1,
-      img2: Project3_Image2,
-      img3: Project3_Image3,
-      title: "The Daily Stakes",
-      content:
-        "The Daily Stakes is a web application that is used for Sports Betting, by effectively helping the players to get an edge against the books with the help of Analytics",
-    },
-  ]);
-
   const onClickLeftArrow = () => {
     if (startIndex == 0) setStartIndex(3);
     else setStartIndex(startIndex - 1);
@@ -140,17 +141,48 @@ function HomeSection4() {
     setProjectArray(dataArr);
   };
 
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__backInUp",
+            "animate__delay-0s"
+          );
+        }
+      });
+    }, options);
+
+    animatedDivRefs.forEach((ref) => {
+      observer.observe(ref.current);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <>
       <div className={styles.HS4MainContainer}>
-        <div className={styles.HS4ContentHeadingContainer}>
+        <div
+          className={styles.HS4ContentHeadingContainer}
+          ref={animatedDivRefs[0]}
+        >
           <div className={styles.HS4Heading}>
             <span>Our Experiences</span>{" "}
             <hr className={styles.HS3ContentLine1} />
             <hr className={styles.HS3ContentLine2} />
           </div>
         </div>
-        <div className={styles.HS4SubHeading}>
+        <div className={styles.HS4SubHeading} ref={animatedDivRefs[1]}>
           We`ve Done Lot`s Of Awesome Projects
         </div>
         <div className={styles.HS4ButtonContainer}>

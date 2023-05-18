@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import styles from "./HomeSection.module.css";
 import {
@@ -12,7 +12,8 @@ import { Zbutton } from "@component/Components/CommonComponents";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 
 function HomeSection2({ handleButtonClick }) {
-  const [selectedKey, setSelectedKey] = useState("hs2Img3");
+  const animatedDivRefs = Array.from({ length: 2 }, () => React.useRef(null));
+
   const cardData = [
     {
       key: "hs2Img1",
@@ -48,16 +49,45 @@ function HomeSection2({ handleButtonClick }) {
         "We develop sleek looking native and hybrid mobile apps for iOS & Android to ensure the customer satisfaction and performance at the core.",
     },
   ];
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__backInUp",
+            "animate__delay-0s"
+          );
+        }
+      });
+    }, options);
+
+    animatedDivRefs.forEach((ref) => {
+      observer.observe(ref.current);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <>
       <div className={styles.HS2MainContainer}>
-        <div className={styles.HS2ContentContainer}>
+        <div className={styles.HS2ContentContainer} ref={animatedDivRefs[0]}>
           <div className={styles.HS2Heading}>
             <span>Our Services</span> <hr className={styles.HS3ContentLine1} />
             <hr className={styles.HS3ContentLine2} />
           </div>
         </div>
-        <div className={styles.HS2SubHeadContainer}>
+        <div className={styles.HS2SubHeadContainer} ref={animatedDivRefs[1]}>
           <div
             className={`${styles.HS2SubHeading} animate__delay-1s animate__animated animate__zoomIn`}
           >
@@ -94,9 +124,6 @@ function HomeSection2({ handleButtonClick }) {
                   <div
                     className={`${styles.HS2Card} ${styles.HS2CardUnSelected}`}
                     key={item.key}
-                    onClick={() => {
-                      setSelectedKey(item.key);
-                    }}
                   >
                     <div>
                       <Image
