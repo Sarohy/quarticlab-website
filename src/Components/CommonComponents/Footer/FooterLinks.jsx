@@ -10,7 +10,7 @@ export default function FooterLinks() {
   const router = useRouter();
   return (
     <div className="animate__delay-1s animate__animated animate__zoomIn">
-      <Grid container style={{ height: 50 }} spacing={2}>
+      <Grid container spacing={1.5} xl={2}>
         <Grid item xs={12}>
           <div className={styles.footerLinkHeading}>What We Do</div>
           <div>

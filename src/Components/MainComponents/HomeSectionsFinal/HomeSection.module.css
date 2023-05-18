@@ -729,6 +729,15 @@
     border-radius: 5px;
     width: 181px;
     height:58px;
+    font-family: poppins;
+    font-weight: 600;
+
+}
+
+.HS8Button:hover{
+    background: white !important;
+    color: #FF9700;
+    
 }
 
 
