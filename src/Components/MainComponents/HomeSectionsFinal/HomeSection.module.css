@@ -661,12 +661,28 @@
     justify-content: center;
 }
 
-.HS7ImagesContainer{
+.HS7ImgContainer{
     width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 5% 3% 0% 3% ;
 }
+
+  
+  .HS7ImgContainer {
+    display: flex; /* Important to give the content a width */
+    justify-content: space-between;
+    width: 100%;
+    transform: translateX(100%); /* Animation start out of the screen */
+    /* Add the animation */
+    animation: move 10s linear infinite /* infinite make reapeat the animation indefinitely */;
+  }
+  
+  /* Create the animation */
+  @keyframes move {
+    to { transform: translateX(-100%); }
+  }
+
 /* HomeSection 8 */
 .HS8MainContainer{
     height: 880px;;
@@ -1081,9 +1097,7 @@
 .HS7Image{
     margin-right: 25px;
 }
-.HS7ImagesContainer{
-    overflow: auto;  
-}
+
 
 .HS7Heading{
     text-align: center;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./HomeSection.module.css";
 
 import { TextField, Button, FormLabel } from "@mui/material";
@@ -11,6 +11,9 @@ function HomeSection8({ handleButtonClick }) {
     country: "",
     description: "",
   });
+  const animatedDivRefs = React.useRef(null);
+  const animatedLabelRefs = Array.from({ length: 5 }, () => React.useRef(null));
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormValues({
@@ -23,15 +26,66 @@ function HomeSection8({ handleButtonClick }) {
     console.log(formValues);
   };
 
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__backInUp",
+            "animate__delay-0s"
+          );
+        }
+      });
+    }, options);
+
+    const observer1 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__shakeX",
+            "animate__delay-0s"
+          );
+        }
+      });
+    }, options);
+
+    if (animatedDivRefs.current) {
+      observer.observe(animatedDivRefs.current);
+    }
+
+    animatedLabelRefs.forEach((ref) => {
+      observer1.observe(ref.current);
+    });
+
+    return () => {
+      observer.disconnect();
+      observer1.disconnect();
+    };
+  }, []);
+
   return (
     <>
       <div className={styles.HS8MainContainer}>
-        <div className={styles.HS8Heading}>How May we Help You</div>
+        <div className={styles.HS8Heading} ref={animatedDivRefs}>
+          How May we Help You
+        </div>
         <div style={{ width: "85%" }}>
           <form onSubmit={handleSubmit}>
             <div className={styles.HS8InputFieldContainer}>
               <div className={styles.HS8InputContainer}>
-                <FormLabel required className={styles.HS8FormLabel}>
+                <FormLabel
+                  required
+                  className={styles.HS8FormLabel}
+                  ref={animatedLabelRefs[0]}
+                >
                   Name
                 </FormLabel>
                 <TextField
@@ -46,7 +100,11 @@ function HomeSection8({ handleButtonClick }) {
                 />
               </div>
               <div className={styles.HS8InputContainer}>
-                <FormLabel required className={styles.HS8FormLabel}>
+                <FormLabel
+                  required
+                  className={styles.HS8FormLabel}
+                  ref={animatedLabelRefs[1]}
+                >
                   Email
                 </FormLabel>
                 <TextField
@@ -63,7 +121,11 @@ function HomeSection8({ handleButtonClick }) {
             </div>
             <div className={styles.HS8InputFieldContainer}>
               <div className={styles.HS8InputContainer}>
-                <FormLabel required className={styles.HS8FormLabel}>
+                <FormLabel
+                  required
+                  className={styles.HS8FormLabel}
+                  ref={animatedLabelRefs[2]}
+                >
                   Contact Number
                 </FormLabel>
                 <TextField
@@ -78,7 +140,11 @@ function HomeSection8({ handleButtonClick }) {
                 />
               </div>
               <div className={styles.HS8InputContainer}>
-                <FormLabel required className={styles.HS8FormLabel}>
+                <FormLabel
+                  required
+                  className={styles.HS8FormLabel}
+                  ref={animatedLabelRefs[3]}
+                >
                   Country
                 </FormLabel>
                 <TextField
@@ -95,7 +161,11 @@ function HomeSection8({ handleButtonClick }) {
             </div>
 
             <div className={styles.HS8InputContainer}>
-              <FormLabel required className={styles.HS8FormLabel}>
+              <FormLabel
+                required
+                className={styles.HS8FormLabel}
+                ref={animatedLabelRefs[4]}
+              >
                 Description
               </FormLabel>
               <TextField

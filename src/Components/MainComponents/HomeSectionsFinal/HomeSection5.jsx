@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./HomeSection.module.css";
 import Carousel from "react-material-ui-carousel";
 import { Card } from "@mui/material";
 import Image from "next/image";
 import StarOutlinedIcon from "@mui/icons-material/StarOutlined";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
 import { HS5Img1, HS5Img2, HS5Img3, HS3Img } from "@component/assets/HomeIcons";
+
 const items = [
   {
     id: 1,
@@ -158,18 +158,51 @@ const cardItem = (items) => {
     </>
   );
 };
+
 function HomeSection5({ handleButtonClick }) {
+  const animatedDivRefs = Array.from({ length: 2 }, () => React.useRef(null));
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__backInUp",
+            "animate__delay-0s"
+          );
+        }
+      });
+    }, options);
+
+    animatedDivRefs.forEach((ref) => {
+      observer.observe(ref.current);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <>
       <div className={styles.HS5MainContainer}>
         <div>
-          <div className={styles.HS5Heading}>
+          <div className={styles.HS5Heading} ref={animatedDivRefs[0]}>
             <span>Client Feedback</span>{" "}
             <hr className={styles.HS3ContentLine1} />
             <hr className={styles.HS3ContentLine2} />
           </div>
         </div>
-        <div className={styles.HS5SubHeading}>What Client Says About us</div>
+        <div className={styles.HS5SubHeading} ref={animatedDivRefs[1]}>
+          What Client Says About us
+        </div>
         <Carousel
           swipe={true}
           className={styles.HS5Carousel}
@@ -186,14 +219,9 @@ function HomeSection5({ handleButtonClick }) {
               cursor: "pointer",
             },
           }}
-          // indicatorContainerProps={{
-          //   style: {
-          //     marginTop: "-80px", // 5
-          //   },
-          // }}
         >
           {items.map((item) => {
-            return cardItem(item.elements);
+            return <div>{cardItem(item.elements)}</div>;
           })}
         </Carousel>
       </div>
