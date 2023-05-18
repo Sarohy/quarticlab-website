@@ -16,6 +16,10 @@ function ProjectCard({
   projectDescription,
   requestDemoOnClick,
 }) {
+  const animatedLabelRef = Array.from({ length: 2 }, () => React.useRef(null));
+  const animatedIconRef = React.useRef(null);
+  const animatedImageRef = React.useRef(null);
+
   const [mobileView, setMobileView] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
 
@@ -31,13 +35,76 @@ function ProjectCard({
       window.removeEventListener("resize", () => setResponsiveness());
     };
   }, []);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__backInUp",
+            "animate__delay-0s"
+          );
+        }
+      });
+    }, options);
+
+    const observer1 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__shakeX",
+            "animate__delay-0s"
+          );
+        }
+      });
+    }, options);
+
+    const observer2 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__backInRight",
+            "animate__delay-0s"
+          );
+        }
+      });
+    }, options);
+
+    animatedLabelRef.forEach((ref) => {
+      observer.observe(ref.current);
+    });
+
+    if (animatedIconRef.current) {
+      observer1.observe(animatedIconRef.current);
+    }
+
+    if (animatedImageRef.current) {
+      observer2.observe(animatedImageRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+      observer1.disconnect();
+      observer2.disconnect();
+    };
+  }, []);
+
   return (
     <>
       <div
         style={{ flexDirection: !mobileView && reverse && "row-reverse" }}
         className="project-card-container"
       >
-        <div className="project-card-left">
+        <div className="project-card-left" ref={animatedImageRef}>
           {!imageLoading && (
             <CircularProgress style={{ position: "absolute" }} />
           )}
@@ -51,9 +118,13 @@ function ProjectCard({
           />
         </div>
         <div className="project-card-right">
-          <h1 className="project-title">{projectTitle}</h1>
-          <p className="project-description">{projectDescription}</p>
-          <div className="poject-framework-icons">
+          <h1 className="project-title" ref={animatedLabelRef[0]}>
+            {projectTitle}
+          </h1>
+          <p className="project-description" ref={animatedLabelRef[1]}>
+            {projectDescription}
+          </p>
+          <div className="poject-framework-icons" ref={animatedIconRef}>
             <Image width={70} src={ReactIcon} alt="ReactJs" />
             <Image width={70} src={NodeIcon} alt="NodeJs" />
             <Image width={70} src={RubyIcon} alt="Ruby on Rails" />
