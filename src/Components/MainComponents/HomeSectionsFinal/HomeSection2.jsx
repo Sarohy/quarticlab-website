@@ -87,10 +87,8 @@ function HomeSection2({ handleButtonClick }) {
             <hr className={styles.HS3ContentLine2} />
           </div>
         </div>
-        <div className={styles.HS2SubHeadContainer} ref={animatedDivRefs[1]}>
-          <div
-            className={`${styles.HS2SubHeading} animate__delay-1s animate__animated animate__zoomIn`}
-          >
+        <div className={styles.HS2SubHeadContainer}>
+          <div className={`${styles.HS2SubHeading}`} ref={animatedDivRefs[1]}>
             Everything your business needs under one roof
           </div>
           <div className={styles.HS2Button}>
