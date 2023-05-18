@@ -112,7 +112,6 @@ function HomeSection8({ handleButtonClick }) {
                 <Button
                   className={styles.HS8Button}
                   variant="contained"
-                  color="primary"
                   type="submit"
                 >
                   Submit Now
