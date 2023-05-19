@@ -11,7 +11,7 @@ function HomeSection1({ handleButtonClick }) {
     <>
       <div className={styles.HS1Background}>
         <div className={`${styles.HS1HeaderImage} `}>
-          <Image className={styles.HS1Img1Height} src={HSImg1} alt="zweidevs" />
+          <Image className={styles.HS1Img1Height} src={HSImg1} alt={HSImg1} />
         </div>
         <div className={`${styles.HS1ContentContainer}`}>
           <div className="animate__delay-1s animate__animated animate__zoomIn">
@@ -70,12 +70,12 @@ function HomeSection1({ handleButtonClick }) {
             <Image
               className={styles.HSLogoContainer}
               src={HSLogo}
-              alt="zweidevs"
+              alt={HSLogo}
             />
           </div>
         </div>
         <div className={styles.HS1FooterImage}>
-          <Image className={styles.HS1Img2Height} src={HSImg2} alt="zweidevs" />
+          <Image className={styles.HS1Img2Height} src={HSImg2} alt={HSImg2} />
         </div>
       </div>
     </>

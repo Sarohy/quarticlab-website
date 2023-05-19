@@ -91,9 +91,9 @@ const AboutUsCard = () => {
   return (
     <>
       <div className={styles.AUCd3Main}>
-        <div className={styles.AUCd3Heading} ref={animatedHeadingRef}>
+        <h2 className={styles.AUCd3Heading} ref={animatedHeadingRef}>
           Zweidevs Achievements since 2010
-        </div>
+        </h2>
         <div className={styles.AUCd3ProjectContainer}>
           {project.map((item, index) => {
             return (
@@ -106,16 +106,11 @@ const AboutUsCard = () => {
                   }}
                 >
                   <div ref={animatedImageRef[index]}>
-                    <Image src={item.img} alt="zweidevs" />
+                    <Image src={item.img} alt="Zweidevs Achievements" />
                   </div>
                   <div ref={animatedTextRef[index]}>
-                    <div className={styles.AUCd3ProjectCount}>
-                      {" "}
-                      {item.count}
-                    </div>
-                    <div className={styles.AUCd3ProjectDetail}>
-                      {item.detail}
-                    </div>
+                    <h3 className={styles.AUCd3ProjectCount}> {item.count}</h3>
+                    <p className={styles.AUCd3ProjectDetail}>{item.detail}</p>
                   </div>
                 </div>
               </>

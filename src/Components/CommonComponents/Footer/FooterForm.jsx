@@ -27,7 +27,7 @@ export default function FooterForm() {
                 <Image src={DashSmIcon} alt={"dashicon"}></Image>
               </span>
               <span>
-                <Image src={DashIcon} alt={"dashicon"}></Image>
+                <Image src={DashIcon} alt={"dashicon1"}></Image>
               </span>
             </div>
           </div>

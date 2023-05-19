@@ -47,17 +47,14 @@
   font-weight: 600;
   font-size: 32px;
   line-height: 133.5%;
-  /* identical to box height, or 43px */
-
   text-transform: capitalize;
-
   color: #2b2a35;
 }
 
 .pageBannerHeading {
-  max-width: 950px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  max-width: 950px ;
+  padding-top: 10px ;
+  padding-bottom: 10px ;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;

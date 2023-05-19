@@ -50,28 +50,12 @@ function HomeSection7({ handleButtonClick }) {
             <Image
               className={styles.HS7Image}
               src={HS7Img1}
-              alt="homeSection7Image"
+              alt="shopify-icon"
             />
-            <Image
-              className={styles.HS7Image}
-              src={HS7Img2}
-              alt="homeSection7Image"
-            />
-            <Image
-              className={styles.HS7Image}
-              src={HS7Img3}
-              alt="homeSection7Image"
-            />
-            <Image
-              className={styles.HS7Image}
-              src={HS7Img4}
-              alt="homeSection7Image"
-            />
-            <Image
-              src={HS7Img5}
-              className={styles.HS7Image}
-              alt="homeSection7Image"
-            />
+            <Image className={styles.HS7Image} src={HS7Img2} alt="php-icon" />
+            <Image className={styles.HS7Image} src={HS7Img3} alt="rails-icon" />
+            <Image className={styles.HS7Image} src={HS7Img4} alt="react-icon" />
+            <Image src={HS7Img5} className={styles.HS7Image} alt="node-icon" />
           </div>
         </div>
       </div>

@@ -92,7 +92,7 @@ function HomeSection3({ handleButtonClick }) {
               cloud and e-commerce capabilities.
             </div>
             <div className={styles.HS3ContactContainer}>
-              <Image src={HS3Img1} alt="zweidevs" ref={animatedPhoneRef} />
+              <Image src={HS3Img1} alt={HS3Img1} ref={animatedPhoneRef} />
               <hr className={styles.HS3ContactLine1} />
               <div
                 style={{ display: "flex", flexDirection: "column" }}
@@ -105,7 +105,7 @@ function HomeSection3({ handleButtonClick }) {
             <hr className={styles.HS3ContactLine2} />
           </div>
           <div className={styles.HS3ImgContainer} ref={animatedImgRef}>
-            <Image className={styles.HS3ImgWidth} src={HS3Img} alt="zweidevs" />
+            <Image className={styles.HS3ImgWidth} src={HS3Img} alt={HS3Img} />
           </div>
         </div>
       </div>

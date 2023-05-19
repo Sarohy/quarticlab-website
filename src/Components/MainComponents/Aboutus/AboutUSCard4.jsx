@@ -70,20 +70,20 @@ const AboutUsCard4 = () => {
       <div className={styles.AUCd4Main}>
         <div ref={animatedHeadingRef}>
           <div className={styles.AUCard4Heading}>
-            <span>Our Team Members</span>{" "}
+            <p>Our Team Members</p>{" "}
             <hr className={styles.AUCard4HeadingLine1} />
             <hr className={styles.AUCard4HeadingLine2} />
           </div>
 
-          <div className={styles.AUCard4SubHeading}>
+          <h2 className={styles.AUCard4SubHeading}>
             Our Expertise Will Help You
-          </div>
-          <div className={styles.AUCard4Text}>
+          </h2>
+          <p className={styles.AUCard4Text}>
             Together we are smarter than each of us. We disagree passionately,
             learn continuously, and commit relentlessly as we lead our team
             towards becoming the most preferred tech partner for our growing set
             of clients.
-          </div>
+          </p>
         </div>
 
         <div className={styles.AUCd4CardsContainer}>
@@ -103,19 +103,19 @@ const AboutUsCard4 = () => {
                       className={styles.AUCd4Img}
                     />
                   </div>
-                  <div className={styles.AUCdCardHeading}>{item.heading}</div>
-                  <div className={styles.AUCdCardSubHeading}>
+                  <h3 className={styles.AUCdCardHeading}>{item.heading}</h3>
+                  <h4 className={styles.AUCdCardSubHeading}>
                     {item.subHeading}
-                  </div>
+                  </h4>
                   <div className={styles.AUCd4SocialContainer}>
                     <div className={styles.AUCd4Social}>
-                      <Image src={item.socialM1} alt="zweidevs" />
+                      <Image src={item.socialM1} alt={item.socialM1} />
                     </div>
                     <div className={styles.AUCd4Social}>
-                      <Image src={item.socialM2} alt="zweidevs" />
+                      <Image src={item.socialM2} alt={item.socialM2} />
                     </div>
                     <div className={styles.AUCd4Social}>
-                      <Image src={item.socialM3} alt="zweidevs" />
+                      <Image src={item.socialM3} alt={item.socialM2} />
                     </div>
                   </div>
                 </div>

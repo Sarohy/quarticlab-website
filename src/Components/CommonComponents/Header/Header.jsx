@@ -117,7 +117,7 @@ function Header() {
         <Image
           src={ZweidevsLogo}
           width={180}
-          alt="zweidevs"
+          alt="zweidevsLogo"
           className="animate__animated animate__slideInLeft"
         />
         <div className={styles.contentContainer}>
@@ -155,7 +155,7 @@ function Header() {
         className={styles.headerContainer}
         style={mobileView && { padding: "3%" }}
       >
-        <Image src={ZweidevsLogo} width={180} alt="zweidevs" />
+        <Image src={ZweidevsLogo} width={180} alt="zweidevsDrawer" />
         <Button style={{ color: "#ff9700" }} onClick={toggleDrawer}>
           {" "}
           {drawerOpen ? <CloseIcon /> : <MenuIcon />}

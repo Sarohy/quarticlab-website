@@ -92,7 +92,7 @@ const cardItem = (items) => {
                     <div className={styles.HS5ImgContainer}>
                       <Image
                         src={item.img}
-                        alt="zweidevs"
+                        alt={`${item.content} ${item.img}`}
                         className={styles.HS5Img}
                       />
                     </div>
@@ -130,7 +130,7 @@ const cardItem = (items) => {
                   <div className={styles.HS5ImgContainer}>
                     <Image
                       src={item.img}
-                      alt="zweidevs"
+                      alt={`${item.content} ${item.img}`}
                       className={styles.HS5Img}
                     />
                   </div>

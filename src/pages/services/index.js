@@ -134,7 +134,7 @@ function Services() {
         }
       />
       <div className="servicesHeaderContainer">
-        <span className="services-header">Our Services</span>
+        <p className="services-header">Our Services</p>
 
         <Image
           style={{ paddingLeft: 8 }}
@@ -143,7 +143,6 @@ function Services() {
         />
       </div>
       <ServicesCard cardData={cardData} />
-      {/* <InstantBookingBanner /> */}
     </div>
   );
 }

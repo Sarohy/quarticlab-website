@@ -105,7 +105,7 @@ const Blog = () => {
             justifyContent: "space-between",
           }}
         >
-          <div className={styles.blogArticleHeading}>Latest Article</div>
+          <h2 className={styles.blogArticleHeading}>Latest Article</h2>
           <SmallButton
             setFilter={setFilter}
             smallButtonsData={smallButtonsData}
