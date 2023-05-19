@@ -63,22 +63,16 @@
   font-weight: 600;
   font-size: 36px;
   line-height: 128%;
-  /* identical to box height, or 46px */
-
   text-transform: capitalize;
-
   color: #ffffff;
 }
 
 .pageBannerDesc {
-  max-width: 800px;
-
+  max-width: 850px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 150%;
-  /* or 30px */
-
   color: #ffffff;
 }

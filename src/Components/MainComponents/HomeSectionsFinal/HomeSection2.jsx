@@ -13,6 +13,11 @@ import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOu
 
 function HomeSection2({ handleButtonClick }) {
   const animatedDivRefs = Array.from({ length: 2 }, () => React.useRef(null));
+  const animatedCardRefs = Array.from({ length: 5 }, () => React.useRef(null));
+  const animatedImgRefs = Array.from({ length: 5 }, () => React.useRef(null));
+  const animatedHeadingRefs = Array.from({ length: 5 }, () =>
+    React.useRef(null)
+  );
 
   const cardData = [
     {
@@ -69,20 +74,71 @@ function HomeSection2({ handleButtonClick }) {
       });
     }, options);
 
+    const observer1 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__backInUp",
+            "animate__delay-1s"
+          );
+        }
+      });
+    }, options);
+
+    const observer2 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__zoomIn",
+            "animate__delay-1s"
+          );
+        }
+      });
+    }, options);
+
+    const observer3 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__backInUp",
+            "animate__delay-2s"
+          );
+        }
+      });
+    }, options);
+
+    animatedHeadingRefs.forEach((ref) => {
+      observer3.observe(ref.current);
+    });
+
+    animatedImgRefs.forEach((ref) => {
+      observer2.observe(ref.current);
+    });
+
+    animatedCardRefs.forEach((ref) => {
+      observer1.observe(ref.current);
+    });
+
     animatedDivRefs.forEach((ref) => {
       observer.observe(ref.current);
     });
 
     return () => {
       observer.disconnect();
+      observer1.disconnect();
+      observer2.disconnect();
+      observer3.disconnect();
     };
   }, []);
 
   return (
     <>
       <div className={styles.HS2MainContainer}>
-        <div className={styles.HS2ContentContainer} ref={animatedDivRefs[0]}>
-          <div className={styles.HS2Heading}>
+        <div className={styles.HS2ContentContainer}>
+          <div className={styles.HS2Heading} ref={animatedDivRefs[0]}>
             <span>Our Services</span> <hr className={styles.HS3ContentLine1} />
             <hr className={styles.HS3ContentLine2} />
           </div>
@@ -122,15 +178,22 @@ function HomeSection2({ handleButtonClick }) {
                   <div
                     className={`${styles.HS2Card} ${styles.HS2CardUnSelected}`}
                     key={item.key}
+                    ref={animatedCardRefs[index]}
                   >
                     <div>
                       <Image
                         src={item.image}
                         alt="zweidevs"
                         className={styles.HS2SelectedImgWhite}
+                        ref={animatedImgRefs[index]}
                       />
                     </div>
-                    <div className={styles.HS2CardHeading}>{item.heading}</div>
+                    <div
+                      className={styles.HS2CardHeading}
+                      ref={animatedHeadingRefs[index]}
+                    >
+                      {item.heading}
+                    </div>
                     <div className={styles.HS2CardDetails}>{item.details}</div>
                   </div>
                 </div>

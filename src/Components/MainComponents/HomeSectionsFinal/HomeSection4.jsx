@@ -26,7 +26,6 @@ import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutl
 
 function HomeSection4() {
   const animatedDivRefs = Array.from({ length: 2 }, () => React.useRef(null));
-  const [proKey, setProKey] = useState(1);
   const [startIndex, setStartIndex] = useState(1);
   const [projectArray, setProjectArray] = useState([
     {
@@ -57,12 +56,6 @@ function HomeSection4() {
         "The Daily Stakes is a web application that is used for Sports Betting, by effectively helping the players to get an edge against the books with the help of Analytics",
     },
   ]);
-
-  const exp = [
-    { index: 1, content: "Website Development" },
-    { index: 2, content: "App Development" },
-    { index: 3, content: " Graphics Designing" },
-  ];
 
   const projectData = [
     {
@@ -184,32 +177,6 @@ function HomeSection4() {
         </div>
         <div className={styles.HS4SubHeading} ref={animatedDivRefs[1]}>
           We`ve Done Lot`s Of Awesome Projects
-        </div>
-        <div className={styles.HS4ButtonContainer}>
-          {exp.map((item) => {
-            return (
-              <div
-                className={
-                  proKey == item.index
-                    ? styles.HS4SelectedButton
-                    : styles.HS4UnselectButton
-                }
-                key={item.index}
-                onClick={() => setProKey(item.index)}
-              >
-                <div>{item.content}</div>
-                <div
-                  className={
-                    proKey != item.index ? styles.HS4ButtonUnderLine : ""
-                  }
-                  style={{
-                    width:
-                      item.index == 1 && proKey != item.index ? "300px" : "",
-                  }}
-                />
-              </div>
-            );
-          })}
         </div>
 
         <div className={styles.HSCardContainer}>

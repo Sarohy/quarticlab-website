@@ -336,50 +336,6 @@
     margin-top: 21px;
 }
 
-.HS4ButtonContainer{
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0% 9% 0% 11%;
-}
-
-.HS4UnselectButton{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 128%;
-    color: #2B2A35;
-    display: flex;
-    flex-direction: column;
-    height: 78px;
-    text-align: center;
-    justify-content: center;
-}
-
-.HS4SelectedButton{
-    width: 319px;
-    height: 78px;
-    background: #FF9700;
-    border-radius: 6px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    font-family: 'Poppins';
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.HS4ButtonUnderLine{
-    width: 252px;
-    height: 0px;
-    border: 2px solid #D2D8D6;
-    margin-top: 8px;
-}
-
 .HSCardContainer{
     display: flex;
     justify-content: space-between;
@@ -882,52 +838,6 @@
     font-size: 28px;
     width: 100%;
   
-} */
-
-.HS4ButtonContainer{
-    /* height: 100px; */
-    display: none;
-    /* justify-content: space-between;
-    align-items: center;
-    margin: 0% 9% 0% 11%;
-    width: 100%;
-    overflow: auto; */
-}
-
-/* .HS4UnselectButton{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 128%;
-    color: #2B2A35;
-    display: flex;
-    flex-direction: column;
-    height: 78px;
-    text-align: center;
-    justify-content: center;
-}
-
-.HS4SelectedButton{
-    width: 319px;
-    height: 78px;
-    background: #FF9700;
-    border-radius: 6px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    font-family: 'Poppins';
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.HS4ButtonUnderLine{
-    width: 252px;
-    height: 0px;
-    border: 2px solid #D2D8D6;
-    margin-top: 8px;
 } */
 
 

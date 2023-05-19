@@ -4,10 +4,17 @@ import React from "react";
 import styles from "./blog.module.css";
 const Id = (props) => {
   const { data } = props;
+
+  const bannerData = {
+    title: "All Posts",
+    heading: "Everything your business needs under one roof",
+    description: `We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences`,
+  };
+
   return (
     <div>
       {" "}
-      <PageBanner />
+      <PageBanner {...bannerData} />
       <div
         style={{
           padding: 40,

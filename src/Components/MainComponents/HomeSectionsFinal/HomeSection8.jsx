@@ -30,7 +30,7 @@ function HomeSection8({ handleButtonClick }) {
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.1,
+      threshold: 0.5,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -51,7 +51,7 @@ function HomeSection8({ handleButtonClick }) {
           entry.target.classList.add(
             "animate__animated",
             "animate__shakeX",
-            "animate__delay-0s"
+            "animate__delay-1s"
           );
         }
       });
