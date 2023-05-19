@@ -1,10 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { CD4Img, CD4Img1, CD4Img2, CD4Img3 } from "@component/assets/AboutUs";
 import styles from "./AboutUs.module.css";
 
 const AboutUsCard4 = () => {
-  const [cardKey, setCardKey] = useState(0);
+  const animatedHeadingRef = React.useRef(null);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate__animated", "animate__backInUp");
+        }
+      });
+    }, options);
+
+    if (animatedHeadingRef.current) {
+      observer.observe(animatedHeadingRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const elements = [
     {
       img: CD4Img,
@@ -39,10 +64,11 @@ const AboutUsCard4 = () => {
       socialM3: CD4Img3,
     },
   ];
+
   return (
     <>
       <div className={styles.AUCd4Main}>
-        <div>
+        <div ref={animatedHeadingRef}>
           <div className={styles.AUCard4Heading}>
             <span>Our Team Members</span>{" "}
             <hr className={styles.AUCard4HeadingLine1} />
@@ -82,31 +108,13 @@ const AboutUsCard4 = () => {
                     {item.subHeading}
                   </div>
                   <div className={styles.AUCd4SocialContainer}>
-                    <div
-                      className={
-                        cardKey == index
-                          ? styles.AUCd4SocialSelected
-                          : styles.AUCd4Social
-                      }
-                    >
+                    <div className={styles.AUCd4Social}>
                       <Image src={item.socialM1} alt="zweidevs" />
                     </div>
-                    <div
-                      className={
-                        cardKey == index
-                          ? styles.AUCd4SocialSelected
-                          : styles.AUCd4Social
-                      }
-                    >
+                    <div className={styles.AUCd4Social}>
                       <Image src={item.socialM2} alt="zweidevs" />
                     </div>
-                    <div
-                      className={
-                        cardKey == index
-                          ? styles.AUCd4SocialSelected
-                          : styles.AUCd4Social
-                      }
-                    >
+                    <div className={styles.AUCd4Social}>
                       <Image src={item.socialM3} alt="zweidevs" />
                     </div>
                   </div>
