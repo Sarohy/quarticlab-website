@@ -89,10 +89,15 @@ const Blog = () => {
   const loadMoreHandler = () => {
     setStartIndex((prevIndex) => prevIndex + 10);
   };
+  const bannerData = {
+    title: "All Posts",
+    heading: "Everything your business needs under one roof",
+    description: `We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences`,
+  };
 
   return (
     <div>
-      <PageBanner />
+      <PageBanner {...bannerData} />
       <div className={styles.blogRoot}>
         <div
           style={{

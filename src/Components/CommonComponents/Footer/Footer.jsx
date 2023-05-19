@@ -2,13 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import styles from "./footer.module.css";
 import Image from "next/image";
 import "animate.css";
-// import {
-//ZweidevsLogo,
-//   FacebookIcon,
-//   InstagramIcon,
-//   LinkedInIcon,
-//   TwitterIcon,
-// } from "@component/assets";
 import {
   ZweidevsLogo,
   InstaLogo,
@@ -95,7 +88,7 @@ function Footer() {
     <>
       <div className={styles.footerContainer}>
         <div className={styles.footerContentContainer}>
-          <div>
+          <div className="animate__animated animate__slideInLeft">
             <Image src={ZweidevsLogo} alt="zweidevs" width={200} />
             <div className={styles.footerAboutZweidevs}>
               {`
