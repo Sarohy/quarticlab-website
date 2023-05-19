@@ -46,9 +46,9 @@ const AboutUsCard5 = () => {
   return (
     <>
       <div className={styles.AUCd5Main}>
-        <div className={styles.AUCd5Heading} ref={animatedHeadingRef}>
+        <h2 className={styles.AUCd5Heading} ref={animatedHeadingRef}>
           Are you ready for meaningful results? We can help.
-        </div>
+        </h2>
         <div className={styles.AUCd5Button} ref={animatedButtonRef}>
           <Zbutton
             onClick={""}

@@ -18,7 +18,7 @@ export default function FooterLinks() {
               <Image src={DashSmIcon} alt="dash-icon"></Image>
             </span>
             <span>
-              <Image src={DashIcon} alt="dash-icon"></Image>
+              <Image src={DashIcon} alt="dash-icon-1"></Image>
             </span>
           </div>
         </Grid>

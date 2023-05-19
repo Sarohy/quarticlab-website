@@ -118,20 +118,24 @@ function ProjectCard({
           />
         </div>
         <div className="project-card-right">
-          <h1 className="project-title" ref={animatedLabelRef[0]}>
+          <h2 className="project-title" ref={animatedLabelRef[0]}>
             {projectTitle}
-          </h1>
+          </h2>
           <p className="project-description" ref={animatedLabelRef[1]}>
             {projectDescription}
           </p>
           <div className="poject-framework-icons" ref={animatedIconRef}>
-            <Image width={70} src={ReactIcon} alt="ReactJs" />
-            <Image width={70} src={NodeIcon} alt="NodeJs" />
-            <Image width={70} src={RubyIcon} alt="Ruby on Rails" />
+            <Image width={70} src={ReactIcon} alt={`${projectTitle} ReactJs`} />
+            <Image width={70} src={NodeIcon} alt={`${projectTitle} NodeJs`} />
+            <Image
+              width={70}
+              src={RubyIcon}
+              alt={`${projectTitle} Ruby on Rails`}
+            />
             <Image
               width={40}
               src={AwsIcon}
-              alt="AWS Amazon Web Service"
+              alt={`${projectTitle} AWS Amazon Web Service`}
               style={{ marginTop: "10px" }}
             />
           </div>

@@ -13,14 +13,10 @@ function InstantBookingBanner(props) {
       <div
         className={`${styles.pageBannerTextContainer} animate__delay-1s animate__animated animate__backInRight`}
       >
-        <div className={styles.pageBannerTitle}>{title}</div>
-        {heading ? (
-          <div className={styles.pageBannerHeading}>{heading}</div>
-        ) : (
-          ""
-        )}
+        <h1 className={styles.pageBannerTitle}>{title}</h1>
+        {heading ? <h2 className={styles.pageBannerHeading}>{heading}</h2> : ""}
 
-        <div className={styles.pageBannerDesc}>{description}</div>
+        <h3 className={styles.pageBannerDesc}>{description}</h3>
       </div>
       <div className={styles.pageBannerImageContainer}>
         <Image height={250} src={DiamondSvg} alt={"diamondSvg"} />

@@ -7,9 +7,9 @@ function InstantBookingBanner(props) {
   return (
     <div className={styles.iBBContainer}>
       <div className={styles.iBBContentContainer}>
-        <p style={{ color: "white" }}>
+        <h2 style={{ color: "white" }}>
           {label ? label : "Are you ready for meaningful results? We can help."}
-        </p>
+        </h2>
         <Zbutton
           text={buttonText ? buttonText : "INSTANT BOOKING"}
           onClick={buttonOnClick}

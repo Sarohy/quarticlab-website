@@ -57,7 +57,11 @@ function HomeSection6({ handleButtonClick }) {
           Why Zweidevs
         </div>
         <div className={styles.HS6ImageContainer} ref={animatedRefs}>
-          <Image src={HS6Img} alt="zweidevs" className={styles.HS6ImgSize} />
+          <Image
+            src={HS6Img}
+            alt="statistics of zewidevs"
+            className={styles.HS6ImgSize}
+          />
         </div>
       </div>
     </>

@@ -104,12 +104,12 @@ const AboutUsCard2 = () => {
             >
               Who We Are
             </p>
-            <p
+            <h2
               className={styles.AUCard2ImgDSubHeading}
               ref={animatedTextRef[0]}
             >
               The Leading Digital Agency For Business Solutions
-            </p>
+            </h2>
             <p className={styles.AUCard2ImgDText} ref={animatedTextRef[1]}>
               Zweidevs is a service-oriented company providing creative and
               innovative solutions for your business domain. We believe in
@@ -129,25 +129,25 @@ const AboutUsCard2 = () => {
 
         <div>
           <div className={styles.AUCardHeading} ref={animatedTextRef[3]}>
-            <span>Zweidevs</span> <hr className={styles.AUCardHeadingLine1} />
+            <p>Zweidevs</p> <hr className={styles.AUCardHeadingLine1} />
             <hr className={styles.AUCardHeadingLine2} />
           </div>
 
           <div className={styles.AUCardDataContainer}>
-            <p className={styles.AUCardDataHeading} ref={animatedTextRef[4]}>
+            <h2 className={styles.AUCardDataHeading} ref={animatedTextRef[4]}>
               Developers with strong interpersonal skills
-            </p>
+            </h2>
             <p ref={animatedLeftDivRef[1]}>
               We have manage to build a team of developers with strong
               interpersonal skills. Some qualities of our mobile app developers
               that you dont would love to learn about is:
             </p>
-            <p
+            <h3
               className={styles.AUCardDataSubHeading}
               ref={animatedHeadingDivRef[1]}
             >
               Dedication & Focus
-            </p>
+            </h3>
             <p ref={animatedRightDivRef[0]}>
               Zweidevs has put together a team of mobile app developers who
               always do their best work. They put time and effort into your
@@ -156,12 +156,12 @@ const AboutUsCard2 = () => {
               so you can grow and reach potential customers in more innovative
               ways.
             </p>
-            <p
+            <h3
               className={styles.AUCardDataSubHeading}
               ref={animatedHeadingDivRef[2]}
             >
               Budget Friendly
-            </p>
+            </h3>
             <p ref={animatedLeftDivRef[2]}>
               Zweidevs has put together a team of mobile app developers who
               always do their best work. They put time and effort into your
@@ -170,12 +170,12 @@ const AboutUsCard2 = () => {
               so you can grow and reach potential customers in more innovative
               ways.
             </p>
-            <p
+            <h3
               className={styles.AUCardDataSubHeading}
               ref={animatedHeadingDivRef[3]}
             >
               24/7 Support Team
-            </p>
+            </h3>
             <p ref={animatedRightDivRef[1]}>
               Zweidevshas put together a team of mobile app developers who
               always do their best work. They put time and effort into your

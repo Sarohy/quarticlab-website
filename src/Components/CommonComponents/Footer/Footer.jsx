@@ -89,7 +89,7 @@ function Footer() {
       <div className={styles.footerContainer}>
         <div className={styles.footerContentContainer}>
           <div className="animate__animated animate__slideInLeft">
-            <Image src={ZweidevsLogo} alt="zweidevs" width={200} />
+            <Image src={ZweidevsLogo} alt="footerLogo" width={200} />
             <div className={styles.footerAboutZweidevs}>
               {`
               Zweidevs provides dedicated \n
@@ -167,7 +167,7 @@ function Footer() {
             <Image
               style={{ objectFit: "contain", maxWidth: 200 }}
               src={CopyrightLeftLine}
-              alt={"copy-right-left-line"}
+              alt={"copy-right-left-line1"}
             ></Image>
           </Grid>
 
