@@ -139,31 +139,32 @@ function HomeSection2({ handleButtonClick }) {
       <div className={styles.HS2MainContainer}>
         <div className={styles.HS2ContentContainer}>
           <div className={styles.HS2Heading} ref={animatedDivRefs[0]}>
-            <span>Our Services</span> <hr className={styles.HS3ContentLine1} />
+            <p>Our Services</p> <hr className={styles.HS3ContentLine1} />
             <hr className={styles.HS3ContentLine2} />
           </div>
         </div>
         <div className={styles.HS2SubHeadContainer}>
-          <div className={`${styles.HS2SubHeading}`} ref={animatedDivRefs[1]}>
+          <h2 className={`${styles.HS2SubHeading}`} ref={animatedDivRefs[1]}>
             Everything your business needs under one roof
-          </div>
+          </h2>
           <div className={styles.HS2Button}>
             <Zbutton
               onClick={handleButtonClick}
               text="See All"
               color="white"
               backgroundColor="#FF9700"
-              width="120px"
+              width="172px"
               height="55px"
               whiteShaddow={true}
               showIcon={false}
-              margin="0px 0px 10px 0px"
+              // margin="0px 0px 10px 0px"
               icon={
                 <ArrowCircleRightOutlinedIcon
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    marginLeft: "4px",
+                    marginLeft: "-32px",
+                    marginTop: "1px",
                   }}
                 />
               }
@@ -188,13 +189,13 @@ function HomeSection2({ handleButtonClick }) {
                         ref={animatedImgRefs[index]}
                       />
                     </div>
-                    <div
+                    <h3
                       className={styles.HS2CardHeading}
                       ref={animatedHeadingRefs[index]}
                     >
                       {item.heading}
-                    </div>
-                    <div className={styles.HS2CardDetails}>{item.details}</div>
+                    </h3>
+                    <p className={styles.HS2CardDetails}>{item.details}</p>
                   </div>
                 </div>
               </>

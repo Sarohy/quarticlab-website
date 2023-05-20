@@ -17,14 +17,14 @@ function HomeSection1({ handleButtonClick }) {
           <div className="animate__delay-1s animate__animated animate__zoomIn">
             <div className={styles.HS1Content}>
               <span className={styles.HS1ContentLine} />
-              <span className={styles.HS1Text}>
+              <h1 className={styles.HS1Text}>
                 Empowering <br /> Innovation
-              </span>
+              </h1>
             </div>
-            <div className={styles.HS1SubText}>
+            <h2 className={styles.HS1SubText}>
               Zweidevs provides dedicated teams work to design and build your
               idea.
-            </div>
+            </h2>
             <div className={styles.HS1ContentButtonContainer}>
               <Zbutton
                 onClick={handleButtonClick}

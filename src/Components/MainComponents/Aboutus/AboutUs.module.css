@@ -307,12 +307,10 @@
     border-radius: 50%;
 }
 
-
-
 /* about us card 5 */
 .AUCd5Main{
     width: 100%;
-    height: 376px;
+    height: 350px;
     background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
     display: flex;
     justify-content: center;

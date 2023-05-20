@@ -42,9 +42,9 @@ function HomeSection7({ handleButtonClick }) {
   return (
     <>
       <div className={styles.HS7MainContainer}>
-        <div className={styles.HS7Heading} ref={animatedDivRefs}>
+        <h2 className={styles.HS7Heading} ref={animatedDivRefs}>
           Technologies we Work With
-        </div>
+        </h2>
         <div className={styles.HS7ImagesContainer}>
           <div className={styles.HS7ImgContainer}>
             <Image
