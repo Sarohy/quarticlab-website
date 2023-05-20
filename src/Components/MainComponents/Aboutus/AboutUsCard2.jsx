@@ -4,11 +4,11 @@ import { CD2Img1 } from "@component/assets/AboutUs";
 import Image from "next/image";
 
 const AboutUsCard2 = () => {
-  const animatedTextRef = Array.from({ length: 5 }, () => React.useRef(null));
-  const animatedLeftDivRef = Array.from({ length: 3 }, () =>
+  const animatedTextRef = Array.from({ length: 7 }, () => React.useRef(null));
+  const animatedLeftDivRef = Array.from({ length: 2 }, () =>
     React.useRef(null)
   );
-  const animatedRightDivRef = Array.from({ length: 2 }, () =>
+  const animatedRightDivRef = Array.from({ length: 3 }, () =>
     React.useRef(null)
   );
   const animatedHeadingDivRef = Array.from({ length: 4 }, () =>
@@ -90,7 +90,7 @@ const AboutUsCard2 = () => {
     <>
       <div className={styles.AUCard2MainContain}>
         <div className={styles.AUCard2ImgContent}>
-          <div ref={animatedLeftDivRef[0]}>
+          <div ref={animatedRightDivRef[0]}>
             <Image
               className={styles.AUCard2Img}
               src={CD2Img1}
@@ -111,36 +111,44 @@ const AboutUsCard2 = () => {
               The Leading Digital Agency For Business Solutions
             </h2>
             <p className={styles.AUCard2ImgDText} ref={animatedTextRef[1]}>
-              Zweidevs is a service-oriented company providing creative and
-              innovative solutions for your business domain. We believe in
-              exceeding your expectations by delivering thoughtfully innovated
-              eye-catching products on your desk
+              Zweidevs is a tech studio that provides remote talented, skilled,
+              dedicated, and professionals teams led by experienced Computer
+              Scientists.
             </p>
             <p className={styles.AUCard2ImgDText} ref={animatedTextRef[2]}>
-              Zweidevs is a service-oriented company providing creative and
-              innovative solutions for your business domain. We believe in
-              exceeding your expectations by delivering thoughtfully innovated
-              eye-catching products on your desk.We believe in exceeding your
-              expectations by delivering thoughtfully innovated eye-catching
-              products on your desk
+              It all started in 2020 when the founders met in a restaurant and
+              decided to work together on a software development house that
+              addresses contemporary client issues and requirements.
+            </p>
+            <p className={styles.AUCard2ImgDText} ref={animatedTextRef[3]}>
+              Since then, we have continuously and progressively been working on
+              our mission to serve thousands of clients and customers with a
+              win-win for both of us, where we constantly evolve into an ongoing
+              working relationship.{" "}
+            </p>
+            <p className={styles.AUCard2ImgDText} ref={animatedTextRef[4]}>
+              Our team loves working on challenging products that have a lasting
+              impact, since we hire skilled and talented people from top-ranked
+              institutes, by welcoming them into an amiable culture that boosts
+              their learning potential and outcome.
             </p>
           </div>
         </div>
 
         <div>
-          <div className={styles.AUCardHeading} ref={animatedTextRef[3]}>
+          <div className={styles.AUCardHeading} ref={animatedTextRef[5]}>
             <p>Zweidevs</p> <hr className={styles.AUCardHeadingLine1} />
             <hr className={styles.AUCardHeadingLine2} />
           </div>
 
           <div className={styles.AUCardDataContainer}>
-            <h2 className={styles.AUCardDataHeading} ref={animatedTextRef[4]}>
-              Developers with strong interpersonal skills
+            <h2 className={styles.AUCardDataHeading} ref={animatedTextRef[6]}>
+              Team with strong interpersonal skills
             </h2>
-            <p ref={animatedLeftDivRef[1]}>
-              We have manage to build a team of developers with strong
-              interpersonal skills. Some qualities of our mobile app developers
-              that you dont would love to learn about is:
+            <p ref={animatedLeftDivRef[0]}>
+              We have managed to build a team of individuals with strong
+              interpersonal skills. Some qualities of our teammates that you
+              would love to learn about is:
             </p>
             <h3
               className={styles.AUCardDataSubHeading}
@@ -148,12 +156,12 @@ const AboutUsCard2 = () => {
             >
               Dedication & Focus
             </h3>
-            <p ref={animatedRightDivRef[0]}>
-              Zweidevs has put together a team of mobile app developers who
-              always do their best work. They put time and effort into your
-              project to meet your needs. Hiring professional app developers
-              with practical knowledge gives you an edge over your competitors
-              so you can grow and reach potential customers in more innovative
+            <p ref={animatedRightDivRef[1]}>
+              Zweidevs has put together a team of individuals who always do
+              their best work. We put time and effort into your project to meet
+              your needs. Hiring professional experts with practical knowledge
+              gives our clients an edge over their competitors enabling them to
+              grow by reaching their potential customers in more innovative
               ways.
             </p>
             <h3
@@ -162,13 +170,13 @@ const AboutUsCard2 = () => {
             >
               Budget Friendly
             </h3>
-            <p ref={animatedLeftDivRef[2]}>
-              Zweidevs has put together a team of mobile app developers who
-              always do their best work. They put time and effort into your
-              project to meet your needs. Hiring professional app developers
-              with practical knowledge gives you an edge over your competitors
-              so you can grow and reach potential customers in more innovative
-              ways.
+            <p ref={animatedLeftDivRef[1]}>
+              Our main focus is to deliver everything the client wants and
+              requires in the application within a minimal budget. We have a
+              very thorough and an extremely detailed estimation model where we
+              prepare the cost and the timeline estimates in a modular manner,
+              making it easier for the client to understand, by ensuring to keep
+              the cost low and the quality high.
             </p>
             <h3
               className={styles.AUCardDataSubHeading}
@@ -176,13 +184,11 @@ const AboutUsCard2 = () => {
             >
               24/7 Support Team
             </h3>
-            <p ref={animatedRightDivRef[1]}>
-              Zweidevshas put together a team of mobile app developers who
-              always do their best work. They put time and effort into your
-              project to meet your needs. Hiring professional app developers
-              with practical knowledge gives you an edge over your competitors
-              so you can grow and reach potential customers in more innovative
-              ways.
+            <p ref={animatedRightDivRef[2]}>
+              We have an active support team available 24/7, which addresses all
+              of the client needs, issues and concerns and fixes them right
+              away, by ensuring to keep the application up and running with no
+              issues whatsoever.
             </p>
           </div>
         </div>

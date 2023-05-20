@@ -1,15 +1,48 @@
 import PageBanner from "@component/Components/CommonComponents/PageBanner";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./blog.module.css";
-const Id = (props) => {
-  const { data } = props;
+import { useRouter } from "next/router";
+
+const Id = () => {
+  const router = useRouter();
+  const { data } = router.query;
+
+  const parsedData = data ? JSON.parse(data) : null;
 
   const bannerData = {
-    title: "All Posts",
-    heading: "Everything your business needs under one roof",
-    description: `We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences`,
+    title: parsedData?.title,
+    heading: parsedData?.category,
   };
+  const animatedDivRefs = React.useRef(null);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__backInUp",
+            "animate__delay-0s"
+          );
+        }
+      });
+    }, options);
+
+    if (animatedDivRefs.current) {
+      observer.observe(animatedDivRefs.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <div>
@@ -20,13 +53,8 @@ const Id = (props) => {
           padding: 40,
         }}
       >
-        {" "}
-        <Image
-          //src={`https://media.istockphoto.com/id/1281804798/photo/very-closeup-view-of-amazing-domestic-pet-in-mirror-round-fashion-sunglasses-is-isolated-on.jpg?s=612x612&w=0&k=20&c=oMoz9rUr-rDhMGNmEepCkr7F1g3AXs9416hvVnT_4CI=`}
-          //src={"https://wallpaperaccess.com/full/5131575.jpg"}
-          src={
-            "https://cdn.dribbble.com/users/732850/screenshots/8832927/lucifer_neon3_dribble_4x.jpg"
-          }
+        {/* <Image
+          src={parsedData?.image}
           height={50}
           width={1600}
           style={{
@@ -37,10 +65,12 @@ const Id = (props) => {
             objectFit: "cover",
           }}
           alt={"page-banner"}
+        /> */}
+        <div
+          className={styles.blogDetails}
+          dangerouslySetInnerHTML={{ __html: parsedData?.description }}
+          ref={animatedDivRefs}
         />
-        <div className={styles.blogDetails}>
-          {"New mobile apps to keep an eye on"}
-        </div>
       </div>
     </div>
   );

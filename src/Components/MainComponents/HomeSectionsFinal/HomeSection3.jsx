@@ -76,21 +76,21 @@ function HomeSection3({ handleButtonClick }) {
         <div className={styles.HS3ContentContainer}>
           <div className={styles.HS3TabContainer}>
             <div className={styles.HS3ContentHeading} ref={animatedDivRefs[0]}>
-              <span>About us</span> <hr className={styles.HS3ContentLine1} />
+              <p>About us</p> <hr className={styles.HS3ContentLine1} />
               <hr className={styles.HS3ContentLine2} />
             </div>
-            <div className={styles.HS3ContentText} ref={animatedDivRefs[1]}>
+            <h2 className={styles.HS3ContentText} ref={animatedDivRefs[1]}>
               Work with top notch designers and developers to get amazing
               products.
-            </div>
-            <div className={styles.HS3ContentSubText} ref={animatedDivRefs[2]}>
+            </h2>
+            <p className={styles.HS3ContentSubText} ref={animatedDivRefs[2]}>
               Zweidevs is a service-oriented company providing creative and
               innovative solutions for your business domain. We believe in
               exceeding your expectations by delivering thoughtfully innovated
               eye-catching products on your desk. We take a pride in engineering
               your requirements into robust software using our mobile, web,
               cloud and e-commerce capabilities.
-            </div>
+            </p>
             <div className={styles.HS3ContactContainer}>
               <Image src={HS3Img1} alt={HS3Img1} ref={animatedPhoneRef} />
               <hr className={styles.HS3ContactLine1} />

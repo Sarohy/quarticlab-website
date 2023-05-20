@@ -1,15 +1,16 @@
 import styles from "./blogCard.module.css";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions, Grid } from "@mui/material";
-import { Box } from "@mui/system";
 import "animate.css";
+import { useRouter } from "next/router";
 
 export default function blogCard(props) {
   const { data, filter } = props;
+  const router = useRouter();
 
   return (
     <>
@@ -83,6 +84,12 @@ export default function blogCard(props) {
                         size="small"
                         color="primary"
                         fontFamily="poppins"
+                        onClick={() => {
+                          router.push({
+                            pathname: `/blog/${element.id}`,
+                            query: { data: JSON.stringify(element) },
+                          });
+                        }}
                       >
                         Read More
                       </Button>

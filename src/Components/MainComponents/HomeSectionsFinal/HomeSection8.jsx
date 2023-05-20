@@ -74,9 +74,9 @@ function HomeSection8({ handleButtonClick }) {
   return (
     <>
       <div className={styles.HS8MainContainer}>
-        <div className={styles.HS8Heading} ref={animatedDivRefs}>
+        <h2 className={styles.HS8Heading} ref={animatedDivRefs}>
           How May we Help You
-        </div>
+        </h2>
         <div style={{ width: "85%" }}>
           <form onSubmit={handleSubmit}>
             <div className={styles.HS8InputFieldContainer}>

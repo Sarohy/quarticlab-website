@@ -170,14 +170,13 @@ function HomeSection4() {
           ref={animatedDivRefs[0]}
         >
           <div className={styles.HS4Heading}>
-            <span>Our Experiences</span>{" "}
-            <hr className={styles.HS3ContentLine1} />
+            <p>Our Experiences</p> <hr className={styles.HS3ContentLine1} />
             <hr className={styles.HS3ContentLine2} />
           </div>
         </div>
-        <div className={styles.HS4SubHeading} ref={animatedDivRefs[1]}>
+        <h2 className={styles.HS4SubHeading} ref={animatedDivRefs[1]}>
           We`ve Done Lot`s Of Awesome Projects
-        </div>
+        </h2>
 
         <div className={styles.HSCardContainer}>
           {projectArray.map((item, index) => {

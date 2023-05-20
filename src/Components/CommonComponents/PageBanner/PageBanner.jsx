@@ -5,9 +5,6 @@ import Image from "next/image";
 import Head from "next/head";
 function InstantBookingBanner(props) {
   const { title, heading, description } = props;
-
-  console.log(title, heading, description, props);
-
   return (
     <div className={styles.pageBannerRoot}>
       <div

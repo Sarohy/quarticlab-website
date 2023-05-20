@@ -97,9 +97,9 @@ const cardItem = (items) => {
                       />
                     </div>
                     <div className={styles.HS5ContentContainer}>
-                      <div className={styles.HS5ContentHeader}>
+                      <h3 className={styles.HS5ContentHeader}>
                         {item.content}
-                      </div>
+                      </h3>
                       <div style={{ marginTop: "2.5%" }}>
                         {[0, 1, 3, 4, 5].map(() => {
                           return (
@@ -109,7 +109,7 @@ const cardItem = (items) => {
                           );
                         })}
                       </div>
-                      <div className={styles.HS5CardDetail}>{item.details}</div>
+                      <p className={styles.HS5CardDetail}>{item.details}</p>
                     </div>
                   </div>
                 </Card>
@@ -195,14 +195,13 @@ function HomeSection5({ handleButtonClick }) {
       <div className={styles.HS5MainContainer}>
         <div>
           <div className={styles.HS5Heading} ref={animatedDivRefs[0]}>
-            <span>Client Feedback</span>{" "}
-            <hr className={styles.HS3ContentLine1} />
+            <p>Client Feedback</p> <hr className={styles.HS3ContentLine1} />
             <hr className={styles.HS3ContentLine2} />
           </div>
         </div>
-        <div className={styles.HS5SubHeading} ref={animatedDivRefs[1]}>
+        <h2 className={styles.HS5SubHeading} ref={animatedDivRefs[1]}>
           What Client Says About us
-        </div>
+        </h2>
         <Carousel
           swipe={true}
           className={styles.HS5Carousel}

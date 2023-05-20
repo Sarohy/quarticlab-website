@@ -53,9 +53,9 @@ function HomeSection6({ handleButtonClick }) {
   return (
     <>
       <div className={styles.HS6MainContainer}>
-        <div className={styles.HS6Heading} ref={animatedDivRefs}>
+        <h2 className={styles.HS6Heading} ref={animatedDivRefs}>
           Why Zweidevs
-        </div>
+        </h2>
         <div className={styles.HS6ImageContainer} ref={animatedRefs}>
           <Image
             src={HS6Img}
