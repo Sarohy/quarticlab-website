@@ -20,6 +20,7 @@ import {
 } from "@component/assets/headerIcons";
 function Header() {
   const route = useRouter();
+
   const [state, setState] = useState({
     mobileView: null,
     drawerOpen: false,
@@ -31,6 +32,27 @@ function Header() {
       ...prevState,
       drawerOpen: !prevState.drawerOpen,
     }));
+  };
+
+  const redirectToGoogleMaps = () => {
+    const location =
+      "6, Block B Phase 1 Johar Town, Lahore, Punjab 54000, Pakistan"; // Replace with the desired location
+    const encodedLocation = encodeURIComponent(location);
+    window.open(
+      `https://www.google.com/maps/place/${encodedLocation}`,
+      "_blank"
+    );
+  };
+
+  const redirectToGmailCompose = () => {
+    const email = "contact@zweidevs.com";
+    // const encodedLocation = encodeURIComponent(email);
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+        email
+      )}`,
+      "_blank"
+    );
   };
 
   useEffect(() => {
@@ -81,12 +103,19 @@ function Header() {
             width={20}
             src={LocationIcon}
             alt={"location-icon"}
-          ></Image>
-          <span
-            style={{ paddingLeft: "11px", fontFamily: "Poppins", fontSize: 16 }}
+            onClick={redirectToGoogleMaps}
+          />
+          <p
+            style={{
+              paddingLeft: "11px",
+              fontFamily: "Poppins",
+              fontSize: 16,
+              cursor: "pointer",
+            }}
+            onClick={redirectToGoogleMaps}
           >
             6-B phase 1 Johar Town Lahore
-          </span>
+          </p>
         </div>
         <div
           className={"headerCenterRow animate__animated animate__zoomIn"}
@@ -95,7 +124,9 @@ function Header() {
             alignItems: "center",
             // paddingLeft: 35,
             color: "black",
+            cursor: "pointer",
           }}
+          onClick={redirectToGmailCompose}
         >
           <Image
             height={20}
@@ -103,11 +134,11 @@ function Header() {
             src={EmailIcon}
             alt={"email-icon"}
           ></Image>
-          <span
+          <p
             style={{ paddingLeft: "11px", fontFamily: "Poppins", fontSize: 16 }}
           >
             contact@zweidevs.com
-          </span>
+          </p>
           <Image src={PhoneContainer} alt="phone"></Image>
           <Image src={InstantBooking} alt="instant-booking"></Image>
         </div>
