@@ -124,18 +124,24 @@ function Header() {
             alignItems: "center",
             // paddingLeft: 35,
             color: "black",
-            cursor: "pointer",
           }}
-          onClick={redirectToGmailCompose}
         >
           <Image
             height={20}
             width={20}
             src={EmailIcon}
             alt={"email-icon"}
-          ></Image>
+            onClick={redirectToGmailCompose}
+            style={{ cursor: "pointer" }}
+          />
           <p
-            style={{ paddingLeft: "11px", fontFamily: "Poppins", fontSize: 16 }}
+            style={{
+              paddingLeft: "11px",
+              fontFamily: "Poppins",
+              fontSize: 16,
+              cursor: "pointer",
+            }}
+            onClick={redirectToGmailCompose}
           >
             contact@zweidevs.com
           </p>

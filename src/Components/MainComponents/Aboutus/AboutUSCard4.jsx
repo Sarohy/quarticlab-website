@@ -1,6 +1,13 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
-import { CD4Img, CD4Img1, CD4Img2, CD4Img3 } from "@component/assets/AboutUs";
+import {
+  CD4Img,
+  CD4Img1,
+  CD4Img2,
+  CD4Img3,
+  CD4Founder1,
+  CD4Founder2,
+} from "@component/assets/AboutUs";
 import styles from "./AboutUs.module.css";
 
 const AboutUsCard4 = () => {
@@ -32,32 +39,16 @@ const AboutUsCard4 = () => {
 
   const elements = [
     {
-      img: CD4Img,
-      heading: "Abdulrehman",
+      img: CD4Founder2,
+      heading: "Abdul Rehman Sarohy",
       subHeading: "Co Founder",
       socialM1: CD4Img1,
       socialM2: CD4Img2,
       socialM3: CD4Img3,
     },
     {
-      img: CD4Img,
-      heading: "Abdulrehman",
-      subHeading: "Co Founder",
-      socialM1: CD4Img1,
-      socialM2: CD4Img2,
-      socialM3: CD4Img3,
-    },
-    {
-      img: CD4Img,
-      heading: "Abdulrehman",
-      subHeading: "Co Founder",
-      socialM1: CD4Img1,
-      socialM2: CD4Img2,
-      socialM3: CD4Img3,
-    },
-    {
-      img: CD4Img,
-      heading: "Abdulrehman",
+      img: CD4Founder1,
+      heading: "Ali Zain",
       subHeading: "Co Founder",
       socialM1: CD4Img1,
       socialM2: CD4Img2,

@@ -9,6 +9,8 @@ import CD4Img from "./CD4Img.svg";
 import CD4Img1 from "./instagram.svg";
 import CD4Img2 from "./twitter.svg";
 import CD4Img3 from "./linkedin.svg";
+import CD4Founder1 from "./Ali.png";
+import CD4Founder2 from "./Sarohy.png";
 
 export {
   CDImg1,
@@ -22,4 +24,6 @@ export {
   CD4Img1,
   CD4Img2,
   CD4Img3,
+  CD4Founder1,
+  CD4Founder2,
 };

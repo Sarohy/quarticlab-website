@@ -257,6 +257,42 @@
   border: 0.756563px solid #646464;
 }
 
-.image:hover .HS2SelectedImgWhite{
-  filter: hue-rotate(20%) saturate(1) brightness(400%) saturate(4); 
+
+/* .image:hover {
+  filter: invert(68%) sepia(95%) saturate(746%) hue-rotate(345deg) brightness(108%) contrast(103%);
+
+} */
+
+.imageSocialContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin-top: 7%;
 }
+
+
+.imageSocial{
+  width: 40.1px;
+  height: 40.1px;
+  border: 1px solid #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.imageSocial:hover{
+  width: 40.1px;
+  height: 40.1px;
+  background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
+  border: 0.756563px solid #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  /* filter: invert(68%) sepia(95%) saturate(746%) hue-rotate(345deg) brightness(108%) contrast(103%); */
+
+}
+
+
