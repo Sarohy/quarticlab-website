@@ -48,7 +48,7 @@ function ProjectCard({
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
-            "animate__backInUp",
+            "animate__zoomIn",
             "animate__delay-0s"
           );
         }
