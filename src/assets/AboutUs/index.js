@@ -11,7 +11,7 @@ import CD4Img2 from "./facebook.svg";
 import CD4Img3 from "./linkedin.svg";
 import CD4Img1Hover from "./instagramHover.svg";
 import CD4Img2Hover from "./facebookHover.svg";
-import CD4Img3Hover from "./linkedinHover.svg";
+import CD4Img3Hover from "./linkedInHover.svg";
 import CD4Founder1 from "./Ali.svg";
 import CD4Founder2 from "./Sarohy.svg";
 
