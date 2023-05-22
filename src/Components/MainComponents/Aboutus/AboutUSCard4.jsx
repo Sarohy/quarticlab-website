@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   CD4Img,
@@ -7,11 +7,17 @@ import {
   CD4Img3,
   CD4Founder1,
   CD4Founder2,
+  CD4Img1Hover,
+  CD4Img2Hover,
+  CD4Img3Hover,
 } from "@component/assets/AboutUs";
 import styles from "./AboutUs.module.css";
 
 const AboutUsCard4 = () => {
   const animatedHeadingRef = React.useRef(null);
+  const [hoverState, setHoverState] = useState(false);
+  const [selectImage, setSelectImage] = useState("fb");
+  const [selectKey, setSelectKey] = useState("Abdul Rehman Sarohy");
 
   useEffect(() => {
     const options = {
@@ -54,7 +60,7 @@ const AboutUsCard4 = () => {
       socialM1: CD4Img1,
       socialM2: CD4Img2,
       socialM3: CD4Img3,
-      linkedIN: "https://linkedin.com/in/ali-zain-803416116",
+      linkedIN: "https:linkedin.com/in/ali-zain-803416116",
     },
   ];
 
@@ -86,7 +92,7 @@ const AboutUsCard4 = () => {
                 <div
                   className={styles.AUCd4Cards}
                   style={{ marginLeft: index != 0 ? "30px" : "" }}
-                  key={index}
+                  key={item.heading}
                 >
                   <div>
                     <Image
@@ -101,25 +107,79 @@ const AboutUsCard4 = () => {
                   </h4>
                   <div className={styles.AUCd4SocialContainer}>
                     <a
+                      key={"insta"}
                       className={styles.AUCd4Social}
                       href="https://www.instagram.com/zweidevs.official"
                       target="_blank"
+                      onMouseEnter={() => {
+                        setHoverState(true);
+                        setSelectImage("insta");
+                        setSelectKey(item.heading);
+                      }}
+                      onMouseLeave={() => setHoverState(false)}
                     >
-                      <Image src={item.socialM1} alt={item.socialM1} />
+                      <Image
+                        width={42}
+                        height={42}
+                        src={
+                          hoverState &&
+                          selectImage === "insta" &&
+                          selectKey === item.heading
+                            ? CD4Img1Hover
+                            : item.socialM1
+                        }
+                        alt={item.socialM1}
+                      />
                     </a>
                     <a
                       className={styles.AUCd4Social}
                       href="https://www.facebook.com/zweidevs"
                       target="_blank"
+                      key={"fb"}
+                      onMouseEnter={() => {
+                        setSelectImage("fb");
+                        setHoverState(true);
+                        setSelectKey(item.heading);
+                      }}
+                      onMouseLeave={() => setHoverState(false)}
                     >
-                      <Image src={item.socialM2} alt={item.socialM2} />
+                      <Image
+                        width={42}
+                        height={42}
+                        src={
+                          hoverState &&
+                          selectImage === "fb" &&
+                          selectKey === item.heading
+                            ? CD4Img2Hover
+                            : item.socialM2
+                        }
+                        alt={item.socialM2}
+                      />
                     </a>
                     <a
                       className={styles.AUCd4Social}
                       href={item.linkedIN}
                       target="_blank"
+                      key={"linkedIn"}
+                      onMouseEnter={() => {
+                        setSelectImage("linkedIn");
+                        setHoverState(true);
+                        setSelectKey(item.heading);
+                      }}
+                      onMouseLeave={() => setHoverState(false)}
                     >
-                      <Image src={item.socialM3} alt={item.socialM2} />
+                      <Image
+                        width={42}
+                        height={42}
+                        src={
+                          hoverState &&
+                          selectImage === "linkedIn" &&
+                          selectKey === item.heading
+                            ? CD4Img3Hover
+                            : item.socialM3
+                        }
+                        alt={item.socialM2}
+                      />
                     </a>
                   </div>
                 </div>

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import styles from "./footer.module.css";
 const SocialMedia = (props) => {
   const { data } = props;
-
   const [hoverState, setHoverState] = useState(false);
   const [selectImage, setSelectImage] = useState("fb");
 

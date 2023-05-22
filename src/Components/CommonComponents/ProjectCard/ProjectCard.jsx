@@ -19,6 +19,7 @@ function ProjectCard({
   const animatedLabelRef = Array.from({ length: 2 }, () => React.useRef(null));
   const animatedIconRef = React.useRef(null);
   const animatedImageRef = React.useRef(null);
+  const animatedImageRightRef = React.useRef(null);
   const [mobileView, setMobileView] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
 
@@ -71,6 +72,18 @@ function ProjectCard({
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
+            "animate__backInLeft",
+            "animate__delay-0s"
+          );
+        }
+      });
+    }, options);
+
+    const observer3 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
             "animate__backInRight",
             "animate__delay-0s"
           );
@@ -90,10 +103,15 @@ function ProjectCard({
       observer2.observe(animatedImageRef.current);
     }
 
+    if (animatedImageRightRef.current) {
+      observer3.observe(animatedImageRightRef.current);
+    }
+
     return () => {
       observer.disconnect();
       observer1.disconnect();
       observer2.disconnect();
+      observer3.disconnect();
     };
   }, []);
 
@@ -103,7 +121,10 @@ function ProjectCard({
         style={{ flexDirection: !mobileView && reverse && "row-reverse" }}
         className="project-card-container"
       >
-        <div className="project-card-left" ref={animatedImageRef}>
+        <div
+          className="project-card-left"
+          ref={reverse ? animatedImageRightRef : animatedImageRef}
+        >
           {!imageLoading && (
             <CircularProgress style={{ position: "absolute" }} />
           )}

@@ -5,8 +5,10 @@ import { HSImg2, HSLogo, HSImg1 } from "@component/assets/HomeIcons";
 import { Zbutton } from "@component/Components/CommonComponents";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import "animate.css";
+import { useRouter } from "next/router";
 
-function HomeSection1({ handleButtonClick }) {
+function HomeSection1() {
+  const router = useRouter();
   return (
     <>
       <div className={styles.HS1Background}>
@@ -27,7 +29,9 @@ function HomeSection1({ handleButtonClick }) {
             </h2>
             <div className={styles.HS1ContentButtonContainer}>
               <Zbutton
-                onClick={handleButtonClick}
+                onClick={() => {
+                  router.push("/contactUs");
+                }}
                 text="GET STARTED"
                 color="#ff9700"
                 backgroundColor="white"
@@ -46,11 +50,16 @@ function HomeSection1({ handleButtonClick }) {
                 }
               />
               <Zbutton
-                onClick={handleButtonClick}
-                text="Call us Now"
+                onClick={() => {
+                  window.open(
+                    "https://calendly.com/request-demo-zweidevs/30min",
+                    "_blank"
+                  );
+                }}
+                text="Schedule a Call"
                 color="white"
                 backgroundColor="#FF9700"
-                width="180px"
+                width="200px"
                 whiteShaddow={true}
                 showIcon={false}
                 margin="0px 0px 10px 0px"
@@ -59,7 +68,7 @@ function HomeSection1({ handleButtonClick }) {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      marginLeft: "-20px",
+                      marginLeft: "-13px",
                     }}
                   />
                 }

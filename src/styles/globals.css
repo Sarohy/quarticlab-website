@@ -382,6 +382,7 @@ a {
   align-items: center;
   gap: 5px;
   cursor: pointer;
+  font-family: "poppins";
 }
 
 .project-description {
