@@ -187,88 +187,120 @@ function HomeSection4() {
                     <div
                       style={{
                         backgroundImage: `url("${item.img1.src}")`,
-                        objectFit: "scale-down",
                       }}
                       key={index}
-                      className={`${styles.HS4CardContainer} ${styles.HS4CardOdd}`}
-                    >
-                      <div className={styles.HS4CardDataContainer}>
-                        <div className={styles.HS4ContentHeading}>
-                          {item.title}
-                        </div>
-                        <div className={styles.HS4ContentSubHeading}>
-                          {item.content}
-                        </div>
-                        <div className={styles.HS4ContentSubHeading}>
-                          Django | React
-                        </div>
-                      </div>
-                    </div>
+                      className={`${styles.HS4CardOdd}`}
+                    />
                   ) : index == 1 ? (
                     <div
+                      className={styles.HS4flipContainer}
                       style={{
                         backgroundImage: `url("${item.img2.src}")`,
                       }}
-                      className={`${styles.HS4CardContainer} ${styles.HS4CardEven}`}
                     >
-                      <div className={styles.HS4CardDataContainer}>
-                        <div className={styles.HS4ContentHeading}>
-                          {item.title}
-                        </div>
-                        <div className={styles.HS4ContentSubHeading}>
-                          {item.content}
-                        </div>
-                        <div className={styles.HS4ContentSubHeading}>
-                          Django | React
-                        </div>
-                        <div>
-                          <Zbutton
-                            onClick={() => {
-                              window.open(
-                                "https://calendly.com/request-demo-zweidevs/30min",
-                                "_blank"
-                              );
-                            }}
-                            text="Request Demo"
-                            color="#ff9700"
-                            backgroundColor="white"
-                            width="198px"
-                            height="48px"
-                            orangeShaddow={true}
-                            showIcon={false}
-                            icon={
-                              <ArrowCircleRightOutlinedIcon
-                                style={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  marginLeft: "-20px",
-                                }}
-                              />
-                            }
-                          />
+                      <div className={styles.HS4flipper}>
+                        <div className={styles.HS4back}>
+                          <div className={styles.HS4ContentHeading}>
+                            {item.title}
+                          </div>
+                          <div className={styles.HS4ContentSubHeading}>
+                            {item.content}
+                          </div>
+                          <div className={styles.HS4ContentSubHeading}>
+                            Django | React
+                          </div>
+                          <div>
+                            <Zbutton
+                              onClick={() => {
+                                window.open(
+                                  "https://calendly.com/request-demo-zweidevs/30min",
+                                  "_blank"
+                                );
+                              }}
+                              text="Request Demo"
+                              color="#ff9700"
+                              backgroundColor="white"
+                              width="198px"
+                              height="48px"
+                              orangeShaddow={true}
+                              showIcon={false}
+                              icon={
+                                <ArrowCircleRightOutlinedIcon
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    marginLeft: "-20px",
+                                  }}
+                                />
+                              }
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
                   ) : (
+                    // <div
+                    //   style={{
+                    //     backgroundImage: `url("${item.img2.src}")`,
+                    //   }}
+                    //   className={`${styles.flipContainer}`}
+                    // >
+                    //   <div
+                    //     className={styles.front}
+                    //     style={{ background: "#009345 !important" }}
+                    //   >
+                    //     {/* <Image className="lazyload" src="https://rightphysio.com/images/our-services/Respiratory.svg" alt="Avatar" style="width:150px;height:150px;"> */}
+                    //     <h3>OPERATIVE</h3>
+                    //   </div>
+
+                    //   <div
+                    //     className={styles.back}
+                    //     style={{ background: "#009345 !important" }}
+                    //   >
+                    //     <h5>OPERATIVE</h5>
+                    //     <p>
+                    //       Lorem ipsum dolor sit, amet consectetur adipisicing
+                    //       elit. Assumenda, distinctio.
+                    //     </p>
+                    //   </div>
+                    //   {/* <div className={styles.back}>
+                    //     <p>{item.title}</p>
+                    //     <p>{item.content}</p>
+                    //     <p>Django | React</p>
+                    //     <div>
+                    //       <Zbutton
+                    //         onClick={() => {
+                    //           window.open(
+                    //             "https://calendly.com/request-demo-zweidevs/30min",
+                    //             "_blank"
+                    //           );
+                    //         }}
+                    //         text="Request Demo"
+                    //         color="#ff9700"
+                    //         backgroundColor="white"
+                    //         width="198px"
+                    //         height="48px"
+                    //         orangeShaddow={true}
+                    //         showIcon={false}
+                    //         icon={
+                    //           <ArrowCircleRightOutlinedIcon
+                    //             style={{
+                    //               display: "flex",
+                    //               alignItems: "center",
+                    //               marginLeft: "-20px",
+                    //             }}
+                    //           />
+                    //         }
+                    //       />
+                    //     </div>
+                    //   </div> */}
+                    // </div>
                     <div
                       style={{
                         backgroundImage: `url("${item.img3.src}")`,
-                        objectFit: "scale-down",
                       }}
-                      className={`${styles.HS4CardContainer} ${styles.HS4CardOdd}`}
-                    >
-                      <div className={styles.HS4CardDataContainer}>
-                        <div className={styles.HS4ContentHeading}>
-                          {item.title}
-                        </div>
-                        <div className={styles.HS4ContentSubHeading}>
-                          {item.content}
-                        </div>
-                        <div className={styles.HS4ContentSubHeading}>
-                          Django | React
-                        </div>
-                      </div>
-                    </div>
+                      className={`${styles.HS4CardOdd}`}
+                    />
                   )}
                 </>
               );
