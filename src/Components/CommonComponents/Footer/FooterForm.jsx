@@ -17,7 +17,7 @@ export default function FooterForm() {
   };
 
   return (
-    <div className="animate__animated animate__slideInRight">
+    <div className="">
       <Grid container spacing={2}>
         <Grid className={styles.footerLinkHeading} item xs={12}>
           <div>

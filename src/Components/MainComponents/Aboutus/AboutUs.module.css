@@ -172,6 +172,7 @@
     font-weight: 500;
     font-size: 20px;
     text-align: center;
+    font-family: "poppins";
 }
 
 /* About us card 4 */
@@ -241,8 +242,8 @@
     background: #FFFFFF;
     border: 1.62841px solid rgba(255, 151, 0, 0.44);
     border-radius: 26.0545px;  
-    height: 300px;
-    width: 310px;
+    height: 350px;
+    width: 370px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -295,6 +296,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .AUCd4Social:hover{
@@ -306,12 +308,14 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    cursor: pointer;
+
 }
 
 /* about us card 5 */
 .AUCd5Main{
     width: 100%;
-    height: 3px;
+    height: 300px;
     background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
     display: flex;
     justify-content: center;

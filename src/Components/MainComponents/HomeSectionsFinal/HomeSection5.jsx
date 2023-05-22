@@ -86,7 +86,10 @@ const cardItem = (items) => {
         <div className={styles.HS5CardDiv}>
           {items.map((item, index) => {
             return (
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                style={{ display: "flex", justifyContent: "center" }}
+                key={`${index}${item.content}`}
+              >
                 <Card className={styles.HS5SingleCard}>
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     <div className={styles.HS5ImgContainer}>
@@ -101,9 +104,10 @@ const cardItem = (items) => {
                         {item.content}
                       </h3>
                       <div style={{ marginTop: "2.5%" }}>
-                        {[0, 1, 3, 4, 5].map(() => {
+                        {[0, 1, 3, 4, 5].map((itemStar) => {
                           return (
                             <StarOutlinedIcon
+                              key={`${item.content}${itemStar}`}
                               className={styles.HSStarConatiner}
                             />
                           );
@@ -125,6 +129,7 @@ const cardItem = (items) => {
                 className={
                   index % 2 != 0 ? styles.HS5OddCard : styles.HS5EvenCard
                 }
+                key={`${index}${item.content}`}
               >
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <div className={styles.HS5ImgContainer}>
@@ -139,10 +144,11 @@ const cardItem = (items) => {
                       {item.content}
                     </div>
                     <div style={{ marginTop: "2.5%" }}>
-                      {[0, 1, 3, 4, 5].map(() => {
+                      {[0, 1, 3, 4, 5].map((itemStar) => {
                         return (
                           <StarOutlinedIcon
                             className={styles.HSStarConatiner}
+                            key={`${itemStar}${item.content}`}
                           />
                         );
                       })}
@@ -219,8 +225,8 @@ function HomeSection5({ handleButtonClick }) {
             },
           }}
         >
-          {items.map((item) => {
-            return <div>{cardItem(item.elements)}</div>;
+          {items.map((item, index) => {
+            return <div key={`${index}`}>{cardItem(item.elements)}</div>;
           })}
         </Carousel>
       </div>

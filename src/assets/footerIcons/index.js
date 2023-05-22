@@ -5,6 +5,10 @@ import InstaLogo from "./instaIcon.svg";
 import TwitterLogo from "./twitterIcon.svg";
 import CopyrightLeftLine from "./copyrightLeftLine.svg";
 import CopyrightRightLine from "./copyrightRightLine.svg";
+import LinkedInHover from "./linkedInHover.svg";
+import FBHover from "./facebookHover.svg";
+import InstaHover from "./InstaHover.svg";
+import TwitterHover from "./TwittweHover.svg";
 
 export {
   ZweidevsLogo,
@@ -14,4 +18,8 @@ export {
   TwitterLogo,
   CopyrightLeftLine,
   CopyrightRightLine,
+  LinkedInHover,
+  FBHover,
+  InstaHover,
+  TwitterHover,
 };

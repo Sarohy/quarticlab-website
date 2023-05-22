@@ -45,6 +45,7 @@ const AboutUsCard4 = () => {
       socialM1: CD4Img1,
       socialM2: CD4Img2,
       socialM3: CD4Img3,
+      linkedIN: "https://linkedin.com/in/abdul-rehman-sarohy-0b40b0128",
     },
     {
       img: CD4Founder1,
@@ -53,6 +54,7 @@ const AboutUsCard4 = () => {
       socialM1: CD4Img1,
       socialM2: CD4Img2,
       socialM3: CD4Img3,
+      linkedIN: "https://linkedin.com/in/ali-zain-803416116",
     },
   ];
 
@@ -85,7 +87,6 @@ const AboutUsCard4 = () => {
                   className={styles.AUCd4Cards}
                   style={{ marginLeft: index != 0 ? "30px" : "" }}
                   key={index}
-                  onClick={() => setCardKey(index)}
                 >
                   <div>
                     <Image
@@ -99,15 +100,27 @@ const AboutUsCard4 = () => {
                     {item.subHeading}
                   </h4>
                   <div className={styles.AUCd4SocialContainer}>
-                    <div className={styles.AUCd4Social}>
+                    <a
+                      className={styles.AUCd4Social}
+                      href="https://www.instagram.com/zweidevs.official"
+                      target="_blank"
+                    >
                       <Image src={item.socialM1} alt={item.socialM1} />
-                    </div>
-                    <div className={styles.AUCd4Social}>
+                    </a>
+                    <a
+                      className={styles.AUCd4Social}
+                      href="https://www.facebook.com/zweidevs"
+                      target="_blank"
+                    >
                       <Image src={item.socialM2} alt={item.socialM2} />
-                    </div>
-                    <div className={styles.AUCd4Social}>
+                    </a>
+                    <a
+                      className={styles.AUCd4Social}
+                      href={item.linkedIN}
+                      target="_blank"
+                    >
                       <Image src={item.socialM3} alt={item.socialM2} />
-                    </div>
+                    </a>
                   </div>
                 </div>
               </>

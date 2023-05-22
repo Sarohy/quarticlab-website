@@ -145,8 +145,16 @@ function Header() {
           >
             contact@zweidevs.com
           </p>
-          <Image src={PhoneContainer} alt="phone"></Image>
-          <Image src={InstantBooking} alt="instant-booking"></Image>
+          <Image
+            src={PhoneContainer}
+            alt="phone"
+            style={{ cursor: "pointer" }}
+          />
+          <Image
+            src={InstantBooking}
+            alt="instant-booking"
+            style={{ cursor: "pointer" }}
+          />
         </div>
       </div>
       <hr style={{ border: "1px solid #E5E5E5" }}></hr>

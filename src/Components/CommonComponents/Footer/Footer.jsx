@@ -10,6 +10,10 @@ import {
   TwitterLogo,
   CopyrightLeftLine,
   CopyrightRightLine,
+  LinkedInHover,
+  FBHover,
+  InstaHover,
+  TwitterHover,
 } from "@component/assets/footerIcons";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { isValidEmail } from "@component/utils/helpers";
@@ -27,28 +31,38 @@ function Footer() {
     mobileView: null,
   });
   const { email, invalidEmail, mobileView } = state;
+  const animatedRefDiv = React.useRef(null);
+  const [refState, setRefState] = useState(animatedRefDiv);
 
   const socialMediaData = [
     {
+      name: "fb",
       href: "https://www.facebook.com/zweidevs",
       alt: "zweidevs facebook",
       image: FbLogo,
+      hoverImage: FBHover,
     },
     {
+      name: "insta",
       href: "https://www.instagram.com/zweidevs.official",
       alt: "zweidevs instagram",
       image: InstaLogo,
+      hoverImage: InstaHover,
     },
 
     {
+      name: "twitter",
       href: "#",
       alt: "zweidevs twitter",
       image: TwitterLogo,
+      hoverImage: TwitterHover,
     },
     {
+      name: "linkedin",
       href: "https://www.linkedin.com/company/zweidevs/",
       alt: "zweidevs linkedin",
       image: LinkedInLogo,
+      hoverImage: LinkedInHover,
     },
   ];
 
@@ -84,11 +98,40 @@ function Footer() {
     };
   }, []);
 
+  useEffect(() => {
+    console.log(refState);
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__backInUp",
+            "animate_delay-1s"
+          );
+        }
+      });
+    }, options);
+
+    if (animatedRefDiv.current) {
+      observer.observe(animatedRefDiv.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [refState]);
+
   const displayWeb = () => (
     <>
       <div className={styles.footerContainer}>
         <div className={styles.footerContentContainer}>
-          <div className="animate__animated animate__slideInLeft">
+          <div className="animate__animated ">
             <Image src={ZweidevsLogo} alt="footerLogo" width={200} />
             <div className={styles.footerAboutZweidevs}>
               {`
@@ -124,7 +167,11 @@ function Footer() {
           </Grid>
 
           <Grid
-            style={{ justifyContent: "center", display: "flex" }}
+            style={{
+              justifyContent: "center",
+              display: "flex",
+              fontFamily: "poppins",
+            }}
             item
             //xs={8}
             md={8}
@@ -269,7 +316,11 @@ function Footer() {
   );
   return (
     <>
-      {mobileView === null ? null : mobileView ? displayMobile() : displayWeb()}
+      {mobileView === null ? null : mobileView ? (
+        displayMobile()
+      ) : (
+        <div ref={animatedRefDiv}>{displayWeb()}</div>
+      )}
     </>
   );
 }

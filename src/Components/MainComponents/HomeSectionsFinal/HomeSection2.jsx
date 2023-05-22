@@ -175,7 +175,7 @@ function HomeSection2({ handleButtonClick }) {
           {cardData.map((item, index) => {
             return (
               <>
-                <div className={styles.HS2CardMob}>
+                <div className={styles.HS2CardMob} key={`${index}${item.key}`}>
                   <div
                     className={`${styles.HS2Card} ${styles.HS2CardUnSelected}`}
                     key={item.key}
@@ -187,6 +187,8 @@ function HomeSection2({ handleButtonClick }) {
                         alt="zweidevs"
                         className={styles.HS2SelectedImgWhite}
                         ref={animatedImgRefs[index]}
+                        width={80}
+                        height={80}
                       />
                     </div>
                     <h3
