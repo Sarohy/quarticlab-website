@@ -181,10 +181,9 @@
   width: 100%;
 }
 
-.footerFormInput {
-  /* padding: 10px 12px;
-  font-size: 16px; */
-}
+/* .footerFormInput {
+ font-family: poppins;
+} */
 
 .footerLink {
   width: 60px;
@@ -273,8 +272,8 @@
 
 
 .imageSocial{
-  width: 40.1px;
-  height: 40.1px;
+  /* width: 40.1px;
+  height: 40.1px; */
   border: 1px solid #FFFFFF;
   display: flex;
   justify-content: center;
@@ -283,10 +282,10 @@
 }
 
 .imageSocial:hover{
-  width: 40.1px;
-  height: 40.1px;
+  /* width: 40.1px;
+  height: 40.1px; */
   background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
-  border: 0.756563px solid #FFFFFF;
+  border: 1px solid #FFFFFF;
   display: flex;
   justify-content: center;
   align-items: center;

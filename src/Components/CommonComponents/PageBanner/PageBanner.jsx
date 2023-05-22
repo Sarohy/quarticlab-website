@@ -2,13 +2,12 @@ import React from "react";
 import styles from "./pageBanner.module.css";
 import { DiamondSvg } from "@component/assets/pageBannerIcons";
 import Image from "next/image";
-import Head from "next/head";
 function InstantBookingBanner(props) {
   const { title, heading, description } = props;
   return (
     <div className={styles.pageBannerRoot}>
       <div
-        className={`${styles.pageBannerTextContainer} animate__delay-1s animate__animated animate__backInRight`}
+        className={`${styles.pageBannerTextContainer} animate__animated animate__backInRight`}
       >
         <h1 className={styles.pageBannerTitle}>{title}</h1>
         {heading ? <h2 className={styles.pageBannerHeading}>{heading}</h2> : ""}

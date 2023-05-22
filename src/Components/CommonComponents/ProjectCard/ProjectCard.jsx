@@ -19,7 +19,6 @@ function ProjectCard({
   const animatedLabelRef = Array.from({ length: 2 }, () => React.useRef(null));
   const animatedIconRef = React.useRef(null);
   const animatedImageRef = React.useRef(null);
-
   const [mobileView, setMobileView] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
 

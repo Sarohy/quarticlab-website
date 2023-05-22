@@ -92,7 +92,7 @@ const AboutUsCard = () => {
     <>
       <div className={styles.AUCd3Main}>
         <h2 className={styles.AUCd3Heading} ref={animatedHeadingRef}>
-          Zweidevs Achievements since 2010
+          Zweidevs Achievements Since 2010
         </h2>
         <div className={styles.AUCd3ProjectContainer}>
           {project.map((item, index) => {

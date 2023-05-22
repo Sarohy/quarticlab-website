@@ -102,7 +102,7 @@ const AboutUsCard2 = () => {
               className={styles.AUCard2ImgDHeading}
               ref={animatedHeadingDivRef[0]}
             >
-              Who We Are
+              Who We Are?
             </p>
             <h2
               className={styles.AUCard2ImgDSubHeading}
@@ -112,8 +112,8 @@ const AboutUsCard2 = () => {
             </h2>
             <p className={styles.AUCard2ImgDText} ref={animatedTextRef[1]}>
               Zweidevs is a tech studio that provides remote talented, skilled,
-              dedicated, and professionals teams led by experienced Computer
-              Scientists.
+              dedicated, and professionals teams led by experienced computer
+              scientists.
             </p>
             <p className={styles.AUCard2ImgDText} ref={animatedTextRef[2]}>
               It all started in 2020 when the founders met in a restaurant and
@@ -148,7 +148,7 @@ const AboutUsCard2 = () => {
             <p ref={animatedLeftDivRef[0]}>
               We have managed to build a team of individuals with strong
               interpersonal skills. Some qualities of our teammates that you
-              would love to learn about is:
+              would love to learn about are:
             </p>
             <h3
               className={styles.AUCardDataSubHeading}

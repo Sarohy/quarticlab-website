@@ -8,17 +8,19 @@ import styles from "./blog.module.css";
 import { getApiWithoutAuth } from "../api/api";
 import { Zbutton } from "@component/Components/CommonComponents";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import { CircularProgress } from "@mui/material";
 
 const Blog = () => {
   const smallButtonsData = ["All", "Marketing", "Technology", "Grow"];
   const [filter, setFilter] = useState("All");
-
+  const [isLoading, setIsLoading] = useState(true);
   const [blogData, setBlogData] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const animatedHeadingRef = React.useRef(null);
   const animatedButtonRef = React.useRef(null);
 
   const fetch_data = async () => {
+    setIsLoading(true);
     const resp = await getApiWithoutAuth("blogs/");
     if (resp.data.success) {
       let responseData = resp.data.data;
@@ -36,6 +38,7 @@ const Blog = () => {
         if (dataArray.length > 0) setBlogData(dataArray);
       }
     }
+    setIsLoading(false);
   };
 
   const loadMoreHandler = () => {
@@ -112,9 +115,17 @@ const Blog = () => {
             smallButtonsData={smallButtonsData}
           />
         </div>
-        <div className={styles.blogCardContainer}>
-          <BlogCard filter={filter} data={blogData} />
-        </div>
+
+        {isLoading ? (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <CircularProgress />
+          </div>
+        ) : (
+          <div className={styles.blogCardContainer}>
+            <BlogCard filter={filter} data={blogData} />
+          </div>
+        )}
+
         <div className={styles.blogDflex}>
           <Image
             onClick={loadMoreHandler}

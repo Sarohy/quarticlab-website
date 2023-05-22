@@ -164,127 +164,132 @@ function HomeSection4() {
 
   return (
     <>
-      <div className={styles.HS4MainContainer}>
-        <div
-          className={styles.HS4ContentHeadingContainer}
-          ref={animatedDivRefs[0]}
-        >
-          <div className={styles.HS4Heading}>
-            <p>Our Experiences</p> <hr className={styles.HS3ContentLine1} />
-            <hr className={styles.HS3ContentLine2} />
+      <div style={{ width: "100%", height: "793px", backgroundColor: "white" }}>
+        <div className={styles.HS4MainContainer}>
+          <div
+            className={styles.HS4ContentHeadingContainer}
+            ref={animatedDivRefs[0]}
+          >
+            <div className={styles.HS4Heading}>
+              <p>Our Experiences</p> <hr className={styles.HS3ContentLine1} />
+              <hr className={styles.HS3ContentLine2} />
+            </div>
           </div>
-        </div>
-        <h2 className={styles.HS4SubHeading} ref={animatedDivRefs[1]}>
-          We`ve Done Lot`s Of Awesome Projects
-        </h2>
+          <h2 className={styles.HS4SubHeading} ref={animatedDivRefs[1]}>
+            We`ve Done Lot`s Of Awesome Projects
+          </h2>
 
-        <div className={styles.HSCardContainer}>
-          {projectArray.map((item, index) => {
-            return (
-              <>
-                {index == 0 ? (
-                  <div
-                    style={{
-                      backgroundImage: `url("${item.img1.src}")`,
-                    }}
-                    className={`${styles.HS4CardContainer} ${styles.HS4CardOdd}`}
-                  >
-                    <div className={styles.HS4CardDataContainer}>
-                      <div className={styles.HS4ContentHeading}>
-                        {item.title}
-                      </div>
-                      <div className={styles.HS4ContentSubHeading}>
-                        {item.content}
-                      </div>
-                      <div className={styles.HS4ContentSubHeading}>
-                        Django | React
-                      </div>
-                    </div>
-                  </div>
-                ) : index == 1 ? (
-                  <div
-                    style={{
-                      backgroundImage: `url("${item.img2.src}")`,
-                    }}
-                    className={`${styles.HS4CardContainer} ${styles.HS4CardEven}`}
-                  >
-                    <div className={styles.HS4CardDataContainer}>
-                      <div className={styles.HS4ContentHeading}>
-                        {item.title}
-                      </div>
-                      <div className={styles.HS4ContentSubHeading}>
-                        {item.content}
-                      </div>
-                      <div className={styles.HS4ContentSubHeading}>
-                        Django | React
-                      </div>
-                      <div>
-                        <Zbutton
-                          onClick={() => {
-                            window.open(
-                              "https://calendly.com/request-demo-zweidevs/30min",
-                              "_blank"
-                            );
-                          }}
-                          text="Request Demo"
-                          color="#ff9700"
-                          backgroundColor="white"
-                          width="198px"
-                          height="48px"
-                          orangeShaddow={true}
-                          showIcon={false}
-                          icon={
-                            <ArrowCircleRightOutlinedIcon
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                marginLeft: "-20px",
-                              }}
-                            />
-                          }
-                        />
+          <div className={styles.HSCardContainer}>
+            {projectArray.map((item, index) => {
+              return (
+                <>
+                  {index == 0 ? (
+                    <div
+                      style={{
+                        backgroundImage: `url("${item.img1.src}")`,
+                        objectFit: "scale-down",
+                      }}
+                      key={index}
+                      className={`${styles.HS4CardContainer} ${styles.HS4CardOdd}`}
+                    >
+                      <div className={styles.HS4CardDataContainer}>
+                        <div className={styles.HS4ContentHeading}>
+                          {item.title}
+                        </div>
+                        <div className={styles.HS4ContentSubHeading}>
+                          {item.content}
+                        </div>
+                        <div className={styles.HS4ContentSubHeading}>
+                          Django | React
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ) : (
-                  <div
-                    style={{
-                      backgroundImage: `url("${item.img3.src}")`,
-                    }}
-                    className={`${styles.HS4CardContainer} ${styles.HS4CardOdd}`}
-                  >
-                    <div className={styles.HS4CardDataContainer}>
-                      <div className={styles.HS4ContentHeading}>
-                        {item.title}
-                      </div>
-                      <div className={styles.HS4ContentSubHeading}>
-                        {item.content}
-                      </div>
-                      <div className={styles.HS4ContentSubHeading}>
-                        Django | React
+                  ) : index == 1 ? (
+                    <div
+                      style={{
+                        backgroundImage: `url("${item.img2.src}")`,
+                      }}
+                      className={`${styles.HS4CardContainer} ${styles.HS4CardEven}`}
+                    >
+                      <div className={styles.HS4CardDataContainer}>
+                        <div className={styles.HS4ContentHeading}>
+                          {item.title}
+                        </div>
+                        <div className={styles.HS4ContentSubHeading}>
+                          {item.content}
+                        </div>
+                        <div className={styles.HS4ContentSubHeading}>
+                          Django | React
+                        </div>
+                        <div>
+                          <Zbutton
+                            onClick={() => {
+                              window.open(
+                                "https://calendly.com/request-demo-zweidevs/30min",
+                                "_blank"
+                              );
+                            }}
+                            text="Request Demo"
+                            color="#ff9700"
+                            backgroundColor="white"
+                            width="198px"
+                            height="48px"
+                            orangeShaddow={true}
+                            showIcon={false}
+                            icon={
+                              <ArrowCircleRightOutlinedIcon
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  marginLeft: "-20px",
+                                }}
+                              />
+                            }
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </>
-            );
-          })}
-        </div>
+                  ) : (
+                    <div
+                      style={{
+                        backgroundImage: `url("${item.img3.src}")`,
+                        objectFit: "scale-down",
+                      }}
+                      className={`${styles.HS4CardContainer} ${styles.HS4CardOdd}`}
+                    >
+                      <div className={styles.HS4CardDataContainer}>
+                        <div className={styles.HS4ContentHeading}>
+                          {item.title}
+                        </div>
+                        <div className={styles.HS4ContentSubHeading}>
+                          {item.content}
+                        </div>
+                        <div className={styles.HS4ContentSubHeading}>
+                          Django | React
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </>
+              );
+            })}
+          </div>
 
-        <div className={styles.HS4ArrowContainer}>
-          <ArrowCircleLeftOutlinedIcon
-            style={{
-              width: "30px",
-              height: "30px",
-              color: "#FF9700",
-              marginRight: "10px",
-            }}
-            onClick={onClickLeftArrow}
-          />
-          <ArrowCircleRightOutlinedIcon
-            style={{ width: "30px", height: "30px", color: "#FF9700" }}
-            onClick={onClickRightArrow}
-          />
+          <div className={styles.HS4ArrowContainer}>
+            <ArrowCircleLeftOutlinedIcon
+              style={{
+                width: "30px",
+                height: "30px",
+                color: "#FF9700",
+                marginRight: "10px",
+              }}
+              onClick={onClickLeftArrow}
+            />
+            <ArrowCircleRightOutlinedIcon
+              style={{ width: "30px", height: "30px", color: "#FF9700" }}
+              onClick={onClickRightArrow}
+            />
+          </div>
         </div>
       </div>
     </>

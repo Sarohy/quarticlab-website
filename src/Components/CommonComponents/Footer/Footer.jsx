@@ -10,6 +10,10 @@ import {
   TwitterLogo,
   CopyrightLeftLine,
   CopyrightRightLine,
+  LinkedInHover,
+  FBHover,
+  InstaHover,
+  TwitterHover,
 } from "@component/assets/footerIcons";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { isValidEmail } from "@component/utils/helpers";
@@ -28,28 +32,37 @@ function Footer() {
   });
   const { email, invalidEmail, mobileView } = state;
   const animatedRefDiv = React.useRef(null);
+  const [refState, setRefState] = useState(animatedRefDiv);
 
   const socialMediaData = [
     {
+      name: "fb",
       href: "https://www.facebook.com/zweidevs",
       alt: "zweidevs facebook",
       image: FbLogo,
+      hoverImage: FBHover,
     },
     {
+      name: "insta",
       href: "https://www.instagram.com/zweidevs.official",
       alt: "zweidevs instagram",
       image: InstaLogo,
+      hoverImage: InstaHover,
     },
 
     {
+      name: "twitter",
       href: "#",
       alt: "zweidevs twitter",
       image: TwitterLogo,
+      hoverImage: TwitterHover,
     },
     {
+      name: "linkedin",
       href: "https://www.linkedin.com/company/zweidevs/",
       alt: "zweidevs linkedin",
       image: LinkedInLogo,
+      hoverImage: LinkedInHover,
     },
   ];
 
@@ -86,6 +99,7 @@ function Footer() {
   }, []);
 
   useEffect(() => {
+    console.log(refState);
     const options = {
       root: null,
       rootMargin: "0px",
@@ -111,31 +125,7 @@ function Footer() {
     return () => {
       observer.disconnect();
     };
-  }, []);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const div = animatedRefDiv.current;
-  //     const rect = div.getBoundingClientRect();
-  //     const windowHeight =
-  //       window.innerHeight || document.documentElement.clientHeight;
-
-  //     // Check if the div is visible on the screen
-  //     if (rect.top <= windowHeight && rect.bottom >= 0) {
-  //       div.classList.add("animate__backInUp");
-  //     } else {
-  //       div.classList.remove("animate");
-  //     }
-  //   };
-
-  //   // Attach the scroll event listener
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   // Cleanup the event listener on unmount
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+  }, [refState]);
 
   const displayWeb = () => (
     <>
@@ -177,7 +167,11 @@ function Footer() {
           </Grid>
 
           <Grid
-            style={{ justifyContent: "center", display: "flex" }}
+            style={{
+              justifyContent: "center",
+              display: "flex",
+              fontFamily: "poppins",
+            }}
             item
             //xs={8}
             md={8}
