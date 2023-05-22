@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import styles from "./HomeSection.module.css";
 import {
   HS2Img1,
@@ -11,7 +12,8 @@ import {
 import { Zbutton } from "@component/Components/CommonComponents";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 
-function HomeSection2({ handleButtonClick }) {
+function HomeSection2() {
+  const router = useRouter();
   const animatedDivRefs = Array.from({ length: 2 }, () => React.useRef(null));
   const animatedCardRefs = Array.from({ length: 5 }, () => React.useRef(null));
   const animatedImgRefs = Array.from({ length: 5 }, () => React.useRef(null));
@@ -149,7 +151,11 @@ function HomeSection2({ handleButtonClick }) {
           </h2>
           <div className={styles.HS2Button}>
             <Zbutton
-              onClick={handleButtonClick}
+              onClick={() => {
+                router.push({
+                  pathname: `/services`,
+                });
+              }}
               text="See All"
               color="white"
               backgroundColor="#FF9700"

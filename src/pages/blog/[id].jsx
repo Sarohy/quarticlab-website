@@ -53,19 +53,6 @@ const Id = () => {
           padding: 40,
         }}
       >
-        {/* <Image
-          src={parsedData?.image}
-          height={50}
-          width={1600}
-          style={{
-            width: "100%",
-            height: 500,
-            borderRadius: 5,
-            border: "2px solid orange",
-            objectFit: "cover",
-          }}
-          alt={"page-banner"}
-        /> */}
         <div
           className={styles.blogDetails}
           dangerouslySetInnerHTML={{ __html: parsedData?.description }}
