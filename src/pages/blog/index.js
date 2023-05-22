@@ -47,7 +47,7 @@ const Blog = () => {
   const bannerData = {
     title: "All Posts",
     heading: "Everything your business needs under one roof",
-    description: `We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences`,
+    description: `We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences.`,
   };
 
   useEffect(() => {
