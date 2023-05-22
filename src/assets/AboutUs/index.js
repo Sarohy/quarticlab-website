@@ -8,7 +8,7 @@ import CD3Img5 from "./CD3Img5.svg";
 import CD4Img from "./CD4Img.svg";
 import CD4Img1 from "./instagram.svg";
 import CD4Img2 from "./twitter.svg";
-import CD4Img3 from "./linkedIn.svg";
+import CD4Img3 from "./linkedin.svg";
 import CD4Founder1 from "./Ali.svg";
 import CD4Founder2 from "./Sarohy.svg";
 
