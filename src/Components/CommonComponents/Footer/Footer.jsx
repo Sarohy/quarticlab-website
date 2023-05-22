@@ -27,6 +27,7 @@ function Footer() {
     mobileView: null,
   });
   const { email, invalidEmail, mobileView } = state;
+  const animatedRefDiv = React.useRef(null);
 
   const socialMediaData = [
     {
@@ -84,11 +85,63 @@ function Footer() {
     };
   }, []);
 
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__backInUp",
+            "animate_delay-1s"
+          );
+        }
+      });
+    }, options);
+
+    if (animatedRefDiv.current) {
+      observer.observe(animatedRefDiv.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const div = animatedRefDiv.current;
+  //     const rect = div.getBoundingClientRect();
+  //     const windowHeight =
+  //       window.innerHeight || document.documentElement.clientHeight;
+
+  //     // Check if the div is visible on the screen
+  //     if (rect.top <= windowHeight && rect.bottom >= 0) {
+  //       div.classList.add("animate__backInUp");
+  //     } else {
+  //       div.classList.remove("animate");
+  //     }
+  //   };
+
+  //   // Attach the scroll event listener
+  //   window.addEventListener("scroll", handleScroll);
+
+  //   // Cleanup the event listener on unmount
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+
   const displayWeb = () => (
     <>
       <div className={styles.footerContainer}>
         <div className={styles.footerContentContainer}>
-          <div className="animate__animated animate__slideInLeft">
+          <div className="animate__animated ">
             <Image src={ZweidevsLogo} alt="footerLogo" width={200} />
             <div className={styles.footerAboutZweidevs}>
               {`
@@ -269,7 +322,11 @@ function Footer() {
   );
   return (
     <>
-      {mobileView === null ? null : mobileView ? displayMobile() : displayWeb()}
+      {mobileView === null ? null : mobileView ? (
+        displayMobile()
+      ) : (
+        <div ref={animatedRefDiv}>{displayWeb()}</div>
+      )}
     </>
   );
 }

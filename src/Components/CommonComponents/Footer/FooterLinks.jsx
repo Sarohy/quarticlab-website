@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 export default function FooterLinks() {
   const router = useRouter();
   return (
-    <div className="animate__delay-1s animate__animated animate__zoomIn">
+    <div>
       <Grid container spacing={1.5} xl={2}>
         <Grid item xs={12}>
           <div className={styles.footerLinkHeading}>What We Do</div>
