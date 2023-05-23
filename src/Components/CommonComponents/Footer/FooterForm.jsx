@@ -39,7 +39,7 @@ export default function FooterForm() {
           <CustomInputField label={"Phone"} />
         </Grid>
         <Grid item xs={6}>
-          <CustomInputField label={"-Select A Service-"} />
+          <CustomInputField label={"Select A Service"} />
         </Grid>
         <Grid item xs={12}>
           <CustomInputField multiline={true} label={"Message"} />
