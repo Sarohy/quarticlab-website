@@ -206,7 +206,7 @@ function HomeSection5({ handleButtonClick }) {
           </div>
         </div>
         <h2 className={styles.HS5SubHeading} ref={animatedDivRefs[1]}>
-          What Client Says About us
+          What Client Says About Us
         </h2>
         <Carousel
           swipe={true}

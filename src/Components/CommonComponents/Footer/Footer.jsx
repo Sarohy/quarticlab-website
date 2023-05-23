@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "./footer.module.css";
 import Image from "next/image";
+import ZweidevsAbout from "./ZweidevsAbout";
+
 import "animate.css";
 import {
   ZweidevsLogo,
@@ -22,7 +24,6 @@ import Link from "next/link";
 import { Grid } from "@mui/material";
 import FooterForm from "./FooterForm";
 import FooterLinks from "./FooterLinks.jsx";
-import SocialMedia from "./SocialMedia";
 
 function Footer() {
   const [state, setState] = useState({
@@ -32,7 +33,6 @@ function Footer() {
   });
   const { email, invalidEmail, mobileView } = state;
   const animatedRefDiv = React.useRef(null);
-  const [refState, setRefState] = useState(animatedRefDiv);
 
   const socialMediaData = [
     {
@@ -98,51 +98,15 @@ function Footer() {
     };
   }, []);
 
-  useEffect(() => {
-    console.log(refState);
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.5,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__backInUp",
-            "animate_delay-1s"
-          );
-        }
-      });
-    }, options);
-
-    if (animatedRefDiv.current) {
-      observer.observe(animatedRefDiv.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [refState]);
-
   const displayWeb = () => (
     <>
       <div className={styles.footerContainer}>
         <div className={styles.footerContentContainer}>
-          <div className="animate__animated ">
-            <Image src={ZweidevsLogo} alt="footerLogo" width={200} />
-            <div className={styles.footerAboutZweidevs}>
-              {`
-              Zweidevs provides dedicated \n
-              remote teams that work closely with \n
-              you to design and build your idea.
-              `}
-            </div>
-            <SocialMedia data={socialMediaData} />
-          </div>
-          <div style={{ width: "40%", padding: "12px 70px 0px 70px" }}>
+          <ZweidevsAbout
+            logo={ZweidevsLogo}
+            socialMediaData={socialMediaData}
+          />
+          <div style={{ width: "40%", padding: "12px 20px 0px 30px" }}>
             <FooterLinks />
           </div>
           <div style={{ width: "40%", padding: "12px 20px 0px 12px" }}>
@@ -173,7 +137,6 @@ function Footer() {
               fontFamily: "poppins",
             }}
             item
-            //xs={8}
             md={8}
           >
             © 2023 Zweidevs. All Rights Reserved.
@@ -187,7 +150,6 @@ function Footer() {
           </Grid>
         </Grid>
 
-        {/* mobile view */}
         <Grid
           sx={{
             display: {
@@ -221,7 +183,6 @@ function Footer() {
           <Grid
             style={{ justifyContent: "center", display: "flex" }}
             item
-            //xs={8}
             md={10}
           >
             © 2023 Zweidevs. All Rights Reserved.

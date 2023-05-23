@@ -43,7 +43,7 @@ function HomeSection7({ handleButtonClick }) {
     <>
       <div className={styles.HS7MainContainer}>
         <h2 className={styles.HS7Heading} ref={animatedDivRefs}>
-          Technologies we Work With
+          Technologies We Work With
         </h2>
         <div className={styles.HS7ImagesContainer}>
           <div className={styles.HS7ImgContainer}>

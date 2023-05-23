@@ -75,7 +75,7 @@ function HomeSection8({ handleButtonClick }) {
     <>
       <div className={styles.HS8MainContainer}>
         <h2 className={styles.HS8Heading} ref={animatedDivRefs}>
-          How May we Help You
+          How May We Help You
         </h2>
         <div style={{ width: "85%" }}>
           <form onSubmit={handleSubmit}>
@@ -177,6 +177,7 @@ function HomeSection8({ handleButtonClick }) {
                 onChange={handleInputChange}
                 required
                 variant="outlined"
+                style={{ fontFamily: "Poppins" }}
               />
               <div className={styles.HS8ButtonContainer}>
                 <Button

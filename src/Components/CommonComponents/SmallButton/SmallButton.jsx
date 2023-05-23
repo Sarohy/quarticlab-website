@@ -16,6 +16,7 @@ export default function SmallButton(props) {
               background: index === activeTab ? "#F79D0A" : "#fff",
               color: index === activeTab ? "white" : "#666666",
               borderColor: "#666666",
+              fontFamily: "poppins",
             }}
             key={index}
             onClick={() => {

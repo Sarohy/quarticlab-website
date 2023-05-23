@@ -176,7 +176,7 @@ function HomeSection4() {
             </div>
           </div>
           <h2 className={styles.HS4SubHeading} ref={animatedDivRefs[1]}>
-            We`ve Done Lot`s Of Awesome Projects
+            We&#x27;ve Done Lot&#x27;s Of Awesome Projects
           </h2>
 
           <div className={styles.HSCardContainer}>
