@@ -80,7 +80,7 @@ function Header() {
 
   const displayWeb = () => (
     <>
-      <div
+      {/* <div
         style={{
           display: "flex",
           flexDiretion: "row",
@@ -157,7 +157,7 @@ function Header() {
           />
         </div>
       </div>
-      <hr style={{ border: "1px solid #E5E5E5" }}></hr>
+      <hr style={{ border: "1px solid #E5E5E5" }}></hr> */}
       <div className={styles.headerContainer}>
         <Image
           src={ZweidevsLogo}

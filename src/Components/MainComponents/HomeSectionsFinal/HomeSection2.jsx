@@ -197,8 +197,12 @@ function HomeSection2() {
                             alt="zweidevs"
                             className={styles.HS2SelectedImgWhite}
                             ref={animatedImgRefs[index]}
-                            width={80}
-                            height={80}
+                            width={
+                              isHovered && selectedKey == item.key ? 40 : 80
+                            }
+                            height={
+                              isHovered && selectedKey == item.key ? 40 : 80
+                            }
                           />
                         </div>
                         <h3 ref={animatedHeadingRefs[index]}>{item.heading}</h3>

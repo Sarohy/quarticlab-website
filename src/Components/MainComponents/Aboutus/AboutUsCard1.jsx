@@ -12,6 +12,7 @@ const AboutUsCard1 = () => {
   technology and strong business strategies that your company requires
   in this digital age, Zweidevs is a professional marketing agency
   that helps to bring the future into the present.`,
+    paddingLeft: "14px",
   };
   return (
     <>

@@ -214,6 +214,7 @@ function HomeSection5({ handleButtonClick }) {
           duration={1000}
           indicatorIconButtonProps={{
             style: {
+              marginTop: "7%",
               color: "#ECECEC",
               cursor: "pointer",
             },
@@ -222,6 +223,7 @@ function HomeSection5({ handleButtonClick }) {
             style: {
               color: "#FF9700",
               cursor: "pointer",
+              width: "30px",
             },
           }}
         >
