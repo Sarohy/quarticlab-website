@@ -131,63 +131,86 @@
     justify-content: space-around;
 }
 
+.imageDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
 
-.HS2Card{
+
+.HS2FlipContainer{
+    -webkit-perspective: 1000;
+    cursor:pointer;
     width: 227px;
     height: 331px;
     border: 1px solid #DADADA;
     border-radius: 5px;
     margin-right: 1.5%;
+   
+    
+  }
+
+  .HS2FlipContainer:hover .HS2Flipper {
+    -webkit-transform: rotateY(180deg);
+    cursor:pointer;
+  }
+  .HS2FlipContainer.hover .HS2Flipper {
+    -webkit-transform: rotateY(180deg);
+    cursor:pointer;
+  }
+  
+  .HS2front {
+    -webkit-backface-visibility: hidden;
+    z-index: 2;
+    width: 227px;
+    height: 331px;
+    position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-/* .HS2CardSelected{
-    background-color: #FF9700;
-    color: #FFFFFF;
-} */
-
-.HS2CardUnSelected{
-    background: #FFFFFF;
-    color: #979797;
-}
-
-.HS2CardUnSelected:hover{
-    background: #FF9700;
-    color: #FFFFFF;
-}
-
-.HS2CardHeading{
+  }
+  
+  .HS2front h3 {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
     text-align: center; 
-    margin-top: 2%;
-}
-
-/* .HS2CardDetails2{
+    margin-top: 3%;
+  }
+  
+  
+  .HS2back {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: rotateY(180deg);
+    z-index: 2;
+    width: 227px;
+    height: 331px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    background-color: #FF9700;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .HS2back h3 {
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 167.5%;
-    text-align: center;
-} */
-
-
-.HS2CardUnSelected:hover .HS2SelectedImgWhite{
-    filter: hue-rotate(40deg) saturate(1) brightness(200%) saturate(4); 
-}
-
-.HS2CardDetails{
-    display: none;
-}
-
-.HS2CardUnSelected:hover .HS2CardDetails{
-    display: block;
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center; 
+    margin-top: 3%;
+  }
+  
+  .HS2back p {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -196,8 +219,20 @@
     text-align: center;
     background-color: #FF9700;
     width: 198px;
-}
 
+  }
+
+  .HS2back .HS2SelectedImgWhite{
+    filter: hue-rotate(40deg) saturate(1) brightness(200%) saturate(4); 
+}
+  
+  .HS2Flipper {
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    position: relative;
+ 
+  }
+  
 /* Home section 3 css */
 
 .HS3MainContainer{
@@ -358,7 +393,7 @@
 }
 
 
-.HS4flipContainer{
+.HS4flipContainer {
     -webkit-perspective: 1000;
     margin: 0 auto 60px auto;
     width: 398px;
@@ -645,15 +680,12 @@
 
   
   .HS7ImgContainer {
-    display: flex; /* Important to give the content a width */
+    display: flex;
     justify-content: space-between;
     width: 100%;
-    transform: translateX(100%); /* Animation start out of the screen */
-    /* Add the animation */
-    animation: move 10s linear infinite /* infinite make reapeat the animation indefinitely */;
-  }
+    transform: translateX(100%); 
+    animation: move 10s linear infinite }
   
-  /* Create the animation */
   @keyframes move {
     to { transform: translateX(-100%); }
   }
@@ -845,112 +877,7 @@
 }
 
 /* HomeSection 4 */
-/* .HS4MainContainer{
-    height: 100%;
-}
 
-.HS4ContentHeadingContainer{
-    height: 80px;
-}
-
-.HS4SubHeading{
-    font-size: 28px;
-    width: 100%;
-  
-} */
-
-
-/* .HS4ImageSize{
-    height: 400px;
-    width: 316px;
-} */
-/* 
-.HS4CardDataContainer{
-    display: none;
-}
-
-.HS4CardEven:hover .HS4CardDataContainer{
-    background-color:black;
-    height: 100%;
-    width: 100%;
-    opacity: 0.7;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.HS4CardOdd:hover .HS4CardDataContainer{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.HS4CardContainer{
-    background-size: "cover";
-    background-repeat: "no-repeat";
-    background-position: "center";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.HS4CardOdd{
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-}
-
-.HS4CardEven{
-    width: 150px;
-    height: 150px;
-}
-
-.HS4ContentHeading{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 150%;
-    color: #FFFFFF;
-    margin-bottom: 10px;
-}
-
-.HS4ContentSubHeading{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 167.5%;
-    text-align: center;
-    color: #FFFFFF;
-    margin-bottom: 10px;
-    padding: 0% 4% 0% 4%;
-
-
-}
-.HS4ContentSubSubHeading{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 167.5%;
-    text-align: center;
-    color: #FFFFFF;
-    margin-bottom: 10px;
-}
-
-.HS4ArrowContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 4%;
-} */
 
 /* Home section 5 */
 

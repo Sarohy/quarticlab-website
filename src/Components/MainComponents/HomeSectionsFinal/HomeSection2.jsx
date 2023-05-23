@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import styles from "./HomeSection.module.css";
@@ -14,6 +14,8 @@ import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOu
 
 function HomeSection2() {
   const router = useRouter();
+  const [isHovered, setIsHovered] = useState(false);
+  const [selectedKey, setSelectedKey] = useState("");
   const animatedDivRefs = Array.from({ length: 2 }, () => React.useRef(null));
   const animatedCardRefs = Array.from({ length: 5 }, () => React.useRef(null));
   const animatedImgRefs = Array.from({ length: 5 }, () => React.useRef(null));
@@ -139,8 +141,8 @@ function HomeSection2() {
   return (
     <>
       <div className={styles.HS2MainContainer}>
-        <div className={styles.HS2ContentContainer}>
-          <div className={styles.HS2Heading} ref={animatedDivRefs[0]}>
+        <div className={styles.HS2ContentContainer} ref={animatedDivRefs[0]}>
+          <div className={styles.HS2Heading}>
             <p>Our Services</p> <hr className={styles.HS3ContentLine1} />
             <hr className={styles.HS3ContentLine2} />
           </div>
@@ -163,7 +165,6 @@ function HomeSection2() {
               height="55px"
               whiteShaddow={true}
               showIcon={false}
-              // margin="0px 0px 10px 0px"
               icon={
                 <ArrowCircleRightOutlinedIcon
                   style={{
@@ -181,29 +182,47 @@ function HomeSection2() {
           {cardData.map((item, index) => {
             return (
               <>
-                <div className={styles.HS2CardMob} key={`${index}${item.key}`}>
-                  <div
-                    className={`${styles.HS2Card} ${styles.HS2CardUnSelected}`}
-                    key={item.key}
-                    ref={animatedCardRefs[index]}
-                  >
-                    <div>
-                      <Image
-                        src={item.image}
-                        alt="zweidevs"
-                        className={styles.HS2SelectedImgWhite}
-                        ref={animatedImgRefs[index]}
-                        width={80}
-                        height={80}
-                      />
+                <div
+                  className={styles.HS2CardMob}
+                  key={`${index}${item.key}`}
+                  onMouseEnter={() => {
+                    setIsHovered(true);
+                    setSelectedKey(item.key);
+                  }}
+                  onMouseLeave={() => setIsHovered(false)}
+                  ref={animatedCardRefs[index]}
+                >
+                  <div className={styles.HS2FlipContainer}>
+                    <div className={styles.HS2Flipper}>
+                      <div
+                        className={
+                          isHovered && selectedKey == item.key
+                            ? styles.HS2back
+                            : styles.HS2front
+                        }
+                      >
+                        <div className={styles.imageDiv}>
+                          <Image
+                            src={item.image}
+                            alt="zweidevs"
+                            className={styles.HS2SelectedImgWhite}
+                            ref={animatedImgRefs[index]}
+                            width={80}
+                            height={80}
+                          />
+                        </div>
+                        <h3 ref={animatedHeadingRefs[index]}>{item.heading}</h3>
+                        <div
+                          className={
+                            isHovered && selectedKey == item.key
+                              ? ""
+                              : styles.HS2back
+                          }
+                        >
+                          <p>{item.details}</p>
+                        </div>
+                      </div>
                     </div>
-                    <h3
-                      className={styles.HS2CardHeading}
-                      ref={animatedHeadingRefs[index]}
-                    >
-                      {item.heading}
-                    </h3>
-                    <p className={styles.HS2CardDetails}>{item.details}</p>
                   </div>
                 </div>
               </>
