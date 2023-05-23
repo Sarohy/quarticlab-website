@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "./footer.module.css";
 import Image from "next/image";
+import ZweidevsAbout from "./ZweidevsAbout";
+import { useInView } from "react-intersection-observer";
+
 import "animate.css";
 // import {
 //ZweidevsLogo,
@@ -25,13 +28,15 @@ import Link from "next/link";
 import { Grid } from "@mui/material";
 import FooterForm from "./FooterForm";
 import FooterLinks from "./FooterLinks.jsx";
-import SocialMedia from "./SocialMedia";
 
 function Footer() {
-  const ref1 = useRef(null);
   const ref2 = useRef(null);
   const ref3 = useRef(null);
 
+  const [inView1, setInView1] = useInView({
+    triggerOnce: true, // Animation will trigger only once when it becomes visible
+    threshold: 0.1, // Adjust threshold value as needed
+  });
   const [state, setState] = useState({
     email: "",
     invalidEmail: false,
@@ -95,76 +100,19 @@ function Footer() {
     };
   }, []);
 
-  useEffect(() => {
-    const refClass1 = document.querySelectorAll("ref1");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const target = entry.target;
-
-            // Code to handle animation
-            // target.classList.remove("hidden");
-            //target.style.opacity = 1;
-            target.classList.add(
-              // "animate__animated",
-              "animate__slideInLeft"
-              // ,"animate__delay-2s"
-            );
-
-            observer.unobserve(target);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.5,
-      }
-    );
-
-    // document.addEventListener("DOMContentLoaded", function () {
-    // your instersectionobserver code here
-    if (refClass1) {
-      refClass1.forEach((section) => {
-        observer.observe(section);
-      });
-    }
-    // });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
   const displayWeb = () => (
     <>
       <div className={styles.footerContainer}>
         <div className={styles.footerContentContainer}>
           {/* footer sub-section-1 */}
-          <div
-            className="ref1 animate__animated" //ref={ref1}
-          >
-            <Image src={ZweidevsLogo} alt="zweidevs" width={200} />
-            <div className={styles.footerAboutZweidevs}>
-              {`
-              Zweidevs provides dedicated \n
-              remote teams that work closely with \n
-              you to design and build your idea.
-              `}
-            </div>
-            <SocialMedia data={socialMediaData} />
-          </div>
-          <div
-            ref={ref2}
-            style={{ width: "40%", padding: "12px 20px 0px 30px" }}
-          >
+          <ZweidevsAbout
+            logo={ZweidevsLogo}
+            socialMediaData={socialMediaData}
+          />
+          <div style={{ width: "40%", padding: "12px 20px 0px 30px" }}>
             <FooterLinks />
           </div>
-          <div
-            ref={ref3}
-            style={{ width: "40%", padding: "12px 20px 0px 12px" }}
-          >
+          <div style={{ width: "40%", padding: "12px 20px 0px 12px" }}>
             <FooterForm />
           </div>
         </div>
