@@ -4,7 +4,7 @@ import styles from "./HomeSection.module.css";
 import { HS3Img, HS3Img1 } from "@component/assets/HomeIcons";
 
 function HomeSection3({ handleButtonClick }) {
-  const animatedDivRefs = Array.from({ length: 4 }, () => React.useRef(null));
+  const animatedDivRefs = Array.from({ length: 3 }, () => React.useRef(null));
   const animatedPhoneRef = React.useRef(null);
   const animatedImgRef = React.useRef(null);
 
@@ -91,7 +91,7 @@ function HomeSection3({ handleButtonClick }) {
               your requirements into robust software using our mobile, web,
               cloud and e-commerce capabilities.
             </p>
-            <div className={styles.HS3ContactContainer}>
+            {/* <div className={styles.HS3ContactContainer}>
               <Image src={HS3Img1} alt={HS3Img1} ref={animatedPhoneRef} />
               <hr className={styles.HS3ContactLine1} />
               <div
@@ -102,7 +102,7 @@ function HomeSection3({ handleButtonClick }) {
                 <div className={styles.HS3ContactNum}>+92 333 1158255</div>
               </div>
             </div>
-            <hr className={styles.HS3ContactLine2} />
+            <hr className={styles.HS3ContactLine2} /> */}
           </div>
           <div className={styles.HS3ImgContainer} ref={animatedImgRef}>
             <Image className={styles.HS3ImgWidth} src={HS3Img} alt={HS3Img} />

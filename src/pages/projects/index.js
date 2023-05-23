@@ -3,6 +3,8 @@ import {
   addProject,
   getAllProjects,
 } from "@component/firebase/firebaseRequests";
+import PageBanner from "@component/Components/CommonComponents/PageBanner";
+
 import { CircularProgress } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
@@ -55,6 +57,12 @@ function Work() {
 
   return (
     <>
+      <PageBanner
+        title={"Portfolio"}
+        description={
+          "We've worked cross multiple verticals and a range of services to create engaging and innovative digital experenices."
+        }
+      />
       <div
         style={{
           backgroundColor: "white",

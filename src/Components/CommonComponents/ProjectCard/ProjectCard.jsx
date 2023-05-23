@@ -165,7 +165,6 @@ function ProjectCard({
           </button>
         </div>
       </div>
-      <Divider />
     </>
   );
 }
