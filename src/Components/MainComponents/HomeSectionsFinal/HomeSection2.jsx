@@ -17,7 +17,7 @@ function HomeSection2() {
   const [isHovered, setIsHovered] = useState(false);
   const [selectedKey, setSelectedKey] = useState("");
   const animatedDivRefs = Array.from({ length: 2 }, () => React.useRef(null));
-  const animatedCardRefs = Array.from({ length: 5 }, () => React.useRef(null));
+  // const animatedCardRefs = Array.from({ length: 5 }, () => React.useRef(null));
   const animatedImgRefs = Array.from({ length: 5 }, () => React.useRef(null));
   const animatedHeadingRefs = Array.from({ length: 5 }, () =>
     React.useRef(null)
@@ -93,11 +93,7 @@ function HomeSection2() {
     const observer2 = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__zoomIn",
-            "animate__delay-1s"
-          );
+          entry.target.classList.add("animate__animated", "animate__zoomIn");
         }
       });
     }, options);
@@ -108,7 +104,7 @@ function HomeSection2() {
           entry.target.classList.add(
             "animate__animated",
             "animate__backInUp",
-            "animate__delay-2s"
+            "animate__delay-1s"
           );
         }
       });
@@ -122,9 +118,9 @@ function HomeSection2() {
       observer2.observe(ref.current);
     });
 
-    animatedCardRefs.forEach((ref) => {
-      observer1.observe(ref.current);
-    });
+    // animatedCardRefs.forEach((ref) => {
+    //   observer1.observe(ref.current);
+    // });
 
     animatedDivRefs.forEach((ref) => {
       observer.observe(ref.current);
@@ -132,7 +128,7 @@ function HomeSection2() {
 
     return () => {
       observer.disconnect();
-      observer1.disconnect();
+      // observer1.disconnect();
       observer2.disconnect();
       observer3.disconnect();
     };
@@ -190,7 +186,7 @@ function HomeSection2() {
                     setSelectedKey(item.key);
                   }}
                   onMouseLeave={() => setIsHovered(false)}
-                  ref={animatedCardRefs[index]}
+                  // ref={animatedCardRefs[index]}
                 >
                   <div className={styles.HS2FlipContainer}>
                     <div className={styles.HS2Flipper}>
