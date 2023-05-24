@@ -48,9 +48,10 @@ function HomeSection8({ handleButtonClick }) {
     const observer1 = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          ("animate__delay-0s");
           entry.target.classList.add(
             "animate__animated",
-            "animate__shakeX",
+            "animate__flipInX",
             "animate__delay-1s"
           );
         }

@@ -15,6 +15,10 @@ import HS7Img2 from "./HS7Img2.svg";
 import HS7Img3 from "./HS7Img3.svg";
 import HS7Img4 from "./HS7Img4.svg";
 import HS7Img5 from "./HS7Img5.svg";
+import HS7Img6 from "./HS7Img6.svg";
+import HS7Img7 from "./HS7Img7.svg";
+import HS7Img8 from "./HS7Img8.svg";
+import HS7Img9 from "./HS7Img9.svg";
 import HS5Img1 from "./HS5Img.svg";
 import HS5Img2 from "./HS5Img2.svg";
 import HS5Img3 from "./HS5Img3.svg";
@@ -60,6 +64,10 @@ export {
   HS7Img3,
   HS7Img4,
   HS7Img5,
+  HS7Img6,
+  HS7Img7,
+  HS7Img8,
+  HS7Img9,
   Project1_Image1,
   Project1_Image2,
   Project1_Image3,

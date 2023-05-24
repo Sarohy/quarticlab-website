@@ -14,7 +14,10 @@
 .HSLogoContainer{
     height:383px;
     width:383px;
-    animation: bounce;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .HS1ContentContainer{
@@ -68,7 +71,7 @@
 }
 
 .HS1FooterImage{
-    height: 27.9%;
+    height: 28.4%;
     display: flex;
     align-items: end;
 }
@@ -138,7 +141,6 @@
    
 }
 
-
 .HS2FlipContainer{
     -webkit-perspective: 1000;
     cursor:pointer;
@@ -147,8 +149,6 @@
     border: 1px solid #DADADA;
     border-radius: 5px;
     margin-right: 1.5%;
-   
-    
   }
 
   .HS2FlipContainer:hover .HS2Flipper {
@@ -338,12 +338,16 @@
     color: #FF9700;
 }
 
+.HS3TabContainer{
+    margin-top: 1%;
+}
+
 /* Homesection 4 */
 
 .HS4MainContainer{
     background-image: url("../../../../src/assets/HomeIcons/HS4Background.svg");
     width: 100%;
-    height: 650px;
+    height: 100%;
     background-repeat: no-repeat;
     padding: 0% 3% 0% 3%;
     background-color: white;
@@ -380,6 +384,73 @@
     margin-top: 21px;
 }
 
+
+
+.container {
+    position: relative;
+    width: 320px;
+    margin: 0px auto 0 auto;
+    perspective: 1000px;
+    margin-top: -42%;
+  }
+  
+  .carousel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; 
+    animation: rotate360 60s infinite forwards linear;
+  }
+  .carousel__face { 
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    background-size: cover;
+    /* box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.5); */
+    display: flex;
+  }
+  
+  .spandiv {
+    margin: auto;
+    font-size: 2rem;
+  }
+  
+  
+  .carousel__face:nth-child(1) {
+    background-image: url("../../../../src/assets/HomeIcons/Project/Project1_image2.svg");
+    transform: rotateY(  0deg) translateZ(430px); }
+  .carousel__face:nth-child(2) { 
+      background-image: url("../../../../src/assets/HomeIcons/Project/Project2_image2.svg");
+      transform: rotateY( 62deg) translateZ(430px); }
+  .carousel__face:nth-child(3) {
+    background-image: url("../../../../src/assets/HomeIcons/Project/Project3_image2.svg");
+
+    transform: rotateY( 124deg) translateZ(430px); }
+  .carousel__face:nth-child(4) {
+    background-image: url("../../../../src/assets/HomeIcons/Project/Project4_image2.svg");
+
+    transform: rotateY(186deg) translateZ(430px); }
+  .carousel__face:nth-child(5) { 
+    background-image: url("../../../../src/assets/HomeIcons/Project/Project5_image2.svg");
+
+   transform: rotateY(248deg) translateZ(430px); }
+  .carousel__face:nth-child(6) { 
+    background-image: url("../../../../src/assets/HomeIcons/Project/Project6_image2.svg");
+   transform: rotateY(310deg) translateZ(430px); }
+  
+  @keyframes rotate360 {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(-360deg);
+    }
+  }
+  
+/* 
 .HSCardContainer{
     display: flex;
     justify-content: space-between;
@@ -387,6 +458,7 @@
     margin: 0% 4% 0% 4%;
     margin-top: 4%;
 }
+
 .HS4ImageSize{
     height: 400px;
     width: 316px;
@@ -492,7 +564,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 4%;
-}
+} */
 /* HomeSection 5*/
 
 .HS5MainContainer{
@@ -682,6 +754,10 @@
     justify-content: space-between;
     padding: 5% 3% 0% 3% ;
 }
+.HS7Image
+{
+    margin-right: 80px;
+}
 
   
   .HS7ImgContainer {
@@ -768,20 +844,20 @@
 
 @media screen and (max-width: 590px) {
 
-.HS1Img1Height{
-    height: 60px;
-    padding-left: 95px;
-}
 
 .HS1Img2Height{
-    height: 66px;
-    margin-left: -62px;
-    margin-bottom: 91px;
+    margin-bottom: 2.5%
 }
 
 .HSLogoContainer{
-    height:250px;
-    width:250px;
+    height:200px;
+    width:200px;
+}
+
+.HS1FooterImage{
+    height: 29%;
+    display: flex;
+    align-items: end;
 }
 
 .HS1ContentContainer{
@@ -789,12 +865,15 @@
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    padding: 0% 5% 0% 5%;
+    padding: 6% 5% 0% 5%;
 }
+
+.HS1Content{
+    margin-left: -52px;
+ }
 
 .HS1Text{
     font-size: 30px;
-    /* margin-left: -6%; */
 }
 
 .HS1SubText{
@@ -883,6 +962,19 @@
 
 /* HomeSection 4 */
 
+.container{
+    margin-top: -526px !important;
+}
+
+.carousel__face { 
+
+    width: 200px;
+    height: 200px;
+    
+  }
+  
+
+
 
 /* Home section 5 */
 
@@ -906,7 +998,6 @@
     border-radius: 10px;
 
 }
-
 
 .HS5Img
 {
@@ -1019,6 +1110,7 @@
     /* margin-left: 23%; */
 }
 
+
 .HS1ContentLine{
     width: 100px;  
 }
@@ -1109,6 +1201,11 @@
     align-items: center;
 }
   
+/* HomeSection 4 */
+
+.container{
+    margin-top: -72% !important;
+}
 
 /* HomeSection 6 */
 
@@ -1306,6 +1403,8 @@
     margin-left: 14%;
 }
 
+
+
 .HS1ContentButtonContainer{
     width: 65%;
     margin-top: 26px;
@@ -1380,6 +1479,12 @@
     display: flex;
     align-items: center;
 }
+
+/* Home Section 4 */
+.container {
+  
+    margin-top: -52%;
+  }
    
 /* HomeSection 6 */
 
@@ -1406,4 +1511,9 @@
         margin: 4% 8% 0% 8%;
     }
 }
+
+
+
+
+/* carsoule working */
 

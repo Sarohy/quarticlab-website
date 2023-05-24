@@ -7,6 +7,10 @@ import {
   HS7Img3,
   HS7Img4,
   HS7Img5,
+  HS7Img6,
+  HS7Img7,
+  HS7Img8,
+  HS7Img9,
 } from "@component/assets/HomeIcons";
 function HomeSection7({ handleButtonClick }) {
   const animatedDivRefs = React.useRef(null);
@@ -55,7 +59,19 @@ function HomeSection7({ handleButtonClick }) {
             <Image className={styles.HS7Image} src={HS7Img2} alt="php-icon" />
             <Image className={styles.HS7Image} src={HS7Img3} alt="rails-icon" />
             <Image className={styles.HS7Image} src={HS7Img4} alt="react-icon" />
-            <Image src={HS7Img5} className={styles.HS7Image} alt="node-icon" />
+            <Image className={styles.HS7Image} src={HS7Img5} alt="node-icon" />
+            <Image className={styles.HS7Image} src={HS7Img6} alt="openI-icon" />
+            <Image
+              className={styles.HS7Image}
+              src={HS7Img7}
+              alt="python-icon"
+            />
+            <Image
+              className={styles.HS7Image}
+              src={HS7Img8}
+              alt="sqLite-icon"
+            />
+            <Image className={styles.HS7Image} src={HS7Img9} alt="unity-icon" />
           </div>
         </div>
       </div>
