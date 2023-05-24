@@ -23,12 +23,12 @@ function HomeSection1() {
                 Empowering <br /> Innovation
               </h1>
             </div>
-            <h2 className={styles.HS1SubText}>
+            {/* <h2 className={styles.HS1SubText}>
               Zweidevs provides dedicated teams work to design and build your
               idea.
-            </h2>
+            </h2> */}
             <div className={styles.HS1ContentButtonContainer}>
-              <Zbutton
+              {/* <Zbutton
                 onClick={() => {
                   router.push("/contactUs");
                 }}
@@ -48,7 +48,7 @@ function HomeSection1() {
                     }}
                   />
                 }
-              />
+              /> */}
               <Zbutton
                 onClick={() => {
                   window.open(
@@ -56,10 +56,10 @@ function HomeSection1() {
                     "_blank"
                   );
                 }}
-                text="Schedule a Call"
+                text="Instant Booking"
                 color="white"
                 backgroundColor="#FF9700"
-                width="200px"
+                width="220px"
                 whiteShaddow={true}
                 showIcon={false}
                 margin="0px 0px 10px 0px"

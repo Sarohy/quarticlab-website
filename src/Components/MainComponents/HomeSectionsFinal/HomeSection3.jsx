@@ -2,12 +2,15 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import styles from "./HomeSection.module.css";
 import { HS3Img, HS3Img1 } from "@component/assets/HomeIcons";
+import { Zbutton } from "@component/Components/CommonComponents";
+import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import { useRouter } from "next/router";
 
 function HomeSection3({ handleButtonClick }) {
   const animatedDivRefs = Array.from({ length: 3 }, () => React.useRef(null));
   const animatedPhoneRef = React.useRef(null);
   const animatedImgRef = React.useRef(null);
-
+  const router = useRouter();
   useEffect(() => {
     const options = {
       root: null,
@@ -91,18 +94,29 @@ function HomeSection3({ handleButtonClick }) {
               your requirements into robust software using our mobile, web,
               cloud and e-commerce capabilities.
             </p>
-            {/* <div className={styles.HS3ContactContainer}>
-              <Image src={HS3Img1} alt={HS3Img1} ref={animatedPhoneRef} />
-              <hr className={styles.HS3ContactLine1} />
-              <div
-                style={{ display: "flex", flexDirection: "column" }}
-                ref={animatedDivRefs[3]}
-              >
-                <div className={styles.HSContactBook}>Instant Booking</div>
-                <div className={styles.HS3ContactNum}>+92 333 1158255</div>
-              </div>
+            <div className={styles.HS3ContactContainer}>
+              <Zbutton
+                onClick={() => {
+                  router.push("/aboutUs");
+                }}
+                text="Explore More"
+                color="white"
+                backgroundColor="#FF9700"
+                width="180px"
+                whiteShaddow={true}
+                showIcon={false}
+                margin="0px 0px 10px 0px"
+                icon={
+                  <ArrowCircleRightOutlinedIcon
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      marginLeft: "-13px",
+                    }}
+                  />
+                }
+              />
             </div>
-            <hr className={styles.HS3ContactLine2} /> */}
           </div>
           <div className={styles.HS3ImgContainer} ref={animatedImgRef}>
             <Image className={styles.HS3ImgWidth} src={HS3Img} alt={HS3Img} />
