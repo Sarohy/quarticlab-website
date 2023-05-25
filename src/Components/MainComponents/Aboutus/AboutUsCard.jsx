@@ -7,12 +7,14 @@ import {
   CD3Img4,
   CD3Img5,
 } from "@component/assets/AboutUs";
+import { HS6Img } from "@component/assets/HomeIcons";
+
 import styles from "./AboutUs.module.css";
 
 const AboutUsCard = () => {
   const animatedHeadingRef = React.useRef(null);
-  const animatedImageRef = Array.from({ length: 5 }, () => React.useRef());
-  const animatedTextRef = Array.from({ length: 5 }, () => React.useRef());
+  // const animatedImageRef = Array.from({ length: 5 }, () => React.useRef());
+  // const animatedTextRef = Array.from({ length: 5 }, () => React.useRef());
 
   const project = [
     {
@@ -45,46 +47,46 @@ const AboutUsCard = () => {
       });
     }, options);
 
-    const observer1 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__heartBeat",
-            "animate_delay-1s"
-          );
-        }
-      });
-    }, options);
+    // const observer1 = new IntersectionObserver((entries) => {
+    //   entries.forEach((entry) => {
+    //     if (entry.isIntersecting) {
+    //       entry.target.classList.add(
+    //         "animate__animated",
+    //         "animate__heartBeat",
+    //         "animate_delay-1s"
+    //       );
+    //     }
+    //   });
+    // }, options);
 
-    const observer2 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__jello",
-            "animate_delay-2s"
-          );
-        }
-      });
-    }, options);
+    // const observer2 = new IntersectionObserver((entries) => {
+    //   entries.forEach((entry) => {
+    //     if (entry.isIntersecting) {
+    //       entry.target.classList.add(
+    //         "animate__animated",
+    //         "animate__jello",
+    //         "animate_delay-2s"
+    //       );
+    //     }
+    //   });
+    // }, options);
 
     if (animatedHeadingRef.current) {
       observer.observe(animatedHeadingRef.current);
     }
 
-    animatedImageRef.forEach((ref) => {
-      observer1.observe(ref.current);
-    });
+    // animatedImageRef.forEach((ref) => {
+    //   observer1.observe(ref.current);
+    // });
 
-    animatedTextRef.forEach((ref) => {
-      observer2.observe(ref.current);
-    });
+    // animatedTextRef.forEach((ref) => {
+    //   observer2.observe(ref.current);
+    // });
 
     return () => {
       observer.disconnect();
-      observer1.disconnect();
-      observer2.disconnect();
+      // observer1.disconnect();
+      // observer2.disconnect();
     };
   }, []);
 
@@ -95,27 +97,11 @@ const AboutUsCard = () => {
           Zweidevs Achievements Since 2010
         </h2>
         <div className={styles.AUCd3ProjectContainer}>
-          {project.map((item, index) => {
-            return (
-              <>
-                <div
-                  key={index}
-                  className={styles.AUCd3ProjectItem}
-                  style={{
-                    marginTop: index == 1 ? "-3px" : index != 0 ? "1px" : "",
-                  }}
-                >
-                  <div ref={animatedImageRef[index]}>
-                    <Image src={item.img} alt="Zweidevs Achievements" />
-                  </div>
-                  <div ref={animatedTextRef[index]}>
-                    <h3 className={styles.AUCd3ProjectCount}> {item.count}</h3>
-                    <p className={styles.AUCd3ProjectDetail}>{item.detail}</p>
-                  </div>
-                </div>
-              </>
-            );
-          })}
+          <Image
+            src={HS6Img}
+            alt="statistics of zewidevs"
+            className={styles.AUCd3ImgSize}
+          />
         </div>
       </div>
     </>

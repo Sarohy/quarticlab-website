@@ -103,12 +103,7 @@ const Blog = () => {
     <div>
       <PageBanner {...bannerData} />
       <div className={styles.blogRoot}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
+        <div className={styles.blogMain}>
           <h2 className={styles.blogArticleHeading}>Latest Article</h2>
           <SmallButton
             setFilter={setFilter}
