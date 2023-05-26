@@ -1,4 +1,5 @@
 import ZweidevsLogo from "./logoWithText.svg";
+import Logo from "./logo.svg";
 import FbLogo from "./fbIcon.svg";
 import LinkedInLogo from "./linkedInIcon.svg";
 import InstaLogo from "./instaIcon.svg";
@@ -22,4 +23,5 @@ export {
   FBHover,
   InstaHover,
   TwitterHover,
+  Logo,
 };

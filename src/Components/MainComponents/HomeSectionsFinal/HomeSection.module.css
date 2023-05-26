@@ -182,7 +182,7 @@
     text-align: center; 
     margin-top: 3%;
     color: #979797;
-
+    width: 163px;
   }
   
   
@@ -211,23 +211,26 @@
     text-align: center; 
     margin-top: 3%;
     color: #FFFFFF;
+    width: 163px;
+    margin-bottom: 5%;
   }
   
   .HS2back p {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
     background-color: #FF9700;
     width: 198px;
     color: #FFFFFF;
-
+    height: 179px;
 
   }
 
   .HS2back .HS2SelectedImgWhite{
-    filter: hue-rotate(40deg) saturate(1) brightness(200%) saturate(4); 
+    /* filter: hue-rotate(40deg) saturate(1) brightness(200%) saturate(4);  */
+display: none;
 }
   
   .HS2Flipper {
@@ -973,9 +976,6 @@
     
   }
   
-
-
-
 /* Home section 5 */
 
 

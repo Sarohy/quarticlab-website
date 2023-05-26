@@ -26,35 +26,37 @@ function HomeSection2() {
     {
       key: "hs2Img1",
       image: HS2Img1,
-      heading: "Block Chain Development",
-      details: `Blockchain is the backbone Technology of Digital CryptoCurrency BitCoin. A distributed database of records of all transactions. We have a team of Blockchain developers to make the deployment correct.`,
+      heading: "Blockchain Development",
+      details:
+        "Blockchain is the backbone technology of digital cryptocurrency Bitcoin. We have a team of blockchain developers dedicated to ensuring accurate deployment.",
     },
     {
       key: "hs2Img2",
       image: HS2Img2,
       heading: "DevOps Development",
-      details: `We possess deep knowledge and extensive experience with cloud services. Shorten time to develop and launch new solutions, modernize legacy technology or test and deploy prototypes with IaaS-based applications on Amazon Web Services, Digital Ocean, Heroku, Microsoft Azure or Google Cloud.`,
+      details:
+        " DevOps facilitates the evolution and accelerated improvement of products. Our team ensures the correct deployment of applications and guarantees seamless automation execution.",
     },
     {
       key: "hs2Img3",
       image: HS2Img3,
-      heading: "Web Application Development",
+      heading: "Web Development",
       details:
-        "We are a creative web development team, who aim to leverage the latest technological advances with thoughtful design and serious engineering to build tailored solutions for our clients.engineering to build tailored solutions for any industry.",
+        "We are your creative web development team, who aim to leverage the latest technological advances with thoughtful design and serious engineering to build tailored solutions for any industry.",
     },
     {
       key: "hs2Img4",
       image: HS2Img4,
       heading: "Ecommerce Development",
       details:
-        "We develop sleek looking native and hybrid mobile apps for iOS & Android to ensure the customer satisfaction and performance at the core.",
+        "Our team assist you in expanding the global reach of your product or business by seamlessly transitioning your offline stores to the global web.",
     },
     {
       key: "hs2Img5",
       image: HS2Img5,
-      heading: "Mobile Development",
+      heading: "Mobile App Development",
       details:
-        "We develop sleek looking native and hybrid mobile apps for iOS & Android to ensure the customer satisfaction and performance at the core.",
+        "We specialize in developing sleek native and hybrid mobile apps, prioritizing customer satisfaction and performance at the core.",
     },
   ];
 
@@ -180,7 +182,6 @@ function HomeSection2() {
                     setSelectedKey(item.key);
                   }}
                   onMouseLeave={() => setIsHovered(false)}
-                  // ref={animatedCardRefs[index]}
                 >
                   <div className={styles.HS2FlipContainer}>
                     <div className={styles.HS2Flipper}>
