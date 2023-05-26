@@ -1,13 +1,10 @@
-import { useRef, useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { Logo } from "@component/assets/footerIcons";
 import { useInView } from "react-intersection-observer";
-import "animate.css";
-import Image from "next/image";
 import styles from "./footer.module.css";
-import SocialMedia from "./SocialMedia";
+import Image from "next/image";
 
-const YourComponent = (props) => {
-  const { logo, socialMediaData } = props;
-  const ref1 = useRef(null);
+const FooterAbout = () => {
   const [observerRef, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -25,20 +22,24 @@ const YourComponent = (props) => {
   }, [inView]);
 
   return (
-    <div ref={observerRef}>
-      <div ref={animateRef}>
-        <Image src={logo} alt="zweidevs" width={200} />
-        <div className={styles.footerAboutZweidevs}>
-          {`
+    <>
+      <div ref={observerRef}>
+        <div ref={animateRef}>
+          <div className={styles.footerAboutImageContainer}>
+            <Image src={Logo} alt="zweidevs" width={76} />
+            <h3 className={styles.footerAboutHeading}>ZWEIDEVS</h3>
+          </div>
+          <p className={styles.footerAboutZweidevs}>
+            {`
             Zweidevs provides dedicated \n
             remote teams that work closely with \n
             you to design and build your idea.
           `}
+          </p>
         </div>
-        <SocialMedia data={socialMediaData} />
       </div>
-    </div>
+    </>
   );
 };
 
-export default YourComponent;
+export default FooterAbout;
