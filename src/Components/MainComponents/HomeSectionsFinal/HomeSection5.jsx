@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./HomeSection.module.css";
 import Carousel from "react-material-ui-carousel";
 import { Card } from "@mui/material";
@@ -7,7 +7,7 @@ import StarOutlinedIcon from "@mui/icons-material/StarOutlined";
 
 import { HS5Img1, HS5Img2, HS5Img3, HS3Img } from "@component/assets/HomeIcons";
 
-const items = [
+const otherItems = [
   {
     id: 1,
     elements: [
@@ -79,6 +79,42 @@ const items = [
   },
 ];
 
+const mobItems = [
+  {
+    id: 1,
+    elements: [
+      {
+        img: HS3Img,
+        content: "Mudassir Malik",
+        details:
+          "We had a very complex task which they were able to build for us. They overcame many of the challenges that we faced along the way and were able to deliver a complete and functional software a week ahead of the deadline",
+      },
+    ],
+  },
+  {
+    id: 2,
+    elements: [
+      {
+        img: HS3Img,
+        content: "Mujtaba",
+        details:
+          "We had a very complex task which they were able to build for us. They overcame many of the challenges that we faced along the way and were able to deliver a complete and functional software a week ahead of the deadline",
+      },
+    ],
+  },
+  {
+    id: 3,
+    elements: [
+      {
+        img: HS3Img,
+        content: "usman",
+        details:
+          "We had a very complex task which they were able to build for us. They overcame many of the challenges that we faced along the way and were able to deliver a complete and functional software a week ahead of the deadline",
+      },
+    ],
+  },
+];
+
 const cardItem = (items) => {
   return (
     <>
@@ -87,7 +123,11 @@ const cardItem = (items) => {
           {items.map((item, index) => {
             return (
               <div
-                style={{ display: "flex", justifyContent: "center" }}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  width: "100%",
+                }}
                 key={`${index}${item.content}`}
               >
                 <Card className={styles.HS5SingleCard}>
@@ -165,8 +205,20 @@ const cardItem = (items) => {
   );
 };
 
-function HomeSection5({ handleButtonClick }) {
+function HomeSection5() {
   const animatedDivRefs = Array.from({ length: 2 }, () => React.useRef(null));
+
+  const [itemsArray, setItemsArray] = useState([]);
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 800) setItemsArray(mobItems);
+      else setItemsArray(otherItems);
+    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const options = {
@@ -227,7 +279,7 @@ function HomeSection5({ handleButtonClick }) {
             },
           }}
         >
-          {items.map((item, index) => {
+          {itemsArray.map((item, index) => {
             return <div key={`${index}`}>{cardItem(item.elements)}</div>;
           })}
         </Carousel>
