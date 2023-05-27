@@ -45,9 +45,10 @@ const Blog = () => {
     setStartIndex((prevIndex) => prevIndex + 10);
   };
   const bannerData = {
-    title: "All Posts",
-    heading: "Everything your business needs under one roof",
-    description: `We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences.`,
+    title: "Top Articles",
+    heading: "Everything Your Business Needs Under One Roof",
+    description:
+      "We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences",
   };
 
   useEffect(() => {
@@ -133,7 +134,7 @@ const Blog = () => {
 
       <div className={styles.blogBanner}>
         <h2 className={styles.blogBannerHeading} ref={animatedHeadingRef}>
-          Are you ready for meaningful results? We can help.
+          Not Finding the Right Fit? Stay Connected
         </h2>
         <div className={styles.blogButton} ref={animatedButtonRef}>
           <Zbutton

@@ -3,12 +3,9 @@ import styles from "./pageBanner.module.css";
 import { DiamondSvg } from "@component/assets/pageBannerIcons";
 import Image from "next/image";
 function InstantBookingBanner(props) {
-  const { title, heading, description, paddingLeft } = props;
+  const { title, heading, description } = props;
   return (
-    <div
-      className={styles.pageBannerRoot}
-      style={{ paddingLeft: `${paddingLeft}` }}
-    >
+    <div className={styles.pageBannerRoot}>
       <div
         className={`${styles.pageBannerTextContainer} animate__animated animate__backInRight`}
       >

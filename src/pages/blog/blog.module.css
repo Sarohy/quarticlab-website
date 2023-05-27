@@ -15,13 +15,14 @@
 
 .blogMain{
   display: flex;
-  justify-content: space-between,
+  justify-content: space-between;
 }
 
 .blogRoot {
   background-color: white;
   padding-inline: 20px;
   padding-top: 20px;
+  padding-left: 40px;
 }
 
 .blogCardContainer {
@@ -83,7 +84,7 @@
 }
 
 .blogButton{
-  margin-top: 3%;
+  margin-top: 2%;
 }
 
 @media screen and (max-width: 590px) {

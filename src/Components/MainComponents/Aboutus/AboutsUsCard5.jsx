@@ -47,7 +47,7 @@ const AboutUsCard5 = () => {
     <>
       <div className={styles.AUCd5Main}>
         <h2 className={styles.AUCd5Heading} ref={animatedHeadingRef}>
-          Are you ready for meaningful results? We can help.
+          Are You Ready For Meaningful Results? We Can Help.
         </h2>
         <div className={styles.AUCd5Button} ref={animatedButtonRef}>
           <Zbutton
