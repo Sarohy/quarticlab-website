@@ -3,7 +3,6 @@ import Image from "next/image";
 import styles from "./HomeSection.module.css";
 import { HS3Img, HS3Img1 } from "@component/assets/HomeIcons";
 import { Zbutton } from "@component/Components/CommonComponents";
-import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import { useRouter } from "next/router";
 
 function HomeSection3({ handleButtonClick }) {
@@ -79,12 +78,12 @@ function HomeSection3({ handleButtonClick }) {
         <div className={styles.HS3ContentContainer}>
           <div className={styles.HS3TabContainer}>
             <div className={styles.HS3ContentHeading} ref={animatedDivRefs[0]}>
-              <p>About us</p> <hr className={styles.HS3ContentLine1} />
+              <p>About Us</p> <hr className={styles.HS3ContentLine1} />
               <hr className={styles.HS3ContentLine2} />
             </div>
             <h2 className={styles.HS3ContentText} ref={animatedDivRefs[1]}>
-              Work with top notch designers and developers to get amazing
-              products.
+              Work With Top Notch Designers And Developers To Get Amazing
+              Products.
             </h2>
             <p className={styles.HS3ContentSubText} ref={animatedDivRefs[2]}>
               Zweidevs is a service-oriented company providing creative and
@@ -100,21 +99,11 @@ function HomeSection3({ handleButtonClick }) {
                   router.push("/aboutUs");
                 }}
                 text="Explore More"
-                color="white"
-                backgroundColor="#FF9700"
+                color="orange"
+                backgroundColor="#F9F9F9"
                 width="180px"
-                whiteShaddow={true}
+                greyShaddow={true}
                 showIcon={false}
-                margin="0px 0px 10px 0px"
-                icon={
-                  <ArrowCircleRightOutlinedIcon
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      marginLeft: "-13px",
-                    }}
-                  />
-                }
               />
             </div>
           </div>

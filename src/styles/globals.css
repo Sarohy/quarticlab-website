@@ -131,6 +131,7 @@ a {
 
 .servicesHeaderContainer {
   margin-top: 20px;
+  margin-left: 20px;
   display: flex;
   align-items: center;
 }
@@ -224,6 +225,7 @@ a {
 
 .services-card-container {
   margin: 20px;
+  margin-left: 40px;
   box-sizing: border-box;
   /* position: absolute; */
   /* width: 1330px; */

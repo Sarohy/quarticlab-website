@@ -42,3 +42,19 @@
 .orangeShaddow:hover{
   box-shadow: 6px 6px #ff9700;
 }
+
+.greyShaddow{
+  border: 1px solid #FF9700;
+  filter: drop-shadow(0px 5.18135px 5.18135px rgba(58, 141, 236, 0.25));
+  border-radius: 7px;
+  font-family: poppins;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.greyShaddow:hover{
+  box-shadow: 6px 6px #FF9700;
+}

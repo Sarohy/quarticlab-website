@@ -42,7 +42,7 @@ function HomeSection2() {
       image: HS2Img3,
       heading: "Web Development",
       details:
-        "We are your creative web development team, who aim to leverage the latest technological advances with thoughtful design and serious engineering to build tailored solutions for any industry.",
+        "We are a creative web development team, who aim to leverage the latest technological advances with thoughtful design and serious engineering to build tailored solutions for any industry.",
     },
     {
       key: "hs2Img4",
@@ -141,7 +141,7 @@ function HomeSection2() {
         </div>
         <div className={styles.HS2SubHeadContainer}>
           <h2 className={`${styles.HS2SubHeading}`} ref={animatedDivRefs[1]}>
-            Everything your business needs under one roof
+            We Offer Everything That Your Business Needs
           </h2>
           <div className={styles.HS2Button}>
             <Zbutton

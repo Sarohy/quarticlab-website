@@ -41,7 +41,7 @@ function Footer() {
             src={CopyrightLeftLine}
             alt={"copy-right-left-line"}
           />
-          <p>© 2023 Zweidevs. All Rights Reserved by Zweidevs</p>
+          <p>© 2023 Zweidevs. All Rights Reserved By Zweidevs</p>
           <Image
             className={styles.footerRightsImage}
             src={CopyrightRightLine}

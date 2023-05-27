@@ -59,6 +59,7 @@ function Work() {
     <>
       <PageBanner
         title={"Portfolio"}
+        heading={"Everything Your Business Needs Under One Roof"}
         description={
           "We've worked cross multiple verticals and a range of services to create engaging and innovative digital experenices."
         }
@@ -67,6 +68,7 @@ function Work() {
         style={{
           backgroundColor: "white",
           padding: 20,
+          paddingLeft: "40px",
           display: "flex",
           flexDirection: "column",
           gap: 20,

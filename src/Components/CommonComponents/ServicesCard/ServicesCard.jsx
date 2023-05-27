@@ -91,7 +91,7 @@ const ServicesCard = (props) => {
         entries.forEach((entry, key) => {
           if (entry.isIntersecting) {
             const target = entry.target;
-            target.classList.add("animate__tada", "animate__delay-1s");
+            target.classList.add("animate__zoomIn");
             target.style.opacity = 1;
 
             observer3.unobserve(target);

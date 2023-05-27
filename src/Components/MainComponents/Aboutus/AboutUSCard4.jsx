@@ -78,10 +78,11 @@ const AboutUsCard4 = () => {
             Our Expertise Will Help You
           </h2>
           <p className={styles.AUCard4Text}>
-            Together we are smarter than each of us. We disagree passionately,
-            learn continuously, and commit relentlessly as we lead our team
-            towards becoming the most preferred tech partner for our growing set
-            of clients.
+            Collectively, we possess a greater intellect than any one of us
+            individually. We engage in passionate debates, embrace ongoing
+            learning, and exhibit unwavering dedication as we guide our team
+            towards establishing ourselves as the foremost technology partner
+            for our expanding roster of clients.
           </p>
         </div>
 
