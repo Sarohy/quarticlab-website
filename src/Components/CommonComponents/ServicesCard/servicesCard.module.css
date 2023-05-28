@@ -195,3 +195,20 @@
 .hiddenCardDetails {
   opacity: 0;
 }
+
+/* 
+@media screen and (max-width: 590px) {
+  .servicesCardDetailsHeader{
+    font-size: 22px;
+    line-height:28px;
+
+  }
+
+  .servicesCardDetails{
+    font-size: 16px;
+  }
+
+  
+
+ 
+} */

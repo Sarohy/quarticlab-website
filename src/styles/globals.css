@@ -192,12 +192,8 @@ a {
 .services-icon-card-container-mobile {
   margin: 20px;
   box-sizing: border-box;
-
-  /* position: absolute; */
-  /* width: 1330px; */
-  /* height: 342px; */
   height: 300px;
-  width: auto;
+  width: auto; 
   padding: 20px;
   background: #ffffff;
   border: 1px solid #d9d9d9;
@@ -205,9 +201,7 @@ a {
   text-align: center;
   justify-content: center;
   align-items: center;
-
   display: flex;
-
   flex-direction: column;
 }
 
