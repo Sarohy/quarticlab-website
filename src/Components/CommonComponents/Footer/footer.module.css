@@ -84,14 +84,14 @@
   display: flex;
   justify-content: center;
   margin-top: 2%;
-  margin-left: -13.5%;
+  margin-left: -10.5%;
 }
 
 .footerLinesContainerSocial{
   display: flex;
   justify-content: center;
   margin-top: 2%;
-  margin-left: -29.5%;
+  margin-left: -33%;
 }
 
 .footerLine1{
@@ -120,7 +120,7 @@
 
 .footerServicesItemsContainer{
   margin-top: 20px;
-  margin-left: 36%;
+  margin-left: 38%;
 }
 
 .footerServiceItem{
@@ -218,8 +218,12 @@
 
   .footerServicesItemsContainer{
     margin-left: 12%;
-  margin-top: 40px;
+    margin-top: 40px;
 
+  }
+
+  .footerServiceItem{
+    font-size: 18px !important;
   }
 }
 

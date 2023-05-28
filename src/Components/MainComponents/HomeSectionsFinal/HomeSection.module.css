@@ -77,6 +77,12 @@
 }
 /* Home section 2 css */
 
+.HS2MainContainer
+{
+    height: 100%;
+    overflow: auto;
+}
+
 .HS2MainContainer{
     height: 700px;
     background: url("../../../../src/assets/HomeIcons/HS2_background.svg");
@@ -137,8 +143,7 @@
 .imageDiv{
     display: flex;
     justify-content: center;
-    align-items: center;
-   
+    align-items: center; 
 }
 
 .HS2FlipContainer{
@@ -826,10 +831,10 @@ display: none;
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 0% 3% 0% 3%;
+    padding: 0% 3% 4% 3%;
 }
 .HS2CardsContainer{
-    overflow: auto;
+    flex-direction: column;
 }
 
 /* Home Section 3 */
@@ -1177,10 +1182,6 @@ display: none;
 /* home Section 7 */
 
 
-
-.HS7Image{
-    margin-right: 9px;
-}
 /* HomeSection 8 */
 
 .HS8MainContainer{

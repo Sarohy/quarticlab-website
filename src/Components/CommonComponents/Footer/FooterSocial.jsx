@@ -59,11 +59,12 @@ const FooterSocial = () => {
       ref.current.classList.add("animate__animated", "animate__zoomIn");
     }
   }, [inView]);
+
   return (
     <>
       <div ref={observerRef}>
         <div ref={ref} className="animate__delay-1s">
-          <h3>Social Media links</h3>
+          <h3>Social Media Links</h3>
 
           <div className={styles.footerLinesContainerSocial}>
             <hr className={styles.footerLine1} />
