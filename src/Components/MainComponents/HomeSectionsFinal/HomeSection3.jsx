@@ -108,7 +108,7 @@ function HomeSection3({ handleButtonClick }) {
             </div>
           </div>
           <div className={styles.HS3ImgContainer} ref={animatedImgRef}>
-            <Image className={styles.HS3ImgWidth} src={HS3Img} alt={HS3Img} />
+            <Image className={styles.HS3ImgWidth} src={HS3Img} alt={"zweidevs-icon"} />
           </div>
         </div>
       </div>

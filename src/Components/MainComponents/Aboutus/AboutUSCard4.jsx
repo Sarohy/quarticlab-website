@@ -129,7 +129,7 @@ const AboutUsCard4 = () => {
                             ? CD4Img1Hover
                             : item.socialM1
                         }
-                        alt={item.socialM1}
+                        alt={"social-icon"}
                       />
                     </a>
                     <a
@@ -154,7 +154,7 @@ const AboutUsCard4 = () => {
                             ? CD4Img2Hover
                             : item.socialM2
                         }
-                        alt={item.socialM2}
+                        alt={"social-icon-two"}
                       />
                     </a>
                     <a
@@ -179,7 +179,7 @@ const AboutUsCard4 = () => {
                             ? CD4Img3Hover
                             : item.socialM3
                         }
-                        alt={item.socialM2}
+                        alt={"social-icon-three"}
                       />
                     </a>
                   </div>

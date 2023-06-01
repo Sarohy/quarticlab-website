@@ -10,7 +10,7 @@ function ReviewCard({ clientName, rating, clientImage, reviewDescription }) {
 
     return (
         <div className={styles.reviewCardContainer} >
-            <Image width={110} src={clientImage} alt={clientName} />
+            <Image width={110} src={clientImage} alt={"client-name"} />
             <h1 className={styles.ReviewTitle} >{clientName}</h1>
             <div className={styles.ReviewRatingContainer} >
                 {ratingIcons}

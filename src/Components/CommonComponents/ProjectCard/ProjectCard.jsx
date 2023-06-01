@@ -133,7 +133,7 @@ function ProjectCard({
             fill="true"
             className="project-image"
             src={projectImageUrl}
-            alt={projectTitle}
+            alt={"project-image"}
             onLoadingComplete={() => setImageLoading(true)}
           />
         </div>

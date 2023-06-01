@@ -13,7 +13,7 @@ function HomeSection1() {
     <>
       <div className={styles.HS1Background}>
         <div className={`${styles.HS1HeaderImage} `}>
-          <Image className={styles.HS1Img1Height} src={HSImg1} alt={HSImg1} />
+          <Image className={styles.HS1Img1Height} src={HSImg1} alt={"client-image"} />
         </div>
         <div className={`${styles.HS1ContentContainer}`}>
           <div className="animate__delay-1s animate__animated animate__zoomIn">
@@ -79,12 +79,12 @@ function HomeSection1() {
             <Image
               className={styles.HSLogoContainer}
               src={HSLogo}
-              alt={HSLogo}
+              alt={"zweidevs-logo"}
             />
           </div>
         </div>
         <div className={styles.HS1FooterImage}>
-          <Image className={styles.HS1Img2Height} src={HSImg2} alt={HSImg2} />
+          <Image className={styles.HS1Img2Height} src={HSImg2} alt={"footer-icon"} />
         </div>
       </div>
     </>

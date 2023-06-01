@@ -70,7 +70,7 @@ const FooterSocial = () => {
             <hr className={styles.footerLine1} />
             <hr className={styles.footerLine2} />
           </div>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div className={styles.imageSocialMain}>
             <div className={styles.imageSocialContainer}>
               {socialMediaData &&
                 socialMediaData.map((element, key) => (

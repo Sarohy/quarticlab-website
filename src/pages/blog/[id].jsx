@@ -1,8 +1,7 @@
 import PageBanner from "@component/Components/CommonComponents/PageBanner";
-import Image from "next/image";
 import React, { useEffect } from "react";
-import styles from "./blog.module.css";
 import { useRouter } from "next/router";
+import styles from "./blog.module.css";
 
 const Id = () => {
   const router = useRouter();

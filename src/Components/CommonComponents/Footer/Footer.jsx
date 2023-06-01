@@ -1,19 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import styles from "./footer.module.css";
 import Image from "next/image";
-
 import "animate.css";
 import {
-  InstaLogo,
-  FbLogo,
-  LinkedInLogo,
-  TwitterLogo,
   CopyrightLeftLine,
   CopyrightRightLine,
-  LinkedInHover,
-  FBHover,
-  InstaHover,
-  TwitterHover,
 } from "@component/assets/footerIcons";
 import FooterAbout from "./FooterAbout";
 import FooterServices from "./FooterServices";

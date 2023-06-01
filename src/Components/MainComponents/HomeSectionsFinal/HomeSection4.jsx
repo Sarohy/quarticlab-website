@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
+import Card from "@mui/material/Card";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import { CardActionArea } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { Zbutton } from "@component/Components/CommonComponents";
-import styles from "./HomeSection.module.css";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import {
   Project1_Image1,
   Project2_Image1,
   Project3_Image1,
+  Project4_Image1,
+  Project5_Image1,
+  Project6_Image1,
 } from "@component/assets/HomeIcons";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { useRouter } from "next/router";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import { CardActionArea } from "@mui/material";
-import Image from "next/image";
+import styles from "./HomeSection.module.css";
 
 function HomeSection4() {
   const router = useRouter();
@@ -67,24 +70,24 @@ function HomeSection4() {
     },
     {
       index: 4,
-      image: Project1_Image1,
-      title: "Seated",
+      image: Project4_Image1,
+      title: "Public Trust",
       content:
-        "Seated is a platform which enables the users to Make Reservations at Local Restaurants so that they can earn back on every dollar that the users spend at the restaurant",
+        "Public Trust Realty Group is a web-based platform that enables the users to search for a property and buy/rent a property",
     },
     {
       index: 5,
-      image: Project2_Image1,
-      title: "Packet Taxi",
+      image: Project6_Image1,
+      title: "Fresh Tracks",
       content:
-        "Package Taxi provides logistics service for corporate shipments, by providing a fast and safe solution with motor courier and vehicle courier facilities, sending all shipments on the same day or at the time of reservation",
+      "FreshTracks is a web based portal for the travelers planning to travel across Canada where they can view personalized travel plans."
     },
     {
       index: 6,
-      image: Project3_Image1,
-      title: "Ovonhome",
+      image: Project5_Image1,
+      title: "Humanava",
       content:
-        "Ovonhome is a web based platform for IoT based water heaters which provides Smart water heating solutions for homes and offices",
+        "Humanava is a web based Edtech platform, which provides Interactive, highly engaging courses for everyone in an organization.",
     },
   ];
 
@@ -195,7 +198,7 @@ function HomeSection4() {
                 <CardActionArea>
                   <Image
                     src={item.image}
-                    alt={item.image}
+                    alt={item.title}
                     className={styles.HS4CardImage}
                   />
                   <CardContent>
