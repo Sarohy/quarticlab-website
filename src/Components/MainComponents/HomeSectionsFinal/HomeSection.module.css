@@ -81,7 +81,13 @@
 {
     height: 100%;
     overflow: auto;
+
 }
+.HS2MainContainer::-webkit-scrollbar{
+  display: none;
+}
+
+
 
 .HS2MainContainer{
     height: 700px;
@@ -468,6 +474,7 @@ display: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 /* HomeSection 5*/
@@ -662,6 +669,7 @@ display: none;
   .HS7ImgContainer {
     display: flex;
     animation: moveSlideshow 12s linear infinite;
+    align-items: center;
   }
      @keyframes moveSlideshow {
         0% { transform: translateX(0); }
@@ -1554,7 +1562,7 @@ display: none;
 }
 
 .HS4Card{ 
-    height: 100%;
+    height: 400px;
     padding-bottom: 30px;
 }
 

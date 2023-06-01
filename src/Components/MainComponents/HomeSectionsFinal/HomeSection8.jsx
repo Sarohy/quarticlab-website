@@ -90,7 +90,7 @@ function HomeSection8({ handleButtonClick }) {
                   Name
                 </FormLabel>
                 <TextField
-                  placeholder="Enter your Name"
+                  placeholder="Enter your name"
                   name="name"
                   type="text"
                   value={formValues.name}
@@ -109,7 +109,7 @@ function HomeSection8({ handleButtonClick }) {
                   Email
                 </FormLabel>
                 <TextField
-                  placeholder="Enter your Email"
+                  placeholder="Enter your email"
                   className={styles.HS8InputField}
                   name="email"
                   type="email"
@@ -130,7 +130,7 @@ function HomeSection8({ handleButtonClick }) {
                   Contact Number
                 </FormLabel>
                 <TextField
-                  placeholder="Enter your Contact Number"
+                  placeholder="Enter your contact number"
                   name="contact"
                   type="text"
                   value={formValues.contact}
@@ -149,7 +149,7 @@ function HomeSection8({ handleButtonClick }) {
                   Country
                 </FormLabel>
                 <TextField
-                  placeholder="Enter your Country"
+                  placeholder="Enter your country"
                   className={styles.HS8InputField}
                   name="country"
                   type="text"
@@ -170,7 +170,7 @@ function HomeSection8({ handleButtonClick }) {
                 Description
               </FormLabel>
               <TextField
-                placeholder="Type your Description*"
+                placeholder="Type your description"
                 name="description"
                 minRows={6}
                 multiline

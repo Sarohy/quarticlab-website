@@ -56,7 +56,7 @@ function Work() {
   }, []);
 
   return (
-    <>
+    <div style={{marginTop:"15vh"}}>
       <PageBanner
         title={"Portfolio"}
         heading={"Everything Your Business Needs Under One Roof"}
@@ -132,7 +132,7 @@ function Work() {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 export default Work;

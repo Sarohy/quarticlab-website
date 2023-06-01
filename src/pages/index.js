@@ -24,7 +24,7 @@ export default function Home() {
     section3().scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <>
+    <div style={{marginTop:"15vh"}}> 
       <HomeSection1 handleButtonClick={handleButtonClickSection1} />
       <HomeSection2 />
       <HomeSection3 />
@@ -33,6 +33,6 @@ export default function Home() {
       <HomeSection6 />
       <HomeSection7 />
       <HomeSection8 />
-    </>
+    </div>
   );
 }

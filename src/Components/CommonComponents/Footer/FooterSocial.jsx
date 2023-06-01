@@ -95,6 +95,7 @@ const FooterSocial = () => {
                         }
                         alt={element.alt || "social-meida-image"}
                         key={element.name}
+                        className={styles.imageContainerIcons}
                       />
                     </div>
                   </a>

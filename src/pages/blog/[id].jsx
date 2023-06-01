@@ -44,8 +44,7 @@ const Id = () => {
   }, []);
 
   return (
-    <div>
-      {" "}
+    <div style={{marginTop:"15vh"}}>
       <PageBanner {...bannerData} />
       <div
         style={{

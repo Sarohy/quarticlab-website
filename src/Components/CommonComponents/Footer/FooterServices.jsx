@@ -28,7 +28,7 @@ const FooterServices = () => {
             <hr className={styles.footerLine2} />
           </div>
           <div className={styles.footerServicesItemsContainer}>
-            <Grid container spacing={2.5} xl={2}>
+            <Grid container spacing={2.5} xl={10}>
               {navLinks.map(({ href, text }, index) => (
                 <Grid key={index} item xs={6}>
                   <Link

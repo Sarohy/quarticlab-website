@@ -5,6 +5,11 @@
   height: 15vh;
   padding: 1.5% 2.5%;
   background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 11111;
+  /* margin-bottom: 15vh; */
 }
 
 .mobileHeaderMenu {

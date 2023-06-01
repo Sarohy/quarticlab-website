@@ -26,7 +26,7 @@ const FooterAbout = () => {
       <div ref={observerRef}>
         <div ref={animateRef}>
           <div className={styles.footerAboutImageContainer}>
-            <Image src={Logo} alt="zweidevs" width={76} />
+            <Image src={Logo} alt="zweidevs" width={76} className={styles.footerAboutImageContainerLogo}/>
             <h3 className={styles.footerAboutHeading}>ZWEIDEVS</h3>
           </div>
           <p className={styles.footerAboutZweidevs}>

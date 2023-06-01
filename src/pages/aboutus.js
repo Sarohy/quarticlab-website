@@ -9,7 +9,7 @@ import {
   export default function AboutUs() {
     return (
       <>
-        <div>
+        <div style={{marginTop:"15vh"}}>
           <AboutUsCard1 />
           <AboutUsCard2 />
           <AboutUsCard />

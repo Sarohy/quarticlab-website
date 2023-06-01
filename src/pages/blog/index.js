@@ -101,7 +101,7 @@ const Blog = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{marginTop:"15vh"}}>
       <PageBanner {...bannerData} />
       <div className={styles.blogRoot}>
         <div className={styles.blogMain}>
@@ -134,7 +134,7 @@ const Blog = () => {
 
       <div className={styles.blogBanner}>
         <h2 className={styles.blogBannerHeading} ref={animatedHeadingRef}>
-          Not Finding the Right Fit? Stay Connected
+          Not Finding The Right Fit? Stay Connected
         </h2>
         <div className={styles.blogButton} ref={animatedButtonRef}>
           <Zbutton
