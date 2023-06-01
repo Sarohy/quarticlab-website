@@ -1,10 +1,4 @@
-// import Head from "next/head";
-// import Image from "next/image";
 import { Inter } from "next/font/google";
-// import styles from "@component/styles/Home.module.css";
-// import { InstantBookingBanner } from "@component/Components/CommonComponents";
-
-// import { useRef } from "react";
 import {
   HomeSection1,
   HomeSection2,

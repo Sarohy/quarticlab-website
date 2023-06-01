@@ -91,7 +91,7 @@ function Services() {
       cardIcon: GameDevIcon,
       cardIconTitle: { firstLine: "Game", secondLine: "Development" },
       cardTitle: "Game Development",
-      cardDetails: `With our team of expert game developers, we can transform your idea into a striking game that makes the audience want to play. We have the resources to develop games for multiple platforms using different advanced Technologies.`,
+      cardDetails: `With our team of expert game developers, we can transform your idea into a striking game that makes the audience want to play. We have the resources to develop games for multiple platforms using different advanced technologies.`,
       footerTitle: "Tools & Technologies",
       footerImages: [UnityIcon, GameBenchIcon, HoudinaIcon, BelenderIcon],
     },
@@ -128,13 +128,13 @@ function Services() {
     <div className="services-root">
       <PageBanner
         title={"Services"}
-        heading={"Everything your business needs under one roof"}
+        heading={"Everything Your Business Needs Under One Roof"}
         description={
-          "Through creative ideas, invention, and determination, Zweidevs speaks to facilitate your marketing journey Using advanced technology."
+          "Zweidevs is a professional marketing agency that strives to enhance your marketing journey through creative ideas, innovation, and unwavering determination. We leverage cutting-edge technology and robust business strategies to cater to the specific needs of your company in this digital era."
         }
       />
       <div className="servicesHeaderContainer">
-        <span className="services-header">Our Services</span>
+        <p className="services-header">Our Services</p>
 
         <Image
           style={{ paddingLeft: 8 }}
@@ -143,7 +143,6 @@ function Services() {
         />
       </div>
       <ServicesCard cardData={cardData} />
-      {/* <InstantBookingBanner /> */}
     </div>
   );
 }

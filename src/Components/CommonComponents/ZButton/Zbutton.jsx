@@ -13,6 +13,7 @@ function Zbutton({
   showIcon = true,
   whiteShaddow = false,
   orangeShaddow = false,
+  greyShaddow = false,
   className,
   text,
   onClick,
@@ -36,6 +37,8 @@ function Zbutton({
           ? styles.whiteShaddow
           : orangeShaddow
           ? styles.orangeShaddow
+          : greyShaddow
+          ? styles.greyShaddow
           : styles.zButton
       }`}
     >

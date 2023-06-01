@@ -5,29 +5,33 @@ import { HSImg2, HSLogo, HSImg1 } from "@component/assets/HomeIcons";
 import { Zbutton } from "@component/Components/CommonComponents";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import "animate.css";
+import { useRouter } from "next/router";
 
-function HomeSection1({ handleButtonClick }) {
+function HomeSection1() {
+  const router = useRouter();
   return (
     <>
       <div className={styles.HS1Background}>
         <div className={`${styles.HS1HeaderImage} `}>
-          <Image className={styles.HS1Img1Height} src={HSImg1} alt="zweidevs" />
+          <Image className={styles.HS1Img1Height} src={HSImg1} alt={"client-image"} />
         </div>
         <div className={`${styles.HS1ContentContainer}`}>
           <div className="animate__delay-1s animate__animated animate__zoomIn">
             <div className={styles.HS1Content}>
               <span className={styles.HS1ContentLine} />
-              <span className={styles.HS1Text}>
+              <h1 className={styles.HS1Text}>
                 Empowering <br /> Innovation
-              </span>
+              </h1>
             </div>
-            <div className={styles.HS1SubText}>
+            {/* <h2 className={styles.HS1SubText}>
               Zweidevs provides dedicated teams work to design and build your
               idea.
-            </div>
+            </h2> */}
             <div className={styles.HS1ContentButtonContainer}>
-              <Zbutton
-                onClick={handleButtonClick}
+              {/* <Zbutton
+                onClick={() => {
+                  router.push("/contactUs");
+                }}
                 text="GET STARTED"
                 color="#ff9700"
                 backgroundColor="white"
@@ -44,13 +48,18 @@ function HomeSection1({ handleButtonClick }) {
                     }}
                   />
                 }
-              />
+              /> */}
               <Zbutton
-                onClick={handleButtonClick}
-                text="Call us Now"
+                onClick={() => {
+                  window.open(
+                    "https://calendly.com/request-demo-zweidevs/30min",
+                    "_blank"
+                  );
+                }}
+                text="Instant Booking"
                 color="white"
                 backgroundColor="#FF9700"
-                width="180px"
+                width="220px"
                 whiteShaddow={true}
                 showIcon={false}
                 margin="0px 0px 10px 0px"
@@ -59,7 +68,7 @@ function HomeSection1({ handleButtonClick }) {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      marginLeft: "-20px",
+                      marginLeft: "-13px",
                     }}
                   />
                 }
@@ -70,12 +79,12 @@ function HomeSection1({ handleButtonClick }) {
             <Image
               className={styles.HSLogoContainer}
               src={HSLogo}
-              alt="zweidevs"
+              alt={"zweidevs-logo"}
             />
           </div>
         </div>
         <div className={styles.HS1FooterImage}>
-          <Image className={styles.HS1Img2Height} src={HSImg2} alt="zweidevs" />
+          <Image className={styles.HS1Img2Height} src={HSImg2} alt={"footer-icon"} />
         </div>
       </div>
     </>

@@ -15,23 +15,11 @@ const ServicesCard = (props) => {
     () => React.useRef(null)
   );
 
-  // const animatedCardDetailsDivRefs = Array.from(
-  //   { length: cardData.length },
-  //   () => React.useRef(null)
-  // );
-
   const animatedCardDetailsDivRefs = cardData.map((element, i) => {
     return element.footerImages.map((image, k) => {
       return React.useRef(null);
     });
   });
-
-  console.log(animatedCardDetailsDivRefs);
-
-  // const animatedCardDetailsDivRefs = Array.from(
-  //   { length: cardData.length },
-  //   () => React.useRef(Array.from({ length: cardData.footerImages.length }))
-  // );
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,13 +28,8 @@ const ServicesCard = (props) => {
           if (entry.isIntersecting) {
             const target = entry.target;
 
-            // Code to handle animation
-            // target.classList.remove("hidden");
             target.style.opacity = 1;
-            target.classList.add(
-              "animate__backInUp"
-              // "animate__delay-1s"
-            );
+            target.classList.add("animate__backInUp");
             target.addEventListener(
               "animationend",
               (e) => {
@@ -57,7 +40,7 @@ const ServicesCard = (props) => {
                 });
               },
               { once: true }
-            ); // Remove the event listener after it's triggered
+            );
 
             observer.unobserve(target);
           }
@@ -75,11 +58,8 @@ const ServicesCard = (props) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const target = entry.target;
-
-            //target.classList.remove("hiddenNestedCard");
             target.style.opacity = 1;
             target.classList.add("animate__zoomIn", "animate__delay-1s");
-
             target.addEventListener(
               "animationend",
               (e) => {
@@ -93,7 +73,7 @@ const ServicesCard = (props) => {
                 });
               },
               { once: true }
-            ); // Remove the event listener after it's triggered
+            );
 
             observer2.unobserve(target);
           }
@@ -111,7 +91,7 @@ const ServicesCard = (props) => {
         entries.forEach((entry, key) => {
           if (entry.isIntersecting) {
             const target = entry.target;
-            target.classList.add("animate__tada", "animate__delay-1s");
+            target.classList.add("animate__zoomIn");
             target.style.opacity = 1;
 
             observer3.unobserve(target);
@@ -152,7 +132,6 @@ const ServicesCard = (props) => {
           <div
             ref={animatedDivRefs[key]}
             key={key}
-            // className="services-card-container animate__animated animate__backInRight animate__delay-1s"
             className={`${styles.hidden} services-card-container animate__animated`}
           >
             <Box
@@ -174,33 +153,30 @@ const ServicesCard = (props) => {
                 <Image
                   className="services-icon"
                   src={element.cardIcon}
-                  alt="web-dev-icon"
+                  alt={`${element.cardIconTitle.firstLine}`}
                   height={"auto"}
                 />
                 <div className="services-icon-card-title">
-                  <div>
+                  <h3>
                     {element.cardIconTitle.firstLine}
                     <br></br>
                     {element.cardIconTitle.secondLine}
-                  </div>
+                  </h3>
                 </div>
               </div>
             </Box>
 
-            <div
-              className={`services-card-details-container`}
-              //style={{ display: "none" }}
-            >
-              <span className={styles.servicesCardDetailsHeader}>
+            <div className={`services-card-details-container`}>
+              <h2 className={styles.servicesCardDetailsHeader}>
                 {element.cardTitle}
-              </span>
-              <div className={styles.servicesCardDetails}>
+              </h2>
+              <p className={styles.servicesCardDetails}>
                 {element.cardDetails}{" "}
-              </div>
+              </p>
               <div className={styles.servicesCardFooterContainer}>
-                <span className={styles.servicesCardFooterHeader}>
+                <h3 className={styles.servicesCardFooterHeader}>
                   {element.footerTitle}:
-                </span>
+                </h3>
                 <div className={styles.servicesFooterImagesContainer}>
                   {element.footerImages &&
                     element.footerImages.map((image, imgkey) => (
@@ -209,10 +185,8 @@ const ServicesCard = (props) => {
                         ref={animatedCardDetailsDivRefs[key][imgkey]}
                         className={`${styles.hiddenCardDetailss} animate__animated services-footer-image`}
                         src={image}
-                        alt={"node-icon"}
+                        alt={`${element.cardTitle} ${imgkey}`}
                         style={{ width: "auto", height: 38 }}
-                        // height={20}
-                        // width={"auto"}
                       />
                     ))}
                 </div>
@@ -241,15 +215,15 @@ const ServicesCard = (props) => {
               <Image
                 className="services-icon"
                 src={element.cardIcon}
-                alt="web-dev-icon"
+                alt={`${element.cardIconTitle.firstLine}`}
                 height={"auto"}
               />
               <div className="services-icon-card-title">
-                <div>
+                <h3>
                   {element.cardIconTitle.firstLine}
                   <br></br>
                   {element.cardIconTitle.secondLine}
-                </div>
+                </h3>
               </div>
             </div>
           </Box>

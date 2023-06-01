@@ -1,42 +1,3 @@
-/* Card 1 */
-.AUCd1Main{
-    width: 100%;
-    height: 376px;
-    background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-}
-
-.AUCdHeading{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0% 5% 0% 5%;
-    height: 376px;
-}
-
-.AUCd1Heading{
-    height: 48px;   
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 133.5%;
-    text-transform: capitalize;
-    color: #FFFFFF;
-}
-
-.AUCd1SubHeading{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 150%;
-    color: #FFFFFF;
-    margin-top: 1.75%;
-}
 
 /* Card 2 */
 
@@ -47,11 +8,11 @@
     background-repeat: no-repeat;
     margin-top: 0%;
     background-color: #FFFFFF;
+    padding-left: 1%;
 }
 .AUCard2ImgContent{
     width: 100%;
     display: flex;
-    
 }
 
 .AUCard2Img{
@@ -75,7 +36,7 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 22px;
     line-height: 150%;
     color: #FF9700;
     margin-bottom: 8px;
@@ -96,7 +57,7 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 167.5%;
     color: #494949;
     margin-bottom: 4.5%;
@@ -138,7 +99,7 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 167.5%;
     color: #494949;
     padding-bottom: 9.5%;
@@ -165,8 +126,8 @@
 
 .AUCd3Main{
     width: 100%;
-    height: 432px;
     background: #F3F3F3;
+    padding-bottom: 5%;
 }
 
 .AUCd3Heading{
@@ -176,7 +137,7 @@
     font-size: 36px;
     line-height: 117.5%;
     color: #2B2A35;
-    height: 150px;
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -184,34 +145,9 @@
 
 .AUCd3ProjectContainer{
     display: flex;
-    justify-content: space-between;
-    padding: 0% 10% 0% 10%;
-}
-
-.AUCd3ProjectItem{
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 100%;
-    font-family: 'Inter';
-    font-style: normal;
-    line-height: 138%;
-    color: #474747;
 }
 
-.AUCd3ProjectCount{
-    font-weight: 700;
-    font-size: 32px;
-    margin: 7% 0% 7% 0%;
-    text-align: center;
-}
-
-.AUCd3ProjectDetail{
-    font-weight: 500;
-    font-size: 20px;
-    text-align: center;
-}
 
 /* About us card 4 */
 
@@ -270,7 +206,8 @@
 
 .AUCd4CardsContainer{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: center;
     align-items: center;
     height: 490px;
 }
@@ -279,8 +216,8 @@
     background: #FFFFFF;
     border: 1.62841px solid rgba(255, 151, 0, 0.44);
     border-radius: 26.0545px;  
-    height: 300px;
-    width: 310px;
+    height: 350px;
+    width: 370px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -290,10 +227,10 @@
 }
 
 .AUCd4Img{
-    width: 120px;
-    height: 120px;
+    width: 125px;
+    height: 125px;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: inherit;
 }
 
 .AUCdCardHeading{
@@ -325,42 +262,20 @@
 }
 
 .AUCd4Social{
-    width: 40.1px;
-    height: 40.1px;
-    background: rgba(0, 0, 0, 0.2);
+    width: 32.1px;
+    height: 32.1px;
     border: 1px solid #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-}
-
-.AUCd4SocialContainer:hover .AUCd4Social{
-    width: 40.1px;
-    height: 40.1px;
-    background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
-    border: 0.756563px solid #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-}
-
-.AUCd4SocialSelected{
-    width: 40.1px;
-    height: 40.1px;
-    background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
-    border: 1px solid #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
+    cursor: pointer;
 }
 
 /* about us card 5 */
 .AUCd5Main{
     width: 100%;
-    height: 376px;
+    height: 300px;
     background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
     display: flex;
     justify-content: center;
@@ -387,16 +302,15 @@
 
 @media screen and (max-width: 590px) {
 
-/* Card 1 */
-.AUCd1Heading{
-    font-size: 25px;
-}
-
-.AUCd1SubHeading{
-    font-size: 12px;
-}
-
 /* Card 2 */
+
+.AUCard2ImgDHeading{
+    margin-top: 10%;
+    color: black;
+    font-weight: 600;
+
+
+}
 .AUCard2ImgContent{
     width: 100%;
     display: flex;
@@ -426,7 +340,7 @@
 
 .AUCard2ImgDText{
     width: 90%;
-    font-size: 18px;
+    font-size: 16px;
 
 }
 
@@ -444,11 +358,13 @@
     font-size: 20px;
 }
 
+.AUCardHeading{
+    margin-top: 20%;
+}
+
 /* About us Card 3 */
 
-.AUCd3Main{
-    height: 460px;
-}
+
 
 .AUCd3Heading{
     font-size: 28px;
@@ -456,10 +372,7 @@
     padding: 0% 3.5% 0% 3.5%;
 }
 
-.AUCd3ProjectContainer{
-    height: 250px;
-    overflow: auto;
-}
+
 
 .AUCd3ProjectItem{
     margin: 0% 10% 0% 10%;
@@ -475,8 +388,21 @@
 
 }
 
+.AUCd3ImgSize{
+    width: 350px;
+    height: 350px;
+}
+
 /* About us card 4 */
 
+.AUCd4Main{
+    width: 100%;
+    height: 100%;
+    background: white;
+    padding: 0% 4% 0% 4%;
+    font-family: 'Poppins';
+    font-style: normal;
+}
 
 .AUCard4Heading{
     font-size: 18px;
@@ -522,8 +448,12 @@
     padding-left: 5%;
     padding-right: 5%;
 }
-
+.AUCd4CardsContainer{
+    height: 350px;
+}
 /* card 5 */
+
+
 
 .AUCd5Heading{
     font-size: 24px;
@@ -558,14 +488,13 @@
     margin: 0% 10% 0% 10%;
 }
 
-.AUCd3Main{
-    height: 460px;
+.AUCd3ImgSize{
+    width: auto;
+    height: 450px;
 }
 
-.AUCd3ProjectContainer{
-    height: 250px;
-    overflow: auto;
-}
+
+
 
 
 /* About us card 4 */
@@ -583,6 +512,8 @@
     padding-right: 5%;
     padding-top: 5%;
 }
+
+
 }
 
 @media screen and (min-width: 841px) and (max-width: 1040px) {

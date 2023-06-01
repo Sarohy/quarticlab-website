@@ -131,6 +131,7 @@ a {
 
 .servicesHeaderContainer {
   margin-top: 20px;
+  margin-left: 20px;
   display: flex;
   align-items: center;
 }
@@ -191,12 +192,8 @@ a {
 .services-icon-card-container-mobile {
   margin: 20px;
   box-sizing: border-box;
-
-  /* position: absolute; */
-  /* width: 1330px; */
-  /* height: 342px; */
   height: 300px;
-  width: auto;
+  width: auto; 
   padding: 20px;
   background: #ffffff;
   border: 1px solid #d9d9d9;
@@ -204,9 +201,7 @@ a {
   text-align: center;
   justify-content: center;
   align-items: center;
-
   display: flex;
-
   flex-direction: column;
 }
 
@@ -224,6 +219,7 @@ a {
 
 .services-card-container {
   margin: 20px;
+  margin-left: 40px;
   box-sizing: border-box;
   /* position: absolute; */
   /* width: 1330px; */
@@ -382,6 +378,7 @@ a {
   align-items: center;
   gap: 5px;
   cursor: pointer;
+  font-family: "poppins";
 }
 
 .project-description {
@@ -412,9 +409,9 @@ a {
   align-items: center;
 }
 
-.HS8MainContainer{
+.HomeSection_HS8MainContainer__dxEcI{
   width: 100%;
-  background: rgba(243, 243, 243, 0.5);
+  background: rgba(243, 243, 243);
   display: flex;
   align-items: center;
   flex-direction: column;  
@@ -441,6 +438,7 @@ a {
 @media screen and (max-width: 540px) {
   .worksHeader {
     flex-direction: column;
+    padding-left: 20px;
   }
   .workHeaderBtnContainer {
     width: 100%;
@@ -476,9 +474,17 @@ font-family: poppins !important;
 
 .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
   font-family: poppins !important;
-
 }
 
 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: #ff9700;
+}
+
+.css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input {
+
+  font-family: poppins !important;
+}
+
+.css-1g60ihl-MuiFormControl-root-MuiTextField-root .MuiOutlinedInput-root {
+  font-family: 'Poppins';
 }

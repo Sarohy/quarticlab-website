@@ -1,124 +1,95 @@
 import React, { useEffect, useState } from "react";
+import Card from "@mui/material/Card";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import { CardActionArea } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { Zbutton } from "@component/Components/CommonComponents";
-import styles from "./HomeSection.module.css";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import {
   Project1_Image1,
-  Project1_Image2,
-  Project1_Image3,
   Project2_Image1,
-  Project2_Image2,
-  Project2_Image3,
   Project3_Image1,
-  Project3_Image2,
-  Project3_Image3,
   Project4_Image1,
-  Project4_Image2,
-  Project4_Image3,
   Project5_Image1,
-  Project5_Image2,
-  Project5_Image3,
   Project6_Image1,
-  Project6_Image2,
-  Project6_Image3,
 } from "@component/assets/HomeIcons";
-import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
-import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
+import styles from "./HomeSection.module.css";
 
 function HomeSection4() {
-  const exp = [
-    { index: 1, content: "Website Development" },
-    { index: 2, content: "App Development" },
-    { index: 3, content: " Graphics Designing" },
-  ];
+  const router = useRouter();
+  const animatedDivRefs = Array.from({ length: 2 }, () => React.useRef(null));
+  const animatedCardRefs = Array.from({ length: 3 }, () => React.useRef(null));
+  const [startIndex, setStartIndex] = useState(1);
+  const [projectArray, setProjectArray] = useState([
+    {
+      index: 1,
+      image: Project1_Image1,
+      title: "Hooked Health",
+      content:
+        "Hooked Health is a mobile application which enables the users to enjoy a leaner, healthier body through a 15-minute no-equipment workouts ",
+    },
+    {
+      index: 2,
+      image: Project2_Image1,
+      title: "AudioCardio",
+      content:
+        "AudioCardio is an evidence-based mobile app that delivers inaudible sound therapies designed to maintain and strengthen your hearing while providing relief from tinnitus by stimulating the cells inside your ear",
+    },
+    {
+      index: 3,
+      image: Project3_Image1,
+      title: "Seated",
+      content:
+        "Seated is a platform which enables the users to Make Reservations at Local Restaurants so that they can earn back on every dollar that the users spend at the restaurant",
+    },
+  ]);
 
   const projectData = [
     {
       index: 1,
-      img1: Project1_Image1,
-      img2: Project1_Image2,
-      img3: Project1_Image3,
-      title: "Cryptolinx",
+      image: Project1_Image1,
+      title: "Hooked Health",
       content:
-        "Cryptolinx is a web based portal where the users can place all of their social media links under one screen, and can share it with their friends",
+        "Hooked Health is a mobile application which enables the users to enjoy a leaner, healthier body through a 15-minute no-equipment workouts ",
     },
     {
       index: 2,
-      img1: Project2_Image1,
-      img2: Project2_Image2,
-      img3: Project2_Image3,
-      title: "Cyber Legends",
+      image: Project2_Image1,
+      title: "AudioCardio",
       content:
-        "Cyber Legends is an EdTech platform on a mission to help parents and educators raise safe children in a digital world, with proper gamification learning and parental checks which encourages the children to learn more",
+        "AudioCardio is an evidence-based mobile app that delivers inaudible sound therapies designed to maintain and strengthen your hearing while providing relief from tinnitus by stimulating the cells inside your ear",
     },
     {
       index: 3,
-      img1: Project3_Image1,
-      img2: Project3_Image2,
-      img3: Project3_Image3,
-      title: "The Daily Stakes",
-      content:
-        "The Daily Stakes is a web application that is used for Sports Betting, by effectively helping the players to get an edge against the books with the help of Analytics",
-    },
-    {
-      index: 4,
-      img1: Project4_Image1,
-      img2: Project4_Image2,
-      img3: Project4_Image3,
+      image: Project3_Image1,
       title: "Seated",
       content:
         "Seated is a platform which enables the users to Make Reservations at Local Restaurants so that they can earn back on every dollar that the users spend at the restaurant",
     },
     {
-      index: 5,
-      img1: Project5_Image1,
-      img2: Project5_Image2,
-      img3: Project5_Image3,
-      title: "Packet Taxi",
+      index: 4,
+      image: Project4_Image1,
+      title: "Public Trust",
       content:
-        "Package Taxi provides logistics service for corporate shipments, by providing a fast and safe solution with motor courier and vehicle courier facilities, sending all shipments on the same day or at the time of reservation",
+        "Public Trust Realty Group is a web-based platform that enables the users to search for a property and buy/rent a property",
+    },
+    {
+      index: 5,
+      image: Project6_Image1,
+      title: "Fresh Tracks",
+      content:
+      "FreshTracks is a web based portal for the travelers planning to travel across Canada where they can view personalized travel plans."
     },
     {
       index: 6,
-      img1: Project6_Image1,
-      img2: Project6_Image2,
-      img3: Project6_Image3,
-      title: "Ovonhome",
+      image: Project5_Image1,
+      title: "Humanava",
       content:
-        "Ovonhome is a web based platform for IoT based water heaters which provides Smart water heating solutions for homes and offices",
+        "Humanava is a web based Edtech platform, which provides Interactive, highly engaging courses for everyone in an organization.",
     },
   ];
-
-  const [proKey, setProKey] = useState(1);
-  const [startIndex, setStartIndex] = useState(1);
-  const [projectArray, setProjectArray] = useState([
-    {
-      index: 1,
-      img1: Project1_Image1,
-      img2: Project1_Image2,
-      img3: Project1_Image3,
-      title: "Cryptolinx",
-      content:
-        "Cryptolinx is a web based portal where the users can place all of their social media links under one screen, and can share it with their friends",
-    },
-    {
-      index: 2,
-      img1: Project2_Image1,
-      img2: Project2_Image2,
-      img3: Project2_Image3,
-      title: "Cyber Legends",
-      content:
-        "Cyber Legends is an EdTech platform on a mission to help parents and educators raise safe children in a digital world, with proper gamification learning and parental checks which encourages the children to learn more",
-    },
-    {
-      index: 3,
-      img1: Project3_Image1,
-      img2: Project3_Image2,
-      img3: Project3_Image3,
-      title: "The Daily Stakes",
-      content:
-        "The Daily Stakes is a web application that is used for Sports Betting, by effectively helping the players to get an edge against the books with the help of Analytics",
-    },
-  ]);
 
   const onClickLeftArrow = () => {
     if (startIndex == 0) setStartIndex(3);
@@ -140,154 +111,114 @@ function HomeSection4() {
     setProjectArray(dataArr);
   };
 
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__backInUp",
+            "animate__delay-0s"
+          );
+        }
+      });
+    }, options);
+
+    const observer1 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__zoomIn",
+            "animate__delay-0s"
+          );
+        }
+      });
+    }, options);
+
+    animatedDivRefs.forEach((ref) => {
+      observer.observe(ref.current);
+    });
+
+    animatedCardRefs.forEach((ref) => {
+      observer1.observe(ref.current);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <>
       <div className={styles.HS4MainContainer}>
-        <div className={styles.HS4ContentHeadingContainer}>
+        <div
+          className={styles.HS4ContentHeadingContainer}
+          ref={animatedDivRefs[0]}
+        >
           <div className={styles.HS4Heading}>
-            <span>Our Experiences</span>{" "}
-            <hr className={styles.HS3ContentLine1} />
+            <p>Our Experiences</p> <hr className={styles.HS3ContentLine1} />
             <hr className={styles.HS3ContentLine2} />
           </div>
         </div>
-        <div className={styles.HS4SubHeading}>
-          We`ve Done Lot`s Of Awesome Projects
-        </div>
-        <div className={styles.HS4ButtonContainer}>
-          {exp.map((item) => {
-            return (
-              <div
-                className={
-                  proKey == item.index
-                    ? styles.HS4SelectedButton
-                    : styles.HS4UnselectButton
-                }
-                key={item.index}
-                onClick={() => setProKey(item.index)}
-              >
-                <div>{item.content}</div>
-                <div
-                  className={
-                    proKey != item.index ? styles.HS4ButtonUnderLine : ""
-                  }
-                  style={{
-                    width:
-                      item.index == 1 && proKey != item.index ? "300px" : "",
-                  }}
-                />
-              </div>
-            );
-          })}
+
+        <div className={styles.HS4ContentSubHeadingContainer}>
+          <h2 className={styles.HS4ContentSubHeading} ref={animatedDivRefs[1]}>
+            We Have Delivered A Lot Of Projects
+          </h2>
+          <div>
+            <Zbutton
+              onClick={() => {
+                router.push("/projects");
+              }}
+              text="Checkout More Projects"
+              color="orange"
+              backgroundColor="#F9F9F9"
+              width="305px"
+              greyShaddow={true}
+              showIcon={false}
+            />
+          </div>
         </div>
 
-        <div className={styles.HSCardContainer}>
+        <div className={styles.HS4CardContainer}>
           {projectArray.map((item, index) => {
             return (
-              <>
-                {index == 0 ? (
-                  <div
-                    style={{
-                      backgroundImage: `url("${item.img1.src}")`,
-                    }}
-                    className={`${styles.HS4CardContainer} ${styles.HS4CardOdd}`}
-                  >
-                    <div className={styles.HS4CardDataContainer}>
-                      <div className={styles.HS4ContentHeading}>
-                        {item.title}
-                      </div>
-                      <div className={styles.HS4ContentSubHeading}>
-                        {item.content}
-                      </div>
-                      <div className={styles.HS4ContentSubHeading}>
-                        Django | React
-                      </div>
-                    </div>
-                  </div>
-                ) : index == 1 ? (
-                  <div
-                    style={{
-                      backgroundImage: `url("${item.img2.src}")`,
-                    }}
-                    className={`${styles.HS4CardContainer} ${styles.HS4CardEven}`}
-                  >
-                    <div className={styles.HS4CardDataContainer}>
-                      <div className={styles.HS4ContentHeading}>
-                        {item.title}
-                      </div>
-                      <div className={styles.HS4ContentSubHeading}>
-                        {item.content}
-                      </div>
-                      <div className={styles.HS4ContentSubHeading}>
-                        Django | React
-                      </div>
-                      <div>
-                        <Zbutton
-                          onClick={() => {
-                            window.open(
-                              "https://calendly.com/request-demo-zweidevs/30min",
-                              "_blank"
-                            );
-                          }}
-                          text="Request Demo"
-                          color="#ff9700"
-                          backgroundColor="white"
-                          width="198px"
-                          height="48px"
-                          orangeShaddow={true}
-                          showIcon={false}
-                          // margin="0px 0px 10px 0px"
-                          icon={
-                            <ArrowCircleRightOutlinedIcon
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                marginLeft: "-20px",
-                              }}
-                            />
-                          }
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div
-                    style={{
-                      backgroundImage: `url("${item.img3.src}")`,
-                    }}
-                    className={`${styles.HS4CardContainer} ${styles.HS4CardOdd}`}
-                  >
-                    <div className={styles.HS4CardDataContainer}>
-                      <div className={styles.HS4ContentHeading}>
-                        {item.title}
-                      </div>
-                      <div className={styles.HS4ContentSubHeading}>
-                        {item.content}
-                      </div>
-                      <div className={styles.HS4ContentSubHeading}>
-                        Django | React
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </>
+              <Card
+                className={styles.HS4Card}
+                key={index}
+                ref={animatedCardRefs[index]}
+              >
+                <CardActionArea>
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    className={styles.HS4CardImage}
+                  />
+                  <CardContent>
+                    <h2 className={styles.HSCardTitle}>{item.title}</h2>
+                    <p className={styles.HS4CardContent}>{item.content}</p>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
             );
           })}
         </div>
-
-        <div className={styles.HS4ArrowContainer}>
-          <ArrowCircleLeftOutlinedIcon
-            style={{
-              width: "30px",
-              height: "30px",
-              color: "#FF9700",
-              marginRight: "10px",
-            }}
-            onClick={onClickLeftArrow}
-          />
-          <ArrowCircleRightOutlinedIcon
-            style={{ width: "30px", height: "30px", color: "#FF9700" }}
-            onClick={onClickRightArrow}
-          />
+        <div className={styles.HS4CardArrowsContainer}>
+          <div className={styles.HS4CardArrowContainer}>
+            <div className={styles.HS4CardArrow} onClick={onClickLeftArrow}>
+              <NavigateBeforeIcon />
+            </div>
+            <div className={styles.HS4CardArrow} onClick={onClickRightArrow}>
+              <NavigateNextIcon />
+            </div>
+          </div>
         </div>
       </div>
     </>

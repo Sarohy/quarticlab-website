@@ -3,20 +3,16 @@ import styles from "./pageBanner.module.css";
 import { DiamondSvg } from "@component/assets/pageBannerIcons";
 import Image from "next/image";
 function InstantBookingBanner(props) {
-  const { title, Heading, description } = props;
+  const { title, heading, description } = props;
   return (
     <div className={styles.pageBannerRoot}>
       <div
-        className={`${styles.pageBannerTextContainer} animate__delay-1s animate__animated animate__bounceInLeft`}
+        className={`${styles.pageBannerTextContainer} animate__animated animate__backInRight`}
       >
-        <div className={styles.pageBannerTitle}>{title ?? "All Posts"}</div>
-        <div className={styles.pageBannerHeading}>
-          {Heading ?? "Everything your business needs under one roof"}
-        </div>
-        <div className={styles.pageBannerDesc}>
-          {description ??
-            `We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences`}
-        </div>
+        <h1 className={styles.pageBannerTitle}>{title}</h1>
+        {heading ? <h2 className={styles.pageBannerHeading}>{heading}</h2> : ""}
+
+        <h3 className={styles.pageBannerDesc}>{description}</h3>
       </div>
       <div className={styles.pageBannerImageContainer}>
         <Image height={250} src={DiamondSvg} alt={"diamondSvg"} />

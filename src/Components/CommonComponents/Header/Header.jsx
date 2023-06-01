@@ -20,6 +20,7 @@ import {
 } from "@component/assets/headerIcons";
 function Header() {
   const route = useRouter();
+
   const [state, setState] = useState({
     mobileView: null,
     drawerOpen: false,
@@ -31,6 +32,27 @@ function Header() {
       ...prevState,
       drawerOpen: !prevState.drawerOpen,
     }));
+  };
+
+  const redirectToGoogleMaps = () => {
+    const location =
+      "6, Block B Phase 1 Johar Town, Lahore, Punjab 54000, Pakistan"; // Replace with the desired location
+    const encodedLocation = encodeURIComponent(location);
+    window.open(
+      `https://www.google.com/maps/place/${encodedLocation}`,
+      "_blank"
+    );
+  };
+
+  const redirectToGmailCompose = () => {
+    const email = "contact@zweidevs.com";
+    // const encodedLocation = encodeURIComponent(email);
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+        email
+      )}`,
+      "_blank"
+    );
   };
 
   useEffect(() => {
@@ -58,7 +80,7 @@ function Header() {
 
   const displayWeb = () => (
     <>
-      <div
+      {/* <div
         style={{
           display: "flex",
           flexDiretion: "row",
@@ -68,7 +90,7 @@ function Header() {
         }}
       >
         <div
-          className="headerCenterRow"
+          className="headerCenterRow animate__animated animate__zoomIn"
           style={{
             display: "flex",
             alignItems: "center",
@@ -81,15 +103,22 @@ function Header() {
             width={20}
             src={LocationIcon}
             alt={"location-icon"}
-          ></Image>
-          <span
-            style={{ paddingLeft: "11px", fontFamily: "Poppins", fontSize: 16 }}
+            onClick={redirectToGoogleMaps}
+          />
+          <p
+            style={{
+              paddingLeft: "11px",
+              fontFamily: "Poppins",
+              fontSize: 16,
+              cursor: "pointer",
+            }}
+            onClick={redirectToGoogleMaps}
           >
             6-B phase 1 Johar Town Lahore
-          </span>
+          </p>
         </div>
         <div
-          className={"headerCenterRow"}
+          className={"headerCenterRow animate__animated animate__zoomIn"}
           style={{
             display: "flex",
             alignItems: "center",
@@ -102,22 +131,38 @@ function Header() {
             width={20}
             src={EmailIcon}
             alt={"email-icon"}
-          ></Image>
-          <span
-            style={{ paddingLeft: "11px", fontFamily: "Poppins", fontSize: 16 }}
+            onClick={redirectToGmailCompose}
+            style={{ cursor: "pointer" }}
+          />
+          <p
+            style={{
+              paddingLeft: "11px",
+              fontFamily: "Poppins",
+              fontSize: 16,
+              cursor: "pointer",
+            }}
+            onClick={redirectToGmailCompose}
           >
             contact@zweidevs.com
-          </span>
-          <Image src={PhoneContainer} alt="phone"></Image>
-          <Image src={InstantBooking} alt="instant-booking"></Image>
+          </p>
+          <Image
+            src={PhoneContainer}
+            alt="phone"
+            style={{ cursor: "pointer" }}
+          />
+          <Image
+            src={InstantBooking}
+            alt="instant-booking"
+            style={{ cursor: "pointer" }}
+          />
         </div>
       </div>
-      <hr style={{ border: "1px solid #E5E5E5" }}></hr>
+      <hr style={{ border: "1px solid #E5E5E5" }}></hr> */}
       <div className={styles.headerContainer}>
         <Image
           src={ZweidevsLogo}
           width={180}
-          alt="zweidevs"
+          alt="zweidevsLogo"
           className="animate__animated animate__slideInLeft"
         />
         <div className={styles.contentContainer}>
@@ -155,7 +200,7 @@ function Header() {
         className={styles.headerContainer}
         style={mobileView && { padding: "3%" }}
       >
-        <Image src={ZweidevsLogo} width={180} alt="zweidevs" />
+        <Image src={ZweidevsLogo} width={180} alt="zweidevsDrawer" />
         <Button style={{ color: "#ff9700" }} onClick={toggleDrawer}>
           {" "}
           {drawerOpen ? <CloseIcon /> : <MenuIcon />}

@@ -13,10 +13,16 @@
   color: #2b2a35;
 }
 
+.blogMain{
+  display: flex;
+  justify-content: space-between;
+}
+
 .blogRoot {
   background-color: white;
   padding-inline: 20px;
   padding-top: 20px;
+  padding-left: 40px;
 }
 
 .blogCardContainer {
@@ -54,4 +60,55 @@
   /* or 37px */
 
   color: #2b2a35;
+}
+
+.blogBanner{
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.blogBannerHeading{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 128%;
+  text-align: center;
+  color: #FAFAFA;
+  width: 692px;
+}
+
+.blogButton{
+  margin-top: 2%;
+}
+
+@media screen and (max-width: 590px) {
+
+  .blogMain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .blogArticleHeading{
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .blogCardContainer{
+    margin-left: 30px;
+  }
+
+  .blogBannerHeading{
+    font-size: 28px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+
 }

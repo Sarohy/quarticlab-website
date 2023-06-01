@@ -26,6 +26,7 @@ export const CustomInputField = (props) => {
           "&.Mui-focused fieldset": {
             borderColor: "orange",
             color: "orange",
+            fontFamily: "poppins",
           },
         },
       }}

@@ -1,5 +1,4 @@
 import LoadMoreBtnSvg from "@component/assets/blogIcons";
-import { InstantBookingBanner } from "@component/Components/CommonComponents";
 import BlogCard from "@component/Components/CommonComponents/BlogCard";
 import PageBanner from "@component/Components/CommonComponents/PageBanner";
 import SmallButton from "@component/Components/CommonComponents/SmallButton";
@@ -7,64 +6,21 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import styles from "./blog.module.css";
 import { getApiWithoutAuth } from "../api/api";
+import { Zbutton } from "@component/Components/CommonComponents";
+import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import { CircularProgress } from "@mui/material";
 
 const Blog = () => {
   const smallButtonsData = ["All", "Marketing", "Technology", "Grow"];
   const [filter, setFilter] = useState("All");
-  // const blogDataAPI = [
-  //   {
-  //     image:
-  //       "https://c0.wallpaperflare.com/preview/738/172/52/man-standing-on-edge-of-cliff.jpg",
-  //     title: "Digital Marketing Strategy in 2023",
-  //     description:
-  //       "Technology 1 when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-  //     category: "Technology",
-  //   },
-  //   {
-  //     image:
-  //       "https://c0.wallpaperflare.com/preview/738/172/52/man-standing-on-edge-of-cliff.jpg",
-  //     title: "Best platform for business and productivity",
-  //     description:
-  //       "Technology 2 when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-  //     category: "Technology",
-  //   },
-  //   {
-  //     image:
-  //       "https://c0.wallpaperflare.com/preview/738/172/52/man-standing-on-edge-of-cliff.jpg",
-  //     title: "Social media can growth your business traffic",
-  //     description:
-  //       "grow 2 when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-  //     category: "Grow",
-  //   },
-  //   {
-  //     image:
-  //       "https://c0.wallpaperflare.com/preview/738/172/52/man-standing-on-edge-of-cliff.jpg",
-  //     title: "React New Build is Out",
-  //     description:
-  //       "No Grow An unknown printer took a galley of type and scrambled it. An unknown printer took a galley of type.",
-  //     category: "Grow",
-  //   },
-  //   {
-  //     image:
-  //       "https://c0.wallpaperflare.com/preview/738/172/52/man-standing-on-edge-of-cliff.jpg",
-  //     title: "La la la",
-  //     description:
-  //       "tech desc when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-  //     category: "Technology",
-  //   },
-  //   {
-  //     image:
-  //       "https://c0.wallpaperflare.com/preview/738/172/52/man-standing-on-edge-of-cliff.jpg",
-  //     title: "La la la",
-  //     description:
-  //       "markrting when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-  //     category: "Marketing",
-  //   },
-  // ];
+  const [isLoading, setIsLoading] = useState(true);
   const [blogData, setBlogData] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
+  const animatedHeadingRef = React.useRef(null);
+  const animatedButtonRef = React.useRef(null);
 
   const fetch_data = async () => {
+    setIsLoading(true);
     const resp = await getApiWithoutAuth("blogs/");
     if (resp.data.success) {
       let responseData = resp.data.data;
@@ -76,39 +32,96 @@ const Blog = () => {
             title: item.title,
             description: item.content,
             category: item?.tags[0]?.name,
+            id: item.pk,
           });
         });
         if (dataArray.length > 0) setBlogData(dataArray);
       }
     }
+    setIsLoading(false);
   };
-  useEffect(() => {
-    fetch_data();
-  }, []);
 
   const loadMoreHandler = () => {
     setStartIndex((prevIndex) => prevIndex + 10);
   };
+  const bannerData = {
+    title: "Top Articles",
+    heading: "Everything Your Business Needs Under One Roof",
+    description:
+      "We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences",
+  };
+
+  useEffect(() => {
+    fetch_data();
+  }, []);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__backInUp",
+            "animate_delay-5s"
+          );
+        }
+      });
+    }, options);
+
+    const observer1 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__bounceIn",
+            "animate_delay-5s"
+          );
+        }
+      });
+    }, options);
+
+    if (animatedButtonRef.current) {
+      observer1.observe(animatedButtonRef.current);
+    }
+
+    if (animatedHeadingRef.current) {
+      observer.observe(animatedHeadingRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+      observer1.disconnect();
+    };
+  }, []);
 
   return (
     <div>
-      <PageBanner />
+      <PageBanner {...bannerData} />
       <div className={styles.blogRoot}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <div className={styles.blogArticleHeading}>Latest Article</div>
+        <div className={styles.blogMain}>
+          <h2 className={styles.blogArticleHeading}>Latest Article</h2>
           <SmallButton
             setFilter={setFilter}
             smallButtonsData={smallButtonsData}
           />
         </div>
-        <div className={styles.blogCardContainer}>
-          <BlogCard filter={filter} data={blogData} />
-        </div>
+
+        {isLoading ? (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <CircularProgress />
+          </div>
+        ) : (
+          <div className={styles.blogCardContainer}>
+            <BlogCard filter={filter} data={blogData} />
+          </div>
+        )}
+
         <div className={styles.blogDflex}>
           <Image
             onClick={loadMoreHandler}
@@ -119,9 +132,33 @@ const Blog = () => {
         </div>
       </div>
 
-      <InstantBookingBanner
-        label={"Not FInding the RIght Fit? Stay Connected"}
-      />
+      <div className={styles.blogBanner}>
+        <h2 className={styles.blogBannerHeading} ref={animatedHeadingRef}>
+          Not Finding the Right Fit? Stay Connected
+        </h2>
+        <div className={styles.blogButton} ref={animatedButtonRef}>
+          <Zbutton
+            onClick={""}
+            text="Instant Booking"
+            color="#ff9700"
+            backgroundColor="white"
+            width="227px"
+            orangeShaddow={true}
+            showIcon={false}
+            margin="0px 0px 10px 0px"
+            icon={
+              <ArrowCircleRightOutlinedIcon
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginLeft: "30%",
+                  marginTop: "-2px",
+                }}
+              />
+            }
+          />
+        </div>
+      </div>
     </div>
   );
 };
@@ -129,7 +166,6 @@ const Blog = () => {
 export default Blog;
 
 export async function getStaticProps() {
-  //const { events_categories } = await import('/data/data.json');
   return {
     props: {
       data: [{ image: "jdfksjfsk" }],

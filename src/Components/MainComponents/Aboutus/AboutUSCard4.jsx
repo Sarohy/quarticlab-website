@@ -1,63 +1,89 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { CD4Img, CD4Img1, CD4Img2, CD4Img3 } from "@component/assets/AboutUs";
+import {
+  CD4Img,
+  CD4Img1,
+  CD4Img2,
+  CD4Img3,
+  CD4Founder1,
+  CD4Founder2,
+  CD4Img1Hover,
+  CD4Img2Hover,
+  CD4Img3Hover,
+} from "@component/assets/AboutUs";
 import styles from "./AboutUs.module.css";
 
 const AboutUsCard4 = () => {
-  const [cardKey, setCardKey] = useState(0);
+  const animatedHeadingRef = React.useRef(null);
+  const [hoverState, setHoverState] = useState(false);
+  const [selectImage, setSelectImage] = useState("fb");
+  const [selectKey, setSelectKey] = useState("Abdul Rehman Sarohy");
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate__animated", "animate__backInUp");
+        }
+      });
+    }, options);
+
+    if (animatedHeadingRef.current) {
+      observer.observe(animatedHeadingRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const elements = [
     {
-      img: CD4Img,
-      heading: "Abdulrehman",
+      img: CD4Founder2,
+      heading: "Abdul Rehman Sarohy",
       subHeading: "Co Founder",
       socialM1: CD4Img1,
       socialM2: CD4Img2,
       socialM3: CD4Img3,
+      linkedIN: "https://linkedin.com/in/abdul-rehman-sarohy-0b40b0128",
     },
     {
-      img: CD4Img,
-      heading: "Abdulrehman",
+      img: CD4Founder1,
+      heading: "Ali Zain",
       subHeading: "Co Founder",
       socialM1: CD4Img1,
       socialM2: CD4Img2,
       socialM3: CD4Img3,
-    },
-    {
-      img: CD4Img,
-      heading: "Abdulrehman",
-      subHeading: "Co Founder",
-      socialM1: CD4Img1,
-      socialM2: CD4Img2,
-      socialM3: CD4Img3,
-    },
-    {
-      img: CD4Img,
-      heading: "Abdulrehman",
-      subHeading: "Co Founder",
-      socialM1: CD4Img1,
-      socialM2: CD4Img2,
-      socialM3: CD4Img3,
+      linkedIN: "https:linkedin.com/in/ali-zain-803416116",
     },
   ];
+
   return (
     <>
       <div className={styles.AUCd4Main}>
-        <div>
+        <div ref={animatedHeadingRef}>
           <div className={styles.AUCard4Heading}>
-            <span>Our Team Members</span>{" "}
+            <p>Our Team Members</p>{" "}
             <hr className={styles.AUCard4HeadingLine1} />
             <hr className={styles.AUCard4HeadingLine2} />
           </div>
 
-          <div className={styles.AUCard4SubHeading}>
+          <h2 className={styles.AUCard4SubHeading}>
             Our Expertise Will Help You
-          </div>
-          <div className={styles.AUCard4Text}>
-            Together we are smarter than each of us. We disagree passionately,
-            learn continuously, and commit relentlessly as we lead our team
-            towards becoming the most preferred tech partner for our growing set
-            of clients.
-          </div>
+          </h2>
+          <p className={styles.AUCard4Text}>
+            Collectively, we possess a greater intellect than any one of us
+            individually. We engage in passionate debates, embrace ongoing
+            learning, and exhibit unwavering dedication as we guide our team
+            towards establishing ourselves as the foremost technology partner
+            for our expanding roster of clients.
+          </p>
         </div>
 
         <div className={styles.AUCd4CardsContainer}>
@@ -67,8 +93,7 @@ const AboutUsCard4 = () => {
                 <div
                   className={styles.AUCd4Cards}
                   style={{ marginLeft: index != 0 ? "30px" : "" }}
-                  key={index}
-                  onClick={() => setCardKey(index)}
+                  key={item.heading}
                 >
                   <div>
                     <Image
@@ -77,38 +102,86 @@ const AboutUsCard4 = () => {
                       className={styles.AUCd4Img}
                     />
                   </div>
-                  <div className={styles.AUCdCardHeading}>{item.heading}</div>
-                  <div className={styles.AUCdCardSubHeading}>
+                  <h3 className={styles.AUCdCardHeading}>{item.heading}</h3>
+                  <h4 className={styles.AUCdCardSubHeading}>
                     {item.subHeading}
-                  </div>
+                  </h4>
                   <div className={styles.AUCd4SocialContainer}>
-                    <div
-                      className={
-                        cardKey == index
-                          ? styles.AUCd4SocialSelected
-                          : styles.AUCd4Social
-                      }
+                    <a
+                      key={"insta"}
+                      className={styles.AUCd4Social}
+                      href="https://www.instagram.com/zweidevs.official"
+                      target="_blank"
+                      onMouseEnter={() => {
+                        setHoverState(true);
+                        setSelectImage("insta");
+                        setSelectKey(item.heading);
+                      }}
+                      onMouseLeave={() => setHoverState(false)}
                     >
-                      <Image src={item.socialM1} alt="zweidevs" />
-                    </div>
-                    <div
-                      className={
-                        cardKey == index
-                          ? styles.AUCd4SocialSelected
-                          : styles.AUCd4Social
-                      }
+                      <Image
+                        width={42}
+                        height={42}
+                        src={
+                          hoverState &&
+                          selectImage === "insta" &&
+                          selectKey === item.heading
+                            ? CD4Img1Hover
+                            : item.socialM1
+                        }
+                        alt={"social-icon"}
+                      />
+                    </a>
+                    <a
+                      className={styles.AUCd4Social}
+                      href="https://www.facebook.com/zweidevs"
+                      target="_blank"
+                      key={"fb"}
+                      onMouseEnter={() => {
+                        setSelectImage("fb");
+                        setHoverState(true);
+                        setSelectKey(item.heading);
+                      }}
+                      onMouseLeave={() => setHoverState(false)}
                     >
-                      <Image src={item.socialM2} alt="zweidevs" />
-                    </div>
-                    <div
-                      className={
-                        cardKey == index
-                          ? styles.AUCd4SocialSelected
-                          : styles.AUCd4Social
-                      }
+                      <Image
+                        width={42}
+                        height={42}
+                        src={
+                          hoverState &&
+                          selectImage === "fb" &&
+                          selectKey === item.heading
+                            ? CD4Img2Hover
+                            : item.socialM2
+                        }
+                        alt={"social-icon-two"}
+                      />
+                    </a>
+                    <a
+                      className={styles.AUCd4Social}
+                      href={item.linkedIN}
+                      target="_blank"
+                      key={"linkedIn"}
+                      onMouseEnter={() => {
+                        setSelectImage("linkedIn");
+                        setHoverState(true);
+                        setSelectKey(item.heading);
+                      }}
+                      onMouseLeave={() => setHoverState(false)}
                     >
-                      <Image src={item.socialM3} alt="zweidevs" />
-                    </div>
+                      <Image
+                        width={42}
+                        height={42}
+                        src={
+                          hoverState &&
+                          selectImage === "linkedIn" &&
+                          selectKey === item.heading
+                            ? CD4Img3Hover
+                            : item.socialM3
+                        }
+                        alt={"social-icon-three"}
+                      />
+                    </a>
                   </div>
                 </div>
               </>
