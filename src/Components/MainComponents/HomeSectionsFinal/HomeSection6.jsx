@@ -65,7 +65,7 @@ function HomeSection6({ handleButtonClick }) {
             <div className={styles.circularbar}>
               <img src="/HomeIcons/HS6-circularbar.svg" />
             </div>
-            <a href="" className={styles.deg0}>
+            <a className={styles.deg0}>
               <Image
                 src="/HomeIcons/HS6-customer.svg"
                 alt="zweidevs"
@@ -73,7 +73,7 @@ function HomeSection6({ handleButtonClick }) {
                 height={300}
               />
             </a>
-            <a href="" className={styles.deg45}>
+            <a className={styles.deg45}>
               <Image
                 src="/HomeIcons/HS6-funds.svg"
                 alt="zweidevs"
@@ -81,7 +81,7 @@ function HomeSection6({ handleButtonClick }) {
                 height={300}
               />
             </a>
-            <a href="" className={styles.deg90}>
+            <a className={styles.deg90}>
               <Image
                 src="/HomeIcons/HS6-team.svg"
                 alt="zweidevs"
@@ -89,7 +89,7 @@ function HomeSection6({ handleButtonClick }) {
                 height={300}
               />
             </a>
-            <a href="" className={styles.deg135}>
+            <a className={styles.deg135}>
               <Image
                 src="/HomeIcons/HS6-search.svg"
                 alt="zweidevs"
@@ -97,7 +97,7 @@ function HomeSection6({ handleButtonClick }) {
                 height={300}
               />
             </a>
-            <a href="" className={styles.deg180}>
+            <a className={styles.deg180}>
               <Image
                 src="/HomeIcons/projects-completed.svg"
                 alt="zweidevs"

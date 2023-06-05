@@ -1,19 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./HomeSection.module.css";
 import { HSImg2, HSLogo, HSImg1 } from "@component/assets/HomeIcons";
 import { Zbutton } from "@component/Components/CommonComponents";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import InstantBookingIcon from "../../../assets/HomeIcons/HS1-InstantBooking.svg";
 import "animate.css";
 import { useRouter } from "next/router";
 
 function HomeSection1() {
   const router = useRouter();
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
   return (
     <>
       <div className={styles.HS1Background}>
         <div className={`${styles.HS1HeaderImage} `}>
-          <Image className={styles.HS1Img1Height} src={HSImg1} alt={"client-image"} />
+          <Image
+            className={styles.HS1Img1Height}
+            src={HSImg1}
+            alt={"client-image"}
+          />
         </div>
         <div className={`${styles.HS1ContentContainer}`}>
           <div className="animate__delay-1s animate__animated animate__zoomIn">
@@ -64,14 +78,28 @@ function HomeSection1() {
                 showIcon={false}
                 margin="0px 0px 10px 0px"
                 icon={
-                  <ArrowCircleRightOutlinedIcon
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      marginLeft: "-13px",
-                    }}
-                  />
+                  isHovered ? (
+                    <ArrowCircleRightOutlinedIcon
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginLeft: "-13px",
+                      }}
+                    />
+                  ) : (
+                    <Image
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginLeft: "-13px",
+                        width: "20px",
+                      }}
+                      src={InstantBookingIcon}
+                    />
+                  )
                 }
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               />
             </div>
           </div>
@@ -84,7 +112,11 @@ function HomeSection1() {
           </div>
         </div>
         <div className={styles.HS1FooterImage}>
-          <Image className={styles.HS1Img2Height} src={HSImg2} alt={"footer-icon"} />
+          <Image
+            className={styles.HS1Img2Height}
+            src={HSImg2}
+            alt={"footer-icon"}
+          />
         </div>
       </div>
     </>

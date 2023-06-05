@@ -23,10 +23,10 @@ const FooterServices = () => {
       <div ref={observerRef}>
         <div ref={ref} className="animate__delay-1s">
           <h3>What We Do</h3>
-          <div className={styles.footerLinesContainerService}>
+          {/* <div className={styles.footerLinesContainerService}>
             <hr className={styles.footerLine1} />
             <hr className={styles.footerLine2} />
-          </div>
+          </div> */}
           <div className={styles.footerServicesItemsContainer}>
             <Grid container spacing={2.5} xl={10}>
               {navLinks.map(({ href, text }, index) => (

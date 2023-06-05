@@ -45,7 +45,7 @@ const AboutUsCard4 = () => {
 
   const elements = [
     {
-      img: CD4Founder2,
+      img: "https://zweidevs-internal-prod.s3.ap-south-1.amazonaws.com/assets/Sarohy.svg",
       heading: "Abdul Rehman Sarohy",
       subHeading: "Co Founder",
       socialM1: CD4Img1,
@@ -54,7 +54,7 @@ const AboutUsCard4 = () => {
       linkedIN: "https://linkedin.com/in/abdul-rehman-sarohy-0b40b0128",
     },
     {
-      img: CD4Founder1,
+      img: "https://zweidevs-internal-prod.s3.ap-south-1.amazonaws.com/assets/Ali.svg",
       heading: "Ali Zain",
       subHeading: "Co Founder",
       socialM1: CD4Img1,
@@ -100,6 +100,8 @@ const AboutUsCard4 = () => {
                       src={item.img}
                       alt="zweidevs"
                       className={styles.AUCd4Img}
+                      width={125}
+                      height={125}
                     />
                   </div>
                   <h3 className={styles.AUCdCardHeading}>{item.heading}</h3>

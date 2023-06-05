@@ -13,21 +13,21 @@ const otherItems = [
     elements: [
       {
         img: HS3Img,
-        content: "Mudassir Malik",
+        content: "Theresa",
         details:
-          "We had a very complex task which they were able to build for us. They overcame many of the challenges that we faced along the way and were able to deliver a complete and functional software a week ahead of the deadline",
+        "Amazing team to work with! Great at research, development, and finding new solutions. They are experienced and talented. They were also quite cooperative. Thanks!"
       },
       {
         img: HS5Img2,
-        content: "Kyle",
+        content: "Rishi Sareen",
         details:
-          "Zweidevs has been great to work with. They follow a solid Agile process so all development work is well planned and clearly priced. Their code is solid and the end result was top notch!",
+        "Team was organized and communicated well. Project was completed professionally and I would hire them again for future projects!"
       },
       {
         img: HS5Img3,
-        content: "Radu",
+        content: "Nick Angelov",
         details:
-          "I found Zweidevs Team very professional and hard working. They just didn't only develop my web app but actually guided me as well through different phases. Thank you will definitely use your services again",
+        "Zweidevs met our expectations. They were consistently professional and flexible and delivered a product that provides us with a high-quality base from which to move forward. I would use them again."
       },
     ],
   },
@@ -36,21 +36,21 @@ const otherItems = [
     elements: [
       {
         img: HS5Img1,
-        content: "Mudassir",
+        content: "Anton Benz",
         details:
-          "We had a very complex task which they were able to build for us. They overcame many of the challenges that we faced along the way and were able to deliver a complete and functional software a week ahead of the deadline",
+        "Excellent to work with. Will hire them again and will recommend them to anyone looking for great work."
       },
       {
         img: HS5Img2,
-        content: "Adbul Rehman",
+        content: "Tony Malik",
         details:
-          "Zweidevs has been great to work with. They follow a solid Agile process so all development work is well planned and clearly priced. Their code is solid and the end result was top notch!",
+        "The team at Zweidevs has extensive knowledge of the work we requested. We have worked with them for over 5-6 months and have been very happy with production. We will hire them again soon. They are our go to people when it comes to software development."
       },
       {
         img: HS5Img3,
-        content: "Ali Zain",
+        content: "Tommy Vacek",
         details:
-          "I found Zweidevs Team very professional and hard working. They just didn't only develop my web app but actually guided me as well through different phases. Thank you will definitely use your services again",
+        "The team at Zweidevs did a really good job of scoping the project out. We had the scope of our project increase due to learning more about our product space which caused some re-work but this is nothing that Zweidevs could prevent."
       },
     ],
   },
@@ -59,21 +59,21 @@ const otherItems = [
     elements: [
       {
         img: HS5Img1,
-        content: "Mudassir",
+        content: "Eric Halverson",
         details:
-          "We had a very complex task which they were able to build for us. They overcame many of the challenges that we faced along the way and were able to deliver a complete and functional software a week ahead of the deadline",
+        "They built out the framework for my MVP of a Real Estate website on time, on budget, and with the features requested. Weekly demos kept me informed of progress and all interactions were very friendly. Would work with again."
       },
       {
         img: HS5Img2,
-        content: "Adbul Rehman",
+        content: "Phil Stolaronek",
         details:
-          "Zweidevs has been great to work with. They follow a solid Agile process so all development work is well planned and clearly priced. Their code is solid and the end result was top notch!",
+        "This team is really good to work with. Their communication is great and their English is very good. I recommend them."
       },
       {
         img: HS5Img3,
-        content: "Ali Zain",
+        content: "Farzin Habib",
         details:
-          "I found Zweidevs Team very professional and hard working. They just didn't only develop my web app but actually guided me as well through different phases. Thank you will definitely use your services again",
+        "They pointed out the areas that we had missed thinking about"
       },
     ],
   },
@@ -85,9 +85,9 @@ const mobItems = [
     elements: [
       {
         img: HS3Img,
-        content: "Mudassir Malik",
+        content: "Theresa",
         details:
-          "We had a very complex task which they were able to build for us. They overcame many of the challenges that we faced along the way and were able to deliver a complete and functional software a week ahead of the deadline",
+        "Amazing team to work with! Great at research, development, and finding new solutions. They are experienced and talented. They were also quite cooperative. Thanks!"
       },
     ],
   },
@@ -96,9 +96,9 @@ const mobItems = [
     elements: [
       {
         img: HS3Img,
-        content: "Mujtaba",
+        content: "Rishi Sareen",
         details:
-          "We had a very complex task which they were able to build for us. They overcame many of the challenges that we faced along the way and were able to deliver a complete and functional software a week ahead of the deadline",
+        "Team was organized and communicated well. Project was completed professionally and I would hire them again for future projects!"
       },
     ],
   },
@@ -107,9 +107,9 @@ const mobItems = [
     elements: [
       {
         img: HS3Img,
-        content: "usman",
+        content: "Nick Angelov",
         details:
-          "We had a very complex task which they were able to build for us. They overcame many of the challenges that we faced along the way and were able to deliver a complete and functional software a week ahead of the deadline",
+        "Zweidevs met our expectations. They were consistently professional and flexible and delivered a product that provides us with a high-quality base from which to move forward. I would use them again."
       },
     ],
   },
@@ -253,8 +253,8 @@ function HomeSection5() {
       <div className={styles.HS5MainContainer}>
         <div>
           <div className={styles.HS5Heading} ref={animatedDivRefs[0]}>
-            <p>Client Feedback</p> <hr className={styles.HS3ContentLine1} />
-            <hr className={styles.HS3ContentLine2} />
+            {/* <p>Client Feedback</p> <hr className={styles.HS3ContentLine1} />
+            <hr className={styles.HS3ContentLine2} /> */}
           </div>
         </div>
         <h2 className={styles.HS5SubHeading} ref={animatedDivRefs[1]}>
@@ -264,6 +264,7 @@ function HomeSection5() {
           swipe={true}
           className={styles.HS5Carousel}
           duration={1000}
+          interval={2000}
           indicatorIconButtonProps={{
             style: {
               marginTop: "7%",

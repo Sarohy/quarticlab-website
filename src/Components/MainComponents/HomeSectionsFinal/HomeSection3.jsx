@@ -78,8 +78,8 @@ function HomeSection3({ handleButtonClick }) {
         <div className={styles.HS3ContentContainer}>
           <div className={styles.HS3TabContainer}>
             <div className={styles.HS3ContentHeading} ref={animatedDivRefs[0]}>
-              <p>About Us</p> <hr className={styles.HS3ContentLine1} />
-              <hr className={styles.HS3ContentLine2} />
+              {/* <p>About Us</p> <hr className={styles.HS3ContentLine1} />
+              <hr className={styles.HS3ContentLine2} /> */}
             </div>
             <h2 className={styles.HS3ContentText} ref={animatedDivRefs[1]}>
               Work With Top Notch Designers And Developers To Get Amazing
@@ -96,13 +96,13 @@ function HomeSection3({ handleButtonClick }) {
             <div className={styles.HS3ContactContainer}>
               <Zbutton
                 onClick={() => {
-                  router.push("/aboutUs");
+                  router.push("/aboutus");
                 }}
                 text="Explore More"
                 color="orange"
                 backgroundColor="#F9F9F9"
                 width="180px"
-                greyShaddow={true}
+                // greyShaddow={true}
                 showIcon={false}
               />
             </div>

@@ -134,10 +134,10 @@ function HomeSection2() {
     <>
       <div className={styles.HS2MainContainer}>
         <div className={styles.HS2ContentContainer} ref={animatedDivRefs[0]}>
-          <div className={styles.HS2Heading}>
+          {/* <div className={styles.HS2Heading}>
             <p>Our Services</p> <hr className={styles.HS3ContentLine1} />
             <hr className={styles.HS3ContentLine2} />
-          </div>
+          </div> */}
         </div>
         <div className={styles.HS2SubHeadContainer}>
           <h2 className={`${styles.HS2SubHeading}`} ref={animatedDivRefs[1]}>
@@ -151,8 +151,8 @@ function HomeSection2() {
                 });
               }}
               text="See All"
-              color="white"
-              backgroundColor="#FF9700"
+              color="#FF9700"
+              // backgroundColor="#FF9700"
               width="172px"
               height="55px"
               whiteShaddow={true}

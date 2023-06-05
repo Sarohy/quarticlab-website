@@ -49,8 +49,8 @@ function HomeSection7({ handleButtonClick }) {
         <h2 className={styles.HS7Heading} ref={animatedDivRefs}>
           Technologies We Work With
         </h2>
-        <div className={styles.HS7ImagesContainer}>
-          <div className={styles.HS7ImgContainer}>
+        <div className={`${styles.slidertechcont} ${styles.slidertechcontimg}`}>
+          {/* <div className={styles.HS7ImgContainer}>
             <Image
               className={styles.HS7Image}
               src={HS7Img1}
@@ -72,7 +72,7 @@ function HomeSection7({ handleButtonClick }) {
               alt="sqLite-icon"
             />
             <Image className={styles.HS7Image} src={HS7Img9} alt="unity-icon" />
-          </div>
+          </div> */}
         </div>
       </div>
     </>

@@ -18,6 +18,11 @@ function Zbutton({
   text,
   onClick,
   icon,
+  onMouseEnter,
+  onMouseLeave,
+  position,
+  top,
+  left,
 }) {
   const buttonStyle = {
     backgroundColor,
@@ -26,6 +31,9 @@ function Zbutton({
     height,
     padding,
     margin,
+    position,
+    top,
+    left,
   };
 
   return (
@@ -41,6 +49,8 @@ function Zbutton({
           ? styles.greyShaddow
           : styles.zButton
       }`}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       {showIcon && <ArrowRightAltIcon />}
       <span>{text}</span>

@@ -29,6 +29,17 @@ function HomeSection4() {
       title: "Hooked Health",
       content:
         "Hooked Health is a mobile application which enables the users to enjoy a leaner, healthier body through a 15-minute no-equipment workouts ",
+        button: <Zbutton
+        onClick={() => {
+          router.push("/projects");
+        }}
+        text="Request Demo"
+        color="orange"
+        backgroundColor="transparent"
+        width="160px"
+        showIcon={false}
+        margin="0 0 0 auto"
+      />
     },
     {
       index: 2,
@@ -36,6 +47,17 @@ function HomeSection4() {
       title: "AudioCardio",
       content:
         "AudioCardio is an evidence-based mobile app that delivers inaudible sound therapies designed to maintain and strengthen your hearing while providing relief from tinnitus by stimulating the cells inside your ear",
+        button: <Zbutton
+        onClick={() => {
+          router.push("/projects");
+        }}
+        text="Request Demo"
+        color="orange"
+        backgroundColor="transparent"
+        width="160px"
+        showIcon={false}
+        margin="0 0 0 auto"
+      />
     },
     {
       index: 3,
@@ -43,6 +65,17 @@ function HomeSection4() {
       title: "Seated",
       content:
         "Seated is a platform which enables the users to Make Reservations at Local Restaurants so that they can earn back on every dollar that the users spend at the restaurant",
+        button: <Zbutton
+        onClick={() => {
+          router.push("/projects");
+        }}
+        text="Request Demo"
+        color="orange"
+        backgroundColor="transparent"
+        width="160px"
+        showIcon={false}
+        margin="0 0 0 auto"
+      />
     },
   ]);
 
@@ -53,6 +86,17 @@ function HomeSection4() {
       title: "Hooked Health",
       content:
         "Hooked Health is a mobile application which enables the users to enjoy a leaner, healthier body through a 15-minute no-equipment workouts ",
+      button: <Zbutton
+      onClick={() => {
+        router.push("/projects");
+      }}
+      text="Request Demo"
+      color="orange"
+      backgroundColor="transparent"
+      width="160px"
+        showIcon={false}
+        margin="0 0 0 auto"
+    />
     },
     {
       index: 2,
@@ -60,6 +104,17 @@ function HomeSection4() {
       title: "AudioCardio",
       content:
         "AudioCardio is an evidence-based mobile app that delivers inaudible sound therapies designed to maintain and strengthen your hearing while providing relief from tinnitus by stimulating the cells inside your ear",
+        button: <Zbutton
+        onClick={() => {
+          router.push("/projects");
+        }}
+        text="Request Demo"
+        color="orange"
+        backgroundColor="transparent"
+        width="160px"
+        showIcon={false}
+        margin="0 0 0 auto"
+      />
     },
     {
       index: 3,
@@ -67,6 +122,17 @@ function HomeSection4() {
       title: "Seated",
       content:
         "Seated is a platform which enables the users to Make Reservations at Local Restaurants so that they can earn back on every dollar that the users spend at the restaurant",
+        button: <Zbutton
+        onClick={() => {
+          router.push("/projects");
+        }}
+        text="Request Demo"
+        color="orange"
+        backgroundColor="transparent"
+        width="160px"
+        showIcon={false}
+        margin="0 0 0 auto"
+      />
     },
     {
       index: 4,
@@ -74,13 +140,35 @@ function HomeSection4() {
       title: "Public Trust",
       content:
         "Public Trust Realty Group is a web-based platform that enables the users to search for a property and buy/rent a property",
+        button: <Zbutton
+        onClick={() => {
+          router.push("/projects");
+        }}
+        text="Request Demo"
+        color="orange"
+        backgroundColor="transparent"
+        width="160px"
+        showIcon={false}
+        margin="0 0 0 auto"
+      />
     },
     {
       index: 5,
       image: Project6_Image1,
       title: "Fresh Tracks",
       content:
-      "FreshTracks is a web based portal for the travelers planning to travel across Canada where they can view personalized travel plans."
+      "FreshTracks is a web based portal for the travelers planning to travel across Canada where they can view personalized travel plans.",
+      button: <Zbutton
+      onClick={() => {
+        router.push("/projects");
+      }}
+      text="Request Demo"
+      color="orange"
+      backgroundColor="transparent"
+      width="160px"
+        showIcon={false}
+        margin="0 0 0 auto"
+    />
     },
     {
       index: 6,
@@ -88,6 +176,17 @@ function HomeSection4() {
       title: "Humanava",
       content:
         "Humanava is a web based Edtech platform, which provides Interactive, highly engaging courses for everyone in an organization.",
+        button: <Zbutton
+        onClick={() => {
+          router.push("/projects");
+        }}
+        text="Request Demo"
+        color="orange"
+        backgroundColor="transparent"
+        width="160px"
+        showIcon={false}
+        margin="0 0 0 auto"
+      />
     },
   ];
 
@@ -95,7 +194,7 @@ function HomeSection4() {
     if (startIndex == 0) setStartIndex(3);
     else setStartIndex(startIndex - 1);
     let dataArr = [];
-    for (let index = startIndex; index < startIndex + 3; index++) {
+    for (let index = startIndex; index < startIndex + 4; index++) {
       dataArr.push(projectData[index]);
     }
     setProjectArray(dataArr);
@@ -162,10 +261,10 @@ function HomeSection4() {
           className={styles.HS4ContentHeadingContainer}
           ref={animatedDivRefs[0]}
         >
-          <div className={styles.HS4Heading}>
+          {/* <div className={styles.HS4Heading}>
             <p>Our Experiences</p> <hr className={styles.HS3ContentLine1} />
             <hr className={styles.HS3ContentLine2} />
-          </div>
+          </div> */}
         </div>
 
         <div className={styles.HS4ContentSubHeadingContainer}>
@@ -179,9 +278,8 @@ function HomeSection4() {
               }}
               text="Checkout More Projects"
               color="orange"
-              backgroundColor="#F9F9F9"
+              backgroundColor="transparent"
               width="305px"
-              greyShaddow={true}
               showIcon={false}
             />
           </div>
@@ -201,11 +299,12 @@ function HomeSection4() {
                     alt={item.title}
                     className={styles.HS4CardImage}
                   />
-                  <CardContent>
+                  <CardContent className={styles.HS4BelowContainer}>
                     <h2 className={styles.HSCardTitle}>{item.title}</h2>
                     <p className={styles.HS4CardContent}>{item.content}</p>
                   </CardContent>
                 </CardActionArea>
+                {item.button}
               </Card>
             );
           })}

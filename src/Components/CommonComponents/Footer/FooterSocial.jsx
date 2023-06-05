@@ -66,10 +66,10 @@ const FooterSocial = () => {
         <div ref={ref} className="animate__delay-1s">
           <h3>Social Media Links</h3>
 
-          <div className={styles.footerLinesContainerSocial}>
+          {/* <div className={styles.footerLinesContainerSocial}>
             <hr className={styles.footerLine1} />
             <hr className={styles.footerLine2} />
-          </div>
+          </div> */}
           <div className={styles.imageSocialMain}>
             <div className={styles.imageSocialContainer}>
               {socialMediaData &&
