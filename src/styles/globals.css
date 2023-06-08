@@ -39,7 +39,22 @@
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
 }
+.HS8Phone-number-input {
+  margin-left: 42vw !important;
+  width: 38vw !important;
+  color: black !important;
+  height: 56px !important;
+  border-radius: 4px !important;
+}
+.HS8Phone-country-dropdown{
+color: #000 !important;
+}
+.react-tel-input .flag-dropdown{
+  width: 38vw !important;
+background-color: #fff !important;
+border-radius: 4px !important;
 
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

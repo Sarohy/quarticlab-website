@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./HomeSection.module.css";
 import PhoneInput from "react-phone-input-2";
 import { TextField, Button, FormLabel } from "@mui/material";
-// import "react-phone-input-2/lib/style.css";
+import "react-phone-input-2/lib/style.css";
 
 function HomeSection8({ handleButtonClick }) {
   const [formValues, setFormValues] = useState({
@@ -13,9 +13,9 @@ function HomeSection8({ handleButtonClick }) {
     description: "",
   });
   const [phoneNumber, setPhoneNumber] = useState("+92");
+  const [countryName, setCountryName] = useState();
   const animatedDivRefs = React.useRef(null);
   const animatedLabelRefs = Array.from({ length: 5 }, () => React.useRef(null));
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormValues({
@@ -27,14 +27,13 @@ function HomeSection8({ handleButtonClick }) {
   const handleSubmit = () => {
     console.log(formValues);
   };
-
   useEffect(() => {
     const options = {
       root: null,
       rootMargin: "0px",
       threshold: 0.5,
     };
-    console.log("Phone number===>", phoneNumber);
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -163,6 +162,27 @@ function HomeSection8({ handleButtonClick }) {
               </div>
             </div>
 
+            <div className={styles.HS8InputContainer} style={{position:"relative"}}>
+              <FormLabel
+                required
+                className={styles.HS8FormLabel}
+                ref={animatedLabelRefs[2]}
+              >
+                Contact Number
+              </FormLabel>
+              <PhoneInput
+                country={"pk"}
+                value={phoneNumber}
+                containerClass="HS8Phone-number"
+                inputClass="HS8Phone-number-input"
+                dropdownClass="HS8Phone-country-dropdown"
+                onChange={(phone, country) => {
+                  setPhoneNumber(phone);
+                  setCountryName(country.name);
+                }}
+              />
+              <div className={styles.HS8CountryName}> {countryName}</div>
+            </div>
             <div className={styles.HS8InputAreaContainer}>
               <FormLabel
                 required
@@ -183,11 +203,7 @@ function HomeSection8({ handleButtonClick }) {
                 style={{ fontFamily: "Poppins" }}
                 className={styles.HS8TextArea}
               />
-              {/* <PhoneInput
-                country={"pk"}
-                value={phoneNumber}
-                onChange={(phone) => setPhoneNumber(phone)}
-              /> */}
+
               <div className={styles.HS8ButtonContainer}>
                 <Button
                   className={styles.HS8Button}

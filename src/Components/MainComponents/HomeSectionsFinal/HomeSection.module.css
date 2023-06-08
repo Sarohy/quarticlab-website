@@ -950,6 +950,13 @@
     width: 20px;
   }
 }
+.HS8CountryName{
+  color: #000;
+  position: absolute;
+  top: 58%;
+  left:15%
+}
+
 
 @media screen and (max-width: 590px) {
   .since10 {
