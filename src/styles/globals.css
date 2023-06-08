@@ -40,21 +40,65 @@
   --card-border-rgb: 131, 134, 135;
 }
 .HS8Phone-number-input {
+  border: 2px solid #bcbcbc !important;
   margin-left: 42vw !important;
   width: 38vw !important;
   color: black !important;
   height: 56px !important;
   border-radius: 4px !important;
 }
-.HS8Phone-country-dropdown{
-color: #000 !important;
+.HS8Phone-number-input:hover {
+  border: 1px solid black !important;
 }
-.react-tel-input .flag-dropdown{
-  width: 38vw !important;
-background-color: #fff !important;
-border-radius: 4px !important;
 
+.HS8Phone-number-input:focus {
+  border: 2px solid orange !important;
 }
+
+.HS8Phone-country-dropdown {
+  color: #000 !important;
+  width:100% !important
+}
+.react-tel-input .flag-dropdown {
+  width: 38vw !important;
+  background-color: #fff !important;
+  border-radius: 4px !important;
+  border: 2px solid #bcbcbc !important;
+}
+.react-tel-input .flag-dropdown:hover {
+  border: 1px solid black !important;
+}
+
+.selected-flag {
+  /* border: 2px solid blue !important; */
+  border-radius: 4px !important;
+  width: 100% !important;
+}
+
+.react-tel-input .form-control {
+  padding-left: 15px !important;
+}
+
+.react-tel-input .selected-flag{
+  padding-left: 15px !important;
+}
+
+@media screen and (max-width: 900px) {
+  .HS8Phone-number-input {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+  .react-tel-input .form-control {
+    margin-top: 80px !important;
+  }
+  .react-tel-input {
+    height: 56px !important;
+  }
+  .react-tel-input .flag-dropdown {
+    width: 100% !important;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -208,7 +252,7 @@ a {
   margin: 20px;
   box-sizing: border-box;
   height: 300px;
-  width: auto; 
+  width: auto;
   padding: 20px;
   background: #ffffff;
   border: 1px solid #d9d9d9;
@@ -350,16 +394,14 @@ a {
   color: black;
   border-radius: 2px;
   font-family: poppins;
-
 }
 
-.workProgress{
+.workProgress {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
- 
 }
 
 .MuiCircularProgress-colorPrimary {
@@ -424,12 +466,12 @@ a {
   align-items: center;
 }
 
-.HomeSection_HS8MainContainer__dxEcI{
+.HomeSection_HS8MainContainer__dxEcI {
   width: 100%;
   background: rgba(243, 243, 243);
   display: flex;
   align-items: center;
-  flex-direction: column;  
+  flex-direction: column;
 }
 
 @media screen and (max-width: 960px) {
@@ -479,15 +521,14 @@ a {
 }
 
 .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
-font-family: poppins !important;
+  font-family: poppins !important;
 }
 
 .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill {
   font-family: poppins !important;
-
 }
 
-.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
   font-family: poppins !important;
 }
 
@@ -496,10 +537,9 @@ font-family: poppins !important;
 }
 
 .css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input {
-
   font-family: poppins !important;
 }
 
 .css-1g60ihl-MuiFormControl-root-MuiTextField-root .MuiOutlinedInput-root {
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }

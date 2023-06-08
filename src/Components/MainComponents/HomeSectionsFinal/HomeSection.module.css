@@ -739,6 +739,12 @@
   width: 100%;
 }
 
+@media screen and (max-width:900px) {
+  .HS8InputAreaContainer{
+    margin-top: 100px;
+  }
+}
+
 .HS8InputField {
   border: 1px solid #bcbcbc;
   border-radius: 4px;

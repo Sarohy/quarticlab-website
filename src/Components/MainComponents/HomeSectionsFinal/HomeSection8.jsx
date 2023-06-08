@@ -121,7 +121,7 @@ function HomeSection8({ handleButtonClick }) {
                 />
               </div>
             </div>
-            <div className={styles.HS8InputFieldContainer}>
+            <div style={{ display: "none" }} className={styles.HS8InputFieldContainer}>
               <div className={styles.HS8InputContainer}>
                 <FormLabel
                   required
