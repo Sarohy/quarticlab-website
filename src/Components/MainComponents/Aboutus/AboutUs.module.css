@@ -554,3 +554,11 @@
 
 
 }
+
+.btnThreeCustomColor::after {
+    border: 1px solid white !important;
+  }
+  
+  .btnThreeCustomColor::before {
+    background-color: white !important;
+  }

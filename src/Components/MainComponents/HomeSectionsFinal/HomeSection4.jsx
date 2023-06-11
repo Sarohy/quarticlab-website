@@ -19,65 +19,9 @@ import styles from "./HomeSection.module.css";
 
 function HomeSection4() {
   const router = useRouter();
-  const animatedDivRefs = Array.from({ length: 2 }, () => React.useRef(null));
+  const animatedDivRefs = Array.from({ length: 1 }, () => React.useRef(null));
   const animatedCardRefs = Array.from({ length: 3 }, () => React.useRef(null));
   const [startIndex, setStartIndex] = useState(1);
-  const [projectArray, setProjectArray] = useState([
-    {
-      index: 1,
-      image: Project1_Image1,
-      title: "Hooked Health",
-      content:
-        "Hooked Health is a mobile application which enables the users to enjoy a leaner, healthier body through a 15-minute no-equipment workouts ",
-        button: <Zbutton
-        onClick={() => {
-          router.push("/projects");
-        }}
-        text="Request Demo"
-        color="orange"
-        backgroundColor="transparent"
-        width="160px"
-        showIcon={false}
-        margin="0 0 0 auto"
-      />
-    },
-    {
-      index: 2,
-      image: Project2_Image1,
-      title: "AudioCardio",
-      content:
-        "AudioCardio is an evidence-based mobile app that delivers inaudible sound therapies designed to maintain and strengthen your hearing while providing relief from tinnitus by stimulating the cells inside your ear",
-        button: <Zbutton
-        onClick={() => {
-          router.push("/projects");
-        }}
-        text="Request Demo"
-        color="orange"
-        backgroundColor="transparent"
-        width="160px"
-        showIcon={false}
-        margin="0 0 0 auto"
-      />
-    },
-    {
-      index: 3,
-      image: Project3_Image1,
-      title: "Seated",
-      content:
-        "Seated is a platform which enables the users to Make Reservations at Local Restaurants so that they can earn back on every dollar that the users spend at the restaurant",
-        button: <Zbutton
-        onClick={() => {
-          router.push("/projects");
-        }}
-        text="Request Demo"
-        color="orange"
-        backgroundColor="transparent"
-        width="160px"
-        showIcon={false}
-        margin="0 0 0 auto"
-      />
-    },
-  ]);
 
   const projectData = [
     {
@@ -87,16 +31,16 @@ function HomeSection4() {
       content:
         "Hooked Health is a mobile application which enables the users to enjoy a leaner, healthier body through a 15-minute no-equipment workouts ",
       button: <Zbutton
-      onClick={() => {
-        router.push("/projects");
-      }}
-      text="Request Demo"
-      color="orange"
-      backgroundColor="transparent"
-      width="160px"
+        onClick={() => {
+          router.push("/projects");
+        }}
+        mainContainerStyle={{ display: "flex", justifyContent: "flex-end", padding: "0 10px" }}
+        text="Request Demo"
+        color="white"
+        hoverColor="#ff9700"
+        width="max-content"
         showIcon={false}
-        margin="0 0 0 auto"
-    />
+      />
     },
     {
       index: 2,
@@ -104,16 +48,16 @@ function HomeSection4() {
       title: "AudioCardio",
       content:
         "AudioCardio is an evidence-based mobile app that delivers inaudible sound therapies designed to maintain and strengthen your hearing while providing relief from tinnitus by stimulating the cells inside your ear",
-        button: <Zbutton
+      button: <Zbutton
         onClick={() => {
           router.push("/projects");
         }}
+        mainContainerStyle={{ display: "flex", justifyContent: "flex-end", padding: "0 10px" }}
         text="Request Demo"
-        color="orange"
-        backgroundColor="transparent"
-        width="160px"
+        color="white"
+        hoverColor="#ff9700"
+        width="max-content"
         showIcon={false}
-        margin="0 0 0 auto"
       />
     },
     {
@@ -122,16 +66,16 @@ function HomeSection4() {
       title: "Seated",
       content:
         "Seated is a platform which enables the users to Make Reservations at Local Restaurants so that they can earn back on every dollar that the users spend at the restaurant",
-        button: <Zbutton
+      button: <Zbutton
         onClick={() => {
           router.push("/projects");
         }}
+        mainContainerStyle={{ display: "flex", justifyContent: "flex-end", padding: "0 10px" }}
         text="Request Demo"
-        color="orange"
-        backgroundColor="transparent"
-        width="160px"
+        color="white"
+        hoverColor="#ff9700"
+        width="max-content"
         showIcon={false}
-        margin="0 0 0 auto"
       />
     },
     {
@@ -140,16 +84,16 @@ function HomeSection4() {
       title: "Public Trust",
       content:
         "Public Trust Realty Group is a web-based platform that enables the users to search for a property and buy/rent a property",
-        button: <Zbutton
+      button: <Zbutton
         onClick={() => {
           router.push("/projects");
         }}
+        mainContainerStyle={{ display: "flex", justifyContent: "flex-end", padding: "0 10px" }}
         text="Request Demo"
-        color="orange"
-        backgroundColor="transparent"
-        width="160px"
+        color="white"
+        hoverColor="#ff9700"
+        width="max-content"
         showIcon={false}
-        margin="0 0 0 auto"
       />
     },
     {
@@ -157,18 +101,18 @@ function HomeSection4() {
       image: Project6_Image1,
       title: "Fresh Tracks",
       content:
-      "FreshTracks is a web based portal for the travelers planning to travel across Canada where they can view personalized travel plans.",
+        "FreshTracks is a web based portal for the travelers planning to travel across Canada where they can view personalized travel plans.",
       button: <Zbutton
-      onClick={() => {
-        router.push("/projects");
-      }}
-      text="Request Demo"
-      color="orange"
-      backgroundColor="transparent"
-      width="160px"
+        onClick={() => {
+          router.push("/projects");
+        }}
+        mainContainerStyle={{ display: "flex", justifyContent: "flex-end", padding: "0 10px" }}
+        text="Request Demo"
+        color="white"
+        hoverColor="#ff9700"
+        width="max-content"
         showIcon={false}
-        margin="0 0 0 auto"
-    />
+      />
     },
     {
       index: 6,
@@ -176,16 +120,16 @@ function HomeSection4() {
       title: "Humanava",
       content:
         "Humanava is a web based Edtech platform, which provides Interactive, highly engaging courses for everyone in an organization.",
-        button: <Zbutton
+      button: <Zbutton
         onClick={() => {
           router.push("/projects");
         }}
+        mainContainerStyle={{ display: "flex", justifyContent: "flex-end", padding: "0 10px" }}
         text="Request Demo"
-        color="orange"
-        backgroundColor="transparent"
-        width="160px"
+        color="white"
+        hoverColor="#ff9700"
+        width="max-content"
         showIcon={false}
-        margin="0 0 0 auto"
       />
     },
   ];
@@ -222,7 +166,7 @@ function HomeSection4() {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
-            "animate__backInUp",
+            "animate__backInLeft",
             "animate__delay-0s"
           );
         }
@@ -257,18 +201,10 @@ function HomeSection4() {
   return (
     <>
       <div className={styles.HS4MainContainer}>
-        <div
-          className={styles.HS4ContentHeadingContainer}
-          ref={animatedDivRefs[0]}
-        >
-          {/* <div className={styles.HS4Heading}>
-            <p>Our Experiences</p> <hr className={styles.HS3ContentLine1} />
-            <hr className={styles.HS3ContentLine2} />
-          </div> */}
-        </div>
+        
 
         <div className={styles.HS4ContentSubHeadingContainer}>
-          <h2 className={styles.HS4ContentSubHeading} ref={animatedDivRefs[1]}>
+          <h2 className={styles.HS4ContentSubHeading} ref={animatedDivRefs[0]}>
             We Have Delivered A Lot Of Projects
           </h2>
           <div>
@@ -277,16 +213,16 @@ function HomeSection4() {
                 router.push("/projects");
               }}
               text="Checkout More Projects"
-              color="orange"
-              backgroundColor="transparent"
-              width="305px"
+              color="white"
+              hoverColor="#ff9700"
+              width="max-content"
               showIcon={false}
             />
           </div>
         </div>
 
         <div className={styles.HS4CardContainer}>
-          {projectArray.map((item, index) => {
+          {projectData.map((item, index) => {
             return (
               <Card
                 className={styles.HS4Card}
@@ -295,29 +231,19 @@ function HomeSection4() {
               >
                 <CardActionArea>
                   <Image
-                    src={item.image}
-                    alt={item.title}
+                    src={item?.image}
+                    alt={item?.title}
                     className={styles.HS4CardImage}
                   />
                   <CardContent className={styles.HS4BelowContainer}>
-                    <h2 className={styles.HSCardTitle}>{item.title}</h2>
-                    <p className={styles.HS4CardContent}>{item.content}</p>
+                    <h2 className={styles.HSCardTitle}>{item?.title}</h2>
+                    <p className={styles.HS4CardContent}>{item?.content}</p>
                   </CardContent>
                 </CardActionArea>
-                {item.button}
+                {item?.button}
               </Card>
             );
           })}
-        </div>
-        <div className={styles.HS4CardArrowsContainer}>
-          <div className={styles.HS4CardArrowContainer}>
-            <div className={styles.HS4CardArrow} onClick={onClickLeftArrow}>
-              <NavigateBeforeIcon />
-            </div>
-            <div className={styles.HS4CardArrow} onClick={onClickRightArrow}>
-              <NavigateNextIcon />
-            </div>
-          </div>
         </div>
       </div>
     </>

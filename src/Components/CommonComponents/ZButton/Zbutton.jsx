@@ -1,61 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import styles from "./ZButton.module.css";
 import { Button } from "@mui/material";
 
-function Zbutton({
-  backgroundColor = "white",
+const Zbutton = ({
   color = "#ff9700",
   width = "200px",
   height = "50px",
-  padding = "0px",
-  margin = "0px",
+  hoverColor = "#ff9700",
+  onMouseEnter,
+  onMouseLeave,
+  customClass,
+  mainContainerStyle,
   showIcon = true,
-  whiteShaddow = false,
-  orangeShaddow = false,
-  greyShaddow = false,
-  className,
   text,
   onClick,
   icon,
-  onMouseEnter,
-  onMouseLeave,
-  position,
-  top,
-  left,
-}) {
-  const buttonStyle = {
-    backgroundColor,
-    color,
-    width,
-    height,
-    padding,
-    margin,
-    position,
-    top,
-    left,
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
   };
 
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+  const textColor = isHovered ? hoverColor : color;
   return (
-    <Button
-      onClick={onClick}
-      style={buttonStyle}
-      className={`${className} ${
-        whiteShaddow
-          ? styles.whiteShaddow
-          : orangeShaddow
-          ? styles.orangeShaddow
-          : greyShaddow
-          ? styles.greyShaddow
-          : styles.zButton
-      }`}
+    <div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      style={mainContainerStyle}
     >
-      {showIcon && <ArrowRightAltIcon />}
-      <span>{text}</span>
-      {icon != undefined ? <span>{icon}</span> : ""}
-    </Button>
+      <Button
+        onClick={onClick}
+        style={{ width, height, background: "none" }}
+        className={[styles.btnThree, styles.btn, customClass]}
+
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {showIcon && <ArrowRightAltIcon style={{ color: textColor }} />}
+        <span className={styles.btnText} style={{ color: textColor }} >{text}</span>
+        {icon !== undefined && <span style={{ zIndex: 2, color: textColor }} >{icon}</span>}
+      </Button >
+    </div>
   );
 }
 

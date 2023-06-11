@@ -1,37 +1,86 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import {
+  TextField,
+  Button,
+  FormLabel,
+  Autocomplete,
+  ListItem,
+  Avatar,
+  ListItemText,
+  ListItemIcon,
+  InputAdornment
+} from "@mui/material";
+import { isValidPhoneNumber } from "libphonenumber-js";
 import styles from "./HomeSection.module.css";
-import PhoneInput from "react-phone-input-2";
-import { TextField, Button, FormLabel } from "@mui/material";
-import "react-phone-input-2/lib/style.css";
+
 
 function HomeSection8({ handleButtonClick }) {
+  const [allCountries, setAllCountries] = useState([]);
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
     contact: "",
-    country: "",
-    description: "",
+    country: {
+      label: "Pakistan",
+      id: "PK",
+      phoneCode: "+92",
+      icon: "https://flagcdn.com/w80/pk.png"
+    },
+    description: ""
   });
-  const [phoneNumber, setPhoneNumber] = useState("+92");
-  const [countryName, setCountryName] = useState();
   const animatedDivRefs = React.useRef(null);
   const animatedLabelRefs = Array.from({ length: 5 }, () => React.useRef(null));
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormValues({
       ...formValues,
-      [name]: value,
+      [name]: value
     });
   };
 
-  const handleSubmit = () => {
-    console.log(formValues);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isValidPhoneNumber(formValues.contact, formValues.country?.id)) {
+      console.log(formValues);
+    } else {
+      alert("Invalid phone number O_O")
+    }
   };
+
+  const getCountriesData = async () => {
+    try {
+      const response = await fetch("https://restcountries.com/v3.1/all");
+      const countries = await response.json();
+      const countriesData = countries.map((country) => {
+        return {
+          label: country?.name?.common,
+          id: country?.cca2,
+          phoneCode:
+            country?.idd?.root +
+            (country?.idd?.suffixes?.length === 1
+              ? country?.idd?.suffixes?.[0]
+              : ""),
+          icon: `https://flagcdn.com/w80/${country?.cca2?.toLowerCase()}.png`
+        };
+      });
+      setAllCountries(countriesData);
+    } catch (error) {
+      console.error("Error fetching countries data:", error);
+      return [];
+    }
+  };
+
+  useEffect(() => {
+    getCountriesData();
+  }, []);
+
   useEffect(() => {
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5,
+      threshold: 0.5
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -121,68 +170,102 @@ function HomeSection8({ handleButtonClick }) {
                 />
               </div>
             </div>
-            <div style={{ display: "none" }} className={styles.HS8InputFieldContainer}>
-              <div className={styles.HS8InputContainer}>
-                <FormLabel
-                  required
-                  className={styles.HS8FormLabel}
-                  ref={animatedLabelRefs[3]}
-                >
-                  Country
-                </FormLabel>
-                <TextField
-                  placeholder="Enter your country"
-                  className={styles.HS8InputField}
-                  name="country"
-                  type="text"
-                  value={formValues.country}
-                  onChange={handleInputChange}
-                  required
-                  variant="outlined"
-                />
-              </div>
+            <div className={styles.HS8InputFieldContainer}>
               <div className={styles.HS8InputContainer}>
                 <FormLabel
                   required
                   className={styles.HS8FormLabel}
                   ref={animatedLabelRefs[2]}
                 >
-                  Contact Number
+                  Country
+                </FormLabel>
+                <Autocomplete
+                  value={formValues.country}
+                  isOptionEqualToValue={(option, value) =>
+                    option.id === value.id &&
+                    option.label === option.label
+                  }
+                  disableClearable={true}
+                  options={allCountries}
+                  onChange={(event, value) => {
+                    setFormValues({
+                      ...formValues,
+                      country: value
+                    });
+                  }}
+                  renderOption={(props, option) => (
+                    <ListItem {...props}>
+                      <ListItemIcon>
+                        <Avatar
+                          variant="square"
+                          style={{ backgroundColor: "transparent" }}
+                        >
+                          <Image
+                            alt={"country flag"}
+                            width={40}
+                            height={25}
+                            src={option.icon}
+                          />
+                        </Avatar>
+                      </ListItemIcon>
+                      <ListItemText primary={option.label} />
+                    </ListItem>
+                  )}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      className={styles.HS8InputField}
+                      name="country"
+                      required
+                      variant="outlined"
+                      placeholder="Select country"
+                      InputProps={{
+                        ...params.InputProps,
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            {formValues.country?.icon && (
+                              <Image
+                                width={40}
+                                height={25}
+                                src={formValues.country.icon}
+                                alt={formValues.country?.id}
+                              />
+                            )}
+                          </InputAdornment>
+                        )
+                      }}
+                    />
+                  )}
+                ></Autocomplete>
+              </div>
+              <div className={styles.HS8InputContainer}>
+                <FormLabel
+                  required
+                  className={styles.HS8FormLabel}
+                  ref={animatedLabelRefs[3]}
+                >
+                  Contact No
                 </FormLabel>
                 <TextField
+                  disabled={formValues.country?.label ? false : true}
                   placeholder="Enter your contact number"
+                  className={styles.HS8InputField}
                   name="contact"
-                  type="text"
                   value={formValues.contact}
                   onChange={handleInputChange}
                   required
                   variant="outlined"
-                  className={styles.HS8InputField}
+                  InputProps={{
+                    startAdornment: (
+                      <span style={{ marginRight: 5 }}>
+                        {formValues.country?.phoneCode}
+                      </span>
+                    )
+                  }}
                 />
               </div>
             </div>
 
-            <div className={styles.HS8InputContainer} style={{position:"relative"}}>
-              <FormLabel
-                required
-                className={styles.HS8FormLabel}
-                ref={animatedLabelRefs[2]}
-              >
-                Contact Number
-              </FormLabel>
-              <PhoneInput
-                country={"pk"}
-                value={phoneNumber}
-                containerClass="HS8Phone-number"
-                inputClass="HS8Phone-number-input"
-                dropdownClass="HS8Phone-country-dropdown"
-                onChange={(phone, country) => {
-                  setPhoneNumber(phone);
-                  setCountryName(country.name);
-                }}
-              />
-              <div className={styles.HS8CountryName}> {countryName}</div>
-            </div>
             <div className={styles.HS8InputAreaContainer}>
               <FormLabel
                 required

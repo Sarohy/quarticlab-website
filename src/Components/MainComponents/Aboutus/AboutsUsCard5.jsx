@@ -51,21 +51,18 @@ const AboutUsCard5 = () => {
         </h2>
         <div className={styles.AUCd5Button} ref={animatedButtonRef}>
           <Zbutton
+            customClass={styles.btnThreeCustomColor}
             onClick={""}
             text="Instant Booking"
             color="#ff9700"
-            backgroundColor="white"
-            width="227px"
-            orangeShaddow={true}
+            hoverColor="white"
+            width="200px"
             showIcon={false}
-            margin="0px 0px 10px 0px"
             icon={
               <ArrowCircleRightOutlinedIcon
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  marginLeft: "30%",
-                  marginTop: "-2px",
                 }}
               />
             }

@@ -27,7 +27,7 @@ function HomeSection7({ handleButtonClick }) {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
-            "animate__backInUp",
+            "animate__backInLeft",
             "animate__delay-0s"
           );
         }

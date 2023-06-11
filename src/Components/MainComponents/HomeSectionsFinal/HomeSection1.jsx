@@ -4,9 +4,9 @@ import styles from "./HomeSection.module.css";
 import { HSImg2, HSLogo, HSImg1 } from "@component/assets/HomeIcons";
 import { Zbutton } from "@component/Components/CommonComponents";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
-import InstantBookingIcon from "../../../assets/HomeIcons/HS1-InstantBooking.svg";
 import "animate.css";
 import { useRouter } from "next/router";
+import HS1InstantBooking from "../../../assets/HomeIcons/HS1InstantBooking";
 
 function HomeSection1() {
   const router = useRouter();
@@ -37,32 +37,7 @@ function HomeSection1() {
                 Empowering <br /> Innovation
               </h1>
             </div>
-            {/* <h2 className={styles.HS1SubText}>
-              Zweidevs provides dedicated teams work to design and build your
-              idea.
-            </h2> */}
             <div className={styles.HS1ContentButtonContainer}>
-              {/* <Zbutton
-                onClick={() => {
-                  router.push("/contactUs");
-                }}
-                text="GET STARTED"
-                color="#ff9700"
-                backgroundColor="white"
-                width="180px"
-                orangeShaddow={true}
-                showIcon={false}
-                margin="0px 0px 10px 0px"
-                icon={
-                  <ArrowCircleRightOutlinedIcon
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      marginLeft: "-20px",
-                    }}
-                  />
-                }
-              /> */}
               <Zbutton
                 onClick={() => {
                   window.open(
@@ -72,11 +47,9 @@ function HomeSection1() {
                 }}
                 text="Instant Booking"
                 color="white"
-                backgroundColor="#FF9700"
-                width="220px"
-                whiteShaddow={true}
+                hoverColor="#ff9700"
+                width="200px"
                 showIcon={false}
-                margin="0px 0px 10px 0px"
                 icon={
                   isHovered ? (
                     <ArrowCircleRightOutlinedIcon
@@ -87,15 +60,7 @@ function HomeSection1() {
                       }}
                     />
                   ) : (
-                    <Image
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        marginLeft: "-13px",
-                        width: "20px",
-                      }}
-                      src={InstantBookingIcon}
-                    />
+                    <HS1InstantBooking fill={isHovered ? "#ff9700" : "white"} />
                   )
                 }
                 onMouseEnter={handleMouseEnter}

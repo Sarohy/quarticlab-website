@@ -17,7 +17,6 @@ function HomeSection2() {
   const [isHovered, setIsHovered] = useState(false);
   const [selectedKey, setSelectedKey] = useState("");
   const animatedDivRefs = Array.from({ length: 2 }, () => React.useRef(null));
-  const animatedImgRefs = Array.from({ length: 5 }, () => React.useRef(null));
   const animatedHeadingRefs = Array.from({ length: 5 }, () =>
     React.useRef(null)
   );
@@ -115,10 +114,6 @@ function HomeSection2() {
       observer3.observe(ref.current);
     });
 
-    animatedImgRefs.forEach((ref) => {
-      observer2.observe(ref.current);
-    });
-
     animatedDivRefs.forEach((ref) => {
       observer.observe(ref.current);
     });
@@ -134,10 +129,6 @@ function HomeSection2() {
     <>
       <div className={styles.HS2MainContainer}>
         <div className={styles.HS2ContentContainer} ref={animatedDivRefs[0]}>
-          {/* <div className={styles.HS2Heading}>
-            <p>Our Services</p> <hr className={styles.HS3ContentLine1} />
-            <hr className={styles.HS3ContentLine2} />
-          </div> */}
         </div>
         <div className={styles.HS2SubHeadContainer}>
           <h2 className={`${styles.HS2SubHeading}`} ref={animatedDivRefs[1]}>
@@ -151,7 +142,7 @@ function HomeSection2() {
                 });
               }}
               text="See All"
-              color="#FF9700"
+              color="#FFF"
               // backgroundColor="#FF9700"
               width="172px"
               height="55px"
@@ -162,7 +153,7 @@ function HomeSection2() {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    marginLeft: "-32px",
+                    // marginLeft: "-32px",
                     marginTop: "1px",
                   }}
                 />
@@ -173,54 +164,52 @@ function HomeSection2() {
         <div className={styles.HS2CardsContainer}>
           {cardData.map((item, index) => {
             return (
-              <>
-                <div
-                  className={styles.HS2CardMob}
-                  key={`${index}${item.key}`}
-                  onMouseEnter={() => {
-                    setIsHovered(true);
-                    setSelectedKey(item.key);
-                  }}
-                  onMouseLeave={() => setIsHovered(false)}
-                >
-                  <div className={styles.HS2FlipContainer}>
-                    <div className={styles.HS2Flipper}>
+              <div
+                className={styles.HS2CardMob}
+                key={`${index}${item.key}`}
+                onMouseEnter={() => {
+                  setIsHovered(true);
+                  setSelectedKey(item.key);
+                }}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <div className={styles.HS2FlipContainer}>
+                  <div className={styles.HS2Flipper}>
+                    <div
+                      className={
+                        isHovered && selectedKey == item.key
+                          ? styles.HS2back
+                          : styles.HS2front
+                      }
+                    >
+                      <div className={styles.imageDiv}>
+                        <Image
+                          src={item.image}
+                          alt="zweidevs"
+                          className={styles.HS2SelectedImgWhite}
+                          // ref={animatedImgRefs[index]}
+                          width={
+                            isHovered && selectedKey == item.key ? 40 : 80
+                          }
+                          height={
+                            isHovered && selectedKey == item.key ? 40 : 80
+                          }
+                        />
+                      </div>
+                      <h3 ref={animatedHeadingRefs[index]}>{item.heading}</h3>
                       <div
                         className={
                           isHovered && selectedKey == item.key
-                            ? styles.HS2back
-                            : styles.HS2front
+                            ? ""
+                            : styles.HS2back
                         }
                       >
-                        <div className={styles.imageDiv}>
-                          <Image
-                            src={item.image}
-                            alt="zweidevs"
-                            className={styles.HS2SelectedImgWhite}
-                            ref={animatedImgRefs[index]}
-                            width={
-                              isHovered && selectedKey == item.key ? 40 : 80
-                            }
-                            height={
-                              isHovered && selectedKey == item.key ? 40 : 80
-                            }
-                          />
-                        </div>
-                        <h3 ref={animatedHeadingRefs[index]}>{item.heading}</h3>
-                        <div
-                          className={
-                            isHovered && selectedKey == item.key
-                              ? ""
-                              : styles.HS2back
-                          }
-                        >
-                          <p>{item.details}</p>
-                        </div>
+                        <p>{item.details}</p>
                       </div>
                     </div>
                   </div>
                 </div>
-              </>
+              </div>
             );
           })}
         </div>

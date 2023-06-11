@@ -8,6 +8,7 @@ import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOu
 import { CircularProgress, Divider } from "@mui/material";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import Zbutton from "../ZButton";
 
 function ProjectCard({
   reverse,
@@ -159,10 +160,20 @@ function ProjectCard({
               style={{ marginTop: "10px" }}
             />
           </div>
-          <button onClick={requestDemoOnClick} className="request-demo-btn">
-            <span>Request Demo</span>
-            <ArrowCircleRightOutlinedIcon />
-          </button>
+          <Zbutton
+            onClick={requestDemoOnClick}
+            text="Request Demo"
+            color="white"
+            hoverColor="#ff9700"
+            width={170}
+            showIcon={false}
+            icon={<ArrowCircleRightOutlinedIcon
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            />}
+          />
         </div>
       </div>
     </>

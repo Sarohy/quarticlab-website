@@ -22,7 +22,7 @@ function HomeSection3({ handleButtonClick }) {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
-            "animate__backInUp",
+            "animate__backInLeft",
             "animate__delay-0s"
           );
         }
@@ -99,10 +99,9 @@ function HomeSection3({ handleButtonClick }) {
                   router.push("/aboutus");
                 }}
                 text="Explore More"
-                color="orange"
-                backgroundColor="#F9F9F9"
-                width="180px"
-                // greyShaddow={true}
+                color="white"
+                hoverColor="#ff9700"
+                width="max-content"
                 showIcon={false}
               />
             </div>
