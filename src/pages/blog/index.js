@@ -6,9 +6,10 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import styles from "./blog.module.css";
 import { getApiWithoutAuth } from "../api/api";
-import { Zbutton } from "@component/Components/CommonComponents";
+import { InstantBookingButton, Zbutton } from "@component/Components/CommonComponents";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import { CircularProgress } from "@mui/material";
+import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
 
 const Blog = () => {
   const smallButtonsData = ["All", "Marketing", "Technology", "Grow"];
@@ -32,7 +33,7 @@ const Blog = () => {
             title: item.title,
             description: item.content,
             category: item?.tags[0]?.name,
-            id: item.pk,
+            id: item.pk
           });
         });
         if (dataArray.length > 0) setBlogData(dataArray);
@@ -48,7 +49,7 @@ const Blog = () => {
     title: "Top Articles",
     heading: "Everything Your Business Needs Under One Roof",
     description:
-      "We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences",
+      "We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences"
   };
 
   useEffect(() => {
@@ -59,7 +60,7 @@ const Blog = () => {
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5,
+      threshold: 0.5
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -101,7 +102,7 @@ const Blog = () => {
   }, []);
 
   return (
-    <div style={{marginTop:"15vh"}}>
+    <div style={{ marginTop: "15vh" }}>
       <PageBanner {...bannerData} />
       <div className={styles.blogRoot}>
         <div className={styles.blogMain}>
@@ -123,11 +124,25 @@ const Blog = () => {
         )}
 
         <div className={styles.blogDflex}>
-          <Image
+          {/* <Zbutton
             onClick={loadMoreHandler}
-            className={styles.blogLoadMoreBtn}
-            src={LoadMoreBtnSvg}
-            alt="load-more-button"
+            text="Load More"
+            color="white"
+            hoverColor="#ff9700"
+            width="150px"
+            showIcon={false}
+            icon={
+              <ArrowCircleRightOutlinedIcon
+                style={{
+                  display: "flex",
+                  alignItems: "center"
+                }}
+              />
+            }
+          /> */}
+          <BottomBorderButton
+          onClick={loadMoreHandler}
+          text="Load More"
           />
         </div>
       </div>
@@ -137,25 +152,29 @@ const Blog = () => {
           Not Finding The Right Fit? Stay Connected
         </h2>
         <div className={styles.blogButton} ref={animatedButtonRef}>
-          <Zbutton
+          {/* <Zbutton
             onClick={""}
+            customClass={styles.btnThreeCustomColor}
             text="Instant Booking"
             color="#ff9700"
-            backgroundColor="white"
-            width="227px"
-            orangeShaddow={true}
+            hoverColor="white"
+            width="200px"
             showIcon={false}
-            margin="0px 0px 10px 0px"
             icon={
               <ArrowCircleRightOutlinedIcon
                 style={{
                   display: "flex",
-                  alignItems: "center",
-                  marginLeft: "30%",
-                  marginTop: "-2px",
+                  alignItems: "center"
                 }}
               />
             }
+          /> */}
+          <InstantBookingButton
+          customStyle={styles.bookinBtnStyle}
+          customOne={styles.one}
+          customTwo={styles.two}
+          customThree={styles.three}
+          svgFill="#ff9700"
           />
         </div>
       </div>
@@ -168,7 +187,7 @@ export default Blog;
 export async function getStaticProps() {
   return {
     props: {
-      data: [{ image: "jdfksjfsk" }],
-    },
+      data: [{ image: "jdfksjfsk" }]
+    }
   };
 }

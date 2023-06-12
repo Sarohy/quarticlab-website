@@ -28,24 +28,23 @@ const Zbutton = ({
   };
   const textColor = isHovered ? hoverColor : color;
   return (
-    <div
+    <Button
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       style={mainContainerStyle}
+      onClick={onClick}
     >
-      <Button
-        onClick={onClick}
+      <div
         style={{ width, height, background: "none" }}
         className={[styles.btnThree, styles.btn, customClass]}
-
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         {showIcon && <ArrowRightAltIcon style={{ color: textColor }} />}
         <span className={styles.btnText} style={{ color: textColor }} >{text}</span>
         {icon !== undefined && <span style={{ zIndex: 2, color: textColor }} >{icon}</span>}
-      </Button >
-    </div>
+      </div >
+    </Button>
   );
 }
 

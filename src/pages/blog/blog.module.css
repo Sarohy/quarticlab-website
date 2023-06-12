@@ -13,7 +13,7 @@
   color: #2b2a35;
 }
 
-.blogMain{
+.blogMain {
   display: flex;
   justify-content: space-between;
 }
@@ -36,6 +36,7 @@
 .blogDflex {
   justify-content: center;
   display: flex;
+  padding: 10px 0px;
 }
 
 .blogLoadMoreBtn {
@@ -62,53 +63,108 @@
   color: #2b2a35;
 }
 
-.blogBanner{
+.blogBanner {
   width: 100%;
   height: 250px;
-  background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
+  background: linear-gradient(90deg, #f18f01 0%, rgba(255, 168, 0, 0.91) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.blogBannerHeading{
-  font-family: 'Poppins';
+.blogBannerHeading {
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
   line-height: 128%;
   text-align: center;
-  color: #FAFAFA;
+  color: #fafafa;
   width: 692px;
 }
 
-.blogButton{
+.blogButton {
   margin-top: 2%;
 }
 
 @media screen and (max-width: 590px) {
-
-  .blogMain{
+  .blogMain {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
-  .blogArticleHeading{
+  .blogArticleHeading {
     margin-left: 10px;
     margin-bottom: 10px;
   }
 
-  .blogCardContainer{
+  .blogCardContainer {
     margin-left: 30px;
   }
 
-  .blogBannerHeading{
+  .blogBannerHeading {
     font-size: 28px;
     width: 100%;
     margin-bottom: 10px;
   }
+}
 
+.btnThreeCustomColor::after {
+  border: 1px solid white !important;
+}
 
+.btnThreeCustomColor::before {
+  background-color: white !important;
+}
+
+.bookinBtnStyle {
+  color: #ff9700;
+  background: white;
+  box-shadow: 6px 6px 0 black;
+}
+
+.bookinBtnStyle:hover {
+  color: #ff9700;
+}
+
+/**************SVG****************/
+
+path.one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+path.two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.bookinBtnStyle:hover path.three {
+  animation: colorAnim 1s infinite 0.2s;
+}
+
+.bookinBtnStyle:hover path.one {
+  transform: translateX(0%);
+  animation: colorAnim 1s infinite 0.6s;
+}
+
+.bookinBtnStyle:hover path.two {
+  transform: translateX(0%);
+  animation: colorAnim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+
+@keyframes colorAnim {
+  0% {
+    fill: white;
+  }
+  50% {
+    fill: #ff9700;
+  }
+  100% {
+    fill: white;
+  }
 }

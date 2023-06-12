@@ -6,6 +6,7 @@ import Header from "./Header";
 import ReviewCard from "./ReviewCard";
 import ServiceCard from "./ServiceCard";
 import ServicesCard from "./ServicesCard";
+import InstantBookingButton from "./InstantBookingButton";
 
 export {
   Footer,
@@ -16,4 +17,5 @@ export {
   ReviewCard,
   ServiceCard,
   ServicesCard,
+  InstantBookingButton
 };

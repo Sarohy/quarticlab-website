@@ -11,6 +11,8 @@ import {
 } from "@component/assets/HomeIcons";
 import { Zbutton } from "@component/Components/CommonComponents";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import { Button } from "@mui/material";
+import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
 
 function HomeSection2() {
   const router = useRouter();
@@ -135,29 +137,13 @@ function HomeSection2() {
             We Offer Everything That Your Business Needs
           </h2>
           <div className={styles.HS2Button}>
-            <Zbutton
+            <BottomBorderButton
+              text="See All"
               onClick={() => {
                 router.push({
                   pathname: `/services`,
                 });
               }}
-              text="See All"
-              color="#FFF"
-              // backgroundColor="#FF9700"
-              width="172px"
-              height="55px"
-              whiteShaddow={true}
-              showIcon={false}
-              icon={
-                <ArrowCircleRightOutlinedIcon
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    // marginLeft: "-32px",
-                    marginTop: "1px",
-                  }}
-                />
-              }
             />
           </div>
         </div>

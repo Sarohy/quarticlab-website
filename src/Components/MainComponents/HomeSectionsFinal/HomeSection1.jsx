@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./HomeSection.module.css";
 import { HSImg2, HSLogo, HSImg1 } from "@component/assets/HomeIcons";
-import { Zbutton } from "@component/Components/CommonComponents";
+import { InstantBookingButton, Zbutton } from "@component/Components/CommonComponents";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import "animate.css";
 import { useRouter } from "next/router";
@@ -22,13 +22,13 @@ function HomeSection1() {
   return (
     <>
       <div className={styles.HS1Background}>
-        <div className={`${styles.HS1HeaderImage} `}>
+        {/* <div className={`${styles.HS1HeaderImage} `}>
           <Image
             className={styles.HS1Img1Height}
             src={HSImg1}
             alt={"client-image"}
           />
-        </div>
+        </div> */}
         <div className={`${styles.HS1ContentContainer}`}>
           <div className="animate__delay-1s animate__animated animate__zoomIn">
             <div className={styles.HS1Content}>
@@ -38,33 +38,13 @@ function HomeSection1() {
               </h1>
             </div>
             <div className={styles.HS1ContentButtonContainer}>
-              <Zbutton
+              <InstantBookingButton
                 onClick={() => {
                   window.open(
                     "https://calendly.com/request-demo-zweidevs/30min",
                     "_blank"
                   );
                 }}
-                text="Instant Booking"
-                color="white"
-                hoverColor="#ff9700"
-                width="200px"
-                showIcon={false}
-                icon={
-                  isHovered ? (
-                    <ArrowCircleRightOutlinedIcon
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        marginLeft: "-13px",
-                      }}
-                    />
-                  ) : (
-                    <HS1InstantBooking fill={isHovered ? "#ff9700" : "white"} />
-                  )
-                }
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
               />
             </div>
           </div>
@@ -76,13 +56,13 @@ function HomeSection1() {
             />
           </div>
         </div>
-        <div className={styles.HS1FooterImage}>
+        {/* <div className={styles.HS1FooterImage}>
           <Image
             className={styles.HS1Img2Height}
             src={HSImg2}
             alt={"footer-icon"}
           />
-        </div>
+        </div> */}
       </div>
     </>
   );

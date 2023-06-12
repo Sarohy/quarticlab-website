@@ -4,6 +4,7 @@ import styles from "./HomeSection.module.css";
 import { HS3Img, HS3Img1 } from "@component/assets/HomeIcons";
 import { Zbutton } from "@component/Components/CommonComponents";
 import { useRouter } from "next/router";
+import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
 
 function HomeSection3({ handleButtonClick }) {
   const animatedDivRefs = Array.from({ length: 3 }, () => React.useRef(null));
@@ -94,15 +95,11 @@ function HomeSection3({ handleButtonClick }) {
               cloud and e-commerce capabilities.
             </p>
             <div className={styles.HS3ContactContainer}>
-              <Zbutton
+              <BottomBorderButton
                 onClick={() => {
                   router.push("/aboutus");
                 }}
                 text="Explore More"
-                color="white"
-                hoverColor="#ff9700"
-                width="max-content"
-                showIcon={false}
               />
             </div>
           </div>
