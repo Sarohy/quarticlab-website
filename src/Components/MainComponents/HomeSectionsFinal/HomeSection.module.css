@@ -259,10 +259,27 @@
   position: relative;
 }
 
+@media screen and (max-width: 414px) {
+  .HS2SubHeadContainer {
+    margin-top: 5%;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .HS2Button{
+    padding-right: 0;
+    /* padding-left: 3%; */
+  }
+}
+
 /* Home section 3 css */
 
 .HS3MainContainer {
-  height: 650px;
+  /* height: 650px; */
   background: #f9f9f9;
 }
 
@@ -397,16 +414,18 @@
   display: flex;
   justify-content: space-between;
   margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .HS4ContentSubHeading {
-  width: 569px;
-  height: 125px;
+  /* border:2px solid blueviolet; */
+  /* width: 569px; */
+  /* height: 125px; */
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
-  line-height: 128%;
+  /* line-height: 128%; */
   color: #2b2a35;
 }
 
@@ -723,7 +742,7 @@
 
 /* HomeSection 8 */
 .HS8MainContainer {
-  height: 880px;
+  /* height: 880px; */
   width: 100%;
   /* background: rgba(243, 243, 243, 0.5); */
   background: #f9f9f9;
@@ -734,13 +753,14 @@
 
 .HS8Heading {
   width: 420px;
-  height: 100px;
+  /* height: 100px; */
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
-  line-height: 128%;
-  margin-top: 8%;
+  /* line-height: 128%; */
+  /* margin-top: 3%; */
+  padding: 20px 0px;
   color: #2b2a35;
 }
 
@@ -757,7 +777,7 @@
 .HS8InputFieldContainer {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5%;
+  margin-bottom: 1.5%;
 }
 
 .HS8InputContainer {
@@ -772,7 +792,7 @@
 }
 
 .HS8InputAreaContainer {
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 
 .testCC {
@@ -781,7 +801,7 @@
 
 @media screen and (max-width: 900px) {
   .HS8InputAreaContainer {
-    margin-top: 100px;
+    /* margin-top: 100px; */
   }
 }
 
@@ -799,7 +819,7 @@
 }
 
 .HS8InputField {
-  border: 1px solid #bcbcbc;
+  /* border: 1px solid #bcbcbc; */
   border-radius: 4px;
   /* width: 531px; */
   width: 100%;
@@ -809,10 +829,12 @@
   background-color: #fff;
 }
 .HS8ButtonContainer {
+  /* border:2px solid red; */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 140px;
+  /* height: 140px; */
+  padding: 15px 0;
 }
 
 .HS8Button {
@@ -1180,10 +1202,9 @@
 
   .HS2ContentContainer {
     padding: 0% 3% 0% 3%;
-
+    display: none !important;
     height: 100px;
     display: flex;
-    align-items: flex-end;
   }
 
   .HS2Heading {
@@ -1244,21 +1265,14 @@
     align-items: center;
     margin-top: 10%;
   }
-  .HS4ContentSubHeadingContainer {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    margin-top: 5%;
-    align-items: center;
-  }
-  .HS4ContentSubHeading {
+  /* .HS4ContentSubHeading {
     width: 100%;
     height: 100%;
     font-size: 30px;
     margin-bottom: 20px;
     margin-top: 20px;
     text-align: center;
-  }
+  } */
   .HS4MainContainer {
     height: 100%;
     padding-bottom: 30px;
@@ -1349,13 +1363,13 @@
     justify-content: center;
     align-items: center;
     margin-top: 0%;
-    height: 100px;
+    /* height: 100px; */
   }
   .HS8FormLabel {
     font-size: 14px !important;
   }
   .HS8InputField {
-    border: 1px solid #bcbcbc;
+    /* border: 1px solid #bcbcbc; */
     border-radius: 4px;
     width: 100%;
     margin-bottom: 20px;
@@ -1375,7 +1389,16 @@
   .HS8InputContainer {
     width: 100%;
   }
-  
+}
+
+@media screen and (max-width: 820px) {
+  .HS4ContentSubHeadingContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    /* margin-bottom: 5%; */
+    align-items: center;
+  }
 }
 
 @media screen and (min-width: 591px) and (max-width: 820px) {
@@ -1607,7 +1630,7 @@
     flex-direction: column;
   }
   .HS8InputField {
-    border: 1px solid #bcbcbc;
+    /* border: 1px solid #bcbcbc; */
     border-radius: 4px;
     width: 100%;
     margin-bottom: 20px;
@@ -1628,7 +1651,7 @@
     width: 100%;
   }
   .HS8Heading {
-    height: 90px;
+    /* height: 90px; */
   }
   .HS5Carousel {
     height: 520px;
@@ -1746,7 +1769,7 @@
     flex-direction: column;
   }
   .HS8InputField {
-    border: 1px solid #bcbcbc;
+    /* border: 1px solid #bcbcbc; */
     border-radius: 4px;
     width: 100%;
     margin-bottom: 20px;
@@ -1846,7 +1869,7 @@
     height: 100%;
   }
   .HS8Heading {
-    height: 90px;
+    /* height: 90px; */
   }
   .HS5Carousel {
     height: 520px;

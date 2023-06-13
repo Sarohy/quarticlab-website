@@ -128,7 +128,7 @@ function HomeSection8({ handleButtonClick }) {
         <h2 className={styles.HS8Heading} ref={animatedDivRefs}>
           How May We Help You
         </h2>
-        <div style={{ width: "80%" }}>
+        <div style={{ width: "80%", }}>
           <form onSubmit={handleSubmit}>
             <div className={styles.HS8InputFieldContainer}>
               <div className={styles.HS8InputContainer}>
@@ -141,6 +141,7 @@ function HomeSection8({ handleButtonClick }) {
                 </FormLabel>
                 <TextField
                   placeholder="Enter your name"
+                  size="small"
                   name="name"
                   type="text"
                   value={formValues.name}
@@ -160,6 +161,7 @@ function HomeSection8({ handleButtonClick }) {
                 </FormLabel>
                 <TextField
                   placeholder="Enter your email"
+                  size="small"
                   className={styles.HS8InputField}
                   name="email"
                   type="email"
@@ -219,6 +221,7 @@ function HomeSection8({ handleButtonClick }) {
                       required
                       variant="outlined"
                       placeholder="Select country"
+                      size="small"
                       InputProps={{
                         ...params.InputProps,
                         startAdornment: (
@@ -249,6 +252,7 @@ function HomeSection8({ handleButtonClick }) {
                 <TextField
                   disabled={formValues.country?.label ? false : true}
                   placeholder="Enter your contact number"
+                  size="small"
                   className={styles.HS8InputField}
                   name="contact"
                   value={formValues.contact}

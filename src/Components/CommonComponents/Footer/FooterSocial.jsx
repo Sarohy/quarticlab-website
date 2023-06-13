@@ -63,7 +63,7 @@ const FooterSocial = () => {
   return (
     <>
       <div ref={observerRef}>
-        <div ref={ref} className="animate__delay-1s">
+        <div ref={ref} className="animate__delay-1s" >
           <h3>Social Media Links</h3>
 
           {/* <div className={styles.footerLinesContainerSocial}>
@@ -71,7 +71,7 @@ const FooterSocial = () => {
             <hr className={styles.footerLine2} />
           </div> */}
           <div className={styles.imageSocialMain}>
-            <div className={styles.imageSocialContainer}>
+            {/* <div className={styles.imageSocialContainer}> */}
               {socialMediaData &&
                 socialMediaData.map((element, key) => (
                   <a
@@ -100,7 +100,7 @@ const FooterSocial = () => {
                     </div>
                   </a>
                 ))}
-            </div>
+            {/* </div> */}
           </div>
         </div>
       </div>
