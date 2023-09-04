@@ -10,8 +10,6 @@ import {
   HS2Img5,
 } from "@component/assets/HomeIcons";
 import { Zbutton } from "@component/Components/CommonComponents";
-import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
-import { Button } from "@mui/material";
 import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
 
 function HomeSection2() {

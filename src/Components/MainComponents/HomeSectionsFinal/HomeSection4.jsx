@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Card from "@mui/material/Card";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { CardActionArea } from "@mui/material";
-import CardContent from "@mui/material/CardContent";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { Zbutton } from "@component/Components/CommonComponents";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+// import { Zbutton } from "@component/Components/CommonComponents";
 import {
   Project1_Image1,
   Project2_Image1,
@@ -17,6 +12,9 @@ import {
 } from "@component/assets/HomeIcons";
 import styles from "./HomeSection.module.css";
 import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
+import { Card, CardActionArea, CardContent } from "@mui/material";
+// import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+// import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 
 function HomeSection4() {
   const router = useRouter();

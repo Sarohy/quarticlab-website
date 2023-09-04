@@ -173,9 +173,8 @@ function Header() {
               <Link
                 key={href}
                 href={href}
-                className={`${styles.pageLabel} ${
-                  route.pathname === href ? styles.activePage : ""
-                }`}
+                className={`${styles.pageLabel} ${route.pathname === href ? styles.activePage : ""
+                  }`}
               >
                 {text}
               </Link>
@@ -213,9 +212,8 @@ function Header() {
               onClick={toggleDrawer}
               key={href}
               href={href}
-              className={`${styles.mobileHeaderMenuItem} ${
-                route.pathname === href ? styles.activePage : ""
-              }`}
+              className={`${styles.mobileHeaderMenuItem} ${route.pathname === href ? styles.activePage : ""
+                }`}
               style={{ fontFamily: "Poppins" }}
             >
               {text}
