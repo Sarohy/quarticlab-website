@@ -1,0 +1,49 @@
+/*  */
+.animatedButton {
+  border: none;
+  padding: 5px 0px;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  transition: border-bottom 0.3s ease-in-out;
+  font-family: poppins;
+  font-size: 1rem;
+  color: #ff9700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.animatedButton::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ff9700;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.animatedButton:hover {
+  border-bottom: none;
+}
+
+.animatedButton:hover::after {
+  transform: scaleX(1);
+}
+
+.btnIcon {
+  margin-top: 3px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.animatedButton:hover .btnIcon {
+  opacity: 1;
+}
+/*  */

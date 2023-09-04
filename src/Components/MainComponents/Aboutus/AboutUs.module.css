@@ -1,0 +1,564 @@
+
+/* Card 2 */
+
+.AUCard2MainContain{
+    background: url("../../../../src/assets/AboutUs/CDImg1.svg");
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    margin-top: 0%;
+    background-color: #FFFFFF;
+    padding-left: 1%;
+}
+.AUCard2ImgContent{
+    width: 100%;
+    display: flex;
+}
+
+.AUCard2Img{
+    width: 621px;
+    height: 584px;
+    margin-left: 5%;
+    margin-top: 10%;
+}
+
+.AUCard2ImgDetail{
+    margin-top: 1%;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 600px;
+    margin-left: 4%;
+}
+
+.AUCard2ImgDHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 150%;
+    color: #FF9700;
+    margin-bottom: 8px;
+}
+
+.AUCard2ImgDSubHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 117.5%;
+    color: #2B2A35;
+    margin-bottom: 4.5%;
+
+}
+
+.AUCard2ImgDText{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 167.5%;
+    color: #494949;
+    margin-bottom: 4.5%;
+
+}
+
+.AUCardHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;    
+    color: #FF9700;
+    display: flex;
+    align-items: center;
+    height: 4%;  
+    margin-left: 4%; 
+    margin-top: 4%;
+}
+
+.AUCardHeadingLine1{
+    width: 19px;
+    height: 0px;
+    border: 1px solid #FF9700; 
+    margin-left: 1.5%; 
+}
+
+.AUCardHeadingLine2{
+    width: 28px;
+    height: 0px;
+    border: 1px solid #FF9700; 
+    margin-left: 5px; 
+}
+
+.AUCardDataContainer{
+    padding-left: 4%;
+    padding-top: 1%;
+    padding-right: 4%;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 167.5%;
+    color: #494949;
+    padding-bottom: 9.5%;
+}
+
+.AUCardDataHeading{
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 117.5%;
+    color: #2B2A35;
+    margin-bottom: 1%;
+}
+
+.AUCardDataSubHeading{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 117.5%;
+    color: #2B2A35;
+    margin-bottom: 12px;
+    margin-top: 28px;
+}
+
+/* About us card 3 as aboutUsCard */
+
+.AUCd3Main{
+    width: 100%;
+    background: #F3F3F3;
+    padding-bottom: 5%;
+}
+
+.AUCd3Heading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 117.5%;
+    color: #2B2A35;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.AUCd3ProjectContainer{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* About us card 4 */
+
+.AUCd4Main{
+    width: 100%;
+    height: 786px;
+    background: white;
+    padding: 0% 4% 0% 4%;
+    font-family: 'Poppins';
+    font-style: normal;
+}
+
+.AUCard4Heading{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;    
+    color: #FF9700;
+    display: flex;
+    align-items: center;
+    height: 4%;  
+    padding-top: 11%;
+    margin-bottom: 1%;
+}
+
+.AUCard4HeadingLine1{
+    width: 19px;
+    height: 0px;
+    border: 1px solid #FF9700; 
+    margin-left: 1.5%; 
+}
+
+.AUCard4HeadingLine2{
+    width: 28px;
+    height: 0px;
+    border: 1px solid #FF9700; 
+    margin-left: 5px; 
+}
+
+.AUCard4SubHeading{
+    height: 42px;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 117.5%;
+    color: #2B2A35;
+}
+
+.AUCard4Text{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 167.5%;
+    color: #494949;
+    margin-top: 1%;
+}
+
+.AUCd4CardsContainer{
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: center;
+    align-items: center;
+    height: 490px;
+}
+
+.AUCd4Cards{
+    background: #FFFFFF;
+    border: 1.62841px solid rgba(255, 151, 0, 0.44);
+    border-radius: 26.0545px;  
+    height: 350px;
+    width: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 0% 2% 0%;
+
+}
+
+.AUCd4Img{
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    object-fit: inherit;
+}
+
+.AUCdCardHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 150%;
+    text-align: center;
+    color: #2B2A35;
+}
+
+.AUCdCardSubHeading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #646464;
+}
+
+.AUCd4SocialContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+    margin-top: 7%;
+}
+
+.AUCd4Social{
+    width: 32.1px;
+    height: 32.1px;
+    border: 1px solid #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* about us card 5 */
+.AUCd5Main{
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.AUCd5Heading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 128%;
+    text-align: center;
+    color: #FAFAFA;
+    width: 692px;
+}
+
+.AUCd5Button{
+    margin-top: 3%;
+}
+
+
+
+@media screen and (max-width: 590px) {
+
+/* Card 2 */
+
+.AUCard2ImgDHeading{
+    margin-top: 10%;
+    color: black;
+    font-weight: 600;
+
+
+}
+.AUCard2ImgContent{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.AUCard2Img{
+    width: 100%;
+    height: 100%;
+    margin-left:0%;
+    margin-right:5px;
+    margin-top: 10%;
+}
+
+.AUCard2ImgDetail{
+    margin-top: 10%;
+    width: 100%;
+}
+
+.AUCard2ImgDSubHeading{
+    font-size: 30px;
+    margin-bottom: 4.5%;
+    width: 90%;
+
+}
+
+.AUCard2ImgDText{
+    width: 90%;
+    font-size: 16px;
+
+}
+
+.AUCardDataContainer{
+    padding-top: 2%;
+    font-size: 16px;
+}
+
+.AUCardDataHeading{
+    font-size: 30px;
+    margin-bottom: 3%;
+}
+
+.AUCardDataSubHeading{
+    font-size: 20px;
+}
+
+.AUCardHeading{
+    margin-top: 20%;
+}
+
+/* About us Card 3 */
+
+
+
+.AUCd3Heading{
+    font-size: 28px;
+    text-align: center;
+    padding: 0% 3.5% 0% 3.5%;
+}
+
+
+
+.AUCd3ProjectItem{
+    margin: 0% 10% 0% 10%;
+}
+
+.AUCd3ProjectCount{
+    font-size: 28px;
+   
+}
+
+.AUCd3ProjectDetail{
+    font-size: 12px;
+
+}
+
+.AUCd3ImgSize{
+    width: 350px;
+    height: 350px;
+}
+
+/* About us card 4 */
+
+.AUCd4Main{
+    width: 100%;
+    height: 100%;
+    background: white;
+    padding: 0% 4% 0% 4%;
+    font-family: 'Poppins';
+    font-style: normal;
+}
+
+.AUCard4Heading{
+    font-size: 18px;
+}
+
+
+.AUCard4SubHeading{
+    height: 100%;
+    font-size: 20px;
+}
+
+.AUCard4Text{
+    font-size: 14px;
+    margin-top: 2%;
+}
+
+
+.AUCd4CardsContainer{
+    overflow: auto;
+}
+
+.AUCd4Cards{
+    height: 250px;
+    width: 310px;
+}
+
+.AUCd4Img{
+    width: 90px;
+    height: 90px;
+   
+}
+
+.AUCdCardHeading{
+    font-size: 12px;
+    
+}
+
+.AUCdCardSubHeading{
+    font-size: 10px;
+}
+
+.AUCd4SocialContainer{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.AUCd4CardsContainer{
+    height: 350px;
+}
+/* card 5 */
+
+
+
+.AUCd5Heading{
+    font-size: 24px;
+    width: 100%;
+    padding: 0% 3% 0% 3%;
+}
+
+}
+
+
+@media screen and (min-width: 591px) and (max-width: 840px) {
+
+/* Card 2 */
+.AUCard2ImgContent{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.AUCard2Img{
+    width: 100%;
+    height: 100%;
+    margin-left:0%;
+    margin-right:5px;
+    margin-top: 10%;
+}
+
+/* Card 3 */
+
+.AUCd3ProjectItem{
+    margin: 0% 10% 0% 10%;
+}
+
+.AUCd3ImgSize{
+    width: auto;
+    height: 450px;
+}
+
+
+
+
+
+/* About us card 4 */
+
+.AUCdCardHeading{
+    font-size: 16px;  
+}
+
+.AUCdCardSubHeading{
+    font-size: 14px;  
+}
+
+.AUCd4SocialContainer{
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+}
+
+
+}
+
+@media screen and (min-width: 841px) and (max-width: 1040px) {
+
+
+/* Card 2 */
+
+.AUCard2Img{
+    width: 420px;
+    height: 384px;
+    margin-left: 4%;
+    margin-top: 15%;
+}
+
+.AUCard2ImgDetail{
+    width: 100%;
+    height: 500px;
+  
+}
+
+.AUCard2ImgDSubHeading{
+    font-size: 20px;
+  
+
+}
+
+.AUCard2ImgDText{
+    font-size: 12px;
+
+}
+
+/* Card 3 */
+
+.AUCd3ProjectItem{
+    margin: 0% 3% 0% 3%;
+}
+
+
+
+}
+
+.btnThreeCustomColor::after {
+    border: 1px solid white !important;
+  }
+  
+  .btnThreeCustomColor::before {
+    background-color: white !important;
+  }

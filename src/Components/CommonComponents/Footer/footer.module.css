@@ -1,0 +1,362 @@
+.footerMainContainer {
+  padding: 4%;
+  background: #ececec;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footerMainContainer h3 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  line-height: 38px;
+  font-size: 20px;
+  color: #2b2a35;
+  /* text-align: center; */
+}
+
+.footAboutWidth {
+  /* width: 25%; */
+  width: 26%;
+}
+
+.footServiceWidth {
+  width: 26%;
+}
+
+.footSocialWidth {
+  width: 22%;
+}
+
+.footerSectionContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.footerAboutZweidevs {
+  /* width: 360px; */
+  height: 120px;
+  /* margin-top: 20px; */
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  color: #596380;
+}
+
+.footerAboutImageContainer {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.footerAboutHeading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-left: 21px; */
+  font-size: 25.4317px;
+  margin-left: 1.2rem;
+}
+
+.footerRightsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerRightsContainer p {
+  font-family: "poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #596380;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  /* padding-left: 1%; */
+  /* padding-right: 1%; */
+}
+
+.footerRightsImage {
+  /* width: 380px; */
+  width: 33%;
+}
+
+.footerLinesContainerService {
+  display: flex;
+  width: 70px;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  /* margin-left: -10.5%; */
+}
+
+.footerLinesContainerSocial {
+  display: flex;
+  width: 70px;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  /* justify-content: center; */
+  /* margin-top: 2%; */
+  /* margin-left: -33%; */
+}
+
+.footerLine1 {
+  width: 24px;
+  height: 0px;
+  border: 3px solid #e88b05;
+}
+
+.footerLine2 {
+  /* margin-left: 1%; */
+  width: 38px;
+  height: 0px;
+  border: 3px solid #ff9700;
+}
+.imageSocialMain {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 2rem;
+  gap:10px;
+}
+.imageSocialContainer {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.imageContainer {
+  /* margin-right: 1rem; */
+}
+
+.footerServicesItemsContainer {
+  margin-top: 2rem;
+  /* margin-left: 38%; */
+}
+
+.footerServiceItem {
+  height: 30px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #596380;
+}
+
+@media screen and (max-width: 590px) {
+  .footerAboutImageContainer {
+    /* justify-content: center; */
+    /* margin-bottom: 20px; */
+  }
+  .footerAboutHeading {
+    margin-left: 0.6rem;
+  }
+  .footAboutWidth {
+    width: 100%;
+  }
+
+  .footServiceWidth {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .footSocialWidth {
+    /* border:2px solid red; */
+    width: 100%;
+    /* display: flex; */
+    /* align-items: center; */
+    text-align: center;
+  }
+
+  .footerSectionContainer {
+    flex-direction: column;
+  }
+
+  .footerAboutZweidevs {
+    display: none;
+  }
+
+  .footerRightsContainer p {
+    font-size: 8px;
+    text-align: center;
+  }
+
+  .footerRightsImage {
+    width: 23%;
+  }
+
+  .footerServiceContainer {
+    /* margin-bottom: 20px; */
+  }
+
+  .footerServicesItemsContainer {
+    /* margin-left: 11%; */
+    /* margin-bottom: 30px; */
+  }
+  .footerLinesContainerService {
+    margin: auto auto 1.5rem auto;
+  }
+  .footerAboutImageContainer {
+    justify-content: center;
+  }
+
+  .footerLinesContainerSocial {
+    margin: auto auto 1.5rem auto;
+  }
+  .imageSocialMain {
+    margin-top: 1.2rem;
+    justify-content: center;
+    width: 100%;
+  }
+  .imageContainerIcons {
+    width: 30px;
+  }
+  .footerAboutImageContainerLogo {
+    width: 50px;
+  }
+  .footerMainContainer h3 {
+    font-size: 18px;
+  }
+  .footerServiceItem {
+    font-size: 17px;
+  }
+  .footerServicesItemsContainer {
+    margin-top: 1.2rem;
+    /* margin-left: 38%; */
+  }
+}
+@media screen and (min-width: 591px) and (max-width: 820px) {
+  .footAboutWidth {
+    width: 33%;
+  }
+
+  .footServiceWidth {
+    width: 33%;
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .footSocialWidth {
+    width: 33%;
+    margin-top: 1rem;
+    padding-left: 2rem;
+  }
+
+  .footerAboutZweidevs {
+    /* width: 220px; */
+    /* font-size: 18px; */
+  }
+  .footerRightsContainer p {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .footerRightsImage {
+    width: 199px;
+  }
+
+  .footerLinesContainerService {
+    /* margin-left: -24.5%; */
+  }
+
+  .footerLinesContainerSocial {
+    /* margin-left: -50.5%; */
+  }
+
+  .footerServicesItemsContainer {
+    /* margin-left: 12%; */
+    /* margin-top: 40px; */
+  }
+
+  .footerAboutZweidevs {
+    font-size: 15px;
+  }
+
+  .footAboutWidth {
+    /* width: 28%; */
+  }
+  .footerServiceItem {
+    font-size: 15px;
+  }
+  .footerMainContainer h3 {
+    font-size: 15px;
+  }
+  .imageContainer {
+    /* margin-right: 0.3rem; */
+  }
+  .footerAboutImageContainer {
+    margin-bottom: 1rem;
+  }
+  .footerAboutImageContainerLogo {
+    width: 34px;
+  }
+  .footerAboutHeading {
+    margin-left: 0.6rem;
+  }
+  .footerLinesContainerService {
+    margin-bottom: 2rem;
+    /* margin-left: -10.5%; */
+  }
+  .imageContainerIcons {
+    width: 30px;
+  }
+  .footerServicesItemsContainer {
+    margin-top: 1.2rem;
+    /* margin-left: 38%; */
+  }
+  .imageSocialMain {
+    margin-top: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 821px) and (max-width: 1040px) {
+  .footerRightsContainer p {
+    font-size: 12px;
+  }
+  .footerAboutZweidevs {
+    /* width: 220px; */
+    font-size: 17px;
+  }
+  .footerRightsImage {
+    /* width: 313px; */
+    width: 29%;
+  }
+
+  .footerLinesContainerService {
+    /* margin-left: -18.5%; */
+  }
+
+  .footerLinesContainerSocial {
+    /* margin-left: -37.5%; */
+  }
+
+  .footAboutWidth {
+    width: 28%;
+  }
+  .footerServiceItem {
+    font-size: 17px;
+  }
+  .footerMainContainer h3 {
+    font-size: 17px;
+  }
+  .imageContainer {
+    /* margin-right: 0.3rem; */
+  }
+  .footerAboutImageContainer {
+    margin-bottom: 1rem;
+  }
+  .footerServicesItemsContainer {
+    margin-top: 1.5rem;
+    /* margin-left: 38%; */
+  }
+  .imageSocialMain {
+    margin-top: 1.5rem;
+  }
+}
+@media (min-width: 1040px) and (max-width: 1260px) {
+  .footerRightsImage {
+    width: 29%;
+  }
+}
