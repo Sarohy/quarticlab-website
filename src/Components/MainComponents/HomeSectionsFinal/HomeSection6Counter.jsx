@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import styles from "./HomeSection.module.css";
+import styles from "./HomeSection6Counter.module.css";
 
 const HomeSection6Counter = (props) => {
   const ref = useRef(null);
@@ -38,7 +38,7 @@ const HomeSection6Counter = (props) => {
           {sign}
         </span>
         <br />
-        <span style={{fontFamily:"Poppins"}} >{label} </span>
+        <span style={{ fontFamily: "Poppins" }} >{label} </span>
       </div>
     </div>
   );

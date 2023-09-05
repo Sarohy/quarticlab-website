@@ -1,34 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-import styles from "./HomeSection.module.css";
-import { HSImg2, HSLogo, HSImg1 } from "@component/assets/HomeIcons";
-import { InstantBookingButton, Zbutton } from "@component/Components/CommonComponents";
-import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import { HSLogo } from "@component/assets/HomeIcons";
+import { InstantBookingButton } from "@component/Components/CommonComponents";
 import "animate.css";
-import { useRouter } from "next/router";
-import HS1InstantBooking from "../../../assets/HomeIcons/HS1InstantBooking";
+import styles from "./HomeSection1.module.css";
 
 function HomeSection1() {
-  const router = useRouter();
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+  // const [isHovered, setIsHovered] = useState(false);
+  // const handleMouseEnter = () => {
+  //   setIsHovered(true);
+  // };
+  // const handleMouseLeave = () => {
+  //   setIsHovered(false);
+  // };
   return (
     <>
       <div className={styles.HS1Background}>
-        {/* <div className={`${styles.HS1HeaderImage} `}>
-          <Image
-            className={styles.HS1Img1Height}
-            src={HSImg1}
-            alt={"client-image"}
-          />
-        </div> */}
         <div className={`${styles.HS1ContentContainer}`}>
           <div className="animate__delay-1s animate__animated animate__zoomIn">
             <div className={styles.HS1Content}>
@@ -56,13 +43,6 @@ function HomeSection1() {
             />
           </div>
         </div>
-        {/* <div className={styles.HS1FooterImage}>
-          <Image
-            className={styles.HS1Img2Height}
-            src={HSImg2}
-            alt={"footer-icon"}
-          />
-        </div> */}
       </div>
     </>
   );

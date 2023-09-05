@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
-import styles from "./HomeSection.module.css";
-import { HS3Img, HS3Img1 } from "@component/assets/HomeIcons";
-import { Zbutton } from "@component/Components/CommonComponents";
 import { useRouter } from "next/router";
+import { HS3Img } from "@component/assets/HomeIcons";
 import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
+import styles from "./HomeSection3.module.css";
 
-function HomeSection3({ handleButtonClick }) {
+function HomeSection3() {
   const animatedDivRefs = Array.from({ length: 3 }, () => React.useRef(null));
   const animatedPhoneRef = React.useRef(null);
   const animatedImgRef = React.useRef(null);
@@ -79,8 +78,6 @@ function HomeSection3({ handleButtonClick }) {
         <div className={styles.HS3ContentContainer}>
           <div className={styles.HS3TabContainer}>
             <div className={styles.HS3ContentHeading} ref={animatedDivRefs[0]}>
-              {/* <p>About Us</p> <hr className={styles.HS3ContentLine1} />
-              <hr className={styles.HS3ContentLine2} /> */}
             </div>
             <h2 className={styles.HS3ContentText} ref={animatedDivRefs[1]}>
               Work With Top Notch Designers And Developers To Get Amazing

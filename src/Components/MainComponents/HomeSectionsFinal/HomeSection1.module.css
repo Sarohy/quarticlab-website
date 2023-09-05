@@ -1,0 +1,197 @@
+.HS1Background {
+    height: 672px;
+    background: url("../../../../src/assets/HomeIcons/Home_background.svg");
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 100px;
+}
+@media screen and (max-width: 414px) {
+    .HS1Background {
+        padding-top: 0px;
+    }
+}
+.HS1HeaderImage {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+.HSLogoContainer {
+    height: 383px;
+    width: 383px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.HS1ContentContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0% 5% 0% 2%;
+    width: 100%;
+}
+.HS1ContentLine {
+    height: 0;
+    border: 3px solid #ff9700;
+    transform: rotate(90deg);
+    width: 165px;
+    border-radius: 10px;
+}
+.HS1Content {
+    display: flex;
+    align-items: center;
+}
+.HS1Text {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 133.5%;
+    color: #ffffff;
+    margin-left: -10.5%;
+}
+.HS1SubText {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    color: #ffffff;
+    width: 622px;
+    margin-left: 12.5%;
+    margin-top: 3%;
+}
+.HS1ContentButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 13%;
+    width: 64%;
+    margin-top: 26px;
+}
+.HS1FooterImage {
+    height: 28.4%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+@media screen and (max-width: 590px) {
+    .HS1Img1Height {
+        height: 60px;
+        padding-left: 95px;
+    }
+
+    .HS1Img2Height {
+        height: 66px;
+    }
+
+    .HSLogoContainer {
+        height: 250px;
+        width: 250px;
+    }
+
+    .HS1Text {
+        font-size: 30px;
+    }
+
+    .HS1SubText {
+        font-size: 12px;
+        line-height: 150%;
+        width: 250px;
+        margin-left: 23%;
+    }
+    .HS1ContentLine {
+        width: 72px;
+    }
+
+    .HS1ContentButtonContainer {
+        width: 100%;
+        margin-top: 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0%;
+    }
+}
+@media screen and (min-width: 591px) and (max-width: 820px) {
+    .HS1Background {
+        height: 585px;
+    }
+    .HSLogoContainer {
+        height: 320px;
+        width: 320px;
+    }
+    .HS1Text {
+        font-size: 40px;
+        margin-left: -9%;
+    }
+    .HS1SubText {
+        font-size: 12px;
+        line-height: 150%;
+        width: 250px;
+    }
+    .HS1ContentLine {
+        width: 100px;
+    }
+    .HS1ContentButtonContainer {
+        width: 100%;
+        margin-top: 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+}
+@media screen and (min-width: 821px) and (max-width: 900px) {
+    .HS1Background {
+        height: 585px;
+    }
+    .HSLogoContainer {
+        height: 320px;
+        width: 320px;
+    }
+    .HS1Text {
+        font-size: 40px;
+        margin-left: -8%;
+    }
+    .HS1SubText {
+        font-size: 20px;
+        line-height: 150%;
+        width: 400px;
+        margin-left: 10%;
+    }
+    .HS1ContentLine {
+        width: 90px;
+    }
+    .HS1ContentButtonContainer {
+        width: 93%;
+        margin-top: 26px;
+        display: flex;
+        align-items: center;
+    }
+}
+@media screen and (min-width: 901px) and (max-width: 1140px) {
+    .HS1ContentContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0%;
+    }
+    .HS1SubText {
+        width: 500px;
+        margin-left: 14%;
+    }
+    .HS1ContentButtonContainer {
+        width: 65%;
+        margin-top: 26px;
+        display: flex;
+        align-items: center;
+    }
+    .HSLogoContainer {
+        padding: 0% 2% 0% 0%;
+    }
+}

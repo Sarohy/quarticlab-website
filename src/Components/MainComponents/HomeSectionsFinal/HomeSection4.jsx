@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import Image from "next/image";
-// import { Zbutton } from "@component/Components/CommonComponents";
+import { useRouter } from "next/router";
 import {
   Project1_Image1,
   Project2_Image1,
@@ -10,17 +9,17 @@ import {
   Project5_Image1,
   Project6_Image1,
 } from "@component/assets/HomeIcons";
-import styles from "./HomeSection.module.css";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardActionArea from "@mui/material/CardActionArea";
 import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
-import { Card, CardActionArea, CardContent } from "@mui/material";
-// import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-// import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import styles from "./HomeSection4.module.css";
 
 function HomeSection4() {
   const router = useRouter();
   const animatedDivRefs = Array.from({ length: 1 }, () => React.useRef(null));
   const animatedCardRefs = Array.from({ length: 3 }, () => React.useRef(null));
-  const [startIndex, setStartIndex] = useState(1);
+  // const [startIndex, setStartIndex] = useState(1);
 
   const projectData = [
     {
@@ -103,25 +102,25 @@ function HomeSection4() {
     },
   ];
 
-  const onClickLeftArrow = () => {
-    if (startIndex == 0) setStartIndex(3);
-    else setStartIndex(startIndex - 1);
-    let dataArr = [];
-    for (let index = startIndex; index < startIndex + 4; index++) {
-      dataArr.push(projectData[index]);
-    }
-    setProjectArray(dataArr);
-  };
+  // const onClickLeftArrow = () => {
+  //   if (startIndex == 0) setStartIndex(3);
+  //   else setStartIndex(startIndex - 1);
+  //   let dataArr = [];
+  //   for (let index = startIndex; index < startIndex + 4; index++) {
+  //     dataArr.push(projectData[index]);
+  //   }
+  //   setProjectArray(dataArr);
+  // };
 
-  const onClickRightArrow = () => {
-    if (startIndex == 3) setStartIndex(0);
-    else setStartIndex(startIndex + 1);
-    let dataArr = [];
-    for (let index = startIndex; index < startIndex + 3; index++) {
-      dataArr.push(projectData[index]);
-    }
-    setProjectArray(dataArr);
-  };
+  // const onClickRightArrow = () => {
+  //   if (startIndex == 3) setStartIndex(0);
+  //   else setStartIndex(startIndex + 1);
+  //   let dataArr = [];
+  //   for (let index = startIndex; index < startIndex + 3; index++) {
+  //     dataArr.push(projectData[index]);
+  //   }
+  //   setProjectArray(dataArr);
+  // };
 
   useEffect(() => {
     const options = {

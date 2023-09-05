@@ -1,18 +1,7 @@
 import React, { useEffect } from "react";
-import Image from "next/image";
-import styles from "./HomeSection.module.css";
-import {
-  HS7Img1,
-  HS7Img2,
-  HS7Img3,
-  HS7Img4,
-  HS7Img5,
-  HS7Img6,
-  HS7Img7,
-  HS7Img8,
-  HS7Img9,
-} from "@component/assets/HomeIcons";
-function HomeSection7({ handleButtonClick }) {
+import styles from "./HomeSection7.module.css";
+
+function HomeSection7() {
   const animatedDivRefs = React.useRef(null);
 
   useEffect(() => {
@@ -50,29 +39,6 @@ function HomeSection7({ handleButtonClick }) {
           Technologies We Work With
         </h2>
         <div className={`${styles.slidertechcont} ${styles.slidertechcontimg}`}>
-          {/* <div className={styles.HS7ImgContainer}>
-            <Image
-              className={styles.HS7Image}
-              src={HS7Img1}
-              alt="shopify-icon"
-            />
-            <Image className={styles.HS7Image} src={HS7Img2} alt="php-icon" />
-            <Image className={styles.HS7Image} src={HS7Img3} alt="rails-icon" />
-            <Image className={styles.HS7Image} src={HS7Img4} alt="react-icon" />
-            <Image className={styles.HS7Image} src={HS7Img5} alt="node-icon" />
-            <Image className={styles.HS7Image} src={HS7Img6} alt="openI-icon" />
-            <Image
-              className={styles.HS7Image}
-              src={HS7Img7}
-              alt="python-icon"
-            />
-            <Image
-              className={styles.HS7Image}
-              src={HS7Img8}
-              alt="sqLite-icon"
-            />
-            <Image className={styles.HS7Image} src={HS7Img9} alt="unity-icon" />
-          </div> */}
         </div>
       </div>
     </>

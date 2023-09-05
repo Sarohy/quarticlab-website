@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import {
-  TextField,
-  Button,
-  FormLabel,
-  Autocomplete,
-  ListItem,
-  Avatar,
-  ListItemText,
-  ListItemIcon,
-  InputAdornment
-} from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import ListItem from "@mui/material/ListItem";
+import FormLabel from "@mui/material/FormLabel";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import InputAdornment from "@mui/material/InputAdornment";
 import { isValidPhoneNumber } from "libphonenumber-js";
-import styles from "./HomeSection.module.css";
+import styles from "./HomeSection8.module.css";
 
 
-function HomeSection8({ handleButtonClick }) {
+function HomeSection8() {
   const [allCountries, setAllCountries] = useState([]);
   const [formValues, setFormValues] = useState({
     name: "",
