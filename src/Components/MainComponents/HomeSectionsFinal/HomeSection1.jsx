@@ -6,13 +6,7 @@ import "animate.css";
 import styles from "./HomeSection1.module.css";
 
 function HomeSection1() {
-  // const [isHovered, setIsHovered] = useState(false);
-  // const handleMouseEnter = () => {
-  //   setIsHovered(true);
-  // };
-  // const handleMouseLeave = () => {
-  //   setIsHovered(false);
-  // };
+
   return (
     <>
       <div className={styles.HS1Background}>

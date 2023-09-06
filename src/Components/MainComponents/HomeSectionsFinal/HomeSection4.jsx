@@ -19,7 +19,6 @@ function HomeSection4() {
   const router = useRouter();
   const animatedDivRefs = Array.from({ length: 1 }, () => React.useRef(null));
   const animatedCardRefs = Array.from({ length: 3 }, () => React.useRef(null));
-  // const [startIndex, setStartIndex] = useState(1);
 
   const projectData = [
     {
@@ -101,26 +100,6 @@ function HomeSection4() {
       />
     },
   ];
-
-  // const onClickLeftArrow = () => {
-  //   if (startIndex == 0) setStartIndex(3);
-  //   else setStartIndex(startIndex - 1);
-  //   let dataArr = [];
-  //   for (let index = startIndex; index < startIndex + 4; index++) {
-  //     dataArr.push(projectData[index]);
-  //   }
-  //   setProjectArray(dataArr);
-  // };
-
-  // const onClickRightArrow = () => {
-  //   if (startIndex == 3) setStartIndex(0);
-  //   else setStartIndex(startIndex + 1);
-  //   let dataArr = [];
-  //   for (let index = startIndex; index < startIndex + 3; index++) {
-  //     dataArr.push(projectData[index]);
-  //   }
-  //   setProjectArray(dataArr);
-  // };
 
   useEffect(() => {
     const options = {

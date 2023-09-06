@@ -77,17 +77,6 @@ function HomeSection2() {
       });
     }, options);
 
-    // const observer1 = new IntersectionObserver((entries) => {
-    //   entries.forEach((entry) => {
-    //     if (entry.isIntersecting) {
-    //       entry.target.classList.add(
-    //         "animate__animated",
-    //         "animate__backInLeft",
-    //         "animate__delay-1s"
-    //       );
-    //     }
-    //   });
-    // }, options);
 
     const observer2 = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
