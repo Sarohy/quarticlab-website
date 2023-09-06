@@ -5,6 +5,7 @@
     padding: 0% 4% 0% 4%;
     font-family: "Poppins";
     font-style: normal;
+    overflow-y: hidden;
 }
 
 .AUCard4Heading {
