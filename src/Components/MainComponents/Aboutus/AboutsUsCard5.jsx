@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Zbutton } from "@component/Components/CommonComponents";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
-import styles from "./AboutUs.module.css";
+import styles from "./AboutUs5.module.css";
 
 const AboutUsCard5 = () => {
   const animatedHeadingRef = React.useRef(null);
