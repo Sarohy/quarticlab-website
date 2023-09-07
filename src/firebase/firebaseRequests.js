@@ -20,9 +20,7 @@ const addItem = async (collectionName, data) => {
   try {
     const collectionRef = collection(db, collectionName);
     return await addDoc(collectionRef, data);
-  } catch (error) {
-    console.log(`error adding ${collectionName} ==> `, error);
-  }
+  } catch (error) {}
 };
 
 // zweidevs projects

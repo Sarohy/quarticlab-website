@@ -43,7 +43,7 @@ function Work() {
         setProjects(response);
         setFilteredProjects(response);
       })
-      .catch((error) => console.log('Error ==> ', error));
+      .catch((error) => {});
   }, []);
 
   return (
