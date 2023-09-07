@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
-import styles from "./HomeSection.module.css";
 import HomeSection6Counter from "./HomeSection6Counter";
 import "animate.css";
+import styles from "./HomeSection6.module.css";
 
-function HomeSection6({ handleButtonClick }) {
+function HomeSection6() {
   const animatedDivRefs = React.useRef(null);
   const animatedRefs = React.useRef(null);
 

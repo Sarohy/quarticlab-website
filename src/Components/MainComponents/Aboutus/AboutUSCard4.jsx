@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
-  CD4Img,
   CD4Img1,
   CD4Img2,
   CD4Img3,
-  CD4Founder1,
-  CD4Founder2,
   CD4Img1Hover,
   CD4Img2Hover,
   CD4Img3Hover,
 } from "@component/assets/AboutUs";
-import styles from "./AboutUs.module.css";
+import styles from "./AboutUs4.module.css";
 
 const AboutUsCard4 = () => {
   const animatedHeadingRef = React.useRef(null);
@@ -126,8 +123,8 @@ const AboutUsCard4 = () => {
                         height={42}
                         src={
                           hoverState &&
-                          selectImage === "insta" &&
-                          selectKey === item.heading
+                            selectImage === "insta" &&
+                            selectKey === item.heading
                             ? CD4Img1Hover
                             : item.socialM1
                         }
@@ -151,8 +148,8 @@ const AboutUsCard4 = () => {
                         height={42}
                         src={
                           hoverState &&
-                          selectImage === "fb" &&
-                          selectKey === item.heading
+                            selectImage === "fb" &&
+                            selectKey === item.heading
                             ? CD4Img2Hover
                             : item.socialM2
                         }
@@ -176,8 +173,8 @@ const AboutUsCard4 = () => {
                         height={42}
                         src={
                           hoverState &&
-                          selectImage === "linkedIn" &&
-                          selectKey === item.heading
+                            selectImage === "linkedIn" &&
+                            selectKey === item.heading
                             ? CD4Img3Hover
                             : item.socialM3
                         }

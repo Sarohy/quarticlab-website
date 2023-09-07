@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import styles from "./AboutUs.module.css";
-import { CD2Img1 } from "@component/assets/AboutUs";
 import Image from "next/image";
+import { CD2Img1 } from "@component/assets/AboutUs";
+import styles from "./AboutUs2.module.css";
 
 const AboutUsCard2 = () => {
   const animatedTextRef = Array.from({ length: 5 }, () => React.useRef(null));

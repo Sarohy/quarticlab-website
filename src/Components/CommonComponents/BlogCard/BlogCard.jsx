@@ -1,10 +1,6 @@
 import styles from "./blogCard.module.css";
 import React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions, Grid } from "@mui/material";
+import { Button, CardActionArea, CardActions, Grid, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import "animate.css";
 import { useRouter } from "next/router";
 

@@ -1,0 +1,62 @@
+.AUCd3Main {
+    width: 100%;
+    background: #f3f3f3;
+    padding-bottom: 5%;
+}
+
+.AUCd3Heading {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 117.5%;
+    color: #2b2a35;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.AUCd3ProjectContainer {
+    display: flex;
+    justify-content: center;
+}
+@media screen and (max-width: 590px) {
+    .AUCd3Heading {
+        font-size: 28px;
+        text-align: center;
+        padding: 0% 3.5% 0% 3.5%;
+    }
+
+    .AUCd3ProjectItem {
+        margin: 0% 10% 0% 10%;
+    }
+
+    .AUCd3ProjectCount {
+        font-size: 28px;
+    }
+
+    .AUCd3ProjectDetail {
+        font-size: 12px;
+    }
+
+    .AUCd3ImgSize {
+        width: 350px;
+        height: 350px;
+    }
+}
+@media screen and (min-width: 591px) and (max-width: 840px) {
+    .AUCd3ProjectItem {
+        margin: 0% 10% 0% 10%;
+    }
+
+    .AUCd3ImgSize {
+        width: auto;
+        height: 450px;
+    }
+}
+@media screen and (min-width: 841px) and (max-width: 1040px) {
+    .AUCd3ProjectItem {
+        margin: 0% 3% 0% 3%;
+    }
+}

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import styles from "./HomeSection.module.css";
-import Carousel from "react-material-ui-carousel";
-import { Card } from "@mui/material";
 import Image from "next/image";
+import Card from "@mui/material/Card";
+import Carousel from "react-material-ui-carousel";
 import StarOutlinedIcon from "@mui/icons-material/StarOutlined";
-
 import { HS5Img1, HS5Img2, HS5Img3, HS3Img } from "@component/assets/HomeIcons";
+import styles from "./HomeSection5.module.css";
 
 const otherItems = [
   {
@@ -15,19 +14,19 @@ const otherItems = [
         img: HS3Img,
         content: "Theresa",
         details:
-        "Amazing team to work with! Great at research, development, and finding new solutions. They are experienced and talented. They were also quite cooperative. Thanks!"
+          "Amazing team to work with! Great at research, development, and finding new solutions. They are experienced and talented. They were also quite cooperative. Thanks!"
       },
       {
         img: HS5Img2,
         content: "Rishi Sareen",
         details:
-        "Team was organized and communicated well. Project was completed professionally and I would hire them again for future projects!"
+          "Team was organized and communicated well. Project was completed professionally and I would hire them again for future projects!"
       },
       {
         img: HS5Img3,
         content: "Nick Angelov",
         details:
-        "Zweidevs met our expectations. They were consistently professional and flexible and delivered a product that provides us with a high-quality base from which to move forward. I would use them again."
+          "Zweidevs met our expectations. They were consistently professional and flexible and delivered a product that provides us with a high-quality base from which to move forward. I would use them again."
       },
     ],
   },
@@ -38,19 +37,19 @@ const otherItems = [
         img: HS5Img1,
         content: "Anton Benz",
         details:
-        "Excellent to work with. Will hire them again and will recommend them to anyone looking for great work."
+          "Excellent to work with. Will hire them again and will recommend them to anyone looking for great work."
       },
       {
         img: HS5Img2,
         content: "Tony Malik",
         details:
-        "The team at Zweidevs has extensive knowledge of the work we requested. We have worked with them for over 5-6 months and have been very happy with production. We will hire them again soon. They are our go to people when it comes to software development."
+          "The team at Zweidevs has extensive knowledge of the work we requested. We have worked with them for over 5-6 months and have been very happy with production. We will hire them again soon. They are our go to people when it comes to software development."
       },
       {
         img: HS5Img3,
         content: "Tommy Vacek",
         details:
-        "The team at Zweidevs did a really good job of scoping the project out. We had the scope of our project increase due to learning more about our product space which caused some re-work but this is nothing that Zweidevs could prevent."
+          "The team at Zweidevs did a really good job of scoping the project out. We had the scope of our project increase due to learning more about our product space which caused some re-work but this is nothing that Zweidevs could prevent."
       },
     ],
   },
@@ -61,19 +60,19 @@ const otherItems = [
         img: HS5Img1,
         content: "Eric Halverson",
         details:
-        "They built out the framework for my MVP of a Real Estate website on time, on budget, and with the features requested. Weekly demos kept me informed of progress and all interactions were very friendly. Would work with again."
+          "They built out the framework for my MVP of a Real Estate website on time, on budget, and with the features requested. Weekly demos kept me informed of progress and all interactions were very friendly. Would work with again."
       },
       {
         img: HS5Img2,
         content: "Phil Stolaronek",
         details:
-        "This team is really good to work with. Their communication is great and their English is very good. I recommend them."
+          "This team is really good to work with. Their communication is great and their English is very good. I recommend them."
       },
       {
         img: HS5Img3,
         content: "Farzin Habib",
         details:
-        "They pointed out the areas that we had missed thinking about"
+          "They pointed out the areas that we had missed thinking about"
       },
     ],
   },
@@ -87,7 +86,7 @@ const mobItems = [
         img: HS3Img,
         content: "Theresa",
         details:
-        "Amazing team to work with! Great at research, development, and finding new solutions. They are experienced and talented. They were also quite cooperative. Thanks!"
+          "Amazing team to work with! Great at research, development, and finding new solutions. They are experienced and talented. They were also quite cooperative. Thanks!"
       },
     ],
   },
@@ -98,7 +97,7 @@ const mobItems = [
         img: HS3Img,
         content: "Rishi Sareen",
         details:
-        "Team was organized and communicated well. Project was completed professionally and I would hire them again for future projects!"
+          "Team was organized and communicated well. Project was completed professionally and I would hire them again for future projects!"
       },
     ],
   },
@@ -109,7 +108,7 @@ const mobItems = [
         img: HS3Img,
         content: "Nick Angelov",
         details:
-        "Zweidevs met our expectations. They were consistently professional and flexible and delivered a product that provides us with a high-quality base from which to move forward. I would use them again."
+          "Zweidevs met our expectations. They were consistently professional and flexible and delivered a product that provides us with a high-quality base from which to move forward. I would use them again."
       },
     ],
   },
@@ -123,15 +122,11 @@ const cardItem = (items) => {
           {items.map((item, index) => {
             return (
               <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  width: "100%",
-                }}
+                className={styles.HS5Content}
                 key={`${index}${item.content}`}
               >
                 <Card className={styles.HS5SingleCard}>
-                  <div style={{ display: "flex", flexDirection: "column" }}>
+                  <div className={styles.HS5CardFlow}>
                     <div className={styles.HS5ImgContainer}>
                       <Image
                         src={item.img}
@@ -143,7 +138,7 @@ const cardItem = (items) => {
                       <h3 className={styles.HS5ContentHeader}>
                         {item.content}
                       </h3>
-                      <div style={{ marginTop: "2.5%" }}>
+                      <div className={styles.HS5ContentMargin}>
                         {[0, 1, 3, 4, 5].map((itemStar) => {
                           return (
                             <StarOutlinedIcon
@@ -171,7 +166,7 @@ const cardItem = (items) => {
                 }
                 key={`${index}${item.content}`}
               >
-                <div style={{ display: "flex", flexDirection: "column" }}>
+                <div className={styles.HS5ImageFlow}>
                   <div className={styles.HS5ImgContainer}>
                     <Image
                       src={item.img}
@@ -183,7 +178,7 @@ const cardItem = (items) => {
                     <div className={styles.HS5ContentHeader}>
                       {item.content}
                     </div>
-                    <div style={{ marginTop: "2.5%" }}>
+                    <div className={styles.HS5ItemMargin}>
                       {[0, 1, 3, 4, 5].map((itemStar) => {
                         return (
                           <StarOutlinedIcon
@@ -253,8 +248,6 @@ function HomeSection5() {
       <div className={styles.HS5MainContainer}>
         <div>
           <div className={styles.HS5Heading} ref={animatedDivRefs[0]}>
-            {/* <p>Client Feedback</p> <hr className={styles.HS3ContentLine1} />
-            <hr className={styles.HS3ContentLine2} /> */}
           </div>
         </div>
         <h2 className={styles.HS5SubHeading} ref={animatedDivRefs[1]}>
