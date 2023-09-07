@@ -1,3 +1,3 @@
-import InstantBookingButton from "./InstantBookingButton";
+import InstantBookingButton from './InstantBookingButton';
 
 export default InstantBookingButton;

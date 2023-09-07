@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-function HS1InstantBooking({ fill = "white" }) {
+function HS1InstantBooking({ fill = 'white' }) {
   return (
     <div
       style={{
-        display: "flex",
-        alignItems: "center",
-        width: "20px"
+        display: 'flex',
+        alignItems: 'center',
+        width: '20px',
       }}
     >
       <svg

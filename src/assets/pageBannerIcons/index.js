@@ -1,3 +1,3 @@
-import DiamondSvg from "./DiamondIcon.svg";
+import DiamondSvg from './DiamondIcon.svg';
 
 export { DiamondSvg };

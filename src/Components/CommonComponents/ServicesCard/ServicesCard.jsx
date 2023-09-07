@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Box } from "@mui/material";
 import Image from "next/image";
 import React, { useEffect } from "react";

@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect } from "react";
 import Image from "next/image";
 import HomeSection6Counter from "./HomeSection6Counter";

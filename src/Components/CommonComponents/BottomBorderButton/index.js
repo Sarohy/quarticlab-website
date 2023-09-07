@@ -1,3 +1,3 @@
-import BottomBorderButton from "./BottomBorderButton";
+import BottomBorderButton from './BottomBorderButton';
 
 export default BottomBorderButton;

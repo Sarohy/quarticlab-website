@@ -1,3 +1,3 @@
-import ServiceCard from "./ServiceCard";
+import ServiceCard from './ServiceCard';
 
 export default ServiceCard;

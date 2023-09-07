@@ -1,19 +1,19 @@
-import CDImg1 from "./CDImg1.svg";
-import CD2Img1 from "./CD2Img1.svg";
-import CD3Img1 from "./CD3Img1.svg";
-import CD3Img2 from "./CD3Img2.svg";
-import CD3Img3 from "./CD3Img3.svg";
-import CD3Img4 from "./CD3Img4.svg";
-import CD3Img5 from "./CD3Img5.svg";
-import CD4Img from "./CD4Img.svg";
-import CD4Img1 from "./instagram.svg";
-import CD4Img2 from "./facebook.svg";
-import CD4Img3 from "./linkedin.svg";
-import CD4Img1Hover from "./instagramHover.svg";
-import CD4Img2Hover from "./facebookHover.svg";
-import CD4Img3Hover from "./linkedInHover.svg";
-import CD4Founder1 from "./Ali.svg";
-import CD4Founder2 from "./Sarohy.svg";
+import CDImg1 from './CDImg1.svg';
+import CD2Img1 from './CD2Img1.svg';
+import CD3Img1 from './CD3Img1.svg';
+import CD3Img2 from './CD3Img2.svg';
+import CD3Img3 from './CD3Img3.svg';
+import CD3Img4 from './CD3Img4.svg';
+import CD3Img5 from './CD3Img5.svg';
+import CD4Img from './CD4Img.svg';
+import CD4Img1 from './instagram.svg';
+import CD4Img2 from './facebook.svg';
+import CD4Img3 from './linkedin.svg';
+import CD4Img1Hover from './instagramHover.svg';
+import CD4Img2Hover from './facebookHover.svg';
+import CD4Img3Hover from './linkedInHover.svg';
+import CD4Founder1 from './Ali.svg';
+import CD4Founder2 from './Sarohy.svg';
 
 export {
   CDImg1,

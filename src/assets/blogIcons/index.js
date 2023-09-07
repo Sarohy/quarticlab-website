@@ -1,3 +1,3 @@
-import LoadMoreBtnSvg from "./loadMoreBtn.svg";
+import LoadMoreBtnSvg from './loadMoreBtn.svg';
 
 export default LoadMoreBtnSvg;

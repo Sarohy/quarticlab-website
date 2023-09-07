@@ -1,49 +1,40 @@
-import ProjectCard from "@component/Components/CommonComponents/ProjectCard/ProjectCard";
-import {
-  addProject,
-  getAllProjects,
-} from "@component/firebase/firebaseRequests";
-import PageBanner from "@component/Components/CommonComponents/PageBanner";
+import ProjectCard from '@component/Components/CommonComponents/ProjectCard/ProjectCard';
+import { addProject, getAllProjects } from '@component/firebase/firebaseRequests';
+import PageBanner from '@component/Components/CommonComponents/PageBanner';
 
-import { CircularProgress } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { CircularProgress } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 
 function Work() {
-  const [selected, setSelected] = useState("allProjects");
+  const [selected, setSelected] = useState('allProjects');
   const [projects, setProjects] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState([]);
 
   const handleAllProject = () => {
-    setSelected("allProjects");
+    setSelected('allProjects');
     setFilteredProjects(projects);
   };
 
   const handleWeb = () => {
-    setSelected("webProjects");
-    const filtered = projects.filter((project) =>
-      project.projectType.includes("web")
-    );
+    setSelected('webProjects');
+    const filtered = projects.filter((project) => project.projectType.includes('web'));
     setFilteredProjects(filtered);
   };
 
   const handleMobile = () => {
-    setSelected("mobileProjects");
-    const filtered = projects.filter((project) =>
-      project.projectType.includes("mobile")
-    );
+    setSelected('mobileProjects');
+    const filtered = projects.filter((project) => project.projectType.includes('mobile'));
     setFilteredProjects(filtered);
   };
 
   const handleEcommerce = () => {
-    setSelected("ecommerceProjects");
-    const filtered = projects.filter((project) =>
-      project.projectType.includes("ecommerce")
-    );
+    setSelected('ecommerceProjects');
+    const filtered = projects.filter((project) => project.projectType.includes('ecommerce'));
     setFilteredProjects(filtered);
   };
 
   const requestDemoOnClick = () => {
-    window.open("https://calendly.com/request-demo-zweidevs/30min", "_blank");
+    window.open('https://calendly.com/request-demo-zweidevs/30min', '_blank');
   };
 
   useEffect(() => {
@@ -52,25 +43,25 @@ function Work() {
         setProjects(response);
         setFilteredProjects(response);
       })
-      .catch((error) => console.log("Error ==> ", error));
+      .catch((error) => console.log('Error ==> ', error));
   }, []);
 
   return (
-    <div style={{marginTop:"15vh"}}>
+    <div style={{ marginTop: '15vh' }}>
       <PageBanner
-        title={"Portfolio"}
-        heading={"Everything Your Business Needs Under One Roof"}
+        title={'Portfolio'}
+        heading={'Everything Your Business Needs Under One Roof'}
         description={
           "We've worked cross multiple verticals and a range of services to create engaging and innovative digital experenices."
         }
       />
       <div
         style={{
-          backgroundColor: "white",
+          backgroundColor: 'white',
           padding: 20,
-          paddingLeft: "40px",
-          display: "flex",
-          flexDirection: "column",
+          paddingLeft: '40px',
+          display: 'flex',
+          flexDirection: 'column',
           gap: 20,
         }}
       >
@@ -80,7 +71,7 @@ function Work() {
             <button
               onClick={handleAllProject}
               className={`workHeaderBtn ${
-                selected === "allProjects" ? "workHeaderBtnSelected" : ""
+                selected === 'allProjects' ? 'workHeaderBtnSelected' : ''
               }`}
             >
               All Projects
@@ -88,7 +79,7 @@ function Work() {
             <button
               onClick={handleWeb}
               className={`workHeaderBtn ${
-                selected === "webProjects" ? "workHeaderBtnSelected" : ""
+                selected === 'webProjects' ? 'workHeaderBtnSelected' : ''
               }`}
             >
               Web Applications
@@ -96,7 +87,7 @@ function Work() {
             <button
               onClick={handleMobile}
               className={`workHeaderBtn ${
-                selected === "mobileProjects" ? "workHeaderBtnSelected" : ""
+                selected === 'mobileProjects' ? 'workHeaderBtnSelected' : ''
               }`}
             >
               Mobile Applications
@@ -104,7 +95,7 @@ function Work() {
             <button
               onClick={handleEcommerce}
               className={`workHeaderBtn ${
-                selected === "ecommerceProjects" ? "workHeaderBtnSelected" : ""
+                selected === 'ecommerceProjects' ? 'workHeaderBtnSelected' : ''
               }`}
             >
               Ecommerce

@@ -1,3 +1,3 @@
-import InstantBookingBanner from "./InstantBookingBanner";
+import InstantBookingBanner from './InstantBookingBanner';
 
 export default InstantBookingBanner;

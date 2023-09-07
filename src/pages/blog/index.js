@@ -1,19 +1,19 @@
-import LoadMoreBtnSvg from "@component/assets/blogIcons";
-import BlogCard from "@component/Components/CommonComponents/BlogCard";
-import PageBanner from "@component/Components/CommonComponents/PageBanner";
-import SmallButton from "@component/Components/CommonComponents/SmallButton";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import styles from "./blog.module.css";
-import { getApiWithoutAuth } from "../api/api";
-import { InstantBookingButton, Zbutton } from "@component/Components/CommonComponents";
-import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
-import { CircularProgress } from "@mui/material";
-import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
+import LoadMoreBtnSvg from '@component/assets/blogIcons';
+import BlogCard from '@component/Components/CommonComponents/BlogCard';
+import PageBanner from '@component/Components/CommonComponents/PageBanner';
+import SmallButton from '@component/Components/CommonComponents/SmallButton';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import styles from './blog.module.css';
+import { getApiWithoutAuth } from '../api/api';
+import { InstantBookingButton, Zbutton } from '@component/Components/CommonComponents';
+import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
+import { CircularProgress } from '@mui/material';
+import BottomBorderButton from '@component/Components/CommonComponents/BottomBorderButton';
 
 const Blog = () => {
-  const smallButtonsData = ["All", "Marketing", "Technology", "Grow"];
-  const [filter, setFilter] = useState("All");
+  const smallButtonsData = ['All', 'Marketing', 'Technology', 'Grow'];
+  const [filter, setFilter] = useState('All');
   const [isLoading, setIsLoading] = useState(true);
   const [blogData, setBlogData] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
@@ -22,7 +22,7 @@ const Blog = () => {
 
   const fetch_data = async () => {
     setIsLoading(true);
-    const resp = await getApiWithoutAuth("blogs/");
+    const resp = await getApiWithoutAuth('blogs/');
     if (resp.data.success) {
       let responseData = resp.data.data;
       let dataArray = [];
@@ -33,7 +33,7 @@ const Blog = () => {
             title: item.title,
             description: item.content,
             category: item?.tags[0]?.name,
-            id: item.pk
+            id: item.pk,
           });
         });
         if (dataArray.length > 0) setBlogData(dataArray);
@@ -46,10 +46,10 @@ const Blog = () => {
     setStartIndex((prevIndex) => prevIndex + 10);
   };
   const bannerData = {
-    title: "Top Articles",
-    heading: "Everything Your Business Needs Under One Roof",
+    title: 'Top Articles',
+    heading: 'Everything Your Business Needs Under One Roof',
     description:
-      "We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences"
+      'We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences',
   };
 
   useEffect(() => {
@@ -59,18 +59,14 @@ const Blog = () => {
   useEffect(() => {
     const options = {
       root: null,
-      rootMargin: "0px",
-      threshold: 0.5
+      rootMargin: '0px',
+      threshold: 0.5,
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__backInUp",
-            "animate_delay-5s"
-          );
+          entry.target.classList.add('animate__animated', 'animate__backInUp', 'animate_delay-5s');
         }
       });
     }, options);
@@ -78,11 +74,7 @@ const Blog = () => {
     const observer1 = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__bounceIn",
-            "animate_delay-5s"
-          );
+          entry.target.classList.add('animate__animated', 'animate__bounceIn', 'animate_delay-5s');
         }
       });
     }, options);
@@ -102,19 +94,16 @@ const Blog = () => {
   }, []);
 
   return (
-    <div style={{ marginTop: "15vh" }}>
+    <div style={{ marginTop: '15vh' }}>
       <PageBanner {...bannerData} />
       <div className={styles.blogRoot}>
         <div className={styles.blogMain}>
           <h2 className={styles.blogArticleHeading}>Latest Article</h2>
-          <SmallButton
-            setFilter={setFilter}
-            smallButtonsData={smallButtonsData}
-          />
+          <SmallButton setFilter={setFilter} smallButtonsData={smallButtonsData} />
         </div>
 
         {isLoading ? (
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
             <CircularProgress />
           </div>
         ) : (
@@ -140,10 +129,7 @@ const Blog = () => {
               />
             }
           /> */}
-          <BottomBorderButton
-          onClick={loadMoreHandler}
-          text="Load More"
-          />
+          <BottomBorderButton onClick={loadMoreHandler} text="Load More" />
         </div>
       </div>
 
@@ -170,11 +156,11 @@ const Blog = () => {
             }
           /> */}
           <InstantBookingButton
-          customStyle={styles.bookinBtnStyle}
-          customOne={styles.one}
-          customTwo={styles.two}
-          customThree={styles.three}
-          svgFill="#ff9700"
+            customStyle={styles.bookinBtnStyle}
+            customOne={styles.one}
+            customTwo={styles.two}
+            customThree={styles.three}
+            svgFill="#ff9700"
           />
         </div>
       </div>
@@ -187,7 +173,7 @@ export default Blog;
 export async function getStaticProps() {
   return {
     props: {
-      data: [{ image: "jdfksjfsk" }]
-    }
+      data: [{ image: 'jdfksjfsk' }],
+    },
   };
 }

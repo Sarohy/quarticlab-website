@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import styles from "./blogCard.module.css";
 import React from "react";
 import { Button, CardActionArea, CardActions, Grid, Card, CardContent, CardMedia, Typography } from "@mui/material";

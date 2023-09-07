@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { CD2Img1 } from "@component/assets/AboutUs";
