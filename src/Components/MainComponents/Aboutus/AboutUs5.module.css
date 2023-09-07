@@ -1,40 +1,44 @@
 .AUCd5Main {
-    width: 100%;
-    height: 300px;
-    background: linear-gradient(90deg, #f18f01 0%, rgba(255, 168, 0, 0.91) 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    overflow-y: hidden;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(90deg, #f18f01 0%, rgba(255, 168, 0, 0.91) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: hidden;
 }
 
 .AUCd5Heading {
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 128%;
-    text-align: center;
-    color: #fafafa;
-    width: 692px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 128%;
+  text-align: center;
+  color: #fafafa;
+  width: 692px;
 }
 
 .AUCd5Button {
-    margin-top: 3%;
+  margin-top: 3%;
 }
 
 .btnThreeCustomColor::after {
-    border: 1px solid white !important;
+  border: 1px solid white !important;
 }
 
 .btnThreeCustomColor::before {
-    background-color: white !important;
+  background-color: white !important;
 }
 @media screen and (max-width: 590px) {
-    .AUCd5Heading {
-        font-size: 24px;
-        width: 100%;
-        padding: 0% 3% 0% 3%;
-    }
+  .AUCd5Heading {
+    font-size: 24px;
+    width: 100%;
+    padding: 0% 3% 0% 3%;
+  }
+}
+.ArrawCircleStyle {
+  display: flex;
+  align-items: center;
 }

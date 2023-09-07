@@ -1,6 +1,7 @@
 import ProjectCard from '@component/Components/CommonComponents/ProjectCard/ProjectCard';
 import { addProject, getAllProjects } from '@component/firebase/firebaseRequests';
 import PageBanner from '@component/Components/CommonComponents/PageBanner';
+import styles from '../../styles/project.module.css';
 
 import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
@@ -47,7 +48,7 @@ function Work() {
   }, []);
 
   return (
-    <div style={{ marginTop: '15vh' }}>
+    <div className={styles.PMTop}>
       <PageBanner
         title={'Portfolio'}
         heading={'Everything Your Business Needs Under One Roof'}
@@ -55,16 +56,7 @@ function Work() {
           "We've worked cross multiple verticals and a range of services to create engaging and innovative digital experenices."
         }
       />
-      <div
-        style={{
-          backgroundColor: 'white',
-          padding: 20,
-          paddingLeft: '40px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 20,
-        }}
-      >
+      <div className={styles.PHeaderWrapper}>
         <div className="worksHeader">
           <h1 className="workHeaderTitle">Projects</h1>
           <div className="workHeaderBtnContainer">

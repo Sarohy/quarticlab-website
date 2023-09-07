@@ -38,7 +38,8 @@ const HomeSection6Counter = (props) => {
           {sign}
         </span>
         <br />
-        <span style={{ fontFamily: "Poppins" }} >{label} </span>
+        <span
+          className={styles.labelStyle}>{label} </span>
       </div>
     </div>
   );

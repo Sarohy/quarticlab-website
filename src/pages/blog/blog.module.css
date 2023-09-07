@@ -1,7 +1,7 @@
 .blogArticleHeading {
   /* width: 238px; */
   /* height: 46px; */
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
   font-size: 28px;
@@ -52,7 +52,7 @@
   left: 55px;
   top: 1434px; */
 
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
@@ -74,7 +74,7 @@
 }
 
 .blogBannerHeading {
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
@@ -109,6 +109,19 @@
     width: 100%;
     margin-bottom: 10px;
   }
+}
+.BlogIdMTop {
+  margin-top: 15vh;
+}
+.BlogIdPadding {
+  padding: 40;
+}
+.LoadingStyle {
+  display: flex;
+  justify-content: center;
+}
+.BMTop {
+  margin-top: 15vh;
 }
 
 .btnThreeCustomColor::after {

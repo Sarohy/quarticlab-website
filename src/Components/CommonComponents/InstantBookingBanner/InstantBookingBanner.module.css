@@ -1,9 +1,12 @@
 .iBBContainer {
   background-color: #ff9700;
-  background-image: url("../../../assets/mobileBg.svg");
+  background-image: url('../../../assets/mobileBg.svg');
   padding: 20px;
   display: flex;
   justify-content: center;
+}
+.LabelColor {
+  color: white;
 }
 
 .iBBContentContainer {

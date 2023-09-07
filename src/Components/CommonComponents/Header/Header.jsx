@@ -81,84 +81,6 @@ function Header() {
 
   const displayWeb = () => (
     <>
-      {/* <div
-        style={{
-          display: "flex",
-          flexDiretion: "row",
-          backgroundColor: "white",
-          justifyContent: "space-between",
-          margin: -1,
-        }}
-      >
-        <div
-          className="headerCenterRow animate__animated animate__zoomIn"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            paddingLeft: 35,
-            color: "black",
-          }}
-        >
-          <Image
-            height={20}
-            width={20}
-            src={LocationIcon}
-            alt={"location-icon"}
-            onClick={redirectToGoogleMaps}
-          />
-          <p
-            style={{
-              paddingLeft: "11px",
-              fontFamily: "Poppins",
-              fontSize: 16,
-              cursor: "pointer",
-            }}
-            onClick={redirectToGoogleMaps}
-          >
-            6-B phase 1 Johar Town Lahore
-          </p>
-        </div>
-        <div
-          className={"headerCenterRow animate__animated animate__zoomIn"}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            // paddingLeft: 35,
-            color: "black",
-          }}
-        >
-          <Image
-            height={20}
-            width={20}
-            src={EmailIcon}
-            alt={"email-icon"}
-            onClick={redirectToGmailCompose}
-            style={{ cursor: "pointer" }}
-          />
-          <p
-            style={{
-              paddingLeft: "11px",
-              fontFamily: "Poppins",
-              fontSize: 16,
-              cursor: "pointer",
-            }}
-            onClick={redirectToGmailCompose}
-          >
-            contact@zweidevs.com
-          </p>
-          <Image
-            src={PhoneContainer}
-            alt="phone"
-            style={{ cursor: "pointer" }}
-          />
-          <Image
-            src={InstantBooking}
-            alt="instant-booking"
-            style={{ cursor: "pointer" }}
-          />
-        </div>
-      </div>
-      <hr style={{ border: "1px solid #E5E5E5" }}></hr> */}
       <div className={styles.headerContainer}>
         <Image
           src={ZweidevsLogo}
@@ -181,14 +103,6 @@ function Header() {
               </Link>
             ))}
           </div>
-          {/* <Zbutton
-                    text="INSTANT BOOKING"
-                    width="170px"
-                    color="white"
-                    backgroundColor='#ff9700'
-                    showIcon={false}
-                    whiteShaddow={true}
-                /> */}
         </div>
       </div>
     </>
@@ -201,7 +115,9 @@ function Header() {
         style={mobileView && { padding: "3%" }}
       >
         <Image src={ZweidevsLogo} width={180} alt="zweidevsDrawer" />
-        <Button style={{ color: "#ff9700" }} onClick={toggleDrawer}>
+        <Button
+          className={styles.ButtonStyle}
+          onClick={toggleDrawer}>
           {" "}
           {drawerOpen ? <CloseIcon /> : <MenuIcon />}
         </Button>
@@ -213,9 +129,8 @@ function Header() {
               onClick={toggleDrawer}
               key={href}
               href={href}
-              className={`${styles.mobileHeaderMenuItem} ${route.pathname === href ? styles.activePage : ""
+              className={`${styles.mobileHeaderMenuItem} ${styles.LinkFontStyle} ${route.pathname === href ? styles.activePage : ""
                 }`}
-              style={{ fontFamily: "Poppins" }}
             >
               {text}
             </Link>

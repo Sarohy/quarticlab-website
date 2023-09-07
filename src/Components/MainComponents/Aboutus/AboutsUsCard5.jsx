@@ -60,11 +60,7 @@ const AboutUsCard5 = () => {
             showIcon={false}
             icon={
               <ArrowCircleRightOutlinedIcon
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              />
+                className={styles.ArrawCircleStyle} />
             }
           />
         </div>

@@ -44,13 +44,11 @@ const Id = () => {
   }, []);
 
   return (
-    <div style={{marginTop:"15vh"}}>
+    <div
+      className={styles.BlogIdMTop}>
       <PageBanner {...bannerData} />
       <div
-        style={{
-          padding: 40,
-        }}
-      >
+        className={styles.BlogIdPadding}>
         <div
           className={styles.blogDetails}
           dangerouslySetInnerHTML={{ __html: parsedData?.description }}

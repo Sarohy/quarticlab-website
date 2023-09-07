@@ -33,10 +33,7 @@ const FooterServices = () => {
                 <Grid key={index} item xs={6}>
                   <Link
                     underline="none"
-                    className={styles.footerServiceItem}
-                    style={{
-                      color: router.pathname === href ? "orange" : "#596380",
-                    }}
+                    className={`${styles.footerServiceItem} ${router.pathname === href ? styles.colorOrange : styles.colorGrid}`}
                     key={href}
                     href={href}
                   >

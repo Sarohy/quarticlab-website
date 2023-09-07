@@ -1,14 +1,9 @@
 import React from 'react';
+import styles from './HS1InstantBooking.css';
 
 function HS1InstantBooking({ fill = 'white' }) {
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        width: '20px',
-      }}
-    >
+    <div className={styles.HS1Wrapper}>
       <svg
         width="24"
         height="24"

@@ -1,0 +1,11 @@
+.PMTop {
+  margin-top: 15vh;
+}
+.PHeaderWrapper {
+  background-color: 'white';
+  padding: 20;
+  padding-left: '40px';
+  display: flex;
+  flex-direction: column;
+  gap: 20;
+}

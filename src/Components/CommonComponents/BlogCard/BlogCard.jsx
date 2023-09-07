@@ -39,18 +39,13 @@ export default function blogCard(props) {
                         sx={{ objectFit: "contain" }}
                       />
                       <CardContent
-                        style={{
-                          height: "auto",
-                        }}
+                        className={styles.CardContent}
                         sx={{ flexGrow: 1 }}
                       >
                         <Typography
-                          className={styles.blogCardContent}
+                          className={`${styles.blogCardContent} ${styles.TypographyStyle}`}
                           gutterBottom
                           variant="h5"
-                          style={{
-                            minHeight: "3em",
-                          }}
                           component="div"
                           sx={{
                             fontSize: 18,
@@ -75,9 +70,7 @@ export default function blogCard(props) {
                     </CardActionArea>
                     <CardActions>
                       <Button
-                        style={{
-                          color: "#6D6D6D",
-                        }}
+                        className={styles.ButtonStyle}
                         size="small"
                         color="primary"
                         fontFamily="poppins"

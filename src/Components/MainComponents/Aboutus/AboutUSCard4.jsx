@@ -88,8 +88,7 @@ const AboutUsCard4 = () => {
             return (
               <>
                 <div
-                  className={styles.AUCd4Cards}
-                  style={{ marginLeft: index != 0 ? "30px" : "" }}
+                  className={`${styles.AUCd4Cards} ${index != 0 ? styles.AUM : styles.AUM0}`}
                   key={item.heading}
                 >
                   <div>

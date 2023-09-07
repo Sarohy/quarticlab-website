@@ -1,4 +1,5 @@
 import { InstantBookingBanner, ServicesCard } from '@component/Components/CommonComponents';
+import styles from '../../styles/services.module.css';
 
 import 'animate.css';
 
@@ -122,7 +123,7 @@ function Services() {
   ];
 
   return (
-    <div className="services-root" style={{ marginTop: '15vh' }}>
+    <div className={`services-root  ${styles.SMTop}`}>
       <PageBanner
         title={'Services'}
         heading={'Everything Your Business Needs Under One Roof'}
@@ -133,7 +134,7 @@ function Services() {
       <div className="servicesHeaderContainer">
         <p className="services-header">Our Services</p>
 
-        <Image style={{ paddingLeft: 8 }} src={DashGroupIcon} alt={'dash-icon'} />
+        <Image className={styles.SPLeft} src={DashGroupIcon} alt={'dash-icon'} />
       </div>
       <ServicesCard cardData={cardData} />
     </div>

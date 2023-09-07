@@ -126,7 +126,9 @@ function HomeSection8() {
         <h2 className={styles.HS8Heading} ref={animatedDivRefs}>
           How May We Help You
         </h2>
-        <div style={{ width: "80%", }}>
+        <div
+          className={styles.HS8Width}
+        >
           <form onSubmit={handleSubmit}>
             <div className={styles.HS8InputFieldContainer}>
               <div className={styles.HS8InputContainer}>
@@ -198,7 +200,7 @@ function HomeSection8() {
                       <ListItemIcon>
                         <Avatar
                           variant="square"
-                          style={{ backgroundColor: "transparent" }}
+                          className={styles.AvatarStyle}
                         >
                           <Image
                             alt={"country flag"}
@@ -259,7 +261,9 @@ function HomeSection8() {
                   variant="outlined"
                   InputProps={{
                     startAdornment: (
-                      <span style={{ marginRight: 5 }}>
+                      <span
+                        className={styles.TextFieldStyle}
+                      >
                         {formValues.country?.phoneCode}
                       </span>
                     )
@@ -285,8 +289,7 @@ function HomeSection8() {
                 onChange={handleInputChange}
                 required
                 variant="outlined"
-                style={{ fontFamily: "Poppins" }}
-                className={styles.HS8TextArea}
+                className={`${styles.HS8TextArea} ${styles.TextFieldFont}`}
               />
 
               <div className={styles.HS8ButtonContainer}>

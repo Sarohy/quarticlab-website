@@ -24,14 +24,14 @@ export default function SmallButton(props) {
       <div>
         {smallButtonsData.map((element, index) => (
           <Button
-            style={{
-              background: index === activeTab ? "#F79D0A" : "#fff",
-              color: index === activeTab ? "white" : "#666666",
-              borderColor: "#666666",
-              fontFamily: "poppins",
-              marginTop:
-                index === smallButtonsData.length - 1 ? activeMarginTop : "",
-            }}
+            className={`
+            ${index === activeTab ? styles.BtnBgOrange : styles.BtnBgWhite}
+            ${index === activeTab ? styles.BtnColorWhite : styles.BtnColorSlate}
+            ${styles.BtnBdSlate}
+            ${styles.BtnFont}
+            ${index === smallButtonsData.length - 1 ? styles.BtnMTop : styles.BtnMTop0}
+            `}
+
             key={index}
             onClick={() => {
               setActiveTab(index);

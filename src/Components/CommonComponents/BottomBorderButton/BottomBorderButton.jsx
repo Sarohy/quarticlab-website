@@ -15,7 +15,9 @@ function BottomBorderButton({
                 {text}
             </span>
             <span className={styles.btnIcon} >
-                <ArrowCircleRightOutlinedIcon style={{ color: "#ff9700" }} />
+                <ArrowCircleRightOutlinedIcon
+                    className={styles.ArrowCircleStyle}
+                />
             </span>
         </div>
     )

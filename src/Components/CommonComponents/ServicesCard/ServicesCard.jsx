@@ -185,10 +185,9 @@ const ServicesCard = (props) => {
                       <Image
                         key={imgkey}
                         ref={animatedCardDetailsDivRefs[key][imgkey]}
-                        className={`${styles.hiddenCardDetailss} animate__animated services-footer-image`}
+                        className={`${styles.ServiceCardFooter} ${styles.hiddenCardDetailss} animate__animated services-footer-image`}
                         src={image}
                         alt={`${element.cardTitle} ${imgkey}`}
-                        style={{ width: "auto", height: 38 }}
                       />
                     ))}
                 </div>

@@ -1,0 +1,13 @@
+.ProjectCardWrapper {
+  flex-direction: row-reverse;
+}
+.CircularProgress {
+  position: absolute;
+}
+.ImageStyle {
+  margin-top: 10px;
+}
+.ZButtonStyle {
+  display: flex;
+  align-items: center;
+}

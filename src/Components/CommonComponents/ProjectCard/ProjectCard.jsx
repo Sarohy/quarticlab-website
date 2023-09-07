@@ -11,6 +11,7 @@ import { CircularProgress, Divider } from "@mui/material";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Zbutton from "../ZButton";
+import styles from './ProjectCard.css'
 
 function ProjectCard({
   reverse,
@@ -121,15 +122,16 @@ function ProjectCard({
   return (
     <>
       <div
-        style={{ flexDirection: !mobileView && reverse && "row-reverse" }}
-        className="project-card-container"
+        className={`project-card-container ${styles.ProjectCardWrapper ? !mobileView && reverse && styles.ProjectCardWrapper : null}`}
       >
         <div
           className="project-card-left"
           ref={reverse ? animatedImageRightRef : animatedImageRef}
         >
           {!imageLoading && (
-            <CircularProgress style={{ position: "absolute" }} />
+            <CircularProgress
+              className={styles.CircularProgress}
+            />
           )}
           <Image
             sizes="(max-width: 810px) 100%"
@@ -159,7 +161,7 @@ function ProjectCard({
               width={40}
               src={AwsIcon}
               alt={`${projectTitle} AWS Amazon Web Service`}
-              style={{ marginTop: "10px" }}
+              className={styles.ImageStyle}
             />
           </div>
           <Zbutton
@@ -169,12 +171,8 @@ function ProjectCard({
             hoverColor="#ff9700"
             width={170}
             showIcon={false}
-            icon={<ArrowCircleRightOutlinedIcon
-              style={{
-                display: "flex",
-                alignItems: "center",
-              }}
-            />}
+            className={styles.ZButtonStyle}
+            icon={<ArrowCircleRightOutlinedIcon />}
           />
         </div>
       </div>

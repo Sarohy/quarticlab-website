@@ -94,7 +94,7 @@ const Blog = () => {
   }, []);
 
   return (
-    <div style={{ marginTop: '15vh' }}>
+    <div className={styles.BMTop}>
       <PageBanner {...bannerData} />
       <div className={styles.blogRoot}>
         <div className={styles.blogMain}>
@@ -103,7 +103,7 @@ const Blog = () => {
         </div>
 
         {isLoading ? (
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div className={styles.LoadingStyle}>
             <CircularProgress />
           </div>
         ) : (
@@ -113,22 +113,6 @@ const Blog = () => {
         )}
 
         <div className={styles.blogDflex}>
-          {/* <Zbutton
-            onClick={loadMoreHandler}
-            text="Load More"
-            color="white"
-            hoverColor="#ff9700"
-            width="150px"
-            showIcon={false}
-            icon={
-              <ArrowCircleRightOutlinedIcon
-                style={{
-                  display: "flex",
-                  alignItems: "center"
-                }}
-              />
-            }
-          /> */}
           <BottomBorderButton onClick={loadMoreHandler} text="Load More" />
         </div>
       </div>
@@ -138,23 +122,6 @@ const Blog = () => {
           Not Finding The Right Fit? Stay Connected
         </h2>
         <div className={styles.blogButton} ref={animatedButtonRef}>
-          {/* <Zbutton
-            onClick={""}
-            customClass={styles.btnThreeCustomColor}
-            text="Instant Booking"
-            color="#ff9700"
-            hoverColor="white"
-            width="200px"
-            showIcon={false}
-            icon={
-              <ArrowCircleRightOutlinedIcon
-                style={{
-                  display: "flex",
-                  alignItems: "center"
-                }}
-              />
-            }
-          /> */}
           <InstantBookingButton
             customStyle={styles.bookinBtnStyle}
             customOne={styles.one}

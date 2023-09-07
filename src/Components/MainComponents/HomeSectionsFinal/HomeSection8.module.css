@@ -1,174 +1,186 @@
 .HS8MainContainer {
-    width: 100%;
-    background: #f9f9f9;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  width: 100%;
+  background: #f9f9f9;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .HS8Heading {
-    width: 420px;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 36px;
-    padding: 20px 0px;
-    color: #2b2a35;
+  width: 420px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  padding: 20px 0px;
+  color: #2b2a35;
 }
-
+.HS8Width {
+  width: 80%;
+}
+.TextFieldStyle {
+  margin-right: 5;
+}
+.TextFieldFont {
+  font-family: 'Poppins';
+}
+.AvatarStyle {
+  background-color: transparent;
+}
 .HS8FormLabel {
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px !important;
-    line-height: 24px;
-    color: #4e4e4e;
-    margin-bottom: 2%;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px !important;
+  line-height: 24px;
+  color: #4e4e4e;
+  margin-bottom: 2%;
 }
 
 .HS8InputFieldContainer {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5%;
 }
 
 .HS8InputContainer {
-    display: flex;
-    flex-direction: column;
-    width: 48%;
+  display: flex;
+  flex-direction: column;
+  width: 48%;
 }
 .HS8InputAreaContainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .HS8InputAreaContainer {
 }
 
 .testCC {
-    margin-left: 36vw;
+  margin-left: 36vw;
 }
 
 @media screen and (max-width: 900px) {
-    .HS8InputAreaContainer {
-    }
+  .HS8InputAreaContainer {
+  }
 }
 
 @media screen and (max-width: 720px) {
-    .HS1ContentContainer {
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: center;
-        align-items: center;
-        padding: 6% 5% 0% 5%;
-    }
-    .HS1Background {
-        padding-top: 0;
-    }
+  .HS1ContentContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    padding: 6% 5% 0% 5%;
+  }
+  .HS1Background {
+    padding-top: 0;
+  }
 }
 
 .HS8InputField {
-    border-radius: 4px;
-    width: 100%;
-    background-color: #fff;
+  border-radius: 4px;
+  width: 100%;
+  background-color: #fff;
 }
 .HS8TextArea {
-    background-color: #fff;
+  background-color: #fff;
 }
 .HS8ButtonContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
 }
 
 .HS8Button {
-    background: #ff9700;
-    box-shadow: 0px 4.12579px 10.3145px rgba(255, 151, 0, 0.12);
-    border-radius: 5px;
-    width: 181px;
-    height: 58px;
-    font-family: poppins;
+  background: #ff9700;
+  box-shadow: 0px 4.12579px 10.3145px rgba(255, 151, 0, 0.12);
+  border-radius: 5px;
+  width: 181px;
+  height: 58px;
+  font-family: poppins;
 }
 
 .HS8Button:hover {
-    background: white !important;
-    color: #ff9700;
+  background: white !important;
+  color: #ff9700;
 }
 .HS8CountryName {
-    color: #000;
-    position: absolute;
-    top: 58%;
-    left: 15%;
+  color: #000;
+  position: absolute;
+  top: 58%;
+  left: 15%;
 }
 @media screen and (max-width: 590px) {
-    .HS8InputFieldContainer {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 0%;
-        flex-direction: column;
-    }
-    .HS8Heading {
-        width: 100%;
-        font-size: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 0%;
-    }
-    .HS8FormLabel {
-        font-size: 14px !important;
-    }
-    .HS8InputField {
-        border-radius: 4px;
-        width: 100%;
-        margin-bottom: 20px;
-    }
+  .HS8InputFieldContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0%;
+    flex-direction: column;
+  }
+  .HS8Heading {
+    width: 100%;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0%;
+  }
+  .HS8FormLabel {
+    font-size: 14px !important;
+  }
+  .HS8InputField {
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
 
-    .HS8InputContainer {
-        width: 100%;
-    }
+  .HS8InputContainer {
+    width: 100%;
+  }
 }
 @media screen and (min-width: 591px) and (max-width: 820px) {
-    .HS8MainContainer {
-        height: 100%;
-    }
-    .HS8InputFieldContainer {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 0%;
-        flex-direction: column;
-    }
-    .HS8InputField {
-        border-radius: 4px;
-        width: 100%;
-        margin-bottom: 20px;
-    }
+  .HS8MainContainer {
+    height: 100%;
+  }
+  .HS8InputFieldContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0%;
+    flex-direction: column;
+  }
+  .HS8InputField {
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
 
-    .HS8InputContainer {
-        width: 100%;
-    }
+  .HS8InputContainer {
+    width: 100%;
+  }
 }
 @media screen and (min-width: 821px) and (max-width: 900px) {
-    .HS8MainContainer {
-        height: 100%;
-    }
-    .HS8InputFieldContainer {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 0%;
-        flex-direction: column;
-    }
-    .HS8InputField {
-        border-radius: 4px;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .HS8InputContainer {
-        width: 100%;
-    }
+  .HS8MainContainer {
+    height: 100%;
+  }
+  .HS8InputFieldContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0%;
+    flex-direction: column;
+  }
+  .HS8InputField {
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .HS8InputContainer {
+    width: 100%;
+  }
 }
+
 @media screen and (min-width: 901px) and (max-width: 1140px) {
 }
 @media (min-width: 356px) and (max-width: 400px) {

@@ -4,10 +4,6 @@ import styles from "./ZButton.module.css";
 import { Button } from "@mui/material";
 
 const Zbutton = ({
-  color = "#ff9700",
-  width = "200px",
-  height = "50px",
-  hoverColor = "#ff9700",
   onMouseEnter,
   onMouseLeave,
   customClass,
@@ -26,7 +22,6 @@ const Zbutton = ({
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
-  const textColor = isHovered ? hoverColor : color;
   return (
     <Button
       onMouseEnter={onMouseEnter}
@@ -35,15 +30,20 @@ const Zbutton = ({
       onClick={onClick}
     >
       <div
-        style={{ width, height, background: "none" }}
-        className={[styles.btnThree, styles.btn, customClass]}
+        className={[styles.btnThree, styles.btn, styles.BtnStyle, customClass]}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {showIcon && <ArrowRightAltIcon style={{ color: textColor }} />}
-        <span className={styles.btnText} style={{ color: textColor }} >{text}</span>
-        {icon !== undefined && <span style={{ zIndex: 2, color: textColor }} >{icon}</span>}
-      </div >
+        {showIcon && <ArrowRightAltIcon
+          className={isHovered ? styles.ZBtnHoverColor : styles.ZBtnColor}
+        />
+        }
+        <span className={`${styles.btnText} ${isHovered ? styles.ZBtnHoverColor : styles.ZBtnColor}`}
+        >{text}</span>
+        {icon !== undefined && <span
+          className={`${styles.ZBtnZIndex} ${isHovered ? styles.ZBtnHoverColor : styles.ZBtnColor}`}
+        >{icon}</span>}
+      </div>
     </Button>
   );
 }
