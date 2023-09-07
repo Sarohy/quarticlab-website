@@ -24,8 +24,8 @@ const Blog = () => {
     setIsLoading(true);
     const resp = await getApiWithoutAuth('blogs/');
     if (resp.data.success) {
-      let responseData = resp.data.data;
-      let dataArray = [];
+      const responseData = resp.data.data;
+      const dataArray = [];
       if (responseData?.count > 0) {
         responseData?.results.map((item) => {
           dataArray.push({

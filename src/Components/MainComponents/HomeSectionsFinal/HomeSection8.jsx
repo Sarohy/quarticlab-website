@@ -43,7 +43,6 @@ function HomeSection8() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isValidPhoneNumber(formValues.contact, formValues.country?.id)) {
-      console.log(formValues);
     } else {
       alert("Invalid phone number O_O")
     }
@@ -67,7 +66,6 @@ function HomeSection8() {
       });
       setAllCountries(countriesData);
     } catch (error) {
-      console.error("Error fetching countries data:", error);
       return [];
     }
   };

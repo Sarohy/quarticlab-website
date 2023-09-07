@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "eslint --fix .",
+    "lint:fix": "eslint . --fix",
     "format": "prettier --write ."
   },
   "engines": {
@@ -33,6 +33,8 @@
   "devDependencies": {
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-etc": "^2.0.3",
+    "eslint-plugin-no-inline-styles": "^1.0.5",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.2",
     "prettier": "^3.0.3"
