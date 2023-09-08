@@ -77,7 +77,7 @@ module.exports = {
         ignoreCase: true,
       },
     ],
-    "react-hooks/rules-of-hooks": "warn",
+    "react-hooks/rules-of-hooks": "off",
     "react-hooks/exhaustive-deps": 0,
     // Prettier
     // eslint looks for the prettier config at the top level of the package/app

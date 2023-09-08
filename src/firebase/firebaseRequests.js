@@ -1,4 +1,3 @@
-/* eslint-disable no-empty */
 import { initializeApp } from "firebase/app";
 import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
 import firebaseConfig from "./firebaseConfig";
@@ -21,7 +20,9 @@ const addItem = async (collectionName, data) => {
   try {
     const collectionRef = collection(db, collectionName);
     return await addDoc(collectionRef, data);
-  } catch (error) {}
+  } catch (error) {
+    return error;
+  }
 };
 
 // zweidevs projects

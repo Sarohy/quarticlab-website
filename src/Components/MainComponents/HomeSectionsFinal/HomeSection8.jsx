@@ -1,6 +1,3 @@
-/* eslint-disable no-empty */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Avatar from "@mui/material/Avatar";
@@ -43,6 +40,7 @@ function HomeSection8() {
   const handleSubmit = e => {
     e.preventDefault();
     if (isValidPhoneNumber(formValues.contact, formValues.country?.id)) {
+      alert("valid phone  number");
     } else {
       alert("Invalid phone number O_O");
     }

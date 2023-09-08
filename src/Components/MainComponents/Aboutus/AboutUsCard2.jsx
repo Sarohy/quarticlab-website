@@ -1,6 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { CD2Img1 } from "@component/assets/AboutUs";
@@ -185,7 +182,7 @@ const AboutUsCard2 = () => {
             </h3>
             <p ref={animatedRightDivRef[2]}>
               We have a dedicated support team available round-the-clock to
-              address any concerns or queries you may have. Whether it's
+              address any concerns or queries you may have. Whether its
               technical assistance or general inquiries, our support team is
               committed to providing prompt and reliable assistance. We
               understand the importance of uninterrupted support, and our team

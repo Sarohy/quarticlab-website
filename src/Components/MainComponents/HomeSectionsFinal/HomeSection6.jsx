@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect } from "react";
 import Image from "next/image";
 import HomeSection6Counter from "./HomeSection6Counter";
@@ -64,7 +62,7 @@ function HomeSection6() {
             <div className={styles.sinceyear}>2010</div>
           </div>
           <div className={styles.circularbar}>
-            <img src="/HomeIcons/HS6-circularbar.svg" />
+            <Image alt="home icon" src="/HomeIcons/HS6-circularbar.svg" />
           </div>
           <a className={styles.deg0}>
             <Image
