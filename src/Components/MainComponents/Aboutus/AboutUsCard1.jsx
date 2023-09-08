@@ -1,7 +1,4 @@
 import React from "react";
-import styles from "./AboutUs.module.css";
-import { DiamondSvg } from "@component/assets/pageBannerIcons";
-import Image from "next/image";
 import PageBanner from "@component/Components/CommonComponents/PageBanner";
 
 const AboutUsCard1 = () => {
