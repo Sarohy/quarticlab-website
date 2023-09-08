@@ -6,9 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write ."
+    "lint": "next lint --no-cache",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "engines": {
     "node": "18.x.x"
@@ -19,6 +19,7 @@
     "@fontsource/poppins": "^4.5.10",
     "@mui/icons-material": "^5.14.7",
     "@mui/material": "^5.14.7",
+    "@next/eslint-plugin-next": "^13.4.19",
     "animate.css": "^4.1.1",
     "axios": "^1.4.0",
     "eslint-config-next": "13.2.4",
@@ -31,10 +32,14 @@
     "react-material-ui-carousel": "^3.4.2"
   },
   "devDependencies": {
-    "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-etc": "^2.0.3",
     "eslint-plugin-prettier": "^5.0.0",
-    "prettier": "^3.0.3"
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.0.3",
+    "prop-types": "^15.8.1"
+  },
+  "prettier": {
+    "ignorePath": ".prettierignore"
   }
 }

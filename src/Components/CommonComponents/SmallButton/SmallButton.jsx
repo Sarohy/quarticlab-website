@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -29,9 +30,11 @@ export default function SmallButton(props) {
             ${index === activeTab ? styles.BtnColorWhite : styles.BtnColorSlate}
             ${styles.BtnBdSlate}
             ${styles.BtnFont}
-            ${index === smallButtonsData.length - 1 ? styles.BtnMTop : styles.BtnMTop0}
-            `}
-
+            ${index === smallButtonsData.length - 1
+                ? styles.BtnMTop
+                : styles.BtnMTop0
+              }
+         `}
             key={index}
             onClick={() => {
               setActiveTab(index);
