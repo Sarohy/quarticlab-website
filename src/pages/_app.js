@@ -6,9 +6,9 @@ import "@fontsource/poppins/700.css";
 import "@component/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
-  return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  );
+    return (
+        <Layout>
+            <Component {...pageProps} />
+        </Layout>
+    );
 }

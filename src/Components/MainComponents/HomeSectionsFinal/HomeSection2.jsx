@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import styles from "./HomeSection.module.css";
 import {
   HS2Img1,
   HS2Img2,
@@ -9,8 +8,8 @@ import {
   HS2Img4,
   HS2Img5,
 } from "@component/assets/HomeIcons";
-import { Zbutton } from "@component/Components/CommonComponents";
 import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
+import styles from "./HomeSection2.module.css";
 
 function HomeSection2() {
   const router = useRouter();
@@ -78,17 +77,6 @@ function HomeSection2() {
       });
     }, options);
 
-    const observer1 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__backInLeft",
-            "animate__delay-1s"
-          );
-        }
-      });
-    }, options);
 
     const observer2 = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -171,7 +159,6 @@ function HomeSection2() {
                           src={item.image}
                           alt="zweidevs"
                           className={styles.HS2SelectedImgWhite}
-                          // ref={animatedImgRefs[index]}
                           width={
                             isHovered && selectedKey == item.key ? 40 : 80
                           }
