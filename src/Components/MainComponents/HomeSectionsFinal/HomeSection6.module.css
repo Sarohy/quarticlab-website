@@ -6,7 +6,7 @@
 }
 
 .labelStyle {
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
 @media screen and (max-width: 414px) {
@@ -24,7 +24,7 @@
 .HS6Heading {
   display: flex;
   justify-content: center;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
@@ -81,7 +81,7 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -90,7 +90,7 @@
 }
 .sinceyear {
   color: #ff9700;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
@@ -282,7 +282,7 @@
     left: 2%;
     font-size: 9px;
     width: 60px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer1 {
     top: 23%;
@@ -296,7 +296,7 @@
     left: 12%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer2 {
     top: 35%;
@@ -310,7 +310,7 @@
     left: 37%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer3 {
     top: 43%;
@@ -323,7 +323,7 @@
     left: 61%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer4 {
     top: 35%;
@@ -336,7 +336,7 @@
     left: 70%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer5 {
     top: 23%;
@@ -493,7 +493,7 @@
     left: 2%;
     font-size: 9px;
     width: 60px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer1 {
     top: 20%;
@@ -507,7 +507,7 @@
     left: 16%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer2 {
     top: 35%;
@@ -521,7 +521,7 @@
     left: 40%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer3 {
     top: 43%;
@@ -534,7 +534,7 @@
     left: 63%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer4 {
     top: 35%;
@@ -547,7 +547,7 @@
     left: 77%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer5 {
     top: 21%;
@@ -573,7 +573,7 @@
     left: 4%;
     font-size: 9px;
     width: 60px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer1 {
     top: 20%;
@@ -587,7 +587,7 @@
     left: 18%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer2 {
     top: 35%;
@@ -601,7 +601,7 @@
     left: 42%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer3 {
     top: 43%;
@@ -614,7 +614,7 @@
     left: 65%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer4 {
     top: 35%;
@@ -627,7 +627,7 @@
     left: 80%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer5 {
     top: 21%;
@@ -653,7 +653,7 @@
     left: 6%;
     font-size: 9px;
     width: 60px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer1 {
     top: 20%;
@@ -667,7 +667,7 @@
     left: 20%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer2 {
     top: 35%;
@@ -681,7 +681,7 @@
     left: 44%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer3 {
     top: 43%;
@@ -694,7 +694,7 @@
     left: 67%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer4 {
     top: 35%;
@@ -707,7 +707,7 @@
     left: 82%;
     width: 60px;
     font-size: 9px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .linecontainer5 {
     top: 21%;

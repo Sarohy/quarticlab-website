@@ -1,3 +1,3 @@
-import ServicesCard from './ServicesCard';
+import ServicesCard from "./ServicesCard";
 
 export default ServicesCard;

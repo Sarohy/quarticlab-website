@@ -14,16 +14,16 @@ const AboutUsCard5 = () => {
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate__animated", "animate__backInUp");
         }
       });
     }, options);
 
-    const observer1 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer1 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate__animated", "animate__bounceIn");
         }
@@ -51,17 +51,18 @@ const AboutUsCard5 = () => {
         </h2>
         <div className={styles.AUCd5Button} ref={animatedButtonRef}>
           <Zbutton
-            customClass={styles.btnThreeCustomColor}
-            onClick={""}
-            text="Instant Booking"
             color="#ff9700"
+            customClass={styles.btnThreeCustomColor}
             hoverColor="white"
-            width="200px"
-            showIcon={false}
             icon={
               <ArrowCircleRightOutlinedIcon
-                className={styles.ArrawCircleStyle} />
+                className={styles.ArrawCircleStyle}
+              />
             }
+            onClick={""}
+            showIcon={false}
+            text="Instant Booking"
+            width="200px"
           />
         </div>
       </div>

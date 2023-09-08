@@ -1,4 +1,3 @@
-import React from "react";
 import PageBanner from "@component/Components/CommonComponents/PageBanner";
 
 const AboutUsCard1 = () => {

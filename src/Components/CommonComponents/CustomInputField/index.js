@@ -1,3 +1,3 @@
-import { CustomInputField } from './CustomInputField';
+import { CustomInputField } from "./CustomInputField";
 
 export default CustomInputField;

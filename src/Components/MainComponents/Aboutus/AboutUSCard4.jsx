@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   CD4Img1,
-  CD4Img2,
-  CD4Img3,
   CD4Img1Hover,
+  CD4Img2,
   CD4Img2Hover,
+  CD4Img3,
   CD4Img3Hover,
 } from "@component/assets/AboutUs";
 import styles from "./AboutUs4.module.css";
@@ -23,8 +23,8 @@ const AboutUsCard4 = () => {
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate__animated", "animate__backInUp");
         }
@@ -88,16 +88,18 @@ const AboutUsCard4 = () => {
             return (
               <>
                 <div
-                  className={`${styles.AUCd4Cards} ${index != 0 ? styles.AUM : styles.AUM0}`}
+                  className={`${styles.AUCd4Cards} ${
+                    index != 0 ? styles.AUM : styles.AUM0
+                  }`}
                   key={item.heading}
                 >
                   <div>
                     <Image
-                      src={item.img}
                       alt="zweidevs"
                       className={styles.AUCd4Img}
-                      width={125}
                       height={125}
+                      src={item.img}
+                      width={125}
                     />
                   </div>
                   <h3 className={styles.AUCdCardHeading}>{item.heading}</h3>
@@ -106,34 +108,33 @@ const AboutUsCard4 = () => {
                   </h4>
                   <div className={styles.AUCd4SocialContainer}>
                     <a
-                      key={"insta"}
                       className={styles.AUCd4Social}
                       href="https://www.instagram.com/zweidevs.official"
-                      target="_blank"
+                      key={"insta"}
                       onMouseEnter={() => {
                         setHoverState(true);
                         setSelectImage("insta");
                         setSelectKey(item.heading);
                       }}
                       onMouseLeave={() => setHoverState(false)}
+                      target="_blank"
                     >
                       <Image
-                        width={42}
+                        alt={"social-icon"}
                         height={42}
                         src={
                           hoverState &&
-                            selectImage === "insta" &&
-                            selectKey === item.heading
+                          selectImage === "insta" &&
+                          selectKey === item.heading
                             ? CD4Img1Hover
                             : item.socialM1
                         }
-                        alt={"social-icon"}
+                        width={42}
                       />
                     </a>
                     <a
                       className={styles.AUCd4Social}
                       href="https://www.facebook.com/zweidevs"
-                      target="_blank"
                       key={"fb"}
                       onMouseEnter={() => {
                         setSelectImage("fb");
@@ -141,24 +142,24 @@ const AboutUsCard4 = () => {
                         setSelectKey(item.heading);
                       }}
                       onMouseLeave={() => setHoverState(false)}
+                      target="_blank"
                     >
                       <Image
-                        width={42}
+                        alt={"social-icon-two"}
                         height={42}
                         src={
                           hoverState &&
-                            selectImage === "fb" &&
-                            selectKey === item.heading
+                          selectImage === "fb" &&
+                          selectKey === item.heading
                             ? CD4Img2Hover
                             : item.socialM2
                         }
-                        alt={"social-icon-two"}
+                        width={42}
                       />
                     </a>
                     <a
                       className={styles.AUCd4Social}
                       href={item.linkedIN}
-                      target="_blank"
                       key={"linkedIn"}
                       onMouseEnter={() => {
                         setSelectImage("linkedIn");
@@ -166,18 +167,19 @@ const AboutUsCard4 = () => {
                         setSelectKey(item.heading);
                       }}
                       onMouseLeave={() => setHoverState(false)}
+                      target="_blank"
                     >
                       <Image
-                        width={42}
+                        alt={"social-icon-three"}
                         height={42}
                         src={
                           hoverState &&
-                            selectImage === "linkedIn" &&
-                            selectKey === item.heading
+                          selectImage === "linkedIn" &&
+                          selectKey === item.heading
                             ? CD4Img3Hover
                             : item.socialM3
                         }
-                        alt={"social-icon-three"}
+                        width={42}
                       />
                     </a>
                   </div>

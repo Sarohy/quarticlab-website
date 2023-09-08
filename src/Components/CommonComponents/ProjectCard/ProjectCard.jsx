@@ -1,17 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
 import {
-  RubyIcon,
   AwsIcon,
   NodeIcon,
   ReactIcon,
+  RubyIcon,
 } from "@component/assets/projectIcon";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
-import { CircularProgress, Divider } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Zbutton from "../ZButton";
-import styles from './ProjectCard.css'
+import styles from "./ProjectCard.css";
 
 function ProjectCard({
   reverse,
@@ -47,55 +47,55 @@ function ProjectCard({
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__zoomIn",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
     }, options);
 
-    const observer1 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer1 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__zoomInDown",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
     }, options);
 
-    const observer2 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer2 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__backInLeft",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
     }, options);
 
-    const observer3 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer3 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__backInRight",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
     }, options);
 
-    animatedLabelRef.forEach((ref) => {
+    animatedLabelRef.forEach(ref => {
       observer.observe(ref.current);
     });
 
@@ -122,24 +122,26 @@ function ProjectCard({
   return (
     <>
       <div
-        className={`project-card-container ${styles.ProjectCardWrapper ? !mobileView && reverse && styles.ProjectCardWrapper : null}`}
+        className={`project-card-container ${
+          styles.ProjectCardWrapper
+            ? !mobileView && reverse && styles.ProjectCardWrapper
+            : null
+        }`}
       >
         <div
           className="project-card-left"
           ref={reverse ? animatedImageRightRef : animatedImageRef}
         >
           {!imageLoading && (
-            <CircularProgress
-              className={styles.CircularProgress}
-            />
+            <CircularProgress className={styles.CircularProgress} />
           )}
           <Image
-            sizes="(max-width: 810px) 100%"
-            fill="true"
-            className="project-image"
-            src={projectImageUrl}
             alt={"project-image"}
+            className="project-image"
+            fill="true"
             onLoadingComplete={() => setImageLoading(true)}
+            sizes="(max-width: 810px) 100%"
+            src={projectImageUrl}
           />
         </div>
         <div className="project-card-right">
@@ -150,29 +152,29 @@ function ProjectCard({
             {projectDescription}
           </p>
           <div className="poject-framework-icons" ref={animatedIconRef}>
-            <Image width={70} src={ReactIcon} alt={`${projectTitle} ReactJs`} />
-            <Image width={70} src={NodeIcon} alt={`${projectTitle} NodeJs`} />
+            <Image alt={`${projectTitle} ReactJs`} src={ReactIcon} width={70} />
+            <Image alt={`${projectTitle} NodeJs`} src={NodeIcon} width={70} />
             <Image
-              width={70}
-              src={RubyIcon}
               alt={`${projectTitle} Ruby on Rails`}
+              src={RubyIcon}
+              width={70}
             />
             <Image
-              width={40}
-              src={AwsIcon}
               alt={`${projectTitle} AWS Amazon Web Service`}
               className={styles.ImageStyle}
+              src={AwsIcon}
+              width={40}
             />
           </div>
           <Zbutton
-            onClick={requestDemoOnClick}
-            text="Request Demo"
+            className={styles.ZButtonStyle}
             color="white"
             hoverColor="#ff9700"
-            width={170}
-            showIcon={false}
-            className={styles.ZButtonStyle}
             icon={<ArrowCircleRightOutlinedIcon />}
+            onClick={requestDemoOnClick}
+            showIcon={false}
+            text="Request Demo"
+            width={170}
           />
         </div>
       </div>

@@ -17,25 +17,25 @@ function HomeSection6() {
       threshold: 0.1,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__backInUp",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
     }, options);
 
-    const observer1 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer1 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__zoomIn",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
@@ -68,81 +68,81 @@ function HomeSection6() {
           </div>
           <a className={styles.deg0}>
             <Image
-              src="/HomeIcons/HS6-customer.svg"
               alt="zweidevs"
-              width={300}
               height={300}
+              src="/HomeIcons/HS6-customer.svg"
+              width={300}
             />
           </a>
           <a className={styles.deg45}>
             <Image
-              src="/HomeIcons/HS6-funds.svg"
               alt="zweidevs"
-              width={300}
               height={300}
+              src="/HomeIcons/HS6-funds.svg"
+              width={300}
             />
           </a>
           <a className={styles.deg90}>
             <Image
-              src="/HomeIcons/HS6-team.svg"
               alt="zweidevs"
-              width={300}
               height={300}
+              src="/HomeIcons/HS6-team.svg"
+              width={300}
             />
           </a>
           <a className={styles.deg135}>
             <Image
-              src="/HomeIcons/HS6-search.svg"
               alt="zweidevs"
-              width={300}
               height={300}
+              src="/HomeIcons/HS6-search.svg"
+              width={300}
             />
           </a>
           <a className={styles.deg180}>
             <Image
-              src="/HomeIcons/projects-completed.svg"
               alt="zweidevs"
-              width={300}
               height={300}
+              src="/HomeIcons/projects-completed.svg"
+              width={300}
             />
           </a>
           <div className={styles.projectcompleted}>
             <HomeSection6Counter
+              duration={4}
               label={"Projects Completed"}
               number={"150"}
-              duration={4}
               sign={"+"}
             />
           </div>
           <div className={styles.positivereviews}>
             <HomeSection6Counter
+              duration={4}
               label={"Positive Reviews"}
               number={"70"}
-              duration={4}
               sign={"+"}
             />
           </div>
           <div className={styles.teammembers}>
             <HomeSection6Counter
+              duration={4}
               label={"Team Members"}
               number={"35"}
-              duration={4}
               sign={"+"}
             />
           </div>
           <div className={styles.fundingraised}>
             <HomeSection6Counter
+              duration={2}
               label={"Funding Raised"}
               number={"3.5"}
-              duration={2}
               sign={".5M $"}
             />
           </div>
           <div className={styles.customersatisfaction}>
             <HomeSection6Counter
+              duration={2}
               label={"Customer Satisfaction"}
               number={"99"}
-              duration={2}
               sign={"%"}
             />
           </div>

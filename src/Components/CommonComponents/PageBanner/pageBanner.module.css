@@ -1,5 +1,5 @@
 .pageBannerRoot {
-  background: linear-gradient(90deg, #F18F01 0%, rgba(255, 168, 0, 0.91) 100%);
+  background: linear-gradient(90deg, #f18f01 0%, rgba(255, 168, 0, 0.91) 100%);
   /* background-image: url("../../../assets/mobileBg.svg"); */
   padding-top: 20px;
   padding-bottom: 20px;
@@ -53,9 +53,9 @@
 }
 
 .pageBannerHeading {
-  max-width: 950px ;
-  padding-top: 10px ;
-  padding-bottom: 10px ;
+  max-width: 950px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;

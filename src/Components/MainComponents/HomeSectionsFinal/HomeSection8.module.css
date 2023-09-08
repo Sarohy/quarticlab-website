@@ -8,7 +8,7 @@
 
 .HS8Heading {
   width: 420px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
@@ -22,13 +22,13 @@
   margin-right: 5;
 }
 .TextFieldFont {
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 .AvatarStyle {
   background-color: transparent;
 }
 .HS8FormLabel {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 16px !important;
@@ -54,16 +54,9 @@
   width: 100%;
 }
 
-.HS8InputAreaContainer {
-}
 
 .testCC {
   margin-left: 36vw;
-}
-
-@media screen and (max-width: 900px) {
-  .HS8InputAreaContainer {
-  }
 }
 
 @media screen and (max-width: 720px) {

@@ -1,4 +1,4 @@
-export const isValidEmail = (email) => {
+export const isValidEmail = email => {
   // Regular expression pattern for email validation
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

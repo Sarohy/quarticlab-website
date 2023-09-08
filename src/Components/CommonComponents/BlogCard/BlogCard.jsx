@@ -1,23 +1,31 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import styles from "./blogCard.module.css";
-import React from "react";
-import { Button, CardActionArea, CardActions, Grid, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+} from "@mui/material";
 import "animate.css";
 import { useRouter } from "next/router";
 
 export default function blogCard(props) {
   const { data, filter } = props;
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
 
   return (
     <>
       {" "}
-      <Grid container rowSpacing={3} columnSpacing={0}>
+      <Grid columnSpacing={0} container rowSpacing={3}>
         {data &&
           data.map(
             (element, key) =>
               (element.category === filter || filter === "All") && (
-                <Grid key={key} item xs={12} sm={6} md={4} lg={3}>
+                <Grid item key={key} lg={3} md={4} sm={6} xs={12}>
                   <Card
                     className={
                       "animate__animated animate__zoomIn animate__delay-1s"
@@ -31,12 +39,12 @@ export default function blogCard(props) {
                   >
                     <CardActionArea>
                       <CardMedia
+                        alt="green iguana"
                         component="img"
                         height={"152"}
                         image={element.image}
-                        alt="green iguana"
-                        width={"272"}
                         sx={{ objectFit: "contain" }}
+                        width={"272"}
                       />
                       <CardContent
                         className={styles.CardContent}
@@ -44,21 +52,21 @@ export default function blogCard(props) {
                       >
                         <Typography
                           className={`${styles.blogCardContent} ${styles.TypographyStyle}`}
-                          gutterBottom
-                          variant="h5"
                           component="div"
+                          gutterBottom
                           sx={{
                             fontSize: 18,
                             fontWeight: 600,
                           }}
+                          variant="h5"
                         >
                           {element.title}
                         </Typography>
                         <Typography
-                          height={"5em"}
-                          variant="body2"
                           color="text.secondary"
                           fontFamily="poppins"
+                          height={"5em"}
+                          variant="body2"
                         >
                           <div
                             dangerouslySetInnerHTML={{
@@ -71,7 +79,6 @@ export default function blogCard(props) {
                     <CardActions>
                       <Button
                         className={styles.ButtonStyle}
-                        size="small"
                         color="primary"
                         fontFamily="poppins"
                         onClick={() => {
@@ -80,13 +87,14 @@ export default function blogCard(props) {
                             query: { data: JSON.stringify(element) },
                           });
                         }}
+                        size="small"
                       >
                         Read More
                       </Button>
                     </CardActions>
                   </Card>
                 </Grid>
-              )
+              ),
           )}
       </Grid>
     </>

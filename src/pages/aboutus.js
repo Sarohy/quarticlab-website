@@ -1,11 +1,11 @@
 import {
+  AboutUsCard,
   AboutUsCard1,
   AboutUsCard2,
-  AboutUsCard,
   AboutUsCard4,
   AboutUsCard5,
-} from '@component/Components/MainComponents/Aboutus';
-import styles from '../styles/About.module.css';
+} from "@component/Components/MainComponents/Aboutus";
+import styles from "../styles/About.module.css";
 
 export default function AboutUs() {
   return (

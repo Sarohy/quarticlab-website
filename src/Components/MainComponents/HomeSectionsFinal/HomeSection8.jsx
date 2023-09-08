@@ -1,6 +1,7 @@
+/* eslint-disable no-empty */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -14,7 +15,6 @@ import InputAdornment from "@mui/material/InputAdornment";
 import { isValidPhoneNumber } from "libphonenumber-js";
 import styles from "./HomeSection8.module.css";
 
-
 function HomeSection8() {
   const [allCountries, setAllCountries] = useState([]);
   const [formValues, setFormValues] = useState({
@@ -25,26 +25,26 @@ function HomeSection8() {
       label: "Pakistan",
       id: "PK",
       phoneCode: "+92",
-      icon: "https://flagcdn.com/w80/pk.png"
+      icon: "https://flagcdn.com/w80/pk.png",
     },
-    description: ""
+    description: "",
   });
   const animatedDivRefs = React.useRef(null);
   const animatedLabelRefs = Array.from({ length: 5 }, () => React.useRef(null));
 
-  const handleInputChange = (e) => {
+  const handleInputChange = e => {
     const { name, value } = e.target;
     setFormValues({
       ...formValues,
-      [name]: value
+      [name]: value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (isValidPhoneNumber(formValues.contact, formValues.country?.id)) {
     } else {
-      alert("Invalid phone number O_O")
+      alert("Invalid phone number O_O");
     }
   };
 
@@ -52,7 +52,7 @@ function HomeSection8() {
     try {
       const response = await fetch("https://restcountries.com/v3.1/all");
       const countries = await response.json();
-      const countriesData = countries.map((country) => {
+      const countriesData = countries.map(country => {
         return {
           label: country?.name?.common,
           id: country?.cca2,
@@ -61,7 +61,7 @@ function HomeSection8() {
             (country?.idd?.suffixes?.length === 1
               ? country?.idd?.suffixes?.[0]
               : ""),
-          icon: `https://flagcdn.com/w80/${country?.cca2?.toLowerCase()}.png`
+          icon: `https://flagcdn.com/w80/${country?.cca2?.toLowerCase()}.png`,
         };
       });
       setAllCountries(countriesData);
@@ -78,29 +78,29 @@ function HomeSection8() {
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5
+      threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__backInLeft",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
     }, options);
 
-    const observer1 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer1 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           ("animate__delay-0s");
           entry.target.classList.add(
             "animate__animated",
             "animate__flipInX",
-            "animate__delay-1s"
+            "animate__delay-1s",
           );
         }
       });
@@ -110,7 +110,7 @@ function HomeSection8() {
       observer.observe(animatedDivRefs.current);
     }
 
-    animatedLabelRefs.forEach((ref) => {
+    animatedLabelRefs.forEach(ref => {
       observer1.observe(ref.current);
     });
 
@@ -126,48 +126,46 @@ function HomeSection8() {
         <h2 className={styles.HS8Heading} ref={animatedDivRefs}>
           How May We Help You
         </h2>
-        <div
-          className={styles.HS8Width}
-        >
+        <div className={styles.HS8Width}>
           <form onSubmit={handleSubmit}>
             <div className={styles.HS8InputFieldContainer}>
               <div className={styles.HS8InputContainer}>
                 <FormLabel
-                  required
                   className={styles.HS8FormLabel}
                   ref={animatedLabelRefs[0]}
+                  required
                 >
                   Name
                 </FormLabel>
                 <TextField
-                  placeholder="Enter your name"
-                  size="small"
+                  className={styles.HS8InputField}
                   name="name"
+                  onChange={handleInputChange}
+                  placeholder="Enter your name"
+                  required
+                  size="small"
                   type="text"
                   value={formValues.name}
-                  onChange={handleInputChange}
-                  required
                   variant="outlined"
-                  className={styles.HS8InputField}
                 />
               </div>
               <div className={styles.HS8InputContainer}>
                 <FormLabel
-                  required
                   className={styles.HS8FormLabel}
                   ref={animatedLabelRefs[1]}
+                  required
                 >
                   Email
                 </FormLabel>
                 <TextField
-                  placeholder="Enter your email"
-                  size="small"
                   className={styles.HS8InputField}
                   name="email"
+                  onChange={handleInputChange}
+                  placeholder="Enter your email"
+                  required
+                  size="small"
                   type="email"
                   value={formValues.email}
-                  onChange={handleInputChange}
-                  required
                   variant="outlined"
                 />
               </div>
@@ -175,128 +173,122 @@ function HomeSection8() {
             <div className={styles.HS8InputFieldContainer}>
               <div className={styles.HS8InputContainer}>
                 <FormLabel
-                  required
                   className={styles.HS8FormLabel}
                   ref={animatedLabelRefs[2]}
+                  required
                 >
                   Country
                 </FormLabel>
                 <Autocomplete
-                  value={formValues.country}
-                  isOptionEqualToValue={(option, value) =>
-                    option.id === value.id &&
-                    option.label === option.label
-                  }
                   disableClearable={true}
-                  options={allCountries}
+                  isOptionEqualToValue={(option, value) =>
+                    option.id === value.id && option.label === option.label
+                  }
                   onChange={(event, value) => {
                     setFormValues({
                       ...formValues,
-                      country: value
+                      country: value,
                     });
                   }}
-                  renderOption={(props, option) => (
-                    <ListItem {...props}>
-                      <ListItemIcon>
-                        <Avatar
-                          variant="square"
-                          className={styles.AvatarStyle}
-                        >
-                          <Image
-                            alt={"country flag"}
-                            width={40}
-                            height={25}
-                            src={option.icon}
-                          />
-                        </Avatar>
-                      </ListItemIcon>
-                      <ListItemText primary={option.label} />
-                    </ListItem>
-                  )}
-                  renderInput={(params) => (
+                  options={allCountries}
+                  renderInput={params => (
                     <TextField
                       {...params}
                       className={styles.HS8InputField}
-                      name="country"
-                      required
-                      variant="outlined"
-                      placeholder="Select country"
-                      size="small"
                       InputProps={{
                         ...params.InputProps,
                         startAdornment: (
                           <InputAdornment position="start">
                             {formValues.country?.icon && (
                               <Image
-                                width={40}
+                                alt={formValues.country?.id}
                                 height={25}
                                 src={formValues.country.icon}
-                                alt={formValues.country?.id}
+                                width={40}
                               />
                             )}
                           </InputAdornment>
-                        )
+                        ),
                       }}
+                      name="country"
+                      placeholder="Select country"
+                      required
+                      size="small"
+                      variant="outlined"
                     />
                   )}
+                  renderOption={(props, option) => (
+                    <ListItem {...props}>
+                      <ListItemIcon>
+                        <Avatar className={styles.AvatarStyle} variant="square">
+                          <Image
+                            alt={"country flag"}
+                            height={25}
+                            src={option.icon}
+                            width={40}
+                          />
+                        </Avatar>
+                      </ListItemIcon>
+                      <ListItemText primary={option.label} />
+                    </ListItem>
+                  )}
+                  value={formValues.country}
                 ></Autocomplete>
               </div>
               <div className={styles.HS8InputContainer}>
                 <FormLabel
-                  required
                   className={styles.HS8FormLabel}
                   ref={animatedLabelRefs[3]}
+                  required
                 >
                   Contact No
                 </FormLabel>
                 <TextField
-                  disabled={formValues.country?.label ? false : true}
-                  placeholder="Enter your contact number"
-                  size="small"
                   className={styles.HS8InputField}
-                  name="contact"
-                  value={formValues.contact}
-                  onChange={handleInputChange}
-                  required
-                  variant="outlined"
+                  disabled={!formValues.country?.label}
                   InputProps={{
                     startAdornment: (
-                      <span
-                        className={styles.TextFieldStyle}
-                      >
+                      <span className={styles.TextFieldStyle}>
                         {formValues.country?.phoneCode}
                       </span>
-                    )
+                    ),
                   }}
+                  name="contact"
+                  onChange={handleInputChange}
+                  placeholder="Enter your contact number"
+                  required
+                  size="small"
+                  value={formValues.contact}
+                  variant="outlined"
                 />
               </div>
             </div>
 
             <div className={styles.HS8InputAreaContainer}>
               <FormLabel
-                required
                 className={styles.HS8FormLabel}
                 ref={animatedLabelRefs[4]}
+                required
               >
                 Description
               </FormLabel>
               <TextField
-                placeholder="Type your description"
-                name="description"
+                className={`${styles.HS8TextArea} ${styles.TextFieldFont}`}
                 minRows={6}
                 multiline
-                value={formValues.description}
+                name="description"
                 onChange={handleInputChange}
+                placeholder="Type your description"
                 required
+                value={formValues.description}
                 variant="outlined"
-                className={`${styles.HS8TextArea} ${styles.TextFieldFont}`}
               />
 
               <div className={styles.HS8ButtonContainer}>
                 <Button
                   className={styles.HS8Button}
-                  variant="contained"
                   type="submit"
+                  variant="contained"
                 >
                   Submit Now
                 </Button>

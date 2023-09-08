@@ -9,13 +9,13 @@ import styles from "./AboutUs2.module.css";
 const AboutUsCard2 = () => {
   const animatedTextRef = Array.from({ length: 5 }, () => React.useRef(null));
   const animatedLeftDivRef = Array.from({ length: 2 }, () =>
-    React.useRef(null)
+    React.useRef(null),
   );
   const animatedRightDivRef = Array.from({ length: 3 }, () =>
-    React.useRef(null)
+    React.useRef(null),
   );
   const animatedHeadingDivRef = Array.from({ length: 4 }, () =>
-    React.useRef(null)
+    React.useRef(null),
   );
 
   useEffect(() => {
@@ -25,59 +25,59 @@ const AboutUsCard2 = () => {
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__backInLeft",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
     }, options);
 
-    const observer1 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer1 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate__animated", "animate__bounceIn");
         }
       });
     }, options);
 
-    const observer2 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer2 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate__animated", "animate__backInUp");
         }
       });
     }, options);
 
-    const observer3 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer3 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__backInRight",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
     }, options);
 
-    animatedRightDivRef.forEach((ref) => {
+    animatedRightDivRef.forEach(ref => {
       observer.observe(ref.current);
     });
 
-    animatedHeadingDivRef.forEach((ref) => {
+    animatedHeadingDivRef.forEach(ref => {
       observer1.observe(ref.current);
     });
 
-    animatedTextRef.forEach((ref) => {
+    animatedTextRef.forEach(ref => {
       observer2.observe(ref.current);
     });
 
-    animatedLeftDivRef.forEach((ref) => {
+    animatedLeftDivRef.forEach(ref => {
       observer3.observe(ref.current);
     });
 
@@ -95,9 +95,9 @@ const AboutUsCard2 = () => {
         <div className={styles.AUCard2ImgContent}>
           <div ref={animatedRightDivRef[0]}>
             <Image
+              alt="card 2 about us"
               className={styles.AUCard2Img}
               src={CD2Img1}
-              alt="card 2 about us"
             />
           </div>
           <div className={styles.AUCard2ImgDetail}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Logo } from "@component/assets/footerIcons";
 import { useInView } from "react-intersection-observer";
 import styles from "./footer.module.css";
@@ -16,7 +16,7 @@ const FooterAbout = () => {
     if (animateRef.current && inView) {
       animateRef.current.classList.add(
         "animate__animated",
-        "animate__slideInLeft"
+        "animate__slideInLeft",
       );
     }
   }, [inView]);
@@ -26,7 +26,12 @@ const FooterAbout = () => {
       <div ref={observerRef}>
         <div ref={animateRef}>
           <div className={styles.footerAboutImageContainer}>
-            <Image src={Logo} alt="zweidevs" width={76} className={styles.footerAboutImageContainerLogo}/>
+            <Image
+              alt="zweidevs"
+              className={styles.footerAboutImageContainerLogo}
+              src={Logo}
+              width={76}
+            />
             <h3 className={styles.footerAboutHeading}>ZWEIDEVS</h3>
           </div>
           <p className={styles.footerAboutZweidevs}>

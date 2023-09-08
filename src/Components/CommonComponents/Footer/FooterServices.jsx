@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./footer.module.css";
 import { Grid, Link } from "@mui/material";
 import navLinks from "@component/Constants/navLinks";
@@ -21,7 +21,7 @@ const FooterServices = () => {
   return (
     <>
       <div ref={observerRef}>
-        <div ref={ref} className="animate__delay-1s">
+        <div className="animate__delay-1s" ref={ref}>
           <h3>What We Do</h3>
           {/* <div className={styles.footerLinesContainerService}>
             <hr className={styles.footerLine1} />
@@ -30,12 +30,16 @@ const FooterServices = () => {
           <div className={styles.footerServicesItemsContainer}>
             <Grid container spacing={2.5} xl={10}>
               {navLinks.map(({ href, text }, index) => (
-                <Grid key={index} item xs={6}>
+                <Grid item key={index} xs={6}>
                   <Link
-                    underline="none"
-                    className={`${styles.footerServiceItem} ${router.pathname === href ? styles.colorOrange : styles.colorGrid}`}
-                    key={href}
+                    className={`${styles.footerServiceItem} ${
+                      router.pathname === href
+                        ? styles.colorOrange
+                        : styles.colorGrid
+                    }`}
                     href={href}
+                    key={href}
+                    underline="none"
                   >
                     {text}
                   </Link>

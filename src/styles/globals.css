@@ -57,7 +57,7 @@
 
 .HS8Phone-country-dropdown {
   color: #000 !important;
-  width:100% !important
+  width: 100% !important;
 }
 .react-tel-input .flag-dropdown {
   width: 38vw !important;
@@ -79,7 +79,7 @@
   padding-left: 15px !important;
 }
 
-.react-tel-input .selected-flag{
+.react-tel-input .selected-flag {
   padding-left: 15px !important;
 }
 
@@ -152,7 +152,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
-    background: white;
+  background: white;
 }
 
 a {

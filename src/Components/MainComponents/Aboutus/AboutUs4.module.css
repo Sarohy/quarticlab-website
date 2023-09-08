@@ -3,7 +3,7 @@
   height: 786px;
   background: white;
   padding: 0% 4% 0% 4%;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   overflow-y: hidden;
 }
@@ -43,7 +43,7 @@
 }
 
 .AUCard4Text {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -80,7 +80,7 @@
 }
 
 .AUCdCardHeading {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -90,7 +90,7 @@
 }
 
 .AUCdCardSubHeading {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -123,7 +123,7 @@
     height: 100%;
     background: white;
     padding: 0% 4% 0% 4%;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
   }
 

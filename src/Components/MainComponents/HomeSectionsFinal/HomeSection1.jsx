@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import { HSLogo } from "@component/assets/HomeIcons";
 import { InstantBookingButton } from "@component/Components/CommonComponents";
@@ -6,7 +5,6 @@ import "animate.css";
 import styles from "./HomeSection1.module.css";
 
 function HomeSection1() {
-
   return (
     <>
       <div className={styles.HS1Background}>
@@ -23,7 +21,7 @@ function HomeSection1() {
                 onClick={() => {
                   window.open(
                     "https://calendly.com/request-demo-zweidevs/30min",
-                    "_blank"
+                    "_blank",
                   );
                 }}
               />
@@ -31,9 +29,9 @@ function HomeSection1() {
           </div>
           <div className="animate__delay-1s animate__animated animate__zoomIn">
             <Image
+              alt={"zweidevs-logo"}
               className={styles.HSLogoContainer}
               src={HSLogo}
-              alt={"zweidevs-logo"}
             />
           </div>
         </div>

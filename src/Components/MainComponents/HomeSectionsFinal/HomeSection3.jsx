@@ -19,43 +19,43 @@ function HomeSection3() {
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__backInLeft",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
     }, options);
 
-    const observer1 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer1 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__shakeX",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
     }, options);
 
-    const observer2 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer2 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__backInRight",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
     }, options);
 
-    animatedDivRefs.forEach((ref) => {
+    animatedDivRefs.forEach(ref => {
       observer.observe(ref.current);
     });
 
@@ -79,8 +79,10 @@ function HomeSection3() {
       <div className={styles.HS3MainContainer}>
         <div className={styles.HS3ContentContainer}>
           <div className={styles.HS3TabContainer}>
-            <div className={styles.HS3ContentHeading} ref={animatedDivRefs[0]}>
-            </div>
+            <div
+              className={styles.HS3ContentHeading}
+              ref={animatedDivRefs[0]}
+            ></div>
             <h2 className={styles.HS3ContentText} ref={animatedDivRefs[1]}>
               Work With Top Notch Designers And Developers To Get Amazing
               Products.
@@ -103,7 +105,11 @@ function HomeSection3() {
             </div>
           </div>
           <div className={styles.HS3ImgContainer} ref={animatedImgRef}>
-            <Image className={styles.HS3ImgWidth} src={HS3Img} alt={"zweidevs-icon"} />
+            <Image
+              alt={"zweidevs-icon"}
+              className={styles.HS3ImgWidth}
+              src={HS3Img}
+            />
           </div>
         </div>
       </div>

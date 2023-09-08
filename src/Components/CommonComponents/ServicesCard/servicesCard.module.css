@@ -10,7 +10,7 @@
   left: 53px;
   top: 653px;
 
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -40,7 +40,7 @@
   left: 178px;
   top: 944px;
 
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -120,7 +120,7 @@
 
 .servicesCardDetailsHeader {
   width: 100%;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 28px;
@@ -131,7 +131,7 @@
 .servicesCardDetails {
   max-width: 811px;
   margin-top: 28px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -152,7 +152,7 @@
   height: 30px;
   left: 506px;
   top: 945px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;

@@ -7,14 +7,14 @@ import {
   HomeSection6,
   HomeSection7,
   HomeSection8,
-} from '@component/Components/MainComponents/HomeSectionsFinal';
-import styles from '../styles/Home.module.css';
+} from "@component/Components/MainComponents/HomeSectionsFinal";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  const section2 = () => document.getElementById('homeSection2');
+  const section2 = () => document.getElementById("homeSection2");
 
   const handleButtonClickSection1 = () => {
-    section2().scrollIntoView({ behavior: 'smooth' });
+    section2().scrollIntoView({ behavior: "smooth" });
   };
   return (
     <div className={styles.HPStyle}>

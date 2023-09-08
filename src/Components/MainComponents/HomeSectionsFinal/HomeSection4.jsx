@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import {
@@ -29,12 +29,14 @@ function HomeSection4() {
       title: "Hooked Health",
       content:
         "Hooked Health is a mobile application which enables the users to enjoy a leaner, healthier body through a 15-minute no-equipment workouts ",
-      button: <BottomBorderButton
-        onClick={() => {
-          router.push("/projects");
-        }}
-        text="Request Demo"
-      />
+      button: (
+        <BottomBorderButton
+          onClick={() => {
+            router.push("/projects");
+          }}
+          text="Request Demo"
+        />
+      ),
     },
     {
       index: 2,
@@ -42,12 +44,14 @@ function HomeSection4() {
       title: "AudioCardio",
       content:
         "AudioCardio is an evidence-based mobile app that delivers inaudible sound therapies designed to maintain and strengthen your hearing while providing relief from tinnitus by stimulating the cells inside your ear",
-      button: <BottomBorderButton
-        onClick={() => {
-          router.push("/projects");
-        }}
-        text="Request Demo"
-      />
+      button: (
+        <BottomBorderButton
+          onClick={() => {
+            router.push("/projects");
+          }}
+          text="Request Demo"
+        />
+      ),
     },
     {
       index: 3,
@@ -55,12 +59,14 @@ function HomeSection4() {
       title: "Seated",
       content:
         "Seated is a platform which enables the users to Make Reservations at Local Restaurants so that they can earn back on every dollar that the users spend at the restaurant",
-      button: <BottomBorderButton
-        onClick={() => {
-          router.push("/projects");
-        }}
-        text="Request Demo"
-      />
+      button: (
+        <BottomBorderButton
+          onClick={() => {
+            router.push("/projects");
+          }}
+          text="Request Demo"
+        />
+      ),
     },
     {
       index: 4,
@@ -68,12 +74,14 @@ function HomeSection4() {
       title: "Public Trust",
       content:
         "Public Trust Realty Group is a web-based platform that enables the users to search for a property and buy/rent a property",
-      button: <BottomBorderButton
-        onClick={() => {
-          router.push("/projects");
-        }}
-        text="Request Demo"
-      />
+      button: (
+        <BottomBorderButton
+          onClick={() => {
+            router.push("/projects");
+          }}
+          text="Request Demo"
+        />
+      ),
     },
     {
       index: 5,
@@ -81,12 +89,14 @@ function HomeSection4() {
       title: "Fresh Tracks",
       content:
         "FreshTracks is a web based portal for the travelers planning to travel across Canada where they can view personalized travel plans.",
-      button: <BottomBorderButton
-        onClick={() => {
-          router.push("/projects");
-        }}
-        text="Request Demo"
-      />
+      button: (
+        <BottomBorderButton
+          onClick={() => {
+            router.push("/projects");
+          }}
+          text="Request Demo"
+        />
+      ),
     },
     {
       index: 6,
@@ -94,12 +104,14 @@ function HomeSection4() {
       title: "Humanava",
       content:
         "Humanava is a web based Edtech platform, which provides Interactive, highly engaging courses for everyone in an organization.",
-      button: <BottomBorderButton
-        onClick={() => {
-          router.push("/projects");
-        }}
-        text="Request Demo"
-      />
+      button: (
+        <BottomBorderButton
+          onClick={() => {
+            router.push("/projects");
+          }}
+          text="Request Demo"
+        />
+      ),
     },
   ];
 
@@ -110,35 +122,35 @@ function HomeSection4() {
       threshold: 0.1,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__backInLeft",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
     }, options);
 
-    const observer1 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer1 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__zoomIn",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
     }, options);
 
-    animatedDivRefs.forEach((ref) => {
+    animatedDivRefs.forEach(ref => {
       observer.observe(ref.current);
     });
 
-    animatedCardRefs.forEach((ref) => {
+    animatedCardRefs.forEach(ref => {
       observer1.observe(ref.current);
     });
 
@@ -150,8 +162,6 @@ function HomeSection4() {
   return (
     <>
       <div className={styles.HS4MainContainer}>
-
-
         <div className={styles.HS4ContentSubHeadingContainer}>
           <h2 className={styles.HS4ContentSubHeading} ref={animatedDivRefs[0]}>
             We Have Delivered A Lot Of Projects
@@ -176,17 +186,15 @@ function HomeSection4() {
               >
                 <CardActionArea>
                   <Image
-                    src={item?.image}
                     alt={item?.title}
                     className={styles.HS4CardImage}
+                    src={item?.image}
                   />
                   <CardContent className={styles.HS4BelowContainer}>
                     <h2 className={styles.HSCardTitle}>{item?.title}</h2>
                     <p className={styles.HS4CardContent}>{item?.content}</p>
                   </CardContent>
-                  <div className={styles.cardBtn} >
-                    {item?.button}
-                  </div>
+                  <div className={styles.cardBtn}>{item?.button}</div>
                 </CardActionArea>
               </Card>
             );

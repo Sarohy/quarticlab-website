@@ -22,13 +22,13 @@ const Id = () => {
       threshold: 0.1,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__backInUp",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
@@ -44,11 +44,9 @@ const Id = () => {
   }, []);
 
   return (
-    <div
-      className={styles.BlogIdMTop}>
+    <div className={styles.BlogIdMTop}>
       <PageBanner {...bannerData} />
-      <div
-        className={styles.BlogIdPadding}>
+      <div className={styles.BlogIdPadding}>
         <div
           className={styles.blogDetails}
           dangerouslySetInnerHTML={{ __html: parsedData?.description }}

@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./footer.module.css";
 import Image from "next/image";
 import "animate.css";
@@ -28,15 +27,15 @@ function Footer() {
 
         <div className={styles.footerRightsContainer}>
           <Image
+            alt={"copy-right-left-line"}
             className={styles.footerRightsImage}
             src={CopyrightLeftLine}
-            alt={"copy-right-left-line"}
           />
           <p>© 2023 Zweidevs. All Rights Reserved By Zweidevs</p>
           <Image
+            alt={"copy-right-right-line"}
             className={styles.footerRightsImage}
             src={CopyrightRightLine}
-            alt={"copy-right-right-line"}
           />
         </div>
       </div>

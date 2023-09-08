@@ -8,12 +8,13 @@ import { useEffect } from "react";
 export default function SmallButton(props) {
   const { smallButtonsData, setFilter } = props;
   const [activeTab, setActiveTab] = React.useState(0);
+  // eslint-disable-next-line no-unused-vars
   const [activeMarginTop, setActiveMarginTop] = React.useState(0);
 
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth < 600) setActiveMarginTop("10px");
-      else setActiveMarginTop("0px");
+      if (window.innerWidth < 600) {setActiveMarginTop("10px");}
+      else {setActiveMarginTop("0px");}
     }
     window.addEventListener("resize", handleResize);
     handleResize();
@@ -30,18 +31,19 @@ export default function SmallButton(props) {
             ${index === activeTab ? styles.BtnColorWhite : styles.BtnColorSlate}
             ${styles.BtnBdSlate}
             ${styles.BtnFont}
-            ${index === smallButtonsData.length - 1
+            ${
+              index === smallButtonsData.length - 1
                 ? styles.BtnMTop
                 : styles.BtnMTop0
-              }
+            }
          `}
             key={index}
             onClick={() => {
               setActiveTab(index);
               setFilter(element);
             }}
-            variant={index === activeTab ? "contained" : "outlined"}
             size="small"
+            variant={index === activeTab ? "contained" : "outlined"}
           >
             {element}
           </Button>
