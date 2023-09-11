@@ -62,7 +62,12 @@ function HomeSection6() {
             <div className={styles.sinceyear}>2010</div>
           </div>
           <div className={styles.circularbar}>
-            <Image alt="home icon" src="/HomeIcons/HS6-circularbar.svg" />
+            <Image
+              alt="home icon"
+              height={100}
+              src="/HomeIcons/HS6-circularbar.svg"
+              width={100}
+            />
           </div>
           <a className={styles.deg0}>
             <Image
