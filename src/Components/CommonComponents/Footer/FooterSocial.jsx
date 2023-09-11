@@ -66,12 +66,7 @@ const FooterSocial = () => {
         <div className="animate__delay-1s" ref={ref}>
           <h3>Social Media Links</h3>
 
-          {/* <div className={styles.footerLinesContainerSocial}>
-            <hr className={styles.footerLine1} />
-            <hr className={styles.footerLine2} />
-          </div> */}
           <div className={styles.imageSocialMain}>
-            {/* <div className={styles.imageSocialContainer}> */}
             {socialMediaData &&
               socialMediaData.map((element, key) => (
                 <a
@@ -100,7 +95,6 @@ const FooterSocial = () => {
                   </div>
                 </a>
               ))}
-            {/* </div> */}
           </div>
         </div>
       </div>
