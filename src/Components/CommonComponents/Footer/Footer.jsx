@@ -1,13 +1,13 @@
-import styles from "./footer.module.css";
 import Image from "next/image";
-import "animate.css";
+import FooterAbout from "./FooterAbout";
+import FooterServices from "./FooterServices";
+import FooterSocial from "./FooterSocial";
 import {
   CopyrightLeftLine,
   CopyrightRightLine,
 } from "@component/assets/footerIcons";
-import FooterAbout from "./FooterAbout";
-import FooterServices from "./FooterServices";
-import FooterSocial from "./FooterSocial";
+import "animate.css";
+import styles from "./footer.module.css";
 
 function Footer() {
   return (

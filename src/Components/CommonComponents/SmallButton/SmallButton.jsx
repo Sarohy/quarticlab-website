@@ -1,8 +1,7 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import styles from "./SmallButton.module.css";
-import { useEffect } from "react";
 
 export default function SmallButton(props) {
   const { smallButtonsData, setFilter } = props;
