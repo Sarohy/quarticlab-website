@@ -1,5 +1,8 @@
 import { useState } from "react";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import dynamic from "next/dynamic";
+const ArrowRightAltIcon = dynamic(() =>
+  import("@mui/icons-material/ArrowRightAlt"),
+);
 import styles from "./ZButton.module.css";
 import { Button } from "@mui/material";
 

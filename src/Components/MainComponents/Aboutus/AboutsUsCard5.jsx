@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
+import dynamic from "next/dynamic";
 import { Zbutton } from "@component/Components/CommonComponents";
-import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+
+const ArrowCircleRightOutlinedIcon = dynamic(() =>
+  import("@mui/icons-material/ArrowCircleRightOutlined"),
+);
 import styles from "./AboutUs5.module.css";
 
 const AboutUsCard5 = () => {

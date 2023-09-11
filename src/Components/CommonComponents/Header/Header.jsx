@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
 import { Button } from "@mui/material";
 import navLinks from "@component/Constants/navLinks";
+const MenuIcon = dynamic(() => import("@mui/icons-material/Menu"));
+const CloseIcon = dynamic(() => import("@mui/icons-material/Close"));
 import styles from "./header.module.css";
 import { ZweidevsLogo } from "@component/assets/headerIcons";
 function Header() {

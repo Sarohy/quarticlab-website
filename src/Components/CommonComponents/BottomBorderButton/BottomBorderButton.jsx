@@ -1,5 +1,8 @@
+import dynamic from "next/dynamic";
+const ArrowCircleRightOutlinedIcon = dynamic(() =>
+  import("@mui/icons-material/ArrowCircleRightOutlined"),
+);
 import styles from "./BottomBorderButton.module.css";
-import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 
 function BottomBorderButton({ onClick, text }) {
   return (

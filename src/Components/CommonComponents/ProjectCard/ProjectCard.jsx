@@ -4,8 +4,13 @@ import {
   ReactIcon,
   RubyIcon,
 } from "@component/assets/projectIcon";
-import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
-import { CircularProgress } from "@mui/material";
+import dynamic from "next/dynamic";
+const ArrowCircleRightOutlinedIcon = dynamic(() =>
+  import("@mui/icons-material/ArrowCircleRightOutlined"),
+);
+const CircularProgress = dynamic(() =>
+  import("@mui/material/CircularProgress"),
+);
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Zbutton from "../ZButton";
