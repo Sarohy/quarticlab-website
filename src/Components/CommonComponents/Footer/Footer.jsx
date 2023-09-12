@@ -1,11 +1,9 @@
 import Image from "next/image";
 import FooterAbout from "./FooterAbout";
-import FooterServices from "./FooterServices";
 import FooterSocial from "./FooterSocial";
-import {
-  CopyrightLeftLine,
-  CopyrightRightLine,
-} from "@component/assets/footerIcons";
+import FooterServices from "./FooterServices";
+import CopyrightLeftLine from "../../../../public/assets/footerIcons/copyrightLeftLine.svg";
+import CopyrightRightLine from "../../../../public/assets/footerIcons/copyrightRightLine.svg";
 import "animate.css";
 import styles from "./footer.module.css";
 

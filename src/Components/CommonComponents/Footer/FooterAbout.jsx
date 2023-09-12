@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import { Logo } from "@component/assets/footerIcons";
-import { useInView } from "react-intersection-observer";
-import styles from "./footer.module.css";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
+import Logo from "../../../../public/assets/footerIcons/logo.svg";
+import styles from "./footer.module.css";
 
 const FooterAbout = () => {
   const [observerRef, inView] = useInView({

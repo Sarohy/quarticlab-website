@@ -5,7 +5,7 @@
   display: none;
 }
 .HS2MainContainer {
-  background: url("../../../../src/assets/HomeIcons/HS2_background.svg");
+  background: url("../../../../public/assets/HomeIcons/HS2_background.svg");
   width: 100%;
   background-size: cover;
 }

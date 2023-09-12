@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import Card from "@mui/material/Card";
-
 import Carousel from "react-material-ui-carousel";
 const StarOutlinedIcon = dynamic(() =>
   import("@mui/icons-material/StarOutlined"),
 );
-import { HS3Img, HS5Img1, HS5Img2, HS5Img3 } from "@component/assets/HomeIcons";
+import HS3Img from "../../../../public/assets/HomeIcons/HS3Img.svg";
+import HS5Img1 from "../../../../public/assets/HomeIcons/HS5Img.svg";
+import HS5Img2 from "../../../../public/assets/HomeIcons/HS5Img2.svg";
+import HS5Img3 from "../../../../public/assets/HomeIcons/HS5Img3.svg";
 import styles from "./HomeSection5.module.css";
 
 const otherItems = [

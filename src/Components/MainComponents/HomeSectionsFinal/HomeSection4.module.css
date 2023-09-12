@@ -1,5 +1,5 @@
 .HS4MainContainer {
-  background-image: url("../../../../src/assets/HomeIcons/HS4Background.svg");
+  background-image: url("../../../../public/assets/HomeIcons/HS4Background.svg");
   width: 100%;
   background-repeat: repeat-y;
   padding: 0% 3% 3% 3%;

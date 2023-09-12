@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
 import { Zbutton } from "@component/Components/CommonComponents";
-
 const ArrowCircleRightOutlinedIcon = dynamic(() =>
   import("@mui/icons-material/ArrowCircleRightOutlined"),
 );

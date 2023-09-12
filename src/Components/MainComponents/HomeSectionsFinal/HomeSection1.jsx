@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { HSLogo } from "@component/assets/HomeIcons";
+import HSLogo from "../../../../public/assets/HomeIcons/zweidevsLogo.svg";
 import { InstantBookingButton } from "@component/Components/CommonComponents";
 import "animate.css";
 import styles from "./HomeSection1.module.css";

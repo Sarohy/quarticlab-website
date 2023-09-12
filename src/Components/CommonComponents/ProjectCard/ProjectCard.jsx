@@ -1,20 +1,18 @@
-import {
-  AwsIcon,
-  NodeIcon,
-  ReactIcon,
-  RubyIcon,
-} from "@component/assets/projectIcon";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import Zbutton from "../ZButton";
 import dynamic from "next/dynamic";
+import AwsIcon from "../../../../public/assets/projectIcon/awsIcon.svg";
+import NodeIcon from "../../../../public/assets/projectIcon/nodejsIcon.svg";
+import ReactIcon from "../../../../public/assets/projectIcon/reactIcon.svg";
+import RubyIcon from "../../../../public/assets/projectIcon/rorIcon.svg";
 const ArrowCircleRightOutlinedIcon = dynamic(() =>
   import("@mui/icons-material/ArrowCircleRightOutlined"),
 );
 const CircularProgress = dynamic(() =>
   import("@mui/material/CircularProgress"),
 );
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import Zbutton from "../ZButton";
-import styles from "./ProjectCard.css";
+import styles from "./ProjectCard.module.css";
 
 function ProjectCard({
   reverse,

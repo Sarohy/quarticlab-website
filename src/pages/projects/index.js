@@ -1,10 +1,9 @@
-import ProjectCard from "@component/Components/CommonComponents/ProjectCard/ProjectCard";
+import { useEffect, useState } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
 import { getAllProjects } from "@component/firebase/firebaseRequests";
 import PageBanner from "@component/Components/CommonComponents/PageBanner";
+import ProjectCard from "@component/Components/CommonComponents/ProjectCard/ProjectCard";
 import styles from "../../styles/project.module.css";
-
-import { CircularProgress } from "@mui/material";
-import { useEffect, useState } from "react";
 
 function Work() {
   const [selected, setSelected] = useState("allProjects");

@@ -1,20 +1,17 @@
-import styles from "./blogCard.module.css";
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Grid,
-  Typography,
-} from "@mui/material";
-import "animate.css";
 import { useRouter } from "next/router";
+import Card from "@mui/material/Card";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import CardActionArea from "@mui/material/CardActionArea";
+import "animate.css";
+import styles from "./blogCard.module.css";
 
 export default function blogCard(props) {
   const { data, filter } = props;
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
 
   return (

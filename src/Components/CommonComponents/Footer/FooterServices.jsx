@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
-import styles from "./footer.module.css";
+import { useRouter } from "next/router";
 import { Grid, Link } from "@mui/material";
 import navLinks from "@component/Constants/navLinks";
-import { useRouter } from "next/router";
 import { useInView } from "react-intersection-observer";
+import styles from "./footer.module.css";
 
 const FooterServices = () => {
   const router = useRouter();
@@ -23,10 +23,6 @@ const FooterServices = () => {
       <div ref={observerRef}>
         <div className="animate__delay-1s" ref={ref}>
           <h3>What We Do</h3>
-          {/* <div className={styles.footerLinesContainerService}>
-            <hr className={styles.footerLine1} />
-            <hr className={styles.footerLine2} />
-          </div> */}
           <div className={styles.footerServicesItemsContainer}>
             <Grid container spacing={2.5} xl={10}>
               {navLinks.map(({ href, text }, index) => (

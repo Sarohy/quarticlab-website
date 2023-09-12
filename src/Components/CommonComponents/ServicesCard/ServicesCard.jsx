@@ -1,6 +1,6 @@
-import { Box } from "@mui/material";
-import Image from "next/image";
 import React, { useEffect } from "react";
+import Image from "next/image";
+import Box from "@mui/material/Box";
 import styles from "./servicesCard.module.css";
 
 const ServicesCard = props => {
@@ -16,8 +16,7 @@ const ServicesCard = props => {
   );
 
   const animatedCardDetailsDivRefs = cardData.map(element => {
-    // eslint-disable-next-line no-unused-vars
-    return element.footerImages.map((image, k) => {
+    return element.footerImages.map(() => {
       return React.useRef(null);
     });
   });
