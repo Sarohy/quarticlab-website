@@ -17,5 +17,5 @@ export {
   ReviewCard,
   ServiceCard,
   ServicesCard,
-  InstantBookingButton
+  InstantBookingButton,
 };

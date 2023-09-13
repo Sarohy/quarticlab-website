@@ -110,6 +110,19 @@
     margin-bottom: 10px;
   }
 }
+.BlogIdMTop {
+  margin-top: 15vh;
+}
+.BlogIdPadding {
+  padding: 40;
+}
+.LoadingStyle {
+  display: flex;
+  justify-content: center;
+}
+.BMTop {
+  margin-top: 15vh;
+}
 
 .btnThreeCustomColor::after {
   border: 1px solid white !important;

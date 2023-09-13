@@ -1,12 +1,10 @@
 import ProjectCard from "@component/Components/CommonComponents/ProjectCard/ProjectCard";
-import {
-  addProject,
-  getAllProjects,
-} from "@component/firebase/firebaseRequests";
+import { getAllProjects } from "@component/firebase/firebaseRequests";
 import PageBanner from "@component/Components/CommonComponents/PageBanner";
+import styles from "../../styles/project.module.css";
 
 import { CircularProgress } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function Work() {
   const [selected, setSelected] = useState("allProjects");
@@ -20,24 +18,24 @@ function Work() {
 
   const handleWeb = () => {
     setSelected("webProjects");
-    const filtered = projects.filter((project) =>
-      project.projectType.includes("web")
+    const filtered = projects.filter(project =>
+      project.projectType.includes("web"),
     );
     setFilteredProjects(filtered);
   };
 
   const handleMobile = () => {
     setSelected("mobileProjects");
-    const filtered = projects.filter((project) =>
-      project.projectType.includes("mobile")
+    const filtered = projects.filter(project =>
+      project.projectType.includes("mobile"),
     );
     setFilteredProjects(filtered);
   };
 
   const handleEcommerce = () => {
     setSelected("ecommerceProjects");
-    const filtered = projects.filter((project) =>
-      project.projectType.includes("ecommerce")
+    const filtered = projects.filter(project =>
+      project.projectType.includes("ecommerce"),
     );
     setFilteredProjects(filtered);
   };
@@ -48,64 +46,55 @@ function Work() {
 
   useEffect(() => {
     getAllProjects()
-      .then((response) => {
+      .then(response => {
         setProjects(response);
         setFilteredProjects(response);
       })
-      .catch((error) => console.log("Error ==> ", error));
+      .catch(() => {});
   }, []);
 
   return (
-    <div style={{marginTop:"15vh"}}>
+    <div className={styles.PMTop}>
       <PageBanner
-        title={"Portfolio"}
-        heading={"Everything Your Business Needs Under One Roof"}
         description={
           "We've worked cross multiple verticals and a range of services to create engaging and innovative digital experenices."
         }
+        heading={"Everything Your Business Needs Under One Roof"}
+        title={"Portfolio"}
       />
-      <div
-        style={{
-          backgroundColor: "white",
-          padding: 20,
-          paddingLeft: "40px",
-          display: "flex",
-          flexDirection: "column",
-          gap: 20,
-        }}
-      >
+      <div className={styles.PHeaderWrapper}>
         <div className="worksHeader">
           <h1 className="workHeaderTitle">Projects</h1>
           <div className="workHeaderBtnContainer">
             <button
-              onClick={handleAllProject}
               className={`workHeaderBtn ${
                 selected === "allProjects" ? "workHeaderBtnSelected" : ""
               }`}
+              onClick={handleAllProject}
             >
               All Projects
             </button>
             <button
-              onClick={handleWeb}
               className={`workHeaderBtn ${
                 selected === "webProjects" ? "workHeaderBtnSelected" : ""
               }`}
+              onClick={handleWeb}
             >
               Web Applications
             </button>
             <button
-              onClick={handleMobile}
               className={`workHeaderBtn ${
                 selected === "mobileProjects" ? "workHeaderBtnSelected" : ""
               }`}
+              onClick={handleMobile}
             >
               Mobile Applications
             </button>
             <button
-              onClick={handleEcommerce}
               className={`workHeaderBtn ${
                 selected === "ecommerceProjects" ? "workHeaderBtnSelected" : ""
               }`}
+              onClick={handleEcommerce}
             >
               Ecommerce
             </button>
@@ -120,12 +109,12 @@ function Work() {
             <>
               {filteredProjects.map((project, index) => (
                 <ProjectCard
-                  projectTitle={project.projectTitle}
+                  key={index + project.projectTitle}
                   projectDescription={project.projectDescription}
                   projectImageUrl={project.projectImage}
-                  reverse={index % 2 === 0}
-                  key={index + project.projectTitle}
+                  projectTitle={project.projectTitle}
                   requestDemoOnClick={requestDemoOnClick}
+                  reverse={index % 2 === 0}
                 />
               ))}
             </>

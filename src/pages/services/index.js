@@ -1,54 +1,51 @@
-import {
-  InstantBookingBanner,
-  ServicesCard,
-} from "@component/Components/CommonComponents";
+import { ServicesCard } from "@component/Components/CommonComponents";
+import styles from "../../styles/services.module.css";
 
 import "animate.css";
 
 import {
-  BlockchainIcon,
-  MobileDevIcon,
-  GameDevIcon,
-  IOTDevIcon,
   AIDevIcon,
-  DevopsIcon,
-  UIUXIcon,
-  WebDevIcon,
-  NodeIcon,
-  PythonIcon,
-  ReactIcon,
-  SQLiteIcon,
-  JSIcon,
-  SolanaIcon,
-  AvalancheIcon,
-  EthIcon,
-  CardanoIcon,
   AndroidIcon,
-  IOSIcon,
-  SketchIcon,
-  InfinityUXIcon,
-  FigmaIcon,
-  InVision,
-  UnityIcon,
-  GameBenchIcon,
-  HoudinaIcon,
-  BelenderIcon,
-  RaspbarryPiIcon,
   ArduinoIcon,
-  PyTorch,
-  KerasIcon,
-  OpenIcon,
-  OpenAIIcon,
+  AvalancheIcon,
   AWSIcon,
   AzureIcon,
-  googleCloudIcon,
+  BelenderIcon,
+  BlockchainIcon,
+  CardanoIcon,
+  DevopsIcon,
+  EthIcon,
+  FigmaIcon,
+  GameBenchIcon,
+  GameDevIcon,
   goDaddyIcon,
+  googleCloudIcon,
+  HoudinaIcon,
+  InfinityUXIcon,
+  InVision,
+  IOSIcon,
+  IOTDevIcon,
+  JSIcon,
+  KerasIcon,
+  MobileDevIcon,
+  NodeIcon,
+  OpenAIIcon,
+  OpenIcon,
+  PythonIcon,
+  PyTorch,
+  RaspbarryPiIcon,
+  ReactIcon,
+  SketchIcon,
+  SolanaIcon,
+  SQLiteIcon,
+  UIUXIcon,
+  UnityIcon,
+  WebDevIcon,
 } from "@component/assets/serviceIcons";
 
-import React from "react";
 import PageBanner from "@component/Components/CommonComponents/PageBanner";
 import Image from "next/image";
-import { DashIcon, DashSmIcon, DashGroupIcon } from "@component/assets";
+import { DashGroupIcon } from "@component/assets";
 
 function Services() {
   // Services card data
@@ -125,21 +122,21 @@ function Services() {
   ];
 
   return (
-    <div className="services-root" style={{marginTop:"15vh"}}>
+    <div className={`services-root  ${styles.SMTop}`}>
       <PageBanner
-        title={"Services"}
-        heading={"Everything Your Business Needs Under One Roof"}
         description={
           "Zweidevs is a professional marketing agency that strives to enhance your marketing journey through creative ideas, innovation, and unwavering determination. We leverage cutting-edge technology and robust business strategies to cater to the specific needs of your company in this digital era."
         }
+        heading={"Everything Your Business Needs Under One Roof"}
+        title={"Services"}
       />
       <div className="servicesHeaderContainer">
         <p className="services-header">Our Services</p>
 
         <Image
-          style={{ paddingLeft: 8 }}
-          src={DashGroupIcon}
           alt={"dash-icon"}
+          className={styles.SPLeft}
+          src={DashGroupIcon}
         />
       </div>
       <ServicesCard cardData={cardData} />

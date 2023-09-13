@@ -1,24 +1,18 @@
-import React, { useState } from 'react'
-import styles from "./BottomBorderButton.module.css"
-import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import dynamic from "next/dynamic";
+const ArrowCircleRightOutlinedIcon = dynamic(() =>
+  import("@mui/icons-material/ArrowCircleRightOutlined"),
+);
+import styles from "./BottomBorderButton.module.css";
 
-function BottomBorderButton({
-    onClick,
-    text,
-}) {
-    return (
-        <div
-            onClick={onClick}
-            className={styles.animatedButton}
-        >
-            <span style={styles.btnTxt}>
-                {text}
-            </span>
-            <span className={styles.btnIcon} >
-                <ArrowCircleRightOutlinedIcon style={{ color: "#ff9700" }} />
-            </span>
-        </div>
-    )
+function BottomBorderButton({ onClick, text }) {
+  return (
+    <div className={styles.animatedButton} onClick={onClick}>
+      <span style={styles.btnTxt}>{text}</span>
+      <span className={styles.btnIcon}>
+        <ArrowCircleRightOutlinedIcon className={styles.ArrowCircleStyle} />
+      </span>
+    </div>
+  );
 }
 
-export default BottomBorderButton
+export default BottomBorderButton;

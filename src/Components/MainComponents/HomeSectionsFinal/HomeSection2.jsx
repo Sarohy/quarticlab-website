@@ -17,7 +17,7 @@ function HomeSection2() {
   const [selectedKey, setSelectedKey] = useState("");
   const animatedDivRefs = Array.from({ length: 2 }, () => React.useRef(null));
   const animatedHeadingRefs = Array.from({ length: 5 }, () =>
-    React.useRef(null)
+    React.useRef(null),
   );
 
   const cardData = [
@@ -65,44 +65,43 @@ function HomeSection2() {
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__backInLeft",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
     }, options);
 
-
-    const observer2 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer2 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate__animated", "animate__zoomIn");
         }
       });
     }, options);
 
-    const observer3 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer3 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__backInUp",
-            "animate__delay-1s"
+            "animate__delay-1s",
           );
         }
       });
     }, options);
 
-    animatedHeadingRefs.forEach((ref) => {
+    animatedHeadingRefs.forEach(ref => {
       observer3.observe(ref.current);
     });
 
-    animatedDivRefs.forEach((ref) => {
+    animatedDivRefs.forEach(ref => {
       observer.observe(ref.current);
     });
 
@@ -116,20 +115,22 @@ function HomeSection2() {
   return (
     <>
       <div className={styles.HS2MainContainer}>
-        <div className={styles.HS2ContentContainer} ref={animatedDivRefs[0]}>
-        </div>
+        <div
+          className={styles.HS2ContentContainer}
+          ref={animatedDivRefs[0]}
+        ></div>
         <div className={styles.HS2SubHeadContainer}>
           <h2 className={`${styles.HS2SubHeading}`} ref={animatedDivRefs[1]}>
             We Offer Everything That Your Business Needs
           </h2>
           <div className={styles.HS2Button}>
             <BottomBorderButton
-              text="See All"
               onClick={() => {
                 router.push({
                   pathname: `/services`,
                 });
               }}
+              text="See All"
             />
           </div>
         </div>
@@ -156,15 +157,13 @@ function HomeSection2() {
                     >
                       <div className={styles.imageDiv}>
                         <Image
-                          src={item.image}
                           alt="zweidevs"
                           className={styles.HS2SelectedImgWhite}
-                          width={
-                            isHovered && selectedKey == item.key ? 40 : 80
-                          }
                           height={
                             isHovered && selectedKey == item.key ? 40 : 80
                           }
+                          src={item.image}
+                          width={isHovered && selectedKey == item.key ? 40 : 80}
                         />
                       </div>
                       <h3 ref={animatedHeadingRefs[index]}>{item.heading}</h3>

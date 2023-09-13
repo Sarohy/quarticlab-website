@@ -1,2 +1,26 @@
-.smallButton {
+.BtnBgOrange {
+  background: #f79d0a;
+}
+.BtnBgWhite {
+  background: #fff;
+}
+.BtnColorSlate {
+  color: #666666;
+}
+.BtnColorWhite {
+  color: white;
+}
+.BtnBdSlate {
+  border-color: #666666;
+}
+.BtnFont {
+  font-family: "Poppins";
+}
+.BtnMTop0 {
+  margin-top: 0;
+}
+@media screen and (max-width: 599px) {
+  .BtnMTop {
+    margin-top: 10px;
+  }
 }

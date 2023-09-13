@@ -61,5 +61,5 @@ export {
   Project3_Image1,
   Project4_Image1,
   Project5_Image1,
-  Project6_Image1
+  Project6_Image1,
 };

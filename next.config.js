@@ -5,19 +5,19 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "wallpaperaccess.com"
+        hostname: "wallpaperaccess.com",
       },
       {
-        hostname: "cdn.dribbble.com"
+        hostname: "cdn.dribbble.com",
       },
       {
-        hostname: "firebasestorage.googleapis.com"
+        hostname: "firebasestorage.googleapis.com",
       },
       {
-        hostname: "flagcdn.com"
-      }
-    ]
-  }
+        hostname: "flagcdn.com",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

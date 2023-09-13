@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
+import dynamic from "next/dynamic";
 import { Zbutton } from "@component/Components/CommonComponents";
-import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+
+const ArrowCircleRightOutlinedIcon = dynamic(() =>
+  import("@mui/icons-material/ArrowCircleRightOutlined"),
+);
 import styles from "./AboutUs5.module.css";
 
 const AboutUsCard5 = () => {
@@ -14,16 +18,16 @@ const AboutUsCard5 = () => {
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate__animated", "animate__backInUp");
         }
       });
     }, options);
 
-    const observer1 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer1 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate__animated", "animate__bounceIn");
         }
@@ -51,21 +55,18 @@ const AboutUsCard5 = () => {
         </h2>
         <div className={styles.AUCd5Button} ref={animatedButtonRef}>
           <Zbutton
-            customClass={styles.btnThreeCustomColor}
-            onClick={""}
-            text="Instant Booking"
             color="#ff9700"
+            customClass={styles.btnThreeCustomColor}
             hoverColor="white"
-            width="200px"
-            showIcon={false}
             icon={
               <ArrowCircleRightOutlinedIcon
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                }}
+                className={styles.ArrawCircleStyle}
               />
             }
+            onClick={""}
+            showIcon={false}
+            text="Instant Booking"
+            width="200px"
           />
         </div>
       </div>

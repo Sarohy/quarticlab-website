@@ -1,13 +1,16 @@
 .blogCardContent {
-  /* width: 351px; */
-  /* height: 60px; */
-  /* left: 545px;
-  top: 957px; */
+  top: 957px;
   font-family: "Poppins";
   font-style: normal;
-  /* font-weight: 600; */
   font-size: 17px;
-  /* line-height: 117%; */
-  /* or 28px */
   color: #212121;
+}
+.CardContent {
+  height: auto;
+}
+.TypographyStyle {
+  min-height: 3em;
+}
+.ButtonStyle {
+  color: #6d6d6d;
 }

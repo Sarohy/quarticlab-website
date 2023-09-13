@@ -5,6 +5,9 @@
   display: flex;
   justify-content: center;
 }
+.LabelColor {
+  color: white;
+}
 
 .iBBContentContainer {
   width: 50%;

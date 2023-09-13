@@ -13,8 +13,8 @@ const AboutUsCard = () => {
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate__animated", "animate__backInUp");
         }
@@ -36,9 +36,9 @@ const AboutUsCard = () => {
         </h2>
         <div className={styles.AUCd3ProjectContainer}>
           <Image
-            src={HS6Img}
             alt="statistics of zewidevs"
             className={styles.AUCd3ImgSize}
+            src={HS6Img}
           />
         </div>
       </div>

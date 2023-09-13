@@ -11,6 +11,12 @@
   z-index: 11111;
   /* margin-bottom: 15vh; */
 }
+.ButtonStyle {
+  color: #ff9700;
+}
+.LinkFontStyle {
+  font-family: "Poppins";
+}
 
 .mobileHeaderMenu {
   background-color: white;

@@ -5,7 +5,12 @@
   flex-direction: column;
   justify-content: space-between;
 }
-
+.colorOrange {
+  color: orange;
+}
+.colorGrid {
+  color: #596380;
+}
 .footerMainContainer h3 {
   font-family: "Poppins";
   font-style: normal;
@@ -119,20 +124,15 @@
   justify-content: space-between;
   width: 80%;
   margin-top: 2rem;
-  gap:10px;
+  gap: 10px;
 }
 .imageSocialContainer {
   display: flex;
-  /* justify-content: space-between; */
 }
 
-.imageContainer {
-  /* margin-right: 1rem; */
-}
 
 .footerServicesItemsContainer {
   margin-top: 2rem;
-  /* margin-left: 38%; */
 }
 
 .footerServiceItem {
@@ -145,10 +145,6 @@
 }
 
 @media screen and (max-width: 590px) {
-  .footerAboutImageContainer {
-    /* justify-content: center; */
-    /* margin-bottom: 20px; */
-  }
   .footerAboutHeading {
     margin-left: 0.6rem;
   }
@@ -185,15 +181,6 @@
 
   .footerRightsImage {
     width: 23%;
-  }
-
-  .footerServiceContainer {
-    /* margin-bottom: 20px; */
-  }
-
-  .footerServicesItemsContainer {
-    /* margin-left: 11%; */
-    /* margin-bottom: 30px; */
   }
   .footerLinesContainerService {
     margin: auto auto 1.5rem auto;
@@ -243,11 +230,6 @@
     margin-top: 1rem;
     padding-left: 2rem;
   }
-
-  .footerAboutZweidevs {
-    /* width: 220px; */
-    /* font-size: 18px; */
-  }
   .footerRightsContainer p {
     font-size: 10px;
     text-align: center;
@@ -257,34 +239,14 @@
     width: 199px;
   }
 
-  .footerLinesContainerService {
-    /* margin-left: -24.5%; */
-  }
-
-  .footerLinesContainerSocial {
-    /* margin-left: -50.5%; */
-  }
-
-  .footerServicesItemsContainer {
-    /* margin-left: 12%; */
-    /* margin-top: 40px; */
-  }
-
   .footerAboutZweidevs {
     font-size: 15px;
-  }
-
-  .footAboutWidth {
-    /* width: 28%; */
   }
   .footerServiceItem {
     font-size: 15px;
   }
   .footerMainContainer h3 {
     font-size: 15px;
-  }
-  .imageContainer {
-    /* margin-right: 0.3rem; */
   }
   .footerAboutImageContainer {
     margin-bottom: 1rem;
@@ -324,13 +286,6 @@
     width: 29%;
   }
 
-  .footerLinesContainerService {
-    /* margin-left: -18.5%; */
-  }
-
-  .footerLinesContainerSocial {
-    /* margin-left: -37.5%; */
-  }
 
   .footAboutWidth {
     width: 28%;
@@ -340,9 +295,6 @@
   }
   .footerMainContainer h3 {
     font-size: 17px;
-  }
-  .imageContainer {
-    /* margin-right: 0.3rem; */
   }
   .footerAboutImageContainer {
     margin-bottom: 1rem;

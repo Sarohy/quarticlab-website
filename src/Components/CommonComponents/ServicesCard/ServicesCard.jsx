@@ -3,19 +3,20 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import styles from "./servicesCard.module.css";
 
-const ServicesCard = (props) => {
+const ServicesCard = props => {
   const { cardData } = props;
 
   const animatedDivRefs = Array.from({ length: cardData.length }, () =>
-    React.useRef(null)
+    React.useRef(null),
   );
 
   const animatedNestedCardDivRefs = Array.from(
     { length: cardData.length },
-    () => React.useRef(null)
+    () => React.useRef(null),
   );
 
-  const animatedCardDetailsDivRefs = cardData.map((element, i) => {
+  const animatedCardDetailsDivRefs = cardData.map(element => {
+    // eslint-disable-next-line no-unused-vars
     return element.footerImages.map((image, k) => {
       return React.useRef(null);
     });
@@ -23,8 +24,8 @@ const ServicesCard = (props) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             const target = entry.target;
 
@@ -32,14 +33,14 @@ const ServicesCard = (props) => {
             target.classList.add("animate__backInUp");
             target.addEventListener(
               "animationend",
-              (e) => {
+              e => {
                 e.stopPropagation();
                 e.stopImmediatePropagation();
-                animatedNestedCardDivRefs.forEach((ref) => {
+                animatedNestedCardDivRefs.forEach(ref => {
                   observer2.observe(ref.current);
                 });
               },
-              { once: true }
+              { once: true },
             );
 
             observer.unobserve(target);
@@ -50,29 +51,29 @@ const ServicesCard = (props) => {
         root: null,
         rootMargin: "0px",
         threshold: 0.5,
-      }
+      },
     );
 
     const observer2 = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             const target = entry.target;
             target.style.opacity = 1;
             target.classList.add("animate__zoomIn", "animate__delay-1s");
             target.addEventListener(
               "animationend",
-              (e) => {
+              e => {
                 e.stopPropagation();
                 e.stopImmediatePropagation();
 
-                animatedCardDetailsDivRefs.forEach((i) => {
-                  i.forEach((j) => {
+                animatedCardDetailsDivRefs.forEach(i => {
+                  i.forEach(j => {
                     observer3.observe(j.current);
                   });
                 });
               },
-              { once: true }
+              { once: true },
             );
 
             observer2.unobserve(target);
@@ -83,12 +84,12 @@ const ServicesCard = (props) => {
         root: null,
         rootMargin: "0px",
         threshold: 0.5,
-      }
+      },
     );
 
     const observer3 = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, key) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             const target = entry.target;
             target.classList.add("animate__zoomIn");
@@ -102,10 +103,10 @@ const ServicesCard = (props) => {
         root: null,
         rootMargin: "0px",
         threshold: 0.5,
-      }
+      },
     );
 
-    animatedDivRefs.forEach((ref) => {
+    animatedDivRefs.forEach(ref => {
       observer.observe(ref.current);
     });
 
@@ -130,9 +131,9 @@ const ServicesCard = (props) => {
       >
         {cardData.map((element, key) => (
           <div
-            ref={animatedDivRefs[key]}
-            key={key}
             className={`${styles.hidden} services-card-container animate__animated`}
+            key={key}
+            ref={animatedDivRefs[key]}
           >
             <Box
               sx={{
@@ -147,14 +148,14 @@ const ServicesCard = (props) => {
               }}
             >
               <div
-                ref={animatedNestedCardDivRefs[key]}
                 className={`${styles.hiddenNestedCard} animate__animated ${styles.servicesIconCardContainer}`}
+                ref={animatedNestedCardDivRefs[key]}
               >
                 <Image
-                  className="services-icon"
-                  src={element.cardIcon}
                   alt={`${element.cardIconTitle.firstLine}`}
+                  className="services-icon"
                   height={"auto"}
+                  src={element.cardIcon}
                 />
                 <div className="services-icon-card-title">
                   <h3>
@@ -181,12 +182,11 @@ const ServicesCard = (props) => {
                   {element.footerImages &&
                     element.footerImages.map((image, imgkey) => (
                       <Image
+                        alt={`${element.cardTitle} ${imgkey}`}
+                        className={`${styles.ServiceCardFooter} ${styles.hiddenCardDetailss} animate__animated services-footer-image`}
                         key={imgkey}
                         ref={animatedCardDetailsDivRefs[key][imgkey]}
-                        className={`${styles.hiddenCardDetailss} animate__animated services-footer-image`}
                         src={image}
-                        alt={`${element.cardTitle} ${imgkey}`}
-                        style={{ width: "auto", height: 38 }}
                       />
                     ))}
                 </div>
@@ -213,10 +213,10 @@ const ServicesCard = (props) => {
           <Box key={key}>
             <div className="services-icon-card-container-mobile">
               <Image
-                className="services-icon"
-                src={element.cardIcon}
                 alt={`${element.cardIconTitle.firstLine}`}
+                className="services-icon"
                 height={"auto"}
+                src={element.cardIcon}
               />
               <div className="services-icon-card-title">
                 <h3>

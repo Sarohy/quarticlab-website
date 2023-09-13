@@ -1,7 +1,7 @@
 import { TextField } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 
-export const CustomInputField = (props) => {
+export const CustomInputField = props => {
   const { label, multiline } = props;
   const [isFocused, setIsFocused] = useState(false);
 
@@ -15,12 +15,17 @@ export const CustomInputField = (props) => {
 
   return (
     <TextField
-      multiline={multiline ? multiline : false}
-      size="small"
       className="footerFormInput"
-      label={label ? label : "Name"}
       fullWidth
+      InputLabelProps={{
+        style: { color: isFocused ? "orange" : "" },
+      }}
+      label={label ? label : "Name"}
       minRows={4}
+      multiline={multiline ? multiline : false}
+      onBlur={handleBlur}
+      onFocus={handleFocus}
+      size="small"
       sx={{
         "& .MuiOutlinedInput-root": {
           "&.Mui-focused fieldset": {
@@ -30,11 +35,6 @@ export const CustomInputField = (props) => {
           },
         },
       }}
-      InputLabelProps={{
-        style: { color: isFocused ? "orange" : "" },
-      }}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
     />
   );
 };

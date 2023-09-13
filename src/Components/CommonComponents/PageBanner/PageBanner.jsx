@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./pageBanner.module.css";
 import { DiamondSvg } from "@component/assets/pageBannerIcons";
 import Image from "next/image";
@@ -15,7 +14,7 @@ function InstantBookingBanner(props) {
         <h3 className={styles.pageBannerDesc}>{description}</h3>
       </div>
       <div className={styles.pageBannerImageContainer}>
-        <Image height={250} src={DiamondSvg} alt={"diamondSvg"} />
+        <Image alt={"diamondSvg"} height={250} src={DiamondSvg} />
       </div>
     </div>
   );

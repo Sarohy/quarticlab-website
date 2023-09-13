@@ -11,13 +11,13 @@ function HomeSection7() {
       threshold: 0.1,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
             "animate__backInLeft",
-            "animate__delay-0s"
+            "animate__delay-0s",
           );
         }
       });
@@ -38,8 +38,9 @@ function HomeSection7() {
         <h2 className={styles.HS7Heading} ref={animatedDivRefs}>
           Technologies We Work With
         </h2>
-        <div className={`${styles.slidertechcont} ${styles.slidertechcontimg}`}>
-        </div>
+        <div
+          className={`${styles.slidertechcont} ${styles.slidertechcontimg}`}
+        ></div>
       </div>
     </>
   );

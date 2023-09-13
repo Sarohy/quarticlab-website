@@ -1,714 +1,718 @@
 .HS6MainContainer {
-    height: 744px;
-    width: 100%;
-    background: #f9f9f9;
-    padding: 5% 0% 5% 0%;
+  height: 744px;
+  width: 100%;
+  background: #f9f9f9;
+  padding: 5% 0% 5% 0%;
+}
+
+.labelStyle {
+  font-family: "Poppins";
 }
 
 @media screen and (max-width: 414px) {
-    .HS6MainContainer {
-        height: 50vh !important;
-    }
+  .HS6MainContainer {
+    height: 50vh !important;
+  }
 }
 
 @media screen and (max-width: 380px) {
-    .HS6MainContainer {
-        height: 65vh !important;
-    }
+  .HS6MainContainer {
+    height: 65vh !important;
+  }
 }
 
 .HS6Heading {
-    display: flex;
-    justify-content: center;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 128%;
-    color: #2b2a35;
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 128%;
+  color: #2b2a35;
 }
 
 .HS6ImageContainer {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .HS6ImgSize {
-    margin-top: 3%;
-    margin-bottom: 4%;
+  margin-top: 3%;
+  margin-bottom: 4%;
 }
 .circlecontainer {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    padding: 20px;
-    border-radius: 50%;
-    margin: 60px auto;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  border-radius: 50%;
+  margin: 60px auto;
 }
 .circlecontainer a {
+  display: block;
+  position: absolute;
+  top: 0%;
+  left: 17%;
+  width: 210px;
+  height: 200px;
+  margin: -10px;
+}
+.circularbar {
+  width: 70%;
+  position: absolute;
+  top: 8%;
+  left: 16%;
+}
+.since10 {
+  width: 150px;
+  height: 150px;
+  color: #000;
+  background-color: #fff;
+  box-shadow: 0px 10px 6px rgba(208, 208, 208, 0.3);
+  -moz-box-shadow: 0px 10px 6px rgba(208, 208, 208, 0.3);
+  -webkit-box-shadow: 0px 10px 6px rgba(208, 208, 208, 0.3);
+  -o-box-shadow: 0px 10px 6px rgba(208, 208, 208, 0.3);
+  border-radius: 100px;
+  position: absolute;
+  top: -10%;
+  left: 32%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  justify-items: center;
+  align-content: center;
+}
+.sinceyear {
+  color: #ff9700;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+}
+.circlecontainer a:hover {
+  width: 220px;
+}
+.circlecontainer img {
+  display: block;
+  width: 100%;
+}
+.deg0 {
+  transform: rotate(-5deg) translate(277px) rotate(-3deg);
+  cursor: none;
+  cursor: default;
+}
+.deg45 {
+  transform: rotate(26deg) translate(236px) rotate(-30deg);
+  cursor: none;
+  cursor: default;
+}
+.deg90 {
+  transform: rotate(76deg) translate(163px) rotate(-76deg);
+  cursor: none;
+  cursor: default;
+}
+.deg135 {
+  transform: rotate(142deg) translate(168px) rotate(-136deg);
+  cursor: none;
+  cursor: default;
+}
+.deg180 {
+  transform: rotate(187deg) translate(200px) rotate(180deg);
+  cursor: none;
+  cursor: default;
+}
+.projectcompleted {
+  position: absolute;
+  top: 43%;
+  color: black;
+  left: -50%;
+  width: 80px;
+  text-align: center;
+}
+.positivereviews {
+  position: absolute;
+  top: 98%;
+  color: black;
+  left: -15%;
+  width: 80px;
+  text-align: center;
+}
+.teammembers {
+  position: absolute;
+  top: 100%;
+  color: black;
+  left: 41%;
+  width: 80px;
+  text-align: center;
+}
+.fundingraised {
+  position: absolute;
+  top: 98%;
+  color: black;
+  left: 98%;
+  width: 100px;
+  text-align: center;
+}
+.customersatisfaction {
+  position: absolute;
+  top: 43%;
+  color: black;
+  left: 132%;
+  width: 80px;
+  text-align: center;
+}
+.linecontainer1 {
+  clip-path: polygon(0 0, 67% 0%, 66% 2%, 5% 2%, 6% 100%, 0 100%);
+  position: absolute;
+  top: 18%;
+  left: -41%;
+  background-color: #494949;
+  width: 40px;
+  height: 100px;
+}
+.linecontainer2 {
+  clip-path: polygon(0 27%, 37% 0, 42% 1%, 5% 28%, 6% 100%, 0 100%);
+  position: absolute;
+  top: 72%;
+  left: -5%;
+  background-color: #494949;
+  width: 40px;
+  height: 100px;
+}
+.linecontainer3 {
+  clip-path: polygon(0 24%, 0 0, 5% 0, 5% 28%, 6% 100%, 0 100%);
+  position: absolute;
+  top: 92%;
+  left: 50%;
+  background-color: #494949;
+  width: 40px;
+  height: 30px;
+}
+.linecontainer4 {
+  clip-path: polygon(24% 26%, 0 3%, 3% 0, 29% 25%, 29% 100%, 24% 100%);
+  position: absolute;
+  top: 72%;
+  left: 106%;
+  background-color: #494949;
+  width: 40px;
+  height: 100px;
+}
+.linecontainer5 {
+  clip-path: polygon(95% 2%, 34% 2%, 34% 0, 100% 0, 100% 100%, 95% 100%);
+  position: absolute;
+  top: 18%;
+  left: 132%;
+  background-color: #494949;
+  width: 40px;
+  height: 100px;
+}
+@keyframes increase {
+  50% {
+    height: 100px;
+    width: 50px;
+  }
+  100% {
+    height: 100px;
+    width: 20px;
+  }
+}
+@media screen and (max-width: 590px) {
+  .HS6MainContainer {
+    height: 100%;
+  }
+  .HS6ImgSize {
+    width: 100%;
+    height: 100%;
+  }
+  .since10 {
+    width: 80px;
+    height: 80px;
+    left: 34%;
+    top: -6%;
+  }
+  .circularbar {
+    width: 35%;
+    position: absolute;
+    top: 4%;
+    left: 26%;
+    padding: 0;
+  }
+  .circlecontainer a {
     display: block;
     position: absolute;
     top: 0%;
-    left: 17%;
-    width: 210px;
-    height: 200px;
+    left: 22%;
+    width: 90px;
+    height: 80px;
     margin: -10px;
-}
-.circularbar {
-    width: 70%;
-    position: absolute;
-    top: 8%;
-    left: 16%;
-}
-.since10 {
-    width: 150px;
-    height: 150px;
-    color: #000;
-    background-color: #fff;
-    box-shadow: 0px 10px 6px rgba(208, 208, 208, 0.3);
-    -moz-box-shadow: 0px 10px 6px rgba(208, 208, 208, 0.3);
-    -webkit-box-shadow: 0px 10px 6px rgba(208, 208, 208, 0.3);
-    -o-box-shadow: 0px 10px 6px rgba(208, 208, 208, 0.3);
-    border-radius: 100px;
-    position: absolute;
-    top: -10%;
-    left: 32%;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    justify-items: center;
-    align-content: center;
-}
-.sinceyear {
-    color: #ff9700;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 28px;
-}
-.circlecontainer a:hover {
-    width: 220px;
-}
-.circlecontainer img {
-    display: block;
-    width: 100%;
-}
-.deg0 {
-    transform: rotate(-5deg) translate(277px) rotate(-3deg);
-    cursor: none;
-    cursor: default;
-}
-.deg45 {
-    transform: rotate(26deg) translate(236px) rotate(-30deg);
-    cursor: none;
-    cursor: default;
-}
-.deg90 {
-    transform: rotate(76deg) translate(163px) rotate(-76deg);
-    cursor: none;
-    cursor: default;
-}
-.deg135 {
-    transform: rotate(142deg) translate(168px) rotate(-136deg);
-    cursor: none;
-    cursor: default;
-}
-.deg180 {
-    transform: rotate(187deg) translate(200px) rotate(180deg);
-    cursor: none;
-    cursor: default;
-}
-.projectcompleted {
-    position: absolute;
-    top: 43%;
-    color: black;
-    left: -50%;
-    width: 80px;
-    text-align: center;
-}
-.positivereviews {
-    position: absolute;
-    top: 98%;
-    color: black;
-    left: -15%;
-    width: 80px;
-    text-align: center;
-}
-.teammembers {
-    position: absolute;
-    top: 100%;
-    color: black;
-    left: 41%;
-    width: 80px;
-    text-align: center;
-}
-.fundingraised {
-    position: absolute;
-    top: 98%;
-    color: black;
-    left: 98%;
-    width: 100px;
-    text-align: center;
-}
-.customersatisfaction {
-    position: absolute;
-    top: 43%;
-    color: black;
-    left: 132%;
-    width: 80px;
-    text-align: center;
-}
-.linecontainer1 {
-    clip-path: polygon(0 0, 67% 0%, 66% 2%, 5% 2%, 6% 100%, 0 100%);
-    position: absolute;
-    top: 18%;
-    left: -41%;
-    background-color: #494949;
-    width: 40px;
-    height: 100px;
-}
-.linecontainer2 {
-    clip-path: polygon(0 27%, 37% 0, 42% 1%, 5% 28%, 6% 100%, 0 100%);
-    position: absolute;
-    top: 72%;
-    left: -5%;
-    background-color: #494949;
-    width: 40px;
-    height: 100px;
-}
-.linecontainer3 {
-    clip-path: polygon(0 24%, 0 0, 5% 0, 5% 28%, 6% 100%, 0 100%);
-    position: absolute;
-    top: 92%;
-    left: 50%;
-    background-color: #494949;
-    width: 40px;
-    height: 30px;
-}
-.linecontainer4 {
-    clip-path: polygon(24% 26%, 0 3%, 3% 0, 29% 25%, 29% 100%, 24% 100%);
-    position: absolute;
-    top: 72%;
-    left: 106%;
-    background-color: #494949;
-    width: 40px;
-    height: 100px;
-}
-.linecontainer5 {
-    clip-path: polygon(95% 2%, 34% 2%, 34% 0, 100% 0, 100% 100%, 95% 100%);
-    position: absolute;
-    top: 18%;
-    left: 132%;
-    background-color: #494949;
-    width: 40px;
-    height: 100px;
-}
-@keyframes increase {
-    50% {
-        height: 100px;
-        width: 50px;
-    }
-    100% {
-        height: 100px;
-        width: 20px;
-    }
-}
-@media screen and (max-width: 590px) {
-    .HS6MainContainer {
-        height: 100%;
-    }
-    .HS6ImgSize {
-        width: 100%;
-        height: 100%;
-    }
-    .since10 {
-        width: 80px;
-        height: 80px;
-        left: 34%;
-        top: -6%;
-    }
-    .circularbar {
-        width: 35%;
-        position: absolute;
-        top: 4%;
-        left: 26%;
-        padding: 0;
-    }
-    .circlecontainer a {
-        display: block;
-        position: absolute;
-        top: 0%;
-        left: 22%;
-        width: 90px;
-        height: 80px;
-        margin: -10px;
-    }
-    .circlecontainer {
-        padding: 0;
-    }
-    .deg0 {
-        transform: rotate(-24deg) translate(184px) rotate(23deg);
-    }
-    .deg45 {
-        transform: rotate(-9deg) translate(138px) rotate(10deg);
-    }
-    .deg90 {
-        transform: rotate(0deg) translate(52px) rotate(-1deg);
-    }
-    .deg135 {
-        transform: rotate(204deg) translate(40px) rotate(-208deg);
-    }
-    .deg180 {
-        transform: rotate(227deg) translate(99px) rotate(133deg);
-    }
-    .sinceyear {
-        font-size: 15px;
-    }
-    .since10 {
-        font-size: 12px;
-    }
+  }
+  .circlecontainer {
+    padding: 0;
+  }
+  .deg0 {
+    transform: rotate(-24deg) translate(184px) rotate(23deg);
+  }
+  .deg45 {
+    transform: rotate(-9deg) translate(138px) rotate(10deg);
+  }
+  .deg90 {
+    transform: rotate(0deg) translate(52px) rotate(-1deg);
+  }
+  .deg135 {
+    transform: rotate(204deg) translate(40px) rotate(-208deg);
+  }
+  .deg180 {
+    transform: rotate(227deg) translate(99px) rotate(133deg);
+  }
+  .sinceyear {
+    font-size: 15px;
+  }
+  .since10 {
+    font-size: 12px;
+  }
 
-    .projectcompleted {
-        top: 30%;
-        left: 2%;
-        font-size: 9px;
-        width: 60px;
-        font-family: "Poppins";
-    }
-    .linecontainer1 {
-        top: 23%;
-        left: 8%;
-        background-color: #494949;
-        width: 12px;
-        height: 30px;
-    }
-    .positivereviews {
-        top: 50%;
-        left: 12%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer2 {
-        top: 35%;
-        left: 19%;
-        background-color: #494949;
-        width: 15px;
-        height: 60px;
-    }
-    .teammembers {
-        top: 51%;
-        left: 37%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer3 {
-        top: 43%;
-        left: 44%;
-        width: 25px;
-        height: 30px;
-    }
-    .fundingraised {
-        top: 50%;
-        left: 61%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer4 {
-        top: 35%;
-        left: 67%;
-        width: 15px;
-        height: 60px;
-    }
-    .customersatisfaction {
-        top: 30%;
-        left: 70%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer5 {
-        top: 23%;
-        left: 76%;
-        width: 12px;
-        height: 30px;
-    }
+  .projectcompleted {
+    top: 30%;
+    left: 2%;
+    font-size: 9px;
+    width: 60px;
+    font-family: "Poppins";
+  }
+  .linecontainer1 {
+    top: 23%;
+    left: 8%;
+    background-color: #494949;
+    width: 12px;
+    height: 30px;
+  }
+  .positivereviews {
+    top: 50%;
+    left: 12%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer2 {
+    top: 35%;
+    left: 19%;
+    background-color: #494949;
+    width: 15px;
+    height: 60px;
+  }
+  .teammembers {
+    top: 51%;
+    left: 37%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer3 {
+    top: 43%;
+    left: 44%;
+    width: 25px;
+    height: 30px;
+  }
+  .fundingraised {
+    top: 50%;
+    left: 61%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer4 {
+    top: 35%;
+    left: 67%;
+    width: 15px;
+    height: 60px;
+  }
+  .customersatisfaction {
+    top: 30%;
+    left: 70%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer5 {
+    top: 23%;
+    left: 76%;
+    width: 12px;
+    height: 30px;
+  }
 }
 @media screen and (min-width: 591px) and (max-width: 820px) {
-    .HS6MainContainer {
-        height: 100%;
-    }
-    .HS6ImgSize {
-        width: 100%;
-        height: 100%;
-    }
-    .since10 {
-        width: 120px;
-        height: 120px;
-        left: 35%;
-        top: -6%;
-    }
-    .circularbar {
-        width: 60%;
-        position: absolute;
-        top: 8%;
-        left: 20%;
-    }
-    .circlecontainer a {
-        display: block;
-        position: absolute;
-        top: 0%;
-        left: 22%;
-        width: 140px;
-        height: 130px;
-        margin: -10px;
-    }
-    .deg0 {
-        transform: rotate(-2deg) translate(245px) rotate(5deg);
-    }
-    .deg45 {
-        transform: rotate(23deg) translate(190px) rotate(-21deg);
-    }
-    .deg90 {
-        transform: rotate(69deg) translate(108px) rotate(-70deg);
-    }
-    .deg135 {
-        transform: rotate(142deg) translate(112px) rotate(-143deg);
-    }
-    .deg180 {
-        transform: rotate(187deg) translate(146px) rotate(172deg);
-    }
-    .sinceyear {
-        font-size: 18px;
-    }
-    .since10 {
-        font-size: 12px;
-    }
-    .projectcompleted {
-        top: 43%;
-        left: -25%;
-        font-size: 12px;
-    }
-    .linecontainer1 {
-        top: 28%;
-        left: -16%;
-        background-color: #494949;
-        width: 20px;
-        height: 60px;
-    }
-    .positivereviews {
-        top: 78%;
-        left: -6%;
-        width: 80px;
-        text-align: center;
-        font-size: 12px;
-    }
-    .linecontainer2 {
-        top: 60%;
-        left: 4%;
-        background-color: #494949;
-        width: 20px;
-        height: 70px;
-    }
-    .teammembers {
-        top: 82%;
-        color: black;
-        left: 38%;
-        width: 80px;
-        font-size: 12px;
-    }
-    .linecontainer3 {
-        top: 74%;
-        left: 47%;
-        width: 25px;
-        height: 30px;
-    }
-    .fundingraised {
-        top: 78%;
-        left: 80%;
-        width: 100px;
-        font-size: 12px;
-    }
-    .linecontainer4 {
-        top: 60%;
-        left: 90%;
-        width: 20px;
-        height: 70px;
-    }
-    .customersatisfaction {
-        top: 45%;
-        left: 103%;
-        width: 80px;
-        font-size: 12px;
-    }
-    .linecontainer5 {
-        top: 30%;
-        left: 108%;
-        width: 20px;
-        height: 60px;
-    }
+  .HS6MainContainer {
+    height: 100%;
+  }
+  .HS6ImgSize {
+    width: 100%;
+    height: 100%;
+  }
+  .since10 {
+    width: 120px;
+    height: 120px;
+    left: 35%;
+    top: -6%;
+  }
+  .circularbar {
+    width: 60%;
+    position: absolute;
+    top: 8%;
+    left: 20%;
+  }
+  .circlecontainer a {
+    display: block;
+    position: absolute;
+    top: 0%;
+    left: 22%;
+    width: 140px;
+    height: 130px;
+    margin: -10px;
+  }
+  .deg0 {
+    transform: rotate(-2deg) translate(245px) rotate(5deg);
+  }
+  .deg45 {
+    transform: rotate(23deg) translate(190px) rotate(-21deg);
+  }
+  .deg90 {
+    transform: rotate(69deg) translate(108px) rotate(-70deg);
+  }
+  .deg135 {
+    transform: rotate(142deg) translate(112px) rotate(-143deg);
+  }
+  .deg180 {
+    transform: rotate(187deg) translate(146px) rotate(172deg);
+  }
+  .sinceyear {
+    font-size: 18px;
+  }
+  .since10 {
+    font-size: 12px;
+  }
+  .projectcompleted {
+    top: 43%;
+    left: -25%;
+    font-size: 12px;
+  }
+  .linecontainer1 {
+    top: 28%;
+    left: -16%;
+    background-color: #494949;
+    width: 20px;
+    height: 60px;
+  }
+  .positivereviews {
+    top: 78%;
+    left: -6%;
+    width: 80px;
+    text-align: center;
+    font-size: 12px;
+  }
+  .linecontainer2 {
+    top: 60%;
+    left: 4%;
+    background-color: #494949;
+    width: 20px;
+    height: 70px;
+  }
+  .teammembers {
+    top: 82%;
+    color: black;
+    left: 38%;
+    width: 80px;
+    font-size: 12px;
+  }
+  .linecontainer3 {
+    top: 74%;
+    left: 47%;
+    width: 25px;
+    height: 30px;
+  }
+  .fundingraised {
+    top: 78%;
+    left: 80%;
+    width: 100px;
+    font-size: 12px;
+  }
+  .linecontainer4 {
+    top: 60%;
+    left: 90%;
+    width: 20px;
+    height: 70px;
+  }
+  .customersatisfaction {
+    top: 45%;
+    left: 103%;
+    width: 80px;
+    font-size: 12px;
+  }
+  .linecontainer5 {
+    top: 30%;
+    left: 108%;
+    width: 20px;
+    height: 60px;
+  }
 }
 @media screen and (min-width: 821px) and (max-width: 900px) {
-    .HS6MainContainer {
-        height: 100%;
-    }
-    .HS6ImgSize {
-        width: 100%;
-        height: 100%;
-    }
+  .HS6MainContainer {
+    height: 100%;
+  }
+  .HS6ImgSize {
+    width: 100%;
+    height: 100%;
+  }
 }
 @media screen and (min-width: 901px) and (max-width: 1140px) {
-    .HS6MainContainer {
-        height: 100%;
-    }
-    .HS6ImgSize {
-        width: 100%;
-        height: 100%;
-    }
+  .HS6MainContainer {
+    height: 100%;
+  }
+  .HS6ImgSize {
+    width: 100%;
+    height: 100%;
+  }
 }
 @media (min-width: 356px) and (max-width: 400px) {
-    .circularbar {
-        left: 30%;
-    }
-    .since10 {
-        top: -5%;
-        left: 37%;
-    }
-    .circlecontainer a {
-        left: 26%;
-    }
-    .projectcompleted {
-        top: 29%;
-        left: 2%;
-        font-size: 9px;
-        width: 60px;
-        font-family: "Poppins";
-    }
-    .linecontainer1 {
-        top: 20%;
-        left: 9%;
-        background-color: #494949;
-        width: 15px;
-        height: 35px;
-    }
-    .positivereviews {
-        top: 50%;
-        left: 16%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer2 {
-        top: 35%;
-        left: 23%;
-        background-color: #494949;
-        width: 15px;
-        height: 60px;
-    }
-    .teammembers {
-        top: 51%;
-        left: 40%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer3 {
-        top: 43%;
-        left: 47%;
-        width: 25px;
-        height: 30px;
-    }
-    .fundingraised {
-        top: 50%;
-        left: 63%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer4 {
-        top: 35%;
-        left: 70%;
-        width: 15px;
-        height: 60px;
-    }
-    .customersatisfaction {
-        top: 30%;
-        left: 77%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer5 {
-        top: 21%;
-        left: 81%;
-        width: 15px;
-        height: 35px;
-    }
+  .circularbar {
+    left: 30%;
+  }
+  .since10 {
+    top: -5%;
+    left: 37%;
+  }
+  .circlecontainer a {
+    left: 26%;
+  }
+  .projectcompleted {
+    top: 29%;
+    left: 2%;
+    font-size: 9px;
+    width: 60px;
+    font-family: "Poppins";
+  }
+  .linecontainer1 {
+    top: 20%;
+    left: 9%;
+    background-color: #494949;
+    width: 15px;
+    height: 35px;
+  }
+  .positivereviews {
+    top: 50%;
+    left: 16%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer2 {
+    top: 35%;
+    left: 23%;
+    background-color: #494949;
+    width: 15px;
+    height: 60px;
+  }
+  .teammembers {
+    top: 51%;
+    left: 40%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer3 {
+    top: 43%;
+    left: 47%;
+    width: 25px;
+    height: 30px;
+  }
+  .fundingraised {
+    top: 50%;
+    left: 63%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer4 {
+    top: 35%;
+    left: 70%;
+    width: 15px;
+    height: 60px;
+  }
+  .customersatisfaction {
+    top: 30%;
+    left: 77%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer5 {
+    top: 21%;
+    left: 81%;
+    width: 15px;
+    height: 35px;
+  }
 }
 @media (min-width: 400px) and (max-width: 450px) {
-    /* section 6  */
-    .circularbar {
-        left: 32%;
-    }
-    .since10 {
-        top: -5%;
-        left: 40%;
-    }
-    .circlecontainer a {
-        left: 28%;
-    }
-    .projectcompleted {
-        top: 29%;
-        left: 4%;
-        font-size: 9px;
-        width: 60px;
-        font-family: "Poppins";
-    }
-    .linecontainer1 {
-        top: 20%;
-        left: 11%;
-        background-color: #494949;
-        width: 15px;
-        height: 35px;
-    }
-    .positivereviews {
-        top: 50%;
-        left: 18%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer2 {
-        top: 35%;
-        left: 25%;
-        background-color: #494949;
-        width: 15px;
-        height: 60px;
-    }
-    .teammembers {
-        top: 51%;
-        left: 42%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer3 {
-        top: 43%;
-        left: 49%;
-        width: 25px;
-        height: 30px;
-    }
-    .fundingraised {
-        top: 50%;
-        left: 65%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer4 {
-        top: 35%;
-        left: 72%;
-        width: 15px;
-        height: 60px;
-    }
-    .customersatisfaction {
-        top: 30%;
-        left: 80%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer5 {
-        top: 21%;
-        left: 84%;
-        width: 15px;
-        height: 35px;
-    }
+  /* section 6  */
+  .circularbar {
+    left: 32%;
+  }
+  .since10 {
+    top: -5%;
+    left: 40%;
+  }
+  .circlecontainer a {
+    left: 28%;
+  }
+  .projectcompleted {
+    top: 29%;
+    left: 4%;
+    font-size: 9px;
+    width: 60px;
+    font-family: "Poppins";
+  }
+  .linecontainer1 {
+    top: 20%;
+    left: 11%;
+    background-color: #494949;
+    width: 15px;
+    height: 35px;
+  }
+  .positivereviews {
+    top: 50%;
+    left: 18%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer2 {
+    top: 35%;
+    left: 25%;
+    background-color: #494949;
+    width: 15px;
+    height: 60px;
+  }
+  .teammembers {
+    top: 51%;
+    left: 42%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer3 {
+    top: 43%;
+    left: 49%;
+    width: 25px;
+    height: 30px;
+  }
+  .fundingraised {
+    top: 50%;
+    left: 65%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer4 {
+    top: 35%;
+    left: 72%;
+    width: 15px;
+    height: 60px;
+  }
+  .customersatisfaction {
+    top: 30%;
+    left: 80%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer5 {
+    top: 21%;
+    left: 84%;
+    width: 15px;
+    height: 35px;
+  }
 }
 @media (min-width: 450px) and (max-width: 590px) {
-    /* section 6  */
-    .circularbar {
-        left: 34%;
-    }
-    .since10 {
-        top: -5%;
-        left: 42%;
-    }
-    .circlecontainer a {
-        left: 30%;
-    }
-    .projectcompleted {
-        top: 29%;
-        left: 6%;
-        font-size: 9px;
-        width: 60px;
-        font-family: "Poppins";
-    }
-    .linecontainer1 {
-        top: 20%;
-        left: 13%;
-        background-color: #494949;
-        width: 15px;
-        height: 35px;
-    }
-    .positivereviews {
-        top: 50%;
-        left: 20%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer2 {
-        top: 35%;
-        left: 27%;
-        background-color: #494949;
-        width: 15px;
-        height: 60px;
-    }
-    .teammembers {
-        top: 51%;
-        left: 44%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer3 {
-        top: 43%;
-        left: 51%;
-        width: 25px;
-        height: 30px;
-    }
-    .fundingraised {
-        top: 50%;
-        left: 67%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer4 {
-        top: 35%;
-        left: 74%;
-        width: 15px;
-        height: 60px;
-    }
-    .customersatisfaction {
-        top: 30%;
-        left: 82%;
-        width: 60px;
-        font-size: 9px;
-        font-family: "Poppins";
-    }
-    .linecontainer5 {
-        top: 21%;
-        left: 86%;
-        width: 15px;
-        height: 35px;
-    }
+  /* section 6  */
+  .circularbar {
+    left: 34%;
+  }
+  .since10 {
+    top: -5%;
+    left: 42%;
+  }
+  .circlecontainer a {
+    left: 30%;
+  }
+  .projectcompleted {
+    top: 29%;
+    left: 6%;
+    font-size: 9px;
+    width: 60px;
+    font-family: "Poppins";
+  }
+  .linecontainer1 {
+    top: 20%;
+    left: 13%;
+    background-color: #494949;
+    width: 15px;
+    height: 35px;
+  }
+  .positivereviews {
+    top: 50%;
+    left: 20%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer2 {
+    top: 35%;
+    left: 27%;
+    background-color: #494949;
+    width: 15px;
+    height: 60px;
+  }
+  .teammembers {
+    top: 51%;
+    left: 44%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer3 {
+    top: 43%;
+    left: 51%;
+    width: 25px;
+    height: 30px;
+  }
+  .fundingraised {
+    top: 50%;
+    left: 67%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer4 {
+    top: 35%;
+    left: 74%;
+    width: 15px;
+    height: 60px;
+  }
+  .customersatisfaction {
+    top: 30%;
+    left: 82%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer5 {
+    top: 21%;
+    left: 86%;
+    width: 15px;
+    height: 35px;
+  }
 }
