@@ -1,6 +1,6 @@
-import PageBanner from "@component/Components/CommonComponents/PageBanner";
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
+import PageBanner from "@component/Components/CommonComponents/PageBanner";
 import styles from "./blog.module.css";
 
 const Id = () => {

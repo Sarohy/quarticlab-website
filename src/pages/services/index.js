@@ -1,51 +1,46 @@
-import { ServicesCard } from "@component/Components/CommonComponents";
-import styles from "../../styles/services.module.css";
-
-import "animate.css";
-
-import {
-  AIDevIcon,
-  AndroidIcon,
-  ArduinoIcon,
-  AvalancheIcon,
-  AWSIcon,
-  AzureIcon,
-  BelenderIcon,
-  BlockchainIcon,
-  CardanoIcon,
-  DevopsIcon,
-  EthIcon,
-  FigmaIcon,
-  GameBenchIcon,
-  GameDevIcon,
-  goDaddyIcon,
-  googleCloudIcon,
-  HoudinaIcon,
-  InfinityUXIcon,
-  InVision,
-  IOSIcon,
-  IOTDevIcon,
-  JSIcon,
-  KerasIcon,
-  MobileDevIcon,
-  NodeIcon,
-  OpenAIIcon,
-  OpenIcon,
-  PythonIcon,
-  PyTorch,
-  RaspbarryPiIcon,
-  ReactIcon,
-  SketchIcon,
-  SolanaIcon,
-  SQLiteIcon,
-  UIUXIcon,
-  UnityIcon,
-  WebDevIcon,
-} from "@component/assets/serviceIcons";
-
-import PageBanner from "@component/Components/CommonComponents/PageBanner";
 import Image from "next/image";
-import { DashGroupIcon } from "@component/assets";
+import DashGroupIcon from "../../../public/assets/dashGroup.svg";
+import { ServicesCard } from "@component/Components/CommonComponents";
+import AIDevIcon from "../../../public/assets/serviceIcons/AIDevIcon.svg";
+import AndroidIcon from "../../../public/assets/serviceIcons/androidIcon.svg";
+import ArduinoIcon from "../../../public/assets/serviceIcons/arduinoIcon.svg";
+import AvalancheIcon from "../../../public/assets/serviceIcons/avalancheIcon.svg";
+import AWSIcon from "../../../public/assets/serviceIcons/AWS.svg";
+import AzureIcon from "../../../public/assets/serviceIcons/AzureIcon.svg";
+import BelenderIcon from "../../../public/assets/serviceIcons/blender.svg";
+import BlockchainIcon from "../../../public/assets/serviceIcons/blockchainIcon.svg";
+import CardanoIcon from "../../../public/assets/serviceIcons/cardanoIcon.svg";
+import DevopsIcon from "../../../public/assets/serviceIcons/devopsIcon.svg";
+import EthIcon from "../../../public/assets/serviceIcons/ethIcon.svg";
+import FigmaIcon from "../../../public/assets/serviceIcons/figmaIcon.svg";
+import GameBenchIcon from "../../../public/assets/serviceIcons/gameBenchIcon.svg";
+import GameDevIcon from "../../../public/assets/serviceIcons/GameDevIcon.svg";
+import goDaddyIcon from "../../../public/assets/serviceIcons/goDaddyIcon.svg";
+import googleCloudIcon from "../../../public/assets/serviceIcons/googlecloudIcon.svg";
+import HoudinaIcon from "../../../public/assets/serviceIcons/houdinaIcon.svg";
+import InfinityUXIcon from "../../../public/assets/serviceIcons/infinityUXIcon.svg";
+import InVision from "../../../public/assets/serviceIcons/inVision.svg";
+import IOSIcon from "../../../public/assets/serviceIcons/iOSIcon.svg";
+import IOTDevIcon from "../../../public/assets/serviceIcons/IOTIcon.svg";
+import JSIcon from "../../../public/assets/serviceIcons/JS.svg";
+import KerasIcon from "../../../public/assets/serviceIcons/kerasIcon.svg";
+import MobileDevIcon from "../../../public/assets/serviceIcons/MobDevIcon.svg";
+import NodeIcon from "../../../public/assets/serviceIcons/node.svg";
+import OpenAIIcon from "../../../public/assets/serviceIcons/openAIIcon.svg";
+import OpenIcon from "../../../public/assets/serviceIcons/openIcon.svg";
+import PythonIcon from "../../../public/assets/serviceIcons/py.svg";
+import PyTorch from "../../../public/assets/serviceIcons/pyTorch.svg";
+import RaspbarryPiIcon from "../../../public/assets/serviceIcons/raspbarryPiIcon.svg";
+import ReactIcon from "../../../public/assets/serviceIcons/react.svg";
+import SketchIcon from "../../../public/assets/serviceIcons/sketch.svg";
+import SolanaIcon from "../../../public/assets/serviceIcons/solanaIcon.svg";
+import SQLiteIcon from "../../../public/assets/serviceIcons/SQLite.svg";
+import WebDevIcon from "../../../public/assets/serviceIcons/webdevIcon.svg";
+import UnityIcon from "../../../public/assets/serviceIcons/unityIcon.svg";
+import UIUXIcon from "../../../public/assets/serviceIcons/uiuxIcon.svg";
+import PageBanner from "@component/Components/CommonComponents/PageBanner";
+import "animate.css";
+import styles from "../../styles/services.module.css";
 
 function Services() {
   // Services card data

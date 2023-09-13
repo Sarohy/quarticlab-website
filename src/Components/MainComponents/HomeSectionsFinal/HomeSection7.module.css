@@ -31,7 +31,7 @@
 }
 
 .slidertechcontimg {
-  background: transparent url(../../../assets/HomeIcons/slider-technologies.svg)
+  background: transparent url("../../../../public/assets/HomeIcons/slider-technologies.svg")
     repeat-x 50% 0;
   animation: infinite-shift-left 500s linear;
 }

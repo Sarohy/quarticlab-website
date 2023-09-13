@@ -1,20 +1,19 @@
+import React, { useEffect, useState } from "react";
+import { getApiWithoutAuth } from "../api/api";
+import CircularProgress from "@mui/material/CircularProgress";
 import BlogCard from "@component/Components/CommonComponents/BlogCard";
 import PageBanner from "@component/Components/CommonComponents/PageBanner";
 import SmallButton from "@component/Components/CommonComponents/SmallButton";
-import React, { useEffect, useState } from "react";
-import styles from "./blog.module.css";
-import { getApiWithoutAuth } from "../api/api";
 import { InstantBookingButton } from "@component/Components/CommonComponents";
-import { CircularProgress } from "@mui/material";
 import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
+import styles from "./blog.module.css";
 
 const Blog = () => {
   const smallButtonsData = ["All", "Marketing", "Technology", "Grow"];
   const [filter, setFilter] = useState("All");
   const [isLoading, setIsLoading] = useState(true);
   const [blogData, setBlogData] = useState([]);
-  // eslint-disable-next-line no-unused-vars
-  const [startIndex, setStartIndex] = useState(0);
+  const [, setStartIndex] = useState(0);
   const animatedHeadingRef = React.useRef(null);
   const animatedButtonRef = React.useRef(null);
 

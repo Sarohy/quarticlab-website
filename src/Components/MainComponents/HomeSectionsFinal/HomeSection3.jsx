@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { HS3Img } from "@component/assets/HomeIcons";
+import HS3Img from "../../../../public/assets/HomeIcons/HS3Img.svg";
 import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
 import styles from "./HomeSection3.module.css";
 

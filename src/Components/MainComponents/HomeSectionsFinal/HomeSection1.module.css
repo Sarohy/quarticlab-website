@@ -1,6 +1,6 @@
 .HS1Background {
   height: 672px;
-  background: url("../../../../src/assets/HomeIcons/Home_background.svg");
+  background: url("../../../../public/assets/HomeIcons/Home_background.svg");
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;

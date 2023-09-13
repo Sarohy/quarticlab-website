@@ -1,18 +1,16 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import {
-  Project1_Image1,
-  Project2_Image1,
-  Project3_Image1,
-  Project4_Image1,
-  Project5_Image1,
-  Project6_Image1,
-} from "@component/assets/HomeIcons";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActionArea from "@mui/material/CardActionArea";
 import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
+import Project1_Image1 from "../../../../public/assets/HomeIcons/Project/Project1_image1.svg";
+import Project2_Image1 from "../../../../public/assets/HomeIcons/Project/Project2_image1.svg";
+import Project3_Image1 from "../../../../public/assets/HomeIcons/Project/Project3_image1.svg";
+import Project4_Image1 from "../../../../public/assets/HomeIcons/Project/Project4_image1.svg";
+import Project5_Image1 from "../../../../public/assets/HomeIcons/Project/Project5_image1.svg";
+import Project6_Image1 from "../../../../public/assets/HomeIcons/Project/Project6_image1.svg";
 import styles from "./HomeSection4.module.css";
 
 function HomeSection4() {

@@ -1,6 +1,6 @@
-import styles from "./pageBanner.module.css";
-import { DiamondSvg } from "@component/assets/pageBannerIcons";
 import Image from "next/image";
+import DiamondSvg from "../../../../public/assets/pageBannerIcons/DiamondIcon.svg";
+import styles from "./pageBanner.module.css";
 function InstantBookingBanner(props) {
   const { title, heading, description } = props;
   return (

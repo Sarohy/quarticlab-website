@@ -1,17 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import { useInView } from "react-intersection-observer";
-import styles from "./footer.module.css";
-import {
-  FBHover,
-  FbLogo,
-  InstaHover,
-  InstaLogo,
-  LinkedInHover,
-  LinkedInLogo,
-  TwitterHover,
-  TwitterLogo,
-} from "@component/assets/footerIcons";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
+import FBHover from "../../../../public/assets/footerIcons/facebookHover.svg";
+import FbLogo from "../../../../public/assets/footerIcons/fbIcon.svg";
+import InstaHover from "../../../../public/assets/footerIcons/InstaHover.svg";
+import InstaLogo from "../../../../public/assets/footerIcons/instaIcon.svg";
+import LinkedInHover from "../../../../public/assets/footerIcons/linkedInHover.svg";
+import LinkedInLogo from "../../../../public/assets/footerIcons/linkedInIcon.svg";
+import TwitterHover from "../../../../public/assets/footerIcons/TwittweHover.svg";
+import TwitterLogo from "../../../../public/assets/footerIcons/twitterIcon.svg";
+import styles from "./footer.module.css";
 
 const FooterSocial = () => {
   const ref = useRef(null);

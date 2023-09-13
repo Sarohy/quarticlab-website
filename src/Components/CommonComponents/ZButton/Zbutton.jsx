@@ -1,10 +1,10 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import Button from "@mui/material/Button";
 const ArrowRightAltIcon = dynamic(() =>
   import("@mui/icons-material/ArrowRightAlt"),
 );
 import styles from "./ZButton.module.css";
-import { Button } from "@mui/material";
 
 const Zbutton = ({
   onMouseEnter,

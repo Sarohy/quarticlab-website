@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import {
-  CD4Img1,
-  CD4Img1Hover,
-  CD4Img2,
-  CD4Img2Hover,
-  CD4Img3,
-  CD4Img3Hover,
-} from "@component/assets/AboutUs";
+import CD4Img1 from "../../../../public/assets/AboutUs/instagram.svg";
+import CD4Img1Hover from "../../../../public/assets/AboutUs/instagramHover.svg";
+import CD4Img2 from "../../../../public/assets/AboutUs/facebook.svg";
+import CD4Img2Hover from "../../../../public/assets/AboutUs/facebookHover.svg";
+import CD4Img3 from "../../../../public/assets/AboutUs/linkedin.svg";
+import CD4Img3Hover from "../../../../public/assets/AboutUs/linkedInHover.svg";
 import styles from "./AboutUs4.module.css";
 
 const AboutUsCard4 = () => {

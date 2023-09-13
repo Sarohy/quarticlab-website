@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
-import { HS6Img } from "@component/assets/HomeIcons";
+import HS6Img from "../../../../public/assets/HomeIcons/HS6Img.svg";
 import styles from "./AboutUs3.module.css";
 
 const AboutUsCard = () => {

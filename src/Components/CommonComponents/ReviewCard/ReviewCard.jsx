@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { RatingIcon } from "@component/assets";
+import RatingIcon from "../../../../public/assets/rating.svg";
 import styles from "./ReviewCard.module.css";
 
 function ReviewCard({ clientName, rating, clientImage, reviewDescription }) {

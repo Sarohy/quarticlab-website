@@ -1,5 +1,5 @@
-import { TextField } from "@mui/material";
 import { useState } from "react";
+import TextField from "@mui/material/TextField";
 
 export const CustomInputField = props => {
   const { label, multiline } = props;
