@@ -12,8 +12,8 @@
     "format:check": "prettier --check ."
   },
   "engines": {
-    "npm": ">=8.0.0 <9.8.0",
-    "node": ">=16.0.0 <18.16.0"
+    "npm": ">=8.0.0 <=9.8.0",
+    "node": ">=16.0.0 <=18.16.0"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
