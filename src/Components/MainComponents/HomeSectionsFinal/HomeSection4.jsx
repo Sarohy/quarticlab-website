@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardActionArea from "@mui/material/CardActionArea";
-import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
+const CardContent = dynamic(() => import("@mui/material/CardContent"));
+const CardActionArea = dynamic(() => import("@mui/material/CardActionArea"));
+const BottomBorderButton = dynamic(() =>
+  import("@component/Components/CommonComponents/BottomBorderButton"),
+);
 import Project1_Image1 from "../../../../public/assets/HomeIcons/Project/Project1_image1.svg";
 import Project2_Image1 from "../../../../public/assets/HomeIcons/Project/Project2_image1.svg";
 import Project3_Image1 from "../../../../public/assets/HomeIcons/Project/Project3_image1.svg";

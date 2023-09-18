@@ -1,6 +1,10 @@
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import HSLogo from "../../../../public/assets/HomeIcons/zweidevsLogo.svg";
-import { InstantBookingButton } from "@component/Components/CommonComponents";
+const InstantBookingButton = dynamic(() =>
+  import("@component/Components/CommonComponents/InstantBookingButton"),
+);
+
 import "animate.css";
 import styles from "./HomeSection1.module.css";
 

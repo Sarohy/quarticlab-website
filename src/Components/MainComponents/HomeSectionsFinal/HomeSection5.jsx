@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import Card from "@mui/material/Card";
-import Carousel from "react-material-ui-carousel";
+const Card = dynamic(() => import("@mui/material/Card"));
+const Carousel = dynamic(() => import("react-material-ui-carousel"));
 const StarOutlinedIcon = dynamic(() =>
   import("@mui/icons-material/StarOutlined"),
 );

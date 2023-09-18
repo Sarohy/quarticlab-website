@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import HS3Img from "../../../../public/assets/HomeIcons/HS3Img.svg";
-import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
+const BottomBorderButton = dynamic(() =>
+  import("@component/Components/CommonComponents/BottomBorderButton"),
+);
 import styles from "./HomeSection3.module.css";
 
 function HomeSection3() {
