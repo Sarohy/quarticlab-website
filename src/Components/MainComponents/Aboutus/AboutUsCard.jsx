@@ -29,20 +29,18 @@ const AboutUsCard = () => {
   }, []);
 
   return (
-    <>
-      <div className={styles.AUCd3Main}>
-        <h2 className={styles.AUCd3Heading} ref={animatedHeadingRef}>
-          Zweidevs Achievements Since 2010
-        </h2>
-        <div className={styles.AUCd3ProjectContainer}>
-          <Image
-            alt="statistics of zewidevs"
-            className={styles.AUCd3ImgSize}
-            src={HS6Img}
-          />
-        </div>
+    <div className={styles.AUCd3Main}>
+      <h2 className={styles.AUCd3Heading} ref={animatedHeadingRef}>
+        Zweidevs Achievements Since 2010
+      </h2>
+      <div className={styles.AUCd3ProjectContainer}>
+        <Image
+          alt="statistics of zewidevs"
+          className={styles.AUCd3ImgSize}
+          src={HS6Img}
+        />
       </div>
-    </>
+    </div>
   );
 };
 
