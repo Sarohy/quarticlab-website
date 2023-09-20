@@ -30,7 +30,7 @@ const FooterSocial = () => {
     },
     {
       name: "insta",
-      href: "https://www.instagram.com/zweidevs.official",
+      href: "https://www.instagram.com/zweidevs/",
       alt: "zweidevs instagram",
       image: InstaLogo,
       hoverImage: InstaHover,
