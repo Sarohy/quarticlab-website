@@ -48,7 +48,7 @@ const Blog = () => {
     title: "Top Articles",
     heading: "Everything Your Business Needs Under One Roof",
     description:
-      "We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences",
+      "We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences.",
   };
 
   useEffect(() => {
