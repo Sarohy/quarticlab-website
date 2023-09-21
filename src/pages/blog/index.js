@@ -105,7 +105,7 @@ const Blog = () => {
       <PageBanner {...bannerData} />
       <div className={styles.blogRoot}>
         <div className={styles.blogMain}>
-          <h2 className={styles.blogArticleHeading}>Latest Article</h2>
+          <h2 className={styles.blogArticleHeading}>Latest Articles</h2>
           <SmallButton
             setFilter={setFilter}
             smallButtonsData={smallButtonsData}

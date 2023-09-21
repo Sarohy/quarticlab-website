@@ -31,6 +31,7 @@
 
 .animatedButton:hover {
   border-bottom: none;
+  font-weight: 500;
 }
 
 .animatedButton:hover::after {
@@ -49,4 +50,19 @@
 /*  */
 .ArrowCircleStyle {
   color: #ff9700;
+}
+@media (max-width:952px) {
+ .animatedButton{
+  font-size: .6rem;  
+ } 
+}
+@media (max-width:888px) {
+ .animatedButton{
+  font-size: .4rem;  
+ } 
+}
+@media (max-width:542px) {
+ .animatedButton{
+  font-size: .2rem;  
+ } 
 }

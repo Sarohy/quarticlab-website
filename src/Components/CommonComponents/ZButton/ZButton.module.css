@@ -1,7 +1,7 @@
 .btn {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; 
 }
 
 .btnText {
@@ -11,6 +11,7 @@
 }
 
 .btnThree {
+  display: flex;
   color: #fff;
   background-color: transparent;
   transition: all 0.5s;

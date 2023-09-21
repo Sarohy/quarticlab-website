@@ -73,6 +73,7 @@
 .HS5CardDiv {
   display: flex;
   margin-top: 7%;
+  justify-content: center;
 }
 
 .HS5Img {

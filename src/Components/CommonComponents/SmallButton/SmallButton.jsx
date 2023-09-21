@@ -43,6 +43,12 @@ export default function SmallButton(props) {
               setFilter(element);
             }}
             size="small"
+            sx={{
+              "&:hover": {
+                backgroundColor: "#f79d0a",
+                borderColor: "#666666",
+              },
+            }}
             variant={index === activeTab ? "contained" : "outlined"}
           >
             {element}
