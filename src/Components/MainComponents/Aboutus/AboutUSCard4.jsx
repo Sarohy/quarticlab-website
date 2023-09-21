@@ -98,6 +98,8 @@ const AboutUsCard4 = () => {
                       alt="zweidevs"
                       className={styles.AUCd4Img}
                       height={125}
+                      quality={100}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       src={item.img}
                       width={125}
                     />

@@ -94,6 +94,8 @@ const AboutUsCard2 = () => {
             <Image
               alt="card 2 about us"
               className={styles.AUCard2Img}
+              quality={100}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src={CD2Img1}
             />
           </div>
