@@ -62,7 +62,7 @@ const FooterSocial = () => {
     <>
       <div ref={observerRef}>
         <div className="animate__delay-1s" ref={ref}>
-          <h3>Social Media Links</h3>
+          <h3>Find Us On</h3>
 
           <div className={styles.imageSocialMain}>
             {socialMediaData &&
