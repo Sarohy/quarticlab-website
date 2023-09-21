@@ -97,9 +97,6 @@
   font-weight: 700;
   font-size: 28px;
 }
-.circlecontainer a:hover {
-  width: 220px;
-}
 .circlecontainer img {
   display: block;
   width: 100%;
