@@ -167,7 +167,7 @@ function HomeSection4() {
               onClick={() => {
                 router.push("/projects");
               }}
-              text="Checkout More Projects"
+              text="More Projects"
             />
           </div>
         </div>
