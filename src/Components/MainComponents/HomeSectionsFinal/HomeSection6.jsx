@@ -63,9 +63,10 @@ function HomeSection6() {
           </div>
           <div className={styles.circularbar}>
             <Image
-              alt="home icon"
+              alt="home icon logo"
               height={100}
               src="/HomeIcons/HS6-circularbar.svg"
+              title="Zweidevs | Custome Software Development Services Company"
               width={100}
             />
           </div>

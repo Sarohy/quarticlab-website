@@ -104,11 +104,12 @@ function HomeSection3() {
           </div>
           <div className={styles.HS3ImgContainer} ref={animatedImgRef}>
             <Image
-              alt={"zweidevs-icon"}
+              alt="Zweidevs (Pvt) Ltd Logo"
               className={styles.HS3ImgWidth}
               quality={100}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src={HS3Img}
+              title="Zweidevs | Custome Software Development Services Company"
             />
           </div>
         </div>
