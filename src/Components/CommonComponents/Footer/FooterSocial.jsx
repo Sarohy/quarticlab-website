@@ -7,9 +7,9 @@ import InstaHover from "../../../../public/assets/footerIcons/InstaHover.svg";
 import InstaLogo from "../../../../public/assets/footerIcons/instaIcon.svg";
 import LinkedInHover from "../../../../public/assets/footerIcons/linkedInHover.svg";
 import LinkedInLogo from "../../../../public/assets/footerIcons/linkedInIcon.svg";
-import TwitterHover from "../../../../public/assets/footerIcons/TwittweHover.svg";
-import TwitterLogo from "../../../../public/assets/footerIcons/twitterIcon.svg";
 import styles from "./footer.module.css";
+import YoutubeIcon from "../../../../public/assets/footerIcons/youtubeIcon.svg";
+import YoutubeIconHover from "../../../../public/assets/footerIcons/youtubeIconHover.svg";
 
 const FooterSocial = () => {
   const ref = useRef(null);
@@ -30,18 +30,18 @@ const FooterSocial = () => {
     },
     {
       name: "insta",
-      href: "https://www.instagram.com/zweidevs/",
+      href: "https://instagram.com/zweidevs.tech?igshid=OGQ5ZDc2ODk2ZA==",
       alt: "zweidevs instagram",
       image: InstaLogo,
       hoverImage: InstaHover,
     },
 
     {
-      name: "twitter",
-      href: "#",
+      name: "youtube",
+      href: "https://youtube.com/@Zweidevs?si=7uR6r0W4GBzelhoo",
       alt: "zweidevs twitter",
-      image: TwitterLogo,
-      hoverImage: TwitterHover,
+      image: YoutubeIcon,
+      hoverImage: YoutubeIconHover,
     },
     {
       name: "linkedin",
@@ -62,7 +62,7 @@ const FooterSocial = () => {
     <>
       <div ref={observerRef}>
         <div className="animate__delay-1s" ref={ref}>
-          <h3>Social Media Links</h3>
+          <h3>Find Us On</h3>
 
           <div className={styles.imageSocialMain}>
             {socialMediaData &&

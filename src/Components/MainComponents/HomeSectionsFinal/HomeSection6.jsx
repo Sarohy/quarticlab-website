@@ -138,7 +138,7 @@ function HomeSection6() {
               duration={2}
               label={"Funding Raised"}
               number={"3.5"}
-              sign={".5M $"}
+              sign={".5M$"}
             />
           </div>
           <div className={styles.customersatisfaction}>

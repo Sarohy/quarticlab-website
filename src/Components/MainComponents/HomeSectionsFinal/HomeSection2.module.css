@@ -49,9 +49,9 @@
   height: 55px;
 }
 .HS2CardsContainer {
-  padding: 3%;
+  padding: 3.5%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .imageDiv {
   display: flex;

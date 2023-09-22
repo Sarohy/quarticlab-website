@@ -167,7 +167,7 @@ function HomeSection4() {
               onClick={() => {
                 router.push("/projects");
               }}
-              text="Checkout More Projects"
+              text="More Projects"
             />
           </div>
         </div>
@@ -184,6 +184,8 @@ function HomeSection4() {
                   <Image
                     alt={item?.title}
                     className={styles.HS4CardImage}
+                    quality={100}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     src={item?.image}
                   />
                   <CardContent className={styles.HS4BelowContainer}>

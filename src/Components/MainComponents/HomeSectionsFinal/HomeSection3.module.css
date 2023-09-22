@@ -112,7 +112,6 @@
   }
 
   .HS3ImgWidth {
-    object-fit: scale-down;
     width: 400px;
   }
 

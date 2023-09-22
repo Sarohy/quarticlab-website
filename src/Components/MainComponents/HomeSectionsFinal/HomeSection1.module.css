@@ -79,6 +79,12 @@
   align-items: flex-end;
 }
 @media screen and (max-width: 590px) {
+  .HS1ContentContainer{
+   display: flex; 
+   flex-direction: column;
+  justify-content: space-around; 
+    gap: .7rem;
+  }
   .HS1Img1Height {
     height: 60px;
     padding-left: 95px;
@@ -94,7 +100,7 @@
   }
 
   .HS1Text {
-    font-size: 30px;
+    font-size: 50px;
   }
 
   .HS1SubText {
@@ -104,7 +110,7 @@
     margin-left: 23%;
   }
   .HS1ContentLine {
-    width: 72px;
+    width: 120px;
   }
 
   .HS1ContentButtonContainer {

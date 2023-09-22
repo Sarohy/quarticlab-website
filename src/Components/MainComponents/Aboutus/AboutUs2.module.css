@@ -16,7 +16,7 @@
   width: 621px;
   height: 584px;
   margin-left: 5%;
-  margin-top: 10%;
+  margin-top: 24%;
 }
 
 .AUCard2ImgDetail {
@@ -75,14 +75,16 @@
 
 .AUCardHeadingLine1 {
   width: 19px;
-  height: 0px;
+  height: 3.5px;
   border: 1px solid #ff9700;
+  background-color: #ff9700;
   margin-left: 1.5%;
 }
 
 .AUCardHeadingLine2 {
   width: 28px;
-  height: 0px;
+  height: 3.5px;
+  background-color: #ff9700;
   border: 1px solid #ff9700;
   margin-left: 5px;
 }
@@ -138,7 +140,7 @@
   }
 
   .AUCard2ImgDetail {
-    margin-top: 10%;
+    margin-top: 24%;
     width: 100%;
   }
 
