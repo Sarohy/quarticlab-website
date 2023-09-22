@@ -132,6 +132,7 @@ function Services() {
           alt={"dash-icon"}
           className={styles.SPLeft}
           src={DashGroupIcon}
+          title="Zweidevs | Custome Software Development Services Company"
         />
       </div>
       <ServicesCard cardData={cardData} />

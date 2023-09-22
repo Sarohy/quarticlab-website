@@ -155,6 +155,7 @@ const ServicesCard = props => {
                   className="services-icon"
                   height={"auto"}
                   src={element.cardIcon}
+                  title="Zweidevs | Custome Software Development Services Company"
                 />
                 <div className="services-icon-card-title">
                   <h3>
@@ -186,6 +187,7 @@ const ServicesCard = props => {
                         key={imgkey}
                         ref={animatedCardDetailsDivRefs[key][imgkey]}
                         src={image}
+                        title="Zweidevs | Custome Software Development Services Company"
                       />
                     ))}
                 </div>
@@ -216,6 +218,7 @@ const ServicesCard = props => {
                 className="services-icon"
                 height={"auto"}
                 src={element.cardIcon}
+                title="Zweidevs | Custome Software Development Services Company"
               />
               <div className="services-icon-card-title">
                 <h3>
