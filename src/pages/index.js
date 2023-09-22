@@ -1,3 +1,4 @@
+import Head from "next/head";
 import {
   HomeSection1,
   HomeSection2,
@@ -18,6 +19,9 @@ export default function Home() {
   };
   return (
     <div className={styles.HPStyle}>
+      <Head>
+        <title>Home</title>
+      </Head>
       <HomeSection1 handleButtonClick={handleButtonClickSection1} />
       <HomeSection2 />
       <HomeSection3 />

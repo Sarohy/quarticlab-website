@@ -95,12 +95,13 @@ const AboutUsCard4 = () => {
                 >
                   <div>
                     <Image
-                      alt="zweidevs"
+                      alt={`zweidevs | ${item.heading}`}
                       className={styles.AUCd4Img}
                       height={125}
                       quality={100}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       src={item.img}
+                      title={`zweidevs | ${item.heading}`}
                       width={125}
                     />
                   </div>
@@ -122,7 +123,7 @@ const AboutUsCard4 = () => {
                       target="_blank"
                     >
                       <Image
-                        alt={"social-icon"}
+                        alt={"Zweidevs | Instagram"}
                         height={42}
                         src={
                           hoverState &&
@@ -131,6 +132,7 @@ const AboutUsCard4 = () => {
                             ? CD4Img1Hover
                             : item.socialM1
                         }
+                        title={"Zweidevs | Instagram"}
                         width={42}
                       />
                     </a>
@@ -147,7 +149,7 @@ const AboutUsCard4 = () => {
                       target="_blank"
                     >
                       <Image
-                        alt={"social-icon-two"}
+                        alt={"Zweidevs | facebook"}
                         height={42}
                         src={
                           hoverState &&
@@ -156,6 +158,7 @@ const AboutUsCard4 = () => {
                             ? CD4Img2Hover
                             : item.socialM2
                         }
+                        title={"Zweidevs | facebook"}
                         width={42}
                       />
                     </a>
@@ -172,7 +175,7 @@ const AboutUsCard4 = () => {
                       target="_blank"
                     >
                       <Image
-                        alt={"social-icon-three"}
+                        alt={"Zweidevs | linkedin"}
                         height={42}
                         src={
                           hoverState &&
@@ -181,6 +184,7 @@ const AboutUsCard4 = () => {
                             ? CD4Img3Hover
                             : item.socialM3
                         }
+                        title={"Zweidevs | linkedin"}
                         width={42}
                       />
                     </a>

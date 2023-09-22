@@ -7,6 +7,7 @@ import SmallButton from "@component/Components/CommonComponents/SmallButton";
 import { InstantBookingButton } from "@component/Components/CommonComponents";
 import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
 import styles from "./blog.module.css";
+import Head from "next/head";
 
 const Blog = () => {
   const smallButtonsData = ["All", "Marketing", "Technology", "Grow"];
@@ -102,6 +103,9 @@ const Blog = () => {
 
   return (
     <div className={styles.BMTop}>
+      <Head>
+        <title>Blogs</title>
+      </Head>
       <PageBanner {...bannerData} />
       <div className={styles.blogRoot}>
         <div className={styles.blogMain}>
