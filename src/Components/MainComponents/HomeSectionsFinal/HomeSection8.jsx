@@ -221,9 +221,10 @@ function HomeSection8() {
                       <ListItemIcon>
                         <Avatar className={styles.AvatarStyle} variant="square">
                           <Image
-                            alt={"country flag"}
+                            alt="country flag logo"
                             height={25}
                             src={option.icon}
+                            title="Zweidevs | Custome Software Development Services Company"
                             width={40}
                           />
                         </Avatar>
