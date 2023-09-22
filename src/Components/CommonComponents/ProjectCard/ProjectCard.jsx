@@ -137,12 +137,13 @@ function ProjectCard({
             <CircularProgress className={styles.CircularProgress} />
           )}
           <Image
-            alt={"project-image"}
+            alt="project-image logo"
             className="project-image"
             fill="true"
             onLoadingComplete={() => setImageLoading(true)}
             sizes="(max-width: 810px) 100%"
             src={projectImageUrl}
+            title="Zweidevs | Custome Software Development Services Company"
           />
         </div>
         <div className="project-card-right">
@@ -153,17 +154,29 @@ function ProjectCard({
             {projectDescription}
           </p>
           <div className="poject-framework-icons" ref={animatedIconRef}>
-            <Image alt={`${projectTitle} ReactJs`} src={ReactIcon} width={70} />
-            <Image alt={`${projectTitle} NodeJs`} src={NodeIcon} width={70} />
+            <Image
+              alt={`${projectTitle} ReactJs`}
+              src={ReactIcon}
+              title="Zweidevs | Custome Software Development Services Company"
+              width={70}
+            />
+            <Image
+              alt={`${projectTitle} NodeJs`}
+              src={NodeIcon}
+              title="Zweidevs | Custome Software Development Services Company"
+              width={70}
+            />
             <Image
               alt={`${projectTitle} Ruby on Rails`}
               src={RubyIcon}
+              title="Zweidevs | Custome Software Development Services Company"
               width={70}
             />
             <Image
               alt={`${projectTitle} AWS Amazon Web Service`}
               className={styles.ImageStyle}
               src={AwsIcon}
+              title="Zweidevs | Custome Software Development Services Company"
               width={40}
             />
           </div>
