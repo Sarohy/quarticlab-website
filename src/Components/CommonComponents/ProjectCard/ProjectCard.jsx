@@ -137,7 +137,7 @@ function ProjectCard({
             <CircularProgress className={styles.CircularProgress} />
           )}
           <Image
-            alt="project-image logo"
+            alt="FreshTracks React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services"
             className="project-image"
             fill="true"
             onLoadingComplete={() => setImageLoading(true)}
