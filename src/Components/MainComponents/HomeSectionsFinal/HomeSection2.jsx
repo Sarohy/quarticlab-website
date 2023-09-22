@@ -155,13 +155,13 @@ function HomeSection2() {
                     >
                       <div className={styles.imageDiv}>
                         <Image
-                          alt={item.heading}
+                          alt={`Zweidevs | ${item.heading}`}
                           className={styles.HS2SelectedImgWhite}
                           height={
                             isHovered && selectedKey == item.key ? 40 : 80
                           }
                           src={item.image}
-                          title="Zweidevs | Custome Software Development Services Company"
+                          title={`Zweidevs | ${item.heading}`}
                           width={isHovered && selectedKey == item.key ? 40 : 80}
                         />
                       </div>

@@ -143,7 +143,7 @@ function ProjectCard({
             onLoadingComplete={() => setImageLoading(true)}
             sizes="(max-width: 810px) 100%"
             src={projectImageUrl}
-            title="Zweidevs | Custome Software Development Services Company"
+            title="FreshTracks React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services"
           />
         </div>
         <div className="project-card-right">
@@ -157,26 +157,26 @@ function ProjectCard({
             <Image
               alt={`${projectTitle} ReactJs`}
               src={ReactIcon}
-              title="Zweidevs | Custome Software Development Services Company"
+              title={`${projectTitle} ReactJs`}
               width={70}
             />
             <Image
               alt={`${projectTitle} NodeJs`}
               src={NodeIcon}
-              title="Zweidevs | Custome Software Development Services Company"
+              title={`${projectTitle} NodeJs`}
               width={70}
             />
             <Image
               alt={`${projectTitle} Ruby on Rails`}
               src={RubyIcon}
-              title="Zweidevs | Custome Software Development Services Company"
+              title={`${projectTitle} Ruby on Rails`}
               width={70}
             />
             <Image
               alt={`${projectTitle} AWS Amazon Web Service`}
               className={styles.ImageStyle}
               src={AwsIcon}
-              title="Zweidevs | Custome Software Development Services Company"
+              title={`${projectTitle} AWS Amazon Web Service`}
               width={40}
             />
           </div>

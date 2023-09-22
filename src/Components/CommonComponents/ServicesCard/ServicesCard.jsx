@@ -155,7 +155,7 @@ const ServicesCard = props => {
                   className="services-icon"
                   height={"auto"}
                   src={element.cardIcon}
-                  title="Zweidevs | Custome Software Development Services Company"
+                  title={`Zweidevs | ${element.cardIconTitle.firstLine}`}
                 />
                 <div className="services-icon-card-title">
                   <h3>

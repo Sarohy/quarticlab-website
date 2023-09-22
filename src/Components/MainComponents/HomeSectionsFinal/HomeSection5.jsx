@@ -139,7 +139,6 @@ const cardItem = items => {
                         quality={100}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         src={item.img}
-                        title="Zweidevs | Custome Software Development Services Company"
                       />
                     </div>
                     <div className={styles.HS5ContentContainer}>
