@@ -39,6 +39,7 @@ const AboutUsCard = () => {
             alt="statistics of zewidevs"
             className={styles.AUCd3ImgSize}
             src={HS6Img}
+            title="Zweidevs | Custome Software Development Services Company"
           />
         </div>
       </div>

@@ -97,6 +97,7 @@ const AboutUsCard2 = () => {
               quality={100}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src={CD2Img1}
+              title="Zweidevs | Custome Software Development Services Company"
             />
           </div>
           <div className={styles.AUCard2ImgDetail}>

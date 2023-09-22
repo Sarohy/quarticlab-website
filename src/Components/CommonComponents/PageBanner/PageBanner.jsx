@@ -14,7 +14,12 @@ function InstantBookingBanner(props) {
         <h3 className={styles.pageBannerDesc}>{description}</h3>
       </div>
       <div className={styles.pageBannerImageContainer}>
-        <Image alt={"diamondSvg"} height={250} src={DiamondSvg} />
+        <Image
+          alt="diamond logo svg"
+          height={250}
+          src={DiamondSvg}
+          title="Zweidevs | Custome Software Development Services Company"
+        />
       </div>
     </div>
   );

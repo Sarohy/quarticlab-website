@@ -95,12 +95,13 @@ const AboutUsCard4 = () => {
                 >
                   <div>
                     <Image
-                      alt="zweidevs"
+                      alt="zweidevs card image"
                       className={styles.AUCd4Img}
                       height={125}
                       quality={100}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       src={item.img}
+                      title="Zweidevs | Custome Software Development Services Company"
                       width={125}
                     />
                   </div>
