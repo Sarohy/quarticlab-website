@@ -1,3 +1,4 @@
+import Head from "next/head";
 import {
   AboutUsCard,
   AboutUsCard1,
@@ -11,6 +12,9 @@ export default function AboutUs() {
   return (
     <>
       <div className={styles.APStyle}>
+        <Head>
+          <title>About Us</title>
+        </Head>
         <AboutUsCard1 />
         <AboutUsCard2 />
         <AboutUsCard />

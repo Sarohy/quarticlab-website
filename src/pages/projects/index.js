@@ -4,6 +4,7 @@ import { getAllProjects } from "@component/firebase/firebaseRequests";
 import PageBanner from "@component/Components/CommonComponents/PageBanner";
 import ProjectCard from "@component/Components/CommonComponents/ProjectCard/ProjectCard";
 import styles from "../../styles/project.module.css";
+import Head from "next/head";
 
 function Work() {
   const [selected, setSelected] = useState("allProjects");
@@ -54,6 +55,9 @@ function Work() {
 
   return (
     <div className={styles.PMTop}>
+      <Head>
+        <title>Projects</title>
+      </Head>
       <PageBanner
         description={
           "We've worked cross multiple verticals and a range of services to create engaging and innovative digital experenices."
