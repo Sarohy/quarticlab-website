@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import PageBanner from "@component/Components/CommonComponents/PageBanner";
+const PageBanner = dynamic(() =>
+  import("@component/Components/CommonComponents/PageBanner"),
+);
 import styles from "./blog.module.css";
 
 const Id = () => {
