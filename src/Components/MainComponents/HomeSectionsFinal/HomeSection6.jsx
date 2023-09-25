@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
-import HomeSection6Counter from "./HomeSection6Counter";
+import dynamic from "next/dynamic";
+const HomeSection6Counter = dynamic(() => import("./HomeSection6Counter"));
 import "animate.css";
 import styles from "./HomeSection6.module.css";
 
@@ -63,49 +64,55 @@ function HomeSection6() {
           </div>
           <div className={styles.circularbar}>
             <Image
-              alt="home icon"
+              alt="circularbar logo"
               height={100}
               src="/HomeIcons/HS6-circularbar.svg"
+              title="Zweidevs | Custome Software Development Services Company"
               width={100}
             />
           </div>
           <a className={styles.deg0}>
             <Image
-              alt="zweidevs"
+              alt="Customer logo"
               height={300}
               src="/HomeIcons/HS6-customer.svg"
+              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>
           <a className={styles.deg45}>
             <Image
-              alt="zweidevs"
+              alt="funds logo"
               height={300}
               src="/HomeIcons/HS6-funds.svg"
+              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>
           <a className={styles.deg90}>
             <Image
-              alt="zweidevs"
+              alt="teams logo"
               height={300}
               src="/HomeIcons/HS6-team.svg"
+              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>
           <a className={styles.deg135}>
             <Image
-              alt="zweidevs"
+              alt="search logo"
               height={300}
               src="/HomeIcons/HS6-search.svg"
+              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>
           <a className={styles.deg180}>
             <Image
-              alt="zweidevs"
+              alt="projects completed logo"
               height={300}
               src="/HomeIcons/projects-completed.svg"
+              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>

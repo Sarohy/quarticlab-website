@@ -1,4 +1,5 @@
-import Zbutton from "../ZButton";
+import dynamic from "next/dynamic";
+const Zbutton = dynamic(() => import("../ZButton"));
 import styles from "./InstantBookingBanner.module.css";
 
 function InstantBookingBanner(props) {

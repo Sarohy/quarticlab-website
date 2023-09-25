@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import HS2Img1 from "../../../../public/assets/HomeIcons/HSImg1.svg";
 import HS2Img2 from "../../../../public/assets/HomeIcons/HSImg2.svg";
 import HS2Img3 from "../../../../public/assets/HomeIcons/HSImg3.svg";
 import HS2Img4 from "../../../../public/assets/HomeIcons/HSImg4.svg";
 import HS2Img5 from "../../../../public/assets/HomeIcons/HSImg5.svg";
-import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
+const BottomBorderButton = dynamic(() =>
+  import("@component/Components/CommonComponents/BottomBorderButton"),
+);
 import styles from "./HomeSection2.module.css";
 
 function HomeSection2() {
@@ -155,12 +158,13 @@ function HomeSection2() {
                     >
                       <div className={styles.imageDiv}>
                         <Image
-                          alt="zweidevs"
+                          alt={`Zweidevs | ${item.heading}`}
                           className={styles.HS2SelectedImgWhite}
                           height={
                             isHovered && selectedKey == item.key ? 40 : 80
                           }
                           src={item.image}
+                          title={`Zweidevs | ${item.heading}`}
                           width={isHovered && selectedKey == item.key ? 40 : 80}
                         />
                       </div>

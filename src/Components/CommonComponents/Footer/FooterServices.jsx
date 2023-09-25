@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { Grid, Link } from "@mui/material";
+const Grid = dynamic(() => import("@mui/material/Grid"));
+const Link = dynamic(() => import("@mui/material/Link"));
 import navLinks from "@component/Constants/navLinks";
 import { useInView } from "react-intersection-observer";
 import styles from "./footer.module.css";

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import TextField from "@mui/material/TextField";
+import dynamic from "next/dynamic";
+const TextField = dynamic(() => import("@mui/material/TextField"));
 
 export const CustomInputField = props => {
   const { label, multiline } = props;
