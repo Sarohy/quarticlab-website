@@ -33,9 +33,10 @@ function HomeSection1() {
           </div>
           <div className="animate__delay-1s animate__animated animate__zoomIn">
             <Image
-              alt={"zweidevs-logo"}
+              alt="Zweidevs | Custome Software Development Services Company"
               className={styles.HSLogoContainer}
               src={HSLogo}
+              title="Zweidevs | Custome Software Development Services Company"
             />
           </div>
         </div>

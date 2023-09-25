@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
-const Zbutton = dynamic(() =>
-  import("@component/Components/CommonComponents/ZButton"),
-);
+import { Zbutton } from "@component/Components/CommonComponents";
 const ArrowCircleRightOutlinedIcon = dynamic(() =>
   import("@mui/icons-material/ArrowCircleRightOutlined"),
 );
@@ -49,24 +47,29 @@ const AboutUsCard5 = () => {
     };
   }, []);
   return (
-    <div className={styles.AUCd5Main}>
-      <h2 className={styles.AUCd5Heading} ref={animatedHeadingRef}>
-        Are You Ready For Meaningful Results? We Can Help.
-      </h2>
-      <div className={styles.AUCd5Button} ref={animatedButtonRef}>
-        <Zbutton
-          color="#ff9700"
-          customClass={styles.btnThreeCustomColor}
-          hoverColor="white"
-          icon={
-            <ArrowCircleRightOutlinedIcon className={styles.ArrawCircleStyle} />
-          }
-          showIcon={false}
-          text="Instant Booking"
-          width="200px"
-        />
+    <>
+      <div className={styles.AUCd5Main}>
+        <h2 className={styles.AUCd5Heading} ref={animatedHeadingRef}>
+          Are You Ready For Meaningful Results? We Can Help.
+        </h2>
+        <div className={styles.AUCd5Button} ref={animatedButtonRef}>
+          <Zbutton
+            color="#ff9700"
+            customClass={styles.btnThreeCustomColor}
+            hoverColor="white"
+            icon={
+              <ArrowCircleRightOutlinedIcon
+                className={styles.ArrawCircleStyle}
+              />
+            }
+            onClick={""}
+            showIcon={false}
+            text="Instant Booking"
+            width="200px"
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

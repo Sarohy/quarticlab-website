@@ -3,6 +3,7 @@
   width: 100%;
   background: #f9f9f9;
   padding: 5% 0% 5% 0%;
+  margin-right: 10px;
 }
 
 .labelStyle {
@@ -12,6 +13,7 @@
 @media screen and (max-width: 414px) {
   .HS6MainContainer {
     height: 50vh !important;
+    margin: 10px;
   }
 }
 
@@ -94,9 +96,6 @@
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
-}
-.circlecontainer a:hover {
-  width: 220px;
 }
 .circlecontainer img {
   display: block;
@@ -223,6 +222,9 @@
   }
 }
 @media screen and (max-width: 590px) {
+  .sinceyear{
+    font-size: 18px;
+  }
   .HS6MainContainer {
     height: 100%;
   }

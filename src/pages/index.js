@@ -1,3 +1,4 @@
+import Head from "next/head";
 import dynamic from "next/dynamic";
 const HomeSection1 = dynamic(() =>
   import("@component/Components/MainComponents/HomeSectionsFinal/HomeSection1"),
@@ -34,6 +35,9 @@ export default function Home() {
   };
   return (
     <div className={styles.HPStyle}>
+      <Head>
+        <title>Home</title>
+      </Head>
       <HomeSection1 handleButtonClick={handleButtonClickSection1} />
       <HomeSection2 />
       <HomeSection3 />

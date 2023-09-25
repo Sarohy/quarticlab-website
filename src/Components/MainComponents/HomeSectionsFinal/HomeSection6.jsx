@@ -64,49 +64,55 @@ function HomeSection6() {
           </div>
           <div className={styles.circularbar}>
             <Image
-              alt="home icon"
+              alt="circularbar logo"
               height={100}
               src="/HomeIcons/HS6-circularbar.svg"
+              title="Zweidevs | Custome Software Development Services Company"
               width={100}
             />
           </div>
           <a className={styles.deg0}>
             <Image
-              alt="zweidevs"
+              alt="Customer logo"
               height={300}
               src="/HomeIcons/HS6-customer.svg"
+              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>
           <a className={styles.deg45}>
             <Image
-              alt="zweidevs"
+              alt="funds logo"
               height={300}
               src="/HomeIcons/HS6-funds.svg"
+              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>
           <a className={styles.deg90}>
             <Image
-              alt="zweidevs"
+              alt="teams logo"
               height={300}
               src="/HomeIcons/HS6-team.svg"
+              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>
           <a className={styles.deg135}>
             <Image
-              alt="zweidevs"
+              alt="search logo"
               height={300}
               src="/HomeIcons/HS6-search.svg"
+              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>
           <a className={styles.deg180}>
             <Image
-              alt="zweidevs"
+              alt="projects completed logo"
               height={300}
               src="/HomeIcons/projects-completed.svg"
+              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>
@@ -139,7 +145,7 @@ function HomeSection6() {
               duration={2}
               label={"Funding Raised"}
               number={"3.5"}
-              sign={".5M $"}
+              sign={".5M$"}
             />
           </div>
           <div className={styles.customersatisfaction}>

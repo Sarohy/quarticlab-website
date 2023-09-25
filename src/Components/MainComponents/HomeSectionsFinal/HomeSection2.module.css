@@ -49,9 +49,9 @@
   height: 55px;
 }
 .HS2CardsContainer {
-  padding: 3%;
+  padding: 3.5%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .imageDiv {
   display: flex;
@@ -157,6 +157,7 @@
   }
   .HS2Button {
     padding-right: 0;
+    margin-left: 15px;
   }
 }
 @media screen and (max-width: 590px) {

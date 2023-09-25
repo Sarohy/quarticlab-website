@@ -14,7 +14,12 @@ function InstantBookingBanner(props) {
         <h3 className={styles.pageBannerDesc}>{description}</h3>
       </div>
       <div className={styles.pageBannerImageContainer}>
-        <Image alt={"diamondSvg"} height={250} src={DiamondSvg} />
+        <Image
+          alt={`${heading} React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services`}
+          height={250}
+          src={DiamondSvg}
+          title={`${heading} React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services`}
+        />
       </div>
     </div>
   );

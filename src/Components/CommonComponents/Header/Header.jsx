@@ -53,9 +53,10 @@ function Header() {
     <>
       <div className={styles.headerContainer}>
         <Image
-          alt="zweidevsLogo"
+          alt="Zweidevs | Custome Software Development Services Company"
           className="animate__animated animate__slideInLeft"
           src={ZweidevsLogo}
+          title="Zweidevs | Custome Software Development Services Company"
           width={180}
         />
         <div className={styles.contentContainer}>

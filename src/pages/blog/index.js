@@ -7,6 +7,7 @@ import SmallButton from "@component/Components/CommonComponents/SmallButton";
 import { InstantBookingButton } from "@component/Components/CommonComponents";
 import BottomBorderButton from "@component/Components/CommonComponents/BottomBorderButton";
 import styles from "./blog.module.css";
+import Head from "next/head";
 
 const Blog = () => {
   const smallButtonsData = ["All", "Marketing", "Technology", "Grow"];
@@ -48,7 +49,7 @@ const Blog = () => {
     title: "Top Articles",
     heading: "Everything Your Business Needs Under One Roof",
     description:
-      "We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences",
+      "We’ve worked across multiple verticals and a range of services to create engaging and innovative digital experiences.",
   };
 
   useEffect(() => {
@@ -102,10 +103,13 @@ const Blog = () => {
 
   return (
     <div className={styles.BMTop}>
+      <Head>
+        <title>Blogs</title>
+      </Head>
       <PageBanner {...bannerData} />
       <div className={styles.blogRoot}>
         <div className={styles.blogMain}>
-          <h2 className={styles.blogArticleHeading}>Latest Article</h2>
+          <h2 className={styles.blogArticleHeading}>Latest Articles</h2>
           <SmallButton
             setFilter={setFilter}
             smallButtonsData={smallButtonsData}

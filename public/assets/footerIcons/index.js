@@ -10,8 +10,12 @@ import LinkedInHover from "./linkedInHover.svg";
 import FBHover from "./facebookHover.svg";
 import InstaHover from "./InstaHover.svg";
 import TwitterHover from "./TwittweHover.svg";
+import YoutubeIcon from "./youtubeIcon.svg";
+import YoutubeIconHover from "./youtubeIconHover.svg";
 
 export {
+  YoutubeIconHover,
+  YoutubeIcon,
   ZweidevsLogo,
   FbLogo,
   InstaLogo,

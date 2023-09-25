@@ -85,3 +85,10 @@ path.two {
     fill: white;
   }
 }
+
+@media (max-width:574px){
+  .cta{
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}

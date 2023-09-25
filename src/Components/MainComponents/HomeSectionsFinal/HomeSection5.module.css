@@ -73,6 +73,7 @@
 .HS5CardDiv {
   display: flex;
   margin-top: 7%;
+  justify-content: center;
 }
 
 .HS5Img {
@@ -158,9 +159,14 @@
     height: 350px;
   }
   .HS5SingleCard {
+   display: flex; 
+   align-items: center;
     width: 50%;
-    height: 250px;
+    height: 220px;
     border-radius: 10px;
+    padding-bottom:18px;
+    padding-right: 2px;
+   padding-left: 2px; 
   }
   .HS5OddCard {
     width: 100%;
