@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+import dynamic from "next/dynamic";
+const Box = dynamic(() => import("@mui/material/Box"));
+const Button = dynamic(() => import("@mui/material/Button"));
 import styles from "./SmallButton.module.css";
 
 export default function SmallButton(props) {

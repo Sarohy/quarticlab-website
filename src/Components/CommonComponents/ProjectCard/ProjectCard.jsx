@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Zbutton from "../ZButton";
 import dynamic from "next/dynamic";
 import AwsIcon from "../../../../public/assets/projectIcon/awsIcon.svg";
 import NodeIcon from "../../../../public/assets/projectIcon/nodejsIcon.svg";
 import ReactIcon from "../../../../public/assets/projectIcon/reactIcon.svg";
 import RubyIcon from "../../../../public/assets/projectIcon/rorIcon.svg";
+const Zbutton = dynamic(() => import("../ZButton"));
 const ArrowCircleRightOutlinedIcon = dynamic(() =>
   import("@mui/icons-material/ArrowCircleRightOutlined"),
 );

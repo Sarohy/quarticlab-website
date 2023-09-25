@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { Layout } from "@component/Components";
+import dynamic from "next/dynamic";
+const Layout = dynamic(() => import("@component/Components/Layout"));
 import "@fontsource/poppins/300.css";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/500.css";
