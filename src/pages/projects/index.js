@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
-import CircularProgress from "@mui/material/CircularProgress";
+import dynamic from "next/dynamic";
+const CircularProgress = dynamic(() =>
+  import("@mui/material/CircularProgress"),
+);
 import { getAllProjects } from "@component/firebase/firebaseRequests";
-import PageBanner from "@component/Components/CommonComponents/PageBanner";
-import ProjectCard from "@component/Components/CommonComponents/ProjectCard/ProjectCard";
+const PageBanner = dynamic(() =>
+  import("@component/Components/CommonComponents/PageBanner"),
+);
+const ProjectCard = dynamic(() =>
+  import("@component/Components/CommonComponents/ProjectCard/ProjectCard"),
+);
 import styles from "../../styles/project.module.css";
 import Head from "next/head";
 

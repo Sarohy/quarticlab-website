@@ -7,9 +7,9 @@ import InstaHover from "../../../../public/assets/footerIcons/InstaHover.svg";
 import InstaLogo from "../../../../public/assets/footerIcons/instaIcon.svg";
 import LinkedInHover from "../../../../public/assets/footerIcons/linkedInHover.svg";
 import LinkedInLogo from "../../../../public/assets/footerIcons/linkedInIcon.svg";
-import styles from "./footer.module.css";
 import YoutubeIcon from "../../../../public/assets/footerIcons/youtubeIcon.svg";
 import YoutubeIconHover from "../../../../public/assets/footerIcons/youtubeIconHover.svg";
+import styles from "./footer.module.css";
 
 const FooterSocial = () => {
   const ref = useRef(null);

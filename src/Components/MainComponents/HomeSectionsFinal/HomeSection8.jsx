@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import ListItem from "@mui/material/ListItem";
+import dynamic from "next/dynamic";
+const Avatar = dynamic(() => import("@mui/material/Avatar"));
+const Button = dynamic(() => import("@mui/material/Button"));
+const ListItem = dynamic(() => import("@mui/material/ListItem"));
 import FormLabel from "@mui/material/FormLabel";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import InputAdornment from "@mui/material/InputAdornment";
+const TextField = dynamic(() => import("@mui/material/TextField"));
+const Autocomplete = dynamic(() => import("@mui/material/Autocomplete"));
+const ListItemText = dynamic(() => import("@mui/material/ListItemText"));
+const ListItemIcon = dynamic(() => import("@mui/material/ListItemIcon"));
+const InputAdornment = dynamic(() => import("@mui/material/InputAdornment"));
 import { isValidPhoneNumber } from "libphonenumber-js";
 import styles from "./HomeSection8.module.css";
 

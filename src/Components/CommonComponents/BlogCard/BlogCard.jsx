@@ -1,12 +1,13 @@
 import { useRouter } from "next/router";
-import Card from "@mui/material/Card";
-import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import CardActionArea from "@mui/material/CardActionArea";
+import dynamic from "next/dynamic";
+const Card = dynamic(() => import("@mui/material/Card"));
+const Grid = dynamic(() => import("@mui/material/Grid"));
+const Button = dynamic(() => import("@mui/material/Button"));
+const CardMedia = dynamic(() => import("@mui/material/CardMedia"));
+const Typography = dynamic(() => import("@mui/material/Typography"));
+const CardContent = dynamic(() => import("@mui/material/CardContent"));
+const CardActions = dynamic(() => import("@mui/material/CardActions"));
+const CardActionArea = dynamic(() => import("@mui/material/CardActionArea"));
 import "animate.css";
 import styles from "./blogCard.module.css";
 

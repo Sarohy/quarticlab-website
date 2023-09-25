@@ -1,6 +1,9 @@
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import DashGroupIcon from "../../../public/assets/dashGroup.svg";
-import { ServicesCard } from "@component/Components/CommonComponents";
+const ServicesCard = dynamic(() =>
+  import("@component/Components/CommonComponents/ServicesCard"),
+);
 import AIDevIcon from "../../../public/assets/serviceIcons/AIDevIcon.svg";
 import AndroidIcon from "../../../public/assets/serviceIcons/androidIcon.svg";
 import ArduinoIcon from "../../../public/assets/serviceIcons/arduinoIcon.svg";
@@ -38,7 +41,9 @@ import SQLiteIcon from "../../../public/assets/serviceIcons/SQLite.svg";
 import WebDevIcon from "../../../public/assets/serviceIcons/webdevIcon.svg";
 import UnityIcon from "../../../public/assets/serviceIcons/unityIcon.svg";
 import UIUXIcon from "../../../public/assets/serviceIcons/uiuxIcon.svg";
-import PageBanner from "@component/Components/CommonComponents/PageBanner";
+const PageBanner = dynamic(() =>
+  import("@component/Components/CommonComponents/PageBanner"),
+);
 import "animate.css";
 import styles from "../../styles/services.module.css";
 import Head from "next/head";

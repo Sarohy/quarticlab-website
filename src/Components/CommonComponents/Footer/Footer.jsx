@@ -1,7 +1,8 @@
 import Image from "next/image";
-import FooterAbout from "./FooterAbout";
-import FooterSocial from "./FooterSocial";
-import FooterServices from "./FooterServices";
+import dynamic from "next/dynamic";
+const FooterAbout = dynamic(() => import("./FooterAbout"));
+const FooterSocial = dynamic(() => import("./FooterSocial"));
+const FooterServices = dynamic(() => import("./FooterServices"));
 import CopyrightLeftLine from "../../../../public/assets/footerIcons/copyrightLeftLine.svg";
 import CopyrightRightLine from "../../../../public/assets/footerIcons/copyrightRightLine.svg";
 import "animate.css";
