@@ -33,7 +33,7 @@ const Zbutton = ({
       style={mainContainerStyle}
     >
       <div
-        className={[styles.btnThree, styles.btn, styles.BtnStyle, customClass]}
+        className={`${styles.btnThree} ${styles.btn} ${styles.BtnStyle} ${customClass}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
