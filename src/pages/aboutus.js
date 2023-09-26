@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
-const AboutUsCard = dynamic(() =>
-  import("@component/Components/MainComponents/Aboutus/AboutUsCard"),
+const AboutUsCard = dynamic(
+  () => import("@component/Components/MainComponents/Aboutus/AboutUsCard"),
+  { preload: true },
 );
 const AboutUsCard1 = dynamic(() =>
   import("@component/Components/MainComponents/Aboutus/AboutUsCard1"),

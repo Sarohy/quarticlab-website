@@ -4,8 +4,9 @@ const CircularProgress = dynamic(() =>
   import("@mui/material/CircularProgress"),
 );
 import { getAllProjects } from "@component/firebase/firebaseRequests";
-const PageBanner = dynamic(() =>
-  import("@component/Components/CommonComponents/PageBanner"),
+const PageBanner = dynamic(
+  () => import("@component/Components/CommonComponents/PageBanner"),
+  { preload: true },
 );
 const ProjectCard = dynamic(() =>
   import("@component/Components/CommonComponents/ProjectCard/ProjectCard"),
