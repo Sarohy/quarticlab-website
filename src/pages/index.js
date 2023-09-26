@@ -1,7 +1,11 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
-const HomeSection1 = dynamic(() =>
-  import("@component/Components/MainComponents/HomeSectionsFinal/HomeSection1"),
+const HomeSection1 = dynamic(
+  () =>
+    import(
+      "@component/Components/MainComponents/HomeSectionsFinal/HomeSection1"
+    ),
+  { preload: true },
 );
 const HomeSection2 = dynamic(() =>
   import("@component/Components/MainComponents/HomeSectionsFinal/HomeSection2"),
