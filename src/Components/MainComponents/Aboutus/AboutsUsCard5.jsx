@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
-import { Zbutton } from "@component/Components/CommonComponents";
-const ArrowCircleRightOutlinedIcon = dynamic(() =>
-  import("@mui/icons-material/ArrowCircleRightOutlined"),
+const InstantBookingButton = dynamic(() =>
+  import("@component/Components/CommonComponents/InstantBookingButton"),
 );
 import styles from "./AboutUs5.module.css";
 
@@ -53,19 +52,13 @@ const AboutUsCard5 = () => {
           Are You Ready For Meaningful Results? We Can Help.
         </h2>
         <div className={styles.AUCd5Button} ref={animatedButtonRef}>
-          <Zbutton
-            color="#ff9700"
-            customClass={styles.btnThreeCustomColor}
-            hoverColor="white"
-            icon={
-              <ArrowCircleRightOutlinedIcon
-                className={styles.ArrawCircleStyle}
-              />
-            }
-            onClick={""}
-            showIcon={false}
-            text="Instant Booking"
-            width="200px"
+          <InstantBookingButton
+            onClick={() => {
+              window.open(
+                "https://calendly.com/request-demo-zweidevs/30min",
+                "_blank",
+              );
+            }}
           />
         </div>
       </div>

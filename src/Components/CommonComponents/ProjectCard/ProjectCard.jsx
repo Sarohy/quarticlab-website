@@ -5,10 +5,6 @@ import AwsIcon from "../../../../public/assets/projectIcon/awsIcon.svg";
 import NodeIcon from "../../../../public/assets/projectIcon/nodejsIcon.svg";
 import ReactIcon from "../../../../public/assets/projectIcon/reactIcon.svg";
 import RubyIcon from "../../../../public/assets/projectIcon/rorIcon.svg";
-const Zbutton = dynamic(() => import("../ZButton"));
-const ArrowCircleRightOutlinedIcon = dynamic(() =>
-  import("@mui/icons-material/ArrowCircleRightOutlined"),
-);
 const CircularProgress = dynamic(() =>
   import("@mui/material/CircularProgress"),
 );
@@ -180,16 +176,23 @@ function ProjectCard({
               width={40}
             />
           </div>
-          <Zbutton
-            className={styles.ZButtonStyle}
-            color="white"
-            hoverColor="#ff9700"
-            icon={<ArrowCircleRightOutlinedIcon />}
-            onClick={requestDemoOnClick}
-            showIcon={false}
-            text="Request Demo"
-            width={170}
-          />
+          <div className={styles.requestBtn} onClick={requestDemoOnClick}>
+            <button>REQUEST DEMO</button>
+            <svg
+              class={styles.svgBtn}
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </>
