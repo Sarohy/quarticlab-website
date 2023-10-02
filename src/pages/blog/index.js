@@ -7,9 +7,8 @@ const CircularProgress = dynamic(() =>
 const BlogCard = dynamic(() =>
   import("@component/Components/CommonComponents/BlogCard"),
 );
-const PageBanner = dynamic(
-  () => import("@component/Components/CommonComponents/PageBanner"),
-  { preload: true },
+const PageBanner = dynamic(() =>
+  import("@component/Components/CommonComponents/PageBanner"),
 );
 const SmallButton = dynamic(() =>
   import("@component/Components/CommonComponents/SmallButton"),

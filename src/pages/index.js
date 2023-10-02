@@ -1,12 +1,6 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
-const HomeSection1 = dynamic(
-  () =>
-    import(
-      "@component/Components/MainComponents/HomeSectionsFinal/HomeSection1"
-    ),
-  { preload: true },
-);
+import HomeSection1 from "@component/Components/MainComponents/HomeSectionsFinal/HomeSection1";
 const HomeSection2 = dynamic(() =>
   import("@component/Components/MainComponents/HomeSectionsFinal/HomeSection2"),
 );

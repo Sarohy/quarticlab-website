@@ -1,7 +1,12 @@
 .SMTop {
   margin-top: 15vh;
+  overflow-y: hidden;
 }
 .SPLeft {
   margin-left: 25px;
   padding-left: 8;
+}
+.servicesHeaderContainer{
+  display: flex;
+  align-items: center;
 }
