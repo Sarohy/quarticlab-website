@@ -496,7 +496,7 @@ a {
 @media screen and (max-width: 540px) {
   .worksHeader {
     flex-direction: column;
-    padding-left: 20px;
+    padding: 20px;
   }
   .workHeaderBtnContainer {
     width: 100%;
