@@ -53,16 +53,16 @@
 }
 @media (max-width:952px) {
  .animatedButton{
-  font-size: .9rem;  
+  font-size: 1rem;  
  } 
 }
 @media (max-width:888px) {
  .animatedButton{
-  font-size: .7rem;  
+  font-size: .8rem;  
  } 
 }
 @media (max-width:542px) {
  .animatedButton{
-  font-size: .5rem;  
+  font-size: .6rem;  
  } 
 }

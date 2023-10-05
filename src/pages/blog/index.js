@@ -34,7 +34,7 @@ const Blog = () => {
   const fetch_data = async () => {
     setIsLoading(true);
     const resp = await getApiWithoutAuth("blogs/");
-    if (resp.data.success) {
+    if (resp?.data?.success) {
       const responseData = resp.data.data;
       const dataArray = [];
       if (responseData?.count > 0) {
@@ -140,7 +140,10 @@ const Blog = () => {
         )}
 
         <div className={styles.blogDflex}>
-          <BottomBorderButton onClick={loadMoreHandler} text="Load More" />
+          <BottomBorderButton
+            onClick={loadMoreHandler}
+            text={blogData.length > 0 ? "Load More" : "No Blogs Available"}
+          />
         </div>
       </div>
 

@@ -9,7 +9,7 @@
   color: white;
   background: #ff9700;
   transition: 1s;
-  box-shadow: 6px 6px 0 white;
+  box-shadow: 6px 6px 0 black;
   transform: skewX(-15deg);
   cursor: pointer;
   border: none;
@@ -21,7 +21,7 @@
 
 .cta:hover {
   transition: 0.5s;
-  box-shadow: 10px 10px 0 black;
+  box-shadow: 10px 10px 0 white;
   color: black;
 }
 

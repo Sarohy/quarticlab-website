@@ -99,7 +99,7 @@ const mobItems = [
     id: 2,
     elements: [
       {
-        img: HS3Img,
+        img: HS5Img2,
         content: "Rishi Sareen",
         details:
           "Team was organized and communicated well. Project was completed professionally and I would hire them again for future projects!",
@@ -110,7 +110,7 @@ const mobItems = [
     id: 3,
     elements: [
       {
-        img: HS3Img,
+        img: HS5Img3,
         content: "Nick Angelov",
         details:
           "Zweidevs met our expectations. They were consistently professional and flexible and delivered a product that provides us with a high-quality base from which to move forward. I would use them again.",
