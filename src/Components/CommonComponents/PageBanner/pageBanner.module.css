@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding-left: 40px;
+  padding-left: 50px;
 }
 
 .pageBannerImageContainer {
@@ -41,6 +41,7 @@
   }
 .pageBannerTextContainer{
   padding-left: 20px;
+  padding-right: 20px;
 }
 }
 
@@ -79,5 +80,6 @@
 @media (max-width:600px){
   .pageBannerTextContainer{
     padding-left: 10px;
+    padding-right: 10px;
   }
 }

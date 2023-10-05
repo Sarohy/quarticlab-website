@@ -5,11 +5,12 @@
   background-repeat: no-repeat;
   margin-top: 0%;
   background-color: #ffffff;
-  padding-left: 1%;
+  padding-left: 0%;
 }
 .AUCard2ImgContent {
   width: 100%;
   display: flex;
+ padding: 20px; 
 }
 
 .AUCard2Img {
@@ -129,12 +130,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    padding: 10px 10px 10px 0px;
   }
 
   .AUCard2Img {
     width: 100%;
     height: 100%;
-    margin-left: 0%;
+    margin-left: 5px;
+   padding: 0 5px; 
     margin-right: 5px;
     margin-top: 10%;
   }
@@ -142,6 +145,7 @@
   .AUCard2ImgDetail {
     margin-top: 24%;
     width: 100%;
+   margin-left: 10px; 
   }
 
   .AUCard2ImgDSubHeading {
@@ -158,6 +162,7 @@
   .AUCardDataContainer {
     padding-top: 2%;
     font-size: 16px;
+    padding-left: 3%;
   }
 
   .AUCardDataHeading {
@@ -171,6 +176,7 @@
 
   .AUCardHeading {
     margin-top: 20%;
+   margin-left: 3%; 
   }
 }
 @media screen and (min-width: 591px) and (max-width: 840px) {
@@ -187,12 +193,15 @@
     margin-right: 5px;
     margin-top: 10%;
   }
+  .AUCard2ImgDetail{
+    margin-left: 1%;
+  }
 }
 @media screen and (min-width: 841px) and (max-width: 1040px) {
   .AUCard2Img {
     width: 420px;
     height: 384px;
-    margin-left: 4%;
+    margin-left: 1%;
     margin-top: 15%;
   }
 
