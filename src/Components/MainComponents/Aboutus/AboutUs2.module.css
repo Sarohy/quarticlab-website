@@ -76,15 +76,17 @@
 
 .AUCardHeadingLine1 {
   width: 19px;
-  height: 3.5px;
+  height: 3px;
   border: 1px solid #ff9700;
   background-color: #ff9700;
   margin-left: 1.5%;
+ margin-top: 5px; 
 }
 
 .AUCardHeadingLine2 {
+ margin-top: 5px; 
   width: 28px;
-  height: 3.5px;
+  height: 3px;
   background-color: #ff9700;
   border: 1px solid #ff9700;
   margin-left: 5px;

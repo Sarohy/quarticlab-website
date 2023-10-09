@@ -142,7 +142,7 @@ const Blog = () => {
         <div className={styles.blogDflex}>
           <BottomBorderButton
             onClick={loadMoreHandler}
-            text={blogData.length > 0 ? "Load More" : "No Blogs Available"}
+            text={blogData.length > 0 ? "Load More" : "No blog available"}
           />
         </div>
       </div>
