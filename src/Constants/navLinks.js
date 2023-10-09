@@ -5,7 +5,7 @@ const navLinks = [
   { href: routesPaths.projects, text: "PROJECTS" },
   { href: routesPaths.aboutUs, text: "ABOUT US" },
   { href: routesPaths.services, text: "SERVICES" },
-  { href: routesPaths.blogs, text: "BLOG" },
+  { href: routesPaths.blogs, text: "BLOGS" },
 ];
 
 export default navLinks;

@@ -126,6 +126,11 @@
   padding-right: 20px;
 }
 @media screen and (max-width: 590px) {
+ .HS4ContentSubHeadingContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ } 
   .HS4CardContainer {
     display: flex;
     flex-direction: column;

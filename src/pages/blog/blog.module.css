@@ -22,7 +22,8 @@
   background-color: white;
   padding-inline: 20px;
   padding-top: 20px;
-  padding-left: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .blogCardContainer {
@@ -87,8 +88,17 @@
 .blogButton {
   margin-top: 2%;
 }
-
+@media (max-width: 800px){
+  .blogRoot{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
 @media screen and (max-width: 590px) {
+  .blogRoot{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
   .blogMain {
     display: flex;
     flex-direction: column;

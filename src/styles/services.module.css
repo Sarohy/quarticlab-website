@@ -5,6 +5,7 @@
 .SPLeft {
   margin-left: 25px;
   padding-left: 8;
+ margin-top: 8px; 
 }
 .servicesHeaderContainer{
   display: flex;
