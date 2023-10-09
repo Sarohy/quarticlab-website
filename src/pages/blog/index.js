@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import { loadMoreBtn, noBlogBtn } from "../../Constants/buttonTexts";
 import { getApiWithoutAuth } from "../api/api";
 const CircularProgress = dynamic(() =>
   import("@mui/material/CircularProgress"),
@@ -142,7 +143,7 @@ const Blog = () => {
         <div className={styles.blogDflex}>
           <BottomBorderButton
             onClick={loadMoreHandler}
-            text={blogData.length > 0 ? "Load More" : "No blog available"}
+            text={blogData.length > 0 ? loadMoreBtn : noBlogBtn}
           />
         </div>
       </div>
