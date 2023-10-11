@@ -16,10 +16,7 @@ function BottomBorderButton({ onClick, text }) {
           </span>
         </div>
       ) : (
-        <div
-          className={`${styles.animatedButton} ${styles.btnCursor}`}
-          onClick={onClick}
-        >
+        <div className={`${styles.btnCursor}`}>
           <span style={styles.btnTxt}>{text}</span>
         </div>
       )}
