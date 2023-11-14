@@ -34,7 +34,11 @@ export default function Home() {
   return (
     <div className={styles.HPStyle}>
       <Head>
-        <title>Home</title>
+        <title>Zweidevs - Empowering Digital Innovation with IT Services</title>
+        <meta
+          content="Welcome to Zweidevs - Your Gateway to Digital Innovation. Explore our IT services, from web development and blockchain solutions to mobile app development and AI-powered solutions. Transform your ideas into reality with us."
+          name="description"
+        />
       </Head>
       <HomeSection1 handleButtonClick={handleButtonClickSection1} />
       <HomeSection2 />

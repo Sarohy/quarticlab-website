@@ -26,7 +26,7 @@ function Work() {
 
   const handleWeb = () => {
     setSelected("webProjects");
-    const filtered = projects.filter(project =>
+    const filtered = projects.filter((project) =>
       project.projectType.includes("web"),
     );
     setFilteredProjects(filtered);
@@ -34,7 +34,7 @@ function Work() {
 
   const handleMobile = () => {
     setSelected("mobileProjects");
-    const filtered = projects.filter(project =>
+    const filtered = projects.filter((project) =>
       project.projectType.includes("mobile"),
     );
     setFilteredProjects(filtered);
@@ -42,7 +42,7 @@ function Work() {
 
   const handleEcommerce = () => {
     setSelected("ecommerceProjects");
-    const filtered = projects.filter(project =>
+    const filtered = projects.filter((project) =>
       project.projectType.includes("ecommerce"),
     );
     setFilteredProjects(filtered);
@@ -54,7 +54,7 @@ function Work() {
 
   useEffect(() => {
     getAllProjects()
-      .then(response => {
+      .then((response) => {
         setProjects(response);
         setFilteredProjects(response);
       })
@@ -64,7 +64,11 @@ function Work() {
   return (
     <div className={styles.PMTop}>
       <Head>
-        <title>Projects</title>
+        <title>Portfolio - Zweidevs IT Projects Showcase</title>
+        <meta
+          content="Explore Our Portfolio - Witness our successful projects in web development, mobile app creation, blockchain solutions, and more. See how we turn visions into reality through innovative IT service"
+          name="description"
+        />
       </Head>
       <PageBanner
         description={
