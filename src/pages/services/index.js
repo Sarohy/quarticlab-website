@@ -126,7 +126,13 @@ function Services() {
   return (
     <div className={`services-root  ${styles.SMTop}`}>
       <Head>
-        <title>Services</title>
+        <title>
+          IT Services - Web Development, Blockchain, AI, and More | Zweidevs
+        </title>
+        <meta
+          content="Our Comprehensive IT Services - Unleash the potential of your business with our expertise in web and mobile app development, blockchain, AI, IoT, and more. Elevate your digital presence with Zweidevs"
+          name="description"
+        />
       </Head>
       <PageBanner
         description={

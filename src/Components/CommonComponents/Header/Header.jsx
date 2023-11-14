@@ -52,13 +52,15 @@ function Header() {
   const displayWeb = () => (
     <>
       <div className={styles.headerContainer}>
-        <Image
-          alt="Zweidevs | Custome Software Development Services Company"
-          className="animate__animated animate__slideInLeft"
-          src={ZweidevsLogo}
-          title="Zweidevs | Custome Software Development Services Company"
-          width={180}
-        />
+        <Link href={"/"}>
+          <Image
+            alt="Zweidevs | Custome Software Development Services Company"
+            className="animate__animated animate__slideInLeft"
+            src={ZweidevsLogo}
+            title="Zweidevs | Custome Software Development Services Company"
+            width={180}
+          />
+        </Link>
         <div className={styles.contentContainer}>
           <div
             className={`${styles.pagesContainer} animate__animated animate__slideInRight`}

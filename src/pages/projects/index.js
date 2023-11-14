@@ -64,7 +64,11 @@ function Work() {
   return (
     <div className={styles.PMTop}>
       <Head>
-        <title>Projects</title>
+        <title>Portfolio - Zweidevs IT Projects Showcase</title>
+        <meta
+          content="Explore Our Portfolio - Witness our successful projects in web development, mobile app creation, blockchain solutions, and more. See how we turn visions into reality through innovative IT service"
+          name="description"
+        />
       </Head>
       <PageBanner
         description={

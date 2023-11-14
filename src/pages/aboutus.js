@@ -13,10 +13,18 @@ const AboutUsCard5 = dynamic(() =>
   import("@component/Components/MainComponents/Aboutus/AboutsUsCard5"),
 );
 import styles from "../styles/About.module.css";
+import Head from "next/head";
 
 export default function AboutUs() {
   return (
     <div className={styles.APStyle}>
+      <Head>
+        <title>Zweidevs - Our Journey in IT Services</title>
+        <meta
+          content="Get to know  Zweidevs - We are a team of tech enthusiasts passionate about creating digital solutions. Learn about our journey, values, and dedication to excellence in IT services"
+          name="description"
+        />
+      </Head>
       <AboutUsCard1 />
       <AboutUsCard2 />
       <AboutUsCard />
