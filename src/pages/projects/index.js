@@ -26,7 +26,7 @@ function Work() {
 
   const handleWeb = () => {
     setSelected("webProjects");
-    const filtered = projects.filter((project) =>
+    const filtered = projects.filter(project =>
       project.projectType.includes("web"),
     );
     setFilteredProjects(filtered);
@@ -34,7 +34,7 @@ function Work() {
 
   const handleMobile = () => {
     setSelected("mobileProjects");
-    const filtered = projects.filter((project) =>
+    const filtered = projects.filter(project =>
       project.projectType.includes("mobile"),
     );
     setFilteredProjects(filtered);
@@ -42,7 +42,7 @@ function Work() {
 
   const handleEcommerce = () => {
     setSelected("ecommerceProjects");
-    const filtered = projects.filter((project) =>
+    const filtered = projects.filter(project =>
       project.projectType.includes("ecommerce"),
     );
     setFilteredProjects(filtered);
@@ -54,7 +54,7 @@ function Work() {
 
   useEffect(() => {
     getAllProjects()
-      .then((response) => {
+      .then(response => {
         setProjects(response);
         setFilteredProjects(response);
       })
