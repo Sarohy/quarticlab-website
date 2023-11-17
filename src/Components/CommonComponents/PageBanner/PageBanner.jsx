@@ -4,24 +4,24 @@ import styles from "./pageBanner.module.css";
 import Link from "next/link";
 import { Breadcrumbs } from "@mui/material";
 function InstantBookingBanner(props) {
-  const {
-    heading,
-    description,
-    BreadcrumbTitle,
-    BreadcrumbParrentPage,
-  } = props;
+  const { heading, description, BreadcrumbTitle, BreadcrumbParrentPage } =
+    props;
   return (
     <div className={styles.pageBannerRoot}>
       <div
         className={`${styles.pageBannerTextContainer} animate__animated animate__backInRight`}
       >
         {BreadcrumbTitle && (
-          <Breadcrumbs className={styles.breadcrumsText} separator=">" aria-label="breadcrumb">
-              <label className={styles.breadcrumsText}>
-            <Link href="/services" color="white">
+          <Breadcrumbs
+            aria-label="breadcrumb"
+            className={styles.breadcrumsText}
+            separator=">"
+          >
+            <label className={styles.breadcrumsText}>
+              <Link color="white" href="/services">
                 {BreadcrumbParrentPage}
-            </Link>
-              </label>
+              </Link>
+            </label>
             <label className={styles.breadcrumsText}>{BreadcrumbTitle}</label>
           </Breadcrumbs>
         )}

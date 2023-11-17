@@ -73,8 +73,8 @@ const Id = () => {
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -85,8 +85,8 @@ const Id = () => {
       });
     }, options);
 
-    const observer1 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer1 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -113,11 +113,11 @@ const Id = () => {
   return (
     <div className={styles.PMTop}>
       <PageBanner
+        BreadcrumbParrentPage={"Services"}
+        BreadcrumbTitle={serviceName}
         description={
           "We are your creative web development team, who aim to leverage the latest technological advances with thoughtful design and serious engineering to build tailored solutions for our clients."
         }
-        BreadcrumbTitle={serviceName}
-        BreadcrumbParrentPage={"Services"}
         heading={serviceName}
         title={"Service Details"}
       />
@@ -132,9 +132,12 @@ const Id = () => {
         reverse={true}
       />
 
-      <ServiceCarosuel hideHeader demoButton={false} />
+      <ServiceCarosuel demoButton={false} hideHeader />
 
-      <ServicesTechnologiesCard cardTitle={"Another Services"} cardData={cardData} />
+      <ServicesTechnologiesCard
+        cardData={cardData}
+        cardTitle={"Another Services"}
+      />
 
       <div className={styles.blogBanner}>
         <h2 className={styles.blogBannerHeading} ref={animatedHeadingRef}>

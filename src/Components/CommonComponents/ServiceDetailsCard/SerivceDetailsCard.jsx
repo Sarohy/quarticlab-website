@@ -43,8 +43,8 @@ function ServiceDetailsCard({
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -55,8 +55,8 @@ function ServiceDetailsCard({
       });
     }, options);
 
-    const observer1 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer1 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -67,8 +67,8 @@ function ServiceDetailsCard({
       });
     }, options);
 
-    const observer2 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer2 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -79,8 +79,8 @@ function ServiceDetailsCard({
       });
     }, options);
 
-    const observer3 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer3 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -91,7 +91,7 @@ function ServiceDetailsCard({
       });
     }, options);
 
-    animatedLabelRef.forEach((ref) => {
+    animatedLabelRef.forEach(ref => {
       observer.observe(ref.current);
     });
 
@@ -132,20 +132,29 @@ function ServiceDetailsCard({
             <CircularProgress className={styles.CircularProgress} />
           )}
           <div className={styles.bgImgContainer}>
-            <Image className={styles.bgImg} fill src={RightOrangeSVG} />
+            <Image
+              alt="orange svg"
+              className={styles.bgImg}
+              fill
+              src={RightOrangeSVG}
+            />
           </div>
           <div className={styles.bgTopImgContainer}>
-            <Image className={styles.bgTopImg} fill src={TopOrangeSVG} />
-          </div>
-         
             <Image
-              alt="FreshTracks React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services"
-               fill="true"
-              onLoadingComplete={() => setImageLoading(true)}
-              src={projectImageUrl}
-              title="FreshTracks React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services"
+              alt="orange top svg"
+              className={styles.bgTopImg}
+              fill
+              src={TopOrangeSVG}
             />
-       
+          </div>
+
+          <Image
+            alt="FreshTracks React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services"
+            fill="true"
+            onLoadingComplete={() => setImageLoading(true)}
+            src={projectImageUrl}
+            title="FreshTracks React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services"
+          />
         </div>
         <div className={`project-card-right ${styles.infoCard}`}>
           <h2 className={styles.projectTitle} ref={animatedLabelRef[0]}>
@@ -154,35 +163,7 @@ function ServiceDetailsCard({
           <p className={styles.projectDesc} ref={animatedLabelRef[1]}>
             {projectDescription}
           </p>
-          {/* <div className="poject-framework-icons" ref={animatedIconRef}>
-            <Image
-              alt={`${projectTitle} ReactJs`}
-              src={ReactIcon}
-              title={`${projectTitle} ReactJs`}
-              width={70}
-            />
-            <Image
-              alt={`${projectTitle} NodeJs`}
-              src={NodeIcon}
-              title={`${projectTitle} NodeJs`}
-              width={70}
-            />
-            <Image
-              alt={`${projectTitle} Ruby on Rails`}
-              src={RubyIcon}
-              title={`${projectTitle} Ruby on Rails`}
-              width={70}
-            />
-            <Image
-              alt={`${projectTitle} AWS Amazon Web Service`}
-              className={styles.ImageStyle}
-              src={AwsIcon}
-              title={`${projectTitle} AWS Amazon Web Service`}
-              width={40}
-            />
-          </div> */}
-
-          <button onClick={requestDemoOnClick} className={styles.requestBtn}>
+          <button className={styles.requestBtn} onClick={requestDemoOnClick}>
             GET STARTED
           </button>
         </div>

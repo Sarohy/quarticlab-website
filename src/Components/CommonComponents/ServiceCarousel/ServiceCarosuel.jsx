@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -15,9 +14,8 @@ import Project4_Image1 from "../../../../public/assets/HomeIcons/Project/Project
 import Project5_Image1 from "../../../../public/assets/HomeIcons/Project/Project5_image1.svg";
 import Project6_Image1 from "../../../../public/assets/HomeIcons/Project/Project6_image1.svg";
 import styles from "./serviceCarosuel.module.css";
-import { Grid, Slide, useMediaQuery } from "@mui/material";
+import { Grid, useMediaQuery } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
-import { KeyboardArrowRight, KeyboardArrowLeft, Phone } from "@mui/icons-material";
 
 function HomeSection4() {
   const router = useRouter();
@@ -115,12 +113,16 @@ function HomeSection4() {
     },
   ];
 
-  const isMobile = useMediaQuery('(max-width: 600px)');
-  const isTablet = useMediaQuery('(max-width: 960px)');
+  const isMobile = useMediaQuery("(max-width: 600px)");
+  const isTablet = useMediaQuery("(max-width: 960px)");
 
   const getChunkSize = () => {
-    if (isMobile) return 1;
-    if (isTablet) return 2;
+    if (isMobile) {
+      return 1;
+    }
+    if (isTablet) {
+      return 2;
+    }
     return 3; // Default for larger screens
   };
 
@@ -137,47 +139,43 @@ function HomeSection4() {
   return (
     <>
       <div className={styles.HS4MainContainer}>
-    
-      <h2 className={styles.cardTitle}>{"Web Development Projects"}</h2>
-          <Carousel
-            className={styles.HS4CardContainer}
-            animation="slide"
-            navButtonsAlwaysVisible
-            
-          >
-            {chunkArray(projectData, chunkSize).map((chunk, index) => (
-              <Grid className={styles.chunkArryGrid} gap={2} container spacing={2} key={index}>
-                {chunk.map((item, index) => {
-                  return (
-                    <Card
-                      className={styles.HS4Card}
-                      key={index}
-                  
-                    >
-                      <CardActionArea>
-                        <Image
-                          alt={`${item?.title} | React.js, Ruby on Rails, AWS, Node.js, Express.js`}
-                          className={styles.HS4CardImage}
-                          quality={100}
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          src={item?.image}
-                          title={`${item?.title} | React.js, Ruby on Rails, AWS, Node.js, Express.js`}
-                        />
-                        <CardContent className={styles.HS4BelowContainer}>
-                          <h2 className={styles.HSCardTitle}>{item?.title}</h2>
-                          <p className={styles.HS4CardContent}>
-                            {item?.content}
-                          </p>
-                        </CardContent>
-
-                      </CardActionArea>
-                    </Card>
-                  );
-                })}
-              </Grid>
-            ))}
-          </Carousel>
-    
+        <h2 className={styles.cardTitle}>{"Web Development Projects"}</h2>
+        <Carousel
+          animation="slide"
+          className={styles.HS4CardContainer}
+          navButtonsAlwaysVisible
+        >
+          {chunkArray(projectData, chunkSize).map((chunk, index) => (
+            <Grid
+              className={styles.chunkArryGrid}
+              container
+              gap={2}
+              key={index}
+              spacing={2}
+            >
+              {chunk.map((item, index) => {
+                return (
+                  <Card className={styles.HS4Card} key={index}>
+                    <CardActionArea>
+                      <Image
+                        alt={`${item?.title} | React.js, Ruby on Rails, AWS, Node.js, Express.js`}
+                        className={styles.HS4CardImage}
+                        quality={100}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        src={item?.image}
+                        title={`${item?.title} | React.js, Ruby on Rails, AWS, Node.js, Express.js`}
+                      />
+                      <CardContent className={styles.HS4BelowContainer}>
+                        <h2 className={styles.HSCardTitle}>{item?.title}</h2>
+                        <p className={styles.HS4CardContent}>{item?.content}</p>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                );
+              })}
+            </Grid>
+          ))}
+        </Carousel>
       </div>
     </>
   );
