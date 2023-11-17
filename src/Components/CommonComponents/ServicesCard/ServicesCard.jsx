@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import Box from "@mui/material/Box";
 import styles from "./servicesCard.module.css";
+import Link from "next/link";
 
 const ServicesCard = props => {
   const { cardData } = props;
@@ -129,6 +130,7 @@ const ServicesCard = props => {
         }}
       >
         {cardData.map((element, key) => (
+          <Link href={element.href}>
           <div
             className={`${styles.hidden} services-card-container animate__animated`}
             key={key}
@@ -194,6 +196,8 @@ const ServicesCard = props => {
               </div>
             </div>
           </div>
+          </Link>
+          
         ))}
       </Box>
 
