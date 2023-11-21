@@ -143,7 +143,7 @@ function HomeSection4() {
         <Carousel
           animation="slide"
           className={styles.HS4CardContainer}
-          navButtonsAlwaysVisible
+          // navButtonsAlwaysVisible
         >
           {chunkArray(projectData, chunkSize).map((chunk, index) => (
             <Grid
