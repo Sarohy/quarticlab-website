@@ -149,13 +149,14 @@ function HomeSection4() {
             <Grid
               className={styles.chunkArryGrid}
               container
-              gap={2}
+              // gap={2}
               key={index}
               spacing={2}
             >
               {chunk.map((item, index) => {
                 return (
-                  <Card className={styles.HS4Card} key={index}>
+                  <Grid item xs={12} sm={6} md={4}>
+                  <Card className={styles.HS4Car} key={index}>
                     <CardActionArea>
                       <Image
                         alt={`${item?.title} | React.js, Ruby on Rails, AWS, Node.js, Express.js`}
@@ -171,6 +172,7 @@ function HomeSection4() {
                       </CardContent>
                     </CardActionArea>
                   </Card>
+                  </Grid>
                 );
               })}
             </Grid>

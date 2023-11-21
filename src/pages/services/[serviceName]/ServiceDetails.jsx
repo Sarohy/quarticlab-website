@@ -6,6 +6,7 @@ import WebDevServiceDetailsIcon from "../../../../public/assets/serviceIcons/web
 import styles from "./serviceDetails.module.css";
 import ServiceDetailsCard from "@component/Components/CommonComponents/ServiceDetailsCard/SerivceDetailsCard";
 import { InstantBookingButton } from "@component/Components/CommonComponents";
+import designIcon from "../../../../public/assets/serviceIcons/webServicesIcons/design.svg";
 
 const ServiceCarosuel = dynamic(() =>
   import("@component/Components/CommonComponents/ServiceCarousel"),
@@ -21,6 +22,41 @@ import IOTDevIcon from "../../../../public/assets/serviceIcons/IOTIcon.svg";
 import MobileDevIcon from "../../../../public/assets/serviceIcons/MobDevIcon.svg";
 import WebDevIcon from "../../../../public/assets/serviceIcons/webdevIcon.svg";
 import UIUXIcon from "../../../../public/assets/serviceIcons/uiuxIcon.svg";
+import OfferingCard from "@component/Components/CommonComponents/OfferingsCard";
+import BusinessProcessCard from "@component/Components/CommonComponents/BusinessProcessCard/BusinessProcessCard";
+
+const offeringCardData = [
+  {
+    cardImage: designIcon,
+    cardTitle: "Experience Design",
+    cardDesc:
+      "Our extensive expertise in UI/UX design and front-end development allows us to create delightful user experiences.",
+  },
+  {
+    cardImage: designIcon,
+    cardTitle: "Experience Design",
+    cardDesc:
+      "Our extensive expertise in UI/UX design and front-end development allows us to create delightful user experiences.",
+  },
+  {
+    cardImage: designIcon,
+    cardTitle: "Experience Design",
+    cardDesc:
+      "Our extensive expertise in UI/UX design and front-end development allows us to create delightful user experiences.",
+  },
+  {
+    cardImage: designIcon,
+    cardTitle: "Experience Design",
+    cardDesc:
+      "Our extensive expertise in UI/UX design and front-end development allows us to create delightful user experiences.",
+  },
+  {
+    cardImage: designIcon,
+    cardTitle: "Experience Design",
+    cardDesc:
+      "Our extensive expertise in UI/UX design and front-end development allows us to create delightful user experiences.",
+  },
+];
 
 const cardData = [
   {
@@ -73,8 +109,8 @@ const Id = () => {
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -85,8 +121,8 @@ const Id = () => {
       });
     }, options);
 
-    const observer1 = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer1 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -132,6 +168,16 @@ const Id = () => {
         reverse={true}
       />
 
+      <OfferingCard
+        heading={"Web Development Services"}
+        cardData={offeringCardData}
+      />
+      <BusinessProcessCard
+        heading={"Our Process"}
+        desc={
+          "Fast-track your project delivery using our simple three-step application development process."
+        }
+      />
       <ServiceCarosuel demoButton={false} hideHeader />
 
       <ServicesTechnologiesCard

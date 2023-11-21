@@ -147,14 +147,17 @@ function ServiceDetailsCard({
               src={TopOrangeSVG}
             />
           </div>
-
+          <div className={styles.infoCardImgContainer}
+          >
           <Image
+          className={styles.infoCardImg}
             alt="FreshTracks React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services"
-            fill="true"
+            fill
             onLoadingComplete={() => setImageLoading(true)}
             src={projectImageUrl}
             title="FreshTracks React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services"
           />
+          </div>
         </div>
         <div className={`project-card-right ${styles.infoCard}`}>
           <h2 className={styles.projectTitle} ref={animatedLabelRef[0]}>
@@ -164,7 +167,7 @@ function ServiceDetailsCard({
             {projectDescription}
           </p>
           <button className={styles.requestBtn} onClick={requestDemoOnClick}>
-            GET STARTED
+            Get Started
           </button>
         </div>
       </div>

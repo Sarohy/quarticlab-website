@@ -15,29 +15,50 @@
   align-items: center;
 }
 
-.infoCard{
+.infoCard {
   padding-left: 3rem;
   padding-right: 1.5rem;
 }
+
+.infoCardImgContainer {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.infoCardImg {
+  object-fit: cover;
+  border-radius: .75rem;
+  /* height: auto !important; */
+  width: 100% !important;
+}
 .requestBtn {
-  width: 150px;
-  height: 40px;
+  width: min-content;
+  min-width: 250px;
+  /* height: 40px; */
+  padding-top: 15px;
+  padding-bottom: 15px;
+ /* padding-inline: 100px; */
   color: #ff9700;
   border-radius: 5px;
   cursor: pointer;
-  font-family: "Poppins";
+  font-family: Poppins;
   background-color: white;
-  border: 1px solid #ff9700;
   text-align: center;
-  font-size: 10px;
 
-  font-weight: 600;
-  font-family: "Poppins";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  border-radius: 7px;
+  border: 1px solid #ff9700;
+  box-shadow: 0px 5.18135px 5.18135px 0px rgba(255, 151, 0, 0.25);
 }
 .requestBtn .serviceBtn {
   font-size: 10px;
   color: #ff9700;
-  font-weight: 600;
+  font-weight: 500;
   font-family: "Poppins";
   background-color: transparent;
   border: none;
@@ -55,26 +76,23 @@
 }
 
 .projectTitle {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #2b2a35;
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
   line-height: 117%; /* 37.44px */
-  
 }
 
 .projectDesc {
   color: #494949;
-  font-size: 0.8rem;
   font-family: Poppins;
-  font-size: 15px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 300;
   line-height: 167.5%; /* 33.5px */
   margin-top: 1rem;
   margin-bottom: 1.2rem;
-
 }
 
 .imgContainer {
