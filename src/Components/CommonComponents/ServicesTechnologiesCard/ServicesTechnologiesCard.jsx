@@ -49,17 +49,18 @@ function ServicesTechnologiesCard({ cardData, cardTitle }) {
                   >
                     <Image
                       alt={`${element.cardIconTitle.firstLine}`}
-                      className="services-icon"
+                      // className="services-icon"
+                      className={styles.boxImage}
                       height={"auto"}
                       src={element.cardIcon}
                       title={`Zweidevs | ${element.cardIconTitle.firstLine}`}
                     />
-                    <div className="services-icon-card-title">
-                      <h3>
+                    <div className={styles.boxTitle}>
+                      <label>
                         {element.cardIconTitle.firstLine}
                         <br></br>
                         {element.cardIconTitle.secondLine}
-                      </h3>
+                      </label>
                     </div>
                   </div>
                 </Box>
