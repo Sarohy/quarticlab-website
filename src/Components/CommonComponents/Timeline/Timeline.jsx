@@ -1,4 +1,3 @@
-import React from "react";
 import { Grid } from "@mui/material";
 import Image from "next/image";
 import FileSVG from "../../../../public/assets/serviceIcons/businessProcessIcons/file.svg";
@@ -45,9 +44,9 @@ const cardData = [
   },
 ];
 
-const LeftGrid = ({logo}) => (
+const LeftGrid = ({ logo }) => (
   <div className={styles.fileIconContainer}>
-    <Image width={112} height={112} src={logo} alt="file icon" />
+    <Image alt="file icon" height={112} src={logo} width={112} />
   </div>
 );
 
@@ -55,7 +54,7 @@ const RightGrid = ({ card }) => (
   <>
     <div>
       <div className={styles.oneIconContainer}>
-        <Image src={card.icon} alt="one icon" />
+        <Image alt="one icon" src={card.icon} />
       </div>
     </div>
     <label className={styles.title}>{card.title}</label>
@@ -72,15 +71,23 @@ const Timeline = () => {
   return (
     <Grid container spacing={2}>
       {cardData.map((card, index) => (
-        <div key={index} className={styles.mapRoot}>
+        <div className={styles.mapRoot} key={index}>
           <Grid className={styles.leftGrid} item xs={5}>
-            {index % 2 === 0 ? <LeftGrid logo={card.logo} /> : <RightGrid card={card} />}
+            {index % 2 === 0 ? (
+              <LeftGrid logo={card.logo} />
+            ) : (
+              <RightGrid card={card} />
+            )}
           </Grid>
           <Grid className={styles.middleGrid} item xs={2}>
-            <div className={index % 2 === 0 ? styles.hr: styles.hrBold}></div>
+            <div className={index % 2 === 0 ? styles.hr : styles.hrBold}></div>
           </Grid>
           <Grid className={styles.rightGrid} item xs={5}>
-            {index % 2 === 0 ? <RightGrid card={card} /> : <LeftGrid logo={card.logo} />}
+            {index % 2 === 0 ? (
+              <RightGrid card={card} />
+            ) : (
+              <LeftGrid logo={card.logo} />
+            )}
           </Grid>
         </div>
       ))}

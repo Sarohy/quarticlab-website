@@ -153,25 +153,27 @@ function HomeSection4() {
               key={index}
               spacing={2}
             >
-              {chunk.map((item, index) => {
+              {chunk.map((item, chunkKey) => {
                 return (
-                  <Grid item xs={12} sm={6} md={4}>
-                  <Card className={styles.HS4Car} key={index}>
-                    <CardActionArea>
-                      <Image
-                        alt={`${item?.title} | React.js, Ruby on Rails, AWS, Node.js, Express.js`}
-                        className={styles.HS4CardImage}
-                        quality={100}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        src={item?.image}
-                        title={`${item?.title} | React.js, Ruby on Rails, AWS, Node.js, Express.js`}
-                      />
-                      <CardContent className={styles.HS4BelowContainer}>
-                        <h2 className={styles.HSCardTitle}>{item?.title}</h2>
-                        <p className={styles.HS4CardContent}>{item?.content}</p>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
+                  <Grid item key={chunkKey} md={4} sm={6} xs={12}>
+                    <Card className={styles.HS4Car} key={index}>
+                      <CardActionArea>
+                        <Image
+                          alt={`${item?.title} | React.js, Ruby on Rails, AWS, Node.js, Express.js`}
+                          className={styles.HS4CardImage}
+                          quality={100}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          src={item?.image}
+                          title={`${item?.title} | React.js, Ruby on Rails, AWS, Node.js, Express.js`}
+                        />
+                        <CardContent className={styles.HS4BelowContainer}>
+                          <h2 className={styles.HSCardTitle}>{item?.title}</h2>
+                          <p className={styles.HS4CardContent}>
+                            {item?.content}
+                          </p>
+                        </CardContent>
+                      </CardActionArea>
+                    </Card>
                   </Grid>
                 );
               })}
