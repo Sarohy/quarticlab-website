@@ -1,15 +1,31 @@
 import Image from "next/image";
 import DiamondSvg from "../../../../public/assets/pageBannerIcons/DiamondIcon.svg";
 import styles from "./pageBanner.module.css";
+import Link from "next/link";
+import { Breadcrumbs } from "@mui/material";
 function InstantBookingBanner(props) {
-  const { title, heading, description } = props;
+  const { heading, description, BreadcrumbTitle, BreadcrumbParrentPage } =
+    props;
   return (
     <div className={styles.pageBannerRoot}>
       <div
         className={`${styles.pageBannerTextContainer} animate__animated animate__backInRight`}
       >
-        <h1 className={styles.pageBannerTitle}>{title}</h1>
-        {heading ? <h2 className={styles.pageBannerHeading}>{heading}</h2> : ""}
+        {BreadcrumbTitle && (
+          <Breadcrumbs
+            aria-label="breadcrumb"
+            className={styles.breadcrumsText}
+            separator=">"
+          >
+            <label className={styles.breadcrumsText}>
+              <Link color="white" href="/services">
+                {BreadcrumbParrentPage}
+              </Link>
+            </label>
+            <label className={styles.breadcrumsText}>{BreadcrumbTitle}</label>
+          </Breadcrumbs>
+        )}
+        {heading ? <h1 className={styles.pageBannerHeading}>{heading}</h1> : ""}
 
         <h3 className={styles.pageBannerDesc}>{description}</h3>
       </div>

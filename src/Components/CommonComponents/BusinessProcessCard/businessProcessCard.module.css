@@ -1,0 +1,29 @@
+.heading {
+  margin-top: 6.875rem;
+  display: flex;
+  justify-content: center;
+
+  text-align: center;
+
+  color: #2b2a35;
+  font-family: Poppins;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: 10px;
+  line-height: 117.5%; /* 42.3px */
+}
+
+.desc {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  color: #494949;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 167.5%; /* 33.5px */
+  margin-bottom: 4.375rem;
+}

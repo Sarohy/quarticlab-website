@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import Box from "@mui/material/Box";
 import styles from "./servicesCard.module.css";
+import Link from "next/link";
 
 const ServicesCard = props => {
   const { cardData } = props;
@@ -129,71 +130,72 @@ const ServicesCard = props => {
         }}
       >
         {cardData.map((element, key) => (
-          <div
-            className={`${styles.hidden} services-card-container animate__animated`}
-            key={key}
-            ref={animatedDivRefs[key]}
-          >
-            <Box
-              sx={{
-                display: {
-                  xs: "none",
-                  sm: "none",
-                  md: "flex",
-                  lg: "flex",
-                  xl: "flex",
-                  xxl: "flex",
-                },
-              }}
+          <Link href={element.href} key={key}>
+            <div
+              className={`${styles.hidden} services-card-container animate__animated`}
+              ref={animatedDivRefs[key]}
             >
-              <div
-                className={`${styles.hiddenNestedCard} animate__animated ${styles.servicesIconCardContainer}`}
-                ref={animatedNestedCardDivRefs[key]}
+              <Box
+                sx={{
+                  display: {
+                    xs: "none",
+                    sm: "none",
+                    md: "flex",
+                    lg: "flex",
+                    xl: "flex",
+                    xxl: "flex",
+                  },
+                }}
               >
-                <Image
-                  alt={`${element.cardIconTitle.firstLine}`}
-                  className="services-icon"
-                  height={"auto"}
-                  src={element.cardIcon}
-                  title={`Zweidevs | ${element.cardIconTitle.firstLine}`}
-                />
-                <div className="services-icon-card-title">
-                  <h3>
-                    {element.cardIconTitle.firstLine}
-                    <br></br>
-                    {element.cardIconTitle.secondLine}
-                  </h3>
+                <div
+                  className={`${styles.hiddenNestedCard} animate__animated ${styles.servicesIconCardContainer}`}
+                  ref={animatedNestedCardDivRefs[key]}
+                >
+                  <Image
+                    alt={`${element.cardIconTitle.firstLine}`}
+                    className="services-icon"
+                    height={"auto"}
+                    src={element.cardIcon}
+                    title={`Zweidevs | ${element.cardIconTitle.firstLine}`}
+                  />
+                  <div className="services-icon-card-title">
+                    <h3>
+                      {element.cardIconTitle.firstLine}
+                      <br></br>
+                      {element.cardIconTitle.secondLine}
+                    </h3>
+                  </div>
                 </div>
-              </div>
-            </Box>
+              </Box>
 
-            <div className={`services-card-details-container`}>
-              <h2 className={styles.servicesCardDetailsHeader}>
-                {element.cardTitle}
-              </h2>
-              <p className={styles.servicesCardDetails}>
-                {element.cardDetails}{" "}
-              </p>
-              <div className={styles.servicesCardFooterContainer}>
-                <h3 className={styles.servicesCardFooterHeader}>
-                  {element.footerTitle}:
-                </h3>
-                <div className={styles.servicesFooterImagesContainer}>
-                  {element.footerImages &&
-                    element.footerImages.map((image, imgkey) => (
-                      <Image
-                        alt={`${element.cardTitle} ${imgkey}`}
-                        className={`${styles.ServiceCardFooter} ${styles.hiddenCardDetailss} animate__animated services-footer-image`}
-                        key={imgkey}
-                        ref={animatedCardDetailsDivRefs[key][imgkey]}
-                        src={image}
-                        title="Zweidevs | Custome Software Development Services Company"
-                      />
-                    ))}
+              <div className={`services-card-details-container`}>
+                <h2 className={styles.servicesCardDetailsHeader}>
+                  {element.cardTitle}
+                </h2>
+                <p className={styles.servicesCardDetails}>
+                  {element.cardDetails}{" "}
+                </p>
+                <div className={styles.servicesCardFooterContainer}>
+                  <h3 className={styles.servicesCardFooterHeader}>
+                    {element.footerTitle}:
+                  </h3>
+                  <div className={styles.servicesFooterImagesContainer}>
+                    {element.footerImages &&
+                      element.footerImages.map((image, imgkey) => (
+                        <Image
+                          alt={`${element.cardTitle} ${imgkey}`}
+                          className={`${styles.ServiceCardFooter} ${styles.hiddenCardDetailss} animate__animated services-footer-image`}
+                          key={imgkey}
+                          ref={animatedCardDetailsDivRefs[key][imgkey]}
+                          src={image}
+                          title="Zweidevs | Custome Software Development Services Company"
+                        />
+                      ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </Box>
 
