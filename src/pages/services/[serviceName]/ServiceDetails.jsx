@@ -1,10 +1,19 @@
 import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import PageBanner from "@component/Components/CommonComponents/PageBanner";
+
+const PageBanner = dynamic(() =>
+  import("@component/Components/CommonComponents/PageBanner"),
+);
+
 import WebDevServiceDetailsIcon from "../../../../public/assets/serviceIcons/webdev.jpg";
 import styles from "./serviceDetails.module.css";
-import ServiceDetailsCard from "@component/Components/CommonComponents/ServiceDetailsCard/SerivceDetailsCard";
+const ServiceDetailsCard = dynamic(() =>
+  import(
+    "@component/Components/CommonComponents/ServiceDetailsCard/SerivceDetailsCard"
+  ),
+);
+
 import { InstantBookingButton } from "@component/Components/CommonComponents";
 import designIcon from "../../../../public/assets/serviceIcons/webServicesIcons/design.svg";
 
@@ -12,7 +21,11 @@ const ServiceCarosuel = dynamic(() =>
   import("@component/Components/CommonComponents/ServiceCarousel"),
 );
 
-import ServicesTechnologiesCard from "@component/Components/CommonComponents/ServicesTechnologiesCard/index";
+const ServicesTechnologiesCard = dynamic(() =>
+  import(
+    "@component/Components/CommonComponents/ServicesTechnologiesCard/index"
+  ),
+);
 
 import AIDevIcon from "../../../../public/assets/serviceIcons/AIDevIcon.svg";
 import BlockchainIcon from "../../../../public/assets/serviceIcons/blockchainIcon.svg";

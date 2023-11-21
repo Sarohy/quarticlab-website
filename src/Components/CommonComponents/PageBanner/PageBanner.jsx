@@ -17,7 +17,7 @@ function InstantBookingBanner(props) {
             className={styles.breadcrumsText}
             separator=">"
           >
-            <label className={styles.breadcrumsText}>
+            <label className={styles.breadcrumsTextRoot}>
               <Link color="white" href="/services">
                 {BreadcrumbParrentPage}
               </Link>
