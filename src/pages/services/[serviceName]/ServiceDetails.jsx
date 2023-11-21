@@ -109,8 +109,8 @@ const Id = () => {
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -121,8 +121,8 @@ const Id = () => {
       });
     }, options);
 
-    const observer1 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer1 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -169,14 +169,14 @@ const Id = () => {
       />
 
       <OfferingCard
-        heading={"Web Development Services"}
         cardData={offeringCardData}
+        heading={"Web Development Services"}
       />
       <BusinessProcessCard
-        heading={"Our Process"}
         desc={
           "Fast-track your project delivery using our simple three-step application development process."
         }
+        heading={"Our Process"}
       />
       <ServiceCarosuel demoButton={false} hideHeader />
 

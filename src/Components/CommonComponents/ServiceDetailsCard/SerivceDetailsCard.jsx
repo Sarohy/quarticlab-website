@@ -147,16 +147,15 @@ function ServiceDetailsCard({
               src={TopOrangeSVG}
             />
           </div>
-          <div className={styles.infoCardImgContainer}
-          >
-          <Image
-          className={styles.infoCardImg}
-            alt="FreshTracks React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services"
-            fill
-            onLoadingComplete={() => setImageLoading(true)}
-            src={projectImageUrl}
-            title="FreshTracks React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services"
-          />
+          <div className={styles.infoCardImgContainer}>
+            <Image
+              alt="FreshTracks React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services"
+              className={styles.infoCardImg}
+              fill
+              onLoadingComplete={() => setImageLoading(true)}
+              src={projectImageUrl}
+              title="FreshTracks React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services"
+            />
           </div>
         </div>
         <div className={`project-card-right ${styles.infoCard}`}>
