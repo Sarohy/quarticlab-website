@@ -16,6 +16,11 @@ const ServiceDetailsCard = dynamic(() =>
 
 import { InstantBookingButton } from "@component/Components/CommonComponents";
 import designIcon from "../../../../public/assets/serviceIcons/webServicesIcons/design.svg";
+import backendIcon from "../../../../public/assets/serviceIcons/webServicesIcons/backend.svg";
+import ecommerceIcon from "../../../../public/assets/serviceIcons/webServicesIcons/ecommerce.svg";
+import frontendIcon from "../../../../public/assets/serviceIcons/webServicesIcons/frontend.svg";
+import fullstackIcon from "../../../../public/assets/serviceIcons/webServicesIcons/fullstack.svg";
+import webAppIcon from "../../../../public/assets/serviceIcons/webServicesIcons/webApp.svg";
 
 const ServiceCarosuel = dynamic(() =>
   import("@component/Components/CommonComponents/ServiceCarousel"),
@@ -46,25 +51,31 @@ const offeringCardData = [
       "Our extensive expertise in UI/UX design and front-end development allows us to create delightful user experiences.",
   },
   {
-    cardImage: designIcon,
+    cardImage: frontendIcon,
     cardTitle: "Experience Design",
     cardDesc:
       "Our extensive expertise in UI/UX design and front-end development allows us to create delightful user experiences.",
   },
   {
-    cardImage: designIcon,
+    cardImage: backendIcon,
     cardTitle: "Experience Design",
     cardDesc:
       "Our extensive expertise in UI/UX design and front-end development allows us to create delightful user experiences.",
   },
   {
-    cardImage: designIcon,
+    cardImage: fullstackIcon,
     cardTitle: "Experience Design",
     cardDesc:
       "Our extensive expertise in UI/UX design and front-end development allows us to create delightful user experiences.",
   },
   {
-    cardImage: designIcon,
+    cardImage: ecommerceIcon,
+    cardTitle: "Experience Design",
+    cardDesc:
+      "Our extensive expertise in UI/UX design and front-end development allows us to create delightful user experiences.",
+  },
+  {
+    cardImage: webAppIcon,
     cardTitle: "Experience Design",
     cardDesc:
       "Our extensive expertise in UI/UX design and front-end development allows us to create delightful user experiences.",

@@ -44,9 +44,16 @@ const cardData = [
   },
 ];
 
-const LeftGrid = ({ logo }) => (
+const LeftGrid = ({ logo, index }) => (
   <div className={styles.fileIconContainer}>
-    <Image alt="file icon" height={112} src={logo} width={112} />
+    <div
+      className={styles.logo}
+      style={{
+        float: index % 2 === 0 ? "right" : "left",
+      }}
+    >
+      <Image alt="file icon" fill src={logo} />
+    </div>
   </div>
 );
 
@@ -69,29 +76,37 @@ const RightGrid = ({ card }) => (
 );
 const Timeline = () => {
   return (
-    <Grid container spacing={2}>
-      {cardData.map((card, index) => (
-        <div className={styles.mapRoot} key={index}>
-          <Grid className={styles.leftGrid} item xs={5}>
-            {index % 2 === 0 ? (
-              <LeftGrid logo={card.logo} />
-            ) : (
-              <RightGrid card={card} />
-            )}
-          </Grid>
-          <Grid className={styles.middleGrid} item xs={2}>
-            <div className={index % 2 === 0 ? styles.hr : styles.hrBold}></div>
-          </Grid>
-          <Grid className={styles.rightGrid} item xs={5}>
-            {index % 2 === 0 ? (
-              <RightGrid card={card} />
-            ) : (
-              <LeftGrid logo={card.logo} />
-            )}
-          </Grid>
-        </div>
-      ))}
-    </Grid>
+    <div className={styles.root}>
+      <Grid container spacing={2} xs={7}>
+        {cardData.map((card, index) => (
+          <div className={styles.mapRoot} key={index}>
+            <Grid
+              className={index === 0 ? styles.leftGrid : styles.alignLeft}
+              item
+              xs={5}
+            >
+              {index % 2 === 0 ? (
+                <LeftGrid index={index} logo={card.logo} />
+              ) : (
+                <RightGrid card={card} />
+              )}
+            </Grid>
+            <Grid className={styles.middleGrid} item xs={2}>
+              <div
+                className={index % 2 === 0 ? styles.hr : styles.hrBold}
+              ></div>
+            </Grid>
+            <Grid className={styles.rightGrid} item xs={5}>
+              {index % 2 === 0 ? (
+                <RightGrid card={card} />
+              ) : (
+                <LeftGrid logo={card.logo} />
+              )}
+            </Grid>
+          </div>
+        ))}
+      </Grid>
+    </div>
   );
 };
 

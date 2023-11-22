@@ -158,16 +158,18 @@ function ServiceDetailsCard({
             />
           </div>
         </div>
-        <div className={`project-card-right ${styles.infoCard}`}>
-          <h2 className={styles.projectTitle} ref={animatedLabelRef[0]}>
-            {projectTitle}
-          </h2>
-          <p className={styles.projectDesc} ref={animatedLabelRef[1]}>
-            {projectDescription}
-          </p>
-          <button className={styles.requestBtn} onClick={requestDemoOnClick}>
-            Get Started
-          </button>
+        <div className={` ${styles.projectCardContainer} ${styles.infoCard}`}>
+          <div>
+            <h2 className={styles.projectTitle} ref={animatedLabelRef[0]}>
+              {projectTitle}
+            </h2>
+            <p className={styles.projectDesc} ref={animatedLabelRef[1]}>
+              {projectDescription}
+            </p>
+            <button className={styles.requestBtn} onClick={requestDemoOnClick}>
+              Get Started
+            </button>
+          </div>
         </div>
       </div>
     </>
