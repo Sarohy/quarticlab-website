@@ -20,7 +20,22 @@ function ServicesTechnologiesCard({ cardData, cardTitle }) {
         <Image alt="wave svg" className={styles.waveImg} fill src={WaveSVG} />
       </div>
       <div className={`${styles.HS4MainContainer}`}>
-        <Carousel animation="slide" className={styles.HS4CardContainer}>
+        <Carousel
+          animation="slide"
+          className={styles.HS4CardContainer}
+          indicatorIconButtonProps={{
+            style: {
+              color: "#ACACAC",
+            },
+          }}
+          activeIndicatorIconButtonProps={{
+            style: {
+              margin: 1,
+              color: "#FF9700",
+              backgroundColor: "#FF9700",
+            },
+          }}
+        >
           {chunkArray(cardData, 3).map((chunk, index) => (
             <Grid
               className={styles.gridContainer}
