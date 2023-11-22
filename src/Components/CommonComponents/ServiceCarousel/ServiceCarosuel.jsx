@@ -2,6 +2,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import Card from "@mui/material/Card";
+import Carousel from "react-material-ui-carousel";
 const CardContent = dynamic(() => import("@mui/material/CardContent"));
 const CardActionArea = dynamic(() => import("@mui/material/CardActionArea"));
 const BottomBorderButton = dynamic(() =>
@@ -15,7 +16,6 @@ import Project5_Image1 from "../../../../public/assets/HomeIcons/Project/Project
 import Project6_Image1 from "../../../../public/assets/HomeIcons/Project/Project6_image1.svg";
 import styles from "./serviceCarosuel.module.css";
 import { Grid, useMediaQuery } from "@mui/material";
-import Carousel from "react-material-ui-carousel";
 
 function HomeSection4() {
   const router = useRouter();
@@ -141,9 +141,20 @@ function HomeSection4() {
       <div className={styles.HS4MainContainer}>
         <h2 className={styles.cardTitle}>{"Web Development Projects"}</h2>
         <Carousel
+          activeIndicatorIconButtonProps={{
+            style: {
+              margin: 1,
+              color: "#FF9700",
+              backgroundColor: "#FF9700",
+            },
+          }}
           animation="slide"
           className={styles.HS4CardContainer}
-          // navButtonsAlwaysVisible
+          indicatorIconButtonProps={{
+            style: {
+              color: "#ACACAC",
+            },
+          }}
         >
           {chunkArray(projectData, chunkSize).map((chunk, index) => (
             <Grid
