@@ -141,18 +141,18 @@ function HomeSection4() {
       <div className={styles.HS4MainContainer}>
         <h2 className={styles.cardTitle}>{"Web Development Projects"}</h2>
         <Carousel
+          activeIndicatorIconButtonProps={{
+            style: {
+              margin: 1,
+              color: "#FF9700",
+              backgroundColor: "#FF9700",
+            },
+          }}
           animation="slide"
           className={styles.HS4CardContainer}
           indicatorIconButtonProps={{
             style: {
               color: "#ACACAC",
-            },
-          }}
-          activeIndicatorIconButtonProps={{
-            style: {
-              margin: 1,
-              color: "#FF9700", 
-              backgroundColor: "#FF9700", 
             },
           }}
         >

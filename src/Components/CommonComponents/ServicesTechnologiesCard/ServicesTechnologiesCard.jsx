@@ -21,18 +21,18 @@ function ServicesTechnologiesCard({ cardData, cardTitle }) {
       </div>
       <div className={`${styles.HS4MainContainer}`}>
         <Carousel
-          animation="slide"
-          className={styles.HS4CardContainer}
-          indicatorIconButtonProps={{
-            style: {
-              color: "#ACACAC",
-            },
-          }}
           activeIndicatorIconButtonProps={{
             style: {
               margin: 1,
               color: "#FF9700",
               backgroundColor: "#FF9700",
+            },
+          }}
+          animation="slide"
+          className={styles.HS4CardContainer}
+          indicatorIconButtonProps={{
+            style: {
+              color: "#ACACAC",
             },
           }}
         >
