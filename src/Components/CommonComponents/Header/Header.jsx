@@ -12,6 +12,8 @@ import ZweidevsLogo from "../../../../public/assets/headerIcons/logoWithText.svg
 import styles from "./header.module.css";
 function Header() {
   const route = useRouter();
+  const pathSegments = route.pathname.split("/");
+  const pathInitialSegment = "/" + pathSegments[1];
 
   const [state, setState] = useState({
     mobileView: null,
@@ -20,7 +22,7 @@ function Header() {
   const { mobileView, drawerOpen } = state;
 
   const toggleDrawer = () => {
-    setState(prevState => ({
+    setState((prevState) => ({
       ...prevState,
       drawerOpen: !prevState.drawerOpen,
     }));
@@ -29,8 +31,8 @@ function Header() {
   useEffect(() => {
     const setResponsiveness = () => {
       return window.innerWidth < 900
-        ? setState(prevState => ({ ...prevState, mobileView: true }))
-        : setState(prevState => ({ ...prevState, mobileView: false }));
+        ? setState((prevState) => ({ ...prevState, mobileView: true }))
+        : setState((prevState) => ({ ...prevState, mobileView: false }));
     };
     setResponsiveness();
     window.addEventListener("resize", () => setResponsiveness());
@@ -42,7 +44,7 @@ function Header() {
   useEffect(() => {
     const handleScroll = () =>
       !drawerOpen &&
-      setState(prevState => ({ ...prevState, drawerOpen: false }));
+      setState((prevState) => ({ ...prevState, drawerOpen: false }));
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -68,7 +70,7 @@ function Header() {
             {navLinks.map(({ href, text }) => (
               <Link
                 className={`${styles.pageLabel} ${
-                  route.pathname === href ? styles.activePage : ""
+                  pathInitialSegment === href ? styles.activePage : ""
                 }`}
                 href={href}
                 key={href}

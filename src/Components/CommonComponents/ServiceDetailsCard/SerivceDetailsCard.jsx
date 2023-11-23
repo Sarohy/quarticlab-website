@@ -120,8 +120,6 @@ function ServiceDetailsCard({
       <div
         className={`project-card-container ${
           styles.ProjectCardWrapper
-            ? !mobileView && reverse && styles.ProjectCardWrapper
-            : null
         }`}
       >
         <div

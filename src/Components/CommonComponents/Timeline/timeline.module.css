@@ -31,6 +31,9 @@
 }
 
 .oneIconContainer {
+  position: relative;
+  width: 2.875rem;
+  height: 2.875rem;
   margin-bottom: 2.25rem;
   padding-left: 20px;
 }
@@ -102,5 +105,12 @@
     width: 80px;
     height: 80px;
     flex-shrink: 0;
+  }
+  .oneIconContainer {
+    margin-bottom: .625rem;
+    padding-left: 0rem;
+    width: 2rem;
+    height: 2rem;
+    position: relative;
   }
 }
