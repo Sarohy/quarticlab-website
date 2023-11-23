@@ -61,7 +61,7 @@ const RightGrid = ({ card }) => (
   <>
     <div>
       <div className={styles.oneIconContainer}>
-        <Image alt="one icon" src={card.icon} />
+        <Image alt="one icon" className={styles.oneIcon} fill src={card.icon} />
       </div>
     </div>
     <label className={styles.title}>{card.title}</label>
@@ -77,7 +77,7 @@ const RightGrid = ({ card }) => (
 const Timeline = () => {
   return (
     <div className={styles.root}>
-      <Grid container spacing={2} xs={7}>
+      <Grid container md={7} spacing={2} xs={11}>
         {cardData.map((card, index) => (
           <div className={styles.mapRoot} key={index}>
             <Grid

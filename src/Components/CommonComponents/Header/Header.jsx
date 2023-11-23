@@ -12,6 +12,8 @@ import ZweidevsLogo from "../../../../public/assets/headerIcons/logoWithText.svg
 import styles from "./header.module.css";
 function Header() {
   const route = useRouter();
+  const pathSegments = route.pathname.split("/");
+  const pathInitialSegment = "/" + pathSegments[1];
 
   const [state, setState] = useState({
     mobileView: null,
@@ -68,7 +70,7 @@ function Header() {
             {navLinks.map(({ href, text }) => (
               <Link
                 className={`${styles.pageLabel} ${
-                  route.pathname === href ? styles.activePage : ""
+                  pathInitialSegment === href ? styles.activePage : ""
                 }`}
                 href={href}
                 key={href}
