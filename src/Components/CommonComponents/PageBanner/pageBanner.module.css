@@ -103,3 +103,46 @@
     padding-right: 10px;
   }
 }
+
+@media only screen and (max-width: 420px) {
+  .pageBannerHeading {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 128%; /* 30.72px */
+    text-transform: capitalize;
+    text-align: center;
+  }
+  .pageBannerDesc {
+    color: #fff;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+    margin-inline: 0.5rem;
+  }
+  .breadcrumsTextRoot {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 15px */
+  }
+  .breadcrumsText {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 15px */
+  }
+  .pageBannerRoot{
+    min-height: 0px;
+    padding-top: 1rem;
+  }
+}

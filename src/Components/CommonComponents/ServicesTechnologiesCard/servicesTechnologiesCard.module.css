@@ -106,13 +106,33 @@
 @media only screen and (max-width: 786px) {
   .cardTitle {
     padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
+
+    color: #2b2a35;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 117.5%; /* 23.5px */
   }
-  .HS4CardContainer{
+  .boxImage{
+    width: 4.375rem;
+  }
+  .boxTitle {
+    color: #494949;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 167.5%; /* 26.8px */
+  }
+  .HS4CardContainer {
     text-align: center;
   }
-
-  .servicesIconCardContainer {
-   
+  .waveImgContainer{
+    height: 85%;
+  }
+  .waveImg{
+    width: 100% !important;
   }
 }
