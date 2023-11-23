@@ -20,21 +20,21 @@ function ServiceDetailsCard({
   const animatedIconRef = React.useRef(null);
   const animatedImageRef = React.useRef(null);
   const animatedImageRightRef = React.useRef(null);
-  const [mobileView, setMobileView] = useState(null);
+  // const [mobileView, setMobileView] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
 
-  useEffect(() => {
-    const setResponsiveness = () => {
-      return window.innerWidth <= 820
-        ? setMobileView(true)
-        : setMobileView(false);
-    };
-    setResponsiveness();
-    window.addEventListener("resize", () => setResponsiveness());
-    return () => {
-      window.removeEventListener("resize", () => setResponsiveness());
-    };
-  }, []);
+  // useEffect(() => {
+  //   const setResponsiveness = () => {
+  //     return window.innerWidth <= 820
+  //       ? setMobileView(true)
+  //       : setMobileView(false);
+  //   };
+  //   setResponsiveness();
+  //   window.addEventListener("resize", () => setResponsiveness());
+  //   return () => {
+  //     window.removeEventListener("resize", () => setResponsiveness());
+  //   };
+  // }, []);
 
   useEffect(() => {
     const options = {
@@ -117,11 +117,7 @@ function ServiceDetailsCard({
 
   return (
     <>
-      <div
-        className={`project-card-container ${
-          styles.ProjectCardWrapper
-        }`}
-      >
+      <div className={`project-card-container ${styles.ProjectCardWrapper}`}>
         <div
           className={`project-card-left ${styles.imgContainer}`}
           ref={reverse ? animatedImageRightRef : animatedImageRef}

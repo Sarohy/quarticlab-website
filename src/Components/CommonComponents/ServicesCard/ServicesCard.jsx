@@ -213,24 +213,26 @@ const ServicesCard = props => {
         }}
       >
         {cardData.map((element, key) => (
-          <Box key={key}>
-            <div className="services-icon-card-container-mobile">
-              <Image
-                alt={`${element.cardIconTitle.firstLine}`}
-                className="services-icon"
-                height={"auto"}
-                src={element.cardIcon}
-                title="Zweidevs | Custome Software Development Services Company"
-              />
-              <div className="services-icon-card-title">
-                <h3>
-                  {element.cardIconTitle.firstLine}
-                  <br></br>
-                  {element.cardIconTitle.secondLine}
-                </h3>
+          <Link href={element.href} key={key}>
+            <Box key={key}>
+              <div className="services-icon-card-container-mobile">
+                <Image
+                  alt={`${element.cardIconTitle.firstLine}`}
+                  className="services-icon"
+                  height={"auto"}
+                  src={element.cardIcon}
+                  title="Zweidevs | Custome Software Development Services Company"
+                />
+                <div className="services-icon-card-title">
+                  <h3>
+                    {element.cardIconTitle.firstLine}
+                    <br></br>
+                    {element.cardIconTitle.secondLine}
+                  </h3>
+                </div>
               </div>
-            </div>
-          </Box>
+            </Box>
+          </Link>
         ))}
       </Box>
     </>

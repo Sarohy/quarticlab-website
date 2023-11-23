@@ -31,7 +31,7 @@ const OfferingCard = ({ heading, cardData }) => {
         >
           {cardData.map((card, key) => (
             // <Grid item key={key} md={4} sm={6} xs={12}>
-            <div className={styles.cardContainer}>
+            <div className={styles.cardContainer} key={key}>
               <div className={styles.cardBgImgContainer}>
                 <Image
                   alt="bg icon"

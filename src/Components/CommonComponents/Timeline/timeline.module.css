@@ -35,7 +35,11 @@
   width: 2.875rem;
   height: 2.875rem;
   margin-bottom: 2.25rem;
-  padding-left: 20px;
+  margin-left: 20px;
+}
+
+.oneIcon{
+  position: absolute;
 }
 .fileIconContainer {
   margin-top: 4.7rem;
@@ -108,7 +112,7 @@
   }
   .oneIconContainer {
     margin-bottom: .625rem;
-    padding-left: 0rem;
+    margin-left: 0px;
     width: 2rem;
     height: 2rem;
     position: relative;

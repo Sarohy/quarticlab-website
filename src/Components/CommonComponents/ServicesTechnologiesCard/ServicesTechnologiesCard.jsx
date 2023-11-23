@@ -1,10 +1,25 @@
 import Image from "next/image";
 import WaveSVG from "../../../../public/assets/serviceIcons/waveSVG.svg";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, useMediaQuery } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
 import styles from "./servicesTechnologiesCard.module.css";
 
 function ServicesTechnologiesCard({ cardData, cardTitle }) {
+  const isMobile = useMediaQuery("(max-width: 660px)");
+  const isTablet = useMediaQuery("(max-width: 995px)");
+
+  const getChunkSize = () => {
+    if (isMobile) {
+      return 1;
+    }
+    if (isTablet) {
+      return 2;
+    }
+    return 3; // Default for larger screens
+  };
+
+  const chunkSize = getChunkSize();
+
   function chunkArray(array, size) {
     const result = [];
     for (let i = 0; i < array.length; i += size) {
@@ -36,28 +51,16 @@ function ServicesTechnologiesCard({ cardData, cardTitle }) {
             },
           }}
         >
-          {chunkArray(cardData, 3).map((chunk, index) => (
+          {chunkArray(cardData, chunkSize).map((chunk, index) => (
             <Grid
               className={styles.gridContainer}
               container
-              gap={2}
+              gap={isMobile ? 0 : 2}
               key={index}
-              spacing={2}
+              spacing={isMobile ? 0 : 2}
             >
               {chunk.map((element, key) => (
-                <Box
-                  key={key}
-                  sx={{
-                    display: {
-                      xs: "none",
-                      sm: "none",
-                      md: "flex",
-                      lg: "flex",
-                      xl: "flex",
-                      xxl: "flex",
-                    },
-                  }}
-                >
+                <Box key={key}>
                   <div
                     className={`${styles.hiddenNestedCard} animate__animated ${styles.servicesIconCardContainer}`}
                     // ref={animatedNestedCardDivRefs[key]}
