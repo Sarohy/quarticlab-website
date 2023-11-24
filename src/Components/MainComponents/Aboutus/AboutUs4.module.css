@@ -168,6 +168,7 @@
     padding-left: 5%;
     width: 130px;
     padding-right: 5%;
+   gap: 1rem; 
   }
   .AUCd4CardsContainer {
     height: 350px;
