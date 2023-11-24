@@ -11,7 +11,10 @@ function InstantBookingButton({
 }) {
   return (
     <button className={`${styles.cta} ${customStyle}`} onClick={onClick}>
-      <span className={styles.buttonSpan}>{title}</span>
+      <span className={styles.buttonSpan}>
+        {title}
+        {"hello"}
+      </span>
       <span className={styles.buttonSpan}>
         <svg
           height="15px"

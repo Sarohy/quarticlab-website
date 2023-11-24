@@ -476,6 +476,7 @@
     top: -5%;
     left: 37%;
   }
+
   .circlecontainer a {
     left: 26%;
   }
@@ -715,10 +716,17 @@
   .HS6MainContainer .sinceyear {
     font-size: 18px;
   }
+  
 }
 
 @media screen and (max-width: 380px) {
   .HS6MainContainer {
     height: 65vh !important;
   }
+  /* .circlecontainer {
+    width: 55%;
+    min-width: 341px;
+    margin: 0px;
+    margin-top: 16px;
+  } */
 }
