@@ -13,7 +13,7 @@
   /* margin-bottom: 15vh; */
 }
 .ButtonStyle {
-  color: #ff9700;
+  color: #ff9700 !important;
 }
 .LinkFontStyle {
   font-family: "Poppins";
