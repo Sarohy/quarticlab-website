@@ -91,9 +91,13 @@ function Header() {
         style={mobileView && { padding: "3%" }}
       >
         <Image alt="zweidevsDrawer" src={ZweidevsLogo} width={180} />
-        <Button color="#ff9700" className={styles.ButtonStyle} onClick={toggleDrawer}>
+        <Button className={styles.ButtonStyle} onClick={toggleDrawer}>
           {" "}
-          {drawerOpen ? <CloseIcon color="#ff9700" /> : <MenuIcon color="#ff9700" />}
+          {drawerOpen ? (
+            <CloseIcon color="#ff9700" />
+          ) : (
+            <MenuIcon color="#ff9700" />
+          )}
         </Button>
       </div>
       {drawerOpen && (
