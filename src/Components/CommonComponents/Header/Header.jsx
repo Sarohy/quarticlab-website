@@ -90,7 +90,9 @@ function Header() {
         className={styles.headerContainer}
         style={mobileView && { padding: "3%" }}
       >
-        <Image alt="zweidevsDrawer" src={ZweidevsLogo} width={180} />
+        <Link href={"/"}>
+          <Image alt="zweidevsDrawer" src={ZweidevsLogo} width={180} />
+        </Link>
         <Button className={styles.ButtonStyle} onClick={toggleDrawer}>
           {" "}
           {drawerOpen ? (

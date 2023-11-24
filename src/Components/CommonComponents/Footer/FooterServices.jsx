@@ -28,7 +28,7 @@ const FooterServices = () => {
           <div className={styles.footerServicesItemsContainer}>
             <Grid container spacing={2.5} xl={10}>
               {navLinks.map(({ href, text }, index) => (
-                <Grid item key={index} xs={6}>
+                <Grid item key={index} md={6} xs={12}>
                   <Link
                     className={`${styles.footerServiceItem} ${
                       router.pathname === href

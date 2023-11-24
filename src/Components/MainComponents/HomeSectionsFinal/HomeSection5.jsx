@@ -267,7 +267,8 @@ function HomeSection5() {
             style: {
               color: "#FF9700",
               cursor: "pointer",
-              width: "30px",
+              // width: "30px",
+              backgroundColor: "#FF9700",
             },
           }}
           className={styles.HS5Carousel}
