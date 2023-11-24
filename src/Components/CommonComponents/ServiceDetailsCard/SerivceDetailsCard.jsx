@@ -45,8 +45,8 @@ function ServiceDetailsCard({
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -57,8 +57,8 @@ function ServiceDetailsCard({
       });
     }, options);
 
-    const observer1 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer1 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -69,8 +69,8 @@ function ServiceDetailsCard({
       });
     }, options);
 
-    const observer2 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer2 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -81,8 +81,8 @@ function ServiceDetailsCard({
       });
     }, options);
 
-    const observer3 = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer3 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -93,7 +93,7 @@ function ServiceDetailsCard({
       });
     }, options);
 
-    animatedLabelRef.forEach((ref) => {
+    animatedLabelRef.forEach(ref => {
       observer.observe(ref.current);
     });
 
@@ -140,7 +140,7 @@ function ServiceDetailsCard({
               alt="orange top svg"
               className={styles.bgTopImg}
               fill
-              src={isMobile ? TopOrangeSVGMobile: TopOrangeSVG}
+              src={isMobile ? TopOrangeSVGMobile : TopOrangeSVG}
             />
           </div>
           <div className={styles.infoCardImgContainer}>
