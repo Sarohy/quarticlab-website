@@ -169,10 +169,20 @@
 } */
 
 @media only screen and (max-width: 768px) {
-  .imgContainer{
+  .bgTopImgContainer {
+    top: 0px;
+    margin-top: 0px;
+    padding-top: 0px;
+    height: 70%;
+    width: 50%;
+  }
+  .bgTopImg {
+    height: unset;
+  }
+  .imgContainer {
     margin-right: 0rem;
   }
-  .ProjectCardWrapper{
+  .ProjectCardWrapper {
     display: flex;
     width: 100%;
     flex-direction: column-reverse;
@@ -180,13 +190,17 @@
     margin: 0;
   }
 
-  .infoCard{
+  .infoCard {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
 
   .infoCardImgContainer {
     margin-inline: 20px;
+  }
+
+  .imgContainer {
+    margin-top: 0rem;
   }
 
   .infoCardImg {
@@ -200,7 +214,7 @@
   .projectCardContainer {
     width: 100%;
     padding-top: 1.875rem;
-    padding-bottom: .75rem;
+    padding-bottom: 0.75rem;
   }
 
   .projectTitle {
@@ -220,7 +234,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 18px; /* 150% */
-    margin-top: .75rem;
+    margin-top: 0.75rem;
     margin-bottom: 1rem;
   }
   .requestBtn {

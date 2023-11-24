@@ -3,10 +3,11 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import RightOrangeSVG from "../../../../public/assets/serviceIcons/rightOrangeSVG.svg";
 import TopOrangeSVG from "../../../../public/assets/serviceIcons/topOrangeSVG.svg";
-
+import TopOrangeSVGMobile from "../../../../public/assets/serviceIcons/topOrangeSVGMobile.svg";
 const CircularProgress = dynamic(() =>
   import("@mui/material/CircularProgress"),
 );
+import { useMediaQuery } from "@mui/material";
 import styles from "./serviceDetailsCard.module.css";
 
 function ServiceDetailsCard({
@@ -16,6 +17,7 @@ function ServiceDetailsCard({
   projectDescription,
   requestDemoOnClick,
 }) {
+  const isMobile = useMediaQuery("(max-width: 420px)");
   const animatedLabelRef = Array.from({ length: 2 }, () => React.useRef(null));
   const animatedIconRef = React.useRef(null);
   const animatedImageRef = React.useRef(null);
@@ -43,8 +45,8 @@ function ServiceDetailsCard({
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -55,8 +57,8 @@ function ServiceDetailsCard({
       });
     }, options);
 
-    const observer1 = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer1 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -67,8 +69,8 @@ function ServiceDetailsCard({
       });
     }, options);
 
-    const observer2 = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer2 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -79,8 +81,8 @@ function ServiceDetailsCard({
       });
     }, options);
 
-    const observer3 = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer3 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -91,7 +93,7 @@ function ServiceDetailsCard({
       });
     }, options);
 
-    animatedLabelRef.forEach(ref => {
+    animatedLabelRef.forEach((ref) => {
       observer.observe(ref.current);
     });
 
@@ -138,7 +140,7 @@ function ServiceDetailsCard({
               alt="orange top svg"
               className={styles.bgTopImg}
               fill
-              src={TopOrangeSVG}
+              src={isMobile ? TopOrangeSVGMobile: TopOrangeSVG}
             />
           </div>
           <div className={styles.infoCardImgContainer}>
