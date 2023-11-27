@@ -35,11 +35,7 @@ const cardData = [
     logo: settingsSVG,
     title: "Support & Maintenance",
     icon: threeSVG,
-    desc: [
-      "Production Support",
-      "Operational support",
-      "On-going Support",
-    ],
+    desc: ["Production Support", "Operational support", "On-going Support"],
   },
 ];
 

@@ -1,7 +1,4 @@
 import dynamic from "next/dynamic";
-const AboutUsCard = dynamic(() =>
-  import("@component/Components/MainComponents/Aboutus/AboutUsCard"),
-);
 import AboutUsCard1 from "@component/Components/MainComponents/Aboutus/AboutUsCard1";
 const AboutUsCard2 = dynamic(() =>
   import("@component/Components/MainComponents/Aboutus/AboutUsCard2"),
