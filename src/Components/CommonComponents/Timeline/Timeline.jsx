@@ -25,22 +25,17 @@ const cardData = [
     title: "Development & Testing",
     icon: twoSVG,
     desc: [
-      "Requirements Definition",
-      "Analyzing the requirements",
-      "Documenting the process",
-      "Provide initial design",
+      "Frontend & backend dev",
+      "Weekly Meeting",
+      "QA Testing",
+      "Deployment",
     ],
   },
   {
     logo: settingsSVG,
     title: "Support & Maintenance",
     icon: threeSVG,
-    desc: [
-      "Requirements Definition",
-      "Analyzing the requirements",
-      "Documenting the process",
-      "Provide initial design",
-    ],
+    desc: ["Production Support", "Operational support", "On-going Support"],
   },
 ];
 

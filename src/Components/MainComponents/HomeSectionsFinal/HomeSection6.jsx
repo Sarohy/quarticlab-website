@@ -5,7 +5,7 @@ const HomeSection6Counter = dynamic(() => import("./HomeSection6Counter"));
 import "animate.css";
 import styles from "./HomeSection6.module.css";
 
-function HomeSection6() {
+function HomeSection6({ heading }) {
   const animatedDivRefs = React.useRef(null);
   const animatedRefs = React.useRef(null);
 
@@ -55,7 +55,7 @@ function HomeSection6() {
   }, []);
   return (
     <div className={styles.HS6MainContainer}>
-      <div className={styles.HS6Heading}>Why Zweidevs</div>
+      <div className={styles.HS6Heading}>{heading}</div>
       <div>
         <div className={styles.circlecontainer}>
           <div className={styles.since10}>

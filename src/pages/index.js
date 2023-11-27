@@ -45,7 +45,7 @@ export default function Home() {
       <HomeSection3 />
       <HomeSection4 />
       <HomeSection5 />
-      <HomeSection6 />
+      <HomeSection6 heading="Why Zweidevs" />
       <HomeSection7 />
       <HomeSection8 />
     </div>

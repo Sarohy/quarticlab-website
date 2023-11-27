@@ -722,7 +722,6 @@
   .HS6MainContainer .sinceyear {
     font-size: 18px;
   }
-  
 }
 
 @media screen and (max-width: 380px) {
@@ -819,6 +818,13 @@
     left: 86%;
     width: 15px;
     height: 35px;
-    
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .HS6Heading {
+    font-size: 28px;
+    text-align: center;
+    padding: 0% 3.5% 0% 3.5%;
   }
 }
