@@ -12,6 +12,10 @@ const AboutUsCard4 = dynamic(() =>
 const AboutUsCard5 = dynamic(() =>
   import("@component/Components/MainComponents/Aboutus/AboutsUsCard5"),
 );
+const HomeSection6 = dynamic(() =>
+  import("@component/Components/MainComponents/HomeSectionsFinal/HomeSection6"),
+);
+
 import styles from "../styles/About.module.css";
 import Head from "next/head";
 
@@ -27,7 +31,7 @@ export default function AboutUs() {
       </Head>
       <AboutUsCard1 />
       <AboutUsCard2 />
-      <AboutUsCard />
+      <HomeSection6 heading={"Zweidevs Achievements Since 2010"} />
       <AboutUsCard4 />
       <AboutUsCard5 />
     </div>

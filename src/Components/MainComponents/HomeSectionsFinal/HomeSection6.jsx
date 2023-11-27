@@ -5,7 +5,7 @@ const HomeSection6Counter = dynamic(() => import("./HomeSection6Counter"));
 import "animate.css";
 import styles from "./HomeSection6.module.css";
 
-function HomeSection6() {
+function HomeSection6({ heading }) {
   const animatedDivRefs = React.useRef(null);
   const animatedRefs = React.useRef(null);
 
@@ -16,8 +16,8 @@ function HomeSection6() {
       threshold: 0.1,
     };
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -28,8 +28,8 @@ function HomeSection6() {
       });
     }, options);
 
-    const observer1 = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer1 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -55,7 +55,7 @@ function HomeSection6() {
   }, []);
   return (
     <div className={styles.HS6MainContainer}>
-      <div className={styles.HS6Heading}>Why Zweidevs</div>
+      <div className={styles.HS6Heading}>{heading}</div>
       <div>
         <div className={styles.circlecontainer}>
           <div className={styles.since10}>
