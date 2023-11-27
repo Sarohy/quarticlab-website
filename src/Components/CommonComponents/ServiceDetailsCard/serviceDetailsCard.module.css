@@ -162,13 +162,46 @@
   height: unset !important;
 }
 
+.projectCardLeft {
+  /* border: 2px solid red; */
+  width: 50%;
+  min-height: 319px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 /* .center {
     text-align: center;
     background-color: #494949;
     width: 100%;
 } */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 992px) {
+  .ProjectCardWrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column-reverse;
+    padding: 0;
+    margin: 0;
+  }
+  .projectCardContainer {
+    width: 100%;
+    padding-top: 1.875rem;
+    padding-bottom: 0.75rem;
+  }
+  .projectCardLeft{
+    width: 100%;
+  }
+  .infoCardImg{
+    width: 90%;
+    object-fit: contain;
+    padding-bottom: 1.25rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
   .bgTopImgContainer {
     top: 0px;
     margin-top: 0px;

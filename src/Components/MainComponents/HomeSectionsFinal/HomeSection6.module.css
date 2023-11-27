@@ -94,26 +94,31 @@
   transform: rotate(-5deg) translate(277px) rotate(-3deg);
   cursor: none;
   cursor: default;
+  z-index: 1;
 }
 .deg45 {
   transform: rotate(26deg) translate(236px) rotate(-30deg);
   cursor: none;
   cursor: default;
+  z-index: 1;
 }
 .deg90 {
   transform: rotate(76deg) translate(163px) rotate(-76deg);
   cursor: none;
   cursor: default;
+  z-index: 1;
 }
 .deg135 {
   transform: rotate(142deg) translate(168px) rotate(-136deg);
   cursor: none;
   cursor: default;
+  z-index: 1;
 }
 .deg180 {
   transform: rotate(187deg) translate(200px) rotate(180deg);
   cursor: none;
   cursor: default;
+  z-index: 1;
 }
 .projectcompleted {
   position: absolute;
@@ -711,7 +716,8 @@
 @media screen and (max-width: 414px) {
   .HS6MainContainer {
     height: 50vh !important;
-    margin: 10px;
+    /* margin: 10px; */
+    margin-bottom: 8rem;
   }
   .HS6MainContainer .sinceyear {
     font-size: 18px;
@@ -723,10 +729,96 @@
   .HS6MainContainer {
     height: 65vh !important;
   }
-  .circlecontainer {
-    width: 55%;
+  .circlecontainer a {
+    left: 26%;
+  }
+
+  .circularbar {
+    left: 32%;
+  }
+
+  .since10 {
+    top: -5%;
+    left: 38%;
+  }
+
+  /* .circularbar {
+    left: 30%;
+  } */
+  /* .circlecontainer {
+    width: 25% !important;
+    max-width: 25% !important;
+    background-color: #000;
     min-width: 341px;
     margin: 0px;
     margin-top: 16px;
+  } */
+  .circlecontainer {
+    /* margin-right: 0px; */
+    /* margin-inline: 0px; */
+    width: 100%;
+    min-width: 320px;
+  }
+
+  /* .linecontainer1 {
+    top: 20%;
+    left: 13%;
+    background-color: #494949;
+    width: 15px;
+    height: 35px;
+  } */
+  .positivereviews {
+    top: 50%;
+    left: 20%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer2 {
+    top: 35%;
+    left: 27%;
+    background-color: #494949;
+    width: 15px;
+    height: 60px;
+  }
+  .teammembers {
+    top: 51%;
+    left: 44%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer3 {
+    top: 43%;
+    left: 51%;
+    width: 25px;
+    height: 30px;
+  }
+  .fundingraised {
+    top: 50%;
+    left: 67%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer4 {
+    top: 35%;
+    left: 74%;
+    width: 15px;
+    height: 60px;
+  }
+  .customersatisfaction {
+    top: 30%;
+    left: 82%;
+    width: 60px;
+    font-size: 9px;
+    font-family: "Poppins";
+  }
+  .linecontainer5 {
+    top: 21%;
+    left: 86%;
+    width: 15px;
+    height: 35px;
+    
   }
 }
