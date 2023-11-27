@@ -17,7 +17,7 @@ function ServiceDetailsCard({
   projectDescription,
   requestDemoOnClick,
 }) {
-  const isMobile = useMediaQuery("(max-width: 420px)");
+  const isMobile = useMediaQuery("(max-width: 576px)");
   const animatedLabelRef = Array.from({ length: 2 }, () => React.useRef(null));
   const animatedIconRef = React.useRef(null);
   const animatedImageRef = React.useRef(null);
@@ -121,7 +121,7 @@ function ServiceDetailsCard({
     <>
       <div className={`project-card-container ${styles.ProjectCardWrapper}`}>
         <div
-          className={`project-card-left ${styles.imgContainer}`}
+          className={`${styles.projectCardLeft} ${styles.imgContainer}`}
           ref={reverse ? animatedImageRightRef : animatedImageRef}
         >
           {!imageLoading && (
