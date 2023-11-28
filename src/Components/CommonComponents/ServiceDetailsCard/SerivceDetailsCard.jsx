@@ -119,6 +119,9 @@ function ServiceDetailsCard({
 
   return (
     <>
+      <h2 className={styles.projectTitle} ref={animatedLabelRef[0]}>
+        {projectTitle}
+      </h2>
       <div className={`project-card-container ${styles.ProjectCardWrapper}`}>
         <div
           className={`${styles.projectCardLeft} ${styles.imgContainer}`}
@@ -154,11 +157,9 @@ function ServiceDetailsCard({
             />
           </div>
         </div>
+
         <div className={` ${styles.projectCardContainer} ${styles.infoCard}`}>
           <div>
-            <h2 className={styles.projectTitle} ref={animatedLabelRef[0]}>
-              {projectTitle}
-            </h2>
             <p className={styles.projectDesc} ref={animatedLabelRef[1]}>
               {projectDescription}
             </p>
