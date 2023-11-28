@@ -29,7 +29,6 @@ import backendIcon from "../../../../public/assets/serviceIcons/webServicesIcons
 import ecommerceIcon from "../../../../public/assets/serviceIcons/webServicesIcons/ecommerce.svg";
 import frontendIcon from "../../../../public/assets/serviceIcons/webServicesIcons/frontend.svg";
 import fullstackIcon from "../../../../public/assets/serviceIcons/webServicesIcons/fullstack.svg";
-import webAppIcon from "../../../../public/assets/serviceIcons/webServicesIcons/webApp.svg";
 
 const ServiceCarosuel = dynamic(() =>
   import("@component/Components/CommonComponents/ServiceCarousel"),
@@ -56,26 +55,32 @@ const cardData = [
   {
     cardIcon: WebDevIcon,
     cardIconTitle: { firstLine: "Website", secondLine: "Development" },
+    href: "/services/Website Development",
   },
   {
     cardIcon: BlockchainIcon,
     cardIconTitle: { firstLine: "Blockchain", secondLine: "Development" },
+    href: "/services/Blockchain Development",
   },
   {
     cardIcon: MobileDevIcon,
     cardIconTitle: { firstLine: "Mobile", secondLine: "Development" },
+    href: "/services/Mobile App Development",
   },
   {
     cardIcon: UIUXIcon,
     cardIconTitle: { firstLine: "UI UX", secondLine: "Development" },
+    href: "/services/UI UX Development",
   },
   {
     cardIcon: GameDevIcon,
     cardIconTitle: { firstLine: "Game", secondLine: "Development" },
+    href: "/services/Game Development",
   },
   {
     cardIcon: IOTDevIcon,
     cardIconTitle: { firstLine: "IOT", secondLine: "Devices" },
+    href: "/services/IOT Devices",
   },
   {
     cardIcon: AIDevIcon,
@@ -83,10 +88,12 @@ const cardData = [
       firstLine: "Artificial Intelligence &",
       secondLine: "Machine Learning",
     },
+    href: "/services/Artificial Intelligence & Machine Learning",
   },
   {
     cardIcon: DevopsIcon,
     cardIconTitle: { firstLine: "DevOps &", secondLine: "Cloud Services" },
+    href: "/services/DevOps & Cloud Services",
   },
 ];
 
@@ -135,12 +142,6 @@ const content = {
         cardTitle: "Web app maintenance and update",
         cardDesc:
           "Post-launch, Zweidevs offers app maintenance and updates—bug fixes, performance boosts, and exciting new features to keep your app at its best.",
-      },
-      {
-        cardImage: webAppIcon,
-        cardTitle: "Experience Design",
-        cardDesc:
-          "Our extensive expertise in UI/UX design and front-end development allows us to create delightful user experiences.",
       },
     ],
   },
@@ -567,7 +568,7 @@ const SerivceDetails = () => {
         setIsLoading(false);
       }
     }
-  }, [router.isReady]);
+  }, [router.isReady, router.query]);
 
   useEffect(() => {
     const options = {
