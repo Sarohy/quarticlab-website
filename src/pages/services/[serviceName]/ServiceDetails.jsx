@@ -12,6 +12,8 @@ import MobodevServiceDetailsIcon from "../../../../public/assets/serviceIcons/mo
 import GDServiceDetailsIcon from "../../../../public/assets/serviceIcons/GD.jpg";
 import BlockchainDevServiceDetailsIcon from "../../../../public/assets/serviceIcons/bcdev.jpg";
 import AIdevServiceDetailsIcon from "../../../../public/assets/serviceIcons/AI.jpg";
+import IotServiceDetailsIcon from "../../../../public/assets/serviceIcons/iot.png";
+import DevOpsServiceDetailsIcon from "../../../../public/assets/serviceIcons/devops.jpg";
 
 import styles from "./serviceDetails.module.css";
 const ServiceDetailsCard = dynamic(() =>
@@ -190,7 +192,7 @@ const content = {
     ],
   },
   "DevOps & Cloud Services": {
-    image: AIdevServiceDetailsIcon,
+    image: DevOpsServiceDetailsIcon,
     headerTitle: "Effortless Success with Our DevOps Expertise",
 
     headerDescription:
@@ -415,7 +417,7 @@ const content = {
     ],
   },
   "IOT Devices": {
-    image: AIdevServiceDetailsIcon,
+    image: IotServiceDetailsIcon,
     headerTitle: "Empowering Connected Environments",
 
     headerDescription:
