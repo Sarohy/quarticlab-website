@@ -7,6 +7,12 @@ const PageBanner = dynamic(() =>
 );
 
 import WebDevServiceDetailsIcon from "../../../../public/assets/serviceIcons/webdev.jpg";
+import UiUxServiceDetailsIcon from "../../../../public/assets/serviceIcons/UIUX.jpg";
+import MobodevServiceDetailsIcon from "../../../../public/assets/serviceIcons/mobodev.jpg";
+import GDServiceDetailsIcon from "../../../../public/assets/serviceIcons/GD.jpg";
+import BlockchainDevServiceDetailsIcon from "../../../../public/assets/serviceIcons/bcdev.jpg";
+import AIdevServiceDetailsIcon from "../../../../public/assets/serviceIcons/AI.jpg";
+
 import styles from "./serviceDetails.module.css";
 const ServiceDetailsCard = dynamic(() =>
   import(
@@ -83,6 +89,7 @@ const cardData = [
 
 const content = {
   "Website Development": {
+    image: WebDevServiceDetailsIcon,
     headerTitle:
       "Elevate Your Online Presence: Expert Web App Development Services",
 
@@ -136,6 +143,7 @@ const content = {
   },
 
   "Blockchain Development": {
+    image: BlockchainDevServiceDetailsIcon,
     headerTitle:
       "Unlocking Tomorrow: Revolutionize Your Future with Our Blockchain Expertise",
 
@@ -182,6 +190,7 @@ const content = {
     ],
   },
   "DevOps & Cloud Services": {
+    image: AIdevServiceDetailsIcon,
     headerTitle: "Effortless Success with Our DevOps Expertise",
 
     headerDescription:
@@ -226,6 +235,7 @@ const content = {
     ],
   },
   "E-commerce Development": {
+    image: WebDevServiceDetailsIcon,
     headerTitle: "Building robust, user-friendly platforms",
 
     headerDescription:
@@ -270,6 +280,7 @@ const content = {
     ],
   },
   "Mobile App Development": {
+    image: MobodevServiceDetailsIcon,
     headerTitle: "High-Performance Mobile Apps",
 
     headerDescription:
@@ -302,6 +313,7 @@ const content = {
     ],
   },
   "Artificial Intelligence & Machine Learning": {
+    image: AIdevServiceDetailsIcon,
     headerTitle: "Elevate Innovation in Your Business",
 
     headerDescription:
@@ -347,6 +359,7 @@ const content = {
     ],
   },
   "UI UX Development": {
+    image: UiUxServiceDetailsIcon,
     headerTitle: "Create the best interface experience for your customers",
 
     headerDescription:
@@ -402,6 +415,7 @@ const content = {
     ],
   },
   "IOT Devices": {
+    image: AIdevServiceDetailsIcon,
     headerTitle: "Empowering Connected Environments",
 
     headerDescription:
@@ -457,6 +471,7 @@ const content = {
     ],
   },
   "Game Development": {
+    image: GDServiceDetailsIcon,
     headerTitle: "Crafting Fun, Unforgettable Games",
 
     headerDescription:
@@ -531,7 +546,7 @@ const content = {
   },
 };
 
-const Id = () => {
+const SerivceDetails = () => {
   const router = useRouter();
   const { serviceName } = router.query;
   const animatedHeadingRef = React.useRef(null);
@@ -596,7 +611,7 @@ const Id = () => {
       <ServiceDetailsCard
         key={1}
         projectDescription={content[serviceName].description}
-        projectImageUrl={WebDevServiceDetailsIcon}
+        projectImageUrl={content[serviceName].image}
         projectTitle={content[serviceName].heading}
         requestDemoOnClick={() => {
           window.open(
@@ -651,4 +666,4 @@ const Id = () => {
   );
 };
 
-export default Id;
+export default SerivceDetails;
