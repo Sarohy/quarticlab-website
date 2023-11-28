@@ -17,7 +17,7 @@ import Project6_Image1 from "../../../../public/assets/HomeIcons/Project/Project
 import styles from "./serviceCarosuel.module.css";
 import { Grid, useMediaQuery } from "@mui/material";
 
-function HomeSection4() {
+function HomeSection4({ cardTitle = "Web Development Projects" }) {
   const router = useRouter();
 
   const projectData = [
@@ -139,7 +139,7 @@ function HomeSection4() {
   return (
     <>
       <div className={styles.HS4MainContainer}>
-        <h2 className={styles.cardTitle}>{"Web Development Projects"}</h2>
+        <h2 className={styles.cardTitle}>{cardTitle}</h2>
         <Carousel
           activeIndicatorIconButtonProps={{
             style: {

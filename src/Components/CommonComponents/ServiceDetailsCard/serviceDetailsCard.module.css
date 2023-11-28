@@ -1,6 +1,6 @@
 .ProjectCardWrapper {
   flex-direction: row-reverse;
-  padding-top: 5rem;
+  padding-top: 1rem;
   padding-bottom: 6.25rem;
   /* padding-top: 6.25rem;
   padding-bottom: 8.125rem; */
@@ -84,6 +84,9 @@
   font-style: normal;
   font-weight: 600;
   line-height: 117%; /* 37.44px */
+  /* background-color: red; */
+  text-align: center;
+  margin-top: 5rem;
 }
 .projectCardContainer {
   /* border: 2px solid red; */
