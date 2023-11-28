@@ -85,7 +85,8 @@
   font-weight: 600;
   line-height: 117%; /* 37.44px */
   /* background-color: red; */
-  text-align: center;
+  /* text-align: center; */
+  margin-inline: 45px;
   margin-top: 5rem;
 }
 .projectCardContainer {
@@ -260,6 +261,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 117%; /* 23.4px */
+    margin-inline: 20px;
     text-align: center;
   }
   .projectDesc {
