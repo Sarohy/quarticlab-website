@@ -1,6 +1,6 @@
 .servicesIconCardContainer {
   box-sizing: border-box;
-
+  cursor: pointer;
   width: 300px;
   min-height: 250px;
 
@@ -81,7 +81,9 @@
   font-weight: 500;
   /* line-height: 0%; 0px */
 }
-
+.ptr {
+  cursor: pointer;
+}
 .boxImage {
   width: 6.1875rem;
   opacity: 0.8;
@@ -115,7 +117,7 @@
     font-weight: 600;
     line-height: 117.5%; /* 23.5px */
   }
-  .boxImage{
+  .boxImage {
     width: 4.375rem;
   }
   .boxTitle {
@@ -129,10 +131,10 @@
   .HS4CardContainer {
     text-align: center;
   }
-  .waveImgContainer{
+  .waveImgContainer {
     height: 85%;
   }
-  .waveImg{
+  .waveImg {
     width: 100% !important;
   }
 }

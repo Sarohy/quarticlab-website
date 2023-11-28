@@ -30,8 +30,8 @@
 } */
 
 .cta .buttonSpan:nth-child(2) {
-  transition: 0.5s;
-  margin-right: 0px;
+  /* transition: 0.5s;
+  margin-right: 0px; */
 }
 
 .cta .buttonSpan:nth-child(2) {

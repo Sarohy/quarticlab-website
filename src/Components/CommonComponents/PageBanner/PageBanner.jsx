@@ -15,7 +15,7 @@ function InstantBookingBanner(props) {
           <Breadcrumbs
             aria-label="breadcrumb"
             className={styles.breadcrumsText}
-            separator=">"
+            separator={<div className={styles.breadcrumsSeparator}>{">"}</div>}
           >
             <label className={styles.breadcrumsTextRoot}>
               <Link color="white" href="/services">

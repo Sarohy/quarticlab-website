@@ -23,6 +23,9 @@
   flex-direction: column;
 }
 
+.breadcrumsSeparator{
+  color: white;
+}
 /* .iBBContentContainer {
   width: 50%;
   font-family: poppins;

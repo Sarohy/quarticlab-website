@@ -2,11 +2,13 @@ import Image from "next/image";
 import WaveSVG from "../../../../public/assets/serviceIcons/waveSVG.svg";
 import { Box, Grid, useMediaQuery } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
+import { useRouter } from "next/router";
 import styles from "./servicesTechnologiesCard.module.css";
 
 function ServicesTechnologiesCard({ cardData, cardTitle }) {
   const isMobile = useMediaQuery("(max-width: 660px)");
   const isTablet = useMediaQuery("(max-width: 995px)");
+  const router = useRouter();
 
   const getChunkSize = () => {
     if (isMobile) {
@@ -63,18 +65,18 @@ function ServicesTechnologiesCard({ cardData, cardTitle }) {
                 <Box key={key}>
                   <div
                     className={`${styles.hiddenNestedCard} animate__animated ${styles.servicesIconCardContainer}`}
-                    // ref={animatedNestedCardDivRefs[key]}
+                    onClick={() => router.push(element.href)}
                   >
+                    {element.href}
                     <Image
                       alt={`${element.cardIconTitle.firstLine}`}
-                      // className="services-icon"
                       className={styles.boxImage}
                       height={"auto"}
                       src={element.cardIcon}
                       title={`Zweidevs | ${element.cardIconTitle.firstLine}`}
                     />
                     <div className={styles.boxTitle}>
-                      <label>
+                      <label className={styles.ptr}>
                         {element.cardIconTitle.firstLine}
                         <br></br>
                         {element.cardIconTitle.secondLine}

@@ -5,6 +5,11 @@
   font-weight: 700;
   font-size: 28px;
 }
+
+.labelStyle {
+  font-family: Poppins;
+}
+
 @media (max-width:590px){
   .sinceyear{
     font-size: 16px;
