@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const PageBanner = dynamic(() =>
   import("@component/Components/CommonComponents/PageBanner"),
@@ -550,9 +551,23 @@ const content = {
 
 const SerivceDetails = () => {
   const router = useRouter();
-  const { serviceName } = router.query;
+  const [serviceName, setServiceName] = useState("Website Development");
+  const [isLoading, setIsLoading] = useState(true);
   const animatedHeadingRef = React.useRef(null);
   const animatedButtonRef = React.useRef(null);
+
+  useEffect(() => {
+    if (router.isReady) {
+      const { serviceName } = router.query;
+      if (!serviceName) {
+        // ignore
+        //return null;
+      } else {
+        setServiceName(serviceName);
+        setIsLoading(false);
+      }
+    }
+  }, [router.isReady]);
 
   useEffect(() => {
     const options = {
@@ -610,60 +625,72 @@ const SerivceDetails = () => {
         heading={content[serviceName].headerTitle}
         title={content[serviceName].headerDescription}
       />
-      <ServiceDetailsCard
-        key={1}
-        projectDescription={content[serviceName].description}
-        projectImageUrl={content[serviceName].image}
-        projectTitle={content[serviceName].heading}
-        requestDemoOnClick={() => {
-          window.open(
-            "https://calendly.com/request-demo-zweidevs/30min",
-            "_blank",
-          );
-        }}
-        reverse={true}
-      />
-      <OfferingCard
-        cardData={content[serviceName].offeringCardData}
-        heading={`${serviceName} Services`}
-      />
-      <BusinessProcessCard
-        desc={
-          "Fast-track your project delivery using our simple three-step application development process."
-        }
-        heading={"Our Process"}
-      />
-      <ServiceCarosuel
-        cardTitle={`${serviceName} Projects`}
-        demoButton={false}
-        hideHeader
-      />
 
-      <ServicesTechnologiesCard
-        cardData={cardData}
-        cardTitle={"Another Services"}
-      />
-
-      <div className={styles.blogBanner}>
-        <h2 className={styles.blogBannerHeading} ref={animatedHeadingRef}>
-          Not Finding The Right Fit? Stay Connected
-        </h2>
-        <div className={styles.blogButton} ref={animatedButtonRef}>
-          <InstantBookingButton
-            customOne={styles.one}
-            customStyle={styles.bookinBtnStyle}
-            customThree={styles.three}
-            customTwo={styles.two}
-            onClick={() => {
+      {isLoading ? (
+        <div className={styles.loading}>
+          <CircularProgress
+            style={{
+              color: "#f18f01",
+            }}
+          />
+        </div>
+      ) : (
+        <>
+          <ServiceDetailsCard
+            key={1}
+            projectDescription={content[serviceName].description}
+            projectImageUrl={content[serviceName].image}
+            projectTitle={content[serviceName].heading}
+            requestDemoOnClick={() => {
               window.open(
                 "https://calendly.com/request-demo-zweidevs/30min",
                 "_blank",
               );
             }}
-            svgFill="#ff9700"
+            reverse={true}
           />
-        </div>
-      </div>
+          <OfferingCard
+            cardData={content[serviceName].offeringCardData}
+            heading={`${serviceName} Services`}
+          />
+          <BusinessProcessCard
+            desc={
+              "Fast-track your project delivery using our simple three-step application development process."
+            }
+            heading={"Our Process"}
+          />
+          <ServiceCarosuel
+            cardTitle={`${serviceName} Projects`}
+            demoButton={false}
+            hideHeader
+          />
+
+          <ServicesTechnologiesCard
+            cardData={cardData}
+            cardTitle={"Another Services"}
+          />
+          <div className={styles.blogBanner}>
+            <h2 className={styles.blogBannerHeading} ref={animatedHeadingRef}>
+              Not Finding The Right Fit? Stay Connected
+            </h2>
+            <div className={styles.blogButton} ref={animatedButtonRef}>
+              <InstantBookingButton
+                customOne={styles.one}
+                customStyle={styles.bookinBtnStyle}
+                customThree={styles.three}
+                customTwo={styles.two}
+                onClick={() => {
+                  window.open(
+                    "https://calendly.com/request-demo-zweidevs/30min",
+                    "_blank",
+                  );
+                }}
+                svgFill="#ff9700"
+              />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

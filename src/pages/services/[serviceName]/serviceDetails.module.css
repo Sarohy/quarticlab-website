@@ -67,6 +67,12 @@
   
     color: #2b2a35;
   }
+
+  .loading {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
   
   .blogBanner {
     width: 100%;
