@@ -107,44 +107,42 @@ const content = {
       "Elevate Your Online Presence: Expert Web App Development Services",
 
     headerDescription:
-      "We build modern, Secure, and High-Performance web applications by turning ideas into reality. Our expert web app development services are designed to launch your online presence to new heights",
+      "Transform your ideas into reality with our exceptional web app development services. Our seasoned team crafts tailored solutions that seamlessly blend innovation and functionality. From concept to deployment, we prioritize cutting-edge technologies and rigorous quality assurance to ensure your web app stands out. Trust Zweidevs to deliver a robust and user-centric online experience, enhancing your brand's digital footprint.",
     heading: `Custom Web Applications and Dedicated Support for Your Success!`,
-    description: `We use the latest technologies to build custom Web applications for your business needs, enabling you to digitize your internal processes with the best user experience on all screen sizes. We also provide free maintenance and support services and automated deployments, ensuring everything runs smoothly and swiftly.
+    description: `Our mission is to empower your business with the latest technologies and the best user experience. We create custom web applications that digitize your internal processes and ensure seamless operations. With free maintenance, support services, and automated deployments, we are committed to helping you achieve your goals and grow your business.
 
-        At Zweidevs, your success is our mission. We're not just developers; we're your partners in the digital realm. Your victories are our victories.
-       
-       Ready to take your online presence to new heights? Let's make it happen together with Zweidevs.`,
+    At Zweidevs, your success is our mission. We're not just developers; we're your partners in the digital realm. Your victories are our victories.`,
 
     offeringCardData: [
       {
         cardImage: designIcon,
         cardTitle: "Experience Design",
         cardDesc:
-          "Elevate user experiences with Zweidevs. Our UI/UX design and front-end expertise ensure delightful digital interactions.",
+          "Zweidevs' careful attention to experience design will improve user interactions. We map user journeys delicately, making sure every touchpoint is enjoyable in addition to being practical. Beyond aesthetics, our UI/UX expertise creates engaging digital experiences for your audience.",
       },
       {
         cardImage: frontendIcon,
         cardTitle: "Frontend Development",
         cardDesc:
-          "Experience innovation with Zweidevs. Our full-stack front-end expertise crafts human-centric web & mobile solutions that meet your goals.",
+          "Zweidevs's full-stack front-end expertise can help you discover innovation. Our developers combine creativity and technological proficiency to create user-friendly interfaces and responsive web and mobile solutions. We ensure your online presence is distinctive, captivating, and up to the ever-evolving standards of contemporary design.",
       },
       {
         cardImage: backendIcon,
         cardTitle: "Backend Development",
         cardDesc:
-          "Zweidevs crafts back-end solutions: extensible, scalable, and easy to maintain, empowering your digital growth.",
+          "Our back-end solutions can help you build a strong digital foundation. Our development team creates adaptable and scalable structures, maximizing performance and guaranteeing a smooth front-end integration. Count on us to establish the foundation for your online expansion.",
       },
       {
         cardImage: fullstackIcon,
         cardTitle: "Full Stack Development",
         cardDesc:
-          "Zweidevs offers comprehensive software engineering, from simple to high-performing backends, ensuring digital success.",
+          "Take advantage of Zweidevs' full-stack development services for end-to-end excellence. Our team links front-end and back-end technologies smoothly, from conception to deployment. We provide flexible, practical solutions that change to meet your changing business requirements.",
       },
       {
         cardImage: ecommerceIcon,
         cardTitle: "Web app maintenance and update",
         cardDesc:
-          "Post-launch, Zweidevs offers app maintenance and updates—bug fixes, performance boosts, and exciting new features to keep your app at its best.",
+          "Zweidevs is your committed partner for long-term success even after launch. Beyond bug patches, our maintenance and update services include exciting new features and performance improvements. With our continued assistance, you can keep your app at the forefront of innovation and customer happiness.",
       },
     ],
   },
@@ -691,9 +689,7 @@ const SerivceDetails = () => {
       <PageBanner
         BreadcrumbParrentPage={"Services"}
         BreadcrumbTitle={serviceName}
-        description={
-          "We are your creative web development team, who aim to leverage the latest technological advances with thoughtful design and serious engineering to build tailored solutions for our clients."
-        }
+        description={content[serviceName].headerDescription}
         heading={content[serviceName].headerTitle}
         title={content[serviceName].headerDescription}
       />
