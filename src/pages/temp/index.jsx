@@ -1,7 +1,8 @@
 import ProductDevSection from "@component/Components/CommonComponents/ProductDevSection/ProductDevSection";
-// import TechStack from "@component/Components/CommonComponents/TechStack/TechStack";
+import TechStack from "@component/Components/CommonComponents/TechStack/TechStack";
 import TargetAudience from "@component/Components/CommonComponents/TargetAudienceSection/TargetAudience";
 import Faq from "@component/Components/CommonComponents/FAQ/Faq";
+import LetsTalk from "@component/Components/CommonComponents/LetsTalk/LetsTalk";
 
 const faqData = [
   {
@@ -70,15 +71,36 @@ const productionDevSectionCardData = [
     cardDesc: `At Zweidevs, we build software solutions that, long after the initial product launch, continuously provide their owners with the expected results. We are able to maintain this success over time because of our dedication to providing excellent post-launch maintenance and support. We offer two ways for our customers to keep their products maintained for their convenience. In the first, customers pay a set monthly amount to receive a predetermined number of hours, similar to a subscription model. As an alternative, companies can gather jobs into a backlog and assign our team to handle them. Before giving them to our staff, clients usually accumulate jobs until they have at least eighty working hours. Clients generally agree this is the most economical way to sustain their software product.`,
   },
 ];
+
+const chipData = ["iOS", "Kotlin", "Dart", "React Native", "Ionic"] 
+
+const techStackCardData = [
+  {
+    cardTitle: "Front-end",
+    cardDesc: `Every new project at Zweidevs begins with a dedicated discovery phase, a strategy that we believe is critical to exploring the project's concept and defining its core requirements. Our clients can evaluate the viability of their investment and validate their business ideas at this first phase, which is a great opportunity. In the discovery phase, we discuss the intended functionality and look closely at the problems the customer wants the software product to solve. For our team, obtaining a wealth of project data is essential since it helps us determine the project's complexity and provide the customer with correct time and cost estimates.`,
+  },
+  {
+    cardTitle: "Back-end",
+    cardDesc:
+      "Our design team creates the foundation for the best web designs through the careful development of interactive prototypes and wireframes. We carefully design the user flow for future applications so that clients can see an appealing preview of their product. This flow is put through a rigorous testing process with actual users to make sure that it is easy to navigate. We prioritize creating a captivating first impression for online businesses, recognizing its critical value, and emphasize visual appeal in user interface design. We help companies build long-lasting relationships with their clients by emphasizing elegant and sophisticated web design.",
+  },
+  {
+    cardTitle: "Mobile",
+    cardDesc: `We've adopted Agile as our primary project management approach because we think it helps us maintain the high caliber of the products we provide, reduce risks, and give our clients more control over their projects. We break down our development process into manageable sprints that follow a specific pattern. We start with careful planning and move right into the development stage. After that, we thoroughly test the implemented functionality, document our findings, and release it once we've ensured no bugs are left. Our development team moves smoothly into the next phase at the end of each sprint, guaranteeing steady and organized progress.`,
+  },
+];
+
 const temp = () => {
   return (
     <div style={{ marginTop: 120, color: "black" }}>
-      <ProductDevSection cardData={productionDevSectionCardData} />
+      <ProductDevSection
+        showChip
+        cardData={techStackCardData}
+        showNumers={false}
+        chipData={chipData}
+      />
       {/* <TechStack /> */}
-      <div style={{ paddingBottom: 20, backgroundColor: "#F4F5F6" }}>
-        <TargetAudience cardData={targetAudienceCardData} />
-      </div>
-      <Faq faqData={faqData} />
+      {/* <LetsTalk/> */}
     </div>
   );
 };
