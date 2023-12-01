@@ -203,9 +203,7 @@
   }
   .targetAudience__itemActive .targetAudience__title {
     color: #FF9701;
-    color: var(--color-purple);
     border-bottom-color: #fff;
-    
   }
 
   .targetAudience__title {
@@ -218,10 +216,10 @@
     padding: 24px;
     box-sizing: border-box;
     background-color: #fff;
-    background-color: var(--color-white);
     text-align: center;
     cursor: pointer;
     border-bottom: 24px solid #f4f5f6;
+    /* bottom transaction */
     border-bottom: 24px solid var(--color-black-05);
     transition: all 0.5s ease-out;
   }

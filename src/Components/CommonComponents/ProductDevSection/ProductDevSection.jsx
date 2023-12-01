@@ -1,6 +1,12 @@
+import ChipCard from "@component/Components/CommonComponents/ChipCard/ChipCard";
 import styles from "./productDevSection.module.css";
 
-const ProductDevSection = ({ cardData }) => {
+const ProductDevSection = ({
+  cardData,
+  showNumers = true,
+  showChip = false,
+  chipData
+}) => {
   return (
     <div className={styles.root} style={{ color: "black" }}>
       <section
@@ -30,13 +36,22 @@ const ProductDevSection = ({ cardData }) => {
               <div key={key}>
                 <li className={`${styles.stages__item}`}>
                   <h3
-                    className={`${styles.heading} ${styles.heading3} ${styles.stages__title}`}
+                    style={{
+                      justifyContent: showNumers ? "center" : "start",
+                    }}
+                    className={`${styles.heading} ${styles.heading3} ${
+                      showNumers ? styles.stages__title : ""
+                    }`}
                   >
                     {card.cardTitle}
                   </h3>
-                  <p className={`${styles.text} ${styles.stages__text}`}>
-                    {card.cardDesc}
-                  </p>
+                  {showChip ? (
+                    <ChipCard chipData={chipData} />
+                  ) : (
+                    <p className={`${styles.text} ${styles.stages__text}`}>
+                      {card.cardDesc}
+                    </p>
+                  )}
                 </li>
                 {/* <hr color="#E6E8EC" style={{height: "0.1px"}} ></hr> */}
                 <div

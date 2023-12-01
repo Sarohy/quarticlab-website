@@ -53,6 +53,7 @@ import OfferingCard from "@component/Components/CommonComponents/OfferingsCard";
 import ProductDevSection from "@component/Components/CommonComponents/ProductDevSection/ProductDevSection";
 import TargetAudience from "@component/Components/CommonComponents/TargetAudienceSection/TargetAudience";
 import Faq from "@component/Components/CommonComponents/FAQ/Faq";
+import LetsTalk from "@component/Components/CommonComponents/LetsTalk/LetsTalk";
 
 const cardData = [
   {
@@ -551,6 +552,22 @@ const content = {
   },
 };
 
+const techStackCardData = [
+  {
+    cardTitle: "Front-end",
+    cardDesc: `Every new project at Zweidevs begins with a dedicated discovery phase, a strategy that we believe is critical to exploring the project's concept and defining its core requirements. Our clients can evaluate the viability of their investment and validate their business ideas at this first phase, which is a great opportunity. In the discovery phase, we discuss the intended functionality and look closely at the problems the customer wants the software product to solve. For our team, obtaining a wealth of project data is essential since it helps us determine the project's complexity and provide the customer with correct time and cost estimates.`,
+  },
+  {
+    cardTitle: "Back-end",
+    cardDesc:
+      "Our design team creates the foundation for the best web designs through the careful development of interactive prototypes and wireframes. We carefully design the user flow for future applications so that clients can see an appealing preview of their product. This flow is put through a rigorous testing process with actual users to make sure that it is easy to navigate. We prioritize creating a captivating first impression for online businesses, recognizing its critical value, and emphasize visual appeal in user interface design. We help companies build long-lasting relationships with their clients by emphasizing elegant and sophisticated web design.",
+  },
+  {
+    cardTitle: "Mobile",
+    cardDesc: `We've adopted Agile as our primary project management approach because we think it helps us maintain the high caliber of the products we provide, reduce risks, and give our clients more control over their projects. We break down our development process into manageable sprints that follow a specific pattern. We start with careful planning and move right into the development stage. After that, we thoroughly test the implemented functionality, document our findings, and release it once we've ensured no bugs are left. Our development team moves smoothly into the next phase at the end of each sprint, guaranteeing steady and organized progress.`,
+  },
+];
+
 const productionDevSectionCardData = [
   {
     cardTitle: "Discovery",
@@ -619,6 +636,8 @@ const faqData = [
   },
 ];
 
+const chipData = ["iOS", "Kotlin", "Dart", "React Native", "Ionic"];
+
 const SerivceDetails = () => {
   const router = useRouter();
   const [serviceName, setServiceName] = useState("Website Development");
@@ -646,8 +665,8 @@ const SerivceDetails = () => {
       threshold: 0.5,
     };
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -658,8 +677,8 @@ const SerivceDetails = () => {
       });
     }, options);
 
-    const observer1 = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer1 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -727,7 +746,15 @@ const SerivceDetails = () => {
             demoButton={false}
             hideHeader
           />
-
+          <LetsTalk
+            cardTitle={
+              "Do you have unique requirements for a mobile application?"
+            }
+            cardDesc={
+              "We have the expertise to deliver you a custom solution no one else has"
+            }
+            buttonTitle={`Schedule a call`}
+          />
           <ProductDevSection cardData={productionDevSectionCardData} />
           <div style={{ paddingBottom: 20, backgroundColor: "#F4F5F6" }}>
             <TargetAudience cardData={targetAudienceCardData} />
@@ -739,6 +766,22 @@ const SerivceDetails = () => {
             heading={"Our Process"}
           /> */}
 
+          <ProductDevSection
+            showChip
+            cardData={techStackCardData}
+            showNumers={false}
+            chipData={chipData}
+          />
+
+          <LetsTalk
+            cardTitle={
+              "Do you have unique requirements for a mobile application?"
+            }
+            cardDesc={
+              "We have the expertise to deliver you a custom solution no one else has"
+            }
+            buttonTitle={`Let's talk`}
+          />
           <ServicesTechnologiesCard
             cardData={cardData}
             cardTitle={"Another Services"}
