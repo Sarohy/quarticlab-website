@@ -19,21 +19,16 @@ const TargetAudience = ({ cardData }) => {
           <h2
             className={`${styles.fontHeading} ${styles.heading} ${styles.heading2} ${styles.targetAudience__heading}`}
           >
-            WE BUILD CUSTOM WEB APPLICATIONS FOR
+            {cardData.title}
           </h2>
           <p className={`${styles.caption} ${styles.targetAudience__caption}`}>
-            At Zweidevs, we specialize in creating custom online apps that are
-            carefully designed to match the distinct requirements of companies
-            of all sizes. Our committed team of professionals uses
-            state-of-the-art technology and a client-focused methodology to
-            provide customized solutions that effortlessly match the objectives
-            and ambitions of companies of any size.
+            {cardData.desc}
           </p>
           <ul
             className={` ${styles.targetAudience__list}`}
             // style={{ marginBottom: 136, border: "1px solid black" }}
           >
-            {cardData.map((data, key) => (
+            {cardData.targetAudienceCardData.map((data, key) => (
               <li
                 className={`${styles.targetAudience__item} ${
                   selectedIdx === key ? styles.targetAudience__itemActive : ""
@@ -63,7 +58,8 @@ const TargetAudience = ({ cardData }) => {
                     )}
                   </div>
                 </h3>
-                <div style={{ marginTop: selectedIdx === key ? 50 : "" }}></div>
+                <div //style={{ marginTop: selectedIdx === key ? 50 : "" }}
+                ></div>
                 <p
                   className={`${styles.targetAudience__text} ${styles.text}`}
                   style={{ display: selectedIdx === key ? "block" : "none" }}

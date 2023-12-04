@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./letsTalk.module.css";
 import Link from "next/link";
 
@@ -17,10 +16,10 @@ const LetsTalk = ({ cardTitle, cardDesc, buttonTitle }) => {
           </h2>
           <p class={`${styles.caption} ${styles.cta__caption}`}>{cardDesc}</p>
           <Link
+            class={`${styles.button} ${styles.buttonPurple} ${styles.cta__button}`}
             href="https://calendly.com/request-demo-zweidevs/30min"
             target=""
             title="Schedule a call"
-            class={`${styles.button} ${styles.buttonPurple} ${styles.cta__button}`}
           >
             {buttonTitle}
           </Link>

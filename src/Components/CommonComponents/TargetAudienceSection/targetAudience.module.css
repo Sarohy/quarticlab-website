@@ -4,7 +4,7 @@
   /* font-family: "pp-telegraf", sans-serif; */
   font-family: poppins;
   /* background-color: #C69BFF; */
-  margin-bottom: 70px;
+  margin-bottom: 100px;
 }
 
 .fontHeading {
@@ -21,7 +21,7 @@
 
 .targetAudience {
   background: #f4f5f6;
-  background: var(--color-black-05);
+  /* background: var(--color-black-05); */
 }
 
 .section {
@@ -86,7 +86,7 @@
   margin: 0;
   margin-top: 0px;
   color: #353945;
-  color: var(--color-black-60);
+  /* color: var(--color-black-60); */
   font-size: 17px;
   line-height: 1.5;
 }
@@ -134,7 +134,7 @@
   margin: 0;
   font-size: 15px;
   color: #353945;
-  color: var(--color-black-60);
+  /* color: var(--color-black-60); */
   line-height: 1.6;
 }
 .target-audience__list {
@@ -220,7 +220,7 @@
     cursor: pointer;
     border-bottom: 24px solid #f4f5f6;
     /* bottom transaction */
-    border-bottom: 24px solid var(--color-black-05);
+    /* border-bottom: 24px solid var(--color-black-05); */
     transition: all 0.5s ease-out;
   }
   .targetAudience__arrow{

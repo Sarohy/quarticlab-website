@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -5,6 +6,12 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import styles from "./faq.module.css";
 const Faq = ({ faqData }) => {
+  const [expandedPanel, setExpandedPanel] = useState(null);
+
+  const handleChange = panel => (event, isExpanded) => {
+    setExpandedPanel(isExpanded ? panel : null);
+  };
+
   return (
     <div
       className={styles.root}
@@ -16,13 +23,24 @@ const Faq = ({ faqData }) => {
         Frequently Asked Questions
       </h2>
       {faqData.map((data, key) => (
-        <Accordion key={key}>
+        <Accordion
+          expanded={expandedPanel === `panel-${key}`}
+          key={key}
+          onChange={handleChange(`panel-${key}`)}
+        >
           <AccordionSummary
             aria-controls="panel1a-content"
             expandIcon={<ExpandMoreIcon />}
             id="panel1a-header"
           >
-            <Typography style={{ fontSize: 21 }}>{data.title}</Typography>
+            <Typography
+              style={{
+                fontSize: 21,
+                color: expandedPanel === `panel-${key}` ? "#ff9700" : "#000",
+              }}
+            >
+              {data.title}
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography style={{ fontSize: 15 }}>{data.desc}</Typography>
