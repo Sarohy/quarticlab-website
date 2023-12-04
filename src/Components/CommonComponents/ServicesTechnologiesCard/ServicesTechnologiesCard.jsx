@@ -67,7 +67,6 @@ function ServicesTechnologiesCard({ cardData, cardTitle }) {
                     className={`${styles.hiddenNestedCard} animate__animated ${styles.servicesIconCardContainer}`}
                     onClick={() => router.push(element.href)}
                   >
-                    {element.href}
                     <Image
                       alt={`${element.cardIconTitle.firstLine}`}
                       className={styles.boxImage}

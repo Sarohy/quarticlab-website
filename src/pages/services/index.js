@@ -85,7 +85,7 @@ function Services() {
       cardIcon: UIUXIcon,
       cardIconTitle: { firstLine: "UI UX", secondLine: "Development" },
       cardTitle: "UI/UX Development",
-      href: "/services/UI UX Development",
+      href: "/services/UI & UX Development",
       cardDetails: `The UI/UX Design brings a design-centric approach to user interface and user experience. Our team is trained to solve problems and provide innovative solutions by following an entire process of UI/UX development.`,
       footerTitle: "Tools & Technologies",
       footerImages: [SketchIcon, FigmaIcon, InVision, InfinityUXIcon],
