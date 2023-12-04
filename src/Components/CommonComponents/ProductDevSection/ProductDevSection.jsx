@@ -1,12 +1,7 @@
 import ChipCard from "@component/Components/CommonComponents/ChipCard/ChipCard";
 import styles from "./productDevSection.module.css";
 
-const ProductDevSection = ({
-  cardData,
-  showNumers = true,
-  showChip = false,
-  chipData,
-}) => {
+const ProductDevSection = ({ cardData, showNumers = true }) => {
   return (
     <div className={styles.root} style={{ color: "black" }}>
       <section
@@ -21,7 +16,7 @@ const ProductDevSection = ({
             className={`${styles.heading}
             `}
           >
-            {cardData.title}
+            {cardData.title || "Tech Stack"}
           </h2>
           {cardData.desc && (
             <p className={`${styles.caption} ${styles.stages__caption}`}>
@@ -43,8 +38,8 @@ const ProductDevSection = ({
                     >
                       {card.cardTitle}
                     </h3>
-                    {showChip ? (
-                      <ChipCard chipData={chipData} />
+                    {card.chipData ? (
+                      <ChipCard chipData={card.chipData} />
                     ) : (
                       <p className={`${styles.text} ${styles.stages__text}`}>
                         {card.cardDesc}

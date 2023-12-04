@@ -74,7 +74,7 @@ const cardData = [
   {
     cardIcon: UIUXIcon,
     cardIconTitle: { firstLine: "UI UX", secondLine: "Development" },
-    href: "/services/UI UX Development",
+    href: "/services/UI & UX Development",
   },
   {
     cardIcon: GameDevIcon,
@@ -158,16 +158,11 @@ const content = {
       cardsData: [
         {
           cardTitle: "Front-end",
-          cardDesc: `Every new project at Zweidevs begins with a dedicated discovery phase, a strategy that we believe is critical to exploring the project's concept and defining its core requirements. Our clients can evaluate the viability of their investment and validate their business ideas at this first phase, which is a great opportunity. In the discovery phase, we discuss the intended functionality and look closely at the problems the customer wants the software product to solve. For our team, obtaining a wealth of project data is essential since it helps us determine the project's complexity and provide the customer with correct time and cost estimates.`,
+          chipData: ["Ruby on Rails", "Node.js", "Python", "PHP"],
         },
         {
           cardTitle: "Back-end",
-          cardDesc:
-            "Our design team creates the foundation for the best web designs through the careful development of interactive prototypes and wireframes. We carefully design the user flow for future applications so that clients can see an appealing preview of their product. This flow is put through a rigorous testing process with actual users to make sure that it is easy to navigate. We prioritize creating a captivating first impression for online businesses, recognizing its critical value, and emphasize visual appeal in user interface design. We help companies build long-lasting relationships with their clients by emphasizing elegant and sophisticated web design.",
-        },
-        {
-          cardTitle: "Mobile",
-          cardDesc: `We've adopted Agile as our primary project management approach because we think it helps us maintain the high caliber of the products we provide, reduce risks, and give our clients more control over their projects. We break down our development process into manageable sprints that follow a specific pattern. We start with careful planning and move right into the development stage. After that, we thoroughly test the implemented functionality, document our findings, and release it once we've ensured no bugs are left. Our development team moves smoothly into the next phase at the end of each sprint, guaranteeing steady and organized progress.`,
+          chipData: ["Javascript", "React", "Angular", "Vue"],
         },
       ],
     },
@@ -296,21 +291,15 @@ const content = {
         },
       ],
     },
-    techStackCardData: [
-      {
-        cardTitle: "Front-end",
-        cardDesc: `Every new project at Zweidevs begins with a dedicated discovery phase, a strategy that we believe is critical to exploring the project's concept and defining its core requirements. Our clients can evaluate the viability of their investment and validate their business ideas at this first phase, which is a great opportunity. In the discovery phase, we discuss the intended functionality and look closely at the problems the customer wants the software product to solve. For our team, obtaining a wealth of project data is essential since it helps us determine the project's complexity and provide the customer with correct time and cost estimates.`,
-      },
-      {
-        cardTitle: "Back-end",
-        cardDesc:
-          "Our design team creates the foundation for the best web designs through the careful development of interactive prototypes and wireframes. We carefully design the user flow for future applications so that clients can see an appealing preview of their product. This flow is put through a rigorous testing process with actual users to make sure that it is easy to navigate. We prioritize creating a captivating first impression for online businesses, recognizing its critical value, and emphasize visual appeal in user interface design. We help companies build long-lasting relationships with their clients by emphasizing elegant and sophisticated web design.",
-      },
-      {
-        cardTitle: "Mobile",
-        cardDesc: `We've adopted Agile as our primary project management approach because we think it helps us maintain the high caliber of the products we provide, reduce risks, and give our clients more control over their projects. We break down our development process into manageable sprints that follow a specific pattern. We start with careful planning and move right into the development stage. After that, we thoroughly test the implemented functionality, document our findings, and release it once we've ensured no bugs are left. Our development team moves smoothly into the next phase at the end of each sprint, guaranteeing steady and organized progress.`,
-      },
-    ],
+    techStackCardData: {
+      cardsData: [
+        {
+          cardTitle: "Blockchain",
+          cardDesc: `Every new project at Zweidevs begins with a dedicated discovery phase, a strategy that we believe is critical to exploring the project's concept and defining its core requirements. Our clients can evaluate the viability of their investment and validate their business ideas at this first phase, which is a great opportunity. In the discovery phase, we discuss the intended functionality and look closely at the problems the customer wants the software product to solve. For our team, obtaining a wealth of project data is essential since it helps us determine the project's complexity and provide the customer with correct time and cost estimates.`,
+          chipData: ["Solana", "Ethereum", "Cardano", "Avalaunch"],
+        },
+      ],
+    },
     headerTitle:
       "Unlocking Tomorrow: Revolutionize Your Future with Our Blockchain Expertise",
 
@@ -374,46 +363,123 @@ const content = {
   },
   "DevOps & Cloud Services": {
     image: DevOpsServiceDetailsIcon,
+    targetAudienceSection: {
+      title: `WE PROVIDE DEVOPS SERVICES FOR`,
+      desc: `Many businesses are looking into methods for shortening the time it takes to complete projects, from ideation to product launch. Adopting state-of-the-art DevOps techniques is crucial to achieving this goal, as it promotes improved coordination between development teams, analysts, and delivery managers.`,
+      targetAudienceCardData: [
+        {
+          cardTitle: "Startups",
+          cardDesc: `By using continuous integration and continuous deployment (CI/CD) techniques, DevOps services are essential to attaining a quick time-to-market. This makes it possible for entrepreneurs to deliver new features quickly. DevOps automation also aids in resource optimization, lower operating expenses, and fewer human errors for startups.`,
+        },
+        {
+          cardTitle: "Medium Businesses",
+          cardDesc: `Managing larger teams and more complicated projects is a problem for medium-sized businesses. Our DevOps services work by optimizing the processes involved in development, testing, and deployment; this increases productivity and decreases the need for manual intervention. DevOps's emphasis on better communication and cooperation is essential for assuring more seamless workflows even in the face of growing complexity.`,
+        },
+        {
+          cardTitle: "Large Business",
+          cardDesc: `Enterprise-level scalability offered by DevOps enables large firms to smoothly handle several projects. Our automated testing and deployment reduce risks and find and fixes problems early in the development cycle. DevOps approaches are also ideal for large businesses with strict regulatory commitments since they may be matched with governance standards and compliance requirements.`,
+        },
+      ],
+    },
+    productionDevSection: {
+      title: `HOW WE PROVIDE DEVOPS SERVICES`,
+      desc: `No desc`,
+      cardsData: [
+        {
+          cardTitle: "Planning",
+          cardDesc: `The foundation of Zweidevs' effective DevOps services is careful planning. In close collaboration with your team, we develop a tailored plan that combines a thorough implementation roadmap for DevOps with your business objectives.          `,
+        },
+        {
+          cardTitle: "Continuous Development",
+          cardDesc:
+            "Software is continuously developed in an atmosphere that we promote. Our methodology guarantees that your applications constantly evolve, quickly adjusting to new needs and technological developments.",
+        },
+        {
+          cardTitle: "Continuous Integration",
+          cardDesc: `Our DevOps services are known for their seamless integration. Strong Continuous Integration pipelines are implemented by Zweidevs, facilitating seamless code integration and a cooperative, efficient workflow for your development team.`,
+        },
+        {
+          cardTitle: "Continuous Testing",
+          cardDesc: `Quality assurance is integrated into every development phase via continuous testing. Our automated testing procedures reduce the possibility of errors in the production environment by ensuring the dependability and functionality of your apps.`,
+        },
+        {
+          cardTitle: "Continuous Monitoring",
+          cardDesc: ` Zweidevs uses continuous monitoring to prioritize routine upkeep. We put in place watchful monitoring technologies to quickly identify and fix problems, preserving peak system performance and reducing downtime.`,
+        },
+        {
+          cardTitle: "Continuous Feedback",
+          cardDesc: `Zweidevs promotes transparent channels of communication and a culture of continuous feedback. Frequent feedback loops guarantee that your development procedures are flexible and conform to changing customer requirements and project constraints.`,
+        },
+      ],
+    },
+    techStackCardData: {
+      cardsData: [
+        {
+          cardTitle: "Infrastructure",
+          chipData: ["AWS", "Google Cloud Platform", "Heroku", "Docker"],
+        },
+      ],
+    },
     headerTitle: "Effortless Success with Our DevOps Expertise",
 
     headerDescription:
-      "We specialize in making technology work for you, crafting user-friendly applications aligning with your vision. With us, it's not about complex coding; it's about simplicity and effectiveness, ensuring that every line of code amplifies your success.",
+      "Putting DevOps concepts into practice can result in more frequent deployments, quicker development cycles, and better software overall. Zweidevs redefines the conventional software development environment, guaranteeing that there are no needless obstacles in your way and that your route to success is clear and efficient.",
     heading: `Automating and Accelerating Your Software Delivery Pipeline`,
     description: `Software development with our advanced DevOps services makes teamwork easier, automating tasks and delivering software faster than ever.
-
-    At Zweidevs, we're not just software providers but your partners in progress. Empower your success journey with our seamless and confident DevOps solutions, ensuring efficiency and excellence at every step. Imagine a hassle-free journey where your ideas become powerful digital solutions effortlessly. From concept to deployment, we're with you every step of the way. Experience the ease of innovation and reliability with Zweidevs, where your success is not just a goal; it's a partnership we value.
-    `,
+    At Zweidevs, we're your progress partners and software suppliers. With our smooth and assured DevOps solutions, you can power your success journey and guarantee quality and efficiency at every turn. Imagine a simple process where your concepts are quickly and easily transformed into effective digital solutions. From conception to implementation, we support you at every stage. Discover the simplicity of creativity and dependability with Zweidevs, where we cherish our relationship and your success goes beyond merely a goal.`,
 
     offeringCardData: [
       {
         cardImage: designIcon,
-        cardTitle: "Infrastructure Automation",
+        cardTitle: "Devops as a Service",
         cardDesc:
-          "Transform your operations with Zweidevs’ DevOps expertise, delivering infrastructure automation that enhances scalability, efficiency, and agility.",
+          "You can rely on Zweidevs, a highly qualified technical staff, to manage your software development and implementation processes when you hire our DevOps as a service firm. With the move of collaboration from traditional development and operations teams to the cloud, DevOps as a Service represents a revolutionary change in application development.",
       },
       {
         cardImage: frontendIcon,
-        cardTitle: "Continuous Integration and Deployment (CI/CD)",
+        cardTitle: "Infrastructure Transformation",
         cardDesc:
-          "Zweidevs ensures the implementation of seamless CI/CD pipelines for faster and more reliable application releases.",
+          "Utilize Zweidevs' DevOps automation services to elevate your operations while experiencing an infrastructure automation fundamental shift. Discover increased scalability, improved operational efficiency, and unmatched agility as we transform the foundation of your IT environment.",
       },
       {
         cardImage: backendIcon,
-        cardTitle: "Monitoring and logging",
+        cardTitle: "Devops Continuous Integration and Deployment (CI/CD)",
         cardDesc:
-          "Ensure optimal performance and preempt issues with our DevOps services.",
+          "Manage smooth CI/CD pipelines so that your applications can release faster and with greater reliability. Observe a shift in your development lifecycle that emphasizes continuous delivery and efficiency.",
       },
       {
         cardImage: fullstackIcon,
+        cardTitle: "Monitoring and logging",
+        cardDesc:
+          "Protect peak performance and proactively address problems with our watchful DevOps services. Zweidevs maintains your systems under control with reliable monitoring and logging solutions, giving you the knowledge you need to anticipate problems and take proactive measures to resolve them.",
+      },
+      {
+        cardImage: ecommerceIcon,
         cardTitle: "Cloud Infrastructure Management",
         cardDesc:
-          "Maximize the potential of cloud environments, providing scalable cloud infrastructure management.",
+          "Take advantage of scalable and effective cloud infrastructure management to help your business fully utilize the resources and agility cloud platforms offer. With Cloud Security Managed Services, you can improve your company's cybersecurity. Use proactive monitoring, threat information, and customized tactics that guarantee the privacy and accuracy of your data.",
       },
       {
         cardImage: ecommerceIcon,
         cardTitle: "Security and Compliance",
         cardDesc:
-          "Fortify your digital landscape with DevOps security through industry-leading practices.",
+          "Set industry standards for protecting your digital landscape and fortify your digital defenses using Zweidevs' DevOps security techniques. Assure adherence to regulations and strengthen your systems with state-of-the-art security measures, giving your digital endeavors a safe and secure base.",
+      },
+    ],
+
+    faqData: [
+      {
+        title: "What is DevOps and how can it benefit my business?",
+        desc: `Software development and IT operations are integrated through the collaborative DevOps methodology, which optimizes workflows and boosts productivity. Businesses benefit from it through faster software delivery, fewer mistakes, increased scalability, cooperation, and a continuous improvement culture. This strategy guarantees a quicker time to market for products, giving businesses a competitive advantage in ever-changing markets.`,
+      },
+      {
+        title:
+          "How does DevOps consulting contribute to improved software development lifecycle in your company?",
+        desc: `DevOps consulting services can automate ineffective procedures, improve communication between development and operations teams, and apply continuous integration and deployment techniques. They use DevSecOps to address security and compliance issues, improve scalability, and encourage cultural transformation, which changes the overall efficacy and efficiency of the software development lifecycle in your company.`,
+      },
+      {
+        title: "Why choose Zweidevs for DevOps?",
+        desc: `Zweidevs creates a cooperative alliance in which we closely collaborate with your teams to promote open communication, shared accountability, and a shared enthusiasm for accomplishing your company's DevOps goals.`,
       },
     ],
   },
@@ -504,7 +570,7 @@ const content = {
           cardDesc: `The mobile app development process concludes with a meticulous release phase. Our quality assurance engineers conduct thorough manual and automated testing to guarantee flawless operation. All components, data, and code are deployed to production, with release notes serving as technical documentation. These notes provide comprehensive details on added features and resolved bugs, benefiting both internal and external users.`,
         },
         {
-          cardTitle: "Free-of-Cost 3 months Support and Maintenance",
+          cardTitle: "Support and Maintenance",
           cardDesc: `Zweidevs is committed to delivering sustained success with 3 months free of cost post-launch maintenance and support which is designed to keep your app performing at its best. Our clients enjoy flexibility in maintenance options, opting for a hassle-free monthly subscription model or by consolidating tasks into a backlog for convenient handling. Our dedicated team, well-versed in the intricacies of mobile app development, goes the extra mile to guarantee that your app not only meets but exceeds your expectations over time. Experience app development excellence with Zweidevs—where your success is our ongoing commitment.`,
         },
       ],
@@ -512,17 +578,8 @@ const content = {
     techStackCardData: {
       cardsData: [
         {
-          cardTitle: "Front-end",
-          cardDesc: `Every new project at Zweidevs begins with a dedicated discovery phase, a strategy that we believe is critical to exploring the project's concept and defining its core requirements. Our clients can evaluate the viability of their investment and validate their business ideas at this first phase, which is a great opportunity. In the discovery phase, we discuss the intended functionality and look closely at the problems the customer wants the software product to solve. For our team, obtaining a wealth of project data is essential since it helps us determine the project's complexity and provide the customer with correct time and cost estimates.`,
-        },
-        {
-          cardTitle: "Back-end",
-          cardDesc:
-            "Our design team creates the foundation for the best web designs through the careful development of interactive prototypes and wireframes. We carefully design the user flow for future applications so that clients can see an appealing preview of their product. This flow is put through a rigorous testing process with actual users to make sure that it is easy to navigate. We prioritize creating a captivating first impression for online businesses, recognizing its critical value, and emphasize visual appeal in user interface design. We help companies build long-lasting relationships with their clients by emphasizing elegant and sophisticated web design.",
-        },
-        {
           cardTitle: "Mobile",
-          cardDesc: `We've adopted Agile as our primary project management approach because we think it helps us maintain the high caliber of the products we provide, reduce risks, and give our clients more control over their projects. We break down our development process into manageable sprints that follow a specific pattern. We start with careful planning and move right into the development stage. After that, we thoroughly test the implemented functionality, document our findings, and release it once we've ensured no bugs are left. Our development team moves smoothly into the next phase at the end of each sprint, guaranteeing steady and organized progress.`,
+          chipData: ["iOS", "Kotlin", "Dart", "React Native", "Ionic"],
         },
       ],
     },
@@ -573,7 +630,7 @@ const content = {
         desc: `A simple web app with basic features might take a few weeks to a couple of months to develop, while more complex or enterprise-level applications could take several months or even a year. Rapid development frameworks and agile development methodologies can expedite the process, but it's essential to balance speed with thorough testing and quality assurance.`,
       },
       {
-        title: "Why choose Zweidevs for web application development?",
+        title: "Why choose Zweidevs for mobile application development?",
         desc: `Mobile app development involves creating software applications specifically designed to run on mobile devices. It offers businesses adaptable and affordable options. Their cross-platform compatibility ensures a uniform user experience on various devices and operating systems. Essentially, mobile app development gives companies the ability to create effective, easily accessible, and scalable solutions that they can use to keep up with changing technology and market demands.`,
       },
       {
@@ -608,51 +665,144 @@ const content = {
   },
   "Artificial Intelligence & Machine Learning": {
     image: AIdevServiceDetailsIcon,
-    headerTitle: "Elevate Innovation in Your Business",
+    targetAudienceSection: {
+      title: `WE BUILD CUSTOM AI APPLICATIONS FOR`,
+      desc: `At Zweidevs, we specialize in creating custom online apps that are
+      carefully designed to match the distinct requirements of companies
+      of all sizes. Our committed team of professionals uses
+      state-of-the-art technology and a client-focused methodology to
+      provide customized solutions that effortlessly match the objectives
+      and ambitions of companies of any size.`,
+      targetAudienceCardData: [
+        {
+          cardTitle: "Startups",
+          cardDesc: `We are experts in creating unique AI and ML solutions for Startups that address their unique growth goals and business difficulties. Our customized strategy guarantees affordable yet practical solutions, enabling firms to use artificial intelligence's advantages to optimize workflows, make data-driven choices, and promote creativity.`,
+        },
+        {
+          cardTitle: "Medium Businesses",
+          cardDesc: `We provide customized technology that increases productivity, automates procedures, and uncovers insightful information since we recognize the particular difficulties faced by companies of this size. Our adaptable solutions are made to give small and medium-sized enterprises the resources they need to be flexible, make wise decisions, and promote long-term growth in a market that is changing quickly.`,
+        },
+        {
+          cardTitle: "Large Business",
+          cardDesc: `Our solutions guarantee efficiency, strategic insights, and a competitive edge in today's fast-paced business environment, emphasizing tackling the particular issues faced by significant organizations. Our goal is to enable large businesses to utilize AI and ML for full long-term success and growth. We have experience in manufacturing, retail, healthcare, finance, and other industries.`,
+        },
+      ],
+    },
+    productionDevSection: {
+      title: `HOW We Utilize AI in Your Project`,
+      desc: `No desc.`,
+      cardsData: [
+        {
+          cardTitle: "Analysis",
+          cardDesc: `We carefully review your project's goals, specifications, and difficulties throughout the analysis stage. This crucial stage entails creating a strategy roadmap, defining essential performance indicators, and evaluating the viability and extent of AI integration. To ensure that the next phases in the AI utilization process smoothly match the objectives of your project for the best results, our analytical approach lays the foundation for informed decision-making.`,
+        },
+        {
+          cardTitle: "Discovery of data",
+          cardDesc:
+            "To create a strong basis for AI integration, we methodically locate and investigate suitable datasets throughout the data discovery phase. In order to ensure a thorough awareness of the information landscape, this critical stage entails finding and acquiring multiple data sources. With our careful approach to data discovery, we can reveal significant insights and facilitate well-informed decision-making in your project by laying the groundwork for efficient modeling and analysis.",
+        },
+        {
+          cardTitle: "Modeling",
+          cardDesc: `During the modeling phase, we build powerful AI models according to the particular needs of your project using complex algorithms and statistical methodologies. In this step, complex frameworks are created to help the system recognize patterns, forecast outcomes, and extract valuable information from the data. Our rigorous modeling procedure guarantees the development of reliable and effective AI systems, paving the way for well-informed decision-making and the best possible project results.`,
+        },
+        {
+          cardTitle: "Evaluation and Insights",
+          cardDesc: `We carefully evaluate AI models' performance during the assessment and insights phase to make sure they are accurate and dependable. Analyzing model outputs and improving algorithms to increase efficacy are crucial steps. We derive useful insights from the data through thorough examination, giving you actionable information that supports strategic planning and well-informed decision-making for the success of your project.`,
+        },
+        {
+          cardTitle: "AI Solutions",
+          cardDesc: `We put into practice and deploy customized AI systems made to take advantage of particular project prospects and obstacles. Using cutting-edge models, algorithms, and technology is what this phase entails in order to optimize workflows, boost productivity, and stimulate creativity. Zweidevs AI solutions are designed to have a quantifiable effect, giving your project cognitive capabilities and guaranteeing long-term success in a changing environment.`,
+        },
+      ],
+    },
+    techStackCardData: {
+      cardsData: [
+        {
+          cardTitle: "Front-end",
+          chipData: ["OpenAI", "PyTorch", "Keras", "openNN"],
+        },
+      ],
+    },
+    headerTitle:
+      "Elevate Innovation with Artificial Intelligence & Machine Learning in Your Business",
 
     headerDescription:
-      "Experience a transformative journey as we harness the power of artificial intelligence and machine learning tailored to your unique needs.",
+      "Set out on a revolutionary journey where the combination of machine learning (ML) and artificial intelligence (AI) is tailored to your company's unique requirements. Observe how complex tasks are automated, decisions are made with knowledge, and a data-driven strategy that easily adjusts to your unique needs. Integrate AI and ML solutions to optimize operations and provide the foundation for revolutionary development to stay ahead of the competition.",
     heading: `Cutting-edge AI and ML Services`,
-
-    description: `Transform your business with the frontier of technological advancement.
-    Welcome to a realm of limitless possibilities at Zweidevs, where our AI and ML services redefine the landscape of innovation and business intelligence. Harnessing the transformative power of Artificial Intelligence (AI) and Machine Learning (ML), we offer a comprehensive suite of services designed to propel your organization into the future.
-    Our AI and ML solutions are crafted with precision and tailored to meet the unique demands of your industry. Whether you seek to automate tasks, improve customer engagement, or gain actionable insights from your data, our services are designed to exceed expectations.
-    `,
+    description: `Welcome to Zweidevs, where our artificial intelligence-driven solutions redefine the boundaries of corporate intelligence and creativity. Here, the possibilities are truly endless. Leveraging the revolutionary potential of Artificial Intelligence (AI) and Machine Learning (ML), we provide an extensive range of services aimed at propelling your company forward.
+    Our AI and ML solutions are carefully developed to satisfy the particular requirements of your sector. Whether you aim to increase consumer engagement, automate operations, or extract valuable insights from your data, our services are built to go above and beyond.`,
 
     offeringCardData: [
       {
         cardImage: designIcon,
         cardTitle: "Custom AI and ML Solutions",
         cardDesc:
-          "Empower your business with bespoke AI and ML solutions tailored to your unique needs through custom-built intelligent applications.",
+          "Using specially designed intelligent applications, you can empower your company with artificial intelligence-driven solutions customized to meet your specific requirements. Our specially designed intelligent apps guarantee a personalized strategy, giving you access to finely adjusted algorithms that smoothly mesh with your particular requirements.",
       },
       {
         cardImage: frontendIcon,
+        cardTitle: "Data Discovery & Augmentation",
+        cardDesc:
+          "With the use of predictive analytics and third-party data, Zweidevs' Data Discovery & Augmentation services may help you gain extensive customer insights. Our methodology guarantees a comprehensive perspective of clients, enabling informed strategic decision-making through enhanced data.",
+      },
+      {
+        cardImage: backendIcon,
         cardTitle: "Data Science and Analytics",
         cardDesc:
-          "Leveraging advanced data science and analytics to turn raw data into strategic business intelligence.",
+          "Convert unprocessed data into useful business knowledge by utilizing cutting-edge data science and analytics. Make use of advanced statistical models and algorithms to extract valuable insights that facilitate well-informed decision-making.",
       },
       {
-        cardImage: backendIcon,
+        cardImage: fullstackIcon,
         cardTitle: "AI-powered Chatbots",
         cardDesc:
-          "Transform customer interactions with Zweidevs’ AI and ML expertise, delivering intelligent chatbots that enhance user engagement.",
+          "Zweidevs uses its expertise in AI and ML to create sophisticated chatbots that transform consumer relationships. Our sophisticated chatbots are made to increase user interaction by offering smooth, customized interactions. Leverage the effectiveness of state-of-the-art technology to promote creative thinking in communication approaches.",
       },
       {
-        cardImage: backendIcon,
+        cardImage: ecommerceIcon,
         cardTitle: "AI Integration with Existing Systems",
         cardDesc:
-          "Bridging cutting-edge technology with your existing systems for a cohesive and intelligent infrastructure with Zweidevs.",
+          "Embrace the advantages of an integrated ecosystem, where AI integration streamlines processes and brings in a new wave of creativity for your company. Zweidevs creates an intelligent infrastructure by integrating AI with your current systems in a smooth manner. Our method guarantees a seamless transfer, improving the effectiveness and flexibility of the system.",
       },
       {
-        cardImage: backendIcon,
+        cardImage: ecommerceIcon,
         cardTitle: "Data Democratization",
         cardDesc:
-          "Democratize access to insights across your organization, fostering a data-driven culture where decision-makers can effortlessly harness the power of data.",
+          "Throughout your company, democratize access to insights and cultivate a data-driven culture where decision-makers can easily leverage data. With Zweidevs, you can empower your entire team to have more equitable access to insights and cultivate a data-driven culture",
+      },
+    ],
+
+    faqData: [
+      {
+        title:
+          "What is Artificial Intelligence, and how can it benefit my business?",
+        desc: `The simulation of human intelligence in machines, which enables them to carry out activities that generally require human cognition, is known as artificial intelligence (AI). This includes learning, solving problems, comprehending language, and making decisions. There are several advantages to using AI in your company. Repetitive tasks can be automated with AI, increasing productivity and lowering costs. It offers insights derived from data, facilitating better decision-making. Predictive analytics helps streamline procedures, while artificial intelligence (AI) applications like chatbots improve client relations.`,
+      },
+      {
+        title:
+          "How is Machine Learning different from Artificial Intelligence?",
+        desc: `While machine learning (ML) focuses on machines that learn from data without explicit programming, artificial intelligence (AI) is a more general term that refers to machines that can execute activities that resemble human intelligence.`,
+      },
+      {
+        title: "How can businesses implement AI and ML?",
+        desc: `Establishing precise goals, obtaining high-quality data, choosing suitable algorithms, and frequently working with specialists or using AI/ML platforms are all necessary for implementing AI and ML.`,
+      },
+      {
+        title: "What are some real-world applications of AI and ML?",
+        desc: `Applications for AI and ML can be found in many different industries, such as marketing (client segmentation), banking (fraud detection), healthcare (diagnostic and treatment planning), and autonomous vehicles.`,
+      },
+      {
+        title:
+          "How do you ensure the security of the web applications you develop?",
+        desc: `An emphasis on web application security can be done through frequent audits, thorough code reviews, and encryption. We adhere to the least privilege principle and use strong authentication. The result is secure online apps that successfully reduce cybersecurity risks and prioritize data protection.`,
+      },
+      {
+        title:
+          "Do you provide ongoing maintenance and support after the web app is launched?",
+        desc: `Yes, we at Zweidevs recognize the value of continuous upkeep and assistance. We provide thorough maintenance services, which include bug repairs, updates, and optimizations, to guarantee your application keeps running smoothly. As your company grows, our support staff is here to help with any necessary improvements or modifications and to quickly resolve any issues that may arise.`,
       },
     ],
   },
-  "UI UX Development": {
+  "UI & UX Development": {
     image: UiUxServiceDetailsIcon,
     targetAudienceSection: {
       title: `UI/UX DESIGN SERVICES FOR EVERY BUSINESS, BY ZWEIDEVS`,
@@ -708,17 +858,8 @@ const content = {
     techStackCardData: {
       cardsData: [
         {
-          cardTitle: "Front-end",
-          cardDesc: `Every new project at Zweidevs begins with a dedicated discovery phase, a strategy that we believe is critical to exploring the project's concept and defining its core requirements. Our clients can evaluate the viability of their investment and validate their business ideas at this first phase, which is a great opportunity. In the discovery phase, we discuss the intended functionality and look closely at the problems the customer wants the software product to solve. For our team, obtaining a wealth of project data is essential since it helps us determine the project's complexity and provide the customer with correct time and cost estimates.`,
-        },
-        {
-          cardTitle: "Back-end",
-          cardDesc:
-            "Our design team creates the foundation for the best web designs through the careful development of interactive prototypes and wireframes. We carefully design the user flow for future applications so that clients can see an appealing preview of their product. This flow is put through a rigorous testing process with actual users to make sure that it is easy to navigate. We prioritize creating a captivating first impression for online businesses, recognizing its critical value, and emphasize visual appeal in user interface design. We help companies build long-lasting relationships with their clients by emphasizing elegant and sophisticated web design.",
-        },
-        {
-          cardTitle: "Mobile",
-          cardDesc: `We've adopted Agile as our primary project management approach because we think it helps us maintain the high caliber of the products we provide, reduce risks, and give our clients more control over their projects. We break down our development process into manageable sprints that follow a specific pattern. We start with careful planning and move right into the development stage. After that, we thoroughly test the implemented functionality, document our findings, and release it once we've ensured no bugs are left. Our development team moves smoothly into the next phase at the end of each sprint, guaranteeing steady and organized progress.`,
+          cardTitle: "UI/ UX Design",
+          chipData: ["figma", "canva", "adobe xd", "invision"],
         },
       ],
     },
@@ -726,7 +867,7 @@ const content = {
 
     headerDescription:
       "Transform Your Brand's Impact with Our UI/UX Development Services, Creating the Ultimate Interface Experience for Your Customers.",
-    heading: `Elevate Your Digital Journey By Choosing Zweidevs As Your Goto UI/UX Design And Development Services agency`,
+    heading: `Elevate Your Digital Journey By Choosing Zweidevs As Your Goto UI/UX Design And Development Services Agency`,
     description: `Start your digital adventure hand-in-hand with Zweidevs, the leading UI/UX Design and Development Services agency and redefine your online identity. We're not just here to design interfaces; we're dedicated to crafting experiences that resonate with you. Picture a digital realm where every click feels like a tailored experience, leaving a smile on your face.
     Join forces with Zweidevs, where our UI/UX service is more than pixels and layouts – it's about making your digital space a cozy home for your users. We create moments that matter, blending seamless navigation with visually stunning aesthetics. At Zweidevs, your satisfaction isn't just a checkbox; it's the heartbeat of our design philosophy.
     Let's not just transform your online presence; let's make it a captivating journey where you're not just a user but a cherished companion. Because at Zweidevs, we don't just care about design; we care about you.`,
@@ -834,17 +975,8 @@ const content = {
     techStackCardData: {
       cardsData: [
         {
-          cardTitle: "Front-end",
-          cardDesc: `Every new project at Zweidevs begins with a dedicated discovery phase, a strategy that we believe is critical to exploring the project's concept and defining its core requirements. Our clients can evaluate the viability of their investment and validate their business ideas at this first phase, which is a great opportunity. In the discovery phase, we discuss the intended functionality and look closely at the problems the customer wants the software product to solve. For our team, obtaining a wealth of project data is essential since it helps us determine the project's complexity and provide the customer with correct time and cost estimates.`,
-        },
-        {
-          cardTitle: "Back-end",
-          cardDesc:
-            "Our design team creates the foundation for the best web designs through the careful development of interactive prototypes and wireframes. We carefully design the user flow for future applications so that clients can see an appealing preview of their product. This flow is put through a rigorous testing process with actual users to make sure that it is easy to navigate. We prioritize creating a captivating first impression for online businesses, recognizing its critical value, and emphasize visual appeal in user interface design. We help companies build long-lasting relationships with their clients by emphasizing elegant and sophisticated web design.",
-        },
-        {
-          cardTitle: "Mobile",
-          cardDesc: `We've adopted Agile as our primary project management approach because we think it helps us maintain the high caliber of the products we provide, reduce risks, and give our clients more control over their projects. We break down our development process into manageable sprints that follow a specific pattern. We start with careful planning and move right into the development stage. After that, we thoroughly test the implemented functionality, document our findings, and release it once we've ensured no bugs are left. Our development team moves smoothly into the next phase at the end of each sprint, guaranteeing steady and organized progress.`,
+          cardTitle: "IoT Devices",
+          chipData: ["RaspberryPi", "Arduino"],
         },
       ],
     },
@@ -951,30 +1083,25 @@ const content = {
   "Game Development": {
     image: GDServiceDetailsIcon,
     targetAudienceSection: {
-      title: `WE BUILD CUSTOM WEB APPLICATIONS FOR`,
-      desc: `At Zweidevs, we specialize in creating custom online apps that are
-      carefully designed to match the distinct requirements of companies
-      of all sizes. Our committed team of professionals uses
-      state-of-the-art technology and a client-focused methodology to
-      provide customized solutions that effortlessly match the objectives
-      and ambitions of companies of any size.`,
+      title: `WE BUILD CUSTOM GAMES FOR`,
+      desc: `At Zweidevs, we immerse ourselves in the dynamic world of game development, creating immersive and tailored experiences that captivate audiences across various scales. Our passion lies in crafting custom games for`,
       targetAudienceCardData: [
         {
           cardTitle: "Startups",
-          cardDesc: `Recognizing the distinct obstacles and goals of smaller businesses, we provide them with cost-effective, scalable solutions that enable them to build a strong online presence. Whether you're starting a new business or want to improve your existing digital skills, our commitment is to offer creative, superior, and reasonably priced online solutions that help small businesses succeed in the digital world.`,
+          cardDesc: `Starting a game development journey with Zweidevs is similar to choosing your starting character for a grand adventure. For new businesses and aspiring gamers, we recognize the need for creativity and the desire to leave our mark in the gaming industry. Our group of strategists, designers, and developers works directly with small gaming companies to provide tailored solutions that realize your vision. We create every piece with the essence of your game's narrative, whether it be pixel-perfect graphics or captivating gameplay mechanics.`,
         },
         {
           cardTitle: "Medium Businesses",
-          cardDesc: `Our dedicated team is aware of the complex issues and expansion goals that mid-sized businesses face, and we use this knowledge to provide solutions that work in unison with their goals. Whether your goal is to increase consumer engagement, streamline internal operations, or broaden your digital presence, our all-encompassing approach guarantees that the web apps we develop are precisely tailored to meet the unique requirements of medium-sized enterprises.`,
+          cardDesc: `Medium-sized games can be strategic victories and truly unforgettable adventures in the wide world of game creation. At Zweidevs, we are aware of the challenges and goals associated with growing your game business. Our custom-made solutions for medium-sized games smoothly combine innovation and technology. We enhance your virtual world through sophisticated visuals, complex narratives, and cooperative features, guaranteeing a captivating gaming encounter that appeals to your expanding player population.`,
         },
         {
           cardTitle: "Large Business",
-          cardDesc: `Zweidevs is dedicated to developing custom web apps that smoothly interface with the complex operations of large companies, whether you want to boost digital interactions at scale, build reliable enterprise solutions, or streamline complex business processes. Our emphasis on performance, security, and innovation guarantees that the solutions we provide enable big businesses to prosper in the ever-changing digital environment, promoting effectiveness, expansion, and long-term success.`,
+          cardDesc: `Zweidevs is a seasoned game development ally for the titans of the gaming business, where every move they make can determine the fate of virtual worlds. Large games demand grand strategies and unparalleled creativity. Our specialty is creating large-scale game worlds, performance optimization, and integration of state-of-the-art technologies. We bring your ambitious gaming ideas to life with extreme attention to detail, from complex simulations to massively multiplayer online games (MMOs), guaranteeing an amazing gaming experience for players worldwide.`,
         },
       ],
     },
     productionDevSection: {
-      title: `HOW WE DEVELOP Game APPLICATIONS`,
+      title: `HOW WE DEVELOP GAME APPLICATIONS`,
       desc: `At Zweidevs, our game development process is not just a series of steps; it's a dynamic, collaborative journey where your vision is at the center. We ensure transparency, open communication, and a commitment to delivering a gaming experience that exceeds expectations.`,
       cardsData: [
         {
@@ -998,17 +1125,8 @@ const content = {
     techStackCardData: {
       cardsData: [
         {
-          cardTitle: "Front-end",
-          cardDesc: `Every new project at Zweidevs begins with a dedicated discovery phase, a strategy that we believe is critical to exploring the project's concept and defining its core requirements. Our clients can evaluate the viability of their investment and validate their business ideas at this first phase, which is a great opportunity. In the discovery phase, we discuss the intended functionality and look closely at the problems the customer wants the software product to solve. For our team, obtaining a wealth of project data is essential since it helps us determine the project's complexity and provide the customer with correct time and cost estimates.`,
-        },
-        {
-          cardTitle: "Back-end",
-          cardDesc:
-            "Our design team creates the foundation for the best web designs through the careful development of interactive prototypes and wireframes. We carefully design the user flow for future applications so that clients can see an appealing preview of their product. This flow is put through a rigorous testing process with actual users to make sure that it is easy to navigate. We prioritize creating a captivating first impression for online businesses, recognizing its critical value, and emphasize visual appeal in user interface design. We help companies build long-lasting relationships with their clients by emphasizing elegant and sophisticated web design.",
-        },
-        {
-          cardTitle: "Mobile",
-          cardDesc: `We've adopted Agile as our primary project management approach because we think it helps us maintain the high caliber of the products we provide, reduce risks, and give our clients more control over their projects. We break down our development process into manageable sprints that follow a specific pattern. We start with careful planning and move right into the development stage. After that, we thoroughly test the implemented functionality, document our findings, and release it once we've ensured no bugs are left. Our development team moves smoothly into the next phase at the end of each sprint, guaranteeing steady and organized progress.`,
+          cardTitle: "Mobile & Desktop",
+          chipData: ["Unity", "Blender", "GameBench", "Houdini"],
         },
       ],
     },
@@ -1075,8 +1193,6 @@ const content = {
     ],
   },
 };
-
-const chipData = ["iOS", "Kotlin", "Dart", "React Native", "Ionic"];
 
 const SerivceDetails = () => {
   const router = useRouter();
@@ -1191,9 +1307,7 @@ const SerivceDetails = () => {
             cardDesc={
               "We have the expertise to deliver you a custom solution no one else has"
             }
-            cardTitle={
-              "Do you have unique requirements for a mobile application?"
-            }
+            cardTitle={"Do you have unique requirements for your application?"}
           />
           <ProductDevSection
             cardData={content[serviceName].productionDevSection}
@@ -1212,8 +1326,6 @@ const SerivceDetails = () => {
 
           <ProductDevSection
             cardData={content[serviceName].techStackCardData}
-            chipData={chipData}
-            showChip
             showNumers={false}
           />
 
@@ -1223,7 +1335,7 @@ const SerivceDetails = () => {
               "We have the expertise to deliver you a custom solution no one else has"
             }
             cardTitle={
-              "Do you have unique requirements for a mobile application?"
+              "Do you have unique requirements for a your application?"
             }
           />
           <ServicesTechnologiesCard
