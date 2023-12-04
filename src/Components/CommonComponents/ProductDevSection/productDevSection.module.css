@@ -1,6 +1,7 @@
 .root {
     /* font-family: "pp-telegraf", sans-serif; */
   font-family: Poppins;
+  color: #0b0c0f;
 }
 
 .stages {
@@ -210,6 +211,19 @@
   font-size: max(20px, min(5.5vw, 26px));
 
   line-height: 1.25;
+  color: #FF9700;
+}
+
+@media only screen and (max-width: 1279px) {
+  .stages__title::before{
+    display: none;
+    margin: 0px;
+    padding: 0px;
+    left: 0;
+  }
+  .stages__item{
+    padding-left: 0px !important;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -227,7 +241,7 @@
     padding-bottom: 48px;
   }
   .stages__title {
-    padding-left: 120px;
+    /* padding-left: 120px; */
   }
 
   .heading3 {
@@ -254,6 +268,7 @@
 }
 
 @media (min-width: 1024px) {
+
   .stages__item {
     padding-left: 100px;
   }
@@ -268,6 +283,7 @@
   }
 }
 @media (min-width: 768px) {
+  
   .stages__item {
     position: relative;
     padding-left: 60px;

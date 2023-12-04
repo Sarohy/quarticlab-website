@@ -1,4 +1,3 @@
-import * as React from "react";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import styles from "./chipCard.module.css";
@@ -9,8 +8,8 @@ export default function ClickableChips({ chipData }) {
       {chipData.map((label, key) => (
         <Chip
           className={`${styles.chip}`}
-          label={label}
           key={key}
+          label={label}
           variant="outlined"
         />
       ))}
