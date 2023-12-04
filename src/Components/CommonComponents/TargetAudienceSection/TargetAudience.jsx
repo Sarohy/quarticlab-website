@@ -58,7 +58,8 @@ const TargetAudience = ({ cardData }) => {
                     )}
                   </div>
                 </h3>
-                <div style={{ marginTop: selectedIdx === key ? 50 : "" }}></div>
+                <div //style={{ marginTop: selectedIdx === key ? 50 : "" }}
+                ></div>
                 <p
                   className={`${styles.targetAudience__text} ${styles.text}`}
                   style={{ display: selectedIdx === key ? "block" : "none" }}
