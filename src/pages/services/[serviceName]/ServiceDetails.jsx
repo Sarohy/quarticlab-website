@@ -383,7 +383,7 @@ const content = {
     },
     productionDevSection: {
       title: `HOW WE PROVIDE DEVOPS SERVICES`,
-      desc: `No desc`,
+      desc: `We excel in DevOps, streamlining software delivery with automated pipelines and agile collaboration. Elevate your development process for speed, reliability, and scalability.`,
       cardsData: [
         {
           cardTitle: "Planning",
@@ -690,7 +690,7 @@ const content = {
     },
     productionDevSection: {
       title: `HOW We Utilize AI in Your Project`,
-      desc: `No desc.`,
+      desc: `Unlock the power of AI and ML with us. We specialize in cutting-edge solutions, transforming data into insights and fostering innovation. Elevate your business with intelligent technologies.`,
       cardsData: [
         {
           cardTitle: "Analysis",
