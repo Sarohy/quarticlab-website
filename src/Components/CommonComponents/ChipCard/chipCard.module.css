@@ -1,8 +1,8 @@
 .chip {
-  padding: 20px;
-  border-radius: 20px;
-  font-size: 20px;
-  font-family: poppins;
+  padding: 20px !important;
+  border-radius: 20px !important;
+  font-size: 20px !important;
+  font-family: poppins !important;
 }
 
 @media only screen and (max-width: 768px) {
@@ -12,7 +12,7 @@
     flex-direction: column;
   }
   .chip{
-    margin: 20px;
-    font-size: 14px;
+    margin: 20px !important;
+    font-size: 14px !important;
   }
 }
