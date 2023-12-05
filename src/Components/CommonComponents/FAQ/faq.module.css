@@ -1,4 +1,4 @@
-.root{
+.root {
   color: #0b0c0f;
 }
 
@@ -39,4 +39,22 @@
   font-size: max(36px, min(8vw, 96px));
   text-transform: uppercase;
   line-height: 1;
+}
+
+.faqTitle {
+  font-size: 21px;
+}
+.faqDesc{
+font-size: 15px;
+}
+@media only screen and (max-width: 768px) {
+  .heading {
+    font-size: 20px !important;
+  }
+  .faqTitle {
+    font-size: 1.125rem
+  }
+  .faqDesc{
+    font-size: 12px;
+  }
 }

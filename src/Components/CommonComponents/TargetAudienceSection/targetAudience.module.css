@@ -279,3 +279,22 @@
     margin: 0px;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .heading{
+    font-size: 1.25rem !important;
+  }
+  .caption {
+    line-height: normal;
+    font-size: 12px;
+  }
+  .targetAudience__text{
+    font-size: 0.75rem;
+    line-height: normal;
+    margin-top: 16px;
+    text-align: center;
+  }
+  .root{
+    margin-bottom: 0rem;
+  }
+}

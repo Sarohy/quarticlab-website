@@ -110,13 +110,12 @@
     flex-shrink: 0;
   }
   .cardTitle {
-    background-color: red;
     color: #2b2a35;
     font-family: Poppins;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
-    line-height: 0%; /* 0px */
+    /* line-height: 0%; 0px */
   }
   .cardDesc {
     color: #494949;
