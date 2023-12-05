@@ -4,3 +4,14 @@
   font-size: 20px;
   font-family: poppins;
 }
+
+@media only screen and (max-width: 768px) {
+  .root {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .chip{
+    margin: 20px;
+  }
+}

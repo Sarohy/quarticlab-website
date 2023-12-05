@@ -297,4 +297,13 @@
 
     left: -60px;
   }
+  .section {
+    /* padding: 5px 0; */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .section {
+    padding: 0px 0 !important;
+  }
 }

@@ -1312,7 +1312,7 @@ const SerivceDetails = () => {
           <ProductDevSection
             cardData={content[serviceName].productionDevSection}
           />
-          <div style={{ paddingBottom: 20, backgroundColor: "#F4F5F6" }}>
+          <div className={styles.targetAudienceContainer}>
             <TargetAudience
               cardData={content[serviceName].targetAudienceSection}
             />
