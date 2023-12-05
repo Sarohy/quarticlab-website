@@ -1,5 +1,5 @@
-.root{
-  background-color: #F4F5F6;
+.root {
+  background-color: #f4f5f6;
   color: #0b0c0f;
   /* font-family: "pp-telegraf", sans-serif; */
   font-family: poppins;
@@ -11,12 +11,12 @@
   font-family: "NeueMachina";
 }
 
-.bgWhite{
-    background-color: white;
+.bgWhite {
+  background-color: white;
 }
 
 .displayNone {
-    display: none;
+  display: none;
 }
 
 .targetAudience {
@@ -143,10 +143,8 @@
 
 .targetAudience__arrow {
   display: none;
-  color: #FF9701
+  color: #ff9701;
 }
-
-
 
 @media (min-width: 1280px) {
   .section {
@@ -167,10 +165,10 @@
     border-bottom-width: 32px;
   }
   .targetAudience__itemActive:hover h3 {
-    color: #FF9701;
+    color: #ff9701;
   }
   .cardTitle :hover {
-    color: #FF9701;
+    color: #ff9701;
   }
   .heading3 {
     margin-bottom: 16px;
@@ -202,7 +200,7 @@
     padding: 0;
   }
   .targetAudience__itemActive .targetAudience__title {
-    color: #FF9701;
+    color: #ff9701;
     border-bottom-color: #fff;
   }
 
@@ -223,7 +221,7 @@
     /* border-bottom: 24px solid var(--color-black-05); */
     transition: all 0.5s ease-out;
   }
-  .targetAudience__arrow{
+  .targetAudience__arrow {
     /* margin-bottom: 20px; */
     /* background-color: red; */
   }
@@ -263,11 +261,40 @@
     cursor: pointer;
   }
   .targetAudience__itemActive .targetAudience__title {
-    color: #FF9701;
-  
+    color: #ff9701;
   }
   .targetAudience__itemActive .targetAudience__arrow {
     opacity: 1;
     transform: rotate(90deg) translate(0);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .targetAudience__item {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .heading3 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .heading{
+    font-size: 1.25rem !important;
+  }
+  .caption {
+    line-height: normal;
+    font-size: 12px;
+  }
+  .targetAudience__text{
+    font-size: 0.75rem;
+    line-height: normal;
+    margin-top: 16px;
+    text-align: center;
+  }
+  .root{
+    margin-bottom: 0rem;
   }
 }

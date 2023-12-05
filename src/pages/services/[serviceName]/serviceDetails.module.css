@@ -121,11 +121,23 @@
     flex-direction: column;
   }
 
+  .targetAudienceContainer{
+    padding-bottom: 20px;
+    background-color: #F4F5F6;
+  }
+
+  @media only screen and (max-width: 1024px){
+    .targetAudienceContainer{
+      padding: 0px;
+      background-color: #F4F5F6;
+    }
+  }
   @media (max-width: 800px){
     .blogRoot{
       padding-left: 20px;
       padding-right: 20px;
     }
+   
   }
   @media screen and (max-width: 590px) {
     .blogRoot{

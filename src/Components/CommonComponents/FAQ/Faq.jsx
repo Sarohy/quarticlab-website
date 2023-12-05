@@ -34,8 +34,8 @@ const Faq = ({ faqData }) => {
             id="panel1a-header"
           >
             <Typography
+              className={styles.faqTitle}
               style={{
-                fontSize: 21,
                 color: expandedPanel === `panel-${key}` ? "#ff9700" : "#000",
               }}
             >
@@ -43,7 +43,7 @@ const Faq = ({ faqData }) => {
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography style={{ fontSize: 15 }}>{data.desc}</Typography>
+            <Typography className={styles.faqDesc}>{data.desc}</Typography>
           </AccordionDetails>
         </Accordion>
       ))}

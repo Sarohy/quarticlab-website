@@ -48,11 +48,8 @@ const ProductDevSection = ({ cardData, showNumers = true }) => {
                   </li>
                   {/* <hr color="#E6E8EC" style={{height: "0.1px"}} ></hr> */}
                   <div
+                    className={styles.hrLine}
                     style={{
-                      backgroundColor: "#E6E8EC",
-                      height: "1px",
-                      width: "100%",
-                      marginBottom: 50,
                       display:
                         key === cardData.cardsData.length - 1
                           ? "none"
