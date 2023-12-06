@@ -66,7 +66,7 @@ const AboutUsCard4 = () => {
       <div className={styles.AUCd4Main}>
         <div ref={animatedHeadingRef}>
           <div className={styles.AUCard4Heading}>
-            <p>Our Team Members</p>{" "}
+            <p>Our Founders</p>
             <hr className={styles.AUCard4HeadingLine1} />
             <hr className={styles.AUCard4HeadingLine2} />
           </div>

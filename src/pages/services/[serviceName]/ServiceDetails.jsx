@@ -3,10 +3,12 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import CircularProgress from "@mui/material/CircularProgress";
 
-const PageBanner = dynamic(() =>
-  import("@component/Components/CommonComponents/PageBanner"),
+const PageBanner = dynamic(
+  () => import("@component/Components/CommonComponents/PageBanner"),
+  { preload: true },
 );
 
+// static images
 import WebDevServiceDetailsIcon from "../../../../public/assets/serviceIcons/webdev.jpg";
 import UiUxServiceDetailsIcon from "../../../../public/assets/serviceIcons/UIUX.jpg";
 import MobodevServiceDetailsIcon from "../../../../public/assets/serviceIcons/mobodev.jpg";
@@ -17,27 +19,85 @@ import IotServiceDetailsIcon from "../../../../public/assets/serviceIcons/iot.pn
 import DevOpsServiceDetailsIcon from "../../../../public/assets/serviceIcons/devops.jpg";
 
 import styles from "./serviceDetails.module.css";
-const ServiceDetailsCard = dynamic(() =>
-  import(
-    "@component/Components/CommonComponents/ServiceDetailsCard/SerivceDetailsCard"
-  ),
+const ServiceDetailsCard = dynamic(
+  () =>
+    import(
+      "@component/Components/CommonComponents/ServiceDetailsCard/SerivceDetailsCard"
+    ),
+  { preload: true },
 );
 
 import { InstantBookingButton } from "@component/Components/CommonComponents";
+
+//web
 import designIcon from "../../../../public/assets/serviceIcons/webServicesIcons/design.svg";
 import backendIcon from "../../../../public/assets/serviceIcons/webServicesIcons/backend.svg";
 import ecommerceIcon from "../../../../public/assets/serviceIcons/webServicesIcons/ecommerce.svg";
 import frontendIcon from "../../../../public/assets/serviceIcons/webServicesIcons/frontend.svg";
 import fullstackIcon from "../../../../public/assets/serviceIcons/webServicesIcons/fullstack.svg";
 
-const ServiceCarosuel = dynamic(() =>
-  import("@component/Components/CommonComponents/ServiceCarousel"),
+//mobile
+import hybirdMoboIcon from "../../../../public/assets/serviceIcons/moboIcons/hybirdMobileIcon.svg";
+import mobo2Icon from "../../../../public/assets/serviceIcons/moboIcons/mobo2.svg";
+import mobo3Icon from "../../../../public/assets/serviceIcons/moboIcons/mobo3.svg";
+
+//ui ux
+import uiux1Icon from "../../../../public/assets/serviceIcons/uiuxIcons/uiux1.svg";
+import uiux2Icon from "../../../../public/assets/serviceIcons/uiuxIcons/uiux2.svg";
+import uiux3Icon from "../../../../public/assets/serviceIcons/uiuxIcons/uiux3.svg";
+import uiux4Icon from "../../../../public/assets/serviceIcons/uiuxIcons/uiux4.svg";
+import uiux5Icon from "../../../../public/assets/serviceIcons/uiuxIcons/uiux5.svg";
+
+//gd
+import gd1Icon from "../../../../public/assets/serviceIcons/gdIcons/gd1.svg";
+import gd2Icon from "../../../../public/assets/serviceIcons/gdIcons/gd2.svg";
+import gd3Icon from "../../../../public/assets/serviceIcons/gdIcons/gd3.svg";
+import gd4Icon from "../../../../public/assets/serviceIcons/gdIcons/gd4.svg";
+
+//iot
+import iot1Icon from "../../../../public/assets/serviceIcons/iotIcons/iot1.svg";
+import iot2Icon from "../../../../public/assets/serviceIcons/iotIcons/iot2.svg";
+import iot3Icon from "../../../../public/assets/serviceIcons/iotIcons/iot3.svg";
+import iot4Icon from "../../../../public/assets/serviceIcons/iotIcons/iot4.svg";
+import iot5Icon from "../../../../public/assets/serviceIcons/iotIcons/iot5.svg";
+import iot6Icon from "../../../../public/assets/serviceIcons/iotIcons/iot6.svg";
+import iot7Icon from "../../../../public/assets/serviceIcons/iotIcons/iot7.svg";
+import iot8Icon from "../../../../public/assets/serviceIcons/iotIcons/iot8.svg";
+
+//ai
+import ai1Icon from "../../../../public/assets/serviceIcons/aiIcons/ai1.svg";
+import ai2Icon from "../../../../public/assets/serviceIcons/aiIcons/ai2.svg";
+import ai3Icon from "../../../../public/assets/serviceIcons/aiIcons/ai3.svg";
+import ai4Icon from "../../../../public/assets/serviceIcons/aiIcons/ai4.svg";
+import ai5Icon from "../../../../public/assets/serviceIcons/aiIcons/ai5.svg";
+import ai6Icon from "../../../../public/assets/serviceIcons/aiIcons/ai6.svg";
+
+//devops
+import dev1Icon from "../../../../public/assets/serviceIcons/devOPSIcon/dev1.svg";
+import dev2Icon from "../../../../public/assets/serviceIcons/devOPSIcon/dev2.svg";
+import dev3Icon from "../../../../public/assets/serviceIcons/devOPSIcon/dev3.svg";
+import dev4Icon from "../../../../public/assets/serviceIcons/devOPSIcon/dev4.svg";
+import dev5con from "../../../../public/assets/serviceIcons/devOPSIcon/dev5.svg";
+import dev6Icon from "../../../../public/assets/serviceIcons/devOPSIcon/dev6.svg";
+
+//bcIcons
+import bc1Icon from "../../../../public/assets/serviceIcons/BCIcons/bc1.svg";
+import bc2Icon from "../../../../public/assets/serviceIcons/BCIcons/bc2.svg";
+import bc3Icon from "../../../../public/assets/serviceIcons/BCIcons/bc3.svg";
+import bc4Icon from "../../../../public/assets/serviceIcons/BCIcons/bc4.svg";
+import bc5Icon from "../../../../public/assets/serviceIcons/BCIcons/bc5.svg";
+
+const ServiceCarosuel = dynamic(
+  () => import("@component/Components/CommonComponents/ServiceCarousel"),
+  { preload: true },
 );
 
-const ServicesTechnologiesCard = dynamic(() =>
-  import(
-    "@component/Components/CommonComponents/ServicesTechnologiesCard/index"
-  ),
+const ServicesTechnologiesCard = dynamic(
+  () =>
+    import(
+      "@component/Components/CommonComponents/ServicesTechnologiesCard/index"
+    ),
+  { preload: true },
 );
 
 import AIDevIcon from "../../../../public/assets/serviceIcons/AIDevIcon.svg";
@@ -260,7 +320,7 @@ const content = {
       ],
     },
     productionDevSection: {
-      title: `BLOCKCHAIN DEVELOPMENT SERVICES`,
+      title: `Blockchain Solutions Lifecycle`,
       desc: null,
       cardsData: [
         {
@@ -312,30 +372,30 @@ const content = {
 
     offeringCardData: [
       {
-        cardImage: designIcon,
+        cardImage: bc1Icon,
         cardTitle: "Enhanced Security",
         cardDesc: `Our experience will strengthen your operations, guaranteeing data integrity and resistance to changing threats. Our blockchain solutions raise the bar for your company's security standards by offering a strong defense. With Zweidevs, you may enjoy a reliable and safe environment that protects your vital processes.`,
       },
       {
-        cardImage: backendIcon,
+        cardImage: bc2Icon,
         cardTitle: "Greater Transparency",
         cardDesc:
           "Our blockchain solutions guarantee confidence and accountability in every transaction by offering a decentralized, secure ledger. Gain instantaneous insight into operations while creating a safe and open environment for your company.",
       },
       {
-        cardImage: fullstackIcon,
+        cardImage: bc3Icon,
         cardTitle: "Automation",
         cardDesc:
           "Experience workflows that are more efficient because our solutions optimize and automate tasks, requiring less manual intervention. Welcome to a new era of efficiency with Zweidevs, where smart contracts improve your operations' precision and velocity. You can rely on us to implement modern automation to streamline and transform your business operations.",
       },
       {
-        cardImage: ecommerceIcon,
+        cardImage: bc4Icon,
         cardTitle: "Instant Traceability",
         cardDesc:
           "Zweidevs incorporates blockchain technology to enable real-time traceability, enabling you to monitor each stage of your workflow. Take advantage of increased responsibility and visibility because our solutions offer an unchangeable record of your actions. Make sure the ecosystem is traceable and transparent with Zweidevs so you can make sound decisions.",
       },
       {
-        cardImage: ecommerceIcon,
+        cardImage: bc5Icon,
         cardTitle: "Increased Efficiency",
         cardDesc:
           "Gain more productivity as blockchain technology automates tedious chores and streamlines procedures. Unlock the possibilities for an environment in a company that is more effective and flexible with Zweidevs. Put your trust in us to use revolutionary blockchain technology to streamline your processes.",
@@ -430,37 +490,37 @@ const content = {
 
     offeringCardData: [
       {
-        cardImage: designIcon,
+        cardImage: dev1Icon,
         cardTitle: "Devops as a Service",
         cardDesc:
           "You can rely on Zweidevs, a highly qualified technical staff, to manage your software development and implementation processes when you hire our DevOps as a service firm. With the move of collaboration from traditional development and operations teams to the cloud, DevOps as a Service represents a revolutionary change in application development.",
       },
       {
-        cardImage: frontendIcon,
+        cardImage: dev2Icon,
         cardTitle: "Infrastructure Transformation",
         cardDesc:
           "Utilize Zweidevs' DevOps automation services to elevate your operations while experiencing an infrastructure automation fundamental shift. Discover increased scalability, improved operational efficiency, and unmatched agility as we transform the foundation of your IT environment.",
       },
       {
-        cardImage: backendIcon,
+        cardImage: dev3Icon,
         cardTitle: "Devops Continuous Integration and Deployment (CI/CD)",
         cardDesc:
           "Manage smooth CI/CD pipelines so that your applications can release faster and with greater reliability. Observe a shift in your development lifecycle that emphasizes continuous delivery and efficiency.",
       },
       {
-        cardImage: fullstackIcon,
+        cardImage: dev4Icon,
         cardTitle: "Monitoring and logging",
         cardDesc:
           "Protect peak performance and proactively address problems with our watchful DevOps services. Zweidevs maintains your systems under control with reliable monitoring and logging solutions, giving you the knowledge you need to anticipate problems and take proactive measures to resolve them.",
       },
       {
-        cardImage: ecommerceIcon,
+        cardImage: dev5con,
         cardTitle: "Cloud Infrastructure Management",
         cardDesc:
           "Take advantage of scalable and effective cloud infrastructure management to help your business fully utilize the resources and agility cloud platforms offer. With Cloud Security Managed Services, you can improve your company's cybersecurity. Use proactive monitoring, threat information, and customized tactics that guarantee the privacy and accuracy of your data.",
       },
       {
-        cardImage: ecommerceIcon,
+        cardImage: dev6Icon,
         cardTitle: "Security and Compliance",
         cardDesc:
           "Set industry standards for protecting your digital landscape and fortify your digital defenses using Zweidevs' DevOps security techniques. Assure adherence to regulations and strengthen your systems with state-of-the-art security measures, giving your digital endeavors a safe and secure base.",
@@ -596,19 +656,19 @@ const content = {
 
     offeringCardData: [
       {
-        cardImage: designIcon,
+        cardImage: hybirdMoboIcon,
         cardTitle: "Hybrid Mobile App Development",
         cardDesc:
           "Zweidevs excels in hybrid app development, ensuring a seamless user experience across diverse devices. With our native app development experience, tailored for the iOS and Android platforms, you can completely engross your audience in platform-specific excellence. If you're contemplating how to hire a mobile app developer for your hybrid app idea, Zweidevs is your strategic partner in transforming concepts into reality.",
       },
       {
-        cardImage: frontendIcon,
+        cardImage: mobo2Icon,
         cardTitle: "Native Mobile App Development",
         cardDesc:
           "Ensure optimal performance and deliver an exceptional user experience tailored to each device. With Zweidevs' Native App Development services, your application is finely tuned for both iOS and Android platforms, ensuring it excels in performance and provides a superior user interface across all devices. Gain complete control and access to platform-specific code, guaranteeing your native app is optimized for each operating system, resulting in an unparalleled user experience.",
       },
       {
-        cardImage: backendIcon,
+        cardImage: mobo3Icon,
         cardTitle: "Wearables and Embedded Software",
         cardDesc:
           "Embark on a journey into digital innovation with Zweidevs' mobile development solutions, expanding your digital reach through Wearables and Embedded Software. Our services are intricately designed to meet your specific needs, whether it's creating cutting-edge software for smartwatches, fitness trackers, or other wearables. Zweidevs brings precision and innovation to the forefront of wearable and embedded software development.",
@@ -734,37 +794,37 @@ const content = {
 
     offeringCardData: [
       {
-        cardImage: designIcon,
+        cardImage: ai1Icon,
         cardTitle: "Custom AI and ML Solutions",
         cardDesc:
           "Using specially designed intelligent applications, you can empower your company with artificial intelligence-driven solutions customized to meet your specific requirements. Our specially designed intelligent apps guarantee a personalized strategy, giving you access to finely adjusted algorithms that smoothly mesh with your particular requirements.",
       },
       {
-        cardImage: frontendIcon,
+        cardImage: ai2Icon,
         cardTitle: "Data Discovery & Augmentation",
         cardDesc:
           "With the use of predictive analytics and third-party data, Zweidevs' Data Discovery & Augmentation services may help you gain extensive customer insights. Our methodology guarantees a comprehensive perspective of clients, enabling informed strategic decision-making through enhanced data.",
       },
       {
-        cardImage: backendIcon,
+        cardImage: ai3Icon,
         cardTitle: "Data Science and Analytics",
         cardDesc:
           "Convert unprocessed data into useful business knowledge by utilizing cutting-edge data science and analytics. Make use of advanced statistical models and algorithms to extract valuable insights that facilitate well-informed decision-making.",
       },
       {
-        cardImage: fullstackIcon,
+        cardImage: ai4Icon,
         cardTitle: "AI-powered Chatbots",
         cardDesc:
           "Zweidevs uses its expertise in AI and ML to create sophisticated chatbots that transform consumer relationships. Our sophisticated chatbots are made to increase user interaction by offering smooth, customized interactions. Leverage the effectiveness of state-of-the-art technology to promote creative thinking in communication approaches.",
       },
       {
-        cardImage: ecommerceIcon,
+        cardImage: ai5Icon,
         cardTitle: "AI Integration with Existing Systems",
         cardDesc:
           "Embrace the advantages of an integrated ecosystem, where AI integration streamlines processes and brings in a new wave of creativity for your company. Zweidevs creates an intelligent infrastructure by integrating AI with your current systems in a smooth manner. Our method guarantees a seamless transfer, improving the effectiveness and flexibility of the system.",
       },
       {
-        cardImage: ecommerceIcon,
+        cardImage: ai6Icon,
         cardTitle: "Data Democratization",
         cardDesc:
           "Throughout your company, democratize access to insights and cultivate a data-driven culture where decision-makers can easily leverage data. With Zweidevs, you can empower your entire team to have more equitable access to insights and cultivate a data-driven culture",
@@ -874,31 +934,31 @@ const content = {
 
     offeringCardData: [
       {
-        cardImage: designIcon,
+        cardImage: uiux1Icon,
         cardTitle: "Complimentary UI/UX for Websites",
         cardDesc:
           "Embarking on a website development project? Benefit from our free UI/UX design services, including Figma, wireframes, and userflows, ensuring a visually appealing and user-friendly digital platform.",
       },
       {
-        cardImage: frontendIcon,
+        cardImage: uiux2Icon,
         cardTitle: "Personalized Design Solutions",
         cardDesc:
           "Our UI/UX experts are dedicated to creating aesthetic designs tailored to your unique brand identity and goals.",
       },
       {
-        cardImage: backendIcon,
+        cardImage: uiux3Icon,
         cardTitle: "Comprehensive Userflows",
         cardDesc:
           "Navigate user interactions seamlessly with our meticulously crafted userflows, ensuring an intuitive and engaging user experience.",
       },
       {
-        cardImage: fullstackIcon,
+        cardImage: uiux4Icon,
         cardTitle: "Dynamic Figma Designs",
         cardDesc:
           "Experience the power of visually stunning Figma designs that bring your ideas to life and lay the foundation for a captivating digital presence.",
       },
       {
-        cardImage: ecommerceIcon,
+        cardImage: uiux5Icon,
         cardTitle: "Expert Consulting",
         cardDesc:
           "Leverage our UX/UI expertise for insightful consulting, guiding you through strategic decisions to optimize user experiences and achieve your business objectives.",
@@ -989,49 +1049,49 @@ const content = {
     description: `Our IoT services go above and beyond by providing cutting-edge solutions that transform how you interact with and manage your environment.Imagine a smooth encounter where your surroundings intelligently adapt to your needs. Zweidevs offers a portal to a connected world, making sure your interactions are simple, clear, and customized to your tastes—whether in smart homes or intricate industrial ecosystems. Greetings from a future in which being connected becomes a necessity for day-to-day living, streamlining chores and improving your quality of life.`,
     offeringCardData: [
       {
-        cardImage: designIcon,
+        cardImage: iot1Icon,
         cardTitle: "Device Connectivity",
         cardDesc:
           "One of the fundamental services we offer is setting up and maintaining connectivity for IoT devices, which guarantees smooth communication between devices and central systems. To build a solid connectivity framework, we have experience with a wide range of communication protocols, network architectures, and security controls.",
       },
       {
-        cardImage: frontendIcon,
+        cardImage: iot2Icon,
         cardTitle: "Data Management and Analytics",
         cardDesc:
           "Our expertise lies in gathering, handling, and evaluating data produced by IoT devices in order to derive significant insights. Our all-inclusive data management solutions facilitate informed decision-making and actionable intelligence by storing, cleaning, and employing cutting-edge analytics tools.",
       },
       {
-        cardImage: backendIcon,
+        cardImage: iot3Icon,
         cardTitle: "Security Solutions",
         cardDesc:
           "Security is paramount in IoT, and our services include implementing robust measures to safeguard devices and data. The security of your IoT ecosystem is our top priority, and we take steps to prevent unwanted access through authentication and encryption.",
       },
       {
-        cardImage: fullstackIcon,
+        cardImage: iot4Icon,
         cardTitle: "IoT Platform Development",
         cardDesc:
           "The creation and customization of platforms that enable effective management, monitoring, and control of linked devices is the main focus of our IoT platform development services. These platforms offer a strong basis for your IoT infrastructure, enhanced with features like data visualization, device provisioning, and smooth application integration.",
       },
       {
-        cardImage: ecommerceIcon,
+        cardImage: iot5Icon,
         cardTitle: "Edge Computing",
         cardDesc:
           "We are adept at allocating processing power in closer proximity to the data source. We use edge computing to lower latency and improve processing capabilities in real-time. This tactical method processes data at the edge of the network to maximize the performance of Internet of Things applications.",
       },
       {
-        cardImage: ecommerceIcon,
+        cardImage: iot6Icon,
         cardTitle: "Device Management",
         cardDesc:
           "Zweidevs offers comprehensive device management services, allowing you to monitor, manage, and update IoT devices remotely. This allows for a smooth integration into your IoT ecosystem while guaranteeing maximum performance and security for the duration of your devices' lives.",
       },
       {
-        cardImage: ecommerceIcon,
+        cardImage: iot7Icon,
         cardTitle: "Asset Tracking and Management",
         cardDesc:
           "We provide customized IoT solutions to effectively manage automobiles, equipment, or inventory in addition to real-time asset tracking. The asset tracking and management services from Zweidevs can help you see more clearly into your assets, streamline processes, and increase overall effectiveness.",
       },
       {
-        cardImage: ecommerceIcon,
+        cardImage: iot8Icon,
         cardTitle: "Environmental Monitoring",
         cardDesc:
           "Using Internet of Things (IoT) devices to keep an eye on factors like climate, water quality, and air quality for a range of purposes, such as public health and environmental conservation.",
@@ -1139,25 +1199,25 @@ const content = {
 
     offeringCardData: [
       {
-        cardImage: designIcon,
+        cardImage: gd1Icon,
         cardTitle: "Mobile Games Applications",
         cardDesc:
           "Immerse users in captivating mobile gaming experiences with our tailored applications. Our mobile game development is characterized by seamless functionality and an intuitive user interface.",
       },
       {
-        cardImage: designIcon,
+        cardImage: gd2Icon,
         cardTitle: "Web Game Applications and Sites",
         cardDesc:
           "Elevate your online gaming presence with web applications and sites that not only meet but exceed industry standards. We prioritize a user-centric design that ensures an enjoyable gaming experience.",
       },
       {
-        cardImage: designIcon,
+        cardImage: gd3Icon,
         cardTitle: "Blockchain-Based Games",
         cardDesc:
           "Explore the future of gaming with our experts in blockchain technology. Our blockchain-based games stand out in complexity and strive for the best look and feel, ensuring a truly immersive experience.",
       },
       {
-        cardImage: designIcon,
+        cardImage: gd4Icon,
         cardTitle: "Game Designing Services",
         cardDesc:
           "Use our all-inclusive game designing services to mold your gaming vision into its essence. Our talented game designers concentrate on developing and creating compelling storylines, characters, and gameplay elements. We make sure your game not only satisfies technical requirements but also offers a distinctive and captivating user experience. Our game-designing services use creativity and innovation to bring your ideas to life, whether developing compelling storylines or defining game concepts.",
