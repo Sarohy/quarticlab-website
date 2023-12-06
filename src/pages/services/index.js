@@ -46,8 +46,8 @@ const PageBanner = dynamic(
   { preload: true },
 );
 import "animate.css";
-import styles from "../../styles/services.module.css";
 import Head from "next/head";
+import styles from "../../styles/services.module.css";
 
 function Services() {
   // Services card data
