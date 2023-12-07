@@ -67,7 +67,7 @@ function HomeSection4({ cardTitle = "Web Development Projects", projectData }) {
           >
             {chunkArray(projectData, chunkSize).map((chunk, index) => (
               <Grid
-                className={`${styles.chunkArryGrid} ${styles.h100}`}
+                className={`${styles.chunkArryGrid}`}
                 container
                 // gap={2}
                 key={index}
