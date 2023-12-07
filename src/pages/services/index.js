@@ -48,6 +48,7 @@ const PageBanner = dynamic(
 import "animate.css";
 import Head from "next/head";
 import styles from "../../styles/services.module.css";
+import { urls } from "@component/utils/urls";
 
 function Services() {
   // Services card data
@@ -56,7 +57,7 @@ function Services() {
       cardIcon: WebDevIcon,
       cardIconTitle: { firstLine: "Website", secondLine: "Development" },
       cardTitle: "Website Development",
-      href: "/services/Website Development",
+      href: urls.services.WebApp.url,
       cardDetails: `We are a creative web development team, who aim to leverage the
       latest technological advances with thoughtful design and serious
       engineering to build tailored solutions for our clients.`,
@@ -67,7 +68,7 @@ function Services() {
       cardIcon: BlockchainIcon,
       cardIconTitle: { firstLine: "Blockchain", secondLine: "Development" },
       cardTitle: "Blockchain Development",
-      href: "/services/Blockchain Development",
+      href: urls.services.BC.url,
       cardDetails: `Blockchain is the backbone Technology of Digital CryptoCurrency BitCoin. A distributed database of records of all transactions. We have a team of Blockchain developers to make the deployment correct.`,
       footerTitle: "Tools & Technologies",
       footerImages: [SolanaIcon, AvalancheIcon, EthIcon, CardanoIcon],
@@ -76,7 +77,7 @@ function Services() {
       cardIcon: MobileDevIcon,
       cardIconTitle: { firstLine: "Mobile", secondLine: "Development" },
       cardTitle: "Mobile App Development",
-      href: "/services/Mobile App Development",
+      href: urls.services.MobileApp.url,
       cardDetails: `We develop sleek looking native and hybrid mobile apps for iOS & Android to ensure the customer satisfaction and performance at the core.`,
       footerTitle: "Tools & Technologies",
       footerImages: [AndroidIcon, IOSIcon, ReactIcon, SQLiteIcon, JSIcon],
@@ -85,7 +86,7 @@ function Services() {
       cardIcon: UIUXIcon,
       cardIconTitle: { firstLine: "UI UX", secondLine: "Development" },
       cardTitle: "UI/UX Development",
-      href: "/services/UI & UX Development",
+      href: urls.services.UIUX.url,
       cardDetails: `The UI/UX Design brings a design-centric approach to user interface and user experience. Our team is trained to solve problems and provide innovative solutions by following an entire process of UI/UX development.`,
       footerTitle: "Tools & Technologies",
       footerImages: [SketchIcon, FigmaIcon, InVision, InfinityUXIcon],
@@ -94,7 +95,7 @@ function Services() {
       cardIcon: GameDevIcon,
       cardIconTitle: { firstLine: "Game", secondLine: "Development" },
       cardTitle: "Game Development",
-      href: "/services/Game Development",
+      href: urls.services.GD.url,
       cardDetails: `With our team of expert game developers, we can transform your idea into a striking game that makes the audience want to play. We have the resources to develop games for multiple platforms using different advanced technologies.`,
       footerTitle: "Tools & Technologies",
       footerImages: [UnityIcon, GameBenchIcon, HoudinaIcon, BelenderIcon],
@@ -103,7 +104,7 @@ function Services() {
       cardIcon: IOTDevIcon,
       cardIconTitle: { firstLine: "IOT", secondLine: "Devices" },
       cardTitle: "IOT Devices",
-      href: "/services/IOT Devices",
+      href: urls.services.IoT.url,
       cardDetails: `We are experts in building embedded systems with integrated sensors, and wired and wireless communication with mobile and web apps.`,
       footerTitle: "Tools & Technologies",
       footerImages: [RaspbarryPiIcon, ArduinoIcon],
@@ -115,7 +116,7 @@ function Services() {
         secondLine: "Machine Learning",
       },
       cardTitle: "Artificial Intelligence & Machine Learning",
-      href: "/services/Artificial Intelligence & Machine Learning",
+      href: urls.services.AI.url,
       cardDetails: `We provide services to augment your existing platforms and solutions with the power of computer vision, data visualizations, predictive analysis and more.`,
       footerTitle: "Tools & Technologies",
       footerImages: [PyTorch, KerasIcon, OpenIcon, OpenAIIcon],
@@ -124,7 +125,7 @@ function Services() {
       cardIcon: DevopsIcon,
       cardIconTitle: { firstLine: "DevOps &", secondLine: "Cloud Services" },
       cardTitle: "DevOps & Cloud Services",
-      href: "/services/DevOps & Cloud Services",
+      href: urls.services.DevOPS.url,
       cardDetails: `We possess deep knowledge and extensive experience with cloud services. Shorten time to develop and launch new solutions, modernize legacy technology or test and deploy prototypes with IaaS-based applications on Amazon Web Services, Digital Ocean, Heroku, Microsoft Azure or Google Cloud.`,
       footerTitle: "Tools & Technologies",
       footerImages: [AWSIcon, AzureIcon, googleCloudIcon, goDaddyIcon],

@@ -1,3 +1,11 @@
+.carousel {
+  height : 600px;
+}
+.h100 {
+ height: 100%;
+}
+
+
 .HS4MainContainer {
   background-image: url("../../../../public/assets/HomeIcons/HS4Background.svg");
   width: 100%;
@@ -101,6 +109,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
 .HS4CardArrowsContainer {
@@ -130,7 +139,8 @@
   cursor: pointer;
 }
 .HS4BelowContainer {
-  height: 210px;
+  /* height: 210px; */
+  height: 100%;
 }
 .cardBtn {
   display: flex;
