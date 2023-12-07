@@ -27,7 +27,7 @@ function HomeSection2() {
       key: "hs2Img1",
       image: HS2Img1,
       heading: "Blockchain Development",
-      href: urls.services.BC,
+      href: urls.services.BC.url,
       details:
         "Blockchain is the backbone technology of digital cryptocurrency Bitcoin. We have a team of blockchain developers dedicated to ensuring accurate deployment.",
     },
@@ -35,7 +35,7 @@ function HomeSection2() {
       key: "hs2Img2",
       image: HS2Img2,
       heading: "DevOps Development",
-      href: urls.services.DevOPS,
+      href: urls.services.DevOPS.url,
       details:
         " DevOps facilitates the evolution and accelerated improvement of products. Our team ensures the correct deployment of applications and guarantees seamless automation execution.",
     },
@@ -43,7 +43,7 @@ function HomeSection2() {
       key: "hs2Img3",
       image: HS2Img3,
       heading: "Web Development",
-      href: urls.services.WebApp,
+      href: urls.services.WebApp.url,
       details:
         "We are a creative web development team, who aim to leverage the latest technological advances with thoughtful design and serious engineering to build tailored solutions for any industry.",
     },
@@ -51,7 +51,7 @@ function HomeSection2() {
       key: "hs2Img4",
       image: HS2Img4,
       heading: "Ecommerce Development",
-      href: urls.services.WebApp,
+      href: urls.services.WebApp.url,
       details:
         "Our team assist you in expanding the global reach of your product or business by seamlessly transitioning your offline stores to the global web.",
     },
@@ -59,7 +59,7 @@ function HomeSection2() {
       key: "hs2Img5",
       image: HS2Img5,
       heading: "Mobile App Development",
-      href: urls.services.MobileApp,
+      href: urls.services.MobileApp.url,
       details:
         "We specialize in developing sleek native and hybrid mobile apps, prioritizing customer satisfaction and performance at the core.",
     },

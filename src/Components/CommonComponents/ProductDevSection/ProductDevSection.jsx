@@ -29,8 +29,11 @@ const ProductDevSection = ({ cardData, showNumers = true }) => {
                 <div key={key}>
                   <li className={`${styles.stages__item}`}>
                     <h3
-                      className={`${styles.heading} ${styles.heading3} ${
-                        showNumers ? styles.stages__title : ""
+                      // className={styles.cardTitle}
+                      className={`${showNumers ? styles.stages__title : ""} ${
+                        card.chipCard
+                          ? styles.cardTitle
+                          : `${styles.heading} ${styles.heading3}`
                       }`}
                       style={{
                         justifyContent: showNumers ? "center" : "start",

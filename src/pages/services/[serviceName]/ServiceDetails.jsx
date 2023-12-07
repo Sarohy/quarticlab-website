@@ -100,6 +100,14 @@ const ServicesTechnologiesCard = dynamic(
   { preload: true },
 );
 
+//projects import
+import Project1_Image1 from "../../../../public/assets/HomeIcons/Project/Project1_image1.svg";
+import Project2_Image1 from "../../../../public/assets/HomeIcons/Project/Project2_image1.svg";
+import Project3_Image1 from "../../../../public/assets/HomeIcons/Project/Project3_image1.svg";
+import Project4_Image1 from "../../../../public/assets/HomeIcons/Project/Project4_image1.svg";
+import Project5_Image1 from "../../../../public/assets/HomeIcons/Project/Project5_image1.svg";
+import Project6_Image1 from "../../../../public/assets/HomeIcons/Project/Project6_image1.svg";
+
 import AIDevIcon from "../../../../public/assets/serviceIcons/AIDevIcon.svg";
 import BlockchainIcon from "../../../../public/assets/serviceIcons/blockchainIcon.svg";
 import DevopsIcon from "../../../../public/assets/serviceIcons/devopsIcon.svg";
@@ -114,6 +122,7 @@ import ProductDevSection from "@component/Components/CommonComponents/ProductDev
 import TargetAudience from "@component/Components/CommonComponents/TargetAudienceSection/TargetAudience";
 import Faq from "@component/Components/CommonComponents/FAQ/Faq";
 import LetsTalk from "@component/Components/CommonComponents/LetsTalk/LetsTalk";
+import { urls } from "@component/utils/urls";
 
 const cardData = [
   {
@@ -157,15 +166,15 @@ const cardData = [
   {
     cardIcon: DevopsIcon,
     cardIconTitle: { firstLine: "DevOps &", secondLine: "Cloud Services" },
-    href: "/services/DevOps & Cloud Services",
+    href: urls.services.DevOPS.url,
   },
 ];
 
 const content = {
-  "Website Development": {
+  [urls.services.WebApp.title]: {
     image: WebDevServiceDetailsIcon,
     targetAudienceSection: {
-      title: `WE BUILD CUSTOM WEB APPLICATIONS FOR`,
+      title: `We Build Custom Web Applications For`,
       desc: `At Zweidevs, we specialize in creating custom online apps that are
       carefully designed to match the distinct requirements of companies
       of all sizes. Our committed team of professionals uses
@@ -182,13 +191,57 @@ const content = {
           cardDesc: `Our dedicated team is aware of the complex issues and expansion goals that mid-sized businesses face, and we use this knowledge to provide solutions that work in unison with their goals. Whether your goal is to increase consumer engagement, streamline internal operations, or broaden your digital presence, our all-encompassing approach guarantees that the web apps we develop are precisely tailored to meet the unique requirements of medium-sized enterprises.`,
         },
         {
-          cardTitle: "Large Business",
+          cardTitle: "Large Businesses",
           cardDesc: `Zweidevs is dedicated to developing custom web apps that smoothly interface with the complex operations of large companies, whether you want to boost digital interactions at scale, build reliable enterprise solutions, or streamline complex business processes. Our emphasis on performance, security, and innovation guarantees that the solutions we provide enable big businesses to prosper in the ever-changing digital environment, promoting effectiveness, expansion, and long-term success.`,
         },
       ],
     },
+    projectData: [
+      {
+        index: 1,
+        image: Project1_Image1,
+        title: "Hooked Health",
+        content:
+          "Hooked Health is a mobile application which enables the users to enjoy a leaner, healthier body through a 15-minute no-equipment workouts ",
+      },
+      {
+        index: 2,
+        image: Project2_Image1,
+        title: "AudioCardio",
+        content:
+          "AudioCardio is an evidence-based mobile app that delivers inaudible sound therapies designed to maintain and strengthen your hearing while providing relief from tinnitus by stimulating the cells inside your ear",
+      },
+      {
+        index: 3,
+        image: Project3_Image1,
+        title: "Seated",
+        content:
+          "Seated is a platform which enables the users to Make Reservations at Local Restaurants so that they can earn back on every dollar that the users spend at the restaurant",
+      },
+      {
+        index: 4,
+        image: Project4_Image1,
+        title: "Public Trust",
+        content:
+          "Public Trust Realty Group is a web-based platform that enables the users to search for a property and buy/rent a property",
+      },
+      {
+        index: 5,
+        image: Project6_Image1,
+        title: "Fresh Tracks",
+        content:
+          "FreshTracks is a web based portal for the travelers planning to travel across Canada where they can view personalized travel plans.",
+      },
+      {
+        index: 6,
+        image: Project5_Image1,
+        title: "Humanava",
+        content:
+          "Humanava is a web based Edtech platform, which provides Interactive, highly engaging courses for everyone in an organization.",
+      },
+    ],
     productionDevSection: {
-      title: `HOW WE DEVELOP WEB APPLICATIONS`,
+      title: `How We Develop Web Applications`,
       desc: `Zweidevs manages every stage of the project lifecycle while providing full services for developing web applications. Our development staff is dedicated to building mutually beneficial collaborations. We conduct in-depth research, provide sage counsel on strategic decisions, and guarantee consistent assistance at each step of your web application.`,
       cardsData: [
         {
@@ -218,11 +271,11 @@ const content = {
       cardsData: [
         {
           cardTitle: "Front-end",
-          chipData: ["Ruby on Rails", "Node.js", "Python", "PHP"],
+          chipData: ["Javascript", "React", "Angular", "Vue"],
         },
         {
           cardTitle: "Back-end",
-          chipData: ["Javascript", "React", "Angular", "Vue"],
+          chipData: ["Ruby on Rails", "Node.js", "Python", "PHP"],
         },
       ],
     },
@@ -247,7 +300,7 @@ const content = {
         cardImage: frontendIcon,
         cardTitle: "Frontend Development",
         cardDesc:
-          "Zweidevs's full-stack front-end expertise can help you discover innovation. Our developers combine creativity and technological proficiency to create user-friendly interfaces and responsive web and mobile solutions. We ensure your online presence is distinctive, captivating, and up to the ever-evolving standards of contemporary design.",
+          "Zweidevs' full-stack front-end expertise can help you discover innovation. Our developers combine creativity and technological proficiency to create user-friendly interfaces and responsive web and mobile solutions. We ensure your online presence is distinctive, captivating, and up to the ever-evolving standards of contemporary design.",
       },
       {
         cardImage: backendIcon,
@@ -263,7 +316,7 @@ const content = {
       },
       {
         cardImage: ecommerceIcon,
-        cardTitle: "Web app maintenance and update",
+        cardTitle: "Maintenance and Update",
         cardDesc:
           "Zweidevs is your committed partner for long-term success even after launch. Beyond bug patches, our maintenance and update services include exciting new features and performance improvements. With our continued assistance, you can keep your app at the forefront of innovation and customer happiness.",
       },
@@ -272,7 +325,7 @@ const content = {
     faqData: [
       {
         title: "How much does web app development cost?",
-        desc: `The cost of developing a web app is influenced by its complexity, required features, technology stack, team experience, and other factors like design, testing, and maintenance. Working with web development experts or agencies is crucial if you want a clear knowledge of your vision for the web application and a more precise estimate based on your unique requirements.Connect with our web developers to know the exact cost estimation. `,
+        desc: `The cost of developing a web app is influenced by its complexity, required features, technology stack, team experience, and other factors like design, testing, and maintenance. Working with web development experts or agencies is crucial if you want a clear knowledge of your vision for the web application and a more precise estimate based on your unique requirements. Connect with our web developers to know the exact cost estimation. `,
       },
       {
         title:
@@ -285,7 +338,7 @@ const content = {
       },
       {
         title: "Why choose Zweidevs for web application development?",
-        desc: `We at Zweidevs don't just develop web apps—we craft reliable, approachable solutions that add value to your company and demonstrate our constant commitment to quality and client happiness. Having completed numerous projects successfully and leaving our clients happy, we place a high value on open communication and teamwork during the whole development process. connect with our experts right away.`,
+        desc: `We at Zweidevs don't just develop web apps—we craft reliable, approachable solutions that add value to your company and demonstrate our constant commitment to quality and client happiness. Having completed numerous projects successfully and leaving our clients happy, we place a high value on open communication and teamwork during the whole development process. Connect with our experts right away.`,
       },
       {
         title:
@@ -299,10 +352,10 @@ const content = {
       },
     ],
   },
-  "Blockchain Development": {
+  [urls.services.BC.title]: {
     image: BlockchainDevServiceDetailsIcon,
     targetAudienceSection: {
-      title: `WE DEVELOP BLOCKCHAINS FOR`,
+      title: `We Develop Blockchains For`,
       desc: `With our professional development services, businesses of all sizes can harness the power of blockchain technology. Our specialty at Zweidevs is customizing blockchain solutions to fit the particular requirements of startups, large corporations, and all in between. We provide solutions that enable organizations to achieve greater heights while navigating the difficulties of blockchain technology.`,
       targetAudienceCardData: [
         {
@@ -314,11 +367,25 @@ const content = {
           cardDesc: `We customize our blockchain solutions to fit the particular requirements of your mid-size business, whether you work in manufacturing, healthcare, finance, or any other industry. Imagine a time in the future when our custom blockchain apps will enable your company to grow thanks to their efficiency, security, and creativity.`,
         },
         {
-          cardTitle: "Large Business",
+          cardTitle: "Large Businesses",
           cardDesc: `Blockchain technology has already completely changed the way large businesses function in industries like real estate, healthcare, and supply chains. Our specialized blockchain apps will be essential to the growth and success of your large company because they will be scalable, secure, and innovative.`,
         },
       ],
     },
+    projectData: [
+      {
+        index: 1,
+        image: Project5_Image1,
+        title: "AI VST",
+        content: `A platform that offers high-end DAW plugins and tools to improve audio and voice recordings. Our work entails creating and executing Visual Studio technology plugins that convert user-generated audio into professional artist-grade sound. These plugins are made available via an easy-to-use website. Yonder Audio’s primary goal for consumers looking for better audio material is to provide a smooth experience.`,
+      },
+      {
+        index: 2,
+        image: Project5_Image1,
+        title: "Blockcircle",
+        content: `A platform for dynamic investment analytics using proprietary technologies and competitive information for trading digital assets. With its robust trading signals, watch lists, and portfolio updates, Blockcircle improves user experience and equips members of our community to make wise decisions in the constantly changing cryptocurrency market.`,
+      },
+    ],
     productionDevSection: {
       title: `Blockchain Solutions Lifecycle`,
       desc: null,
@@ -335,7 +402,7 @@ const content = {
         },
         {
           cardTitle: "Blockchain Deployment",
-          cardDesc: `We specialize in smooth Blockchain Deployment. Our team of experts guarantees the effective deployment of blockchain solutions customized to your unique needs. We put security, transparency, and scalability first from conception to implementation, providing a solid platform for your digital transformation.Come experience the decentralized and safe technologies of the future with us.`,
+          cardDesc: `We specialize in smooth Blockchain Deployment. Our team of experts guarantees the effective deployment of blockchain solutions customized to your unique needs. We put security, transparency, and scalability first from conception to implementation, providing a solid platform for your digital transformation. Come experience the decentralized and safe technologies of the future with us.`,
         },
         {
           cardTitle: "Blockchain Maintenance",
@@ -421,10 +488,10 @@ const content = {
       },
     ],
   },
-  "DevOps & Cloud Services": {
+  [urls.services.DevOPS.title]: {
     image: DevOpsServiceDetailsIcon,
     targetAudienceSection: {
-      title: `WE PROVIDE DEVOPS SERVICES FOR`,
+      title: `We Provide DevOPS Services For`,
       desc: `Many businesses are looking into methods for shortening the time it takes to complete projects, from ideation to product launch. Adopting state-of-the-art DevOps techniques is crucial to achieving this goal, as it promotes improved coordination between development teams, analysts, and delivery managers.`,
       targetAudienceCardData: [
         {
@@ -436,13 +503,21 @@ const content = {
           cardDesc: `Managing larger teams and more complicated projects is a problem for medium-sized businesses. Our DevOps services work by optimizing the processes involved in development, testing, and deployment; this increases productivity and decreases the need for manual intervention. DevOps's emphasis on better communication and cooperation is essential for assuring more seamless workflows even in the face of growing complexity.`,
         },
         {
-          cardTitle: "Large Business",
+          cardTitle: "Large Businesses",
           cardDesc: `Enterprise-level scalability offered by DevOps enables large firms to smoothly handle several projects. Our automated testing and deployment reduce risks and find and fixes problems early in the development cycle. DevOps approaches are also ideal for large businesses with strict regulatory commitments since they may be matched with governance standards and compliance requirements.`,
         },
       ],
     },
+    projectData: [
+      {
+        index: 1,
+        image: Project5_Image1,
+        title: "Twinciti",
+        content: `Twinciti is a powerful infrastructure that powers applications of the future, including 3D graphics and machine learning. In order to provide a flexible and scalable platform for a wide range of application requirements, we developed ML services and virtual machine generation for cloud services.`,
+      },
+    ],
     productionDevSection: {
-      title: `HOW WE PROVIDE DEVOPS SERVICES`,
+      title: `How We Provide DevOPS Services`,
       desc: `We excel in DevOps, streamlining software delivery with automated pipelines and agile collaboration. Elevate your development process for speed, reliability, and scalability.`,
       cardsData: [
         {
@@ -509,7 +584,7 @@ const content = {
       },
       {
         cardImage: dev4Icon,
-        cardTitle: "Monitoring and logging",
+        cardTitle: "Monitoring and Logging",
         cardDesc:
           "Protect peak performance and proactively address problems with our watchful DevOps services. Zweidevs maintains your systems under control with reliable monitoring and logging solutions, giving you the knowledge you need to anticipate problems and take proactive measures to resolve them.",
       },
@@ -582,16 +657,16 @@ const content = {
       },
       {
         cardImage: ecommerceIcon,
-        cardTitle: "Web app maintenance and updates",
+        cardTitle: "Maintenance and Updates",
         cardDesc:
           "Sustain and evolve your E-commerce success, ensuring your web application stays aligned with industry trends.",
       },
     ],
   },
-  "Mobile App Development": {
+  [urls.services.MobileApp.title]: {
     image: MobodevServiceDetailsIcon,
     targetAudienceSection: {
-      title: `WE BUILD CUSTOM MOBILE APPLICATIONS FOR`,
+      title: `We Build Custom Mobile Applications For`,
       desc: `At Zweidevs, our specialty is creating custom mobile applications that are suited to the distinct requirements of companies of all sizes. Our committed staff uses state-of-the-art technology and a customer-focused methodology to provide tailored mobile solutions that effortlessly fit the goals and ambitions of companies of all sizes.`,
       targetAudienceCardData: [
         {
@@ -603,14 +678,14 @@ const content = {
           cardDesc: `Our committed staff is aware of the complex difficulties and expansion goals faced by medium-sized companies. Using this information, we provide solutions that help them achieve their objectives—whether those be boosting customer engagement, optimizing internal processes, or growing their online presence. Our holistic methodology guarantees that the mobile applications we create are precisely customized to satisfy the distinct needs of medium-sized businesses.`,
         },
         {
-          cardTitle: "Large Business",
+          cardTitle: "Large Businesses",
           cardDesc: `The primary objective of Zweidevs is to design unique mobile apps that work in unison with the complex processes of big businesses. We prioritize performance, security, and innovation to ensure that our solutions enable large businesses to thrive in the dynamic digital landscape, fostering efficiency, growth, and long-term success. This includes improving digital interactions at scale, developing robust enterprise solutions, and streamlining complex business processes.`,
         },
       ],
     },
     productionDevSection: {
-      title: `HOW WE DEVELOP MOBILE APPLICATIONS`,
-      desc: `Zweidevs takes you through every step of your mobile app development journey, offering a full suite of services custom-tailored to your unique needs. Our team is here to collaborate closely with you, providing insightful guidance and consistent support at every stage., ensuring strategic decisions are well-informed and consistent assistance is provided throughout the entire process.`,
+      title: `How We Develop Mobile Applications`,
+      desc: `Zweidevs takes you through every step of your mobile app development journey, offering a full suite of services custom-tailored to your unique needs. Our team is here to collaborate closely with you, providing insightful guidance and consistent support at every stage, ensuring strategic decisions are well-informed and consistent assistance is provided throughout the entire process.`,
       cardsData: [
         {
           cardTitle: "Discovery",
@@ -647,11 +722,11 @@ const content = {
       "Crafted for Excellence - Your High-Performance Mobile App Solution",
 
     headerDescription:
-      "Zweidevs is your go-to mobile app developer agency, providing tailored mobile app development services to precisely match your company's needs.We guarantee the delivery of quality solutions alongside low cost mobile app development that serve several sectors by utilizing a strategic plan of action. We specialize in providing solutions that handle Healthcare, Fintech, Edtech, Blockchain, E-commerce and many more.",
-    heading: `Experience the best intuitive user interface (UI) and Responsive design`,
+      "Zweidevs is your go-to mobile app developer agency, providing tailored mobile app development services to precisely match your company's needs. We guarantee the delivery of quality solutions alongside low cost mobile app development that serve several sectors by utilizing a strategic plan of action. We specialize in providing solutions that handle Healthcare, Fintech, Edtech, Blockchain, E-commerce and many more.",
+    heading: `Experience The Best Intuitive User Interface (UI) And Responsive Design`,
     description: `Enter a world of first-rate digital experiences by visiting our Mobile App Development Hub. 
 
-    Discover the best user-friendly interface and responsive design, meticulously crafted for seamless interaction.As pioneers in mobile app development, we guarantee not just cost-effective solutions but a commitment to quality that reflects in every pixel. Whether you're seeking to choose a mobile app development company or cross-platform expertise, you can trust that your ideas are in the hands of elite professionals who will guarantee the highest standards of excellence.
+    Discover the best user-friendly interface and responsive design, meticulously crafted for seamless interaction. As pioneers in mobile app development, we guarantee not just cost-effective solutions but a commitment to quality that reflects in every pixel. Whether you're seeking to choose a mobile app development company or cross-platform expertise, you can trust that your ideas are in the hands of elite professionals who will guarantee the highest standards of excellence.
     We create concepts that are effortlessly realized, from responsive interfaces to UI/UX designs that are intuitive. Your specific needs and ideas find a home with us, whether you're thinking of cross-platform functionality or require mobile app experts. Elevate your mobile experience with solutions crafted exclusively for You!`,
 
     offeringCardData: [
@@ -682,15 +757,11 @@ const content = {
       },
       {
         title: "How much does mobile app development cost?",
-        desc: `The cost of developing a mobile app is influenced by its complexity, required features, technology stack, team experience, and other factors like design, testing, and maintenance. Working with mobile development experts or agencies is crucial if you want a clear understanding of your vision for the mobile application and a more precise estimate based on your unique requirements. Connect with our mobile developers to know the exact cost estimation. Connect with our web developers to know the exact cost estimation.`,
+        desc: `The cost of developing a mobile app is influenced by its complexity, required features, technology stack, team experience, and other factors like design, testing, and maintenance. Working with mobile development experts or agencies is crucial if you want a clear understanding of your vision for the mobile application and a more precise estimate based on your unique requirements. Connect with our mobile developers to know the exact cost estimation.`,
       },
       {
         title:
           "What is mobile app development, and how can it benefit my business?",
-        desc: `A simple web app with basic features might take a few weeks to a couple of months to develop, while more complex or enterprise-level applications could take several months or even a year. Rapid development frameworks and agile development methodologies can expedite the process, but it's essential to balance speed with thorough testing and quality assurance.`,
-      },
-      {
-        title: "Why choose Zweidevs for mobile application development?",
         desc: `Mobile app development involves creating software applications specifically designed to run on mobile devices. It offers businesses adaptable and affordable options. Their cross-platform compatibility ensures a uniform user experience on various devices and operating systems. Essentially, mobile app development gives companies the ability to create effective, easily accessible, and scalable solutions that they can use to keep up with changing technology and market demands.`,
       },
       {
@@ -723,10 +794,10 @@ const content = {
       },
     ],
   },
-  "Artificial Intelligence & Machine Learning": {
+  [urls.services.AI.title]: {
     image: AIdevServiceDetailsIcon,
     targetAudienceSection: {
-      title: `WE BUILD CUSTOM AI APPLICATIONS FOR`,
+      title: `We Build Custom AI Applications For`,
       desc: `At Zweidevs, we specialize in creating custom online apps that are
       carefully designed to match the distinct requirements of companies
       of all sizes. Our committed team of professionals uses
@@ -743,13 +814,21 @@ const content = {
           cardDesc: `We provide customized technology that increases productivity, automates procedures, and uncovers insightful information since we recognize the particular difficulties faced by companies of this size. Our adaptable solutions are made to give small and medium-sized enterprises the resources they need to be flexible, make wise decisions, and promote long-term growth in a market that is changing quickly.`,
         },
         {
-          cardTitle: "Large Business",
+          cardTitle: "Large Businesses",
           cardDesc: `Our solutions guarantee efficiency, strategic insights, and a competitive edge in today's fast-paced business environment, emphasizing tackling the particular issues faced by significant organizations. Our goal is to enable large businesses to utilize AI and ML for full long-term success and growth. We have experience in manufacturing, retail, healthcare, finance, and other industries.`,
         },
       ],
     },
+    projectData: [
+      {
+        index: 1,
+        image: Project5_Image1,
+        title: "AI VST",
+        content: `A platform that offers high-end DAW plugins and tools to improve audio and voice recordings. Our work entails creating and executing Visual Studio technology plugins that convert user-generated audio into professional artist-grade sound. These plugins are made available via an easy-to-use website. Yonder Audio’s primary goal for consumers looking for better audio material is to provide a smooth experience.`,
+      },
+    ],
     productionDevSection: {
-      title: `HOW We Utilize AI in Your Project`,
+      title: `How We Utilize AI in Your Project`,
       desc: `Unlock the power of AI and ML with us. We specialize in cutting-edge solutions, transforming data into insights and fostering innovation. Elevate your business with intelligent technologies.`,
       cardsData: [
         {
@@ -757,7 +836,7 @@ const content = {
           cardDesc: `We carefully review your project's goals, specifications, and difficulties throughout the analysis stage. This crucial stage entails creating a strategy roadmap, defining essential performance indicators, and evaluating the viability and extent of AI integration. To ensure that the next phases in the AI utilization process smoothly match the objectives of your project for the best results, our analytical approach lays the foundation for informed decision-making.`,
         },
         {
-          cardTitle: "Discovery of data",
+          cardTitle: "Discovery of Data",
           cardDesc:
             "To create a strong basis for AI integration, we methodically locate and investigate suitable datasets throughout the data discovery phase. In order to ensure a thorough awareness of the information landscape, this critical stage entails finding and acquiring multiple data sources. With our careful approach to data discovery, we can reveal significant insights and facilitate well-informed decision-making in your project by laying the groundwork for efficient modeling and analysis.",
         },
@@ -778,7 +857,7 @@ const content = {
     techStackCardData: {
       cardsData: [
         {
-          cardTitle: "Front-end",
+          cardTitle: "AI & ML",
           chipData: ["OpenAI", "PyTorch", "Keras", "openNN"],
         },
       ],
@@ -850,22 +929,12 @@ const content = {
         title: "What are some real-world applications of AI and ML?",
         desc: `Applications for AI and ML can be found in many different industries, such as marketing (client segmentation), banking (fraud detection), healthcare (diagnostic and treatment planning), and autonomous vehicles.`,
       },
-      {
-        title:
-          "How do you ensure the security of the web applications you develop?",
-        desc: `An emphasis on web application security can be done through frequent audits, thorough code reviews, and encryption. We adhere to the least privilege principle and use strong authentication. The result is secure online apps that successfully reduce cybersecurity risks and prioritize data protection.`,
-      },
-      {
-        title:
-          "Do you provide ongoing maintenance and support after the web app is launched?",
-        desc: `Yes, we at Zweidevs recognize the value of continuous upkeep and assistance. We provide thorough maintenance services, which include bug repairs, updates, and optimizations, to guarantee your application keeps running smoothly. As your company grows, our support staff is here to help with any necessary improvements or modifications and to quickly resolve any issues that may arise.`,
-      },
     ],
   },
-  "UI & UX Development": {
+  [urls.services.UIUX.title]: {
     image: UiUxServiceDetailsIcon,
     targetAudienceSection: {
-      title: `UI/UX DESIGN SERVICES FOR EVERY BUSINESS, BY ZWEIDEVS`,
+      title: `UI/UX Design Services For Every Business, By Zweidevs`,
       desc: null,
       targetAudienceCardData: [
         {
@@ -883,8 +952,22 @@ const content = {
         },
       ],
     },
+    projectData: [
+      {
+        index: 1,
+        image: Project5_Image1,
+        title: "Twinciti",
+        content: `Twinciti is a powerful infrastructure that powers applications of the future, including 3D graphics and machine learning. In order to provide a flexible and scalable platform for a wide range of application requirements, we developed ML services and virtual machine generation for cloud services.`,
+      },
+      {
+        index: 2,
+        image: Project5_Image1,
+        title: "AI VST",
+        content: `A platform that offers high-end DAW plugins and tools to improve audio and voice recordings. Our work entails creating and executing Visual Studio technology plugins that convert user-generated audio into professional artist-grade sound. These plugins are made available via an easy-to-use website. Yonder Audio’s primary goal for consumers looking for better audio material is to provide a smooth experience.`,
+      },
+    ],
     productionDevSection: {
-      title: `HOW WE CRAFT MEMORABLE UI/UX DESIGNS AT ZWEIDEVS`,
+      title: `How We Craft Memorable Emorable UI/UX Designs At Zweidevs`,
       desc: `Embark on a personalized UI/UX journey with Zweidevs, where every step is tailored to your vision.`,
       cardsData: [
         {
@@ -919,15 +1002,15 @@ const content = {
       cardsData: [
         {
           cardTitle: "UI/ UX Design",
-          chipData: ["figma", "canva", "adobe xd", "invision"],
+          chipData: ["Figma", "Canva", "Adobe xd", "Invision"],
         },
       ],
     },
     headerTitle: "Find the top UI/UX Design and Development Services",
 
     headerDescription:
-      "Transform Your Brand's Impact with Our UI/UX Development Services, Creating the Ultimate Interface Experience for Your Customers.",
-    heading: `Elevate Your Digital Journey By Choosing Zweidevs As Your Goto UI/UX Design And Development Services Agency`,
+      "Transform your brand's impact with uur UI/UX development services, creating the ultimate interface experience for your customers.",
+    heading: `Elevate Your Digital Journey by Choosing Zweidevs as Your Goto UI/UX Design and Development Services Agency`,
     description: `Start your digital adventure hand-in-hand with Zweidevs, the leading UI/UX Design and Development Services agency and redefine your online identity. We're not just here to design interfaces; we're dedicated to crafting experiences that resonate with you. Picture a digital realm where every click feels like a tailored experience, leaving a smile on your face.
     Join forces with Zweidevs, where our UI/UX service is more than pixels and layouts – it's about making your digital space a cozy home for your users. We create moments that matter, blending seamless navigation with visually stunning aesthetics. At Zweidevs, your satisfaction isn't just a checkbox; it's the heartbeat of our design philosophy.
     Let's not just transform your online presence; let's make it a captivating journey where you're not just a user but a cherished companion. Because at Zweidevs, we don't just care about design; we care about you.`,
@@ -984,10 +1067,10 @@ const content = {
       },
     ],
   },
-  "IOT Devices": {
+  [urls.services.IoT.title]: {
     image: IotServiceDetailsIcon,
     targetAudienceSection: {
-      title: `WE BUILD CUSTOM WEB APPLICATIONS FOR`,
+      title: `We Build Custom IoT Applications For`,
       desc: `At Zweidevs, we specialize in creating custom online apps that are
       carefully designed to match the distinct requirements of companies
       of all sizes. Our committed team of professionals uses
@@ -1004,13 +1087,13 @@ const content = {
           cardDesc: `For medium-sized businesses, our IoT services cater to a broader scale of operations. Delivering IoT solutions that meet the particular difficulties faced by mid-sized businesses is Zweidevs' area of expertise. Our services are made to grow with your company, whether you're looking to improve energy management, streamline manufacturing procedures, or deploy intelligent logistics systems. We make sure that your IoT devices are designed to meet the unique requirements of your industry and growth trajectory by providing extensive support and customization.`,
         },
         {
-          cardTitle: "Large Business",
+          cardTitle: "Large Businesses",
           cardDesc: `Large enterprises benefit from our sophisticated IoT solutions that scale seamlessly with expansive operations. Zweidevs understands the complexity of managing diverse and extensive IoT ecosystems within large organizations. Our services encompass advanced device connectivity, data analytics, and security measures to meet the high demands of large-scale deployments. We provide robust support and integration services, ensuring that your IoT infrastructure operates at peak performance while addressing the unique challenges faced by large enterprises.`,
         },
       ],
     },
     productionDevSection: {
-      title: `HOW WE DEVELOP IoT APPLICATIONS`,
+      title: `How We Develop IoT Applications`,
       desc: `A holistic approach to IoT device development and implementation is followed to ensure optimal results.`,
       cardsData: [
         {
@@ -1046,7 +1129,7 @@ const content = {
     headerDescription:
       "Discover intelligent solutions that transform everyday spaces into smart, responsive environments. Zweidevs brings you unparalleled convenience, security, and sustainability across various domains, from smart homes to industrial ecosystems. Step into a connected world where possibilities are endless.",
     heading: `Empowering Tomorrow's Connectivity with Zweidevs’ IoT Services`,
-    description: `Our IoT services go above and beyond by providing cutting-edge solutions that transform how you interact with and manage your environment.Imagine a smooth encounter where your surroundings intelligently adapt to your needs. Zweidevs offers a portal to a connected world, making sure your interactions are simple, clear, and customized to your tastes—whether in smart homes or intricate industrial ecosystems. Greetings from a future in which being connected becomes a necessity for day-to-day living, streamlining chores and improving your quality of life.`,
+    description: `Our IoT services go above and beyond by providing cutting-edge solutions that transform how you interact with and manage your environment. Imagine a smooth encounter where your surroundings intelligently adapt to your needs. Zweidevs offers a portal to a connected world, making sure your interactions are simple, clear, and customized to your tastes—whether in smart homes or intricate industrial ecosystems. Greetings from a future in which being connected becomes a necessity for day-to-day living, streamlining chores and improving your quality of life.`,
     offeringCardData: [
       {
         cardImage: iot1Icon,
@@ -1114,12 +1197,12 @@ const content = {
         Wearables (smartwatches, fitness trackers)
         Industrial Sensors (for monitoring and optimizing processes)
         Healthcare Devices (remote patient monitoring)
-        Smart City Solutions (traffic management, environmental monitoring)
+        Smart City Solutions (traffic management, environmental monitoring).
         `,
       },
       {
         title: "Why choose Zweidevs as your goto IoT Device Company?",
-        desc: `Expertise: Our team comprises the finest professionals in the industry, with a focus on developing IoT devices, analyzing data, and systems engineering. 
+        desc: `Expertise: Our team comprises the finest professionals in the industry, with a focus on developing IoT devices, analyzing data, and systems engineering.
         Security: We give your IoT devices' safety top priority and follow industry best practices. Put strong safeguards in place to identify cyber threats and protect sensitive data.
         Reliability: We thoroughly test our IoT devices to ensure that they perform flawlessly in demanding settings. Even in applications where dependability and longevity are crucial, our designs guarantee both.
         Cost and Value: We maximize efficiency for a high return on investment customized for your business by providing cost-effective IoT device solutions without sacrificing quality.
@@ -1140,10 +1223,10 @@ const content = {
       },
     ],
   },
-  "Game Development": {
+  [urls.services.GD.title]: {
     image: GDServiceDetailsIcon,
     targetAudienceSection: {
-      title: `WE BUILD CUSTOM GAMES FOR`,
+      title: `We Build Custom Games For`,
       desc: `At Zweidevs, we immerse ourselves in the dynamic world of game development, creating immersive and tailored experiences that captivate audiences across various scales. Our passion lies in crafting custom games for`,
       targetAudienceCardData: [
         {
@@ -1155,13 +1238,13 @@ const content = {
           cardDesc: `Medium-sized games can be strategic victories and truly unforgettable adventures in the wide world of game creation. At Zweidevs, we are aware of the challenges and goals associated with growing your game business. Our custom-made solutions for medium-sized games smoothly combine innovation and technology. We enhance your virtual world through sophisticated visuals, complex narratives, and cooperative features, guaranteeing a captivating gaming encounter that appeals to your expanding player population.`,
         },
         {
-          cardTitle: "Large Business",
+          cardTitle: "Large Businesses",
           cardDesc: `Zweidevs is a seasoned game development ally for the titans of the gaming business, where every move they make can determine the fate of virtual worlds. Large games demand grand strategies and unparalleled creativity. Our specialty is creating large-scale game worlds, performance optimization, and integration of state-of-the-art technologies. We bring your ambitious gaming ideas to life with extreme attention to detail, from complex simulations to massively multiplayer online games (MMOs), guaranteeing an amazing gaming experience for players worldwide.`,
         },
       ],
     },
     productionDevSection: {
-      title: `HOW WE DEVELOP GAME APPLICATIONS`,
+      title: `How We Develop Game Applications`,
       desc: `At Zweidevs, our game development process is not just a series of steps; it's a dynamic, collaborative journey where your vision is at the center. We ensure transparency, open communication, and a commitment to delivering a gaming experience that exceeds expectations.`,
       cardsData: [
         {
@@ -1227,12 +1310,12 @@ const content = {
     faqData: [
       {
         title: "How much would game development cost?",
-        desc: `We understand that the cost of game development varies based on each project's unique requirements and intricacies. To provide an accurate estimate, we initiate direct communication to understand your specific needs comprehensively. 
+        desc: `We understand that the cost of game development varies based on each project's unique requirements and intricacies. To provide an accurate estimate, we initiate direct communication to understand your specific needs comprehensively.
         Once we thoroughly understand your requirements, we present you with transparent pricing. Our meticulously crafted quotes break down the cost structure, offering a clear and detailed overview. We believe in flexibility, and therefore, we tailor packages that align with your budgetary considerations. Rest assured, our commitment to quality remains unwavering. Despite offering flexible packages, we never compromise on delivering the highest game development standards, ensuring that your investment creates a remarkable and captivating gaming experience.`,
       },
       {
         title:
-          "Should I go for a Mobile game, a web app game, or a website for games?",
+          "Should I go for a mobile game, a web app game, or a website for games?",
         desc: `Choosing the right platform is crucial. Our experts provide strategic guidance based on your target audience and goals, helping you make informed decisions. We consider user demographics and engagement preferences, ensuring your game reaches its intended audience effectively. Whether it's a mobile game for on-the-go entertainment, a web app for broader accessibility, or a dedicated website for a unique gaming experience, we tailor our recommendations to match your vision.`,
       },
       {
@@ -1253,7 +1336,6 @@ const content = {
     ],
   },
 };
-
 const SerivceDetails = () => {
   const router = useRouter();
   const [serviceName, setServiceName] = useState("Website Development");
@@ -1357,11 +1439,14 @@ const SerivceDetails = () => {
             heading={`${serviceName} Services`}
           />
 
-          <ServiceCarosuel
-            cardTitle={`${serviceName} Projects`}
-            demoButton={false}
-            hideHeader
-          />
+          {content[serviceName].projectData && (
+            <ServiceCarosuel
+              cardTitle={`${serviceName} Projects`}
+              demoButton={false}
+              hideHeader
+              projectData={content[serviceName].projectData}
+            />
+          )}
           <LetsTalk
             buttonTitle={`Schedule a call`}
             cardDesc={
@@ -1394,9 +1479,7 @@ const SerivceDetails = () => {
             cardDesc={
               "We have the expertise to deliver you a custom solution no one else has"
             }
-            cardTitle={
-              "Do you have unique requirements for a your application?"
-            }
+            cardTitle={"Do you have unique requirements for your application?"}
           />
           <ServicesTechnologiesCard
             cardData={cardData}

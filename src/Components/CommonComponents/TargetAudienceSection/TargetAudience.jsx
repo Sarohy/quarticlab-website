@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./targetAudience.module.css";
 import Image from "next/image";
 const TargetAudience = ({ cardData }) => {
   // const [hoveredIndex, setHoveredIndex] = useState(null);
   const [selectedIdx, setSelectedIdx] = useState(0);
+
+  useEffect(() => {
+    setSelectedIdx(0);
+  }, [cardData]);
 
   const handleLiClick = index => {
     setSelectedIdx(index);
@@ -58,8 +62,7 @@ const TargetAudience = ({ cardData }) => {
                     )}
                   </div>
                 </h3>
-                <div //style={{ marginTop: selectedIdx === key ? 50 : "" }}
-                ></div>
+                <div></div>
                 <p
                   className={`${styles.targetAudience__text} ${styles.text}`}
                   style={{ display: selectedIdx === key ? "block" : "none" }}
