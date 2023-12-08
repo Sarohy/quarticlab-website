@@ -16,7 +16,7 @@ import GDServiceDetailsIcon from "../../../../public/assets/serviceIcons/GD.jpg"
 import BlockchainDevServiceDetailsIcon from "../../../../public/assets/serviceIcons/bcdev.jpg";
 import AIdevServiceDetailsIcon from "../../../../public/assets/serviceIcons/AI.jpg";
 import IotServiceDetailsIcon from "../../../../public/assets/serviceIcons/iot.png";
-import DevOpsServiceDetailsIcon from "../../../../public/assets/serviceIcons/devops.jpg";
+import DevOpsServiceDetailsIcon from "../../../../public/assets/serviceIcons/devops.webp";
 
 import styles from "./serviceDetails.module.css";
 const ServiceDetailsCard = dynamic(
@@ -867,7 +867,7 @@ const content = {
 
     headerDescription:
       "Set out on a revolutionary journey where the combination of machine learning (ML) and artificial intelligence (AI) is tailored to your company's unique requirements. Observe how complex tasks are automated, decisions are made with knowledge, and a data-driven strategy that easily adjusts to your unique needs. Integrate AI and ML solutions to optimize operations and provide the foundation for revolutionary development to stay ahead of the competition.",
-    heading: `Cutting-edge AI and ML Services`,
+    heading: `Cutting-Edge AI and ML Services`,
     description: `Welcome to Zweidevs, where our artificial intelligence-driven solutions redefine the boundaries of corporate intelligence and creativity. Here, the possibilities are truly endless. Leveraging the revolutionary potential of Artificial Intelligence (AI) and Machine Learning (ML), we provide an extensive range of services aimed at propelling your company forward.
     Our AI and ML solutions are carefully developed to satisfy the particular requirements of your sector. Whether you aim to increase consumer engagement, automate operations, or extract valuable insights from your data, our services are built to go above and beyond.`,
 

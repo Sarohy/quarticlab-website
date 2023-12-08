@@ -15,6 +15,7 @@ function HomeSection4({ cardTitle = "Web Development Projects", projectData }) {
   const [projectDataState, setProjectDataState] = useState(null);
   useEffect(() => {
     if (projectData) {
+      setProjectDataState(null);
       setProjectDataState(projectData);
     }
     return () => {};
