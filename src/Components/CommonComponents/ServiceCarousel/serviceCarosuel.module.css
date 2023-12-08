@@ -204,7 +204,8 @@
     justify-content: center;
   }
   .cardTitle {
-    padding-top: 3rem;
+    padding-top: 2rem;
+    margin-bottom: 1.5rem;
     padding-bottom: 0rem;
     color: #2b2a35;
     font-family: Poppins;
