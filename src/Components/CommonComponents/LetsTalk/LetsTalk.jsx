@@ -19,7 +19,7 @@ const LetsTalk = ({ cardTitle, cardDesc, buttonTitle }) => {
             class={`${styles.button} ${styles.buttonPurple} ${styles.cta__button}`}
             href="https://calendly.com/request-demo-zweidevs/30min"
             target=""
-            title="Schedule a call"
+            // title="Schedule a call"
           >
             {buttonTitle}
           </Link>
