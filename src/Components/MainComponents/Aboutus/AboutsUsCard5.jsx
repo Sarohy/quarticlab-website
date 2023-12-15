@@ -53,6 +53,7 @@ const AboutUsCard5 = () => {
         </h2>
         <div className={styles.AUCd5Button} ref={animatedButtonRef}>
           <InstantBookingButton
+            customStyle={styles.bookinBtnStyle}
             onClick={() => {
               window.open(
                 "https://calendly.com/request-demo-zweidevs/30min",

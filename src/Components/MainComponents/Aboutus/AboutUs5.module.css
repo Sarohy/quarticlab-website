@@ -32,6 +32,13 @@
 .btnThreeCustomColor::before {
   background-color: white !important;
 }
+
+.bookinBtnStyle {
+  color: #ff9700;
+  background: white;
+  box-shadow: 6px 6px 0 black;
+}
+
 @media screen and (max-width: 590px) {
   .AUCd5Heading {
     font-size: 24px;

@@ -158,7 +158,7 @@ const Blog = () => {
             customStyle={styles.bookinBtnStyle}
             customThree={styles.three}
             customTwo={styles.two}
-            svgFill="#ff9700"
+            // svgFill="#ff9700"
           />
         </div>
       </div>

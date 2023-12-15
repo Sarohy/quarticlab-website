@@ -28,7 +28,7 @@ export default function AboutUs() {
       </Head>
       <AboutUsCard1 />
       <AboutUsCard2 />
-      <HomeSection6 heading={"Zweidevs Achievements Since 2010"} />
+      <HomeSection6 heading={"Zweidevs Achievements Since 2020"} />
       <AboutUsCard4 />
       <AboutUsCard5 />
     </div>
