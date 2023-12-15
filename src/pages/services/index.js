@@ -41,6 +41,24 @@ import SQLiteIcon from "../../../public/assets/serviceIcons/SQLite.svg";
 import WebDevIcon from "../../../public/assets/serviceIcons/webdevIcon.svg";
 import UnityIcon from "../../../public/assets/serviceIcons/unityIcon.svg";
 import UIUXIcon from "../../../public/assets/serviceIcons/uiuxIcon.svg";
+import PostgresIcon from "../../../public/assets/serviceIcons/postgres.svg";
+// import IonicIcon from "../../../public/assets/serviceIcons/ionic.svg";
+import Ionic2Icon from "../../../public/assets/serviceIcons/ionic2.svg";
+import FlutterIcon from "../../../public/assets/serviceIcons/flutter.svg";
+import RorIcon from "../../../public/assets/serviceIcons/ror.svg";
+import NustIcon from "../../../public/assets/serviceIcons/nest.svg";
+import NextIcon from "../../../public/assets/serviceIcons/next.svg";
+import NuxtIcon from "../../../public/assets/serviceIcons/tri2.svg";
+import AngularIcon from "../../../public/assets/serviceIcons/angular.svg";
+import DigitaloceanIcon from "../../../public/assets/serviceIcons/digitalocean.svg";
+import HerokuIcon from "../../../public/assets/serviceIcons/heroku.svg";
+import VercelIcon from "../../../public/assets/serviceIcons/vercel.svg";
+import FigpeaIcon from "../../../public/assets/serviceIcons/figpea.svg";
+import XdIcon from "../../../public/assets/serviceIcons/xd.svg";
+import CanvaIcon from "../../../public/assets/serviceIcons/canva.svg";
+import hyperledgerIcon from "../../../public/assets/serviceIcons/hyperledger.svg";
+import PolygonIcon from "../../../public/assets/serviceIcons/polygon.svg";
+
 const PageBanner = dynamic(
   () => import("@component/Components/CommonComponents/PageBanner"),
   { preload: true },
@@ -62,7 +80,20 @@ function Services() {
       latest technological advances with thoughtful design and serious
       engineering to build tailored solutions for our clients.`,
       footerTitle: "Tools & Technologies",
-      footerImages: [NodeIcon, PythonIcon, ReactIcon, SQLiteIcon, JSIcon],
+      footerImages: [
+        NodeIcon,
+        PythonIcon,
+        ReactIcon,
+        SQLiteIcon,
+        JSIcon,
+        PostgresIcon,
+        Ionic2Icon,
+        RorIcon,
+        AngularIcon,
+        NextIcon,
+        NustIcon,
+        NuxtIcon,
+      ],
     },
     {
       cardIcon: BlockchainIcon,
@@ -71,7 +102,14 @@ function Services() {
       href: urls.services.BC.url,
       cardDetails: `Blockchain is the backbone Technology of Digital CryptoCurrency BitCoin. A distributed database of records of all transactions. We have a team of Blockchain developers to make the deployment correct.`,
       footerTitle: "Tools & Technologies",
-      footerImages: [SolanaIcon, AvalancheIcon, EthIcon, CardanoIcon],
+      footerImages: [
+        SolanaIcon,
+        AvalancheIcon,
+        EthIcon,
+        CardanoIcon,
+        hyperledgerIcon,
+        PolygonIcon,
+      ],
     },
     {
       cardIcon: MobileDevIcon,
@@ -80,7 +118,15 @@ function Services() {
       href: urls.services.MobileApp.url,
       cardDetails: `We develop sleek looking native and hybrid mobile apps for iOS & Android to ensure the customer satisfaction and performance at the core.`,
       footerTitle: "Tools & Technologies",
-      footerImages: [AndroidIcon, IOSIcon, ReactIcon, SQLiteIcon, JSIcon],
+      footerImages: [
+        AndroidIcon,
+        IOSIcon,
+        ReactIcon,
+        SQLiteIcon,
+        JSIcon,
+        Ionic2Icon,
+        FlutterIcon,
+      ],
     },
     {
       cardIcon: UIUXIcon,
@@ -89,7 +135,15 @@ function Services() {
       href: urls.services.UIUX.url,
       cardDetails: `The UI/UX Design brings a design-centric approach to user interface and user experience. Our team is trained to solve problems and provide innovative solutions by following an entire process of UI/UX development.`,
       footerTitle: "Tools & Technologies",
-      footerImages: [SketchIcon, FigmaIcon, InVision, InfinityUXIcon],
+      footerImages: [
+        SketchIcon,
+        FigmaIcon,
+        InVision,
+        InfinityUXIcon,
+        FigpeaIcon,
+        XdIcon,
+        CanvaIcon,
+      ],
     },
     {
       cardIcon: GameDevIcon,
@@ -128,7 +182,15 @@ function Services() {
       href: urls.services.DevOPS.url,
       cardDetails: `We possess deep knowledge and extensive experience with cloud services. Shorten time to develop and launch new solutions, modernize legacy technology or test and deploy prototypes with IaaS-based applications on Amazon Web Services, Digital Ocean, Heroku, Microsoft Azure or Google Cloud.`,
       footerTitle: "Tools & Technologies",
-      footerImages: [AWSIcon, AzureIcon, googleCloudIcon, goDaddyIcon],
+      footerImages: [
+        AWSIcon,
+        AzureIcon,
+        googleCloudIcon,
+        goDaddyIcon,
+        DigitaloceanIcon,
+        VercelIcon,
+        HerokuIcon,
+      ],
     },
   ];
 

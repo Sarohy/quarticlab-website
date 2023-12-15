@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -21,6 +22,28 @@ function HomeSection2() {
   const animatedHeadingRefs = Array.from({ length: 5 }, () =>
     React.useRef(null),
   );
+
+  const myDivRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = event => {
+      // Check if the clicked element is outside the div
+      if (myDivRef.current && myDivRef.current.contains(event.target)) {
+        // If inside, remove focus and make it blur
+        if (myDivRef.current.click) {
+          myDivRef.current.click();
+        }
+      }
+    };
+
+    // Add click event listener to the document body
+    document.body.addEventListener("touchend", handleClickOutside);
+
+    // Remove the event listener when the component is unmounted
+    return () => {
+      document.body.removeEventListener("touchend", handleClickOutside);
+    };
+  }, [myDivRef]);
 
   const cardData = [
     {
@@ -121,7 +144,7 @@ function HomeSection2() {
 
   return (
     <>
-      <div className={styles.HS2MainContainer}>
+      <div className={styles.HS2MainContainer} ref={myDivRef}>
         <div
           className={styles.HS2ContentContainer}
           ref={animatedDivRefs[0]}
@@ -150,15 +173,26 @@ function HomeSection2() {
                 onClick={() => router.push(item.href)}
                 onMouseEnter={() => {
                   setIsHovered(true);
-                  setSelectedKey(item.key);
+                  setSelectedKey(index);
                 }}
-                onMouseLeave={() => setIsHovered(false)}
+                onMouseLeave={() => {
+                  setIsHovered(false);
+                  setSelectedKey(-1);
+                }}
+                onTouchEnd={() => {
+                  setIsHovered(false);
+                  setSelectedKey(-1);
+                }}
+                onTouchStart={() => {
+                  setIsHovered(true);
+                  setSelectedKey(index);
+                }}
               >
                 <div className={styles.HS2FlipContainer}>
                   <div className={styles.HS2Flipper}>
                     <div
                       className={
-                        isHovered && selectedKey == item.key
+                        isHovered && selectedKey == index
                           ? styles.HS2back
                           : styles.HS2front
                       }
@@ -167,18 +201,16 @@ function HomeSection2() {
                         <Image
                           alt={`Zweidevs | ${item.heading}`}
                           className={styles.HS2SelectedImgWhite}
-                          height={
-                            isHovered && selectedKey == item.key ? 40 : 80
-                          }
+                          height={isHovered && selectedKey == index ? 40 : 80}
                           src={item.image}
                           title={`Zweidevs | ${item.heading}`}
-                          width={isHovered && selectedKey == item.key ? 40 : 80}
+                          width={isHovered && selectedKey == index ? 40 : 80}
                         />
                       </div>
                       <h3 ref={animatedHeadingRefs[index]}>{item.heading}</h3>
                       <div
                         className={
-                          isHovered && selectedKey == item.key
+                          isHovered && selectedKey == index
                             ? ""
                             : styles.HS2back
                         }

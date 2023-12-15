@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
-import CD2Img1 from "../../../../public/assets/AboutUs/CD2Img1.svg";
+import CD2Img1 from "../../../../public/assets/AboutUs/AboutUsMainImg.png";
 import styles from "./AboutUs2.module.css";
 
 const AboutUsCard2 = () => {

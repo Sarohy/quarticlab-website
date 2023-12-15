@@ -31,7 +31,7 @@ const AboutUsCard = () => {
   return (
     <div className={styles.AUCd3Main}>
       <h2 className={styles.AUCd3Heading} ref={animatedHeadingRef}>
-        Zweidevs Achievements Since 2010
+        Zweidevs Achievements Since 2020
       </h2>
       <div className={styles.AUCd3ProjectContainer}>
         <Image

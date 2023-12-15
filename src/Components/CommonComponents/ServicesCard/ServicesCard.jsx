@@ -3,10 +3,12 @@ import Image from "next/image";
 import Box from "@mui/material/Box";
 import styles from "./servicesCard.module.css";
 import Link from "next/link";
+import BottomBorderButton from "../BottomBorderButton";
+import { useRouter } from "next/navigation";
 
 const ServicesCard = props => {
   const { cardData } = props;
-
+  const router = useRouter();
   const animatedDivRefs = Array.from({ length: cardData.length }, () =>
     React.useRef(null),
   );
@@ -130,55 +132,87 @@ const ServicesCard = props => {
         }}
       >
         {cardData.map((element, key) => (
-          <Link href={element.href} key={key}>
-            <div
-              className={`${styles.hidden} services-card-container animate__animated`}
-              ref={animatedDivRefs[key]}
+          // <Link href={element.href} key={key}>
+          <div
+            className={`${styles.hidden} services-card-container animate__animated`}
+            key={key}
+            ref={animatedDivRefs[key]}
+          >
+            <Box
+              sx={{
+                display: {
+                  xs: "none",
+                  sm: "none",
+                  md: "flex",
+                  lg: "flex",
+                  xl: "flex",
+                  xxl: "flex",
+                },
+              }}
             >
-              <Box
-                sx={{
-                  display: {
-                    xs: "none",
-                    sm: "none",
-                    md: "flex",
-                    lg: "flex",
-                    xl: "flex",
-                    xxl: "flex",
-                  },
+              <div
+                className={`${styles.hiddenNestedCard} animate__animated ${styles.servicesIconCardContainer}`}
+                ref={animatedNestedCardDivRefs[key]}
+              >
+                <Image
+                  alt={`${element.cardIconTitle.firstLine}`}
+                  className="services-icon"
+                  height={"auto"}
+                  src={element.cardIcon}
+                  title={`Zweidevs | ${element.cardIconTitle.firstLine}`}
+                />
+                <div className="services-icon-card-title">
+                  <h3>
+                    {element.cardIconTitle.firstLine}
+                    <br></br>
+                    {element.cardIconTitle.secondLine}
+                  </h3>
+                </div>
+              </div>
+            </Box>
+
+            <div className={`services-card-details-container`}>
+              <div
+                style={{
+                  padding: 0,
+                  margin: 0,
+                  color: "red",
+                  // backgroundColor: "green",
+                  textAlign: "end",
+                  display: "flex",
+                  justifyContent: "end",
+                  position: "absolute",
+                  right: 5,
+                  top: 5,
                 }}
               >
-                <div
-                  className={`${styles.hiddenNestedCard} animate__animated ${styles.servicesIconCardContainer}`}
-                  ref={animatedNestedCardDivRefs[key]}
-                >
-                  <Image
-                    alt={`${element.cardIconTitle.firstLine}`}
-                    className="services-icon"
-                    height={"auto"}
-                    src={element.cardIcon}
-                    title={`Zweidevs | ${element.cardIconTitle.firstLine}`}
-                  />
-                  <div className="services-icon-card-title">
-                    <h3>
-                      {element.cardIconTitle.firstLine}
-                      <br></br>
-                      {element.cardIconTitle.secondLine}
-                    </h3>
-                  </div>
-                </div>
-              </Box>
+                <BottomBorderButton
+                  onClick={() => {
+                    router.push(element.href);
+                  }}
+                  text="View Details"
+                />
+              </div>
 
-              <div className={`services-card-details-container`}>
-                <h2 className={styles.servicesCardDetailsHeader}>
-                  {element.cardTitle}
-                </h2>
-                <p className={styles.servicesCardDetails}>
-                  {element.cardDetails}{" "}
-                </p>
-                <div className={styles.servicesCardFooterContainer}>
-                  <h3 className={styles.servicesCardFooterHeader}>
-                    {element.footerTitle}:
-                  </h3>
+              <h2 className={styles.servicesCardDetailsHeader}>
+                {element.cardTitle}
+              </h2>
+
+              <p className={styles.servicesCardDetails}>
+                {element.cardDetails}{" "}
+              </p>
+              <div className={styles.servicesCardFooterContainer}>
+                <h3 className={styles.servicesCardFooterHeader}>
+                  {element.footerTitle}:
+                </h3>
+                <marquee
+                  //  bgcolor="Green"
+                  behavior="alternate"
+                  className={styles.marquee}
+                  direction="left"
+                  loop="infinite"
+                  scrollamount="3"
+                >
                   <div className={styles.servicesFooterImagesContainer}>
                     {element.footerImages &&
                       element.footerImages.map((image, imgkey) => (
@@ -192,10 +226,11 @@ const ServicesCard = props => {
                         />
                       ))}
                   </div>
-                </div>
+                </marquee>
               </div>
             </div>
-          </Link>
+          </div>
+          // </Link>
         ))}
       </Box>
 

@@ -200,44 +200,79 @@ const content = {
       {
         index: 1,
         image: Project1_Image1,
-        title: "Hooked Health",
+        title: "Cyber Legends",
         content:
-          "Hooked Health is a mobile application which enables the users to enjoy a leaner, healthier body through a 15-minute no-equipment workouts ",
+          "Cyber Legends, an Ed-Tech and Gaming platform, provides services for online education to teachers, tutors, parents, and other educators and content creators. This edtech platform consists of tools and content to enable interactive and other educational exercises for teachers that students can use in their learning.",
       },
       {
         index: 2,
         image: Project2_Image1,
-        title: "AudioCardio",
+        title: "Edcite",
         content:
-          "AudioCardio is an evidence-based mobile app that delivers inaudible sound therapies designed to maintain and strengthen your hearing while providing relief from tinnitus by stimulating the cells inside your ear",
+          "Zweidevs created an intuitive platform that enables educators to create interactive, adaptable lessons that align with Common Core requirements. To support students' learning journey in K–12 education, Edcite improves their digital experience by tackling the issue of online standardized tests and promoting instant feedback.",
       },
       {
         index: 3,
         image: Project3_Image1,
-        title: "Seated",
+        title: "Officer Survey",
         content:
-          "Seated is a platform which enables the users to Make Reservations at Local Restaurants so that they can earn back on every dollar that the users spend at the restaurant",
+          "A technology-driven forum that helps communities and law enforcement organizations communicate and understand the views of others. Zweidevs put tools in place to facilitate meaningful dialogue, improve transparency, and establish trust-based connections to create a safer and more interconnected society.",
       },
       {
         index: 4,
         image: Project4_Image1,
-        title: "Public Trust",
+        title: "Blockcircle",
         content:
-          "Public Trust Realty Group is a web-based platform that enables the users to search for a property and buy/rent a property",
+          "Blockcircle provides competitive data, proprietary tools, and dynamic investing analytics to enable them to make well-informed decisions in the turbulent cryptocurrency market.",
       },
       {
         index: 5,
         image: Project6_Image1,
-        title: "Fresh Tracks",
+        title: "Avail Medical",
         content:
-          "FreshTracks is a web based portal for the travelers planning to travel across Canada where they can view personalized travel plans.",
+          "We contributed to the development of a website of traditional and marijuana-based prescription knowledge to help design an easy-to-use platform that makes Canada's medical marijuana program accessible. The platform provides streamlined online shopping experiences, allowing customers to easily transition to our platform for various services and product options from the comfort of their homes.",
       },
       {
         index: 6,
         image: Project5_Image1,
+        title: "Isynced",
+        content:
+          "Trademimic facilitates transaction execution between several accounts. The market's most affordable copy trading solution offers cutting-edge features to optimize earnings, minimize risk, and offer the most incredible user experience.",
+      },
+      {
+        index: 7,
+        image: Project5_Image1,
+        title: "Public Trust",
+        content:
+          "Public Trust Realty Group provides full-service residential and commercial real estate brokerage services. They oversee short sales, foreclosure properties, and leases for businesses and residences. They have a referral group if you need to move anyplace in the United States, including Canada and Puerto Rico.",
+      },
+      {
+        index: 8,
+        image: Project5_Image1,
+        title: "Fresh Track",
+        content:
+          "Since 1996, a Vancouver-based team has created incredible travel experiences for clients by fusing their love of travel with insider knowledge to create over 25,000 customized trip itineraries highlighting the country's fantastic scenery and variety of experiences.",
+      },
+      {
+        index: 9,
+        image: Project5_Image1,
         title: "Humanava",
         content:
-          "Humanava is a web based Edtech platform, which provides Interactive, highly engaging courses for everyone in an organization.",
+          "You can realize your full potential with Humanava, a platform providing personal development courses to accelerate human progress. Embrace leadership, diversity, and mindfulness, connect with people worldwide, and discover your hidden brilliance to secure a bright future.",
+      },
+      {
+        index: 10,
+        image: Project5_Image1,
+        title: "LinkTree",
+        content:
+          "With Linktree, you can share everything about yourself in a single, easy-to-manage link, increasing your online material's discoverability, manageability, and conversion rate. Link your videos, music, podcasts, website, Instagram, Twitter, and more. Everything goes in a landing page link in the bio meant to convert.",
+      },
+      {
+        index: 11,
+        image: Project5_Image1,
+        title: "Venue Genie",
+        content:
+          "Learn about the fee-free, markup-free event booking platform of the future. Select from more than 360 locations, catering options, and DJ packages ideal for gatherings of any size to have a flawless and reasonably priced experience.",
       },
     ],
     productionDevSection: {
@@ -376,14 +411,20 @@ const content = {
       {
         index: 1,
         image: Project5_Image1,
-        title: "AI VST",
-        content: `A platform that offers high-end DAW plugins and tools to improve audio and voice recordings. Our work entails creating and executing Visual Studio technology plugins that convert user-generated audio into professional artist-grade sound. These plugins are made available via an easy-to-use website. Yonder Audio’s primary goal for consumers looking for better audio material is to provide a smooth experience.`,
+        title: "Blockcircle",
+        content: `Blockcircle provides competitive data, proprietary tools, and dynamic investing analytics to enable them to make well-informed decisions in the turbulent cryptocurrency market.`,
       },
       {
         index: 2,
         image: Project5_Image1,
-        title: "Blockcircle",
-        content: `A platform for dynamic investment analytics using proprietary technologies and competitive information for trading digital assets. With its robust trading signals, watch lists, and portfolio updates, Blockcircle improves user experience and equips members of our community to make wise decisions in the constantly changing cryptocurrency market.`,
+        title: "Mimo",
+        content: `With its decentralized exchange platform, Mimo transforms the cryptocurrency trading industry by doing away with middlemen and facilitating peer-to-peer transactions on the blockchain.`,
+      },
+      {
+        index: 2,
+        image: Project5_Image1,
+        title: "CryptoFinance",
+        content: `Blockchain applications for cryptocurrency finance simplify financial transactions by offering a decentralized, safe environment for the effective exchange and management of digital assets.`,
       },
     ],
     productionDevSection: {
@@ -512,8 +553,20 @@ const content = {
       {
         index: 1,
         image: Project5_Image1,
-        title: "Twinciti",
-        content: `Twinciti is a powerful infrastructure that powers applications of the future, including 3D graphics and machine learning. In order to provide a flexible and scalable platform for a wide range of application requirements, we developed ML services and virtual machine generation for cloud services.`,
+        title: "AI VST",
+        content: `A platform that offers high-end plugins and tools to improve audio and voice recordings. Our work entails creating and executing Visual Studio technology plugins that convert user-generated audio into professional artist-grade sound. Yonder Audio’s primary goal for consumers looking for better audio material is to provide a smooth experience.`,
+      },
+      {
+        index: 2,
+        image: Project5_Image1,
+        title: "CSP",
+        content: `Twinciti is a robust infrastructure that powers future applications, including 3D graphics and machine learning. It developed ML services and virtual machine generation for cloud services to provide a flexible and scalable platform for various application requirements.`,
+      },
+      {
+        index: 3,
+        image: Project5_Image1,
+        title: "Gnizzel",
+        content: `With Gnizzel, you can easily publish offers and last-minute appointments using our user-friendly platform, increasing the reach of your dental clinic and facilitating smooth connections with new and existing patients. You can also improve oral health and organize your calendar.`,
       },
     ],
     productionDevSection: {
@@ -683,6 +736,32 @@ const content = {
         },
       ],
     },
+    projectData: [
+      {
+        index: 1,
+        image: Project5_Image1,
+        title: "Neverleft",
+        content: `A more efficient method for managing venue operations that incorporates data analytics, enhanced event ticketing, and digital cloakroom ticketing.`,
+      },
+      {
+        index: 2,
+        image: Project5_Image1,
+        title: "You Salon",
+        content: `An application that provides an online salon booking solution with the solution of choosing with respect to ratings and other data like popularity within the specific area. You can also have a track record history of your saloon selections.`,
+      },
+      {
+        index: 3,
+        image: Project5_Image1,
+        title: "Hooked Health",
+        content: `Discover how to achieve metabolic advantage and develop a positive mindset with fitness and mindset training created just for women. Aim for your particular body part to accelerate outcomes.`,
+      },
+      {
+        index: 4,
+        image: Project5_Image1,
+        title: "AudioCardio",
+        content: `Improve your hearing with the evidence-based mobile app AudioCardio, which provides inaudible sound therapy to improve hearing and reduce tinnitus. This gives people an easily accessible, reasonably priced, and socially stigma-free treatment.`,
+      },
+    ],
     productionDevSection: {
       title: `How We Develop Mobile Applications`,
       desc: `Zweidevs takes you through every step of your mobile app development journey, offering a full suite of services custom-tailored to your unique needs. Our team is here to collaborate closely with you, providing insightful guidance and consistent support at every stage, ensuring strategic decisions are well-informed and consistent assistance is provided throughout the entire process.`,
@@ -824,7 +903,19 @@ const content = {
         index: 1,
         image: Project5_Image1,
         title: "AI VST",
-        content: `A platform that offers high-end DAW plugins and tools to improve audio and voice recordings. Our work entails creating and executing Visual Studio technology plugins that convert user-generated audio into professional artist-grade sound. These plugins are made available via an easy-to-use website. Yonder Audio’s primary goal for consumers looking for better audio material is to provide a smooth experience.`,
+        content: `A platform that offers high-end DAW plugins and tools to improve audio and voice recordings. Our work entails creating and executing Visual Studio technology plugins that convert user-generated audio into professional artist-grade sound. Yonder Audio’s primary goal for consumers looking for better audio material is to provide a smooth experience.`,
+      },
+      {
+        index: 2,
+        image: Project5_Image1,
+        title: "Twinciti",
+        content: `Twinciti is a robust infrastructure that powers future applications, including 3D graphics and machine learning. It developed ML services and virtual machine generation for cloud services to provide a flexible and scalable platform for various application requirements.`,
+      },
+      {
+        index: 3,
+        image: Project5_Image1,
+        title: "Amazebot",
+        content: `Communicate easily with Amazebot, your AI conversation partner who can converse via text, graphics, examples, and more. Amazebot makes every interaction simple and unique.`,
       },
     ],
     productionDevSection: {
@@ -956,14 +1047,26 @@ const content = {
       {
         index: 1,
         image: Project5_Image1,
-        title: "Twinciti",
-        content: `Twinciti is a powerful infrastructure that powers applications of the future, including 3D graphics and machine learning. In order to provide a flexible and scalable platform for a wide range of application requirements, we developed ML services and virtual machine generation for cloud services.`,
+        title: "Paket Taxi",
+        content: `One creative project that addresses businesses' courier needs is PaketTaxi. It reduces courier risks while still meeting the demands of businesses for logistical services. It provides distribution and transportation services for various products, including restaurant orders and e-commerce deliveries.`,
       },
       {
         index: 2,
         image: Project5_Image1,
-        title: "AI VST",
-        content: `A platform that offers high-end DAW plugins and tools to improve audio and voice recordings. Our work entails creating and executing Visual Studio technology plugins that convert user-generated audio into professional artist-grade sound. These plugins are made available via an easy-to-use website. Yonder Audio’s primary goal for consumers looking for better audio material is to provide a smooth experience.`,
+        title: "Seatedapp",
+        content: `Seated transforms eating out by providing users with a fulfilling experience and essential support for nearby eateries. Reserve and earn points with a broader selection of restaurants, availability, and benefits like credits for secure and luxurious rides to your reservations.`,
+      },
+      {
+        index: 3,
+        image: Project5_Image1,
+        title: "Humanava",
+        content: `You can realize your full potential with Humanava, a platform providing personal development courses to accelerate human progress. Embrace leadership, diversity, and mindfulness, connect with people worldwide, and discover your hidden brilliance to secure a bright future.`,
+      },
+      {
+        index: 4,
+        image: Project5_Image1,
+        title: "CryptoLinx",
+        content: `Integrate announcements, updates, and crucial information into a URL to facilitate communication with your audience on various channels. With CryptoLinx, you can simplify cryptocurrency marketing.`,
       },
     ],
     productionDevSection: {
@@ -1092,6 +1195,26 @@ const content = {
         },
       ],
     },
+    projectData: [
+      {
+        index: 1,
+        image: Project5_Image1,
+        title: "Oven Homes",
+        content: `With Oven Homes' IoT system, you can easily control your house system, including temperature and electronics, with your smart smartphone. It provides convenient ON/OFF switch options, temperature management, and a thorough analytics dashboard for increased home automation.`,
+      },
+      {
+        index: 2,
+        image: Project5_Image1,
+        title: "BaytiSmart",
+        content: `With the help of Internet of Things applications, BaytiSmart transforms home management and offers seamless control over appliances like lighting and thermostats for a more intelligent and effective living space.`,
+      },
+      {
+        index: 3,
+        image: Project5_Image1,
+        title: "Zarget Lights",
+        content: `Zarget Lights is a revolutionary IoT-based application that offers smart and easy administration of your lighting systems. It's the lighting control of the future.`,
+      },
+    ],
     productionDevSection: {
       title: `How We Develop IoT Applications`,
       desc: `A holistic approach to IoT device development and implementation is followed to ensure optimal results.`,
@@ -1243,6 +1366,26 @@ const content = {
         },
       ],
     },
+    projectData: [
+      {
+        index: 1,
+        image: Project5_Image1,
+        title: "Cyber Legends",
+        content: `Cyber Legends, an Ed-Tech and Gaming platform, provides services for online education to teachers, tutors, parents, and other educators and content creators. This Edtech platform consists of tools and content to enable interactive and educational exercises for teachers that students can use in their learning.`,
+      },
+      {
+        index: 2,
+        image: Project5_Image1,
+        title: "Play Room",
+        content: `Children may read, solve puzzles, learn math, and express their creativity through interactive games in this dynamic virtual playground. This is an engaging and educational setting for younger learners.`,
+      },
+      {
+        index: 3,
+        image: Project5_Image1,
+        title: "Gobblet Junior",
+        content: `Gobblet Junior effectively blends word guessing and drawing tasks to produce an engaging and fun educational game that young minds may explore and enjoy.`,
+      },
+    ],
     productionDevSection: {
       title: `How We Develop Game Applications`,
       desc: `At Zweidevs, our game development process is not just a series of steps; it's a dynamic, collaborative journey where your vision is at the center. We ensure transparency, open communication, and a commitment to delivering a gaming experience that exceeds expectations.`,
@@ -1483,7 +1626,7 @@ const SerivceDetails = () => {
           />
           <ServicesTechnologiesCard
             cardData={cardData}
-            cardTitle={"Another Services"}
+            cardTitle={"Other Services"}
           />
           <Faq faqData={content[serviceName].faqData} />
           <div className={styles.blogBanner}>
@@ -1502,7 +1645,7 @@ const SerivceDetails = () => {
                     "_blank",
                   );
                 }}
-                svgFill="#ff9700"
+                // svgFill="#ff9700"
               />
             </div>
           </div>

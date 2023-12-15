@@ -165,10 +165,14 @@
 
 .servicesFooterImagesContainer {
   margin-top: 10px;
+  width: min-content;
   /* border: 2px solid red !important;
   display: flex;
   align-items: center; */
   /* justify-content: space-evenly; */
+}
+.marquee {
+  width: auto;
 }
 
 .services-footer-image {

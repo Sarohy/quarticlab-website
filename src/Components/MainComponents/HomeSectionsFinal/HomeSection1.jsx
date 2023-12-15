@@ -22,6 +22,7 @@ function HomeSection1() {
             </div>
             <div className={styles.HS1ContentButtonContainer}>
               <InstantBookingButton
+                customStyle={styles.bookinBtnStyle}
                 onClick={() => {
                   window.open(
                     "https://calendly.com/request-demo-zweidevs/30min",

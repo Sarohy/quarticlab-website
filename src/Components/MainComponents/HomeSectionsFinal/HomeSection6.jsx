@@ -60,7 +60,7 @@ function HomeSection6({ heading }) {
         <div className={styles.circlecontainer}>
           <div className={styles.since10}>
             <div>Since</div>
-            <div className={styles.sinceyear}>2010</div>
+            <div className={styles.sinceyear}>2020</div>
           </div>
           <div className={styles.circularbar}>
             <Image
@@ -120,7 +120,7 @@ function HomeSection6({ heading }) {
             <HomeSection6Counter
               duration={4}
               label={"Projects Completed"}
-              number={"150"}
+              number={"412"}
               sign={"+"}
             />
           </div>
@@ -128,7 +128,7 @@ function HomeSection6({ heading }) {
             <HomeSection6Counter
               duration={4}
               label={"Positive Reviews"}
-              number={"70"}
+              number={"682"}
               sign={"+"}
             />
           </div>
@@ -136,7 +136,7 @@ function HomeSection6({ heading }) {
             <HomeSection6Counter
               duration={4}
               label={"Team Members"}
-              number={"35"}
+              number={"95"}
               sign={"+"}
             />
           </div>
