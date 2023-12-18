@@ -44,7 +44,8 @@ import UIUXIcon from "../../../public/assets/serviceIcons/uiuxIcon.svg";
 import PostgresIcon from "../../../public/assets/serviceIcons/postgres.svg";
 // import IonicIcon from "../../../public/assets/serviceIcons/ionic.svg";
 import Ionic2Icon from "../../../public/assets/serviceIcons/ionic2.svg";
-import FlutterIcon from "../../../public/assets/serviceIcons/flutter.svg";
+// import FlutterIcon from "../../../public/assets/serviceIcons/flutter.svg";
+// import FlutterIcon from "/assets/serviceIcons/flutter.svg";
 import RorIcon from "../../../public/assets/serviceIcons/ror.svg";
 import NustIcon from "../../../public/assets/serviceIcons/nest.svg";
 import NextIcon from "../../../public/assets/serviceIcons/next.svg";
@@ -125,7 +126,7 @@ function Services() {
         SQLiteIcon,
         JSIcon,
         Ionic2Icon,
-        FlutterIcon,
+        "/assets/serviceIcons/flutter.svg",
       ],
     },
     {
