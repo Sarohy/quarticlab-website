@@ -13,10 +13,20 @@ function HomeSection4({ cardTitle = "Web Development Projects", projectData }) {
   const isMobile = useMediaQuery("(max-width: 600px)");
   const isTablet = useMediaQuery("(max-width: 960px)");
   const [projectDataState, setProjectDataState] = useState(null);
+
+  const [rerenderKey, setRerenderKey] = useState(0);
+
   useEffect(() => {
     if (projectData) {
       setProjectDataState(null);
-      setProjectDataState(projectData);
+      const data = chunkArray(projectData, chunkSize);
+
+      if (data) {
+        setProjectDataState(data);
+        setTimeout(() => {
+          setRerenderKey(prevKey => prevKey + 1);
+        }, 3000);
+      }
     }
     return () => {};
   }, [projectData]);
@@ -55,24 +65,26 @@ function HomeSection4({ cardTitle = "Web Development Projects", projectData }) {
               },
             }}
             animation="slide"
-            className={styles.carousel}
+            className={`${styles.carousel}`}
             indicatorIconButtonProps={{
               style: {
                 color: "#ACACAC",
               },
             }}
+            key={rerenderKey}
             style={{
               background: "red",
               height: "700px",
             }}
           >
-            {chunkArray(projectData, chunkSize).map((chunk, index) => (
+            {projectDataState.map((chunk, index) => (
               <Grid
                 className={`${styles.chunkArryGrid}`}
                 container
                 // gap={2}
                 key={index}
                 spacing={2}
+                style={{ height: "100%" }}
               >
                 {chunk.map((item, chunkKey) => {
                   return (

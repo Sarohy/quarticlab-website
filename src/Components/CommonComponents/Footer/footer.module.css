@@ -9,7 +9,7 @@
   color: orange;
 }
 .colorGrid {
-  color: #596380;
+  color: #596380 !important;
 }
 .footerMainContainer h3 {
   font-family: "Poppins";
