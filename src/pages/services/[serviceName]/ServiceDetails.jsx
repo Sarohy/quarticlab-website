@@ -99,14 +99,31 @@ const ServicesTechnologiesCard = dynamic(
     ),
   { preload: true },
 );
+import OfferingCard from "@component/Components/CommonComponents/OfferingsCard";
+// import BusinessProcessCard from "@component/Components/CommonComponents/BusinessProcessCard/BusinessProcessCard";
+import ProductDevSection from "@component/Components/CommonComponents/ProductDevSection/ProductDevSection";
+import TargetAudience from "@component/Components/CommonComponents/TargetAudienceSection/TargetAudience";
+import Faq from "@component/Components/CommonComponents/FAQ/Faq";
+import LetsTalk from "@component/Components/CommonComponents/LetsTalk/LetsTalk";
+import { urls } from "@component/utils/urls";
 
 //projects import
-import Project1_Image1 from "../../../../public/assets/HomeIcons/Project/Project1_image1.svg";
-import Project2_Image1 from "../../../../public/assets/HomeIcons/Project/Project2_image1.svg";
-import Project3_Image1 from "../../../../public/assets/HomeIcons/Project/Project3_image1.svg";
-import Project4_Image1 from "../../../../public/assets/HomeIcons/Project/Project4_image1.svg";
-import Project5_Image1 from "../../../../public/assets/HomeIcons/Project/Project5_image1.svg";
-import Project6_Image1 from "../../../../public/assets/HomeIcons/Project/Project6_image1.svg";
+// import Project1_Image1 from "../../../../public/assets/HomeIcons/Project/Project1_image1.svg";
+// import Project2_Image1 from "../../../../public/assets/HomeIcons/Project/Project2_image1.svg";
+// import Project3_Image1 from "../../../../public/assets/HomeIcons/Project/Project3_image1.svg";
+
+//web Proj
+import Web1 from "../../../../public/assets/HomeIcons/Project/Web1.png";
+import Web2 from "../../../../public/assets/HomeIcons/Project/Web2.png";
+import Web3 from "../../../../public/assets/HomeIcons/Project/Web3.png";
+import Web4 from "../../../../public/assets/HomeIcons/Project/Web4.png";
+import Web5 from "../../../../public/assets/HomeIcons/Project/Web5.png";
+import Web6 from "../../../../public/assets/HomeIcons/Project/Web6.png";
+import Web7 from "../../../../public/assets/HomeIcons/Project/Project4_image1.svg";
+import Web8 from "../../../../public/assets/HomeIcons/Project/Project6_image1.svg";
+import Web9 from "../../../../public/assets/HomeIcons/Project/Project5_image1.svg";
+import Web10 from "../../../../public/assets/HomeIcons/Project/Web10.png";
+import Web11 from "../../../../public/assets/HomeIcons/Project/Web11.png";
 
 import AIDevIcon from "../../../../public/assets/serviceIcons/AIDevIcon.svg";
 import BlockchainIcon from "../../../../public/assets/serviceIcons/blockchainIcon.svg";
@@ -116,13 +133,6 @@ import IOTDevIcon from "../../../../public/assets/serviceIcons/IOTIcon.svg";
 import MobileDevIcon from "../../../../public/assets/serviceIcons/MobDevIcon.svg";
 import WebDevIcon from "../../../../public/assets/serviceIcons/webdevIcon.svg";
 import UIUXIcon from "../../../../public/assets/serviceIcons/uiuxIcon.svg";
-import OfferingCard from "@component/Components/CommonComponents/OfferingsCard";
-// import BusinessProcessCard from "@component/Components/CommonComponents/BusinessProcessCard/BusinessProcessCard";
-import ProductDevSection from "@component/Components/CommonComponents/ProductDevSection/ProductDevSection";
-import TargetAudience from "@component/Components/CommonComponents/TargetAudienceSection/TargetAudience";
-import Faq from "@component/Components/CommonComponents/FAQ/Faq";
-import LetsTalk from "@component/Components/CommonComponents/LetsTalk/LetsTalk";
-import { urls } from "@component/utils/urls";
 
 const cardData = [
   {
@@ -199,77 +209,77 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Project1_Image1,
+        image: Web1,
         title: "Cyber Legends",
         content:
           "Cyber Legends, an Ed-Tech and Gaming platform, provides services for online education to teachers, tutors, parents, and other educators and content creators. This edtech platform consists of tools and content to enable interactive and other educational exercises for teachers that students can use in their learning.",
       },
       {
         index: 2,
-        image: Project2_Image1,
+        image: Web2,
         title: "Edcite",
         content:
           "Zweidevs created an intuitive platform that enables educators to create interactive, adaptable lessons that align with Common Core requirements. To support students' learning journey in K–12 education, Edcite improves their digital experience by tackling the issue of online standardized tests and promoting instant feedback.",
       },
       {
         index: 3,
-        image: Project3_Image1,
+        image: Web3,
         title: "Officer Survey",
         content:
           "A technology-driven forum that helps communities and law enforcement organizations communicate and understand the views of others. Zweidevs put tools in place to facilitate meaningful dialogue, improve transparency, and establish trust-based connections to create a safer and more interconnected society.",
       },
       {
         index: 4,
-        image: Project4_Image1,
+        image: Web4,
         title: "Blockcircle",
         content:
           "Blockcircle provides competitive data, proprietary tools, and dynamic investing analytics to enable them to make well-informed decisions in the turbulent cryptocurrency market.",
       },
       {
         index: 5,
-        image: Project6_Image1,
+        image: Web5,
         title: "Avail Medical",
         content:
           "We contributed to the development of a website of traditional and marijuana-based prescription knowledge to help design an easy-to-use platform that makes Canada's medical marijuana program accessible. The platform provides streamlined online shopping experiences, allowing customers to easily transition to our platform for various services and product options from the comfort of their homes.",
       },
       {
         index: 6,
-        image: Project5_Image1,
+        image: Web6,
         title: "Isynced",
         content:
           "Trademimic facilitates transaction execution between several accounts. The market's most affordable copy trading solution offers cutting-edge features to optimize earnings, minimize risk, and offer the most incredible user experience.",
       },
       {
         index: 7,
-        image: Project5_Image1,
+        image: Web7,
         title: "Public Trust",
         content:
           "Public Trust Realty Group provides full-service residential and commercial real estate brokerage services. They oversee short sales, foreclosure properties, and leases for businesses and residences. They have a referral group if you need to move anyplace in the United States, including Canada and Puerto Rico.",
       },
       {
         index: 8,
-        image: Project5_Image1,
+        image: Web8,
         title: "Fresh Track",
         content:
           "Since 1996, a Vancouver-based team has created incredible travel experiences for clients by fusing their love of travel with insider knowledge to create over 25,000 customized trip itineraries highlighting the country's fantastic scenery and variety of experiences.",
       },
       {
         index: 9,
-        image: Project5_Image1,
+        image: Web9,
         title: "Humanava",
         content:
           "You can realize your full potential with Humanava, a platform providing personal development courses to accelerate human progress. Embrace leadership, diversity, and mindfulness, connect with people worldwide, and discover your hidden brilliance to secure a bright future.",
       },
       {
         index: 10,
-        image: Project5_Image1,
+        image: Web10,
         title: "LinkTree",
         content:
           "With Linktree, you can share everything about yourself in a single, easy-to-manage link, increasing your online material's discoverability, manageability, and conversion rate. Link your videos, music, podcasts, website, Instagram, Twitter, and more. Everything goes in a landing page link in the bio meant to convert.",
       },
       {
         index: 11,
-        image: Project5_Image1,
+        image: Web11,
         title: "Venue Genie",
         content:
           "Learn about the fee-free, markup-free event booking platform of the future. Select from more than 360 locations, catering options, and DJ packages ideal for gatherings of any size to have a flawless and reasonably priced experience.",
@@ -410,19 +420,19 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Project5_Image1,
+        image: Web1,
         title: "Blockcircle",
         content: `Blockcircle provides competitive data, proprietary tools, and dynamic investing analytics to enable them to make well-informed decisions in the turbulent cryptocurrency market.`,
       },
       {
         index: 2,
-        image: Project5_Image1,
+        image: Web1,
         title: "Mimo",
         content: `With its decentralized exchange platform, Mimo transforms the cryptocurrency trading industry by doing away with middlemen and facilitating peer-to-peer transactions on the blockchain.`,
       },
       {
         index: 2,
-        image: Project5_Image1,
+        image: Web1,
         title: "CryptoFinance",
         content: `Blockchain applications for cryptocurrency finance simplify financial transactions by offering a decentralized, safe environment for the effective exchange and management of digital assets.`,
       },
@@ -552,19 +562,19 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Project5_Image1,
+        image: Web1,
         title: "AI VST",
         content: `A platform that offers high-end plugins and tools to improve audio and voice recordings. Our work entails creating and executing Visual Studio technology plugins that convert user-generated audio into professional artist-grade sound. Yonder Audio’s primary goal for consumers looking for better audio material is to provide a smooth experience.`,
       },
       {
         index: 2,
-        image: Project5_Image1,
+        image: Web1,
         title: "CSP",
         content: `Twinciti is a robust infrastructure that powers future applications, including 3D graphics and machine learning. It developed ML services and virtual machine generation for cloud services to provide a flexible and scalable platform for various application requirements.`,
       },
       {
         index: 3,
-        image: Project5_Image1,
+        image: Web1,
         title: "Gnizzel",
         content: `With Gnizzel, you can easily publish offers and last-minute appointments using our user-friendly platform, increasing the reach of your dental clinic and facilitating smooth connections with new and existing patients. You can also improve oral health and organize your calendar.`,
       },
@@ -739,25 +749,25 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Project5_Image1,
+        image: Web1,
         title: "Neverleft",
         content: `A more efficient method for managing venue operations that incorporates data analytics, enhanced event ticketing, and digital cloakroom ticketing.`,
       },
       {
         index: 2,
-        image: Project5_Image1,
+        image: Web1,
         title: "You Salon",
         content: `An application that provides an online salon booking solution with the solution of choosing with respect to ratings and other data like popularity within the specific area. You can also have a track record history of your saloon selections.`,
       },
       {
         index: 3,
-        image: Project5_Image1,
+        image: Web1,
         title: "Hooked Health",
         content: `Discover how to achieve metabolic advantage and develop a positive mindset with fitness and mindset training created just for women. Aim for your particular body part to accelerate outcomes.`,
       },
       {
         index: 4,
-        image: Project5_Image1,
+        image: Web1,
         title: "AudioCardio",
         content: `Improve your hearing with the evidence-based mobile app AudioCardio, which provides inaudible sound therapy to improve hearing and reduce tinnitus. This gives people an easily accessible, reasonably priced, and socially stigma-free treatment.`,
       },
@@ -901,19 +911,19 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Project5_Image1,
+        image: Web1,
         title: "AI VST",
         content: `A platform that offers high-end DAW plugins and tools to improve audio and voice recordings. Our work entails creating and executing Visual Studio technology plugins that convert user-generated audio into professional artist-grade sound. Yonder Audio’s primary goal for consumers looking for better audio material is to provide a smooth experience.`,
       },
       {
         index: 2,
-        image: Project5_Image1,
+        image: Web1,
         title: "Twinciti",
         content: `Twinciti is a robust infrastructure that powers future applications, including 3D graphics and machine learning. It developed ML services and virtual machine generation for cloud services to provide a flexible and scalable platform for various application requirements.`,
       },
       {
         index: 3,
-        image: Project5_Image1,
+        image: Web1,
         title: "Amazebot",
         content: `Communicate easily with Amazebot, your AI conversation partner who can converse via text, graphics, examples, and more. Amazebot makes every interaction simple and unique.`,
       },
@@ -1046,25 +1056,25 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Project5_Image1,
+        image: Web1,
         title: "Paket Taxi",
         content: `One creative project that addresses businesses' courier needs is PaketTaxi. It reduces courier risks while still meeting the demands of businesses for logistical services. It provides distribution and transportation services for various products, including restaurant orders and e-commerce deliveries.`,
       },
       {
         index: 2,
-        image: Project5_Image1,
+        image: Web1,
         title: "Seatedapp",
         content: `Seated transforms eating out by providing users with a fulfilling experience and essential support for nearby eateries. Reserve and earn points with a broader selection of restaurants, availability, and benefits like credits for secure and luxurious rides to your reservations.`,
       },
       {
         index: 3,
-        image: Project5_Image1,
+        image: Web1,
         title: "Humanava",
         content: `You can realize your full potential with Humanava, a platform providing personal development courses to accelerate human progress. Embrace leadership, diversity, and mindfulness, connect with people worldwide, and discover your hidden brilliance to secure a bright future.`,
       },
       {
         index: 4,
-        image: Project5_Image1,
+        image: Web1,
         title: "CryptoLinx",
         content: `Integrate announcements, updates, and crucial information into a URL to facilitate communication with your audience on various channels. With CryptoLinx, you can simplify cryptocurrency marketing.`,
       },
@@ -1198,19 +1208,19 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Project5_Image1,
+        image: Web1,
         title: "Oven Homes",
         content: `With Oven Homes' IoT system, you can easily control your house system, including temperature and electronics, with your smart smartphone. It provides convenient ON/OFF switch options, temperature management, and a thorough analytics dashboard for increased home automation.`,
       },
       {
         index: 2,
-        image: Project5_Image1,
+        image: Web1,
         title: "BaytiSmart",
         content: `With the help of Internet of Things applications, BaytiSmart transforms home management and offers seamless control over appliances like lighting and thermostats for a more intelligent and effective living space.`,
       },
       {
         index: 3,
-        image: Project5_Image1,
+        image: Web1,
         title: "Zarget Lights",
         content: `Zarget Lights is a revolutionary IoT-based application that offers smart and easy administration of your lighting systems. It's the lighting control of the future.`,
       },
@@ -1369,19 +1379,19 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Project5_Image1,
+        image: Web1,
         title: "Cyber Legends",
         content: `Cyber Legends, an Ed-Tech and Gaming platform, provides services for online education to teachers, tutors, parents, and other educators and content creators. This Edtech platform consists of tools and content to enable interactive and educational exercises for teachers that students can use in their learning.`,
       },
       {
         index: 2,
-        image: Project5_Image1,
+        image: Web1,
         title: "Play Room",
         content: `Children may read, solve puzzles, learn math, and express their creativity through interactive games in this dynamic virtual playground. This is an engaging and educational setting for younger learners.`,
       },
       {
         index: 3,
-        image: Project5_Image1,
+        image: Web1,
         title: "Gobblet Junior",
         content: `Gobblet Junior effectively blends word guessing and drawing tasks to produce an engaging and fun educational game that young minds may explore and enjoy.`,
       },

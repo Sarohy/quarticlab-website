@@ -35,6 +35,7 @@ const FooterServices = () => {
                         ? styles.colorOrange
                         : styles.colorGrid
                     }`}
+                    color={"#596380"}
                     href={href}
                     key={href}
                     underline="none"
