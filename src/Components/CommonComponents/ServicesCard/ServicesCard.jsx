@@ -219,10 +219,12 @@ const ServicesCard = props => {
                         <Image
                           alt={`${element.cardTitle} ${imgkey}`}
                           className={`${styles.ServiceCardFooter} ${styles.hiddenCardDetailss} animate__animated services-footer-image`}
+                          height={42}
                           key={imgkey}
                           ref={animatedCardDetailsDivRefs[key][imgkey]}
                           src={image}
                           title="Zweidevs | Custome Software Development Services Company"
+                          width={42}
                         />
                       ))}
                   </div>
