@@ -44,7 +44,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-intersection-observer": "^9.4.3",
-    "react-material-ui-carousel": "^3.4.2"
+    "react-material-ui-carousel": "^3.4.2",
+    "sharp": "^0.32.6"
   },
   "devDependencies": {
     "eslint-config-prettier": "^9.0.0",
