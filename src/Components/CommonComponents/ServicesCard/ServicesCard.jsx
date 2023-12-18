@@ -205,28 +205,28 @@ const ServicesCard = props => {
                 <h3 className={styles.servicesCardFooterHeader}>
                   {element.footerTitle}:
                 </h3>
-                <marquee
+                {/* <marquee
                   //  bgcolor="Green"
                   behavior="alternate"
                   className={styles.marquee}
                   direction="left"
                   loop="infinite"
                   scrollamount="3"
-                >
-                  <div className={styles.servicesFooterImagesContainer}>
-                    {element.footerImages &&
-                      element.footerImages.map((image, imgkey) => (
-                        <Image
-                          alt={`${element.cardTitle} ${imgkey}`}
-                          className={`${styles.ServiceCardFooter} ${styles.hiddenCardDetailss} animate__animated services-footer-image`}
-                          key={imgkey}
-                          ref={animatedCardDetailsDivRefs[key][imgkey]}
-                          src={image}
-                          title="Zweidevs | Custome Software Development Services Company"
-                        />
-                      ))}
-                  </div>
-                </marquee>
+                > */}
+                <div className={styles.servicesFooterImagesContainer}>
+                  {element.footerImages &&
+                    element.footerImages.map((image, imgkey) => (
+                      <Image
+                        alt={`${element.cardTitle} ${imgkey}`}
+                        className={`${styles.ServiceCardFooter} ${styles.hiddenCardDetailss} animate__animated services-footer-image`}
+                        key={imgkey}
+                        ref={animatedCardDetailsDivRefs[key][imgkey]}
+                        src={image}
+                        title="Zweidevs | Custome Software Development Services Company"
+                      />
+                    ))}
+                </div>
+                {/* </marquee> */}
               </div>
             </div>
           </div>
