@@ -2,8 +2,6 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import Card from "@mui/material/Card";
 const Carousel = dynamic(() => import("react-material-ui-carousel"));
-const CardContent = dynamic(() => import("@mui/material/CardContent"));
-const CardActionArea = dynamic(() => import("@mui/material/CardActionArea"));
 
 import styles from "./serviceCarosuel.module.css";
 import { Grid, useMediaQuery } from "@mui/material";
@@ -97,24 +95,24 @@ function HomeSection4({ cardTitle = "Web Development Projects", projectData }) {
                       xs={12}
                     >
                       <Card className={styles.h100} key={index}>
-                        <CardActionArea className={styles.h100}>
-                          <Image
-                            alt={`${item?.title} | React.js, Ruby on Rails, AWS, Node.js, Express.js`}
-                            className={styles.HS4CardImage}
-                            quality={100}
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            src={item?.image}
-                            title={`${item?.title} | React.js, Ruby on Rails, AWS, Node.js, Express.js`}
-                          />
-                          <CardContent className={styles.HS4BelowContainer}>
+                        <Image
+                          alt={`${item?.title} | React.js, Ruby on Rails, AWS, Node.js, Express.js`}
+                          className={styles.HS4CardImage}
+                          quality={100}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          src={item?.image}
+                          title={`${item?.title} | React.js, Ruby on Rails, AWS, Node.js, Express.js`}
+                        />
+                        <div className={styles.contentRoot}>
+                          <div className={styles.HS4BelowContainer}>
                             <h2 className={styles.HSCardTitle}>
                               {item?.title}
                             </h2>
                             <p className={styles.HS4CardContent}>
                               {item?.content}
                             </p>
-                          </CardContent>
-                        </CardActionArea>
+                          </div>
+                        </div>
                       </Card>
                     </Grid>
                   );

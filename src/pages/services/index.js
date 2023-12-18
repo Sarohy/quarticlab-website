@@ -74,8 +74,8 @@ function Services() {
   const cardData = [
     {
       cardIcon: WebDevIcon,
-      cardIconTitle: { firstLine: "Website", secondLine: "Development" },
-      cardTitle: "Website Development",
+      cardIconTitle: { firstLine: "Web", secondLine: "Development" },
+      cardTitle: "Web Development",
       href: urls.services.WebApp.url,
       cardDetails: `We are a creative web development team, who aim to leverage the
       latest technological advances with thoughtful design and serious

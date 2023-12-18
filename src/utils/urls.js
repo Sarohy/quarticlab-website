@@ -6,8 +6,8 @@ export const urls = {
     },
     DevOPS: { url: "/services/DevOps & Cloud", title: "DevOps & Cloud" },
     WebApp: {
-      url: "/services/Website Development",
-      title: "Website Development",
+      url: "/services/Web Development",
+      title: "Web Development",
     },
     MobileApp: {
       url: "/services/Mobile App Development",

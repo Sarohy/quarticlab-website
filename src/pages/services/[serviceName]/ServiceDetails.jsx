@@ -125,6 +125,38 @@ import Web9 from "../../../../public/assets/HomeIcons/Project/Project5_image1.sv
 import Web10 from "../../../../public/assets/HomeIcons/Project/Web10.png";
 import Web11 from "../../../../public/assets/HomeIcons/Project/Web11.png";
 
+//gd projects
+import GameDev1 from "../../../../public/assets/serviceDetailsIcons/gdIcons/g1.png";
+import GameDev2 from "../../../../public/assets/serviceDetailsIcons/gdIcons/g2.png";
+
+//iot projects
+import iot1 from "../../../../public/assets/serviceDetailsIcons/iotIcons/iot1.png";
+import iot2 from "../../../../public/assets/serviceDetailsIcons/iotIcons/iot2.png";
+import iot3 from "../../../../public/assets/serviceDetailsIcons/iotIcons/iot3.png";
+
+//ai and ML Projects
+import ai1 from "../../../../public/assets/serviceDetailsIcons/aiIcons/ai1.png";
+import ai2 from "../../../../public/assets/serviceDetailsIcons/aiIcons/ai2.png";
+import ai3 from "../../../../public/assets/serviceDetailsIcons/aiIcons/ai3.png";
+
+//mobo Projects
+import Mobo1 from "../../../../public/assets/serviceDetailsIcons/moboIcons/mobo1.png";
+import Mobo2 from "../../../../public/assets/serviceDetailsIcons/moboIcons/mobo2.png";
+import Mobo3 from "../../../../public/assets/serviceDetailsIcons/moboIcons/mobo3.png";
+import Mobo4 from "../../../../public/assets/serviceDetailsIcons/moboIcons/mobo4.png";
+
+//ui ux Projects
+import UiUX1 from "../../../../public/assets/serviceDetailsIcons/uiuxIcons/uiux1.png";
+import UiUX2 from "../../../../public/assets/serviceDetailsIcons/uiuxIcons/uiux2.png";
+import UiUX4 from "../../../../public/assets/serviceDetailsIcons/uiuxIcons/uiux4.png";
+
+//devops projects
+import DevOps1 from "../../../../public/assets/serviceDetailsIcons/devOpsIcons/devOps1.png";
+
+//bc projects
+import bc1 from "../../../../public/assets/serviceDetailsIcons/bcIcons/bc1.png";
+import bc2 from "../../../../public/assets/serviceDetailsIcons/bcIcons/bc2.png";
+
 import AIDevIcon from "../../../../public/assets/serviceIcons/AIDevIcon.svg";
 import BlockchainIcon from "../../../../public/assets/serviceIcons/blockchainIcon.svg";
 import DevopsIcon from "../../../../public/assets/serviceIcons/devopsIcon.svg";
@@ -137,8 +169,8 @@ import UIUXIcon from "../../../../public/assets/serviceIcons/uiuxIcon.svg";
 const cardData = [
   {
     cardIcon: WebDevIcon,
-    cardIconTitle: { firstLine: "Website", secondLine: "Development" },
-    href: "/services/Website Development",
+    cardIconTitle: { firstLine: "Web", secondLine: "Development" },
+    href: "/services/Web Development",
   },
   {
     cardIcon: BlockchainIcon,
@@ -420,21 +452,21 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Web1,
-        title: "Blockcircle",
-        content: `Blockcircle provides competitive data, proprietary tools, and dynamic investing analytics to enable them to make well-informed decisions in the turbulent cryptocurrency market.`,
+        image: bc1,
+        title: "CryptoFinance",
+        content: `Blockchain applications for cryptocurrency finance simplify financial transactions by offering a decentralized, safe environment for the effective exchange and management of digital assets.`,
       },
       {
         index: 2,
-        image: Web1,
+        image: bc2,
         title: "Mimo",
         content: `With its decentralized exchange platform, Mimo transforms the cryptocurrency trading industry by doing away with middlemen and facilitating peer-to-peer transactions on the blockchain.`,
       },
       {
-        index: 2,
-        image: Web1,
-        title: "CryptoFinance",
-        content: `Blockchain applications for cryptocurrency finance simplify financial transactions by offering a decentralized, safe environment for the effective exchange and management of digital assets.`,
+        index: 3,
+        image: Web4,
+        title: "Blockcircle",
+        content: `Blockcircle provides competitive data, proprietary tools, and dynamic investing analytics to enable them to make well-informed decisions in the turbulent cryptocurrency market.`,
       },
     ],
     productionDevSection: {
@@ -562,19 +594,19 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Web1,
+        image: ai1,
         title: "AI VST",
         content: `A platform that offers high-end plugins and tools to improve audio and voice recordings. Our work entails creating and executing Visual Studio technology plugins that convert user-generated audio into professional artist-grade sound. Yonder Audio’s primary goal for consumers looking for better audio material is to provide a smooth experience.`,
       },
       {
         index: 2,
-        image: Web1,
-        title: "CSP",
+        image: ai2,
+        title: "Twinciti",
         content: `Twinciti is a robust infrastructure that powers future applications, including 3D graphics and machine learning. It developed ML services and virtual machine generation for cloud services to provide a flexible and scalable platform for various application requirements.`,
       },
       {
         index: 3,
-        image: Web1,
+        image: DevOps1,
         title: "Gnizzel",
         content: `With Gnizzel, you can easily publish offers and last-minute appointments using our user-friendly platform, increasing the reach of your dental clinic and facilitating smooth connections with new and existing patients. You can also improve oral health and organize your calendar.`,
       },
@@ -749,25 +781,25 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Web1,
+        image: Mobo1,
         title: "Neverleft",
         content: `A more efficient method for managing venue operations that incorporates data analytics, enhanced event ticketing, and digital cloakroom ticketing.`,
       },
       {
         index: 2,
-        image: Web1,
+        image: Mobo2,
         title: "You Salon",
         content: `An application that provides an online salon booking solution with the solution of choosing with respect to ratings and other data like popularity within the specific area. You can also have a track record history of your saloon selections.`,
       },
       {
         index: 3,
-        image: Web1,
+        image: Mobo3,
         title: "Hooked Health",
         content: `Discover how to achieve metabolic advantage and develop a positive mindset with fitness and mindset training created just for women. Aim for your particular body part to accelerate outcomes.`,
       },
       {
         index: 4,
-        image: Web1,
+        image: Mobo4,
         title: "AudioCardio",
         content: `Improve your hearing with the evidence-based mobile app AudioCardio, which provides inaudible sound therapy to improve hearing and reduce tinnitus. This gives people an easily accessible, reasonably priced, and socially stigma-free treatment.`,
       },
@@ -911,19 +943,19 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Web1,
+        image: ai1,
         title: "AI VST",
         content: `A platform that offers high-end DAW plugins and tools to improve audio and voice recordings. Our work entails creating and executing Visual Studio technology plugins that convert user-generated audio into professional artist-grade sound. Yonder Audio’s primary goal for consumers looking for better audio material is to provide a smooth experience.`,
       },
       {
         index: 2,
-        image: Web1,
+        image: ai2,
         title: "Twinciti",
         content: `Twinciti is a robust infrastructure that powers future applications, including 3D graphics and machine learning. It developed ML services and virtual machine generation for cloud services to provide a flexible and scalable platform for various application requirements.`,
       },
       {
         index: 3,
-        image: Web1,
+        image: ai3,
         title: "Amazebot",
         content: `Communicate easily with Amazebot, your AI conversation partner who can converse via text, graphics, examples, and more. Amazebot makes every interaction simple and unique.`,
       },
@@ -1056,25 +1088,25 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Web1,
+        image: UiUX1,
         title: "Paket Taxi",
         content: `One creative project that addresses businesses' courier needs is PaketTaxi. It reduces courier risks while still meeting the demands of businesses for logistical services. It provides distribution and transportation services for various products, including restaurant orders and e-commerce deliveries.`,
       },
       {
         index: 2,
-        image: Web1,
+        image: UiUX2,
         title: "Seatedapp",
         content: `Seated transforms eating out by providing users with a fulfilling experience and essential support for nearby eateries. Reserve and earn points with a broader selection of restaurants, availability, and benefits like credits for secure and luxurious rides to your reservations.`,
       },
       {
         index: 3,
-        image: Web1,
+        image: Web9,
         title: "Humanava",
         content: `You can realize your full potential with Humanava, a platform providing personal development courses to accelerate human progress. Embrace leadership, diversity, and mindfulness, connect with people worldwide, and discover your hidden brilliance to secure a bright future.`,
       },
       {
         index: 4,
-        image: Web1,
+        image: UiUX4,
         title: "CryptoLinx",
         content: `Integrate announcements, updates, and crucial information into a URL to facilitate communication with your audience on various channels. With CryptoLinx, you can simplify cryptocurrency marketing.`,
       },
@@ -1208,19 +1240,19 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Web1,
+        image: iot1,
         title: "Oven Homes",
         content: `With Oven Homes' IoT system, you can easily control your house system, including temperature and electronics, with your smart smartphone. It provides convenient ON/OFF switch options, temperature management, and a thorough analytics dashboard for increased home automation.`,
       },
       {
         index: 2,
-        image: Web1,
+        image: iot2,
         title: "BaytiSmart",
         content: `With the help of Internet of Things applications, BaytiSmart transforms home management and offers seamless control over appliances like lighting and thermostats for a more intelligent and effective living space.`,
       },
       {
         index: 3,
-        image: Web1,
+        image: iot3,
         title: "Zarget Lights",
         content: `Zarget Lights is a revolutionary IoT-based application that offers smart and easy administration of your lighting systems. It's the lighting control of the future.`,
       },
@@ -1379,21 +1411,21 @@ const content = {
     projectData: [
       {
         index: 1,
-        image: Web1,
-        title: "Cyber Legends",
-        content: `Cyber Legends, an Ed-Tech and Gaming platform, provides services for online education to teachers, tutors, parents, and other educators and content creators. This Edtech platform consists of tools and content to enable interactive and educational exercises for teachers that students can use in their learning.`,
-      },
-      {
-        index: 2,
-        image: Web1,
+        image: GameDev1,
         title: "Play Room",
         content: `Children may read, solve puzzles, learn math, and express their creativity through interactive games in this dynamic virtual playground. This is an engaging and educational setting for younger learners.`,
       },
       {
-        index: 3,
-        image: Web1,
+        index: 2,
+        image: GameDev2,
         title: "Gobblet Junior",
         content: `Gobblet Junior effectively blends word guessing and drawing tasks to produce an engaging and fun educational game that young minds may explore and enjoy.`,
+      },
+      {
+        index: 3,
+        image: Web1,
+        title: "Cyber Legends",
+        content: `Cyber Legends, an Ed-Tech and Gaming platform, provides services for online education to teachers, tutors, parents, and other educators and content creators. This Edtech platform consists of tools and content to enable interactive and educational exercises for teachers that students can use in their learning.`,
       },
     ],
     productionDevSection: {
@@ -1491,7 +1523,7 @@ const content = {
 };
 const SerivceDetails = () => {
   const router = useRouter();
-  const [serviceName, setServiceName] = useState("Website Development");
+  const [serviceName, setServiceName] = useState("Web Development");
   const [isLoading, setIsLoading] = useState(true);
   const animatedHeadingRef = React.useRef(null);
   const animatedButtonRef = React.useRef(null);
