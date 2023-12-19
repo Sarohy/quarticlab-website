@@ -1,6 +1,6 @@
 .HS1Background {
   /* height: 672px; */
-  height: 90vh;
+  height: 85vh;
   background: url("../../../../public/assets/HomeIcons/Home_background.svg");
   width: 100%;
   background-size: cover;
@@ -8,7 +8,9 @@
   position: relative;
   display: flex;
   align-items: flex-start;
-  padding-top: 100px;
+  /* padding-top: 100px; */
+  justify-content: center;
+  align-items: center;
 }
 
 .bookinBtnStyle {
@@ -17,9 +19,17 @@
   box-shadow: 6px 6px 0 black;
 }
 
+.instantButton2 {
+  display: none !important;
+}
+
+
 @media screen and (max-width: 414px) {
   .HS1Background {
     padding-top: 0px;
+
+    /* padding-top: 100px; */
+    display: block;
   }
 }
 .HS1HeaderImage {
@@ -87,11 +97,18 @@
   align-items: flex-end;
 }
 @media screen and (max-width: 590px) {
-  .HS1ContentContainer{
-   display: flex; 
-   flex-direction: column;
-  justify-content: space-around; 
-    gap: .7rem;
+  .instantButton1 {
+    display: none !important;
+  }
+  .instantButton2 {
+    display: flex !important;
+  }
+  
+  .HS1ContentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 0.7rem;
   }
   .HS1Img1Height {
     height: 60px;
@@ -134,7 +151,7 @@
 @media screen and (min-width: 591px) and (max-width: 820px) {
   .HS1Background {
     /* height: 585px; */
-    height: 90vh;
+    height: 85vh;
   }
   .HSLogoContainer {
     height: 320px;
@@ -161,10 +178,11 @@
     align-items: flex-start;
   }
 }
+
 @media screen and (min-width: 821px) and (max-width: 900px) {
   .HS1Background {
     /* height: 585px; */
-    height: 90vh;
+    height: 85vh;
   }
   .HSLogoContainer {
     height: 320px;
@@ -190,6 +208,7 @@
     align-items: center;
   }
 }
+
 @media screen and (min-width: 901px) and (max-width: 1140px) {
   .HS1ContentContainer {
     display: flex;

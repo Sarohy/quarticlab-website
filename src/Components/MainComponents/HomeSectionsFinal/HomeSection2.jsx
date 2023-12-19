@@ -25,17 +25,18 @@ function HomeSection2() {
 
   const myDivRef = useRef(null);
 
-  useEffect(() => {
-    const handleClickOutside = event => {
-      // Check if the clicked element is outside the div
-      if (myDivRef.current && myDivRef.current.contains(event.target)) {
-        // If inside, remove focus and make it blur
-        if (myDivRef.current.click) {
-          myDivRef.current.click();
-        }
-      }
-    };
+  const handleClickOutside = () => {
+    // Check if the clicked element is outside the div
+    if (myDivRef.current) {
+      // If inside, remove focus and make it blur
 
+      // myDivRef.current.style.background = 'red';
+      // myDivRef.current.click();
+      myDivRef.current.blur();
+    }
+  };
+
+  useEffect(() => {
     // Add click event listener to the document body
     document.body.addEventListener("touchend", handleClickOutside);
 
@@ -43,7 +44,7 @@ function HomeSection2() {
     return () => {
       document.body.removeEventListener("touchend", handleClickOutside);
     };
-  }, [myDivRef]);
+  }, [myDivRef, isHovered]);
 
   const cardData = [
     {
@@ -144,7 +145,7 @@ function HomeSection2() {
 
   return (
     <>
-      <div className={styles.HS2MainContainer} ref={myDivRef}>
+      <div className={styles.HS2MainContainer}>
         <div
           className={styles.HS2ContentContainer}
           ref={animatedDivRefs[0]}
@@ -179,16 +180,21 @@ function HomeSection2() {
                   setIsHovered(false);
                   setSelectedKey(-1);
                 }}
+                onTouchCancel={() => {
+                  setIsHovered(false);
+                  setSelectedKey(-1);
+                }}
                 onTouchEnd={() => {
                   setIsHovered(false);
                   setSelectedKey(-1);
+                  handleClickOutside();
                 }}
                 onTouchStart={() => {
                   setIsHovered(true);
                   setSelectedKey(index);
                 }}
               >
-                <div className={styles.HS2FlipContainer}>
+                <div className={styles.HS2FlipContainer} ref={myDivRef}>
                   <div className={styles.HS2Flipper}>
                     <div
                       className={

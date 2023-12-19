@@ -20,7 +20,9 @@ function HomeSection1() {
                 Empowering <br /> Innovation
               </h1>
             </div>
-            <div className={styles.HS1ContentButtonContainer}>
+            <div
+              className={`${styles.HS1ContentButtonContainer} ${styles.instantButton1}`}
+            >
               <InstantBookingButton
                 customStyle={styles.bookinBtnStyle}
                 onClick={() => {
@@ -29,6 +31,7 @@ function HomeSection1() {
                     "_blank",
                   );
                 }}
+                svgFill="#FF9701"
               />
             </div>
           </div>
@@ -38,6 +41,20 @@ function HomeSection1() {
               className={styles.HSLogoContainer}
               src={HSLogo}
               title="Zweidevs | Custome Software Development Services Company"
+            />
+          </div>
+          <div
+            className={`${styles.HS1ContentButtonContainer} ${styles.instantButton2}`}
+          >
+            <InstantBookingButton
+              customStyle={styles.bookinBtnStyle}
+              onClick={() => {
+                window.open(
+                  "https://calendly.com/request-demo-zweidevs/30min",
+                  "_blank",
+                );
+              }}
+              svgFill="#FF9701"
             />
           </div>
         </div>
