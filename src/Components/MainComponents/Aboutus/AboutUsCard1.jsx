@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
-const PageBanner = dynamic(() =>
-  import("@component/Components/CommonComponents/PageBanner"),
+const PageBanner = dynamic(
+  () => import("@component/Components/CommonComponents/PageBanner"),
 );
 
 const AboutUsCard1 = () => {

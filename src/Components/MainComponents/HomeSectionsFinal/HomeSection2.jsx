@@ -8,8 +8,8 @@ import HS2Img2 from "../../../../public/assets/HomeIcons/HSImg2.svg";
 import HS2Img3 from "../../../../public/assets/HomeIcons/HSImg3.svg";
 import HS2Img4 from "../../../../public/assets/HomeIcons/HSImg4.svg";
 import HS2Img5 from "../../../../public/assets/HomeIcons/HSImg5.svg";
-const BottomBorderButton = dynamic(() =>
-  import("@component/Components/CommonComponents/BottomBorderButton"),
+const BottomBorderButton = dynamic(
+  () => import("@component/Components/CommonComponents/BottomBorderButton"),
 );
 import styles from "./HomeSection2.module.css";
 import { urls } from "@component/utils/urls";
@@ -142,7 +142,6 @@ function HomeSection2() {
       observer3.disconnect();
     };
   }, []);
-
   return (
     <>
       <div className={styles.HS2MainContainer}>
@@ -171,30 +170,33 @@ function HomeSection2() {
               <div
                 className={styles.HS2CardMob}
                 key={`${index}${item.key}`}
-                onClick={() => router.push(item.href)}
-                onMouseEnter={() => {
-                  setIsHovered(true);
-                  setSelectedKey(index);
-                }}
-                onMouseLeave={() => {
-                  setIsHovered(false);
-                  setSelectedKey(-1);
-                }}
-                onTouchCancel={() => {
-                  setIsHovered(false);
-                  setSelectedKey(-1);
-                }}
-                onTouchEnd={() => {
-                  setIsHovered(false);
-                  setSelectedKey(-1);
-                  handleClickOutside();
-                }}
-                onTouchStart={() => {
-                  setIsHovered(true);
-                  setSelectedKey(index);
-                }}
+                // onClick={() => router.push(item.href)}
               >
-                <div className={styles.HS2FlipContainer} ref={myDivRef}>
+                <div
+                  className={styles.HS2FlipContainer}
+                  onMouseEnter={() => {
+                    setIsHovered(true);
+                    setSelectedKey(index);
+                  }}
+                  onMouseLeave={() => {
+                    setIsHovered(false);
+                    setSelectedKey(-1);
+                  }}
+                  onTouchStart={() => {
+                    setIsHovered(true);
+                    setSelectedKey(index);
+                  }}
+                  // onTouchCancel={() => {
+                  //   setIsHovered(false);
+                  //   setSelectedKey(-1);
+                  // }}
+                  // onTouchEnd={() => {
+                  //   setIsHovered(false);
+                  //   setSelectedKey(-1);
+                  //   handleClickOutside();
+                  // }}
+                  ref={myDivRef}
+                >
                   <div className={styles.HS2Flipper}>
                     <div
                       className={
@@ -222,6 +224,16 @@ function HomeSection2() {
                         }
                       >
                         <p>{item.details}</p>
+                        <div
+                          onClick={() => router.push(item.href)}
+                          style={{
+                            color: "white",
+                            textAlign: "center",
+                            textDecoration: "underline",
+                          }}
+                        >
+                          View Details
+                        </div>
                       </div>
                     </div>
                   </div>

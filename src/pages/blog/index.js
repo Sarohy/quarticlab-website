@@ -2,23 +2,23 @@ import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { loadMoreBtn, noBlogBtn } from "../../Constants/buttonTexts";
 import { getApiWithoutAuth } from "../api/api";
-const CircularProgress = dynamic(() =>
-  import("@mui/material/CircularProgress"),
+const CircularProgress = dynamic(
+  () => import("@mui/material/CircularProgress"),
 );
-const BlogCard = dynamic(() =>
-  import("@component/Components/CommonComponents/BlogCard"),
+const BlogCard = dynamic(
+  () => import("@component/Components/CommonComponents/BlogCard"),
 );
-const PageBanner = dynamic(() =>
-  import("@component/Components/CommonComponents/PageBanner"),
+const PageBanner = dynamic(
+  () => import("@component/Components/CommonComponents/PageBanner"),
 );
-const SmallButton = dynamic(() =>
-  import("@component/Components/CommonComponents/SmallButton"),
+const SmallButton = dynamic(
+  () => import("@component/Components/CommonComponents/SmallButton"),
 );
-const InstantBookingButton = dynamic(() =>
-  import("@component/Components/CommonComponents/InstantBookingButton"),
+const InstantBookingButton = dynamic(
+  () => import("@component/Components/CommonComponents/InstantBookingButton"),
 );
-const BottomBorderButton = dynamic(() =>
-  import("@component/Components/CommonComponents/BottomBorderButton"),
+const BottomBorderButton = dynamic(
+  () => import("@component/Components/CommonComponents/BottomBorderButton"),
 );
 import styles from "./blog.module.css";
 import Head from "next/head";

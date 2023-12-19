@@ -3,8 +3,8 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 const Card = dynamic(() => import("@mui/material/Card"));
 const Carousel = dynamic(() => import("react-material-ui-carousel"));
-const StarOutlinedIcon = dynamic(() =>
-  import("@mui/icons-material/StarOutlined"),
+const StarOutlinedIcon = dynamic(
+  () => import("@mui/icons-material/StarOutlined"),
 );
 import HS3Img from "../../../../public/assets/HomeIcons/HS3Img.svg";
 import HS5Img1 from "../../../../public/assets/HomeIcons/HS5Img.svg";

@@ -203,9 +203,38 @@
   .HS5Carousel {
     height: 520px;
   }
+  .HS5CardDetail {
+    margin-top: 2.5%;
+    font-size: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 100%;
+    height: 100%;
+  
+  }
+}
+@media screen and (min-width: 821px) and (max-width: 900px) {
+  .HS5CardDetail {
+    margin-top: 2.5%;
+    font-size: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 100%;
+    height: 100%;
+  
+  }
 }
 @media screen and (min-width: 901px) and (max-width: 1140px) {
   .HS5Carousel {
     height: 520px;
+  }
+  .HS5CardDetail {
+    margin-top: 2.5%;
+    font-size: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 100%;
+    height: 100%;
+    
   }
 }

@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { noBlogBtn } from "../../../Constants/buttonTexts";
-const ArrowCircleRightOutlinedIcon = dynamic(() =>
-  import("@mui/icons-material/ArrowCircleRightOutlined"),
+const ArrowCircleRightOutlinedIcon = dynamic(
+  () => import("@mui/icons-material/ArrowCircleRightOutlined"),
 );
 import styles from "./BottomBorderButton.module.css";
 
