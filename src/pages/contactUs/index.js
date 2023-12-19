@@ -1,6 +1,9 @@
 import dynamic from "next/dynamic";
-const HomeSection8 = dynamic(() =>
-  import("@component/Components/MainComponents/HomeSectionsFinal/HomeSection8"),
+const HomeSection8 = dynamic(
+  () =>
+    import(
+      "@component/Components/MainComponents/HomeSectionsFinal/HomeSection8"
+    ),
 );
 
 import Head from "next/head";

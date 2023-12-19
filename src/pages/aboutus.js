@@ -1,16 +1,19 @@
 import dynamic from "next/dynamic";
 import AboutUsCard1 from "@component/Components/MainComponents/Aboutus/AboutUsCard1";
-const AboutUsCard2 = dynamic(() =>
-  import("@component/Components/MainComponents/Aboutus/AboutUsCard2"),
+const AboutUsCard2 = dynamic(
+  () => import("@component/Components/MainComponents/Aboutus/AboutUsCard2"),
 );
-const AboutUsCard4 = dynamic(() =>
-  import("@component/Components/MainComponents/Aboutus/AboutUSCard4"),
+const AboutUsCard4 = dynamic(
+  () => import("@component/Components/MainComponents/Aboutus/AboutUSCard4"),
 );
-const AboutUsCard5 = dynamic(() =>
-  import("@component/Components/MainComponents/Aboutus/AboutsUsCard5"),
+const AboutUsCard5 = dynamic(
+  () => import("@component/Components/MainComponents/Aboutus/AboutsUsCard5"),
 );
-const HomeSection6 = dynamic(() =>
-  import("@component/Components/MainComponents/HomeSectionsFinal/HomeSection6"),
+const HomeSection6 = dynamic(
+  () =>
+    import(
+      "@component/Components/MainComponents/HomeSectionsFinal/HomeSection6"
+    ),
 );
 
 import styles from "../styles/About.module.css";

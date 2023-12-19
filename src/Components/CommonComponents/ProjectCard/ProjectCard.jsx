@@ -5,8 +5,8 @@ import AwsIcon from "../../../../public/assets/projectIcon/awsIcon.svg";
 import NodeIcon from "../../../../public/assets/projectIcon/nodejsIcon.svg";
 import ReactIcon from "../../../../public/assets/projectIcon/reactIcon.svg";
 import RubyIcon from "../../../../public/assets/projectIcon/rorIcon.svg";
-const CircularProgress = dynamic(() =>
-  import("@mui/material/CircularProgress"),
+const CircularProgress = dynamic(
+  () => import("@mui/material/CircularProgress"),
 );
 import styles from "./ProjectCard.module.css";
 
@@ -179,7 +179,7 @@ function ProjectCard({
           <div className={styles.requestBtn} onClick={requestDemoOnClick}>
             <button>REQUEST DEMO</button>
             <svg
-              class={styles.svgBtn}
+              className={styles.svgBtn}
               fill="none"
               stroke="currentColor"
               stroke-width="1.5"

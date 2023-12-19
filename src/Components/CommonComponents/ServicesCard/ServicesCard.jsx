@@ -5,6 +5,7 @@ import styles from "./servicesCard.module.css";
 import Link from "next/link";
 import BottomBorderButton from "../BottomBorderButton";
 import { useRouter } from "next/navigation";
+import Marquee from "react-fast-marquee";
 
 const ServicesCard = props => {
   const { cardData } = props;
@@ -62,7 +63,7 @@ const ServicesCard = props => {
           if (entry.isIntersecting) {
             const target = entry.target;
             target.style.opacity = 1;
-            target.classList.add("animate__zoomIn", "animate__delay-1s");
+            // target.classList.add("animate__zoomIn", "animate__delay-1s");
             target.addEventListener(
               "animationend",
               e => {
@@ -205,7 +206,7 @@ const ServicesCard = props => {
                 <h3 className={styles.servicesCardFooterHeader}>
                   {element.footerTitle}:
                 </h3>
-                <marquee
+                {/* <marquee
                   //  bgcolor="Green"
                   behavior="alternate"
                   className={styles.marquee}
@@ -222,13 +223,36 @@ const ServicesCard = props => {
                           height={42}
                           key={imgkey}
                           ref={animatedCardDetailsDivRefs[key][imgkey]}
-                          src={image}
-                          title="Zweidevs | Custome Software Development Services Company"
+                          src={image.image}
+                          title={image.title}
                           width={42}
                         />
                       ))}
                   </div>
-                </marquee>
+                </marquee> */}
+
+                <Marquee
+                  delay={5}
+                  direction="left"
+                  gradient
+                  gradientWidth={100}
+                  loop={0}
+                  speed={30}
+                >
+                  {element.footerImages &&
+                    element.footerImages.map((image, imgkey) => (
+                      <Image
+                        alt={`${element.cardTitle} ${imgkey}`}
+                        className={`${styles.ServiceCardFooter} ${styles.hiddenCardDetailss} animate__animated services-footer-image`}
+                        height={42}
+                        key={imgkey}
+                        ref={animatedCardDetailsDivRefs[key][imgkey]}
+                        src={image.image}
+                        title={image.title}
+                        width={42}
+                      />
+                    ))}
+                </Marquee>
               </div>
             </div>
           </div>

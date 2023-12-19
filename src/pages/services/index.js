@@ -1,8 +1,8 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import DashGroupIcon from "../../../public/assets/dashGroup.svg";
-const ServicesCard = dynamic(() =>
-  import("@component/Components/CommonComponents/ServicesCard"),
+const ServicesCard = dynamic(
+  () => import("@component/Components/CommonComponents/ServicesCard"),
 );
 import AIDevIcon from "../../../public/assets/serviceIcons/AIDevIcon.svg";
 import AndroidIcon from "../../../public/assets/serviceIcons/androidIcon.svg";
@@ -18,8 +18,8 @@ import EthIcon from "../../../public/assets/serviceIcons/ethIcon.svg";
 import FigmaIcon from "../../../public/assets/serviceIcons/figmaIcon.svg";
 import GameBenchIcon from "../../../public/assets/serviceIcons/gameBenchIcon.svg";
 import GameDevIcon from "../../../public/assets/serviceIcons/GameDevIcon.svg";
-import goDaddyIcon from "../../../public/assets/serviceIcons/goDaddyIcon.svg";
-import googleCloudIcon from "../../../public/assets/serviceIcons/googlecloudIcon.svg";
+import GoDaddyIcon from "../../../public/assets/serviceIcons/goDaddyIcon.svg";
+import GoogleCloudIcon from "../../../public/assets/serviceIcons/googlecloudIcon.svg";
 import HoudinaIcon from "../../../public/assets/serviceIcons/houdinaIcon.svg";
 import InfinityUXIcon from "../../../public/assets/serviceIcons/infinityUXIcon.svg";
 import InVision from "../../../public/assets/serviceIcons/inVision.svg";
@@ -57,8 +57,9 @@ import VercelIcon from "../../../public/assets/serviceIcons/vercel.svg";
 import FigpeaIcon from "../../../public/assets/serviceIcons/figpea.svg";
 import XdIcon from "../../../public/assets/serviceIcons/xd.svg";
 import CanvaIcon from "../../../public/assets/serviceIcons/canva.svg";
-import hyperledgerIcon from "../../../public/assets/serviceIcons/hyperledger.svg";
+import HyperledgerIcon from "../../../public/assets/serviceIcons/hyperledger.svg";
 import PolygonIcon from "../../../public/assets/serviceIcons/polygon.svg";
+import Flutter from "../../../public/assets/serviceIcons/flutter.svg";
 
 const PageBanner = dynamic(
   () => import("@component/Components/CommonComponents/PageBanner"),
@@ -82,18 +83,18 @@ function Services() {
       engineering to build tailored solutions for our clients.`,
       footerTitle: "Tools & Technologies",
       footerImages: [
-        NodeIcon,
-        PythonIcon,
-        ReactIcon,
-        SQLiteIcon,
-        JSIcon,
-        PostgresIcon,
-        Ionic2Icon,
-        RorIcon,
-        AngularIcon,
-        NextIcon,
-        NustIcon,
-        NuxtIcon,
+        { image: NodeIcon, title: "Node.js" },
+        { image: PythonIcon, title: "Python" },
+        { image: ReactIcon, title: "React" },
+        { image: SQLiteIcon, title: "SQLite" },
+        { image: JSIcon, title: "JavaScript" },
+        { image: PostgresIcon, title: "PostgreSQL" },
+        { image: Ionic2Icon, title: "Ionic 2" },
+        { image: RorIcon, title: "Ruby on Rails" },
+        { image: AngularIcon, title: "Angular" },
+        { image: NextIcon, title: "Next.js" },
+        { image: NustIcon, title: "Nust" },
+        { image: NuxtIcon, title: "Nuxt.js" },
       ],
     },
     {
@@ -104,12 +105,12 @@ function Services() {
       cardDetails: `Blockchain is the backbone Technology of Digital CryptoCurrency BitCoin. A distributed database of records of all transactions. We have a team of Blockchain developers to make the deployment correct.`,
       footerTitle: "Tools & Technologies",
       footerImages: [
-        SolanaIcon,
-        AvalancheIcon,
-        EthIcon,
-        CardanoIcon,
-        hyperledgerIcon,
-        PolygonIcon,
+        { image: SolanaIcon, title: "Solana" },
+        { image: AvalancheIcon, title: "Avalanche" },
+        { image: EthIcon, title: "Ethereum" },
+        { image: CardanoIcon, title: "Cardano" },
+        { image: HyperledgerIcon, title: "Hyperledger" },
+        { image: PolygonIcon, title: "Polygon" },
       ],
     },
     {
@@ -120,13 +121,13 @@ function Services() {
       cardDetails: `We develop sleek looking native and hybrid mobile apps for iOS & Android to ensure the customer satisfaction and performance at the core.`,
       footerTitle: "Tools & Technologies",
       footerImages: [
-        AndroidIcon,
-        IOSIcon,
-        ReactIcon,
-        SQLiteIcon,
-        JSIcon,
-        Ionic2Icon,
-        "/assets/serviceIcons/flutter.svg",
+        { image: AndroidIcon, title: "Android" },
+        { image: IOSIcon, title: "iOS" },
+        { image: ReactIcon, title: "React" },
+        { image: SQLiteIcon, title: "SQLite" },
+        { image: JSIcon, title: "JavaScript" },
+        { image: Ionic2Icon, title: "Ionic 2" },
+        { image: Flutter, title: "Flutter" },
       ],
     },
     {
@@ -137,13 +138,13 @@ function Services() {
       cardDetails: `The UI/UX Design brings a design-centric approach to user interface and user experience. Our team is trained to solve problems and provide innovative solutions by following an entire process of UI/UX development.`,
       footerTitle: "Tools & Technologies",
       footerImages: [
-        SketchIcon,
-        FigmaIcon,
-        InVision,
-        InfinityUXIcon,
-        FigpeaIcon,
-        XdIcon,
-        CanvaIcon,
+        { image: SketchIcon, title: "Sketch" },
+        { image: FigmaIcon, title: "Figma" },
+        { image: InVision, title: "InVision" },
+        { image: InfinityUXIcon, title: "Infinity UX" },
+        { image: FigpeaIcon, title: "Figpea" },
+        { image: XdIcon, title: "Adobe XD" },
+        { image: CanvaIcon, title: "Canva" },
       ],
     },
     {
@@ -153,7 +154,12 @@ function Services() {
       href: urls.services.GD.url,
       cardDetails: `With our team of expert game developers, we can transform your idea into a striking game that makes the audience want to play. We have the resources to develop games for multiple platforms using different advanced technologies.`,
       footerTitle: "Tools & Technologies",
-      footerImages: [UnityIcon, GameBenchIcon, HoudinaIcon, BelenderIcon],
+      footerImages: [
+        { image: UnityIcon, title: "Unity" },
+        { image: GameBenchIcon, title: "GameBench" },
+        { image: HoudinaIcon, title: "Houdini" },
+        { image: BelenderIcon, title: "Blender" },
+      ],
     },
     {
       cardIcon: IOTDevIcon,
@@ -162,7 +168,10 @@ function Services() {
       href: urls.services.IoT.url,
       cardDetails: `We are experts in building embedded systems with integrated sensors, and wired and wireless communication with mobile and web apps.`,
       footerTitle: "Tools & Technologies",
-      footerImages: [RaspbarryPiIcon, ArduinoIcon],
+      footerImages: [
+        { image: RaspbarryPiIcon, title: "Raspberry Pi" },
+        { image: ArduinoIcon, title: "Arduino" },
+      ],
     },
     {
       cardIcon: AIDevIcon,
@@ -174,7 +183,12 @@ function Services() {
       href: urls.services.AI.url,
       cardDetails: `We provide services to augment your existing platforms and solutions with the power of computer vision, data visualizations, predictive analysis and more.`,
       footerTitle: "Tools & Technologies",
-      footerImages: [PyTorch, KerasIcon, OpenIcon, OpenAIIcon],
+      footerImages: [
+        { image: PyTorch, title: "PyTorch" },
+        { image: KerasIcon, title: "Keras" },
+        { image: OpenIcon, title: "OpenCV" },
+        { image: OpenAIIcon, title: "OpenAI" },
+      ],
     },
     {
       cardIcon: DevopsIcon,
@@ -184,13 +198,13 @@ function Services() {
       cardDetails: `We possess deep knowledge and extensive experience with cloud services. Shorten time to develop and launch new solutions, modernize legacy technology or test and deploy prototypes with IaaS-based applications on Amazon Web Services, Digital Ocean, Heroku, Microsoft Azure or Google Cloud.`,
       footerTitle: "Tools & Technologies",
       footerImages: [
-        AWSIcon,
-        AzureIcon,
-        googleCloudIcon,
-        goDaddyIcon,
-        DigitaloceanIcon,
-        VercelIcon,
-        HerokuIcon,
+        { image: AWSIcon, title: "AWS" },
+        { image: AzureIcon, title: "Azure" },
+        { image: GoogleCloudIcon, title: "Google Cloud" },
+        { image: GoDaddyIcon, title: "GoDaddy" },
+        { image: DigitaloceanIcon, title: "DigitalOcean" },
+        { image: VercelIcon, title: "Vercel" },
+        { image: HerokuIcon, title: "Heroku" },
       ],
     },
   ];
