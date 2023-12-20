@@ -23,7 +23,7 @@ function HomeSection4({ cardTitle = "Web Development Projects", projectData }) {
         setProjectDataState(data);
         setTimeout(() => {
           setRerenderKey(prevKey => prevKey + 1);
-        }, 3000);
+        }, 4000);
       }
     }
     return () => {};
@@ -70,6 +70,7 @@ function HomeSection4({ cardTitle = "Web Development Projects", projectData }) {
               },
             }}
             key={rerenderKey}
+            navButtonsAlwaysVisible
             style={{
               background: "red",
               height: "700px",
@@ -82,7 +83,7 @@ function HomeSection4({ cardTitle = "Web Development Projects", projectData }) {
                 // gap={2}
                 key={index}
                 spacing={2}
-                style={{ height: "100%" }}
+                style={{ height: "550px" }}
               >
                 {chunk.map((item, chunkKey) => {
                   return (

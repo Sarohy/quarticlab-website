@@ -55,9 +55,15 @@ const OfferingCard = ({ heading, cardData }) => {
           ))}
         </Carousel>
       ) : (
-        <Grid container spacing={2}>
+        <Grid container spacing={2} style={{ justifyContent: "center" }}>
           {cardData.map((card, key) => (
-            <Grid item key={key} md={4} sm={6} xs={12}>
+            <Grid
+              item
+              key={key}
+              md={cardData.length === 4 ? 6 : 4}
+              sm={6}
+              xs={12}
+            >
               <div className={styles.cardContainer}>
                 <div className={styles.cardBgImgContainer}>
                   <Image

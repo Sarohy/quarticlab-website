@@ -95,12 +95,13 @@
   flex-direction: column;
 }
 
-.services-card-details-container {
+.servicesCardDetailsContainer {
   margin-top: 20px;
   margin-inline: 20px;
+  width: 95%;
 }
 
-.services-card-container {
+.servicesCardContainerMain {
   margin: 20px;
   box-sizing: border-box;
 
@@ -146,7 +147,36 @@
 
 .servicesCardFooterContainer {
   margin-top: 10px;
+  width: 100%;
 }
+/* Due to old code thats why need to add this media queries otherwise we need to create again this component  */
+/* @media screen and (min-width: 600px) and (max-width: 899px) {
+  .servicesCardDetailsContainer {
+
+    width: 100%;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1000px) {
+  .servicesCardDetailsContainer {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1001px) and (max-width: 1250px) {
+  .servicesCardDetailsContainer {
+    width: 65%;
+  }
+}
+@media screen and (min-width: 1250px) and (max-width: 1400px) {
+  .servicesCardDetailsContainer {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 1401px)  {
+  .servicesCardDetailsContainer {
+    width: 75%;
+  }
+} */
+/* Due to old code thats why need to add this media queries otherwise we need to create again this component  */
 
 .servicesCardFooterHeader {
   width: 218px;

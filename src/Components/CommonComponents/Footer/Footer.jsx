@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 const FooterAbout = dynamic(() => import("./FooterAbout"));
 const FooterSocial = dynamic(() => import("./FooterSocial"));
 const FooterServices = dynamic(() => import("./FooterServices"));
+const FooterAllServices = dynamic(() => import("./FooterAllServices"));
 import CopyrightLeftLine from "../../../../public/assets/footerIcons/copyrightLeftLine.svg";
 import CopyrightRightLine from "../../../../public/assets/footerIcons/copyrightRightLine.svg";
 import "animate.css";
@@ -16,8 +17,11 @@ function Footer() {
           <div className={styles.footAboutWidth}>
             <FooterAbout />
           </div>
-          <div className={styles.footServiceWidth}>
+          <div className={styles.footSocialWidth}>
             <FooterServices />
+          </div>
+          <div className={styles.footServiceWidth}>
+            <FooterAllServices />
           </div>
           <div className={styles.footSocialWidth}>
             <FooterSocial />

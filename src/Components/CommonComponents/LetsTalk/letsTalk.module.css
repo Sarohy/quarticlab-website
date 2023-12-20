@@ -1,6 +1,9 @@
 .root {
   background-color: #ff9700;
   font-family: poppins;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .ctaBlack {
@@ -9,22 +12,30 @@
 
 
 .section {
-  display: block;
-  width: 100%;
+  /* display: block; */
+  
   padding: 52px 0;
+  width: 70%;
+
+
 }
 
-.section {
+/* .section {
   display: block;
-}
+} */
 
 .wrapper {
-  display: block;
-  width: 100%;
+  /* display: block; */
+  /* width: 100%;
   max-width: 1512px;
   margin: auto;
   padding: 0 24px;
-  box-sizing: border-box;
+  box-sizing: border-box; */
+  /* width: 70%; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
 
 .ctaBlack .cta__heading,
@@ -70,10 +81,15 @@
   font-size: 25px;
   line-height: 1.5;
 }
+.cta__wrapper{
+  /* display: flex; */
+  justify-content: center;
+}
 
 .cta__button {
     position: relative;
     z-index: 1;
+
 }
 .buttonPurple {
     color: #0b0c0f;
@@ -116,9 +132,9 @@
 }
 
 @media (min-width: 1024px) {
-  .wrapper {
+  /* .wrapper {
     padding: 0 40px;
-  }
+  } */
   .heading2 {
     left: -6px;
     font-size: max(36px, min(6vw, 50px));
