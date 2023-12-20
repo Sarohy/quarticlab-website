@@ -59,7 +59,7 @@ import XdIcon from "../../../public/assets/serviceIcons/xd.svg";
 import CanvaIcon from "../../../public/assets/serviceIcons/canva.svg";
 import HyperledgerIcon from "../../../public/assets/serviceIcons/hyperledger.svg";
 import PolygonIcon from "../../../public/assets/serviceIcons/polygon.svg";
-import Flutter from "../../../public/assets/serviceIcons/flutter.svg";
+import Flutter from "../../../public/assets/serviceIcons/Flutter.svg";
 
 const PageBanner = dynamic(
   () => import("@component/Components/CommonComponents/PageBanner"),
