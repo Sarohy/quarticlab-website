@@ -5,7 +5,6 @@ import styles from "./servicesCard.module.css";
 import Link from "next/link";
 import BottomBorderButton from "../BottomBorderButton";
 import { useRouter } from "next/navigation";
-import Marquee from "react-fast-marquee";
 
 const ServicesCard = props => {
   const { cardData } = props;
@@ -206,7 +205,7 @@ const ServicesCard = props => {
                 <h3 className={styles.servicesCardFooterHeader}>
                   {element.footerTitle}:
                 </h3>
-                {/* <marquee
+                <marquee
                   //  bgcolor="Green"
                   behavior="alternate"
                   className={styles.marquee}
@@ -229,9 +228,9 @@ const ServicesCard = props => {
                         />
                       ))}
                   </div>
-                </marquee> */}
+                </marquee>
 
-                <Marquee
+                {/* <Marquee
                   delay={5}
                   direction="left"
                   gradient
@@ -252,7 +251,7 @@ const ServicesCard = props => {
                         width={42}
                       />
                     ))}
-                </Marquee>
+                </Marquee> */}
               </div>
             </div>
           </div>

@@ -3,11 +3,11 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 const Grid = dynamic(() => import("@mui/material/Grid"));
 const Link = dynamic(() => import("@mui/material/Link"));
-import navLinks from "@component/Constants/navLinks";
 import { useInView } from "react-intersection-observer";
 import styles from "./footer.module.css";
+import { urls } from "@component/utils/urls";
 
-const FooterServices = () => {
+const FooterAllServices = () => {
   const router = useRouter();
   const ref = useRef(null);
   const [observerRef, inView] = useInView({
@@ -20,14 +20,49 @@ const FooterServices = () => {
       ref.current.classList.add("animate__animated", "animate__zoomIn");
     }
   }, [inView]);
+
+  const cardData = [
+    {
+      cardTitle: "Web Development",
+      href: urls.services.WebApp.url,
+    },
+    {
+      cardTitle: "Blockchain Development",
+      href: urls.services.BC.url,
+    },
+    {
+      cardTitle: "Mobile App Development",
+      href: urls.services.MobileApp.url,
+    },
+    {
+      cardTitle: "UI/UX Development",
+      href: urls.services.UIUX.url,
+    },
+    {
+      cardTitle: "Game Development",
+      href: urls.services.GD.url,
+    },
+    {
+      cardTitle: "IOT Devices",
+      href: urls.services.IoT.url,
+    },
+    {
+      cardTitle: "Artificial Intelligence & Machine Learning",
+      href: urls.services.AI.url,
+    },
+    {
+      cardTitle: "DevOps & Cloud Services",
+      href: urls.services.DevOPS.url,
+    },
+  ];
   return (
     <>
       <div ref={observerRef}>
         <div className="animate__delay-1s" ref={ref}>
-          <h3>What We Do</h3>
+          <h3>Services</h3>
           <div className={styles.footerServicesItemsContainer}>
             <Grid container spacing={2.5} xl={10}>
-              {navLinks.map(({ href, text }, index) => (
+              {cardData.map(({ href, cardTitle }, index) => (
                 <Grid item key={index} xs={12}>
                   <Link
                     className={`${styles.footerServiceItem} ${
@@ -40,7 +75,7 @@ const FooterServices = () => {
                     key={href}
                     underline="none"
                   >
-                    {text}
+                    {cardTitle}
                   </Link>
                 </Grid>
               ))}
@@ -52,4 +87,4 @@ const FooterServices = () => {
   );
 };
 
-export default FooterServices;
+export default FooterAllServices;
