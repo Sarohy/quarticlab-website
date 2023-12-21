@@ -30,35 +30,27 @@
   height: 160px;
 }
 
-.slidertechcontimg {
-  background: transparent
-    url("../../../../public/assets/HomeIcons/slider-technologies.svg") repeat-x
-    50% 0;
-  animation: infinite-shift-left 500s linear;
-}
-
-@keyframes infinite-shift-left {
-  0% {
-    background-position: 50000px;
-  }
-  100% {
-    background-position: 0;
-  }
-}
-
-.HS7ImgContainer {
+.circularSvgContainer {
   display: flex;
-  animation: moveSlideshow 12s linear infinite;
-  align-items: center;
+  overflow: hidden;
+  width: 100%;
 }
-@keyframes moveSlideshow {
+
+.circularSvg {
+  animation: circularSlideAnimation 20s linear infinite;
+  flex: 0 0 auto;
+}
+
+@keyframes circularSlideAnimation {
   0% {
     transform: translateX(0);
   }
+
   100% {
-    transform: translateX(calc(-250px * 3));
+    transform: translateX(-100%);
   }
 }
+
 @media screen and (max-width: 590px) {
   .HS7Image {
     margin-right: 25px;

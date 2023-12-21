@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import Image from "next/image";
+import longSvg from "../../../../public/assets/HomeIcons/slider-technologies.svg";
 import styles from "./HomeSection7.module.css";
 
 function HomeSection7() {
@@ -38,9 +40,18 @@ function HomeSection7() {
         <h2 className={styles.HS7Heading} ref={animatedDivRefs}>
           Technologies We Work With
         </h2>
-        <div
-          className={`${styles.slidertechcont} ${styles.slidertechcontimg}`}
-        ></div>
+        <div className={`${styles.circularSvgContainer}`}>
+          <Image
+            alt="technologies"
+            className={styles.circularSvg}
+            src={longSvg}
+          />
+          <Image
+            alt="technologies"
+            className={styles.circularSvg}
+            src={longSvg}
+          />
+        </div>
       </div>
     </>
   );
