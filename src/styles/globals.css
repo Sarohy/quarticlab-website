@@ -41,13 +41,13 @@
 }
 
 @font-face {
-  font-family: 'NeueMachina';
-  src: url('/fonts/NeueMachina-Regular.otf');
- }
+  font-family: "NeueMachina";
+  src: url("/fonts/NeueMachina-Regular.otf");
+}
 
 @font-face {
-  font-family: 'pp-telegraf';
-  src: url('/fonts/pptelegraf-ultralight.otf');
+  font-family: "pp-telegraf";
+  src: url("/fonts/pptelegraf-ultralight.otf");
 }
 
 .HS8Phone-number-input {

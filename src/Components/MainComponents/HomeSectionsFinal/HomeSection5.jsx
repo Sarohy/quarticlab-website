@@ -121,7 +121,7 @@ const mobItems = [
   },
 ];
 
-const cardItem = (items) => {
+const cardItem = items => {
   return (
     <>
       {items.length == 1 ? (
@@ -148,7 +148,7 @@ const cardItem = (items) => {
                         {item.content}
                       </h3>
                       <div className={styles.HS5ContentMargin}>
-                        {[0, 1, 3, 4, 5].map((itemStar) => {
+                        {[0, 1, 3, 4, 5].map(itemStar => {
                           return (
                             <StarOutlinedIcon
                               className={styles.HSStarConatiner}
@@ -188,7 +188,7 @@ const cardItem = (items) => {
                       {item.content}
                     </div>
                     <div className={styles.HS5ItemMargin}>
-                      {[0, 1, 3, 4, 5].map((itemStar) => {
+                      {[0, 1, 3, 4, 5].map(itemStar => {
                         return (
                           <StarOutlinedIcon
                             className={styles.HSStarConatiner}
@@ -234,8 +234,8 @@ function HomeSection5() {
       threshold: 0.1,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -246,7 +246,7 @@ function HomeSection5() {
       });
     }, options);
 
-    animatedDivRefs.forEach((ref) => {
+    animatedDivRefs.forEach(ref => {
       observer.observe(ref.current);
     });
 

@@ -23,7 +23,7 @@
   flex-direction: column;
 }
 
-.breadcrumsSeparator{
+.breadcrumsSeparator {
   color: white;
 }
 /* .iBBContentContainer {
@@ -144,7 +144,7 @@
     font-weight: 500;
     line-height: 150%; /* 15px */
   }
-  .pageBannerRoot{
+  .pageBannerRoot {
     min-height: 0px;
     padding-top: 1rem;
   }

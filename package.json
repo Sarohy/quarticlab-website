@@ -59,8 +59,5 @@
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "prop-types": "^15.8.1"
-  },
-  "prettier": {
-    "ignorePath": ".prettierignore"
   }
 }

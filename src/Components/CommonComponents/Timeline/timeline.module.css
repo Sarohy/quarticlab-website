@@ -1,12 +1,10 @@
-.root{
+.root {
   display: flex;
   text-align: center;
   justify-content: center;
   padding-bottom: 8.4375rem;
-
 }
 .title {
-  
   color: #2b2a35;
   font-family: Poppins;
   font-size: 24px;
@@ -37,7 +35,7 @@
   margin-left: 20px;
 }
 
-.oneIcon{
+.oneIcon {
   position: absolute;
 }
 .fileIconContainer {
@@ -110,7 +108,7 @@
     flex-shrink: 0;
   }
   .oneIconContainer {
-    margin-bottom: .625rem;
+    margin-bottom: 0.625rem;
     margin-left: 0px;
     width: 2rem;
     height: 2rem;
