@@ -112,7 +112,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 0.9rem;
   color: #646464;
   display: flex;
   text-align: center;
@@ -159,14 +159,14 @@
     height: 350px;
   }
   .HS5SingleCard {
-   display: flex; 
-   align-items: center;
+    display: flex;
+    align-items: center;
     width: 50%;
     height: 220px;
     border-radius: 10px;
-    padding-bottom:18px;
+    padding-bottom: 18px;
     padding-right: 2px;
-   padding-left: 2px; 
+    padding-left: 2px;
   }
   .HS5OddCard {
     width: 100%;
@@ -190,9 +190,9 @@
   .HS5ContentHeader {
     font-size: 10px;
   }
-  .HS5CardDetail {
+  q1 .HS5CardDetail {
     margin-top: 2.5%;
-    font-size: 6px;
+    font-size: 0.7rem;
     padding-left: 2%;
     padding-right: 2%;
     width: 100%;
@@ -205,29 +205,24 @@
   }
   .HS5CardDetail {
     margin-top: 2.5%;
-    font-size: 10px;
+    font-size: 0.9rem;
     padding-left: 2%;
     padding-right: 2%;
     width: 100%;
     height: 100%;
-  
   }
 }
 @media screen and (min-width: 821px) and (max-width: 900px) {
   .HS5CardDetail {
     margin-top: 2.5%;
-    font-size: 10px;
+    font-size: 0.9rem;
     padding-left: 2%;
     padding-right: 2%;
     width: 100%;
     height: 100%;
-  
   }
 }
 @media screen and (min-width: 901px) and (max-width: 1140px) {
-  .HS5Carousel {
-    height: 520px;
-  }
   .HS5CardDetail {
     margin-top: 2.5%;
     font-size: 10px;
@@ -235,6 +230,5 @@
     padding-right: 2%;
     width: 100%;
     height: 100%;
-    
   }
 }

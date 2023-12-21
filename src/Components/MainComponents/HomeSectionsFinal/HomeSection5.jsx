@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 const Card = dynamic(() => import("@mui/material/Card"));
-const Carousel = dynamic(() => import("react-material-ui-carousel"));
-const StarOutlinedIcon = dynamic(
-  () => import("@mui/icons-material/StarOutlined"),
+const Carousel = dynamic(() => import("react-material-ui-carousel"), {
+  ssr: false,
+});
+const StarOutlinedIcon = dynamic(() =>
+  import("@mui/icons-material/StarOutlined"),
 );
 import HS3Img from "../../../../public/assets/HomeIcons/HS3Img.svg";
 import HS5Img1 from "../../../../public/assets/HomeIcons/HS5Img.svg";
@@ -49,7 +51,7 @@ const otherItems = [
         img: HS5Img2,
         content: "Tony Malik",
         details:
-          "The team at Zweidevs has extensive knowledge of the work we requested. We have worked with them for over 5-6 months and have been very happy with production. We will hire them again soon. They are our go to people when it comes to software development.",
+          "The team at Zweidevs has extensive knowledge of the work we requested. We have worked with them for over 5-6 months and have been very happy with production. We will hire them again soon",
       },
       {
         img: HS5Img3,
@@ -119,7 +121,7 @@ const mobItems = [
   },
 ];
 
-const cardItem = items => {
+const cardItem = (items) => {
   return (
     <>
       {items.length == 1 ? (
@@ -146,7 +148,7 @@ const cardItem = items => {
                         {item.content}
                       </h3>
                       <div className={styles.HS5ContentMargin}>
-                        {[0, 1, 3, 4, 5].map(itemStar => {
+                        {[0, 1, 3, 4, 5].map((itemStar) => {
                           return (
                             <StarOutlinedIcon
                               className={styles.HSStarConatiner}
@@ -186,7 +188,7 @@ const cardItem = items => {
                       {item.content}
                     </div>
                     <div className={styles.HS5ItemMargin}>
-                      {[0, 1, 3, 4, 5].map(itemStar => {
+                      {[0, 1, 3, 4, 5].map((itemStar) => {
                         return (
                           <StarOutlinedIcon
                             className={styles.HSStarConatiner}
@@ -232,8 +234,8 @@ function HomeSection5() {
       threshold: 0.1,
     };
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(
             "animate__animated",
@@ -244,7 +246,7 @@ function HomeSection5() {
       });
     }, options);
 
-    animatedDivRefs.forEach(ref => {
+    animatedDivRefs.forEach((ref) => {
       observer.observe(ref.current);
     });
 
@@ -280,7 +282,8 @@ function HomeSection5() {
               cursor: "pointer",
             },
           }}
-          interval={2000}
+          interval={4000}
+          navButtonsAlwaysVisible={true}
           swipe={true}
         >
           {itemsArray.map((item, index) => {
