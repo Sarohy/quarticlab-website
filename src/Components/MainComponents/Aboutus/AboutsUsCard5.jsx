@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
-const InstantBookingButton = dynamic(() =>
-  import("@component/Components/CommonComponents/InstantBookingButton"),
+const InstantBookingButton = dynamic(
+  () => import("@component/Components/CommonComponents/InstantBookingButton"),
 );
 import styles from "./AboutUs5.module.css";
 

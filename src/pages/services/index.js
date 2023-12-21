@@ -58,8 +58,8 @@ import HyperledgerIcon from "../../../public/assets/serviceIcons/hyperledger.svg
 import PolygonIcon from "../../../public/assets/serviceIcons/polygon.svg";
 import Flutter from "../../../public/assets/serviceIcons/Flutter.svg";
 
-const ServicesCard = dynamic(() =>
-  import("@component/Components/CommonComponents/ServicesCard"),
+const ServicesCard = dynamic(
+  () => import("@component/Components/CommonComponents/ServicesCard"),
 );
 
 const PageBanner = dynamic(
