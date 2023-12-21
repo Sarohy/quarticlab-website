@@ -88,14 +88,14 @@
 .blogButton {
   margin-top: 2%;
 }
-@media (max-width: 800px){
-  .blogRoot{
+@media (max-width: 800px) {
+  .blogRoot {
     padding-left: 20px;
     padding-right: 20px;
   }
 }
 @media screen and (max-width: 590px) {
-  .blogRoot{
+  .blogRoot {
     padding-left: 10px;
     padding-right: 10px;
   }

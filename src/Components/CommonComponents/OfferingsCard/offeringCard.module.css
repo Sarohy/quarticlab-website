@@ -90,10 +90,10 @@
     line-height: 117.5%; /* 23.5px */
   }
 
-  .cardContainer{
+  .cardContainer {
     padding-bottom: 1.25rem;
   }
-  .root{
+  .root {
     padding-inline: 1.25rem;
   }
   .cardBgImgContainer {
@@ -126,7 +126,7 @@
     font-weight: 400;
     line-height: 16px; /* 133.333% */
   }
-  .heading{
+  .heading {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }

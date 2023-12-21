@@ -9,7 +9,7 @@
   top: 0;
   width: 100%;
   z-index: 11111;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   /* margin-bottom: 15vh; */
 }
 .ButtonStyle {
@@ -31,7 +31,7 @@
 }
 
 .mobileHeaderMenuItem {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: black;
   border-bottom: 2px solid rgba(205, 208, 216, 0.5);
   width: 95%;

@@ -15,7 +15,7 @@
   /* width: 100%; */
 }
 
-.img{
+.img {
   /* position: absolute; */
   width: 50% !important;
   height: 100% !important;
@@ -59,7 +59,7 @@
 
 /* Media queries for mobile responsiveness */
 @media (max-width: 768px) {
-  .img{
+  .img {
     /* position: absolute; */
     width: 75% !important;
     height: 75% !important;
@@ -77,12 +77,12 @@
     top: 83%;
     left: 47%;
   }
-  
+
   .box4 {
     top: 83%;
     left: 68%;
   }
-  
+
   .box5 {
     top: 46%;
     left: 80.5%;
@@ -96,7 +96,7 @@
     border-radius: 5px;
     font-size: 10px;
   }
-  .img{
+  .img {
     /* position: absolute; */
     width: 75% !important;
     height: 75% !important;
@@ -114,12 +114,12 @@
     top: 82%;
     left: 46%;
   }
-  
+
   .box4 {
     top: 82%;
     left: 67%;
   }
-  
+
   .box5 {
     top: 43%;
     left: 79.5%;
