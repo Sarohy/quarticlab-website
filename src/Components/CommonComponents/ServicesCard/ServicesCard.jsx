@@ -205,30 +205,21 @@ const ServicesCard = props => {
                 <h3 className={styles.servicesCardFooterHeader}>
                   {element.footerTitle}:
                 </h3>
-                <marquee
-                  //  bgcolor="Green"
-                  behavior="alternate"
-                  className={styles.marquee}
-                  direction="left"
-                  loop="infinite"
-                  scrollamount="3"
-                >
-                  <div className={styles.servicesFooterImagesContainer}>
-                    {element.footerImages &&
-                      element.footerImages.map((image, imgkey) => (
-                        <Image
-                          alt={`${element.cardTitle} ${imgkey}`}
-                          className={`${styles.ServiceCardFooter} ${styles.hiddenCardDetailss} animate__animated services-footer-image`}
-                          height={42}
-                          key={imgkey}
-                          ref={animatedCardDetailsDivRefs[key][imgkey]}
-                          src={image.image}
-                          title={image.title}
-                          width={42}
-                        />
-                      ))}
-                  </div>
-                </marquee>
+                <div className={styles.servicesFooterImagesContainer}>
+                  {element.footerImages &&
+                    element.footerImages.map((image, imgkey) => (
+                      <Image
+                        alt={`${element.cardTitle} ${imgkey}`}
+                        className={`${styles.ServiceCardFooter} ${styles.hiddenCardDetailss} animate__animated services-footer-image`}
+                        height={42}
+                        key={imgkey}
+                        ref={animatedCardDetailsDivRefs[key][imgkey]}
+                        src={image.image}
+                        title={image.title}
+                        width={42}
+                      />
+                    ))}
+                </div>
 
                 {/* <Marquee
                   delay={5}
