@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 import Card from "@mui/material/Card";
 const CardContent = dynamic(() => import("@mui/material/CardContent"));
 const CardActionArea = dynamic(() => import("@mui/material/CardActionArea"));
-const BottomBorderButton = dynamic(() =>
-  import("@component/Components/CommonComponents/BottomBorderButton"),
+const BottomBorderButton = dynamic(
+  () => import("@component/Components/CommonComponents/BottomBorderButton"),
 );
 import Project1_Image1 from "../../../../public/assets/HomeIcons/Project/Project1_image1.svg";
 import Project2_Image1 from "../../../../public/assets/HomeIcons/Project/Project2_image1.svg";
