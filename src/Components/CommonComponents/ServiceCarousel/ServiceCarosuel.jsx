@@ -102,7 +102,6 @@ function HomeSection4({ cardTitle = "Web Development Projects", projectData }) {
                           quality={100}
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           src={item?.image}
-                          title={`${item?.title} | React.js, Ruby on Rails, AWS, Node.js, Express.js`}
                         />
                         <div className={styles.contentRoot}>
                           <div className={styles.HS4BelowContainer}>

@@ -159,7 +159,6 @@ const ServicesCard = props => {
                   className="services-icon"
                   height={"auto"}
                   src={element.cardIcon}
-                  title={`Zweidevs | ${element.cardIconTitle.firstLine}`}
                 />
                 <div className="services-icon-card-title">
                   <h3>
@@ -215,34 +214,10 @@ const ServicesCard = props => {
                         key={imgkey}
                         ref={animatedCardDetailsDivRefs[key][imgkey]}
                         src={image.image}
-                        title={image.title}
                         width={42}
                       />
                     ))}
                 </div>
-
-                {/* <Marquee
-                  delay={5}
-                  direction="left"
-                  gradient
-                  gradientWidth={100}
-                  loop={0}
-                  speed={30}
-                >
-                  {element.footerImages &&
-                    element.footerImages.map((image, imgkey) => (
-                      <Image
-                        alt={`${element.cardTitle} ${imgkey}`}
-                        className={`${styles.ServiceCardFooter} ${styles.hiddenCardDetailss} animate__animated services-footer-image`}
-                        height={42}
-                        key={imgkey}
-                        ref={animatedCardDetailsDivRefs[key][imgkey]}
-                        src={image.image}
-                        title={image.title}
-                        width={42}
-                      />
-                    ))}
-                </Marquee> */}
               </div>
             </div>
           </div>
@@ -272,7 +247,6 @@ const ServicesCard = props => {
                   className="services-icon"
                   height={"auto"}
                   src={element.cardIcon}
-                  title="Zweidevs | Custome Software Development Services Company"
                 />
                 <div className="services-icon-card-title">
                   <h3>
