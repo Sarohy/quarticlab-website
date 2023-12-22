@@ -72,7 +72,6 @@ function ServicesTechnologiesCard({ cardData, cardTitle }) {
                       className={styles.boxImage}
                       height={"auto"}
                       src={element.cardIcon}
-                      title={`Zweidevs | ${element.cardIconTitle.firstLine} ${element.cardIconTitle.secondLine}`}
                     />
                     <div className={styles.boxTitle}>
                       <label className={styles.ptr}>

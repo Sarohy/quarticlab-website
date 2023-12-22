@@ -1,9 +1,6 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import DashGroupIcon from "../../../public/assets/dashGroup.svg";
-const ServicesCard = dynamic(
-  () => import("@component/Components/CommonComponents/ServicesCard"),
-);
 import AIDevIcon from "../../../public/assets/serviceIcons/AIDevIcon.svg";
 import AndroidIcon from "../../../public/assets/serviceIcons/androidIcon.svg";
 import ArduinoIcon from "../../../public/assets/serviceIcons/arduinoIcon.svg";
@@ -60,6 +57,10 @@ import CanvaIcon from "../../../public/assets/serviceIcons/canva.svg";
 import HyperledgerIcon from "../../../public/assets/serviceIcons/hyperledger.svg";
 import PolygonIcon from "../../../public/assets/serviceIcons/polygon.svg";
 import Flutter from "../../../public/assets/serviceIcons/Flutter.svg";
+
+const ServicesCard = dynamic(
+  () => import("@component/Components/CommonComponents/ServicesCard"),
+);
 
 const PageBanner = dynamic(
   () => import("@component/Components/CommonComponents/PageBanner"),
@@ -234,7 +235,7 @@ function Services() {
           alt={"dash-icon"}
           className={styles.SPLeft}
           src={DashGroupIcon}
-          title="Zweidevs | Custome Software Development Services Company"
+          title="Zweidevs | Custom Software Development Services Company"
         />
       </div>
       <ServicesCard cardData={cardData} />

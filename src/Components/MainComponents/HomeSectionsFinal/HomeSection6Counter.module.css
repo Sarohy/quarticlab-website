@@ -10,8 +10,8 @@
   font-family: Poppins;
 }
 
-@media (max-width:590px){
-  .sinceyear{
+@media (max-width: 590px) {
+  .sinceyear {
     font-size: 16px;
   }
 }

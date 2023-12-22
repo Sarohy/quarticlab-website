@@ -14,7 +14,7 @@
   justify-content: space-between;
   cursor: pointer;
 }
-.btnCursor{
+.btnCursor {
   cursor: text;
   border: none;
   padding: 5px 0px;
@@ -65,18 +65,18 @@
 .ArrowCircleStyle {
   color: #ff9700;
 }
-@media (max-width:952px) {
- .animatedButton{
-  font-size: 1rem;  
- } 
+@media (max-width: 952px) {
+  .animatedButton {
+    font-size: 1rem;
+  }
 }
-@media (max-width:888px) {
- .animatedButton{
-  font-size: .8rem;  
- } 
+@media (max-width: 888px) {
+  .animatedButton {
+    font-size: 0.8rem;
+  }
 }
-@media (max-width:542px) {
- .animatedButton{
-  font-size: .6rem;  
- } 
+@media (max-width: 542px) {
+  .animatedButton {
+    font-size: 0.6rem;
+  }
 }

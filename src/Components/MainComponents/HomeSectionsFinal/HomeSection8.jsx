@@ -203,7 +203,6 @@ function HomeSection8() {
                                 alt={formValues.country?.id}
                                 height={25}
                                 src={formValues.country.icon}
-                                title="Zweidevs | Custome Software Development Services Company"
                                 width={40}
                               />
                             )}
@@ -225,7 +224,6 @@ function HomeSection8() {
                             alt="country flag logo"
                             height={25}
                             src={option.icon}
-                            title="Zweidevs | Custome Software Development Services Company"
                             width={40}
                           />
                         </Avatar>

@@ -5,9 +5,9 @@
 .SPLeft {
   margin-left: 25px;
   padding-left: 8;
- margin-top: 8px; 
+  margin-top: 8px;
 }
-.servicesHeaderContainer{
+.servicesHeaderContainer {
   display: flex;
   align-items: center;
 }

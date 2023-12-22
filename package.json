@@ -10,6 +10,7 @@
     "lint:fix": "next lint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "format:changed": "git diff --name-only --diff-filter=ACMRTUXB HEAD | grep '\\.js$\\|\\.jsx$\\|\\.json$\\|\\.css$\\|\\.scss$' | xargs prettier --write",
     "prepare": "husky install"
   },
   "engines": {
@@ -59,8 +60,5 @@
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "prop-types": "^15.8.1"
-  },
-  "prettier": {
-    "ignorePath": ".prettierignore"
   }
 }

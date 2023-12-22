@@ -153,7 +153,6 @@ function ServiceDetailsCard({
               fill
               onLoadingComplete={() => setImageLoading(true)}
               src={projectImageUrl}
-              title="FreshTracks React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services"
             />
           </div>
         </div>

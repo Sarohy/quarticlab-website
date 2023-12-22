@@ -67,16 +67,14 @@ function HomeSection6({ heading }) {
               alt="circularbar logo"
               height={100}
               src="/HomeIcons/HS6-circularbar.svg"
-              title="Zweidevs | Custome Software Development Services Company"
               width={100}
             />
           </div>
           <a className={styles.deg0}>
             <Image
-              alt="Customer logo"
+              alt="Customr logo"
               height={300}
               src="/HomeIcons/HS6-customer.svg"
-              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>
@@ -85,7 +83,6 @@ function HomeSection6({ heading }) {
               alt="funds logo"
               height={300}
               src="/HomeIcons/HS6-funds.svg"
-              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>
@@ -94,7 +91,6 @@ function HomeSection6({ heading }) {
               alt="teams logo"
               height={300}
               src="/HomeIcons/HS6-team.svg"
-              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>
@@ -103,7 +99,6 @@ function HomeSection6({ heading }) {
               alt="search logo"
               height={300}
               src="/HomeIcons/HS6-search.svg"
-              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>
@@ -112,7 +107,6 @@ function HomeSection6({ heading }) {
               alt="projects completed logo"
               height={300}
               src="/HomeIcons/projects-completed.svg"
-              title="Zweidevs | Custome Software Development Services Company"
               width={300}
             />
           </a>
@@ -151,7 +145,7 @@ function HomeSection6({ heading }) {
           <div className={styles.customersatisfaction}>
             <HomeSection6Counter
               duration={2}
-              label={"Customer Satisfaction"}
+              label={"Customr Satisfaction"}
               number={"99"}
               sign={"%"}
             />

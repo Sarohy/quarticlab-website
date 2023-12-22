@@ -211,7 +211,6 @@ function HomeSection2() {
                           className={styles.HS2SelectedImgWhite}
                           height={isHovered && selectedKey == index ? 40 : 80}
                           src={item.image}
-                          title={`Zweidevs | ${item.heading}`}
                           width={isHovered && selectedKey == index ? 40 : 80}
                         />
                       </div>

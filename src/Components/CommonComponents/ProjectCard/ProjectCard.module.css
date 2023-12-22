@@ -11,10 +11,10 @@
   display: flex;
   align-items: center;
 }
-.requestBtn{
+.requestBtn {
   width: 150px;
-  height: 40px; 
-  background-color:#ff9700 ; 
+  height: 40px;
+  background-color: #ff9700;
   color: white;
   border-radius: 5px;
   padding: 5px 0px 5px 18px;
@@ -22,19 +22,18 @@
   align-items: center;
   gap: 10px;
   margin: 0 auto;
- cursor: pointer; 
- font-family: 'Poppins';
+  cursor: pointer;
+  font-family: "Poppins";
 }
-.requestBtn button{
+.requestBtn button {
   font-size: 10px;
   color: white;
   font-weight: 600;
- font-family: 'Poppins';
- background-color: transparent; 
-border: none; 
-
+  font-family: "Poppins";
+  background-color: transparent;
+  border: none;
 }
-.svgBtn{
-  height: 30px ;
+.svgBtn {
+  height: 30px;
   width: 30px;
 }

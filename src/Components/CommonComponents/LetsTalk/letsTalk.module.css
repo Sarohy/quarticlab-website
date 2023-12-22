@@ -10,14 +10,11 @@
   /* background: var(--color-black); */
 }
 
-
 .section {
   /* display: block; */
-  
+
   padding: 52px 0;
   width: 70%;
-
-
 }
 
 /* .section {
@@ -81,45 +78,43 @@
   font-size: 25px;
   line-height: 1.5;
 }
-.cta__wrapper{
+.cta__wrapper {
   /* display: flex; */
   justify-content: center;
 }
 
 .cta__button {
-    position: relative;
-    z-index: 1;
-
+  position: relative;
+  z-index: 1;
 }
 .buttonPurple {
-    color: #0b0c0f;
-    background-color: white;
-    border: 1px solid #353945;
-
+  color: #0b0c0f;
+  background-color: white;
+  border: 1px solid #353945;
 }
 .buttonPurple:hover {
-    color: #ff9700;
+  color: #ff9700;
 }
 .button {
-    position: relative;
-    -webkit-appearance: none;
-    z-index: 1;
-    display: inline-flex;
-    width: auto;
-    height: auto;
-    margin: 0;
-    padding: 16px;
-    box-sizing: border-box;
-    font-size: 15px;
-    font-weight: 500;
-    -webkit-text-decoration: none;
-    text-decoration: none;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all .2s ease-out;
-    overflow: hidden;
+  position: relative;
+  -webkit-appearance: none;
+  z-index: 1;
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 16px;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  overflow: hidden;
 }
 
 @media (min-width: 1280px) {
@@ -142,22 +137,22 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .heading{
+  .heading {
     font-size: 1.25rem;
     text-align: center;
     margin-bottom: 10px;
     line-height: normal;
   }
-  .cta__caption{
+  .cta__caption {
     font-size: 1.25rem;
     text-align: center;
   }
-  .button{
+  .button {
     display: flex;
     width: min-content;
     justify-content: center;
     min-width: 170px;
     margin-inline: auto;
-    font-size: .75rem;
- }
+    font-size: 0.75rem;
+  }
 }

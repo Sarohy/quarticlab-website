@@ -34,7 +34,6 @@ function InstantBookingBanner(props) {
           alt={`${heading} React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services`}
           height={250}
           src={DiamondSvg}
-          title={`${heading} React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services`}
         />
       </div>
     </div>

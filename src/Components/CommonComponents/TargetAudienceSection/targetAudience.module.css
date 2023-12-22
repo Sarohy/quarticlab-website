@@ -281,20 +281,20 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .heading{
+  .heading {
     font-size: 1.25rem !important;
   }
   .caption {
     line-height: normal;
     font-size: 12px;
   }
-  .targetAudience__text{
+  .targetAudience__text {
     font-size: 0.75rem;
     line-height: normal;
     margin-top: 16px;
     text-align: center;
   }
-  .root{
+  .root {
     margin-bottom: 0rem;
   }
 }

@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 const Card = dynamic(() => import("@mui/material/Card"));
-const Carousel = dynamic(() => import("react-material-ui-carousel"));
+const Carousel = dynamic(() => import("react-material-ui-carousel"), {
+  ssr: false,
+});
 const StarOutlinedIcon = dynamic(
   () => import("@mui/icons-material/StarOutlined"),
 );
@@ -49,7 +51,7 @@ const otherItems = [
         img: HS5Img2,
         content: "Tony Malik",
         details:
-          "The team at Zweidevs has extensive knowledge of the work we requested. We have worked with them for over 5-6 months and have been very happy with production. We will hire them again soon. They are our go to people when it comes to software development.",
+          "The team at Zweidevs has extensive knowledge of the work we requested. We have worked with them for over 5-6 months and have been very happy with production. We will hire them again soon",
       },
       {
         img: HS5Img3,
@@ -280,7 +282,8 @@ function HomeSection5() {
               cursor: "pointer",
             },
           }}
-          interval={2000}
+          interval={4000}
+          navButtonsAlwaysVisible={true}
           swipe={true}
         >
           {itemsArray.map((item, index) => {

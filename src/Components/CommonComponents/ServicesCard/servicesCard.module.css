@@ -196,14 +196,9 @@
 
 .servicesFooterImagesContainer {
   margin-top: 10px;
-  width: min-content;
   display: flex;
   align-items: center;
-  /* overflow-x: scroll; */
-  /* border: 2px solid red !important;
-  display: flex;
-  align-items: center; */
-  /* justify-content: space-evenly; */
+  flex-wrap: wrap;
 }
 .marquee {
   width: auto;
