@@ -5,8 +5,8 @@ import AwsIcon from "../../../../public/assets/projectIcon/awsIcon.svg";
 import NodeIcon from "../../../../public/assets/projectIcon/nodejsIcon.svg";
 import ReactIcon from "../../../../public/assets/projectIcon/reactIcon.svg";
 import RubyIcon from "../../../../public/assets/projectIcon/rorIcon.svg";
-const CircularProgress = dynamic(() =>
-  import("@mui/material/CircularProgress"),
+const CircularProgress = dynamic(
+  () => import("@mui/material/CircularProgress"),
 );
 import styles from "./ProjectCard.module.css";
 
