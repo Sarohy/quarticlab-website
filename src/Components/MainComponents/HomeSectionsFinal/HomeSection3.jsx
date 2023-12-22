@@ -3,8 +3,8 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import HS3Img from "../../../../public/assets/HomeIcons/HS3Img.svg";
-const BottomBorderButton = dynamic(
-  () => import("@component/Components/CommonComponents/BottomBorderButton"),
+const BottomBorderButton = dynamic(() =>
+  import("@component/Components/CommonComponents/BottomBorderButton"),
 );
 import styles from "./HomeSection3.module.css";
 
@@ -107,12 +107,11 @@ function HomeSection3() {
           </div>
           <div className={styles.HS3ImgContainer} ref={animatedImgRef}>
             <Image
-              alt="Zweidevs | Custome Software Development Services Company"
+              alt="Zweidevs | Custom Software Development Services Company"
               className={styles.HS3ImgWidth}
               quality={100}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src={HS3Img}
-              title="Zweidevs | Custome Software Development Services Company"
             />
           </div>
         </div>

@@ -56,10 +56,9 @@ function Header() {
       <div className={styles.headerContainer}>
         <Link href={"/"}>
           <Image
-            alt="Zweidevs | Custome Software Development Services Company"
+            alt="Zweidevs | Custom Software Development Services Company"
             className="animate__animated animate__slideInLeft"
             src={ZweidevsLogo}
-            title="Zweidevs | Custome Software Development Services Company"
             width={180}
           />
         </Link>

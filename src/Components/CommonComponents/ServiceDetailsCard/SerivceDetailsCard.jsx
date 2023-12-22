@@ -4,8 +4,8 @@ import dynamic from "next/dynamic";
 import RightOrangeSVG from "../../../../public/assets/serviceIcons/rightOrangeSVG.svg";
 import TopOrangeSVG from "../../../../public/assets/serviceIcons/topOrangeSVG.svg";
 import TopOrangeSVGMobile from "../../../../public/assets/serviceIcons/topOrangeSVGMobile.svg";
-const CircularProgress = dynamic(
-  () => import("@mui/material/CircularProgress"),
+const CircularProgress = dynamic(() =>
+  import("@mui/material/CircularProgress"),
 );
 import { useMediaQuery } from "@mui/material";
 import styles from "./serviceDetailsCard.module.css";
@@ -153,7 +153,6 @@ function ServiceDetailsCard({
               fill
               onLoadingComplete={() => setImageLoading(true)}
               src={projectImageUrl}
-              title="FreshTracks React.js FreshTracks Ruby on Rails FreshTracks AWS Amazon Web Services"
             />
           </div>
         </div>

@@ -58,8 +58,8 @@ import HyperledgerIcon from "../../../public/assets/serviceIcons/hyperledger.svg
 import PolygonIcon from "../../../public/assets/serviceIcons/polygon.svg";
 import Flutter from "../../../public/assets/serviceIcons/Flutter.svg";
 
-const ServicesCard = dynamic(
-  () => import("@component/Components/CommonComponents/ServicesCard"),
+const ServicesCard = dynamic(() =>
+  import("@component/Components/CommonComponents/ServicesCard"),
 );
 
 const PageBanner = dynamic(
@@ -235,7 +235,7 @@ function Services() {
           alt={"dash-icon"}
           className={styles.SPLeft}
           src={DashGroupIcon}
-          title="Zweidevs | Custome Software Development Services Company"
+          title="Zweidevs | Custom Software Development Services Company"
         />
       </div>
       <ServicesCard cardData={cardData} />
