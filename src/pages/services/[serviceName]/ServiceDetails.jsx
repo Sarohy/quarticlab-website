@@ -125,6 +125,11 @@ import Web9 from "../../../../public/assets/HomeIcons/Project/Project5_image1.sv
 import Web10 from "../../../../public/assets/HomeIcons/Project/Web10.png";
 import Web11 from "../../../../public/assets/HomeIcons/Project/Web11.png";
 
+//Ecommerce Proj
+import Ecommerce1 from "../../../../public/assets/HomeIcons/Project/Ecommerce1.png";
+import Ecommerce2 from "../../../../public/assets/HomeIcons/Project/Ecommerce2.png";
+import Ecommerce3 from "../../../../public/assets/HomeIcons/Project/Ecommerce3.png";
+
 //gd projects
 import GameDev1 from "../../../../public/assets/serviceDetailsIcons/gdIcons/g1.png";
 import GameDev2 from "../../../../public/assets/serviceDetailsIcons/gdIcons/g2.png";
@@ -725,7 +730,7 @@ const content = {
   [urls.services.Ecommerce.title]: {
     image: WebDevServiceDetailsIcon,
     targetAudienceSection: {
-      title: `We Build Custom Web Applications For`,
+      title: `We Build Custom E-commerce Applications For`,
       desc: `At Zweidevs, we specialize in creating custom online apps that are
       carefully designed to match the distinct requirements of companies
       of all sizes. Our committed team of professionals uses
@@ -735,121 +740,69 @@ const content = {
       targetAudienceCardData: [
         {
           cardTitle: "Startups",
-          cardDesc: `Recognizing the distinct obstacles and goals of smaller businesses, we provide them with cost-effective, scalable solutions that enable them to build a strong online presence. Whether you're starting a new business or want to improve your existing digital skills, our commitment is to offer creative, superior, and reasonably priced online solutions that help small businesses succeed in the digital world.`,
+          cardDesc: `Our specialty is creating bespoke E-commerce web development solutions that are scalable and flexible and are tailored to the particular requirements and difficulties that startups confront. Our scalable E-commerce solutions for startups are designed with the future in mind, enabling your platform to grow with your business as it grows.`,
         },
         {
           cardTitle: "Medium Businesses",
-          cardDesc: `Our dedicated team is aware of the complex issues and expansion goals that mid-sized businesses face, and we use this knowledge to provide solutions that work in unison with their goals. Whether your goal is to increase consumer engagement, streamline internal operations, or broaden your digital presence, our all-encompassing approach guarantees that the web apps we develop are precisely tailored to meet the unique requirements of medium-sized enterprises.`,
+          cardDesc: `Our area of expertise is creating unique E-commerce web development solutions suited for medium-sized companies, guaranteeing a feature-rich platform and scalability for expansion. Our optimized performance, user-centric design, and integrated marketing tools improve the overall customer experience while providing high-quality solutions for strategic business expansion.`,
         },
         {
           cardTitle: "Large Businesses",
-          cardDesc: `Zweidevs is dedicated to developing custom web apps that smoothly interface with the complex operations of large companies, whether you want to boost digital interactions at scale, build reliable enterprise solutions, or streamline complex business processes. Our emphasis on performance, security, and innovation guarantees that the solutions we provide enable big businesses to prosper in the ever-changing digital environment, promoting effectiveness, expansion, and long-term success.`,
+          cardDesc: `Our large-scale custom E-commerce web development services are designed to satisfy the complex requirements of enterprise-level operations. Assuring the highest standards of data protection for major businesses, we prioritize comprehensive security measures and provide scalable, resilient solutions with advanced features and smooth integration possibilities.`,
         },
       ],
     },
     projectData: [
       {
         index: 1,
-        image: Web1,
-        title: "Cyber Legends",
+        image: Ecommerce1,
+        title: "Shopiara",
         content:
-          "Ed-Tech and Gaming platform offering online cyber security learning services, equipping educators, parents and kids with interactive tools and content for enhanced learning experiences.",
+          "Shopiara, a women's apparel brand that offers a carefully picked collection for the modern lady, elevates your style by fusing comfort and fashion-forward styles.",
       },
       {
         index: 2,
-        image: Web2,
-        title: "Edcite",
+        image: Ecommerce2,
+        title: "Premium Pine",
         content:
-          "Revolutionizing K–12 education with an intuitive platform for interactive Common Core-aligned lessons, addressing online test challenges, and promoting instant student feedback.",
+          "Discover the art of life with Premium Pine, where elegance and quality collide. Explore our handpicked selections on our furniture brand website to reinvent your living space.",
       },
       {
         index: 3,
-        image: Web3,
-        title: "Officer Survey",
+        image: Ecommerce3,
+        title: "Urban’s Artistry",
         content:
-          "Fostering safer and interconnected societies through a technology-driven forum that facilitates communication, understanding, and trust-based connections between communities and law enforcement organizations.",
-      },
-      {
-        index: 4,
-        image: Web4,
-        title: "Blockcircle",
-        content:
-          "Blockcircle provides competitive data, proprietary tools, and dynamic investing analytics to enable them to make well-informed decisions in the turbulent cryptocurrency market.        ",
-      },
-      {
-        index: 5,
-        image: Web5,
-        title: "Avail Medical",
-        content:
-          "Zweidevs built an accessible website for traditional and marijuana-based prescriptions. We streamed Canada's medical marijuana program, offering online shopping experiences for diverse services and product options.",
-      },
-      {
-        index: 6,
-        image: Web6,
-        title: "Isynced",
-        content:
-          "Revolutionizing transaction execution, the market's most affordable copy trading solution, optimizing earnings, minimizing risk, and delivering an unparalleled user experience.",
-      },
-      {
-        index: 7,
-        image: Web7,
-        title: "Public Trust",
-        content:
-          "Your go-to for full-service real estate, handling residential and commercial transactions, including short sales, foreclosures, and leases, with a nationwide referral network spanning the United States, Canada, and Puerto Rico.",
-      },
-      {
-        index: 8,
-        image: Web8,
-        title: "Fresh Track",
-        content:
-          "Vancouver-based team since 1996, personalized travel itineraries that showcase Canada's breathtaking scenery and diverse experiences with insider knowledge and a passion for travel.",
-      },
-      {
-        index: 9,
-        image: Web9,
-        title: "Humanava",
-        content:
-          "Unleash your potential with personal development courses, embracing leadership, diversity, and mindfulness for a brighter future, and connect globally to discover hidden brilliance.",
-      },
-      {
-        index: 10,
-        image: Web10,
-        title: "LinkTree",
-        content:
-          "Elevate discoverability and manageability by consolidating all aspects of your online presence into a conversion-focused landing page link, seamlessly linking videos, music, podcasts, websites, Instagram, Twitter, and more.",
-      },
-      {
-        index: 11,
-        image: Web11,
-        title: "Venue Genie",
-        content:
-          "Discover the future of event booking with over 360 locations, catering, and DJ packages, ensuring flawless and affordable experiences for gatherings of any size, all on a fee-free platform.",
+          "Treat yourself to self-care with Urban's Herbal, a skincare ritual brand that combines science and nature for nourished, glowing skin.",
       },
     ],
     productionDevSection: {
-      title: `How We Develop Web Applications`,
-      desc: `Zweidevs manages every stage of the project lifecycle while providing full services for developing web applications. Our development staff is dedicated to building mutually beneficial collaborations. We conduct in-depth research, provide sage counsel on strategic decisions, and guarantee consistent assistance at each step of your web application.`,
+      title: `We Build Resilient and Agile Business Operations`,
+      desc: `E-commerce website creation is building an online store that elegantly showcases your goods and gently leads potential buyers to purchase. That's what we do! However we provide more than gorgeous storefront designs with our e-commerce development services and construct software for all back-end e-commerce operations.`,
       cardsData: [
         {
-          cardTitle: "Discovery",
-          cardDesc: `Every new project at Zweidevs begins with a dedicated discovery phase, a strategy that we believe is critical to exploring the project's concept and defining its core requirements. Our clients can evaluate the viability of their investment and validate their business ideas at this first phase, which is a great opportunity. In the discovery phase, we discuss the intended functionality and look closely at the problems the customer wants the software product to solve. For our team, obtaining a wealth of project data is essential since it helps us determine the project's complexity and provide the customer with correct time and cost estimates.`,
+          cardTitle: "Inventory management",
+          cardDesc: `Our inventory management services are designed to guarantee accuracy in restocking and recordkeeping in several locations. We enable effective inventory control by utilizing cutting-edge IoT-powered tracking, demand-driven planning, rule-based cataloging, and automated purchase orders. Our knowledge also includes inventory return management, offering a complete solution to streamline your supply chain and improve overall operational effectiveness.`,
         },
         {
-          cardTitle: "Design",
+          cardTitle: "Order management",
           cardDesc:
-            "Our design team creates the foundation for the best web designs through the careful development of interactive prototypes and wireframes. We carefully design the user flow for future applications so that clients can see an appealing preview of their product. This flow is put through a rigorous testing process with actual users to make sure that it is easy to navigate. We prioritize creating a captivating first impression for online businesses, recognizing its critical value, and emphasize visual appeal in user interface design. We help companies build long-lasting relationships with their clients by emphasizing elegant and sophisticated web design.",
+            "Our efficient order processing services manage client orders from several sales channels, which are delivered via different delivery channels, each with its own needs for packaging and delivery. In order to do this, we ensure that all sales channels integrate seamlessly for centralized order aggregation. We also link with inventory management software, apply rule-based order processing, direct orders to the best fulfillment centers, and support a variety of execution scenarios, including orders for pickup and delivery.",
         },
         {
-          cardTitle: "Development",
-          cardDesc: `We've adopted Agile as our primary project management approach because we think it helps us maintain the high caliber of the products we provide, reduce risks, and give our clients more control over their projects. We break down our development process into manageable sprints that follow a specific pattern. We start with careful planning and move right into the development stage. After that, we thoroughly test the implemented functionality, document our findings, and release it once we've ensured no bugs are left. Our development team moves smoothly into the next phase at the end of each sprint, guaranteeing steady and organized progress.`,
+          cardTitle: "Logistics management",
+          cardDesc: `By using AI, we can shorten the process and optimize shipping routes for on-time delivery. Real-time tracking capabilities make Proactive management and response possible, which offer visibility into transportation progress. Furthermore, RFID-enabled monitoring guarantees the integrity and conditions of items in transit, which adds to a comprehensive logistics plan.`,
         },
         {
-          cardTitle: "Release",
-          cardDesc: `The software development process ends with the release phase. After our quality assurance engineers thoroughly test every feature both manually and automatically to guarantee flawless operation, all parts, data, and completed code are deployed to production. Our bespoke web application development team carefully gathers release notes throughout this critical phase. They work as technical documentation that provides crucial details about the product, including information on features that have been added and bugs that have been fixed. Release notes are intended for internal and external product users, and they offer in-depth information on the most recent advancements.`,
+          cardTitle: "Product information management",
+          cardDesc: `Our PIM services streamline repetitious processes in product promotion for many sales channels. By using a PIM system, we can minimize human labor and guarantee consistency by importing and cataloging product data, enriching it with rules, creating product associations, and integrating it smoothly with distribution channels.`,
         },
         {
-          cardTitle: "Support",
-          cardDesc: `At Zweidevs, we build software solutions that, long after the initial product launch, continuously provide their owners with the expected results. We are able to maintain this success over time because of our dedication to providing excellent post-launch maintenance and support. We offer two ways for our customers to keep their products maintained for their convenience. In the first, customers pay a set monthly amount to receive a predetermined number of hours, similar to a subscription model. As an alternative, companies can gather jobs into a backlog and assign our team to handle them. Before giving them to our staff, clients usually accumulate jobs until they have at least eighty working hours. Clients generally agree this is the most economical way to sustain their software product.`,
+          cardTitle: "Digital marketing automation",
+          cardDesc: `You can expand your marketing activities with a full multichannel strategy thanks to our digital marketing automation. We improve client engagement by utilizing technologies such as email marketing, response-driven campaigns, and behavioral customer micro-segmentation. Our strategy also incorporates programmatic advertising for targeted outreach and conversational marketing via messaging apps, chatbots, and live conversations.`,
+        },
+        {
+          cardTitle: "Retail BI",
+          cardDesc: `With the help of our retail business intelligence (BI) services, you can use business data to make well-informed decisions. By combining data from many internal and external sources, we can do machine learning-based forecasting, report on key performance indicators (KPIs), and enable extensive analysis. This all-inclusive method guarantees a data-driven and strategic basis for streamlining your retail operations.`,
         },
       ],
     },
@@ -874,10 +827,10 @@ const content = {
         },
       ],
     },
-    headerTitle: "Building robust, user-friendly platforms",
+    headerTitle: "Building a robust, user-friendly e-commerce platform",
 
     headerDescription:
-      "Experience a complete e-commerce journey with our service, covering everything from intuitive design and robust security to seamless payment processing, efficient inventory management, hassle-free checkout, and responsive customer support.",
+      "You can now have a smooth e-commerce experience that includes everything from solid security and intuitive design to easy payment processing, effective inventory management, hassle-free checkout, and attentive customer care.",
     heading: `Design, inventory management, and responsive customer support`,
     description: `Customized E-commerce Solutions for Seamless Shopping Experiences and Business Success!
 
@@ -887,62 +840,77 @@ const content = {
     offeringCardData: [
       {
         cardImage: designIcon,
-        cardTitle: "Experience Design",
+        cardTitle: "E-commerce Experience Design",
         cardDesc:
           "Intuitive experience design takes center stage to elevate user journeys with Zweidevs’ E-commerce development services.",
       },
       {
         cardImage: frontendIcon,
-        cardTitle: "Frontend Development",
+        cardTitle: "Custom E-commerce Development",
         cardDesc:
-          "Bring your E-commerce vision to life with Zweidevs’ expert frontend development.",
+          "With Zweidevs, you may access a custom E-commerce solution made to fit your company's demands. Our bespoke development services guarantee a one-of-a-kind platform that is expertly designed to maximize functionality and deliver a remarkable user experience.",
       },
       {
         cardImage: backendIcon,
-        cardTitle: "Backend Development",
+        cardTitle: "Platform-Based E-commerce Development",
         cardDesc:
-          "Power your E-commerce platform through our expertise in delivering scalable Backend development solutions.",
+          "Utilize our expertise in developing platform-based e-commerce solutions. Easily incorporate strong solutions that improve your online visibility and provide a scalable framework for optimizing business processes for long-term success.",
       },
       {
         cardImage: fullstackIcon,
-        cardTitle: "Full Stack Development",
+        cardTitle: "Mobile E-commerce App Development",
         cardDesc:
-          "Experience end-to-end E-commerce excellence with Zweidevs’ full-stack development services.",
+          "We develop user-friendly and responsive applications that engage consumers on the go, delivering a flawless shopping experience and optimizing sales prospects so you may reach a wider audience.",
       },
       {
         cardImage: ecommerceIcon,
-        cardTitle: "Maintenance and Updates",
+        cardTitle: "E-commerce Migration",
         cardDesc:
-          "Sustain and evolve your E-commerce success, ensuring your web application stays aligned with industry trends.",
+          "With our migration services, you can rely on a seamless and effective switch to an e-commerce platform. As we smoothly move your platform, you can be sure that data integrity will be maintained and that company activities will not be disrupted.",
+      },
+      {
+        cardImage: ecommerceIcon,
+        cardTitle: "E-commerce Frontend Development",
+        cardDesc:
+          "Create engaging and intuitive user interfaces to improve your online store's usability and aesthetic appeal and to provide customers with an immersive shopping experience.",
+      },
+      {
+        cardImage: ecommerceIcon,
+        cardTitle: "E-commerce Backend Development",
+        cardDesc:
+          "Our expertise guarantees smooth operations, robust data handling, and peak performance, giving your internet business a strong base.",
+      },
+      {
+        cardImage: ecommerceIcon,
+        cardTitle: "E-commerce Full Stack Development",
+        cardDesc:
+          "With the full-stack development services offered by Zweidevs, enjoy exceptional end-to-end e-commerce. Create comprehensive, high-performing e-commerce solutions that satisfy the many demands of your company by combining frontend and backend knowledge.",
+      },
+      {
+        cardImage: ecommerceIcon,
+        cardTitle: "E-commerce Support and Evolution",
+        cardDesc:
+          " Ensure your web application aligns with consumer expectations and industry trends to protect and improve your e-commerce performance. You might also offer continuous maintenance to help it adapt and change as business environments change.",
       },
     ],
     faqData: [
       {
-        title: "How much does web app development cost?",
-        desc: `The cost of developing a web app is influenced by its complexity, required features, technology stack, team experience, and other factors like design, testing, and maintenance. Working with web development experts or agencies is crucial if you want a clear knowledge of your vision for the web application and a more precise estimate based on your unique requirements. Connect with our web developers to know the exact cost estimation. `,
+        title: "How long does it take to develop an e-commerce application?",
+        desc: `A simple e-commerce website may usually be completed in a few weeks to a few months, whereas more intricate and highly customized platforms might take up to several months. A more precise estimate suited to your unique requirements and objectives can be obtained by carefully examining the project requirements and having a comprehensive conversation with the e-commerce website developer.`,
+      },
+      {
+        title: "Why choose Zweidevs for e-commerce development?",
+        desc: `Our strategy involves creating specialized e-commerce solutions to match your company's particular requirements, guaranteeing smooth integration, increased effectiveness, and a favorable effect on the operation of your online store. Choosing Zweidevs gives you a dependable partner committed to building an effective and profitable e-commerce site that fits your company's objectives.`,
       },
       {
         title:
-          "What is web app development, and how can it benefit my business?",
-        desc: `Developing software applications that run on web browsers is known as web app development, and it offers firms adaptable and affordable options. Their cross-platform compatibility guarantees a uniform user experience on various devices and browsers. Essentially, web app development gives companies the ability to create effective, easily accessible, and scalable solutions that they can use to keep up with changing technology and market demands.`,
-      },
-      {
-        title: "How long does it take to develop a web application?",
-        desc: `A simple web app with basic features might take a few weeks to a couple of months to develop, while more complex or enterprise-level applications could take several months or even a year. Rapid development frameworks and agile development methodologies can expedite the process, but it's essential to balance speed with thorough testing and quality assurance.`,
-      },
-      {
-        title: "Why choose Zweidevs for web application development?",
-        desc: `We at Zweidevs don't just develop web apps—we craft reliable, approachable solutions that add value to your company and demonstrate our constant commitment to quality and client happiness. Having completed numerous projects successfully and leaving our clients happy, we place a high value on open communication and teamwork during the whole development process. Connect with our experts right away.`,
+          "How do you ensure the security of the e-commerce applications you develop?",
+        desc: `We prioritize the security of e-commerce applications using strict data encryption, secure payment gateways, and SSL/TLS encryption. An apparent incident response strategy and user education can add to the security and resilience of an e-commerce environment.`,
       },
       {
         title:
-          "How do you ensure the security of the web applications you develop?",
-        desc: `An emphasis on web application security can be done through frequent audits, thorough code reviews, and encryption. We adhere to the least privilege principle and use strong authentication. The result is secure online apps that successfully reduce cybersecurity risks and prioritize data protection.`,
-      },
-      {
-        title:
-          "Do you provide ongoing maintenance and support after the web app is launched?",
-        desc: `Yes, we at Zweidevs recognize the value of continuous upkeep and assistance. We provide thorough maintenance services, which include bug repairs, updates, and optimizations, to guarantee your application keeps running smoothly. As your company grows, our support staff is here to help with any necessary improvements or modifications and to quickly resolve any issues that may arise.`,
+          "What features and functionalities can be customized in an e-commerce software solution?",
+        desc: `Our e-commerce software solutions are highly customizable, enabling companies to customize features like shopping cart management, user authentication, and product catalog management. The platform is engineered to accommodate a wide range of operational requirements, including customizable promotions, variable delivery options, and adaptive order management.`,
       },
     ],
   },

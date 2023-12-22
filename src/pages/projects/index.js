@@ -42,9 +42,9 @@ function Work() {
   };
 
   const handleEcommerce = () => {
-    setSelected("ecommerceProjects");
+    setSelected("aiProjects");
     const filtered = projects.filter(project =>
-      project.projectType.includes("ecommerce"),
+      project.projectType.includes("ai"),
     );
     setFilteredProjects(filtered);
   };

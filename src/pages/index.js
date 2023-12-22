@@ -13,11 +13,8 @@ const HomeSection3 = dynamic(
       "@component/Components/MainComponents/HomeSectionsFinal/HomeSection3"
     ),
 );
-const HomeSection4 = dynamic(
-  () =>
-    import(
-      "@component/Components/MainComponents/HomeSectionsFinal/HomeSection4"
-    ),
+const ServiceCarosuel = dynamic(
+  () => import("@component/Components/CommonComponents/ServiceCarousel"),
 );
 const HomeSection5 = dynamic(
   () =>
@@ -44,7 +41,6 @@ const HomeSection8 = dynamic(
     ),
 );
 
-import ServiceCarosuel from "@component/Components/CommonComponents/ServiceCarousel";
 import Mobo1 from "../../public/assets/serviceDetailsIcons/moboIcons/mobo1.png";
 import Web1 from "../../public/assets/HomeIcons/Project/Web1.png";
 import Web4 from "../../public/assets/HomeIcons/Project/Web4.png";
@@ -69,7 +65,7 @@ export default function Home() {
       <HomeSection1 handleButtonClick={handleButtonClickSection1} />
       <HomeSection2 />
       <HomeSection3 />
-      <HomeSection4 />
+      {/* <HomeSection4 /> */}
       <ServiceCarosuel
         cardTitle="Our Top Projects"
         displayViewMoreButton={true}
