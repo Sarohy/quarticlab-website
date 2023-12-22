@@ -1113,7 +1113,7 @@ const content = {
         index: 3,
         image: ai3,
         title: "RoboBee Bot",
-        content: `Communicate easily with Amazebot, your AI conversation partner who can converse via text, graphics, examples, and more. Amazebot makes every interaction simple and unique.`,
+        content: `Communicate easily with RoboBee Bot, your AI conversation partner who can converse via text, graphics, examples, and more. It makes every interaction simple and unique.`,
       },
     ],
     productionDevSection: {
