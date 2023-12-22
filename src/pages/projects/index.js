@@ -112,7 +112,7 @@ function Work() {
               }`}
               onClick={handleEcommerce}
             >
-              Ecommerce
+              AI & ML
             </button>
           </div>
         </div>

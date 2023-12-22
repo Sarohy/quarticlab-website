@@ -20,5 +20,9 @@ export const urls = {
       url: "/services/Artificial Intelligence & Machine Learning",
       title: "Artificial Intelligence & Machine Learning",
     },
+    Ecommerce: {
+      url: "services/E-commerce Development",
+      title: "E-commerce Development",
+    },
   },
 };

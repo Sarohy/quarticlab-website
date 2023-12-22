@@ -44,6 +44,11 @@ const HomeSection8 = dynamic(
     ),
 );
 
+import ServiceCarosuel from "@component/Components/CommonComponents/ServiceCarousel";
+import Mobo1 from "../../public/assets/serviceDetailsIcons/moboIcons/mobo1.png";
+import Web1 from "../../public/assets/HomeIcons/Project/Web1.png";
+import Web4 from "../../public/assets/HomeIcons/Project/Web4.png";
+
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -65,6 +70,31 @@ export default function Home() {
       <HomeSection2 />
       <HomeSection3 />
       <HomeSection4 />
+      <ServiceCarosuel
+        cardTitle="Our Top Projects"
+        displayViewMoreButton={true}
+        projectData={[
+          {
+            index: 1,
+            image: Web1,
+            title: "Cyber Legends",
+            content:
+              "Ed-Tech and Gaming platform offering online cyber security learning services, equipping educators, parents and kids with interactive tools and content for enhanced learning experiences.",
+          },
+          {
+            index: 2,
+            image: Mobo1,
+            title: "Neverleft",
+            content: `A more efficient method for managing venue operations that incorporates data analytics, enhanced event ticketing, and digital cloakroom ticketing.`,
+          },
+          {
+            index: 3,
+            image: Web4,
+            title: "Blockcircle",
+            content: `Blockcircle provides competitive data, proprietary tools, and dynamic investing analytics to enable them to make well-informed decisions in the turbulent cryptocurrency market.`,
+          },
+        ]}
+      />
       <HomeSection5 />
       <HomeSection6 heading="Why Zweidevs" />
       <HomeSection7 />

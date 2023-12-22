@@ -352,7 +352,16 @@ const content = {
         },
         {
           cardTitle: "Back-end",
-          chipData: ["Ruby on Rails", "Node.js", "Python", "PHP"],
+          chipData: [
+            "Ruby on Rails",
+            "Node.js",
+            "Python",
+            "PHP",
+            "Angular",
+            "Ionic",
+            "Next JS",
+            "Nest JS",
+          ],
         },
       ],
     },
@@ -713,8 +722,158 @@ const content = {
       },
     ],
   },
-  "E-commerce Development": {
+  [urls.services.Ecommerce.title]: {
     image: WebDevServiceDetailsIcon,
+    targetAudienceSection: {
+      title: `We Build Custom Web Applications For`,
+      desc: `At Zweidevs, we specialize in creating custom online apps that are
+      carefully designed to match the distinct requirements of companies
+      of all sizes. Our committed team of professionals uses
+      state-of-the-art technology and a client-focused methodology to
+      provide customized solutions that effortlessly match the objectives
+      and ambitions of companies of any size.`,
+      targetAudienceCardData: [
+        {
+          cardTitle: "Startups",
+          cardDesc: `Recognizing the distinct obstacles and goals of smaller businesses, we provide them with cost-effective, scalable solutions that enable them to build a strong online presence. Whether you're starting a new business or want to improve your existing digital skills, our commitment is to offer creative, superior, and reasonably priced online solutions that help small businesses succeed in the digital world.`,
+        },
+        {
+          cardTitle: "Medium Businesses",
+          cardDesc: `Our dedicated team is aware of the complex issues and expansion goals that mid-sized businesses face, and we use this knowledge to provide solutions that work in unison with their goals. Whether your goal is to increase consumer engagement, streamline internal operations, or broaden your digital presence, our all-encompassing approach guarantees that the web apps we develop are precisely tailored to meet the unique requirements of medium-sized enterprises.`,
+        },
+        {
+          cardTitle: "Large Businesses",
+          cardDesc: `Zweidevs is dedicated to developing custom web apps that smoothly interface with the complex operations of large companies, whether you want to boost digital interactions at scale, build reliable enterprise solutions, or streamline complex business processes. Our emphasis on performance, security, and innovation guarantees that the solutions we provide enable big businesses to prosper in the ever-changing digital environment, promoting effectiveness, expansion, and long-term success.`,
+        },
+      ],
+    },
+    projectData: [
+      {
+        index: 1,
+        image: Web1,
+        title: "Cyber Legends",
+        content:
+          "Ed-Tech and Gaming platform offering online cyber security learning services, equipping educators, parents and kids with interactive tools and content for enhanced learning experiences.",
+      },
+      {
+        index: 2,
+        image: Web2,
+        title: "Edcite",
+        content:
+          "Revolutionizing K–12 education with an intuitive platform for interactive Common Core-aligned lessons, addressing online test challenges, and promoting instant student feedback.",
+      },
+      {
+        index: 3,
+        image: Web3,
+        title: "Officer Survey",
+        content:
+          "Fostering safer and interconnected societies through a technology-driven forum that facilitates communication, understanding, and trust-based connections between communities and law enforcement organizations.",
+      },
+      {
+        index: 4,
+        image: Web4,
+        title: "Blockcircle",
+        content:
+          "Blockcircle provides competitive data, proprietary tools, and dynamic investing analytics to enable them to make well-informed decisions in the turbulent cryptocurrency market.        ",
+      },
+      {
+        index: 5,
+        image: Web5,
+        title: "Avail Medical",
+        content:
+          "Zweidevs built an accessible website for traditional and marijuana-based prescriptions. We streamed Canada's medical marijuana program, offering online shopping experiences for diverse services and product options.",
+      },
+      {
+        index: 6,
+        image: Web6,
+        title: "Isynced",
+        content:
+          "Revolutionizing transaction execution, the market's most affordable copy trading solution, optimizing earnings, minimizing risk, and delivering an unparalleled user experience.",
+      },
+      {
+        index: 7,
+        image: Web7,
+        title: "Public Trust",
+        content:
+          "Your go-to for full-service real estate, handling residential and commercial transactions, including short sales, foreclosures, and leases, with a nationwide referral network spanning the United States, Canada, and Puerto Rico.",
+      },
+      {
+        index: 8,
+        image: Web8,
+        title: "Fresh Track",
+        content:
+          "Vancouver-based team since 1996, personalized travel itineraries that showcase Canada's breathtaking scenery and diverse experiences with insider knowledge and a passion for travel.",
+      },
+      {
+        index: 9,
+        image: Web9,
+        title: "Humanava",
+        content:
+          "Unleash your potential with personal development courses, embracing leadership, diversity, and mindfulness for a brighter future, and connect globally to discover hidden brilliance.",
+      },
+      {
+        index: 10,
+        image: Web10,
+        title: "LinkTree",
+        content:
+          "Elevate discoverability and manageability by consolidating all aspects of your online presence into a conversion-focused landing page link, seamlessly linking videos, music, podcasts, websites, Instagram, Twitter, and more.",
+      },
+      {
+        index: 11,
+        image: Web11,
+        title: "Venue Genie",
+        content:
+          "Discover the future of event booking with over 360 locations, catering, and DJ packages, ensuring flawless and affordable experiences for gatherings of any size, all on a fee-free platform.",
+      },
+    ],
+    productionDevSection: {
+      title: `How We Develop Web Applications`,
+      desc: `Zweidevs manages every stage of the project lifecycle while providing full services for developing web applications. Our development staff is dedicated to building mutually beneficial collaborations. We conduct in-depth research, provide sage counsel on strategic decisions, and guarantee consistent assistance at each step of your web application.`,
+      cardsData: [
+        {
+          cardTitle: "Discovery",
+          cardDesc: `Every new project at Zweidevs begins with a dedicated discovery phase, a strategy that we believe is critical to exploring the project's concept and defining its core requirements. Our clients can evaluate the viability of their investment and validate their business ideas at this first phase, which is a great opportunity. In the discovery phase, we discuss the intended functionality and look closely at the problems the customer wants the software product to solve. For our team, obtaining a wealth of project data is essential since it helps us determine the project's complexity and provide the customer with correct time and cost estimates.`,
+        },
+        {
+          cardTitle: "Design",
+          cardDesc:
+            "Our design team creates the foundation for the best web designs through the careful development of interactive prototypes and wireframes. We carefully design the user flow for future applications so that clients can see an appealing preview of their product. This flow is put through a rigorous testing process with actual users to make sure that it is easy to navigate. We prioritize creating a captivating first impression for online businesses, recognizing its critical value, and emphasize visual appeal in user interface design. We help companies build long-lasting relationships with their clients by emphasizing elegant and sophisticated web design.",
+        },
+        {
+          cardTitle: "Development",
+          cardDesc: `We've adopted Agile as our primary project management approach because we think it helps us maintain the high caliber of the products we provide, reduce risks, and give our clients more control over their projects. We break down our development process into manageable sprints that follow a specific pattern. We start with careful planning and move right into the development stage. After that, we thoroughly test the implemented functionality, document our findings, and release it once we've ensured no bugs are left. Our development team moves smoothly into the next phase at the end of each sprint, guaranteeing steady and organized progress.`,
+        },
+        {
+          cardTitle: "Release",
+          cardDesc: `The software development process ends with the release phase. After our quality assurance engineers thoroughly test every feature both manually and automatically to guarantee flawless operation, all parts, data, and completed code are deployed to production. Our bespoke web application development team carefully gathers release notes throughout this critical phase. They work as technical documentation that provides crucial details about the product, including information on features that have been added and bugs that have been fixed. Release notes are intended for internal and external product users, and they offer in-depth information on the most recent advancements.`,
+        },
+        {
+          cardTitle: "Support",
+          cardDesc: `At Zweidevs, we build software solutions that, long after the initial product launch, continuously provide their owners with the expected results. We are able to maintain this success over time because of our dedication to providing excellent post-launch maintenance and support. We offer two ways for our customers to keep their products maintained for their convenience. In the first, customers pay a set monthly amount to receive a predetermined number of hours, similar to a subscription model. As an alternative, companies can gather jobs into a backlog and assign our team to handle them. Before giving them to our staff, clients usually accumulate jobs until they have at least eighty working hours. Clients generally agree this is the most economical way to sustain their software product.`,
+        },
+      ],
+    },
+    techStackCardData: {
+      cardsData: [
+        {
+          cardTitle: "Front-end",
+          chipData: ["Javascript", "React", "Angular", "Vue"],
+        },
+        {
+          cardTitle: "Back-end",
+          chipData: [
+            "Ruby on Rails",
+            "Node.js",
+            "Python",
+            "PHP",
+            "Angular",
+            "Ionic",
+            "Next JS",
+            "Nest JS",
+          ],
+        },
+      ],
+    },
     headerTitle: "Building robust, user-friendly platforms",
 
     headerDescription:
@@ -755,6 +914,35 @@ const content = {
         cardTitle: "Maintenance and Updates",
         cardDesc:
           "Sustain and evolve your E-commerce success, ensuring your web application stays aligned with industry trends.",
+      },
+    ],
+    faqData: [
+      {
+        title: "How much does web app development cost?",
+        desc: `The cost of developing a web app is influenced by its complexity, required features, technology stack, team experience, and other factors like design, testing, and maintenance. Working with web development experts or agencies is crucial if you want a clear knowledge of your vision for the web application and a more precise estimate based on your unique requirements. Connect with our web developers to know the exact cost estimation. `,
+      },
+      {
+        title:
+          "What is web app development, and how can it benefit my business?",
+        desc: `Developing software applications that run on web browsers is known as web app development, and it offers firms adaptable and affordable options. Their cross-platform compatibility guarantees a uniform user experience on various devices and browsers. Essentially, web app development gives companies the ability to create effective, easily accessible, and scalable solutions that they can use to keep up with changing technology and market demands.`,
+      },
+      {
+        title: "How long does it take to develop a web application?",
+        desc: `A simple web app with basic features might take a few weeks to a couple of months to develop, while more complex or enterprise-level applications could take several months or even a year. Rapid development frameworks and agile development methodologies can expedite the process, but it's essential to balance speed with thorough testing and quality assurance.`,
+      },
+      {
+        title: "Why choose Zweidevs for web application development?",
+        desc: `We at Zweidevs don't just develop web apps—we craft reliable, approachable solutions that add value to your company and demonstrate our constant commitment to quality and client happiness. Having completed numerous projects successfully and leaving our clients happy, we place a high value on open communication and teamwork during the whole development process. Connect with our experts right away.`,
+      },
+      {
+        title:
+          "How do you ensure the security of the web applications you develop?",
+        desc: `An emphasis on web application security can be done through frequent audits, thorough code reviews, and encryption. We adhere to the least privilege principle and use strong authentication. The result is secure online apps that successfully reduce cybersecurity risks and prioritize data protection.`,
+      },
+      {
+        title:
+          "Do you provide ongoing maintenance and support after the web app is launched?",
+        desc: `Yes, we at Zweidevs recognize the value of continuous upkeep and assistance. We provide thorough maintenance services, which include bug repairs, updates, and optimizations, to guarantee your application keeps running smoothly. As your company grows, our support staff is here to help with any necessary improvements or modifications and to quickly resolve any issues that may arise.`,
       },
     ],
   },
