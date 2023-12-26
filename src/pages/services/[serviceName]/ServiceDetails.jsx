@@ -190,7 +190,7 @@ const cardData = [
   {
     cardIcon: UIUXIcon,
     cardIconTitle: { firstLine: "UI UX", secondLine: "Development" },
-    href: "/services/UI & UX Development",
+    href: urls.services.UIUX.url,
   },
   {
     cardIcon: GameDevIcon,
@@ -218,7 +218,8 @@ const cardData = [
 ];
 
 const content = {
-  [urls.services.WebApp.title]: {
+  [urls.services.WebApp.url]: {
+    serviceCategory: urls.services.WebApp.title,
     image: WebDevServiceDetailsIcon,
     targetAudienceSection: {
       title: `We Build Custom Web Applications For`,
@@ -443,7 +444,8 @@ const content = {
       },
     ],
   },
-  [urls.services.BC.title]: {
+  [urls.services.BC.url]: {
+    serviceCategory: urls.services.BC.title,
     image: BlockchainDevServiceDetailsIcon,
     targetAudienceSection: {
       title: `We Develop Blockchains For`,
@@ -585,7 +587,8 @@ const content = {
       },
     ],
   },
-  [urls.services.DevOPS.title]: {
+  [urls.services.DevOPS.url]: {
+    serviceCategory: urls.services.DevOPS.title,
     image: DevOpsServiceDetailsIcon,
     targetAudienceSection: {
       title: `We Provide DevOPS Services For`,
@@ -727,7 +730,8 @@ const content = {
       },
     ],
   },
-  [urls.services.Ecommerce.title]: {
+  [urls.services.Ecommerce.url]: {
+    serviceCategory: urls.services.Ecommerce.title,
     image: WebDevServiceDetailsIcon,
     targetAudienceSection: {
       title: `We Build Custom E-commerce Applications For`,
@@ -914,7 +918,8 @@ const content = {
       },
     ],
   },
-  [urls.services.MobileApp.title]: {
+  [urls.services.MobileApp.url]: {
+    serviceCategory: urls.services.MobileApp.title,
     image: MobodevServiceDetailsIcon,
     targetAudienceSection: {
       title: `We Build Custom Mobile Applications For`,
@@ -1071,7 +1076,8 @@ const content = {
       },
     ],
   },
-  [urls.services.AI.title]: {
+  [urls.services.AI.url]: {
+    serviceCategory: urls.services.AI.title,
     image: AIdevServiceDetailsIcon,
     targetAudienceSection: {
       title: `We Build Custom AI Applications For`,
@@ -1220,7 +1226,8 @@ const content = {
       },
     ],
   },
-  [urls.services.UIUX.title]: {
+  [urls.services.UIUX.url]: {
+    serviceCategory: urls.services.UIUX.title,
     image: UiUxServiceDetailsIcon,
     targetAudienceSection: {
       title: `UI/UX Design Services For Every Business, By Zweidevs`,
@@ -1368,7 +1375,8 @@ const content = {
       },
     ],
   },
-  [urls.services.IoT.title]: {
+  [urls.services.IoT.url]: {
+    serviceCategory: urls.services.IoT.title,
     image: IotServiceDetailsIcon,
     targetAudienceSection: {
       title: `We Build Custom IoT Applications For`,
@@ -1544,7 +1552,8 @@ const content = {
       },
     ],
   },
-  [urls.services.GD.title]: {
+  [urls.services.GD.url]: {
+    serviceCategory: urls.services.GD.title,
     image: GDServiceDetailsIcon,
     targetAudienceSection: {
       title: `We Build Custom Games For`,
@@ -1679,7 +1688,7 @@ const content = {
 };
 const SerivceDetails = () => {
   const router = useRouter();
-  const [serviceName, setServiceName] = useState("Web Development");
+  const [serviceName, setServiceName] = useState("/services/web-development");
   const [isLoading, setIsLoading] = useState(true);
   const animatedHeadingRef = React.useRef(null);
   const animatedButtonRef = React.useRef(null);
@@ -1691,7 +1700,7 @@ const SerivceDetails = () => {
         // ignore
         //return null;
       } else {
-        setServiceName(serviceName);
+        setServiceName("/services/" + serviceName);
         setIsLoading(false);
       }
     }
@@ -1746,7 +1755,7 @@ const SerivceDetails = () => {
     <div className={styles.PMTop}>
       <PageBanner
         BreadcrumbParrentPage={"Services"}
-        BreadcrumbTitle={serviceName}
+        BreadcrumbTitle={content[serviceName].serviceCategory}
         description={content[serviceName].headerDescription}
         heading={content[serviceName].headerTitle}
         title={content[serviceName].headerDescription}
@@ -1777,12 +1786,12 @@ const SerivceDetails = () => {
           />
           <OfferingCard
             cardData={content[serviceName].offeringCardData}
-            heading={`${serviceName} Services`}
+            heading={`${content[serviceName].serviceCategory} Services`}
           />
 
           {content[serviceName].projectData && (
             <ServiceCarosuel
-              cardTitle={`${serviceName} Projects`}
+              cardTitle={`${content[serviceName].serviceCategory} Projects`}
               demoButton={false}
               hideHeader
               projectData={content[serviceName].projectData}

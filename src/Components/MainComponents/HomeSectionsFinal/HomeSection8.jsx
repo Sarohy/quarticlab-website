@@ -10,8 +10,8 @@ const Autocomplete = dynamic(() => import("@mui/material/Autocomplete"));
 const ListItemText = dynamic(() => import("@mui/material/ListItemText"));
 const ListItemIcon = dynamic(() => import("@mui/material/ListItemIcon"));
 const InputAdornment = dynamic(() => import("@mui/material/InputAdornment"));
-import { isValidPhoneNumber } from "libphonenumber-js";
 import styles from "./HomeSection8.module.css";
+import { postAPIWithoutAuth } from "@component/pages/api/api";
 
 function HomeSection8() {
   const [allCountries, setAllCountries] = useState([]);
@@ -32,19 +32,28 @@ function HomeSection8() {
 
   const handleInputChange = e => {
     const { name, value } = e.target;
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    });
+    if (name === "contact" && !isNaN(value)) {
+      setFormValues({
+        ...formValues,
+        [name]: value,
+      });
+    } else if (name !== "contact") {
+      setFormValues({
+        ...formValues,
+        [name]: value,
+      });
+    }
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (isValidPhoneNumber(formValues.contact, formValues.country?.id)) {
-      alert("valid phone  number");
-    } else {
-      alert("Invalid phone number O_O");
-    }
+    postAPIWithoutAuth("/dev/contact", {
+      name: formValues.name,
+      email: formValues.email,
+      phone_number: formValues.contact,
+      country: formValues.country,
+      des: formValues.description,
+    });
   };
 
   const getCountriesData = async () => {
