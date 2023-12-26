@@ -8,33 +8,41 @@ const Carousel = dynamic(() => import("react-material-ui-carousel"), {
 const StarOutlinedIcon = dynamic(
   () => import("@mui/icons-material/StarOutlined"),
 );
-import HS3Img from "../../../../public/assets/HomeIcons/HS3Img.svg";
-import HS5Img1 from "../../../../public/assets/HomeIcons/HS5Img.svg";
-import HS5Img2 from "../../../../public/assets/HomeIcons/HS5Img2.svg";
-import HS5Img3 from "../../../../public/assets/HomeIcons/HS5Img3.svg";
+
 import styles from "./HomeSection5.module.css";
+
+import ClientSvg1 from "../../../../public/assets/HomeIcons/clients/client1.svg";
+import ClientSvg2 from "../../../../public/assets/HomeIcons/clients/client2.svg";
+import ClientSvg3 from "../../../../public/assets/HomeIcons/clients/client3.svg";
+import ClientSvg4 from "../../../../public/assets/HomeIcons/clients/client4.svg";
+import ClientSvg5 from "../../../../public/assets/HomeIcons/clients/client5.svg";
+import ClientSvg6 from "../../../../public/assets/HomeIcons/clients/client6.svg";
+import ClientSvg7 from "../../../../public/assets/HomeIcons/clients/client7.svg";
+import ClientSvg8 from "../../../../public/assets/HomeIcons/clients/client8.svg";
+import ClientSvg9 from "../../../../public/assets/HomeIcons/clients/client9.svg";
+import ClientSvg10 from "../../../../public/assets/HomeIcons/clients/client10.svg";
 
 const otherItems = [
   {
     id: 1,
     elements: [
       {
-        img: HS3Img,
+        img: ClientSvg2,
         content: "Theresa",
         details:
-          "Amazing team to work with! Great at research, development, and finding new solutions. They are experienced and talented. They were also quite cooperative. Thanks!",
+          "Working with this fantastic team was an excellent experience. They excel at development and finding new solutions. Their expertise and talent are impressive.",
       },
       {
-        img: HS5Img2,
+        img: ClientSvg3,
         content: "Rishi Sareen",
         details:
-          "Team was organized and communicated well. Project was completed professionally and I would hire them again for future projects!",
+          "The team's exceptional communication resulted in the successful delivery of the project. It would be my pleasure to work with them again in the future.",
       },
       {
-        img: HS5Img3,
+        img: ClientSvg1,
         content: "Nick Angelov",
         details:
-          "Zweidevs met our expectations. They were consistently professional and flexible and delivered a product that provides us with a high-quality base from which to move forward. I would use them again.",
+          "Zweidevs met our expectations. They delivered the product that provided us with a high-quality base from which to move forward. I highly recommend them!",
       },
     ],
   },
@@ -42,22 +50,22 @@ const otherItems = [
     id: 2,
     elements: [
       {
-        img: HS5Img1,
+        img: ClientSvg4,
         content: "Anton Benz",
         details:
-          "Excellent to work with. Will hire them again and will recommend them to anyone looking for great work.",
+          "These developers were excellent to work with. I would definitely recommend them to anyone looking for great work, and I look forward to hiring them again.",
       },
       {
-        img: HS5Img2,
+        img: ClientSvg5,
         content: "Tony Malik",
         details:
-          "The team at Zweidevs has extensive knowledge of the work we requested. We have worked with them for over 5-6 months and have been very happy with production. We will hire them again soon",
+          "The Zweidevs team has extensive knowledge of the work, and after working with them for 5-6 months, they have become our go-to development company.",
       },
       {
-        img: HS5Img3,
+        img: ClientSvg6,
         content: "Tommy Vacek",
         details:
-          "The team at Zweidevs did a really good job of scoping the project out. We had the scope of our project increase due to learning more about our product space which caused some re-work but this is nothing that Zweidevs could prevent.",
+          " Zweidevs' team did a fantastic job scoping our project. Their adaptability was impressive, and they always succeeded in exceeding our expectations.",
       },
     ],
   },
@@ -65,21 +73,55 @@ const otherItems = [
     id: 3,
     elements: [
       {
-        img: HS5Img1,
+        img: ClientSvg7,
+        content: "Eric Halverson",
+        details:
+          " They completed the MVP framework for my website on schedule. The weekly demos kept me up-to-date on progress. I would definitely work with them again.",
+      },
+      {
+        img: ClientSvg8,
+        content: "Phil Stolaronek",
+        details:
+          "One of the best teams I have hired. What sets them apart is their attention to client needs; they take the time to understand our requirements thoroughly.",
+      },
+      {
+        img: ClientSvg9,
+        content: "Farzin Habib",
+        details:
+          "Zweidev's team demonstrates technical prowess and a commitment to best practices in every project, making them the ideal partner. They are trustworthy ones.",
+      },
+    ],
+  },
+  {
+    id: 3,
+    elements: [
+      {
+        img: ClientSvg7,
         content: "Eric Halverson",
         details:
           "They built out the framework for my MVP of a Real Estate website on time, on budget, and with the features requested. Weekly demos kept me informed of progress and all interactions were very friendly. Would work with again.",
       },
       {
-        img: HS5Img2,
+        img: ClientSvg8,
         content: "Phil Stolaronek",
         details:
           "This team is really good to work with. Their communication is great and their English is very good. I recommend them.",
       },
       {
-        img: HS5Img3,
+        img: ClientSvg9,
         content: "Farzin Habib",
         details: "They pointed out the areas that we had missed thinking about",
+      },
+    ],
+  },
+  {
+    id: 3,
+    elements: [
+      {
+        img: ClientSvg10,
+        content: "Eric Halverson",
+        details:
+          "They built out the framework for my MVP of a Real Estate website on time, on budget, and with the features requested. Weekly demos kept me informed of progress and all interactions were very friendly. Would work with again.",
       },
     ],
   },
@@ -90,21 +132,22 @@ const mobItems = [
     id: 1,
     elements: [
       {
-        img: HS3Img,
+        img: ClientSvg2,
         content: "Theresa",
         details:
-          "Amazing team to work with! Great at research, development, and finding new solutions. They are experienced and talented. They were also quite cooperative. Thanks!",
+          "Working with this fantastic team was an excellent experience. They excel at development and finding new solutions. Their expertise and talent are impressive.",
       },
     ],
   },
+
   {
     id: 2,
     elements: [
       {
-        img: HS5Img2,
+        img: ClientSvg3,
         content: "Rishi Sareen",
         details:
-          "Team was organized and communicated well. Project was completed professionally and I would hire them again for future projects!",
+          "The team's exceptional communication resulted in the successful delivery of the project. It would be my pleasure to work with them again in the future.",
       },
     ],
   },
@@ -112,10 +155,92 @@ const mobItems = [
     id: 3,
     elements: [
       {
-        img: HS5Img3,
+        img: ClientSvg1,
         content: "Nick Angelov",
         details:
-          "Zweidevs met our expectations. They were consistently professional and flexible and delivered a product that provides us with a high-quality base from which to move forward. I would use them again.",
+          "Zweidevs met our expectations. They delivered the product that provided us with a high-quality base from which to move forward. I highly recommend them!",
+      },
+    ],
+  },
+
+  {
+    id: 4,
+    elements: [
+      {
+        img: ClientSvg4,
+        content: "Anton Benz",
+        details:
+          "These developers were excellent to work with. I would definitely recommend them to anyone looking for great work, and I look forward to hiring them again.",
+      },
+    ],
+  },
+  {
+    id: 5,
+    elements: [
+      {
+        img: ClientSvg5,
+        content: "Tony Malik",
+        details:
+          "The Zweidevs team has extensive knowledge of the work, and after working with them for 5-6 months, they have become our go-to development company.",
+      },
+    ],
+  },
+  {
+    id: 6,
+    elements: [
+      {
+        img: ClientSvg6,
+        content: "Tommy Vacek",
+        details:
+          " Zweidevs' team did a fantastic job scoping our project. Their adaptability was impressive, and they always succeeded in exceeding our expectations.",
+      },
+    ],
+  },
+
+  {
+    id: 7,
+    elements: [
+      {
+        img: ClientSvg7,
+        content: "Eric Halverson",
+        details:
+          " They completed the MVP framework for my website on schedule. The weekly demos kept me up-to-date on progress. I would definitely work with them again.",
+      },
+    ],
+  },
+
+  {
+    id: 8,
+    elements: [
+      {
+        img: ClientSvg8,
+        content: "Phil Stolaronek",
+        details:
+          "One of the best teams I have hired. What sets them apart is their attention to client needs; they take the time to understand our requirements thoroughly.",
+      },
+    ],
+  },
+
+  {
+    id: 9,
+    elements: [
+      {
+        img: ClientSvg9,
+        content: "Farzin Habib",
+        details:
+          "Zweidev's team demonstrates technical prowess and a commitment to best practices in every project, making them the ideal partner. They are trustworthy ones.",
+      },
+    ],
+  },
+
+  {
+    id: 10,
+    elements: [
+      {
+        img: ClientSvg10,
+        content: "Eric Halverson",
+        details:
+          "They built out the framework for my MVP of a Real Estate website on time, on budget, and with the features requested. Weekly demos kept me informed of progress and all interactions were very friendly. Would work with again.",
       },
     ],
   },

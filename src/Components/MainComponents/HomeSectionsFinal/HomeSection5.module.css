@@ -161,8 +161,8 @@
   .HS5SingleCard {
     display: flex;
     align-items: center;
-    width: 50%;
-    height: 220px;
+    width: 65%;
+    height: 290px;
     border-radius: 10px;
     padding-bottom: 18px;
     padding-right: 2px;
@@ -190,7 +190,7 @@
   .HS5ContentHeader {
     font-size: 10px;
   }
-  q1 .HS5CardDetail {
+  .HS5CardDetail {
     margin-top: 2.5%;
     font-size: 0.7rem;
     padding-left: 2%;
@@ -199,6 +199,7 @@
     height: 100%;
   }
 }
+
 @media screen and (min-width: 591px) and (max-width: 820px) {
   .HS5Carousel {
     height: 520px;
