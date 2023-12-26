@@ -4,7 +4,13 @@ import styles from "./chipCard.module.css";
 
 export default function ClickableChips({ chipData }) {
   return (
-    <Stack className={styles.root} direction="row" rowGap={1} spacing={1}>
+    <Stack
+      className={styles.root}
+      direction="row"
+      flexWrap="wrap"
+      rowGap={1}
+      spacing={1}
+    >
       {chipData.map((label, key) => (
         <Chip
           className={`${styles.chip}`}

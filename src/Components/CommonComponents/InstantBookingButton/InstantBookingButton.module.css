@@ -6,8 +6,8 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 20px;
-  color: white;
-  background: #ff9700;
+  /* color: white; */
+  /* background: #ff9700; */
   transition: 1s;
   box-shadow: 6px 6px 0 black;
   transform: skewX(-15deg);

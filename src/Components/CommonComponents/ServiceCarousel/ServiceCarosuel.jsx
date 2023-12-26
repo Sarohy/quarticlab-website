@@ -6,14 +6,20 @@ const Carousel = dynamic(() => import("react-material-ui-carousel"));
 import styles from "./serviceCarosuel.module.css";
 import { Grid, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from "react";
+import BottomBorderButton from "../BottomBorderButton";
+import { useRouter } from "next/navigation";
 
-function HomeSection4({ cardTitle = "Web Development Projects", projectData }) {
+function ServiceCarosuel({
+  cardTitle = "Web Development Projects",
+  displayViewMoreButton = false,
+  projectData,
+}) {
   const isMobile = useMediaQuery("(max-width: 600px)");
   const isTablet = useMediaQuery("(max-width: 960px)");
   const [projectDataState, setProjectDataState] = useState(null);
 
   const [rerenderKey, setRerenderKey] = useState(0);
-
+  const router = useRouter();
   useEffect(() => {
     if (projectData) {
       setProjectDataState(null);
@@ -52,7 +58,23 @@ function HomeSection4({ cardTitle = "Web Development Projects", projectData }) {
   return (
     <>
       <div className={styles.HS4MainContainer}>
-        <h2 className={styles.cardTitle}>{cardTitle}</h2>
+        <div
+          className={styles.titleContainer}
+          style={{ display: displayViewMoreButton ? "flex" : "block" }}
+        >
+          <h2 className={styles.cardTitle}>{cardTitle}</h2>
+          <div
+            className={styles.viewProjectsBtn}
+            style={{ display: displayViewMoreButton ? "flex" : "none" }}
+          >
+            <BottomBorderButton
+              onClick={() => {
+                router.push("/projects");
+              }}
+              text="More Projects"
+            />
+          </div>
+        </div>
         {projectDataState && (
           <Carousel
             activeIndicatorIconButtonProps={{
@@ -126,4 +148,4 @@ function HomeSection4({ cardTitle = "Web Development Projects", projectData }) {
   );
 }
 
-export default HomeSection4;
+export default ServiceCarosuel;

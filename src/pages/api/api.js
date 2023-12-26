@@ -15,3 +15,9 @@ export const getApiWithoutAuth = async url => {
     return err.response;
   }
 };
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
+
+export const postAPIWithoutAuth = async (url, body) => {
+  const res = await axios.post(url, body);
+  return res;
+};

@@ -7,7 +7,7 @@ import HS2Img2 from "./HSImg2.svg";
 import HS2Img3 from "./HSImg3.svg";
 import HS2Img4 from "./HSImg4.svg";
 import HS2Img5 from "./HSImg5.svg";
-import HS3Img from "./HS3Img.svg";
+import HS3Img from "./HS3Img.png";
 import HS3Img1 from "./HS3Img1.svg";
 import HS6Img from "./HS6Img.svg";
 import HS7Img1 from "./HS7Img1.svg";

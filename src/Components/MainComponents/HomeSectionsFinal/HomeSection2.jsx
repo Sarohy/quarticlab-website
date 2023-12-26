@@ -75,7 +75,7 @@ function HomeSection2() {
       key: "hs2Img4",
       image: HS2Img4,
       heading: "Ecommerce Development",
-      href: urls.services.WebApp.url,
+      href: urls.services.Ecommerce.url,
       details:
         "Our team assist you in expanding the global reach of your product or business by seamlessly transitioning your offline stores to the global web.",
     },

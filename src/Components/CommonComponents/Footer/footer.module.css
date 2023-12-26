@@ -270,6 +270,11 @@
   .imageSocialMain {
     margin-top: 1.2rem;
   }
+  .imageSocialMain {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+  }
 }
 
 @media screen and (min-width: 821px) and (max-width: 1040px) {
