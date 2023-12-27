@@ -13,6 +13,7 @@ function ServiceCarosuel({
   cardTitle = "Web Development Projects",
   displayViewMoreButton = false,
   projectData,
+  navButtonsAlwaysVisible = true,
 }) {
   const isMobile = useMediaQuery("(max-width: 600px)");
   const isTablet = useMediaQuery("(max-width: 960px)");
@@ -92,7 +93,7 @@ function ServiceCarosuel({
               },
             }}
             key={rerenderKey}
-            navButtonsAlwaysVisible
+            navButtonsAlwaysVisible={navButtonsAlwaysVisible}
             style={{
               background: "red",
               height: "700px",

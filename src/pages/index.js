@@ -69,6 +69,7 @@ export default function Home() {
       <ServiceCarosuel
         cardTitle="Our Top Projects"
         displayViewMoreButton={true}
+        navButtonsAlwaysVisible={false}
         projectData={[
           {
             index: 1,
