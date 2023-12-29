@@ -1,6 +1,8 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import HomeSection1 from "@component/Components/MainComponents/HomeSectionsFinal/HomeSection1";
+import LoadingSkeleton from "@component/Components/CommonComponents/LoadingSkeleton/LoadingSkeleton";
+
 const HomeSection2 = dynamic(
   () =>
     import(
@@ -15,12 +17,14 @@ const HomeSection3 = dynamic(
 );
 const ServiceCarosuel = dynamic(
   () => import("@component/Components/CommonComponents/ServiceCarousel"),
+  { ssr: false, loading: () => <LoadingSkeleton /> },
 );
 const HomeSection5 = dynamic(
   () =>
     import(
       "@component/Components/MainComponents/HomeSectionsFinal/HomeSection5"
     ),
+  { ssr: false, loading: () => <LoadingSkeleton /> },
 );
 const HomeSection6 = dynamic(
   () =>
@@ -65,7 +69,7 @@ export default function Home() {
       <HomeSection1 handleButtonClick={handleButtonClickSection1} />
       <HomeSection2 />
       <HomeSection3 />
-      {/* <HomeSection4 /> */}
+
       <ServiceCarosuel
         cardTitle="Our Top Projects"
         displayViewMoreButton={true}
