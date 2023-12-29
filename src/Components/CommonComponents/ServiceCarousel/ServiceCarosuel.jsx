@@ -87,6 +87,11 @@ function ServiceCarosuel({
             }}
             animation="slide"
             className={`${styles.carousel}`}
+            indicatorContainerProps={{
+              style: {
+                display: navButtonsAlwaysVisible ? "block" : "none",
+              },
+            }}
             indicatorIconButtonProps={{
               style: {
                 color: "#ACACAC",
