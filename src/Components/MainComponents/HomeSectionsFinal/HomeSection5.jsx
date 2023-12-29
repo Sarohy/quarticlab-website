@@ -92,28 +92,7 @@ const otherItems = [
       },
     ],
   },
-  {
-    id: 3,
-    elements: [
-      {
-        img: ClientSvg7,
-        content: "Eric Halverson",
-        details:
-          "They built out the framework for my MVP of a Real Estate website on time, on budget, and with the features requested. Weekly demos kept me informed of progress and all interactions were very friendly. Would work with again.",
-      },
-      {
-        img: ClientSvg8,
-        content: "Phil Stolaronek",
-        details:
-          "This team is really good to work with. Their communication is great and their English is very good. I recommend them.",
-      },
-      {
-        img: ClientSvg9,
-        content: "Farzin Habib",
-        details: "They pointed out the areas that we had missed thinking about",
-      },
-    ],
-  },
+
   {
     id: 3,
     elements: [
