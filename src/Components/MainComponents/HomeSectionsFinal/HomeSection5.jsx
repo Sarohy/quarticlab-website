@@ -11,16 +11,16 @@ const StarOutlinedIcon = dynamic(
 
 import styles from "./HomeSection5.module.css";
 
-import ClientSvg1 from "../../../../public/assets/HomeIcons/clients/client1.svg";
-import ClientSvg2 from "../../../../public/assets/HomeIcons/clients/client2.svg";
-import ClientSvg3 from "../../../../public/assets/HomeIcons/clients/client3.svg";
-import ClientSvg4 from "../../../../public/assets/HomeIcons/clients/client4.svg";
-import ClientSvg5 from "../../../../public/assets/HomeIcons/clients/client5.svg";
-import ClientSvg6 from "../../../../public/assets/HomeIcons/clients/client6.svg";
-import ClientSvg7 from "../../../../public/assets/HomeIcons/clients/client7.svg";
-import ClientSvg8 from "../../../../public/assets/HomeIcons/clients/client8.svg";
-import ClientSvg9 from "../../../../public/assets/HomeIcons/clients/client9.svg";
-import ClientSvg10 from "../../../../public/assets/HomeIcons/clients/client10.svg";
+import ClientSvg1 from "../../../../public/assets/HomeIcons/clients/nick-angelov.png";
+import ClientSvg2 from "../../../../public/assets/HomeIcons/clients/theresa.png";
+import ClientSvg3 from "../../../../public/assets/HomeIcons/clients/rishi.png";
+import ClientSvg4 from "../../../../public/assets/HomeIcons/clients/anton.png";
+import ClientSvg5 from "../../../../public/assets/HomeIcons/clients/tony-malik.png";
+import ClientSvg6 from "../../../../public/assets/HomeIcons/clients/tommy.png";
+import ClientSvg7 from "../../../../public/assets/HomeIcons/clients/eric-h.png";
+import ClientSvg8 from "../../../../public/assets/HomeIcons/clients/phill.png";
+import ClientSvg9 from "../../../../public/assets/HomeIcons/clients/farzin.png";
+import ClientSvg10 from "../../../../public/assets/HomeIcons/clients/eric.png";
 
 const otherItems = [
   {
