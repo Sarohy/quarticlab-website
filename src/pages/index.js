@@ -8,12 +8,14 @@ const HomeSection2 = dynamic(
     import(
       "@component/Components/MainComponents/HomeSectionsFinal/HomeSection2"
     ),
+  { ssr: false, loading: () => <LoadingSkeleton /> },
 );
 const HomeSection3 = dynamic(
   () =>
     import(
       "@component/Components/MainComponents/HomeSectionsFinal/HomeSection3"
     ),
+  { ssr: false, loading: () => <LoadingSkeleton /> },
 );
 const ServiceCarosuel = dynamic(
   () => import("@component/Components/CommonComponents/ServiceCarousel"),
@@ -31,18 +33,21 @@ const HomeSection6 = dynamic(
     import(
       "@component/Components/MainComponents/HomeSectionsFinal/HomeSection6"
     ),
+  { ssr: false, loading: () => <LoadingSkeleton /> },
 );
 const HomeSection7 = dynamic(
   () =>
     import(
       "@component/Components/MainComponents/HomeSectionsFinal/HomeSection7"
     ),
+  { ssr: false, loading: () => <LoadingSkeleton /> },
 );
 const HomeSection8 = dynamic(
   () =>
     import(
       "@component/Components/MainComponents/HomeSectionsFinal/HomeSection8"
     ),
+  { ssr: false, loading: () => <LoadingSkeleton /> },
 );
 
 import Mobo1 from "../../public/assets/serviceDetailsIcons/moboIcons/mobo1.png";
