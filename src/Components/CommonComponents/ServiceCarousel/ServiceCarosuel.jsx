@@ -156,8 +156,6 @@
 
 // export default ServiceCarosuel;
 
-import React from "react";
-
 const ServiceCarosuel = () => {
   return <div></div>;
 };
