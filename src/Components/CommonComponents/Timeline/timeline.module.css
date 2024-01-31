@@ -67,15 +67,15 @@
   height: 100%;
 }
 .leftGrid {
-  text-align: end;
+  text-align: flex-end;
 }
 
 .rightGrid {
-  text-align: start;
+  text-align: flex-start;
 }
 
 .alignLeft {
-  text-align: start;
+  text-align: flex-start;
 }
 
 .middleGrid {
