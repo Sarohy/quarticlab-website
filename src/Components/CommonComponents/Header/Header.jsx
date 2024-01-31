@@ -3,13 +3,13 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-const Button = dynamic(() => import("@mui/material/Button"));
 import { useRouter } from "next/router";
 import navLinks from "@component/Constants/navLinks";
 const MenuIcon = dynamic(() => import("@mui/icons-material/Menu"));
 const CloseIcon = dynamic(() => import("@mui/icons-material/Close"));
 import ZweidevsLogo from "../../../../public/assets/headerIcons/logoWithText.svg";
 import styles from "./header.module.css";
+import { Button } from "@mui/material";
 function Header() {
   const route = useRouter();
   const pathSegments = route.pathname.split("/");
