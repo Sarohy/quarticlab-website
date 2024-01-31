@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 // const HomeSection6Counter = dynamic(() => import("./HomeSection6Counter"));
 import "animate.css";
 import styles from "./HomeSection6.module.css";

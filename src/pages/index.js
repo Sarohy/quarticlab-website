@@ -1,7 +1,7 @@
 import Head from "next/head";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import HomeSection1 from "@component/Components/MainComponents/HomeSectionsFinal/HomeSection1";
-import LoadingSkeleton from "@component/Components/CommonComponents/LoadingSkeleton/LoadingSkeleton";
+// import LoadingSkeleton from "@component/Components/CommonComponents/LoadingSkeleton/LoadingSkeleton";
 
 // const HomeSection2 = dynamic(
 //   () =>
