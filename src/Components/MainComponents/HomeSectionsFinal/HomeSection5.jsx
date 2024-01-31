@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-const Card = dynamic(() => import("@mui/material/Card"));
+// const Card = dynamic(() => import("@mui/material/Card"));
 const Carousel = dynamic(() => import("react-material-ui-carousel"), {
   ssr: false,
 });
@@ -21,6 +21,7 @@ import ClientSvg7 from "../../../../public/assets/HomeIcons/clients/eric-h.png";
 import ClientSvg8 from "../../../../public/assets/HomeIcons/clients/phill.png";
 import ClientSvg9 from "../../../../public/assets/HomeIcons/clients/farzin.png";
 import ClientSvg10 from "../../../../public/assets/HomeIcons/clients/eric.png";
+import { Card } from "@mui/material";
 
 const otherItems = [
   {

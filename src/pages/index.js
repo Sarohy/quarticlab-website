@@ -3,58 +3,68 @@ import dynamic from "next/dynamic";
 import HomeSection1 from "@component/Components/MainComponents/HomeSectionsFinal/HomeSection1";
 import LoadingSkeleton from "@component/Components/CommonComponents/LoadingSkeleton/LoadingSkeleton";
 
-const HomeSection2 = dynamic(
-  () =>
-    import(
-      "@component/Components/MainComponents/HomeSectionsFinal/HomeSection2"
-    ),
-  { ssr: false, loading: () => <LoadingSkeleton /> },
-);
-const HomeSection3 = dynamic(
-  () =>
-    import(
-      "@component/Components/MainComponents/HomeSectionsFinal/HomeSection3"
-    ),
-  { ssr: false, loading: () => <LoadingSkeleton /> },
-);
-const ServiceCarosuel = dynamic(
-  () => import("@component/Components/CommonComponents/ServiceCarousel"),
-  { ssr: false, loading: () => <LoadingSkeleton /> },
-);
-const HomeSection5 = dynamic(
-  () =>
-    import(
-      "@component/Components/MainComponents/HomeSectionsFinal/HomeSection5"
-    ),
-  { ssr: false, loading: () => <LoadingSkeleton /> },
-);
-const HomeSection6 = dynamic(
-  () =>
-    import(
-      "@component/Components/MainComponents/HomeSectionsFinal/HomeSection6"
-    ),
-  { ssr: false, loading: () => <LoadingSkeleton /> },
-);
-const HomeSection7 = dynamic(
-  () =>
-    import(
-      "@component/Components/MainComponents/HomeSectionsFinal/HomeSection7"
-    ),
-  { ssr: false, loading: () => <LoadingSkeleton /> },
-);
-const HomeSection8 = dynamic(
-  () =>
-    import(
-      "@component/Components/MainComponents/HomeSectionsFinal/HomeSection8"
-    ),
-  { ssr: false, loading: () => <LoadingSkeleton /> },
-);
+// const HomeSection2 = dynamic(
+//   () =>
+//     import(
+//       "@component/Components/MainComponents/HomeSectionsFinal/HomeSection2"
+//     ),
+//   { ssr: false, loading: () => <LoadingSkeleton /> },
+// );
+// const HomeSection3 = dynamic(
+//   () =>
+//     import(
+//       "@component/Components/MainComponents/HomeSectionsFinal/HomeSection3"
+//     ),
+//   { ssr: false, loading: () => <LoadingSkeleton /> },
+// );
+// const ServiceCarosuel = dynamic(
+//   () => import("@component/Components/CommonComponents/ServiceCarousel"),
+//   { ssr: false, loading: () => <LoadingSkeleton /> },
+// );
+// const HomeSection5 = dynamic(
+//   () =>
+//     import(
+//       "@component/Components/MainComponents/HomeSectionsFinal/HomeSection5"
+//     ),
+//   { ssr: false, loading: () => <LoadingSkeleton /> },
+// );
+// const HomeSection6 = dynamic(
+//   () =>
+//     import(
+//       "@component/Components/MainComponents/HomeSectionsFinal/HomeSection6"
+//     ),
+//   { ssr: false, loading: () => <LoadingSkeleton /> },
+// );
+// const HomeSection7 = dynamic(
+//   () =>
+//     import(
+//       "@component/Components/MainComponents/HomeSectionsFinal/HomeSection7"
+//     ),
+//   { ssr: false, loading: () => <LoadingSkeleton /> },
+// );
+// const HomeSection8 = dynamic(
+//   () =>
+//     import(
+//       "@component/Components/MainComponents/HomeSectionsFinal/HomeSection8"
+//     ),
+//   { ssr: false, loading: () => <LoadingSkeleton /> },
+// );
 
 import Mobo1 from "../../public/assets/serviceDetailsIcons/moboIcons/mobo1.png";
 import Web1 from "../../public/assets/HomeIcons/Project/Web1.png";
 import Web4 from "../../public/assets/HomeIcons/Project/Web4.png";
 
 import styles from "../styles/Home.module.css";
+
+import {
+  HomeSection2,
+  HomeSection3,
+  HomeSection5,
+  HomeSection6,
+  HomeSection7,
+  HomeSection8,
+} from "@component/Components/MainComponents/HomeSectionsFinal";
+import ServiceCarosuel from "@component/Components/CommonComponents/ServiceCarousel";
 
 export default function Home() {
   const section2 = () => document.getElementById("homeSection2");
