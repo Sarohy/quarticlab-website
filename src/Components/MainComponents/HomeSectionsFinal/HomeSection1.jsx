@@ -1,5 +1,5 @@
 import Image from "next/image";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import HSLogo from "../../../../public/assets/HomeIcons/zweidevsLogo.svg";
 // const InstantBookingButton = dynamic(
 //   () => import("@component/Components/CommonComponents/InstantBookingButton"),

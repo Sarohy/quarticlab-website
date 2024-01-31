@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import Card from "@mui/material/Card";
 // const CardContent = dynamic(() => import("@mui/material/CardContent"));
