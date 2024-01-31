@@ -4,9 +4,9 @@ const Footer = dynamic(() => import("../CommonComponents/Footer"));
 function Layout({ children }) {
   return (
     <div className="content">
-      <Header />
+      {/* <Header /> */}
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
