@@ -56,7 +56,7 @@ const AboutUsCard5 = () => {
             customStyle={styles.bookinBtnStyle}
             onClick={() => {
               window.open(
-                "https://calendly.com/request-demo-zweidevs/30min",
+                "https://calendly.com/request-demo-zweidevs/meeting",
                 "_blank",
               );
             }}

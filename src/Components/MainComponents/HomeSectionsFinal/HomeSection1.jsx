@@ -28,7 +28,7 @@ function HomeSection1() {
                 customStyle={styles.bookinBtnStyle}
                 onClick={() => {
                   window.open(
-                    "https://calendly.com/request-demo-zweidevs/30min",
+                    "https://calendly.com/request-demo-zweidevs/meeting",
                     "_blank",
                   );
                 }}
@@ -50,7 +50,7 @@ function HomeSection1() {
               customStyle={styles.bookinBtnStyle}
               onClick={() => {
                 window.open(
-                  "https://calendly.com/request-demo-zweidevs/30min",
+                  "https://calendly.com/request-demo-zweidevs/meeting",
                   "_blank",
                 );
               }}

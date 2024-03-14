@@ -1778,7 +1778,7 @@ const SerivceDetails = () => {
             projectTitle={content[serviceName].heading}
             requestDemoOnClick={() => {
               window.open(
-                "https://calendly.com/request-demo-zweidevs/30min",
+                "https://calendly.com/request-demo-zweidevs/meeting",
                 "_blank",
               );
             }}
@@ -1848,7 +1848,7 @@ const SerivceDetails = () => {
                 customTwo={styles.two}
                 onClick={() => {
                   window.open(
-                    "https://calendly.com/request-demo-zweidevs/30min",
+                    "https://calendly.com/request-demo-zweidevs/meeting",
                     "_blank",
                   );
                 }}

@@ -19,7 +19,7 @@ const LetsTalk = ({ cardTitle, cardDesc, buttonTitle }) => {
           </p>
           <Link
             className={`${styles.button} ${styles.buttonPurple} ${styles.cta__button}`}
-            href="https://calendly.com/request-demo-zweidevs/30min"
+            href="https://calendly.com/request-demo-zweidevs/meeting"
             target=""
             // title="Schedule a call"
           >

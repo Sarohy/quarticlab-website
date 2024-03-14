@@ -213,7 +213,7 @@ function Work() {
   };
 
   const requestDemoOnClick = () => {
-    window.open("https://calendly.com/request-demo-zweidevs/30min", "_blank");
+    window.open("https://calendly.com/request-demo-zweidevs/meeting", "_blank");
   };
 
   useEffect(() => {
