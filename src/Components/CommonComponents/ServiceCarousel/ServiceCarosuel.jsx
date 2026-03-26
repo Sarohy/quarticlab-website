@@ -19,7 +19,7 @@ function ServiceCarosuel({
   const isTablet = useMediaQuery("(max-width: 960px)");
   const [projectDataState, setProjectDataState] = useState(null);
 
-  const [rerenderKey, setRerenderKey] = useState(0);
+  const [rerenderKey] = useState(0);
   const router = useRouter();
   useEffect(() => {
     if (projectData) {
@@ -28,9 +28,6 @@ function ServiceCarosuel({
 
       if (data) {
         setProjectDataState(data);
-        setTimeout(() => {
-          setRerenderKey(prevKey => prevKey + 1);
-        }, 4000);
       }
     }
     return () => {};

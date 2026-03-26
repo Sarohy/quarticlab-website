@@ -5,7 +5,6 @@ import HSLogo from "../../../../public/assets/HomeIcons/zweidevsLogo.svg";
 //   () => import("@component/Components/CommonComponents/InstantBookingButton"),
 // );
 
-import "animate.css";
 import styles from "./HomeSection1.module.css";
 import { InstantBookingButton } from "@component/Components/CommonComponents";
 
@@ -14,7 +13,7 @@ function HomeSection1() {
     <>
       <div className={styles.HS1Background}>
         <div className={`${styles.HS1ContentContainer}`}>
-          <div className="animate__delay-1s animate__animated animate__zoomIn">
+          <div className={styles.heroContent}>
             <div className={styles.HS1Content}>
               <span className={styles.HS1ContentLine} />
               <h1 className={styles.HS1Text}>
@@ -36,10 +35,11 @@ function HomeSection1() {
               />
             </div>
           </div>
-          <div className="animate__delay-1s animate__animated animate__zoomIn">
+          <div className={styles.heroLogo}>
             <Image
               alt="Zweidevs | Custom Software Development Services Company"
               className={styles.HSLogoContainer}
+              priority
               src={HSLogo}
             />
           </div>

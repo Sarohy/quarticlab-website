@@ -3,6 +3,7 @@ import styles from "./HomeSection6Counter.module.css";
 
 const HomeSection6Counter = props => {
   const ref = useRef(null);
+  const hasRun = useRef(false);
   const [isIntersecting, setIsIntersecting] = useState(false);
   const { label, number, duration, sign } = props;
   const [count, setCount] = useState("0");
@@ -16,12 +17,15 @@ const HomeSection6Counter = props => {
   }, []);
 
   useEffect(() => {
+    // Only run the counter animation once — when it first becomes visible
+    if (!isIntersecting || hasRun.current) { return; }
+    hasRun.current = true;
+
     let start = 0;
     const end = parseInt(number.substring(0, 3));
 
-    if (start === end) {
-      return;
-    }
+    if (start === end) { return; }
+
     const totalMilSecDur = parseInt(duration);
     const incrementTime = (totalMilSecDur / end) * 1000;
 
@@ -32,7 +36,9 @@ const HomeSection6Counter = props => {
         clearInterval(timer);
       }
     }, incrementTime);
-  }, [number, duration, isIntersecting]);
+
+    return () => clearInterval(timer);
+  }, [isIntersecting, number, duration]);
 
   return (
     <div className="Count" ref={ref}>

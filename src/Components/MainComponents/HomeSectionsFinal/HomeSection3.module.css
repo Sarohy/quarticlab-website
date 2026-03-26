@@ -258,3 +258,24 @@
     align-items: center;
   }
 }
+
+/* ── Scroll-triggered animations ──────────────────── */
+.HS3SlideLeft {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.HS3SlideRight {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.HS3FadeEl {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.HS3Visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}

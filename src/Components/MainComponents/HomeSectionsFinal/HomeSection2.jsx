@@ -1,5 +1,4 @@
-"use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -16,35 +15,8 @@ import { urls } from "@component/utils/urls";
 
 function HomeSection2() {
   const router = useRouter();
-  const [isHovered, setIsHovered] = useState(false);
-  const [selectedKey, setSelectedKey] = useState("");
-  const animatedDivRefs = Array.from({ length: 2 }, () => React.useRef(null));
-  const animatedHeadingRefs = Array.from({ length: 5 }, () =>
-    React.useRef(null),
-  );
-
-  const myDivRef = useRef(null);
-
-  const handleClickOutside = () => {
-    // Check if the clicked element is outside the div
-    if (myDivRef.current) {
-      // If inside, remove focus and make it blur
-
-      // myDivRef.current.style.background = 'red';
-      // myDivRef.current.click();
-      myDivRef.current.blur();
-    }
-  };
-
-  useEffect(() => {
-    // Add click event listener to the document body
-    document.body.addEventListener("touchend", handleClickOutside);
-
-    // Remove the event listener when the component is unmounted
-    return () => {
-      document.body.removeEventListener("touchend", handleClickOutside);
-    };
-  }, [myDivRef, isHovered]);
+  const headingRef = useRef(null);
+  const animatedCardRefs = Array.from({ length: 5 }, () => React.useRef(null));
 
   const cardData = [
     {
@@ -90,156 +62,80 @@ function HomeSection2() {
   ];
 
   useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.5,
-    };
-
+    const options = { root: null, rootMargin: "0px", threshold: 0.1 };
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__backInLeft",
-            "animate__delay-0s",
-          );
+          entry.target.classList.add(styles.visible);
+          observer.unobserve(entry.target);
         }
       });
     }, options);
-
-    const observer2 = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate__animated", "animate__zoomIn");
-        }
-      });
-    }, options);
-
-    const observer3 = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__backInUp",
-            "animate__delay-1s",
-          );
-        }
-      });
-    }, options);
-
-    animatedHeadingRefs.forEach(ref => {
-      observer3.observe(ref.current);
+    if (headingRef.current) { observer.observe(headingRef.current); }
+    animatedCardRefs.forEach(ref => {
+      if (ref.current) { observer.observe(ref.current); }
     });
-
-    animatedDivRefs.forEach(ref => {
-      observer.observe(ref.current);
-    });
-
-    return () => {
-      observer.disconnect();
-      observer2.disconnect();
-      observer3.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
+
   return (
     <>
       <div className={styles.HS2MainContainer}>
-        <div
-          className={styles.HS2ContentContainer}
-          ref={animatedDivRefs[0]}
-        ></div>
+        <div className={styles.HS2ContentContainer}></div>
         <div className={styles.HS2SubHeadContainer}>
-          <h2 className={`${styles.HS2SubHeading}`} ref={animatedDivRefs[1]}>
+          <h2
+            className={`${styles.HS2SubHeading} ${styles.fadeUpEl}`}
+            ref={headingRef}
+          >
             We Offer Everything That Your Business Needs
           </h2>
           <div className={styles.HS2Button}>
             <BottomBorderButton
               onClick={() => {
-                router.push({
-                  pathname: `/services`,
-                });
+                router.push({ pathname: `/services` });
               }}
               text="See All"
             />
           </div>
         </div>
         <div className={styles.HS2CardsContainer}>
-          {cardData.map((item, index) => {
-            return (
+          {cardData.map((item, index) => (
+            <div
+              className={`${styles.HS2CardWrapper} ${styles.fadeUpEl}`}
+              key={item.key}
+              ref={animatedCardRefs[index]}
+              style={{ transitionDelay: `${index * 80}ms` }}
+            >
               <div
-                className={styles.HS2CardMob}
-                key={`${index}${item.key}`}
-                // onClick={() => router.push(item.href)}
+                className={styles.HS2Card}
+                onClick={() => router.push(item.href)}
               >
-                <div
-                  className={styles.HS2FlipContainer}
-                  onMouseEnter={() => {
-                    setIsHovered(true);
-                    setSelectedKey(index);
-                  }}
-                  onMouseLeave={() => {
-                    setIsHovered(false);
-                    setSelectedKey(-1);
-                  }}
-                  onTouchStart={() => {
-                    setIsHovered(true);
-                    setSelectedKey(index);
-                  }}
-                  // onTouchCancel={() => {
-                  //   setIsHovered(false);
-                  //   setSelectedKey(-1);
-                  // }}
-                  // onTouchEnd={() => {
-                  //   setIsHovered(false);
-                  //   setSelectedKey(-1);
-                  //   handleClickOutside();
-                  // }}
-                  ref={myDivRef}
-                >
-                  <div className={styles.HS2Flipper}>
-                    <div
-                      className={
-                        isHovered && selectedKey == index
-                          ? styles.HS2back
-                          : styles.HS2front
-                      }
-                    >
-                      <div className={styles.imageDiv}>
-                        <Image
-                          alt={`Zweidevs | ${item.heading}`}
-                          className={styles.HS2SelectedImgWhite}
-                          height={isHovered && selectedKey == index ? 40 : 80}
-                          src={item.image}
-                          width={isHovered && selectedKey == index ? 40 : 80}
-                        />
-                      </div>
-                      <h3 ref={animatedHeadingRefs[index]}>{item.heading}</h3>
-                      <div
-                        className={
-                          isHovered && selectedKey == index
-                            ? ""
-                            : styles.HS2back
-                        }
-                      >
-                        <p>{item.details}</p>
-                        <div
-                          onClick={() => router.push(item.href)}
-                          style={{
-                            color: "white",
-                            textAlign: "center",
-                            textDecoration: "underline",
-                          }}
-                        >
-                          View Details
-                        </div>
-                      </div>
-                    </div>
+                <div className={styles.HS2CardFront}>
+                  <div className={styles.imageDiv}>
+                    <Image
+                      alt={`Zweidevs | ${item.heading}`}
+                      height={80}
+                      src={item.image}
+                      width={80}
+                    />
                   </div>
+                  <h3 className={styles.HS2CardTitle}>{item.heading}</h3>
+                </div>
+                <div className={styles.HS2CardOverlay}>
+                  <Image
+                    alt={`Zweidevs | ${item.heading}`}
+                    height={44}
+                    src={item.image}
+                    style={{ filter: "brightness(0) invert(1)" }}
+                    width={44}
+                  />
+                  <h3 className={styles.HS2CardOverlayTitle}>{item.heading}</h3>
+                  <p className={styles.HS2CardOverlayText}>{item.details}</p>
+                  <span className={styles.HS2ViewLink}>View Details →</span>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </>

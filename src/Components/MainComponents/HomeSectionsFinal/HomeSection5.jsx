@@ -342,17 +342,14 @@ function HomeSection5() {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__backInLeft",
-            "animate__delay-0s",
-          );
+          entry.target.classList.add(styles.HS5Visible);
+          observer.unobserve(entry.target);
         }
       });
     }, options);
 
     animatedDivRefs.forEach(ref => {
-      observer.observe(ref.current);
+      if (ref.current) { observer.observe(ref.current); }
     });
 
     return () => {
@@ -364,9 +361,16 @@ function HomeSection5() {
     <>
       <div className={styles.HS5MainContainer}>
         <div>
-          <div className={styles.HS5Heading} ref={animatedDivRefs[0]}></div>
+          <div
+            className={`${styles.HS5Heading} ${styles.HS5FadeEl}`}
+            ref={animatedDivRefs[0]}
+          ></div>
         </div>
-        <h2 className={styles.HS5SubHeading} ref={animatedDivRefs[1]}>
+        <h2
+          className={`${styles.HS5SubHeading} ${styles.HS5FadeEl}`}
+          ref={animatedDivRefs[1]}
+          style={{ transitionDelay: "100ms" }}
+        >
           What Client Says About Us
         </h2>
         <Carousel

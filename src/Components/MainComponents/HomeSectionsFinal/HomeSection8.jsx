@@ -97,52 +97,38 @@ function HomeSection8() {
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5,
+      threshold: 0.1,
     };
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__backInLeft",
-            "animate__delay-0s",
-          );
+          entry.target.classList.add(styles.HS8Visible);
+          observer.unobserve(entry.target);
         }
       });
     }, options);
 
-    const observer1 = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          ("animate__delay-0s");
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__flipInX",
-            "animate__delay-1s",
-          );
-        }
-      });
-    }, options);
-
-    if (animatedDivRefs.current) {
-      observer.observe(animatedDivRefs.current);
-    }
-
-    animatedLabelRefs.forEach(ref => {
-      observer1.observe(ref.current);
+    if (animatedDivRefs.current) { observer.observe(animatedDivRefs.current); }
+    animatedLabelRefs.forEach((ref, i) => {
+      if (ref.current) {
+        ref.current.style.transitionDelay = `${i * 80}ms`;
+        observer.observe(ref.current);
+      }
     });
 
     return () => {
       observer.disconnect();
-      observer1.disconnect();
     };
   }, []);
 
   return (
     <>
       <div className={styles.HS8MainContainer}>
-        <h2 className={styles.HS8Heading} ref={animatedDivRefs}>
+        <h2
+          className={`${styles.HS8Heading} ${styles.HS8FadeEl}`}
+          ref={animatedDivRefs}
+        >
           How May We Help You
         </h2>
         <div className={styles.HS8Width}>

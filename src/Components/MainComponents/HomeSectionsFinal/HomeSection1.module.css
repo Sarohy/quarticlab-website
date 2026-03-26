@@ -235,3 +235,29 @@
     padding: 0% 2% 0% 0%;
   }
 }
+
+/* ── Hero entry animations ──────────────────── */
+.heroContent {
+  opacity: 0;
+  transform: translateX(-36px);
+  animation: hs1SlideRight 0.7s ease forwards;
+  animation-delay: 0.05s;
+}
+.heroLogo {
+  opacity: 0;
+  transform: scale(0.88);
+  animation: hs1FadeScale 0.75s ease forwards;
+  animation-delay: 0.25s;
+}
+@keyframes hs1SlideRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes hs1FadeScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -177,3 +177,14 @@
 }
 @media (min-width: 356px) and (max-width: 400px) {
 }
+
+/* ── Scroll-triggered animations ──────────────── */
+.HS8FadeEl {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.HS8Visible {
+  opacity: 1;
+  transform: translateY(0);
+}

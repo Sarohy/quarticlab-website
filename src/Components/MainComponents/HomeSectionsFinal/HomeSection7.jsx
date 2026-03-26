@@ -16,18 +16,13 @@ function HomeSection7() {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__backInLeft",
-            "animate__delay-0s",
-          );
+          entry.target.classList.add(styles.HS7Visible);
+          observer.unobserve(entry.target);
         }
       });
     }, options);
 
-    if (animatedDivRefs.current) {
-      observer.observe(animatedDivRefs.current);
-    }
+    if (animatedDivRefs.current) { observer.observe(animatedDivRefs.current); }
 
     return () => {
       observer.disconnect();
@@ -37,7 +32,10 @@ function HomeSection7() {
   return (
     <>
       <div className={styles.HS7MainContainer}>
-        <h2 className={styles.HS7Heading} ref={animatedDivRefs}>
+        <h2
+          className={`${styles.HS7Heading} ${styles.HS7FadeEl}`}
+          ref={animatedDivRefs}
+        >
           Technologies We Work With
         </h2>
         <div className={`${styles.circularSvgContainer}`}>

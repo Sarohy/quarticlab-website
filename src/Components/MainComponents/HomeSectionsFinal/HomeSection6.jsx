@@ -1,64 +1,41 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
-// import dynamic from "next/dynamic";
-// const HomeSection6Counter = dynamic(() => import("./HomeSection6Counter"));
-import "animate.css";
 import styles from "./HomeSection6.module.css";
 import HomeSection6Counter from "./HomeSection6Counter";
 
 function HomeSection6({ heading }) {
-  const animatedDivRefs = React.useRef(null);
-  const animatedRefs = React.useRef(null);
+  const headingRef = React.useRef(null);
+  const circleRef = React.useRef(null);
 
   useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.1,
-    };
-
+    const options = { root: null, rootMargin: "0px", threshold: 0.1 };
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__backInUp",
-            "animate__delay-0s",
-          );
+          entry.target.classList.add(styles.HS6Visible);
+          observer.unobserve(entry.target);
         }
       });
     }, options);
-
-    const observer1 = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__zoomIn",
-            "animate__delay-0s",
-          );
-        }
-      });
-    }, options);
-
-    if (animatedRefs.current) {
-      observer1.observe(animatedRefs.current);
-    }
-
-    if (animatedDivRefs.current) {
-      observer.observe(animatedDivRefs.current);
-    }
-
-    return () => {
-      observer.disconnect();
-      observer1.disconnect();
-    };
+    if (headingRef.current) { observer.observe(headingRef.current); }
+    if (circleRef.current) { observer.observe(circleRef.current); }
+    return () => observer.disconnect();
   }, []);
+
   return (
     <div className={styles.HS6MainContainer}>
-      <div className={styles.HS6Heading}>{heading}</div>
+      <div
+        className={`${styles.HS6Heading} ${styles.HS6FadeEl}`}
+        ref={headingRef}
+      >
+        {heading}
+      </div>
       <div>
-        <div className={styles.circlecontainer}>
+        <div
+          className={`${styles.circlecontainer} ${styles.HS6FadeEl}`}
+          ref={circleRef}
+          style={{ transitionDelay: "150ms" }}
+        >
           <div className={styles.since10}>
             <div>Since</div>
             <div className={styles.sinceyear}>2020</div>
@@ -151,9 +128,7 @@ function HomeSection6({ heading }) {
               sign={"%"}
             />
           </div>
-          <div
-            className={`${styles.linecontainer1} animate__delay-8s animate__animated animate__zoomIn`}
-          ></div>
+          <div className={styles.linecontainer1}></div>
           <div className={styles.linecontainer2}></div>
           <div className={styles.linecontainer3}></div>
           <div className={styles.linecontainer4}></div>

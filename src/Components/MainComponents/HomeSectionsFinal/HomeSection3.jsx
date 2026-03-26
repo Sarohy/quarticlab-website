@@ -10,69 +10,24 @@ import styles from "./HomeSection3.module.css";
 
 function HomeSection3() {
   const animatedDivRefs = Array.from({ length: 3 }, () => React.useRef(null));
-  const animatedPhoneRef = React.useRef(null);
   const animatedImgRef = React.useRef(null);
   const router = useRouter();
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.5,
-    };
 
+  useEffect(() => {
+    const options = { root: null, rootMargin: "0px", threshold: 0.1 };
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__backInLeft",
-            "animate__delay-0s",
-          );
+          entry.target.classList.add(styles.HS3Visible);
+          observer.unobserve(entry.target);
         }
       });
     }, options);
-
-    const observer1 = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__shakeX",
-            "animate__delay-0s",
-          );
-        }
-      });
-    }, options);
-
-    const observer2 = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__backInRight",
-            "animate__delay-0s",
-          );
-        }
-      });
-    }, options);
-
     animatedDivRefs.forEach(ref => {
-      observer.observe(ref.current);
+      if (ref.current) { observer.observe(ref.current); }
     });
-
-    if (animatedPhoneRef.current) {
-      observer1.observe(animatedPhoneRef.current);
-    }
-
-    if (animatedImgRef.current) {
-      observer2.observe(animatedImgRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-      observer1.disconnect();
-      observer2.disconnect();
-    };
+    if (animatedImgRef.current) { observer.observe(animatedImgRef.current); }
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -81,14 +36,22 @@ function HomeSection3() {
         <div className={styles.HS3ContentContainer}>
           <div className={styles.HS3TabContainer}>
             <div
-              className={styles.HS3ContentHeading}
+              className={`${styles.HS3ContentHeading} ${styles.HS3SlideLeft}`}
               ref={animatedDivRefs[0]}
             ></div>
-            <h2 className={styles.HS3ContentText} ref={animatedDivRefs[1]}>
+            <h2
+              className={`${styles.HS3ContentText} ${styles.HS3SlideLeft}`}
+              ref={animatedDivRefs[1]}
+              style={{ transitionDelay: "100ms" }}
+            >
               Work With Top Notch Designers And Developers To Get Amazing
               Products.
             </h2>
-            <p className={styles.HS3ContentSubText} ref={animatedDivRefs[2]}>
+            <p
+              className={`${styles.HS3ContentSubText} ${styles.HS3FadeEl}`}
+              ref={animatedDivRefs[2]}
+              style={{ transitionDelay: "200ms" }}
+            >
               Zweidevs is a service-oriented company providing creative and
               innovative solutions for your business domain. We believe in
               exceeding your expectations by delivering thoughtfully innovated
@@ -105,7 +68,10 @@ function HomeSection3() {
               />
             </div>
           </div>
-          <div className={styles.HS3ImgContainer} ref={animatedImgRef}>
+          <div
+            className={`${styles.HS3ImgContainer} ${styles.HS3SlideRight}`}
+            ref={animatedImgRef}
+          >
             <Image
               alt="Zweidevs | Custom Software Development Services Company"
               className={styles.HS3ImgWidth}
