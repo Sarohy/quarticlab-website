@@ -14,8 +14,8 @@
     "prepare": "husky install"
   },
   "engines": {
-    "npm": "9.x.x",
-    "node": "18.x.x"
+    "npm": ">=9.x.x",
+    "node": ">=18.x.x"
   },
   "lint-staged": {
     "src/**/*.{js,ts,jsx,tsx}": [
