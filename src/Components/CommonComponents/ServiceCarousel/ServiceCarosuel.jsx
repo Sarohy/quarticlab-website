@@ -1,5 +1,4 @@
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import Card from "@mui/material/Card";
 // const Carousel = dynamic(() => import("react-material-ui-carousel"));
 
