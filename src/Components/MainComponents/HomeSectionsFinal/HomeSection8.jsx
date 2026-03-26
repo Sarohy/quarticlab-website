@@ -109,7 +109,9 @@ function HomeSection8() {
       });
     }, options);
 
-    if (animatedDivRefs.current) { observer.observe(animatedDivRefs.current); }
+    if (animatedDivRefs.current) {
+      observer.observe(animatedDivRefs.current);
+    }
     animatedLabelRefs.forEach((ref, i) => {
       if (ref.current) {
         ref.current.style.transitionDelay = `${i * 80}ms`;

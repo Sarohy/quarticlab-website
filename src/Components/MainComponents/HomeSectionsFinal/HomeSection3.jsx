@@ -24,9 +24,13 @@ function HomeSection3() {
       });
     }, options);
     animatedDivRefs.forEach(ref => {
-      if (ref.current) { observer.observe(ref.current); }
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
     });
-    if (animatedImgRef.current) { observer.observe(animatedImgRef.current); }
+    if (animatedImgRef.current) {
+      observer.observe(animatedImgRef.current);
+    }
     return () => observer.disconnect();
   }, []);
 

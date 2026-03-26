@@ -18,13 +18,17 @@ const HomeSection6Counter = props => {
 
   useEffect(() => {
     // Only run the counter animation once — when it first becomes visible
-    if (!isIntersecting || hasRun.current) { return; }
+    if (!isIntersecting || hasRun.current) {
+      return;
+    }
     hasRun.current = true;
 
     let start = 0;
     const end = parseInt(number.substring(0, 3));
 
-    if (start === end) { return; }
+    if (start === end) {
+      return;
+    }
 
     const totalMilSecDur = parseInt(duration);
     const incrementTime = (totalMilSecDur / end) * 1000;

@@ -17,8 +17,12 @@ function HomeSection6({ heading }) {
         }
       });
     }, options);
-    if (headingRef.current) { observer.observe(headingRef.current); }
-    if (circleRef.current) { observer.observe(circleRef.current); }
+    if (headingRef.current) {
+      observer.observe(headingRef.current);
+    }
+    if (circleRef.current) {
+      observer.observe(circleRef.current);
+    }
     return () => observer.disconnect();
   }, []);
 

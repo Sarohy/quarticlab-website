@@ -22,7 +22,9 @@ function HomeSection7() {
       });
     }, options);
 
-    if (animatedDivRefs.current) { observer.observe(animatedDivRefs.current); }
+    if (animatedDivRefs.current) {
+      observer.observe(animatedDivRefs.current);
+    }
 
     return () => {
       observer.disconnect();

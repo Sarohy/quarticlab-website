@@ -349,7 +349,9 @@ function HomeSection5() {
     }, options);
 
     animatedDivRefs.forEach(ref => {
-      if (ref.current) { observer.observe(ref.current); }
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
     });
 
     return () => {
