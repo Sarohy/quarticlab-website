@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 const Grid = dynamic(() => import("@mui/material/Grid"));
@@ -9,17 +8,10 @@ import { urls } from "@component/utils/urls";
 
 const FooterAllServices = () => {
   const router = useRouter();
-  const ref = useRef(null);
   const [observerRef, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  useEffect(() => {
-    if (ref.current && inView) {
-      ref.current.classList.add("animate__animated", "animate__zoomIn");
-    }
-  }, [inView]);
 
   const cardData = [
     {
@@ -57,30 +49,34 @@ const FooterAllServices = () => {
   ];
   return (
     <>
-      <div ref={observerRef}>
-        <div className="animate__delay-1s" ref={ref}>
-          <h3>Services</h3>
-          <div className={styles.footerServicesItemsContainer}>
-            <Grid container spacing={2.5} xl={10}>
-              {cardData.map(({ href, cardTitle }, index) => (
-                <Grid item key={index} xs={12}>
-                  <Link
-                    className={`${styles.footerServiceItem} ${
-                      router.pathname === href
-                        ? styles.colorOrange
-                        : styles.colorGrid
-                    }`}
-                    color={"#596380"}
-                    href={href}
-                    key={href}
-                    underline="none"
-                  >
-                    {cardTitle}
-                  </Link>
-                </Grid>
-              ))}
-            </Grid>
-          </div>
+      <div
+        className={`${styles.footerFadeEl} ${
+          inView ? styles.footerVisible : ""
+        }`}
+        ref={observerRef}
+        style={{ transitionDelay: "160ms" }}
+      >
+        <h3>Services</h3>
+        <div className={styles.footerServicesItemsContainer}>
+          <Grid container spacing={2.5} xl={10}>
+            {cardData.map(({ href, cardTitle }, index) => (
+              <Grid item key={index} xs={12}>
+                <Link
+                  className={`${styles.footerServiceItem} ${
+                    router.pathname === href
+                      ? styles.colorOrange
+                      : styles.colorGrid
+                  }`}
+                  color={"#596380"}
+                  href={href}
+                  key={href}
+                  underline="none"
+                >
+                  {cardTitle}
+                </Link>
+              </Grid>
+            ))}
+          </Grid>
         </div>
       </div>
     </>

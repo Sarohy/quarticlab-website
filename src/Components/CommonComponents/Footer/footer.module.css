@@ -141,6 +141,10 @@
   font-weight: 400;
   font-size: 20px;
   color: #596380;
+  transition: color 0.2s ease;
+}
+.footerServiceItem:hover {
+  color: #ff9700;
 }
 
 @media screen and (max-width: 590px) {
@@ -314,4 +318,29 @@
   .footerRightsImage {
     width: 29%;
   }
+}
+
+/* ── Scroll-triggered animations ──────────────── */
+.footerFadeEl {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.footerSlideLeft {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.footerVisible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── Social icon hover ───────────────────── */
+.imageContainerIcons {
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+.imageContainerIcons:hover {
+  transform: scale(1.18);
 }

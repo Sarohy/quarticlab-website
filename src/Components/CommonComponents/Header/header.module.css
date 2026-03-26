@@ -10,7 +10,7 @@
   width: 100%;
   z-index: 11111;
   font-family: "Poppins", sans-serif;
-  /* margin-bottom: 15vh; */
+  transition: box-shadow 0.3s ease;
 }
 .ButtonStyle {
   color: #ff9700 !important;
@@ -70,8 +70,26 @@
   font-family: poppins;
   font-size: 1rem;
   color: black;
+  position: relative;
+  padding-bottom: 3px;
 }
-
+.pageLabel::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff9700;
+  transition: width 0.25s ease;
+}
+.pageLabel:hover::after {
+  width: 100%;
+}
+.pageLabel:hover {
+  color: #ff9700;
+  transition: color 0.2s ease;
+}
 .headerLocationIcon {
   /* position: absolute; */
   width: 20px;
@@ -85,4 +103,59 @@
 .headerCenterRow {
   display: flex;
   align-items: center;
+}
+
+/* ── Scroll shadow ────────────────────────── */
+.scrolled {
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.09);
+}
+
+/* ── Entry animations ────────────────────── */
+.headerLogo {
+  opacity: 0;
+  animation: headerLogoIn 0.55s ease forwards;
+  animation-delay: 0.05s;
+}
+.headerNav {
+  opacity: 0;
+  animation: headerNavIn 0.55s ease forwards;
+  animation-delay: 0.15s;
+  gap: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+@keyframes headerLogoIn {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes headerNavIn {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ── Mobile menu slide-down ───────────────── */
+.mobileHeaderMenu {
+  animation: mobileMenuIn 0.28s ease forwards;
+}
+@keyframes mobileMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

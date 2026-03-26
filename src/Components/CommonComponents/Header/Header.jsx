@@ -15,6 +15,7 @@ function Header() {
   const pathSegments = route.pathname.split("/");
   const pathInitialSegment = "/" + pathSegments[1];
 
+  const [scrolled, setScrolled] = useState(false);
   const [state, setState] = useState({
     mobileView: null,
     drawerOpen: false,
@@ -42,6 +43,12 @@ function Header() {
   }, []);
 
   useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () =>
       !drawerOpen &&
       setState(prevState => ({ ...prevState, drawerOpen: false }));
@@ -53,19 +60,21 @@ function Header() {
 
   const displayWeb = () => (
     <>
-      <div className={styles.headerContainer}>
+      <div
+        className={`${styles.headerContainer} ${
+          scrolled ? styles.scrolled : ""
+        }`}
+      >
         <Link href={"/"}>
           <Image
             alt="Zweidevs | Custom Software Development Services Company"
-            className="animate__animated animate__slideInLeft"
+            className={styles.headerLogo}
             src={ZweidevsLogo}
             width={180}
           />
         </Link>
         <div className={styles.contentContainer}>
-          <div
-            className={`${styles.pagesContainer} animate__animated animate__slideInRight`}
-          >
+          <div className={`${styles.pagesContainer} ${styles.headerNav}`}>
             {navLinks.map(({ href, text }) => (
               <Link
                 className={`${styles.pageLabel} ${
@@ -86,8 +95,10 @@ function Header() {
   const displayMobile = () => (
     <>
       <div
-        className={styles.headerContainer}
-        style={mobileView && { padding: "3%" }}
+        className={`${styles.headerContainer} ${
+          scrolled ? styles.scrolled : ""
+        }`}
+        style={mobileView ? { padding: "3%" } : undefined}
       >
         <Link href={"/"}>
           <Image alt="zweidevsDrawer" src={ZweidevsLogo} width={180} />

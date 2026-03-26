@@ -6,7 +6,6 @@ const FooterServices = dynamic(() => import("./FooterServices"));
 const FooterAllServices = dynamic(() => import("./FooterAllServices"));
 import CopyrightLeftLine from "../../../../public/assets/footerIcons/copyrightLeftLine.svg";
 import CopyrightRightLine from "../../../../public/assets/footerIcons/copyrightRightLine.svg";
-import "animate.css";
 import styles from "./footer.module.css";
 
 function Footer() {

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import FBHover from "../../../../public/assets/footerIcons/facebookHover.svg";
@@ -12,7 +12,6 @@ import YoutubeIconHover from "../../../../public/assets/footerIcons/youtubeIconH
 import styles from "./footer.module.css";
 
 const FooterSocial = () => {
-  const ref = useRef(null);
   const [observerRef, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -52,48 +51,46 @@ const FooterSocial = () => {
     },
   ];
 
-  useEffect(() => {
-    if (ref.current && inView) {
-      ref.current.classList.add("animate__animated", "animate__zoomIn");
-    }
-  }, [inView]);
-
   return (
     <>
-      <div ref={observerRef}>
-        <div className="animate__delay-1s" ref={ref}>
-          <h3>Find Us On</h3>
+      <div
+        className={`${styles.footerFadeEl} ${
+          inView ? styles.footerVisible : ""
+        }`}
+        ref={observerRef}
+        style={{ transitionDelay: "240ms" }}
+      >
+        <h3>Find Us On</h3>
 
-          <div className={styles.imageSocialMain}>
-            {socialMediaData &&
-              socialMediaData.map((element, key) => (
-                <a
-                  className={styles.imageContainer}
-                  href={element.href}
-                  key={key}
-                  target="_blank"
+        <div className={styles.imageSocialMain}>
+          {socialMediaData &&
+            socialMediaData.map((element, key) => (
+              <a
+                className={styles.imageContainer}
+                href={element.href}
+                key={key}
+                target="_blank"
+              >
+                <div
+                  onMouseEnter={() => {
+                    setHoverState(true);
+                    setSelectImage(element.name);
+                  }}
+                  onMouseLeave={() => setHoverState(false)}
                 >
-                  <div
-                    onMouseEnter={() => {
-                      setHoverState(true);
-                      setSelectImage(element.name);
-                    }}
-                    onMouseLeave={() => setHoverState(false)}
-                  >
-                    <Image
-                      alt={element.alt || "social-meida-image"}
-                      className={styles.imageContainerIcons}
-                      key={element.name}
-                      src={
-                        hoverState && selectImage === element.name
-                          ? element.hoverImage
-                          : element.image
-                      }
-                    />
-                  </div>
-                </a>
-              ))}
-          </div>
+                  <Image
+                    alt={element.alt || "social-meida-image"}
+                    className={styles.imageContainerIcons}
+                    key={element.name}
+                    src={
+                      hoverState && selectImage === element.name
+                        ? element.hoverImage
+                        : element.image
+                    }
+                  />
+                </div>
+              </a>
+            ))}
         </div>
       </div>
     </>
