@@ -93,5 +93,5 @@ NEXT_PUBLIC_collectionBlogs   (inferred)
 ```
 Firebase credentials are in `src/firebase/firebaseConfig.js` (not in env — do not move without updating `firebaseRequests.js`).
 
-
+always run eslint and prettier on changed files before committing — the pre-commit hook will catch any issues, but it's best to fix them beforehand for a smoother commit experience.
 

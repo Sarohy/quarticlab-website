@@ -3,28 +3,14 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/projectsNew.module.css";
 
-import aivst from "../../public/assets/projectsPage/aivst.png";
-import audioCardio from "../../public/assets/projectsPage/audio-cardio.png";
-import avail from "../../public/assets/projectsPage/Avail.png";
-import hookedhealth from "../../public/assets/projectsPage/hookedhealth.png";
-import cyberLegends from "../../public/assets/projectsPage/cyberLegends.png";
-import humanana from "../../public/assets/projectsPage/humanana.png";
-import freshTrack from "../../public/assets/projectsPage/freshTrack.png";
-import blockcircle from "../../public/assets/projectsPage/blockcircle.png";
-import edcite from "../../public/assets/projectsPage/edcite.png";
-import neverleft from "../../public/assets/projectsPage/neverleft.png";
-import officersurvay from "../../public/assets/projectsPage/officersurvay.png";
-import pridepals from "../../public/assets/projectsPage/pridepals.png";
-import RobobeeBot from "../../public/assets/projectsPage/RobobeeBot.png";
-import trademimic from "../../public/assets/projectsPage/trademimic.png";
-import twinciti from "../../public/assets/projectsPage/twinciti.png";
-import venueGenie from "../../public/assets/projectsPage/venueGenie.png";
-import yousolan from "../../public/assets/projectsPage/you-solan.png";
+import { getAllProjects } from "../firebase/firebaseRequests";
 
 import AwsIcon from "../../public/assets/projectIcon/awsIcon.svg";
 import NodeIcon from "../../public/assets/projectIcon/nodejsIcon.svg";
 import ReactIcon from "../../public/assets/projectIcon/reactIcon.svg";
 import RubyIcon from "../../public/assets/projectIcon/rorIcon.svg";
+
+const SITE_URL = "https://www.zweidevs.com";
 
 /* ── data ────────────────────────────────────────── */
 
@@ -33,111 +19,6 @@ const categories = [
   { key: "web", label: "Web Apps" },
   { key: "mobile", label: "Mobile Apps" },
   { key: "ai", label: "AI & ML" },
-];
-
-const allProjects = [
-  {
-    image: aivst,
-    title: "AI VST",
-    types: ["ai"],
-    desc: "Enhance your audio recordings with advanced Plugins and Visual Studio tools, for professional-grade sound quality.",
-  },
-  {
-    image: twinciti,
-    title: "TwinCiti",
-    types: ["ai"],
-    desc: "TwinCiti provides a scalable infrastructure capable of supporting advanced applications ranging from 3D graphics to machine learning.",
-  },
-  {
-    image: RobobeeBot,
-    title: "RoboBee Bot",
-    types: ["ai"],
-    desc: "Communicate easily with Robobee Bot, your AI conversation partner who can converse via text, graphics, examples, and more.",
-  },
-  {
-    image: neverleft,
-    title: "Neverleft",
-    types: ["mobile"],
-    desc: "A more efficient method for managing venue operations that incorporates data analytics, enhanced event ticketing, and digital cloakroom ticketing.",
-  },
-  {
-    image: yousolan,
-    title: "You Salon",
-    types: ["mobile"],
-    desc: "You Salon offers online booking based on ratings and popularity, with salon history.",
-  },
-  {
-    image: hookedhealth,
-    title: "Hooked Health",
-    types: ["mobile"],
-    desc: "Discover a fitness and mindset training program designed for women to achieve metabolic advantage. Target specific body parts for faster results.",
-  },
-  {
-    image: audioCardio,
-    title: "AudioCardio",
-    types: ["mobile"],
-    desc: "Improve your hearing with the mobile app AudioCardio, which provides inaudible sound therapy to improve hearing and reduce tinnitus.",
-  },
-  {
-    image: cyberLegends,
-    title: "Cyber Legends",
-    types: ["web"],
-    desc: "Online learning platform for cyber security awareness in children with interactive tools for kids, parents, and educators.",
-  },
-  {
-    image: edcite,
-    title: "Edcite",
-    types: ["web"],
-    desc: "Revolutionizing K\u201312 education with interactive lessons, addressing online test challenges, and promoting instant student feedback.",
-  },
-  {
-    image: officersurvay,
-    title: "Officer Survey",
-    types: ["web"],
-    desc: "Building safer communities through tech-driven communication and surveys between people and law enforcement.",
-  },
-  {
-    image: blockcircle,
-    title: "Blockcircle",
-    types: ["web"],
-    desc: "Blockcircle provides competitive data, tools, and dynamic investing analytics to make well-informed decisions in the cryptocurrency market.",
-  },
-  {
-    image: avail,
-    title: "Avail Medical",
-    types: ["web"],
-    desc: "A website to stream Canada\u2019s medical marijuana program, offering online shopping experiences for diverse services and product options.",
-  },
-  {
-    image: trademimic,
-    title: "Isynced (Trademimic)",
-    types: ["web"],
-    desc: "The market\u2019s most affordable copy trading solution, optimizing earnings, minimizing risk, and delivering an unparalleled user experience.",
-  },
-  {
-    image: freshTrack,
-    title: "Fresh Track Canada",
-    types: ["web"],
-    desc: "Vancouver team since \u201996, personalized your vacations showcasing Canada\u2019s diverse experiences and passion for travel.",
-  },
-  {
-    image: humanana,
-    title: "Humanava",
-    types: ["web"],
-    desc: "Unleash your potential with personal development courses for a brighter future, and connect globally to discover hidden brilliance.",
-  },
-  {
-    image: pridepals,
-    title: "LinkTree",
-    types: ["web"],
-    desc: "Elevate manageability by consolidating your online presence seamlessly linking videos, music, podcasts, websites, social platforms, and more.",
-  },
-  {
-    image: venueGenie,
-    title: "Venue Genie",
-    types: ["web"],
-    desc: "Discover the future of event booking with over 360 locations, catering, and DJ packages, ensuring flawless experiences for gatherings.",
-  },
 ];
 
 const techIcons = [
@@ -173,9 +54,9 @@ function useReveal(selector) {
 
 /* ── page ────────────────────────────────────────── */
 
-export default function ProjectsNewPage() {
+export default function ProjectsNewPage({ projects = [] }) {
   const [active, setActive] = useState("all");
-  const [filtered, setFiltered] = useState(allProjects);
+  const [filtered, setFiltered] = useState(projects);
   const [animKey, setAnimKey] = useState(0);
 
   useReveal(`.${styles.reveal}`);
@@ -184,9 +65,9 @@ export default function ProjectsNewPage() {
     setActive(key);
     setAnimKey(prev => prev + 1);
     if (key === "all") {
-      setFiltered(allProjects);
+      setFiltered(projects);
     } else {
-      setFiltered(allProjects.filter(p => p.types.includes(key)));
+      setFiltered(projects.filter(p => p.types?.includes(key)));
     }
   };
 
@@ -194,18 +75,86 @@ export default function ProjectsNewPage() {
     window.open("https://calendly.com/request-demo-zweidevs/meeting", "_blank");
   };
 
+  /* ── JSON-LD structured data for AI & search crawlers ── */
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Zweidevs Portfolio — Software Development Projects",
+    description:
+      "A curated list of custom software projects built by Zweidevs, covering web apps, mobile apps, AI & ML solutions, and blockchain platforms.",
+    url: `${SITE_URL}/projects`,
+    numberOfItems: projects.length,
+    itemListElement: projects.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "SoftwareApplication",
+        name: p.title,
+        description: p.desc,
+        applicationCategory: getCategoryLabel(p.types?.[0]),
+        operatingSystem: getOS(p.types?.[0]),
+        ...(p.image ? { image: p.image } : {}),
+        author: {
+          "@type": "Organization",
+          name: "Zweidevs",
+          url: SITE_URL,
+        },
+      },
+    })),
+  };
+
   return (
     <div className={styles.page}>
       <Head>
-        <title>Portfolio - Zweidevs IT Projects Showcase</title>
+        <title>Portfolio | Zweidevs — Web, Mobile &amp; AI Projects</title>
         <meta
-          content="Explore Our Portfolio - Witness our successful projects in web development, mobile app creation, blockchain solutions, and more."
+          content="Explore Zweidevs' portfolio of software projects spanning web apps, mobile applications, AI & ML solutions, and blockchain platforms. Trusted by global clients."
           name="description"
+        />
+        <meta
+          content="software development portfolio, web app development, mobile app development, AI ML projects, blockchain development, React projects, Node.js projects, custom software"
+          name="keywords"
+        />
+        <link href={`${SITE_URL}/projects`} rel="canonical" />
+        {/* Open Graph */}
+        <meta content="website" property="og:type" />
+        <meta content={`${SITE_URL}/projects`} property="og:url" />
+        <meta
+          content="Portfolio | Zweidevs — Web, Mobile & AI Projects"
+          property="og:title"
+        />
+        <meta
+          content="Explore Zweidevs' portfolio of software projects spanning web apps, mobile applications, AI & ML solutions, and blockchain platforms."
+          property="og:description"
+        />
+        <meta
+          content={`${SITE_URL}/assets/og-projects.jpg`}
+          property="og:image"
+        />
+        <meta content="Zweidevs" property="og:site_name" />
+        {/* Twitter Card */}
+        <meta content="summary_large_image" name="twitter:card" />
+        <meta
+          content="Portfolio | Zweidevs — Web, Mobile & AI Projects"
+          name="twitter:title"
+        />
+        <meta
+          content="Explore Zweidevs' portfolio of software projects spanning web apps, mobile applications, AI & ML solutions, and blockchain platforms."
+          name="twitter:description"
+        />
+        <meta
+          content={`${SITE_URL}/assets/og-projects.jpg`}
+          name="twitter:image"
+        />
+        {/* JSON-LD */}
+        <script
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          type="application/ld+json"
         />
       </Head>
 
       {/* ─── HERO BANNER ──────────────────────── */}
-      <section className={styles.hero}>
+      <section aria-label="Portfolio hero banner" className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={styles.heroInner}>
           <span className={styles.heroBadge}>💼 Portfolio</span>
@@ -222,11 +171,20 @@ export default function ProjectsNewPage() {
       </section>
 
       {/* ─── FILTER BAR ───────────────────────── */}
-      <section className={styles.filterSec}>
+      <section
+        aria-label="Filter projects by category"
+        className={styles.filterSec}
+      >
         <div className={styles.container}>
-          <div className={styles.filterBar}>
+          <div
+            aria-label="Project category filters"
+            className={styles.filterBar}
+            role="group"
+          >
             {categories.map(c => (
               <button
+                aria-label={`Show ${c.label}`}
+                aria-pressed={active === c.key}
                 className={`${styles.filterBtn} ${
                   active === c.key ? styles.filterActive : ""
                 }`}
@@ -241,23 +199,31 @@ export default function ProjectsNewPage() {
       </section>
 
       {/* ─── PROJECT GRID ─────────────────────── */}
-      <section className={styles.gridSec}>
+      <section aria-label="Projects portfolio grid" className={styles.gridSec}>
         <div className={styles.container}>
           <div className={styles.grid} key={animKey}>
             {filtered.map((p, i) => (
-              <div
+              <article
+                aria-label={`${p.title} project`}
                 className={`${styles.card} ${styles.reveal}`}
                 key={p.title}
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
                 <div className={styles.cardImgWrap}>
-                  <Image
-                    alt={p.title}
-                    className={styles.cardImg}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    src={p.image}
-                  />
+                  {p.image ? (
+                    <Image
+                      alt={`${p.title} — ${p.desc?.slice(0, 60)}`}
+                      className={styles.cardImg}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      src={p.image}
+                    />
+                  ) : (
+                    <div
+                      aria-hidden="true"
+                      className={styles.cardImgPlaceholder}
+                    />
+                  )}
                   <div className={styles.cardOverlay}>
                     <div className={styles.cardTechs}>
                       {techIcons.map(t => (
@@ -271,9 +237,14 @@ export default function ProjectsNewPage() {
                         />
                       ))}
                     </div>
-                    <button className={styles.demoBtn} onClick={requestDemo}>
+                    <button
+                      aria-label="Book a demo meeting with Zweidevs"
+                      className={styles.demoBtn}
+                      onClick={requestDemo}
+                    >
                       Request Demo
                       <svg
+                        aria-hidden="true"
                         className={styles.demoBtnIcon}
                         fill="none"
                         stroke="currentColor"
@@ -291,16 +262,16 @@ export default function ProjectsNewPage() {
                 </div>
                 <div className={styles.cardBody}>
                   <span className={styles.cardTag}>
-                    {p.types[0] === "ai"
+                    {p.types?.[0] === "ai"
                       ? "AI & ML"
-                      : p.types[0] === "mobile"
+                      : p.types?.[0] === "mobile"
                         ? "Mobile"
                         : "Web"}
                   </span>
                   <h3 className={styles.cardTitle}>{p.title}</h3>
                   <p className={styles.cardDesc}>{p.desc}</p>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
 
@@ -312,7 +283,10 @@ export default function ProjectsNewPage() {
       </section>
 
       {/* ─── CTA BANNER ───────────────────────── */}
-      <section className={styles.ctaSec}>
+      <section
+        aria-label="Start a project with Zweidevs"
+        className={styles.ctaSec}
+      >
         <div className={`${styles.container} ${styles.ctaInner}`}>
           <div className={`${styles.ctaText} ${styles.reveal}`}>
             <h2 className={styles.ctaH2}>Have a Project in Mind?</h2>
@@ -322,6 +296,7 @@ export default function ProjectsNewPage() {
             </p>
           </div>
           <button
+            aria-label="Book a meeting with Zweidevs"
             className={`${styles.btnPrimary} ${styles.reveal}`}
             onClick={requestDemo}
           >
@@ -331,4 +306,39 @@ export default function ProjectsNewPage() {
       </section>
     </div>
   );
+}
+
+/* ── helpers ─────────────────────────────────────── */
+
+function getCategoryLabel(type) {
+  const map = {
+    ai: "ArtificialIntelligence",
+    web: "WebApplication",
+    mobile: "MobileApplication",
+  };
+  return map[type] || "WebApplication";
+}
+
+function getOS(type) {
+  if (type === "mobile") {
+    return "Android, iOS";
+  }
+  return "Web browser";
+}
+
+/* ── data fetching — SSR (always fresh from Firestore) ── */
+
+export async function getServerSideProps() {
+  try {
+    const data = await getAllProjects();
+    const projects = (data || []).map(p => ({
+      title: p.title || "",
+      desc: p.desc || p.description || "",
+      types: Array.isArray(p.types) ? p.types : p.type ? [p.type] : ["web"],
+      image: p.image || p.imageUrl || null,
+    }));
+    return { props: { projects } };
+  } catch (err) {
+    return { props: { projects: [] } };
+  }
 }

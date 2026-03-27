@@ -1,9 +1,9 @@
-import { initializeApp } from "firebase/app";
+import { getApps, initializeApp } from "firebase/app";
 import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
 import firebaseConfig from "./firebaseConfig";
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Initialize Firebase — reuse existing app to avoid duplicate-app error in SSR/ISR
+const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // helper function to get all items of a collection
@@ -26,7 +26,7 @@ const addItem = async (collectionName, data) => {
 };
 
 // zweidevs projects
-const collectionProjects = process.env.NEXT_PUBLIC_collectionProjects;
+const collectionProjects = "projects"; // collection name in Firestore
 
 export const getAllProjects = () => getAllItems(collectionProjects);
 export const addProject = data => addItem(collectionProjects, data);
