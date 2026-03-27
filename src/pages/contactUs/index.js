@@ -1,20 +1,633 @@
-import dynamic from "next/dynamic";
-const HomeSection8 = dynamic(
-  () =>
-    import(
-      "@component/Components/MainComponents/HomeSectionsFinal/HomeSection8"
-    ),
-);
-
+import { useEffect, useState } from "react";
 import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { postAPIWithoutAuth } from "@component/pages/api/api";
+import { urls } from "@component/utils/urls";
+import HSLogo from "../../../public/assets/HomeIcons/zweidevsLogo.svg";
+import FbLogo from "../../../public/assets/footerIcons/fbIcon.svg";
+import InstaLogo from "../../../public/assets/footerIcons/instaIcon.svg";
+import LinkedInLogo from "../../../public/assets/footerIcons/linkedInIcon.svg";
+import YoutubeIcon from "../../../public/assets/footerIcons/youtubeIcon.svg";
+import Logo from "../../../public/assets/footerIcons/logo.svg";
+import styles from "../../styles/contactNew.module.css";
 
-export default function ContactUs() {
+/* ── data ────────────────────────────────────────── */
+const contactMethods = [
+  {
+    icon: "📧",
+    title: "Email Us",
+    detail: "info@zweidevs.com",
+    href: "mailto:info@zweidevs.com",
+    desc: "Drop us a line anytime",
+  },
+  {
+    icon: "📍",
+    title: "Visit Us",
+    detail: "6-B, Block B Phase 1, Johar Town, Lahore",
+    href: "https://maps.google.com/?q=Johar+Town+Lahore",
+    desc: "Our headquarters",
+  },
+  {
+    icon: "📞",
+    title: "Call Us",
+    detail: "+92 309 444 6225",
+    href: "tel:+923094446225",
+    desc: "Mon – Fri, 9am – 6pm",
+  },
+];
+
+const faqs = [
+  {
+    q: "What is the typical project timeline?",
+    a: "Depending on scope, projects range from 4 weeks for MVPs to 6+ months for full-scale platforms. We provide a detailed timeline during the discovery phase.",
+  },
+  {
+    q: "Do you offer post-launch support?",
+    a: "Absolutely. We offer flexible support and maintenance packages to keep your product running smoothly after launch.",
+  },
+  {
+    q: "What technologies do you specialise in?",
+    a: "React, Next.js, React Native, Node.js, Python, Blockchain (Solidity), AWS, GCP and more — we choose the best stack for your needs.",
+  },
+  {
+    q: "Can I hire a dedicated development team?",
+    a: "Yes! We provide dedicated remote teams that integrate seamlessly with your existing workflow and culture.",
+  },
+];
+
+const servicesList = [
+  { label: "Web Development", href: urls.services.WebApp.url },
+  { label: "Mobile Apps", href: urls.services.MobileApp.url },
+  { label: "Blockchain", href: urls.services.BC.url },
+  { label: "UI/UX Design", href: urls.services.UIUX.url },
+  { label: "DevOps & Cloud", href: urls.services.DevOPS.url },
+  { label: "AI & ML", href: urls.services.AI.url },
+];
+
+const socialLinks = [
+  {
+    icon: FbLogo,
+    alt: "Facebook",
+    href: "https://www.facebook.com/zweidevs",
+  },
+  {
+    icon: InstaLogo,
+    alt: "Instagram",
+    href: "https://instagram.com/zweidevs.tech?igshid=OGQ5ZDc2ODk2ZA==",
+  },
+  {
+    icon: YoutubeIcon,
+    alt: "YouTube",
+    href: "https://youtube.com/@Zweidevs?si=7uR6r0W4GBzelhoo",
+  },
+  {
+    icon: LinkedInLogo,
+    alt: "LinkedIn",
+    href: "https://www.linkedin.com/company/zweidevs/",
+  },
+];
+
+/* ── hooks ───────────────────────────────────────── */
+function useReveal(selector) {
+  useEffect(() => {
+    const els = document.querySelectorAll(selector);
+    if (!els.length) {
+      return;
+    }
+    const obs = new IntersectionObserver(
+      entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add(styles.visible);
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12 },
+    );
+    els.forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, [selector]);
+}
+
+/* ── page ────────────────────────────────────────── */
+export default function ContactNewPage() {
+  useReveal(`.${styles.reveal}`);
+
   return (
-    <>
+    <div className={styles.page}>
       <Head>
-        <title>Contact Us</title>
+        <title>Contact Us — Zweidevs</title>
+        <meta
+          content="Get in touch with Zweidevs. Let's discuss your project, explore collaboration opportunities, or just say hello."
+          name="description"
+        />
       </Head>
-      <HomeSection8 />
-    </>
+
+      {/* ─── HERO ─────────────────────────────── */}
+      <HeroBanner />
+
+      {/* ─── CONTACT METHODS ─────────────────── */}
+      <ContactCards />
+
+      {/* ─── FORM + MAP ──────────────────────── */}
+      <FormSection />
+
+      {/* ─── FAQ ──────────────────────────────── */}
+      <FAQSection />
+
+      {/* ─── CTA BANNER ──────────────────────── */}
+      <CTABanner />
+
+      {/* ─── FOOTER ──────────────────────────── */}
+      <FooterSection />
+    </div>
+  );
+}
+
+/* ══════════════════════════════════════════════════
+   HERO BANNER
+   ══════════════════════════════════════════════════ */
+function HeroBanner() {
+  return (
+    <section className={styles.hero}>
+      <div className={styles.heroBg} />
+      {/* floating particles */}
+      <span className={`${styles.particle} ${styles.p1}`} />
+      <span className={`${styles.particle} ${styles.p2}`} />
+      <span className={`${styles.particle} ${styles.p3}`} />
+      <span className={`${styles.particle} ${styles.p4}`} />
+
+      <div className={styles.heroInner}>
+        <div className={styles.heroText}>
+          <span className={styles.heroBadge}>💬 Let&apos;s Talk</span>
+          <h1 className={styles.heroH1}>
+            We&apos;d Love to <br />
+            <span className={styles.heroAccent}>Hear From You</span>
+          </h1>
+          <p className={styles.heroSub}>
+            Whether you have a groundbreaking idea, need a technical partner, or
+            just want to explore possibilities — our team is ready to listen and
+            deliver.
+          </p>
+          <div className={styles.heroScroll}>
+            <span className={styles.scrollDot} />
+          </div>
+        </div>
+
+        <div className={styles.heroVisual}>
+          <div className={styles.heroLogoRing}>
+            <Image
+              alt="Zweidevs logo"
+              className={styles.heroLogo}
+              priority
+              src={HSLogo}
+            />
+          </div>
+        </div>
+      </div>
+      <div className={styles.heroWave} />
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════
+   CONTACT METHOD CARDS
+   ══════════════════════════════════════════════════ */
+function ContactCards() {
+  return (
+    <section className={styles.methodsSec}>
+      <div className={styles.container}>
+        <div className={styles.methodsGrid}>
+          {contactMethods.map((m, i) => (
+            <a
+              className={`${styles.methodCard} ${styles.reveal}`}
+              href={m.href}
+              key={m.title}
+              rel="noopener noreferrer"
+              style={{ transitionDelay: `${i * 100}ms` }}
+              target={m.href.startsWith("http") ? "_blank" : undefined}
+            >
+              <span className={styles.methodIcon}>{m.icon}</span>
+              <h3 className={styles.methodTitle}>{m.title}</h3>
+              <p className={styles.methodDetail}>{m.detail}</p>
+              <p className={styles.methodDesc}>{m.desc}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════
+   FORM + INFO SECTION
+   ══════════════════════════════════════════════════ */
+function FormSection() {
+  const [allCountries, setAllCountries] = useState([]);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    contact: "",
+    country: "Pakistan",
+    description: "",
+    service: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+
+  useEffect(() => {
+    fetch("https://restcountries.com/v3.1/all")
+      .then(r => r.json())
+      .then(data => {
+        const list = data
+          .map(c => c?.name?.common)
+          .filter(Boolean)
+          .sort();
+        setAllCountries(list);
+      })
+      .catch(() => {});
+  }, []);
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    if (name === "contact" && isNaN(value)) {
+      return;
+    }
+    setForm(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    setSending(true);
+    try {
+      await postAPIWithoutAuth("/dev/contact", {
+        name: form.name,
+        email: form.email,
+        phone_number: form.contact,
+        country: form.country,
+        des: `[${form.service || "General"}] ${form.description}`,
+      });
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
+      setForm({
+        name: "",
+        email: "",
+        contact: "",
+        country: "Pakistan",
+        description: "",
+        service: "",
+      });
+    } catch {
+      /* silent */
+    } finally {
+      setSending(false);
+    }
+  };
+
+  return (
+    <section className={styles.formSec}>
+      <div className={`${styles.container} ${styles.formInner}`}>
+        {/* Left side info */}
+        <div className={`${styles.formInfo} ${styles.reveal}`}>
+          <span className={styles.sectionTag}>Get In Touch</span>
+          <h2 className={styles.sectionTitle}>
+            Let&apos;s Build Something{" "}
+            <span className={styles.accentText}>Great</span> Together
+          </h2>
+          <p className={styles.formInfoDesc}>
+            Fill out the form and our team will get back to you within 24 hours.
+            We&apos;re excited to learn about your vision.
+          </p>
+
+          <div className={styles.highlights}>
+            <div className={styles.highlight}>
+              <span className={styles.highlightIcon}>⚡</span>
+              <div>
+                <strong>24hr Response</strong>
+                <span>Quick turnaround guaranteed</span>
+              </div>
+            </div>
+            <div className={styles.highlight}>
+              <span className={styles.highlightIcon}>🛡️</span>
+              <div>
+                <strong>NDA Protected</strong>
+                <span>Your ideas stay safe</span>
+              </div>
+            </div>
+            <div className={styles.highlight}>
+              <span className={styles.highlightIcon}>💬</span>
+              <div>
+                <strong>Free Consultation</strong>
+                <span>No strings attached</span>
+              </div>
+            </div>
+            <div className={styles.highlight}>
+              <span className={styles.highlightIcon}>🚀</span>
+              <div>
+                <strong>Agile Process</strong>
+                <span>Transparent & iterative</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right side form */}
+        <form
+          className={`${styles.contactForm} ${styles.reveal}`}
+          onSubmit={handleSubmit}
+        >
+          {submitted && (
+            <div className={styles.successToast}>
+              ✅ Message sent successfully! We&apos;ll be in touch soon.
+            </div>
+          )}
+
+          <div className={styles.formGrid}>
+            <div className={styles.formGroup}>
+              <label className={styles.formLabel} htmlFor="cf-name">
+                Full Name
+              </label>
+              <input
+                className={styles.formInput}
+                id="cf-name"
+                name="name"
+                onChange={handleChange}
+                placeholder="John Doe"
+                required
+                type="text"
+                value={form.name}
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label className={styles.formLabel} htmlFor="cf-email">
+                Email Address
+              </label>
+              <input
+                className={styles.formInput}
+                id="cf-email"
+                name="email"
+                onChange={handleChange}
+                placeholder="john@company.com"
+                required
+                type="email"
+                value={form.email}
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label className={styles.formLabel} htmlFor="cf-country">
+                Country
+              </label>
+              <select
+                className={styles.formInput}
+                id="cf-country"
+                name="country"
+                onChange={handleChange}
+                value={form.country}
+              >
+                {allCountries.map(c => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className={styles.formGroup}>
+              <label className={styles.formLabel} htmlFor="cf-phone">
+                Phone Number
+              </label>
+              <input
+                className={styles.formInput}
+                id="cf-phone"
+                name="contact"
+                onChange={handleChange}
+                placeholder="+92 300 1234567"
+                required
+                type="text"
+                value={form.contact}
+              />
+            </div>
+          </div>
+
+          <div className={styles.formGroup}>
+            <label className={styles.formLabel} htmlFor="cf-service">
+              Service Interested In
+            </label>
+            <select
+              className={styles.formInput}
+              id="cf-service"
+              name="service"
+              onChange={handleChange}
+              value={form.service}
+            >
+              <option value="">Select a service (optional)</option>
+              <option value="Web Development">Web Development</option>
+              <option value="Mobile App Development">
+                Mobile App Development
+              </option>
+              <option value="Blockchain Development">
+                Blockchain Development
+              </option>
+              <option value="UI/UX Design">UI/UX Design</option>
+              <option value="DevOps & Cloud">DevOps &amp; Cloud</option>
+              <option value="AI & ML">AI &amp; Machine Learning</option>
+              <option value="E-commerce">E-commerce Development</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div className={styles.formGroup}>
+            <label className={styles.formLabel} htmlFor="cf-desc">
+              Project Details
+            </label>
+            <textarea
+              className={styles.formTextarea}
+              id="cf-desc"
+              name="description"
+              onChange={handleChange}
+              placeholder="Tell us about your project, goals, timeline, budget range..."
+              required
+              rows={5}
+              value={form.description}
+            />
+          </div>
+
+          <button
+            className={`${styles.btnPrimary} ${
+              sending ? styles.btnSending : ""
+            }`}
+            disabled={sending}
+            type="submit"
+          >
+            {sending ? "Sending..." : "Send Message →"}
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════
+   FAQ SECTION
+   ══════════════════════════════════════════════════ */
+function FAQSection() {
+  const [openIdx, setOpenIdx] = useState(null);
+
+  const toggle = idx => {
+    setOpenIdx(prev => (prev === idx ? null : idx));
+  };
+
+  return (
+    <section className={styles.faqSec}>
+      <div className={styles.container}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionTag}>FAQ</span>
+          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
+            Frequently Asked Questions
+          </h2>
+          <p className={`${styles.faqSubtitle} ${styles.reveal}`}>
+            Quick answers to the questions we get asked most often
+          </p>
+        </div>
+
+        <div className={styles.faqList}>
+          {faqs.map((faq, i) => (
+            <div
+              className={`${styles.faqItem} ${styles.reveal} ${
+                openIdx === i ? styles.faqOpen : ""
+              }`}
+              key={i}
+              onClick={() => toggle(i)}
+              style={{ transitionDelay: `${i * 80}ms` }}
+            >
+              <div className={styles.faqQuestion}>
+                <h3>{faq.q}</h3>
+                <span className={styles.faqToggle}>
+                  {openIdx === i ? "−" : "+"}
+                </span>
+              </div>
+              <div className={styles.faqAnswer}>
+                <p>{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════
+   CTA BANNER
+   ══════════════════════════════════════════════════ */
+function CTABanner() {
+  return (
+    <section className={styles.ctaSec}>
+      <div className={styles.ctaBg} />
+      <div className={`${styles.container} ${styles.ctaInner}`}>
+        <h2 className={`${styles.ctaTitle} ${styles.reveal}`}>
+          Ready to Start Your Project?
+        </h2>
+        <p className={`${styles.ctaSub} ${styles.reveal}`}>
+          Book a free 30-minute strategy session with our experts.
+        </p>
+        <button
+          className={`${styles.btnPrimary} ${styles.ctaBtn} ${styles.reveal}`}
+          onClick={() =>
+            window.open(
+              "https://calendly.com/request-demo-zweidevs/meeting",
+              "_blank",
+            )
+          }
+        >
+          Schedule a Meeting 🗓️
+        </button>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════
+   FOOTER SECTION
+   ══════════════════════════════════════════════════ */
+function FooterSection() {
+  return (
+    <footer className={styles.footer}>
+      <div className={`${styles.container} ${styles.footerInner}`}>
+        {/* brand column */}
+        <div className={styles.footerBrand}>
+          <div className={styles.footerLogoWrap}>
+            <Image alt="Zweidevs" height={40} src={Logo} width={40} />
+            <span className={styles.footerLogoText}>ZWEIDEVS</span>
+          </div>
+          <p className={styles.footerBrandDesc}>
+            Zweidevs provides dedicated remote teams that work closely with you
+            to design and build your idea.
+          </p>
+          <div className={styles.footerSocials}>
+            {socialLinks.map(s => (
+              <a
+                className={styles.footerSocialLink}
+                href={s.href}
+                key={s.alt}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Image alt={s.alt} height={24} src={s.icon} width={24} />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* quick links */}
+        <div className={styles.footerCol}>
+          <h4 className={styles.footerColTitle}>Quick Links</h4>
+          <Link className={styles.footerLink} href="/">
+            Home
+          </Link>
+          <Link className={styles.footerLink} href="/projects">
+            Projects
+          </Link>
+          <Link className={styles.footerLink} href="/aboutus">
+            About Us
+          </Link>
+          <Link className={styles.footerLink} href="/services">
+            Services
+          </Link>
+          <Link className={styles.footerLink} href="/blog">
+            Blogs
+          </Link>
+        </div>
+
+        {/* services */}
+        <div className={styles.footerCol}>
+          <h4 className={styles.footerColTitle}>Services</h4>
+          {servicesList.map(s => (
+            <Link className={styles.footerLink} href={s.href} key={s.label}>
+              {s.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* contact info */}
+        <div className={styles.footerCol}>
+          <h4 className={styles.footerColTitle}>Contact</h4>
+          <a className={styles.footerLink} href="mailto:info@zweidevs.com">
+            info@zweidevs.com
+          </a>
+          <a className={styles.footerLink} href="tel:+923094446225">
+            +92 309 444 6225
+          </a>
+          <span className={styles.footerLink}>
+            Johar Town, Lahore, Pakistan
+          </span>
+        </div>
+      </div>
+
+      <div className={styles.footerBottom}>
+        <p>© {new Date().getFullYear()} Zweidevs. All Rights Reserved.</p>
+      </div>
+    </footer>
   );
 }
