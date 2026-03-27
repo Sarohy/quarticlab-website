@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import navLinks from "@component/Constants/navLinks";
+import navLinks, { HEADER_CTA } from "@component/Constants/navLinks";
 import ZweidevsLogo from "../../../../public/assets/headerIcons/logoWithText.svg";
 import styles from "./header.module.css";
 
@@ -82,9 +82,14 @@ function Header() {
           </Link>
         ))}
       </nav>
-      <Link className={styles.ctaButton} href="/contactUs">
-        {"Let's Talk"}
-      </Link>
+      <a
+        className={styles.ctaButton}
+        href={HEADER_CTA.href}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        {HEADER_CTA.label}
+      </a>
     </header>
   );
 
@@ -146,13 +151,15 @@ function Header() {
               <span className={styles.mobileNavText}>{text}</span>
             </Link>
           ))}
-          <Link
+          <a
             className={styles.mobileCtaButton}
-            href="/contactUs"
+            href={HEADER_CTA.href}
             onClick={toggleDrawer}
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            {"Let's Talk"}
-          </Link>
+            {HEADER_CTA.label}
+          </a>
         </div>
       </nav>
     </>
