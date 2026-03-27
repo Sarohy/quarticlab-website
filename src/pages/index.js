@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import HSLogo from "../../public/assets/HomeIcons/zweidevsLogo.svg";
 import HS3Img from "../../public/assets/HomeIcons/HS3Img.svg";
-import longSvg from "../../public/assets/HomeIcons/slider-technologies.svg";
 import ClientSvg1 from "../../public/assets/HomeIcons/clients/nick-angelov.png";
 import ClientSvg2 from "../../public/assets/HomeIcons/clients/theresa.png";
 import ClientSvg3 from "../../public/assets/HomeIcons/clients/rishi.png";
@@ -19,6 +18,18 @@ import GameDevIcon from "../../public/assets/serviceIcons/GameDevIcon.svg";
 import IOTDevIcon from "../../public/assets/serviceIcons/IOTIcon.svg";
 import AIDevIcon from "../../public/assets/serviceIcons/AIDevIcon.svg";
 import DevopsIcon from "../../public/assets/serviceIcons/devopsIcon.svg";
+import ArduinoIcon from "../../public/assets/serviceIcons/arduinoIcon.svg";
+import AWSIcon from "../../public/assets/serviceIcons/AWS.svg";
+import EthIcon from "../../public/assets/serviceIcons/ethIcon.svg";
+import FlutterIcon from "../../public/assets/serviceIcons/Flutter.svg";
+import KerasIcon from "../../public/assets/serviceIcons/kerasIcon.svg";
+import NextIcon from "../../public/assets/serviceIcons/next.svg";
+import NodeIcon from "../../public/assets/serviceIcons/node.svg";
+import OpenAIIcon from "../../public/assets/serviceIcons/openAIIcon.svg";
+import PostgresIcon from "../../public/assets/serviceIcons/postgres.svg";
+import PythonIcon from "../../public/assets/serviceIcons/py.svg";
+import ReactIcon from "../../public/assets/serviceIcons/react.svg";
+import UnityIcon from "../../public/assets/serviceIcons/unityIcon.svg";
 import {
   getAllProjects,
   getAllReviews,
@@ -51,6 +62,21 @@ const slugMap = {
     "artificial-intelligence-machine-learning",
   "DevOps & Cloud Services": "devops-cloud",
 };
+
+const techLogos = [
+  { name: "React", src: ReactIcon },
+  { name: "Next.js", src: NextIcon },
+  { name: "Node.js", src: NodeIcon },
+  { name: "Python", src: PythonIcon },
+  { name: "Solidity", src: EthIcon },
+  { name: "Flutter", src: FlutterIcon },
+  { name: "TensorFlow", src: KerasIcon },
+  { name: "AWS", src: AWSIcon },
+  { name: "PostgreSQL", src: PostgresIcon },
+  { name: "OpenAI", src: OpenAIIcon },
+  { name: "Unity", src: UnityIcon },
+  { name: "Arduino", src: ArduinoIcon },
+];
 
 const defaultTestimonials = [
   {
@@ -555,6 +581,18 @@ function TestimonialsSection({ testimonials }) {
 }
 
 function TechSection() {
+  const track = techLogos.map(t => (
+    <div className={styles.techItem} key={t.name}>
+      <Image
+        alt={t.name}
+        className={styles.techItemIcon}
+        height={40}
+        src={t.src}
+        width={40}
+      />
+      <span className={styles.techItemLabel}>{t.name}</span>
+    </div>
+  ));
   return (
     <section className={styles.techSec}>
       <div className={styles.container}>
@@ -563,8 +601,10 @@ function TechSection() {
         </h2>
       </div>
       <div className={styles.techMarquee}>
-        <Image alt="technologies" className={styles.techStrip} src={longSvg} />
-        <Image alt="technologies" className={styles.techStrip} src={longSvg} />
+        <div className={styles.techTrack}>{track}</div>
+        <div aria-hidden="true" className={styles.techTrack}>
+          {track}
+        </div>
       </div>
     </section>
   );
