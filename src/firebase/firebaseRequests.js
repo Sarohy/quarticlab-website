@@ -32,13 +32,13 @@ export const getAllProjects = () => getAllItems(collectionProjects);
 export const addProject = data => addItem(collectionProjects, data);
 
 // zweidevs services
-const collectionServices = process.env.NEXT_PUBLIC_collectionServices;
+const collectionServices = "services"; // collection name in Firestore
 
 export const getAllServices = () => getAllItems(collectionServices);
 export const addService = data => addItem(collectionServices, data);
 
 // zweidevs reviews
-const collectionReviews = process.env.NEXT_PUBLIC_collectionReviews;
+const collectionReviews = "reviews"; // collection name in Firestore
 
 export const getAllReviews = () => getAllItems(collectionReviews);
 export const addReview = data => addItem(collectionReviews, data);

@@ -19,6 +19,7 @@ import ClientSvg3 from "../../public/assets/HomeIcons/clients/rishi.png";
 import ClientSvg4 from "../../public/assets/HomeIcons/clients/anton.png";
 import ClientSvg5 from "../../public/assets/HomeIcons/clients/tony-malik.png";
 import ClientSvg6 from "../../public/assets/HomeIcons/clients/tommy.png";
+import { getAllReviews } from "@component/firebase/firebaseRequests";
 import { postAPIWithoutAuth } from "@component/pages/api/api";
 import { urls } from "@component/utils/urls";
 import styles from "../styles/landing.module.css";
@@ -78,7 +79,7 @@ const projects = [
   },
 ];
 
-const testimonials = [
+const defaultTestimonials = [
   {
     img: ClientSvg2,
     name: "Theresa",
@@ -145,7 +146,7 @@ function useReveal(selector) {
 
 /* ── page ────────────────────────────────────────── */
 
-export default function LandingPage() {
+export default function LandingPage({ testimonials = defaultTestimonials }) {
   const router = useRouter();
   useReveal(`.${styles.reveal}`);
 
@@ -175,7 +176,7 @@ export default function LandingPage() {
       <StatsSection />
 
       {/* ─── TESTIMONIALS ─────────────────────── */}
-      <TestimonialsSection />
+      <TestimonialsSection testimonials={testimonials} />
 
       {/* ─── TECH ─────────────────────────────── */}
       <TechSection />
@@ -400,7 +401,7 @@ function StatsSection() {
   );
 }
 
-function TestimonialsSection() {
+function TestimonialsSection({ testimonials }) {
   const [active, setActive] = useState(0);
   const intervalRef = useRef(null);
 
@@ -439,13 +440,19 @@ function TestimonialsSection() {
               <div className={styles.testimonialStars}>★★★★★</div>
               <p className={styles.testimonialText}>&ldquo;{t.text}&rdquo;</p>
               <div className={styles.testimonialAuthor}>
-                <Image
-                  alt={t.name}
-                  className={styles.testimonialAvatar}
-                  height={48}
-                  src={t.img}
-                  width={48}
-                />
+                {t.img ? (
+                  <Image
+                    alt={t.name}
+                    className={styles.testimonialAvatar}
+                    height={48}
+                    src={t.img}
+                    width={48}
+                  />
+                ) : (
+                  <div className={styles.testimonialAvatarFallback}>
+                    {t.name ? t.name.charAt(0).toUpperCase() : "?"}
+                  </div>
+                )}
                 <span className={styles.testimonialName}>{t.name}</span>
               </div>
             </div>
@@ -481,6 +488,38 @@ function TechSection() {
       </div>
     </section>
   );
+}
+
+/* ── data fetching — SSR (testimonials from Firestore) ── */
+
+export async function getServerSideProps() {
+  try {
+    const data = await getAllReviews();
+    const testimonials = (data || [])
+      .map(r => {
+        const name = r.name || "";
+        const text = r.text || r.review || r.desc || "";
+        const img = r.img || r.image || r.avatar || null;
+        const order = Number(r.order_no ?? r.order ?? 0);
+
+        return { name, text, img, order };
+      })
+      .sort((a, b) => {
+        if (a.order === b.order) {
+          return a.name.localeCompare(b.name);
+        }
+        return a.order - b.order;
+      });
+
+    // Fallback to static testimonials if Firestore is empty or misconfigured
+    if (!testimonials.length) {
+      return { props: { testimonials: defaultTestimonials } };
+    }
+
+    return { props: { testimonials } };
+  } catch (error) {
+    return { props: { testimonials: defaultTestimonials } };
+  }
 }
 
 function ContactSection() {

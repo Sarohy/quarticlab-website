@@ -577,6 +577,21 @@
   border: 2px solid #ff9700;
 }
 
+.testimonialAvatarFallback {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #ff9700;
+  background: #ff9700;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .testimonialName {
   font-size: 15px;
   font-weight: 600;

@@ -1,7 +1,9 @@
-import { useEffect, useRef } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
+
+import { getAllServices } from "../../firebase/firebaseRequests";
 
 /* ── service icons ──────────────────────────── */
 import WebDevIcon from "../../../public/assets/serviceIcons/webdevIcon.svg";
@@ -52,88 +54,43 @@ const slugMap = {
   "DevOps & Cloud Services": "devops-cloud",
 };
 
-/* ── card data (mirrors original services page) ── */
-const cardData = [
-  {
-    icon: WebDevIcon,
-    title: "Web Development",
-    desc: "We are a creative web development team, leveraging the latest technological advances with thoughtful design and serious engineering to build tailored solutions for our clients.",
-    techs: [
-      { img: NodeIcon, t: "Node" },
-      { img: PythonIcon, t: "Python" },
-      { img: ReactIcon, t: "React" },
-      { img: JSIcon, t: "JS" },
-      { img: AngularIcon, t: "Angular" },
-      { img: NextIcon, t: "Next" },
-    ],
-  },
-  {
-    icon: BlockchainIcon,
-    title: "Blockchain Development",
-    desc: "Blockchain is the backbone technology of digital cryptocurrency. We have a team of Blockchain developers to make the deployment correct and secure.",
-    techs: [
-      { img: SolanaIcon, t: "Solana" },
-      { img: EthIcon, t: "Ethereum" },
-    ],
-  },
-  {
-    icon: MobileDevIcon,
-    title: "Mobile App Development",
-    desc: "We develop sleek looking native and hybrid mobile apps for iOS & Android to ensure customer satisfaction and performance at the core.",
-    techs: [
-      { img: AndroidIcon, t: "Android" },
-      { img: IOSIcon, t: "iOS" },
-      { img: ReactIcon, t: "React Native" },
-      { img: Flutter, t: "Flutter" },
-    ],
-  },
-  {
-    icon: UIUXIcon,
-    title: "UI/UX Development",
-    desc: "The UI/UX Design brings a design-centric approach to user interface and user experience, providing innovative solutions by following an entire development process.",
-    techs: [
-      { img: FigmaIcon, t: "Figma" },
-      { img: SketchIcon, t: "Sketch" },
-    ],
-  },
-  {
-    icon: GameDevIcon,
-    title: "Game Development",
-    desc: "With our team of expert game developers, we transform your idea into a striking game that makes the audience want to play, across multiple platforms.",
-    techs: [
-      { img: UnityIcon, t: "Unity" },
-      { img: BelenderIcon, t: "Blender" },
-    ],
-  },
-  {
-    icon: IOTDevIcon,
-    title: "IOT Devices",
-    desc: "We are experts in building embedded systems with integrated sensors, and wired and wireless communication with mobile and web apps.",
-    techs: [
-      { img: RaspbarryPiIcon, t: "RPi" },
-      { img: ArduinoIcon, t: "Arduino" },
-    ],
-  },
-  {
-    icon: AIDevIcon,
-    title: "Artificial Intelligence & Machine Learning",
-    desc: "We provide services to augment your existing platforms with the power of computer vision, data visualizations, predictive analysis and more.",
-    techs: [
-      { img: PyTorch, t: "PyTorch" },
-      { img: OpenAIIcon, t: "OpenAI" },
-    ],
-  },
-  {
-    icon: DevopsIcon,
-    title: "DevOps & Cloud Services",
-    desc: "We possess deep knowledge with cloud services. Shorten time to launch new solutions, modernize legacy technology with IaaS-based applications on AWS, Azure or Google Cloud.",
-    techs: [
-      { img: AWSIcon, t: "AWS" },
-      { img: AzureIcon, t: "Azure" },
-      { img: GoogleCloudIcon, t: "GCP" },
-    ],
-  },
-];
+/* ── icon maps for dynamic Firestore data ──── */
+const serviceIconMap = {
+  "Web Development": WebDevIcon,
+  "Blockchain Development": BlockchainIcon,
+  "Mobile App Development": MobileDevIcon,
+  "UI/UX Development": UIUXIcon,
+  "Game Development": GameDevIcon,
+  "IOT Devices": IOTDevIcon,
+  "Artificial Intelligence & Machine Learning": AIDevIcon,
+  "DevOps & Cloud Services": DevopsIcon,
+};
+
+const techIconMap = {
+  Android: AndroidIcon,
+  Angular: AngularIcon,
+  Arduino: ArduinoIcon,
+  AWS: AWSIcon,
+  Azure: AzureIcon,
+  Blender: BelenderIcon,
+  Ethereum: EthIcon,
+  Figma: FigmaIcon,
+  Flutter,
+  GCP: GoogleCloudIcon,
+  iOS: IOSIcon,
+  JS: JSIcon,
+  Next: NextIcon,
+  Node: NodeIcon,
+  OpenAI: OpenAIIcon,
+  PyTorch,
+  Python: PythonIcon,
+  "React Native": ReactIcon,
+  React: ReactIcon,
+  RPi: RaspbarryPiIcon,
+  Sketch: SketchIcon,
+  Solana: SolanaIcon,
+  Unity: UnityIcon,
+};
 
 /* ── reveal hook ────────────────────────────── */
 function useReveal() {
@@ -167,9 +124,9 @@ function useReveal() {
 }
 
 /* ═══════════════════════════════════════════
-   PAGE COMPONENT
-   ═══════════════════════════════════════════ */
-export default function ServicesNew() {
+  PAGE COMPONENT
+  ═══════════════════════════════════════════ */
+export default function ServicesNew({ services = [] }) {
   const addRef = useReveal();
 
   return (
@@ -232,10 +189,10 @@ export default function ServicesNew() {
           </div>
 
           <div className={styles.servicesGrid}>
-            {cardData.map((svc, i) => (
+            {services.map((svc, i) => (
               <Link
                 className={`${styles.serviceCard} ${styles.reveal}`}
-                href={`/servicesNew/${slugMap[svc.title]}`}
+                href={svc.slug ? `/servicesNew/${svc.slug}` : "/services"}
                 key={svc.title}
                 ref={addRef}
                 style={{ transitionDelay: `${i * 0.06}s` }}
@@ -306,4 +263,42 @@ export default function ServicesNew() {
       </section>
     </div>
   );
+}
+
+/* ── data fetching — SSR (always fresh from Firestore) ── */
+
+export async function getServerSideProps() {
+  try {
+    const data = await getAllServices();
+    const services = (data || [])
+      .map(svc => {
+        const title = svc.title || "";
+        const desc = svc.desc || svc.description || "";
+        const icon = serviceIconMap[title] || WebDevIcon;
+        const techNames = Array.isArray(svc.techs) ? svc.techs : [];
+        const techs = techNames
+          .map(name => {
+            const img = techIconMap[name];
+            if (!img) {
+              return null;
+            }
+            return { img, t: name };
+          })
+          .filter(Boolean);
+        const order = Number(svc.order_no ?? svc.order ?? 0);
+        const slug = svc.slug || slugMap[title] || "";
+
+        return { icon, title, desc, techs, order, slug };
+      })
+      .sort((a, b) => {
+        if (a.order === b.order) {
+          return a.title.localeCompare(b.title);
+        }
+        return a.order - b.order;
+      });
+
+    return { props: { services } };
+  } catch (error) {
+    return { props: { services: [] } };
+  }
 }
