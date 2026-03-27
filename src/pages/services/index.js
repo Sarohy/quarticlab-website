@@ -41,29 +41,38 @@ import NextIcon from "../../../public/assets/serviceIcons/next.svg";
 
 import styles from "./servicesNew.module.css";
 
+/* ── MUI ────────────────────────────────────── */
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Chip from "@mui/material/Chip";
+import Grid from "@mui/material/Grid";
+
 /* ── slugify helper ─────────────────────────── */
 const slugMap = {
   "Web Development": "web-development",
+  "Mobile App Development": "mobile-development",
   "Blockchain Development": "blockchain-development",
-  "Mobile App Development": "mobile-app-development",
-  "UI/UX Development": "uiux-development",
+  "AI/ML Development": "ai-ml-development",
+  "IoT Development": "iot-development",
   "Game Development": "game-development",
-  "IOT Devices": "iot-devices",
-  "Artificial Intelligence & Machine Learning":
-    "artificial-intelligence-machine-learning",
-  "DevOps & Cloud Services": "devops-cloud",
+  "GenAI & Automation": "genai-automation",
+  "UI/UX Design": "ui-ux-design",
+  DevOps: "devops",
 };
 
 /* ── icon maps for dynamic Firestore data ──── */
 const serviceIconMap = {
   "Web Development": WebDevIcon,
-  "Blockchain Development": BlockchainIcon,
   "Mobile App Development": MobileDevIcon,
-  "UI/UX Development": UIUXIcon,
+  "Blockchain Development": BlockchainIcon,
+  "AI/ML Development": AIDevIcon,
+  "IoT Development": IOTDevIcon,
   "Game Development": GameDevIcon,
-  "IOT Devices": IOTDevIcon,
-  "Artificial Intelligence & Machine Learning": AIDevIcon,
-  "DevOps & Cloud Services": DevopsIcon,
+  "GenAI & Automation": OpenAIIcon,
+  "UI/UX Design": UIUXIcon,
+  DevOps: DevopsIcon,
 };
 
 const techIconMap = {
@@ -128,6 +137,8 @@ function useReveal() {
   ═══════════════════════════════════════════ */
 export default function ServicesNew({ services = [] }) {
   const addRef = useReveal();
+  const genAiSvc = services.find(s => s.slug === "genai-automation");
+  const regularSvcs = services.filter(s => s.slug !== "genai-automation");
 
   return (
     <div className={styles.page}>
@@ -188,51 +199,150 @@ export default function ServicesNew({ services = [] }) {
             </p>
           </div>
 
-          <div className={styles.servicesGrid}>
-            {services.map((svc, i) => (
-              <Link
-                className={`${styles.serviceCard} ${styles.reveal}`}
-                href={svc.slug ? `/servicesNew/${svc.slug}` : "/services"}
-                key={svc.title}
-                ref={addRef}
-                style={{ transitionDelay: `${i * 0.06}s` }}
-              >
-                <div className={styles.serviceIconWrap}>
-                  <Image
-                    alt={svc.title}
-                    className={styles.serviceIcon}
-                    height={32}
-                    src={svc.icon}
-                    width={32}
+          <Grid container spacing={3}>
+            {genAiSvc && (
+              <Grid item xs={12}>
+                <Link
+                  className={`${styles.serviceCard} ${styles.reveal}`}
+                  href={`/services/${genAiSvc.slug}`}
+                  ref={addRef}
+                >
+                  <Chip
+                    label="New"
+                    size="small"
+                    sx={{ bgcolor: "success.light", mb: 1.5 }}
                   />
-                </div>
-                <h3 className={styles.serviceCardTitle}>{svc.title}</h3>
-                <p className={styles.serviceCardDesc}>{svc.desc}</p>
-
-                {/* tech bubbles */}
-                <div className={styles.serviceCardFooter}>
-                  {svc.techs.map(tech => (
-                    <div
-                      className={styles.techBubble}
-                      key={tech.t}
-                      title={tech.t}
-                    >
-                      <Image
-                        alt={tech.t}
-                        height={16}
-                        src={tech.img}
-                        width={16}
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                <span className={styles.serviceLink}>
-                  Learn More <span aria-hidden="true">→</span>
-                </span>
-              </Link>
+                  <div className={styles.serviceIconWrap}>
+                    <Image
+                      alt={genAiSvc.title}
+                      className={styles.serviceIcon}
+                      height={32}
+                      src={genAiSvc.icon}
+                      width={32}
+                    />
+                  </div>
+                  <h3 className={styles.serviceCardTitle}>{genAiSvc.title}</h3>
+                  <p className={styles.serviceCardDesc}>
+                    {genAiSvc.desc ||
+                      "Supercharge your business with Generative AI, " +
+                        "autonomous AI Agents, and end-to-end " +
+                        "Automation pipelines — built for your business."}
+                  </p>
+                  <span className={styles.serviceLink}>
+                    Learn More <span aria-hidden="true">→</span>
+                  </span>
+                </Link>
+              </Grid>
+            )}
+            {regularSvcs.map((svc, i) => (
+              <Grid item key={svc.title} md={4} sm={6} xs={12}>
+                <Link
+                  className={`${styles.serviceCard} ${styles.reveal}`}
+                  href={svc.slug ? `/services/${svc.slug}` : "/services"}
+                  ref={addRef}
+                  style={{ transitionDelay: `${i * 0.06}s` }}
+                >
+                  <div className={styles.serviceIconWrap}>
+                    <Image
+                      alt={svc.title}
+                      className={styles.serviceIcon}
+                      height={32}
+                      src={svc.icon}
+                      width={32}
+                    />
+                  </div>
+                  <h3 className={styles.serviceCardTitle}>{svc.title}</h3>
+                  <p className={styles.serviceCardDesc}>{svc.desc}</p>
+                  <div className={styles.serviceCardFooter}>
+                    {svc.techs.map(tech => (
+                      <div
+                        className={styles.techBubble}
+                        key={tech.t}
+                        title={tech.t}
+                      >
+                        <Image
+                          alt={tech.t}
+                          height={16}
+                          src={tech.img}
+                          width={16}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <span className={styles.serviceLink}>
+                    Learn More <span aria-hidden="true">→</span>
+                  </span>
+                </Link>
+              </Grid>
             ))}
+          </Grid>
+        </div>
+      </section>
+
+      {/* ── HOW WE ENGAGE ──────────────────────── */}
+      <section className={styles.engageSec}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionTag}>Engagement Models</span>
+            <h2 className={styles.sectionTitle}>How We Engage</h2>
+            <p className={styles.sectionDesc}>
+              Choose the model that fits your project. We adapt to your
+              timeline, budget, and team setup.
+            </p>
           </div>
+          <Grid container spacing={3}>
+            {[
+              {
+                desc: "Defined scope. Clear timeline. Fixed budget. No surprises.",
+                title: "Fixed Price",
+              },
+              {
+                desc: "Flexible scope. Pay for what you use. Ideal for evolving products.",
+                title: "Time & Material",
+              },
+              {
+                desc: "Your team, our talent. Daily standups. 30-day notice to scale.",
+                title: "Dedicated Team",
+              },
+            ].map(({ desc, title }) => (
+              <Grid item key={title} md={4} xs={12}>
+                <Card
+                  className={styles.reveal}
+                  ref={addRef}
+                  sx={{
+                    borderRadius: "16px",
+                    boxShadow: "0 4px 24px rgba(43,42,53,0.08)",
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100%",
+                    p: 1,
+                  }}
+                >
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <h3 className={styles.engageCardTitle}>{title}</h3>
+                    <p className={styles.engageCardDesc}>{desc}</p>
+                  </CardContent>
+                  <CardActions sx={{ pb: 2, px: 2 }}>
+                    <Button
+                      component={Link}
+                      href="/how-we-work"
+                      size="small"
+                      sx={{
+                        color: "#FF9700",
+                        fontWeight: 600,
+                        textTransform: "none",
+                        "&:hover": {
+                          bgcolor: "rgba(255,151,0,0.08)",
+                        },
+                      }}
+                    >
+                      Learn More →
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
         </div>
       </section>
 
