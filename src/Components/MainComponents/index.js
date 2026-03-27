@@ -1,3 +1,2 @@
-import * as HomeSectionsFinal from "./HomeSectionsFinal";
-import * as Aboutus from "./Aboutus";
-export { HomeSectionsFinal, Aboutus };
+// No sub-module exports — HomeSectionsFinal and Aboutus have been removed.
+export {};

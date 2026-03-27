@@ -1,56 +1,54 @@
 # Components
 
-This folder is the root of the entire React component library for the Zweidevs website. It is split into three layers following a clear separation of concerns.
+Root of the React component library for the Zweidevs website.
+Follows a clear separation of concerns across three layers.
 
 ## Structure
 
 ```
 Components/
 ├── Layout/             ← Persistent page shell (Header + children + Footer)
-├── CommonComponents/   ← Reusable, page-agnostic UI components
-├── MainComponents/     ← Page-specific large content components
+├── CommonComponents/   ← Shared UI: Header + Footer
+├── MainComponents/     ← (empty — all page-level sections live directly in pages/)
 └── index.js            ← Barrel export
 ```
 
-## Architecture Overview
+## Architecture
 
 ```
 _app.js
   └── Layout
         ├── Header          (CommonComponents)
-        ├── {Page Content}
-        │     ├── MainComponents  (page sections)
-        │     └── CommonComponents (cards, banners, buttons, etc.)
+        ├── {Page Content}  (self-contained in each pages/*.js file)
         └── Footer          (CommonComponents)
 ```
 
 ## Layer Responsibilities
 
-| Layer              | Purpose                                                         | Examples                                      |
-|--------------------|-----------------------------------------------------------------|-----------------------------------------------|
-| `Layout`           | Shell that wraps every page — always present                    | `Layout.jsx`                                  |
-| `CommonComponents` | Small to medium reusable UI — used in multiple pages/sections   | `Header`, `Footer`, `BlogCard`, `ServiceCard` |
-| `MainComponents`   | Large page-level sections — tightly coupled to one page         | `HomeSection1`–`HomeSection8`, `AboutUsCard2` |
+| Layer              | Purpose                                               | Current contents              |
+|--------------------|-------------------------------------------------------|-------------------------------|
+| `Layout`           | Shell that wraps every page — always present          | `Layout.jsx`                  |
+| `CommonComponents` | Header + Footer used by every page via Layout         | `Header/`, `Footer/`          |
+| `MainComponents`   | Reserved for future page-specific section components  | *(empty)*                     |
 
 ## Import Alias
 
-The `jsconfig.json` sets up the `@component` alias pointing to `src/`:
+`jsconfig.json` sets up `@component` → `src/`:
 
 ```js
-import Layout   from "@component/Components/Layout";
-import { Header } from "@component/Components/CommonComponents";
-import HomeSection1 from "@component/Components/MainComponents/HomeSectionsFinal/HomeSection1";
+import Layout from "@component/Components/Layout";
+import { Header, Footer } from "@component/Components/CommonComponents";
 ```
 
 ## Barrel Export (`index.js`)
 
 ```js
-import { Layout, CommonComponents, MainComponents } from "@component/Components";
+import { Layout, CommonComponents } from "@component/Components";
 ```
 
 ## Key Design Decisions
 
-- **`next/dynamic`** is used heavily for lazy-loading heavy components (MUI, carousels) to improve initial page load performance.
-- **`animate.css` + `IntersectionObserver`** is the animation pattern — elements animate once when scrolled into view.
+- All page UI (sections, cards, forms) lives directly in the corresponding `src/pages/` file — no intermediate component layer.
 - **CSS Modules** are co-located with each component file for scoped styling.
-- Components are **prop-driven** and stateless where possible; stateful logic lives in page files or the section components themselves.
+- **`IntersectionObserver`** + CSS Module `.visible` class is the scroll animation pattern (no `animate.css`).
+- Firebase data is fetched via `getServerSideProps` in each page and passed as props.
