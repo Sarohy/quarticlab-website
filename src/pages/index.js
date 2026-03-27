@@ -5,9 +5,6 @@ import { useRouter } from "next/router";
 import HSLogo from "../../public/assets/HomeIcons/zweidevsLogo.svg";
 import HS3Img from "../../public/assets/HomeIcons/HS3Img.svg";
 import longSvg from "../../public/assets/HomeIcons/slider-technologies.svg";
-import Web1 from "../../public/assets/HomeIcons/Project/Web1.png";
-import Mobo1 from "../../public/assets/serviceDetailsIcons/moboIcons/mobo1.png";
-import Web4 from "../../public/assets/HomeIcons/Project/Web4.png";
 import ClientSvg1 from "../../public/assets/HomeIcons/clients/nick-angelov.png";
 import ClientSvg2 from "../../public/assets/HomeIcons/clients/theresa.png";
 import ClientSvg3 from "../../public/assets/HomeIcons/clients/rishi.png";
@@ -23,6 +20,7 @@ import IOTDevIcon from "../../public/assets/serviceIcons/IOTIcon.svg";
 import AIDevIcon from "../../public/assets/serviceIcons/AIDevIcon.svg";
 import DevopsIcon from "../../public/assets/serviceIcons/devopsIcon.svg";
 import {
+  getAllProjects,
   getAllReviews,
   getAllServices,
 } from "@component/firebase/firebaseRequests";
@@ -53,27 +51,6 @@ const slugMap = {
     "artificial-intelligence-machine-learning",
   "DevOps & Cloud Services": "devops-cloud",
 };
-
-const projects = [
-  {
-    image: Web1,
-    title: "Cyber Legends",
-    tag: "Ed-Tech",
-    desc: "Ed-Tech and Gaming platform offering online cyber security learning services, equipping educators, parents and kids with interactive tools.",
-  },
-  {
-    image: Mobo1,
-    title: "Neverleft",
-    tag: "Fintech",
-    desc: "A more efficient method for managing venue operations that incorporates data analytics, enhanced event ticketing, and digital cloakroom ticketing.",
-  },
-  {
-    image: Web4,
-    title: "Blockcircle",
-    tag: "Crypto",
-    desc: "Blockcircle provides competitive data, proprietary tools, and dynamic investing analytics to enable well-informed decisions in the cryptocurrency market.",
-  },
-];
 
 const defaultTestimonials = [
   {
@@ -173,6 +150,7 @@ function useReveal(selector) {
 /* ── page ────────────────────────────────────────── */
 
 export default function LandingPage({
+  projects = [],
   services = [],
   testimonials = defaultTestimonials,
 }) {
@@ -199,7 +177,7 @@ export default function LandingPage({
       <AboutSection router={router} />
 
       {/* ─── PROJECTS ─────────────────────────── */}
-      <ProjectsSection />
+      <ProjectsSection projects={projects} />
 
       {/* ─── STATS ────────────────────────────── */}
       <StatsSection />
@@ -355,7 +333,8 @@ function AboutSection({ router }) {
   );
 }
 
-function ProjectsSection() {
+function ProjectsSection({ projects }) {
+  const router = useRouter();
   return (
     <section className={styles.projectsSec}>
       <div className={styles.container}>
@@ -373,14 +352,20 @@ function ProjectsSection() {
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               <div className={styles.projectImgWrap}>
-                <Image
-                  alt={p.title}
-                  className={styles.projectImg}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  src={p.image}
-                />
-                <span className={styles.projectTag}>{p.tag}</span>
+                {p.image ? (
+                  <Image
+                    alt={p.title}
+                    className={styles.projectImg}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    src={p.image}
+                  />
+                ) : (
+                  <div className={styles.projectImgPlaceholder} />
+                )}
+                {p.types?.[0] && (
+                  <span className={styles.projectTag}>{p.types[0]}</span>
+                )}
               </div>
               <div className={styles.projectBody}>
                 <h3 className={styles.projectTitle}>{p.title}</h3>
@@ -388,6 +373,14 @@ function ProjectsSection() {
               </div>
             </div>
           ))}
+        </div>
+        <div className={styles.servicesCta}>
+          <button
+            className={styles.btnOutline}
+            onClick={() => router.push("/projects")}
+          >
+            View All Projects →
+          </button>
         </div>
       </div>
     </section>
@@ -580,6 +573,27 @@ function TechSection() {
 /* ── data fetching — SSR (testimonials from Firestore) ── */
 
 export async function getServerSideProps() {
+  // ── projects ───────────────────────────────────
+  let projects = [];
+  try {
+    const pData = await getAllProjects();
+    projects = (pData || [])
+      .map(p => ({
+        title: p.title || "",
+        desc: p.desc || p.description || "",
+        types: Array.isArray(p.types) ? p.types : p.type ? [p.type] : [],
+        image: p.image || p.imageUrl || null,
+        order: Number(p.order_no ?? p.order ?? 0),
+      }))
+      .sort((a, b) =>
+        a.order === b.order
+          ? a.title.localeCompare(b.title)
+          : a.order - b.order,
+      )
+      .slice(0, 4);
+  } catch (_) {
+    projects = [];
+  }
   // ── services ────────────────────────────────────
   let services = [];
   try {
@@ -619,11 +633,13 @@ export async function getServerSideProps() {
       );
 
     if (!testimonials.length) {
-      return { props: { services, testimonials: defaultTestimonials } };
+      return {
+        props: { projects, services, testimonials: defaultTestimonials },
+      };
     }
-    return { props: { services, testimonials } };
+    return { props: { projects, services, testimonials } };
   } catch (_) {
-    return { props: { services, testimonials: defaultTestimonials } };
+    return { props: { projects, services, testimonials: defaultTestimonials } };
   }
 }
 
