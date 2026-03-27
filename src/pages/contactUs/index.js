@@ -58,11 +58,14 @@ const faqs = [
 
 const servicesList = [
   { label: "Web Development", href: urls.services.WebApp.url },
-  { label: "Mobile Apps", href: urls.services.MobileApp.url },
-  { label: "Blockchain", href: urls.services.BC.url },
+  { label: "Mobile App Development", href: urls.services.MobileApp.url },
+  { label: "Blockchain Development", href: urls.services.BC.url },
+  { label: "AI/ML Development", href: urls.services.AI.url },
+  { label: "IoT Development", href: urls.services.IoT.url },
+  { label: "Game Development", href: urls.services.GD.url },
+  { label: "GenAI & Automation", href: urls.services.GenAI.url },
   { label: "UI/UX Design", href: urls.services.UIUX.url },
-  { label: "DevOps & Cloud", href: urls.services.DevOPS.url },
-  { label: "AI & ML", href: urls.services.AI.url },
+  { label: "DevOps", href: urls.services.DevOPS.url },
 ];
 
 const socialLinks = [
