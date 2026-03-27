@@ -4,11 +4,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import HSLogo from "../../public/assets/HomeIcons/zweidevsLogo.svg";
 import HS3Img from "../../public/assets/HomeIcons/HS3Img.svg";
-import HS2Img1 from "../../public/assets/HomeIcons/HSImg1.svg";
-import HS2Img2 from "../../public/assets/HomeIcons/HSImg2.svg";
-import HS2Img3 from "../../public/assets/HomeIcons/HSImg3.svg";
-import HS2Img4 from "../../public/assets/HomeIcons/HSImg4.svg";
-import HS2Img5 from "../../public/assets/HomeIcons/HSImg5.svg";
 import longSvg from "../../public/assets/HomeIcons/slider-technologies.svg";
 import Web1 from "../../public/assets/HomeIcons/Project/Web1.png";
 import Mobo1 from "../../public/assets/serviceDetailsIcons/moboIcons/mobo1.png";
@@ -19,44 +14,45 @@ import ClientSvg3 from "../../public/assets/HomeIcons/clients/rishi.png";
 import ClientSvg4 from "../../public/assets/HomeIcons/clients/anton.png";
 import ClientSvg5 from "../../public/assets/HomeIcons/clients/tony-malik.png";
 import ClientSvg6 from "../../public/assets/HomeIcons/clients/tommy.png";
-import { getAllReviews } from "@component/firebase/firebaseRequests";
+import WebDevIcon from "../../public/assets/serviceIcons/webdevIcon.svg";
+import BlockchainIcon from "../../public/assets/serviceIcons/blockchainIcon.svg";
+import MobileDevIcon from "../../public/assets/serviceIcons/MobDevIcon.svg";
+import UIUXIcon from "../../public/assets/serviceIcons/uiuxIcon.svg";
+import GameDevIcon from "../../public/assets/serviceIcons/GameDevIcon.svg";
+import IOTDevIcon from "../../public/assets/serviceIcons/IOTIcon.svg";
+import AIDevIcon from "../../public/assets/serviceIcons/AIDevIcon.svg";
+import DevopsIcon from "../../public/assets/serviceIcons/devopsIcon.svg";
+import {
+  getAllReviews,
+  getAllServices,
+} from "@component/firebase/firebaseRequests";
 import { postAPIWithoutAuth } from "@component/pages/api/api";
-import { urls } from "@component/utils/urls";
 import styles from "../styles/landing.module.css";
 
 /* ── data ────────────────────────────────────────── */
-const services = [
-  {
-    icon: HS2Img1,
-    title: "Blockchain Development",
-    href: urls.services.BC.url,
-    desc: "Blockchain is the backbone technology of digital cryptocurrency Bitcoin. We have a team of blockchain developers dedicated to ensuring accurate deployment.",
-  },
-  {
-    icon: HS2Img2,
-    title: "DevOps Development",
-    href: urls.services.DevOPS.url,
-    desc: "DevOps facilitates the evolution and accelerated improvement of products. Our team ensures correct deployment and guarantees seamless automation execution.",
-  },
-  {
-    icon: HS2Img3,
-    title: "Web Development",
-    href: urls.services.WebApp.url,
-    desc: "We are a creative web development team, leveraging the latest technology with thoughtful design and serious engineering for any industry.",
-  },
-  {
-    icon: HS2Img4,
-    title: "Ecommerce Development",
-    href: urls.services.Ecommerce.url,
-    desc: "Our team assists you in expanding the global reach of your business by seamlessly transitioning your offline stores to the global web.",
-  },
-  {
-    icon: HS2Img5,
-    title: "Mobile App Development",
-    href: urls.services.MobileApp.url,
-    desc: "We specialize in developing sleek native and hybrid mobile apps, prioritizing customer satisfaction and performance at the core.",
-  },
-];
+
+const serviceIconMap = {
+  "Web Development": WebDevIcon,
+  "Blockchain Development": BlockchainIcon,
+  "Mobile App Development": MobileDevIcon,
+  "UI/UX Development": UIUXIcon,
+  "Game Development": GameDevIcon,
+  "IOT Devices": IOTDevIcon,
+  "Artificial Intelligence & Machine Learning": AIDevIcon,
+  "DevOps & Cloud Services": DevopsIcon,
+};
+
+const slugMap = {
+  "Web Development": "web-development",
+  "Blockchain Development": "blockchain-development",
+  "Mobile App Development": "mobile-app-development",
+  "UI/UX Development": "uiux-development",
+  "Game Development": "game-development",
+  "IOT Devices": "iot-devices",
+  "Artificial Intelligence & Machine Learning":
+    "artificial-intelligence-machine-learning",
+  "DevOps & Cloud Services": "devops-cloud",
+};
 
 const projects = [
   {
@@ -176,7 +172,10 @@ function useReveal(selector) {
 
 /* ── page ────────────────────────────────────────── */
 
-export default function LandingPage({ testimonials = defaultTestimonials }) {
+export default function LandingPage({
+  services = [],
+  testimonials = defaultTestimonials,
+}) {
   const router = useRouter();
   useReveal(`.${styles.reveal}`);
 
@@ -194,7 +193,7 @@ export default function LandingPage({ testimonials = defaultTestimonials }) {
       <HeroSection router={router} />
 
       {/* ─── SERVICES ─────────────────────────── */}
-      <ServicesSection router={router} />
+      <ServicesSection router={router} services={services} />
 
       {/* ─── ABOUT ────────────────────────────── */}
       <AboutSection router={router} />
@@ -270,7 +269,7 @@ function HeroSection({ router }) {
   );
 }
 
-function ServicesSection({ router }) {
+function ServicesSection({ router, services }) {
   return (
     <section className={styles.services} id="services">
       <div className={styles.container}>
@@ -281,27 +280,38 @@ function ServicesSection({ router }) {
           </h2>
         </div>
         <div className={styles.servicesGrid}>
-          {services.map((s, i) => (
-            <div
-              className={`${styles.serviceCard} ${styles.reveal}`}
-              key={s.title}
-              onClick={() => router.push(s.href)}
-              style={{ transitionDelay: `${i * 70}ms` }}
-            >
-              <div className={styles.serviceIconWrap}>
-                <Image
-                  alt={s.title}
-                  className={styles.serviceIcon}
-                  height={56}
-                  src={s.icon}
-                  width={56}
-                />
+          {services.map((s, i) => {
+            const icon = serviceIconMap[s.title] || WebDevIcon;
+            return (
+              <div
+                className={`${styles.serviceCard} ${styles.reveal}`}
+                key={s.title}
+                onClick={() => router.push(s.href)}
+                style={{ transitionDelay: `${i * 70}ms` }}
+              >
+                <div className={styles.serviceIconWrap}>
+                  <Image
+                    alt={s.title}
+                    className={styles.serviceIcon}
+                    height={56}
+                    src={icon}
+                    width={56}
+                  />
+                </div>
+                <h3 className={styles.serviceCardTitle}>{s.title}</h3>
+                <p className={styles.serviceCardDesc}>{s.desc}</p>
+                <span className={styles.serviceLink}>Learn more →</span>
               </div>
-              <h3 className={styles.serviceCardTitle}>{s.title}</h3>
-              <p className={styles.serviceCardDesc}>{s.desc}</p>
-              <span className={styles.serviceLink}>Learn more →</span>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+        <div className={styles.servicesCta}>
+          <button
+            className={styles.btnOutline}
+            onClick={() => router.push("/services")}
+          >
+            Explore All Services →
+          </button>
         </div>
       </div>
     </section>
@@ -570,6 +580,30 @@ function TechSection() {
 /* ── data fetching — SSR (testimonials from Firestore) ── */
 
 export async function getServerSideProps() {
+  // ── services ────────────────────────────────────
+  let services = [];
+  try {
+    const svcData = await getAllServices();
+    services = (svcData || [])
+      .map(svc => {
+        const title = svc.title || "";
+        const desc = svc.desc || svc.description || "";
+        const order = Number(svc.order_no ?? svc.order ?? 0);
+        const slug = svc.slug || slugMap[title] || "";
+        const href = slug ? `/services/${slug}` : "/services";
+        return { title, desc, order, href };
+      })
+      .sort((a, b) =>
+        a.order === b.order
+          ? a.title.localeCompare(b.title)
+          : a.order - b.order,
+      )
+      .slice(0, 8);
+  } catch (_) {
+    services = [];
+  }
+
+  // ── testimonials ─────────────────────────────────
   try {
     const data = await getAllReviews();
     const testimonials = (data || [])
@@ -578,24 +612,18 @@ export async function getServerSideProps() {
         const text = r.text || r.review || r.desc || "";
         const img = r.img || r.image || r.avatar || null;
         const order = Number(r.order_no ?? r.order ?? 0);
-
         return { name, text, img, order };
       })
-      .sort((a, b) => {
-        if (a.order === b.order) {
-          return a.name.localeCompare(b.name);
-        }
-        return a.order - b.order;
-      });
+      .sort((a, b) =>
+        a.order === b.order ? a.name.localeCompare(b.name) : a.order - b.order,
+      );
 
-    // Fallback to static testimonials if Firestore is empty or misconfigured
     if (!testimonials.length) {
-      return { props: { testimonials: defaultTestimonials } };
+      return { props: { services, testimonials: defaultTestimonials } };
     }
-
-    return { props: { testimonials } };
-  } catch (error) {
-    return { props: { testimonials: defaultTestimonials } };
+    return { props: { services, testimonials } };
+  } catch (_) {
+    return { props: { services, testimonials: defaultTestimonials } };
   }
 }
 
