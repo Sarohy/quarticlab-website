@@ -1,106 +1,104 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/projectsNew.module.css";
 
 import { getAllProjects } from "../firebase/firebaseRequests";
 
-import AwsIcon from "../../public/assets/projectIcon/awsIcon.svg";
-import NodeIcon from "../../public/assets/projectIcon/nodejsIcon.svg";
-import ReactIcon from "../../public/assets/projectIcon/reactIcon.svg";
-import RubyIcon from "../../public/assets/projectIcon/rorIcon.svg";
+/* ── MUI ─────────────────────────────────────────── */
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Chip from "@mui/material/Chip";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import Typography from "@mui/material/Typography";
+import CloseIcon from "@mui/icons-material/Close";
 
 const SITE_URL = "https://www.zweidevs.com";
 
-/* ── data ────────────────────────────────────────── */
+/* ── reveal hook ─────────────────────────────────── */
+function useReveal() {
+  const refs = useRef([]);
 
-const categories = [
-  { key: "all", label: "All Projects" },
-  { key: "web", label: "Web Apps" },
-  { key: "mobile", label: "Mobile Apps" },
-  { key: "ai", label: "AI & ML" },
-];
-
-const techIcons = [
-  { src: ReactIcon, alt: "React.js", w: 36 },
-  { src: NodeIcon, alt: "Node.js", w: 36 },
-  { src: RubyIcon, alt: "Ruby on Rails", w: 36 },
-  { src: AwsIcon, alt: "AWS", w: 26 },
-];
-
-/* ── hooks ───────────────────────────────────────── */
-
-function useReveal(selector) {
   useEffect(() => {
-    const els = document.querySelectorAll(selector);
-    if (!els.length) {
-      return;
-    }
-    const obs = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       entries => {
         entries.forEach(e => {
           if (e.isIntersecting) {
             e.target.classList.add(styles.visible);
-            obs.unobserve(e.target);
+            observer.unobserve(e.target);
           }
         });
       },
       { threshold: 0.08 },
     );
-    els.forEach(el => obs.observe(el));
-    return () => obs.disconnect();
-  }, [selector]);
+    refs.current.forEach(el => {
+      if (el) {
+        observer.observe(el);
+      }
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  return el => {
+    if (el && !refs.current.includes(el)) {
+      refs.current.push(el);
+    }
+  };
 }
 
 /* ── page ────────────────────────────────────────── */
 
 export default function ProjectsNewPage({ projects = [] }) {
-  const [active, setActive] = useState("all");
-  const [filtered, setFiltered] = useState(projects);
-  const [animKey, setAnimKey] = useState(0);
+  const addRef = useReveal();
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
-  useReveal(`.${styles.reveal}`);
-
-  const handleFilter = key => {
-    setActive(key);
-    setAnimKey(prev => prev + 1);
-    if (key === "all") {
-      setFiltered(projects);
-    } else {
-      setFiltered(projects.filter(p => p.types?.includes(key)));
-    }
+  const handleCardClick = project => {
+    setSelectedProject(project);
+    setDialogOpen(true);
   };
+
+  const categories = ["All", ...new Set(projects.map(p => p.category))];
+
+  const filtered =
+    activeCategory === "All"
+      ? projects
+      : projects.filter(p => p.category === activeCategory);
 
   const requestDemo = () => {
     window.open("https://calendly.com/request-demo-zweidevs/meeting", "_blank");
   };
 
-  /* ── JSON-LD structured data for AI & search crawlers ── */
+  /* ── JSON-LD structured data ── */
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Zweidevs Portfolio — Software Development Projects",
     description:
-      "A curated list of custom software projects built by Zweidevs, covering web apps, mobile apps, AI & ML solutions, and blockchain platforms.",
-    url: `${SITE_URL}/projects`,
-    numberOfItems: projects.length,
+      "A curated list of custom software projects built by Zweidevs, " +
+      "covering web apps, mobile apps, AI & ML solutions, and blockchain " +
+      "platforms.",
     itemListElement: projects.map((p, i) => ({
       "@type": "ListItem",
-      position: i + 1,
       item: {
         "@type": "SoftwareApplication",
-        name: p.title,
+        author: { "@type": "Organization", name: "Zweidevs", url: SITE_URL },
         description: p.desc,
-        applicationCategory: getCategoryLabel(p.types?.[0]),
-        operatingSystem: getOS(p.types?.[0]),
-        ...(p.image ? { image: p.image } : {}),
-        author: {
-          "@type": "Organization",
-          name: "Zweidevs",
-          url: SITE_URL,
-        },
+        name: p.title,
+        ...(p.imageUrl ? { image: p.imageUrl } : {}),
       },
+      position: i + 1,
     })),
+    name: "Zweidevs Portfolio — Software Development Projects",
+    numberOfItems: projects.length,
+    url: `${SITE_URL}/projects`,
   };
 
   return (
@@ -108,15 +106,22 @@ export default function ProjectsNewPage({ projects = [] }) {
       <Head>
         <title>Portfolio | Zweidevs — Web, Mobile &amp; AI Projects</title>
         <meta
-          content="Explore Zweidevs' portfolio of software projects spanning web apps, mobile applications, AI & ML solutions, and blockchain platforms. Trusted by global clients."
+          content={
+            "Explore Zweidevs' portfolio of software projects spanning web " +
+            "apps, mobile applications, AI & ML solutions, and blockchain " +
+            "platforms. Trusted by global clients."
+          }
           name="description"
         />
         <meta
-          content="software development portfolio, web app development, mobile app development, AI ML projects, blockchain development, React projects, Node.js projects, custom software"
+          content={
+            "software development portfolio, web app development, mobile app " +
+            "development, AI ML projects, blockchain development, React " +
+            "projects, Node.js projects, custom software"
+          }
           name="keywords"
         />
         <link href={`${SITE_URL}/projects`} rel="canonical" />
-        {/* Open Graph */}
         <meta content="website" property="og:type" />
         <meta content={`${SITE_URL}/projects`} property="og:url" />
         <meta
@@ -124,7 +129,11 @@ export default function ProjectsNewPage({ projects = [] }) {
           property="og:title"
         />
         <meta
-          content="Explore Zweidevs' portfolio of software projects spanning web apps, mobile applications, AI & ML solutions, and blockchain platforms."
+          content={
+            "Explore Zweidevs' portfolio of software projects spanning web " +
+            "apps, mobile applications, AI & ML solutions, and blockchain " +
+            "platforms."
+          }
           property="og:description"
         />
         <meta
@@ -132,21 +141,23 @@ export default function ProjectsNewPage({ projects = [] }) {
           property="og:image"
         />
         <meta content="Zweidevs" property="og:site_name" />
-        {/* Twitter Card */}
         <meta content="summary_large_image" name="twitter:card" />
         <meta
           content="Portfolio | Zweidevs — Web, Mobile & AI Projects"
           name="twitter:title"
         />
         <meta
-          content="Explore Zweidevs' portfolio of software projects spanning web apps, mobile applications, AI & ML solutions, and blockchain platforms."
+          content={
+            "Explore Zweidevs' portfolio of software projects spanning web " +
+            "apps, mobile applications, AI & ML solutions, and blockchain " +
+            "platforms."
+          }
           name="twitter:description"
         />
         <meta
           content={`${SITE_URL}/assets/og-projects.jpg`}
           name="twitter:image"
         />
-        {/* JSON-LD */}
         <script
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           type="application/ld+json"
@@ -170,117 +181,289 @@ export default function ProjectsNewPage({ projects = [] }) {
         <div className={styles.heroWave} />
       </section>
 
-      {/* ─── FILTER BAR ───────────────────────── */}
+      {/* ─── CATEGORY FILTER ──────────────────── */}
       <section
         aria-label="Filter projects by category"
         className={styles.filterSec}
       >
         <div className={styles.container}>
-          <div
-            aria-label="Project category filters"
-            className={styles.filterBar}
-            role="group"
-          >
-            {categories.map(c => (
-              <button
-                aria-label={`Show ${c.label}`}
-                aria-pressed={active === c.key}
-                className={`${styles.filterBtn} ${
-                  active === c.key ? styles.filterActive : ""
-                }`}
-                key={c.key}
-                onClick={() => handleFilter(c.key)}
-              >
-                {c.label}
-              </button>
-            ))}
-          </div>
+          <Box display="flex" justifyContent="center">
+            <ToggleButtonGroup
+              aria-label="Project category filter"
+              exclusive
+              onChange={(_, val) => {
+                if (val !== null) {
+                  setActiveCategory(val);
+                }
+              }}
+              sx={{
+                flexWrap: "wrap",
+                gap: 1,
+                "& .MuiToggleButton-root": {
+                  border: "1px solid #e0e0e0",
+                  borderRadius: "24px !important",
+                  color: "#596380",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                  px: 2.5,
+                  py: 0.75,
+                  textTransform: "none",
+                  "&.Mui-selected": {
+                    bgcolor: "#FF9700",
+                    borderColor: "#FF9700",
+                    color: "#fff",
+                    "&:hover": { bgcolor: "#e08600" },
+                  },
+                },
+              }}
+              value={activeCategory}
+            >
+              {categories.map(cat => (
+                <ToggleButton key={cat} value={cat}>
+                  {cat}
+                </ToggleButton>
+              ))}
+            </ToggleButtonGroup>
+          </Box>
         </div>
       </section>
 
       {/* ─── PROJECT GRID ─────────────────────── */}
       <section aria-label="Projects portfolio grid" className={styles.gridSec}>
         <div className={styles.container}>
-          <div className={styles.grid} key={animKey}>
-            {filtered.map((p, i) => (
-              <article
-                aria-label={`${p.title} project`}
-                className={`${styles.card} ${styles.reveal}`}
-                key={p.title}
-                style={{ transitionDelay: `${i * 60}ms` }}
-              >
-                <div className={styles.cardImgWrap}>
-                  {p.image ? (
-                    <Image
-                      alt={`${p.title} — ${p.desc?.slice(0, 60)}`}
-                      className={styles.cardImg}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      src={p.image}
-                    />
-                  ) : (
-                    <div
-                      aria-hidden="true"
-                      className={styles.cardImgPlaceholder}
-                    />
-                  )}
-                  <div className={styles.cardOverlay}>
-                    <div className={styles.cardTechs}>
-                      {techIcons.map(t => (
+          {filtered.length === 0 ? (
+            <Box py={8} textAlign="center">
+              <Typography color="text.secondary">
+                No projects in this category yet. Check back soon!
+              </Typography>
+            </Box>
+          ) : (
+            <Grid container spacing={3}>
+              {filtered.map((p, i) => (
+                <Grid item key={p.title} md={4} sm={6} xs={12}>
+                  <Box
+                    aria-label={`${p.title} project`}
+                    className={`${styles.card} ${styles.reveal}`}
+                    onClick={() => handleCardClick(p)}
+                    onKeyDown={e => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        handleCardClick(p);
+                      }
+                    }}
+                    ref={addRef}
+                    role="button"
+                    style={{
+                      cursor: "pointer",
+                      transitionDelay: `${i * 60}ms`,
+                    }}
+                    tabIndex={0}
+                  >
+                    <div className={styles.cardImgWrap}>
+                      {p.imageUrl ? (
                         <Image
-                          alt={t.alt}
-                          className={styles.techIcon}
-                          height={t.w}
-                          key={t.alt}
-                          src={t.src}
-                          width={t.w}
+                          alt={`${p.title} — ${p.desc?.slice(0, 60)}`}
+                          className={styles.cardImg}
+                          fill
+                          sizes={
+                            "(max-width: 640px) 100vw, " +
+                            "(max-width: 1024px) 50vw, 33vw"
+                          }
+                          src={p.imageUrl}
                         />
-                      ))}
+                      ) : (
+                        <Box
+                          aria-hidden="true"
+                          bgcolor="grey.200"
+                          height="100%"
+                          width="100%"
+                        />
+                      )}
                     </div>
-                    <button
-                      aria-label="Book a demo meeting with Zweidevs"
-                      className={styles.demoBtn}
-                      onClick={requestDemo}
-                    >
-                      Request Demo
-                      <svg
-                        aria-hidden="true"
-                        className={styles.demoBtnIcon}
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
+                    <div className={styles.cardBody}>
+                      <Chip
+                        label={p.category || "Web"}
+                        size="small"
+                        sx={{
+                          bgcolor: "rgba(255,151,0,0.1)",
+                          color: "#FF9700",
+                          fontWeight: 600,
+                          mb: 1,
+                        }}
+                      />
+                      <Typography
+                        className={styles.cardTitle}
+                        component="h3"
+                        variant="h6"
                       >
-                        <path
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                        {p.title}
+                      </Typography>
+                      <Typography
+                        className={styles.cardDesc}
+                        sx={{
+                          WebkitBoxOrient: "vertical",
+                          WebkitLineClamp: 2,
+                          display: "-webkit-box",
+                          overflow: "hidden",
+                        }}
+                        variant="body2"
+                      >
+                        {p.desc}
+                      </Typography>
+                      {p.metrics && (
+                        <Chip
+                          label={p.metrics}
+                          size="small"
+                          sx={{ bgcolor: "warning.light", mt: 1.5 }}
                         />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div className={styles.cardBody}>
-                  <span className={styles.cardTag}>
-                    {p.types?.[0] === "ai"
-                      ? "AI & ML"
-                      : p.types?.[0] === "mobile"
-                        ? "Mobile"
-                        : "Web"}
-                  </span>
-                  <h3 className={styles.cardTitle}>{p.title}</h3>
-                  <p className={styles.cardDesc}>{p.desc}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          {/* ─── EMPTY STATE ──────────────────── */}
-          {filtered.length === 0 && (
-            <p className={styles.empty}>No projects found for this category.</p>
+                      )}
+                    </div>
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
           )}
         </div>
       </section>
+
+      {/* ─── PROJECT DETAIL DIALOG ────────────── */}
+      <Dialog
+        fullWidth
+        maxWidth="md"
+        onClose={() => setDialogOpen(false)}
+        open={dialogOpen}
+      >
+        {selectedProject && (
+          <>
+            <DialogTitle
+              sx={{
+                alignItems: "center",
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <Typography fontWeight={700} variant="h6">
+                {selectedProject.title}
+              </Typography>
+              <IconButton
+                aria-label="Close project details"
+                onClick={() => setDialogOpen(false)}
+                size="small"
+              >
+                <CloseIcon />
+              </IconButton>
+            </DialogTitle>
+            <DialogContent dividers>
+              {selectedProject.imageUrl && (
+                <Box
+                  mb={3}
+                  position="relative"
+                  sx={{
+                    aspectRatio: "16/9",
+                    borderRadius: 2,
+                    overflow: "hidden",
+                  }}
+                >
+                  <Image
+                    alt={selectedProject.title}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 900px"
+                    src={selectedProject.imageUrl}
+                    style={{ objectFit: "cover" }}
+                  />
+                </Box>
+              )}
+              <Typography mb={2} variant="body1">
+                {selectedProject.description || selectedProject.desc}
+              </Typography>
+              <Box mb={2}>
+                <Chip
+                  label={selectedProject.category || "Web"}
+                  sx={{
+                    bgcolor: "rgba(255,151,0,0.1)",
+                    color: "#FF9700",
+                    fontWeight: 600,
+                    mr: 1,
+                  }}
+                />
+                {selectedProject.metrics && (
+                  <Chip
+                    label={selectedProject.metrics}
+                    sx={{
+                      bgcolor: "warning.light",
+                      color: "warning.dark",
+                      mr: 1,
+                    }}
+                  />
+                )}
+              </Box>
+              {selectedProject.technologies?.length > 0 && (
+                <>
+                  <Typography mb={1} variant="subtitle2">
+                    Technologies
+                  </Typography>
+                  <Box mb={2}>
+                    {selectedProject.technologies.map(tech => (
+                      <Chip
+                        key={tech}
+                        label={tech}
+                        size="small"
+                        sx={{ mb: 0.5, mr: 0.5 }}
+                      />
+                    ))}
+                  </Box>
+                </>
+              )}
+              {selectedProject.tags?.length > 0 && (
+                <>
+                  <Typography mb={1} variant="subtitle2">
+                    Tags
+                  </Typography>
+                  <Box mb={2}>
+                    {selectedProject.tags.map(tag => (
+                      <Chip
+                        key={tag}
+                        label={tag}
+                        size="small"
+                        sx={{ mb: 0.5, mr: 0.5 }}
+                        variant="outlined"
+                      />
+                    ))}
+                  </Box>
+                </>
+              )}
+              <Box display="flex" gap={2} mt={2}>
+                {selectedProject.liveUrl && (
+                  <Button
+                    href={selectedProject.liveUrl}
+                    rel="noopener noreferrer"
+                    sx={{
+                      bgcolor: "#FF9700",
+                      "&:hover": { bgcolor: "#e08600" },
+                    }}
+                    target="_blank"
+                    variant="contained"
+                  >
+                    View Live →
+                  </Button>
+                )}
+                {selectedProject.githubUrl && (
+                  <Button
+                    href={selectedProject.githubUrl}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    variant="outlined"
+                  >
+                    View Code →
+                  </Button>
+                )}
+              </Box>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={() => setDialogOpen(false)}>Close</Button>
+            </DialogActions>
+          </>
+        )}
+      </Dialog>
 
       {/* ─── CTA BANNER ───────────────────────── */}
       <section
@@ -288,7 +471,7 @@ export default function ProjectsNewPage({ projects = [] }) {
         className={styles.ctaSec}
       >
         <div className={`${styles.container} ${styles.ctaInner}`}>
-          <div className={`${styles.ctaText} ${styles.reveal}`}>
+          <div className={`${styles.ctaText} ${styles.reveal}`} ref={addRef}>
             <h2 className={styles.ctaH2}>Have a Project in Mind?</h2>
             <p className={styles.ctaSub}>
               Let&apos;s discuss how we can bring your vision to life with our
@@ -299,6 +482,7 @@ export default function ProjectsNewPage({ projects = [] }) {
             aria-label="Book a meeting with Zweidevs"
             className={`${styles.btnPrimary} ${styles.reveal}`}
             onClick={requestDemo}
+            ref={addRef}
           >
             Book a Meeting →
           </button>
@@ -308,35 +492,29 @@ export default function ProjectsNewPage({ projects = [] }) {
   );
 }
 
-/* ── helpers ─────────────────────────────────────── */
-
-function getCategoryLabel(type) {
-  const map = {
-    ai: "ArtificialIntelligence",
-    web: "WebApplication",
-    mobile: "MobileApplication",
-  };
-  return map[type] || "WebApplication";
-}
-
-function getOS(type) {
-  if (type === "mobile") {
-    return "Android, iOS";
-  }
-  return "Web browser";
-}
-
 /* ── data fetching — SSR (always fresh from Firestore) ── */
 
 export async function getServerSideProps() {
   try {
     const data = await getAllProjects();
-    const projects = (data || []).map(p => ({
-      title: p.title || "",
-      desc: p.desc || p.description || "",
-      types: Array.isArray(p.types) ? p.types : p.type ? [p.type] : ["web"],
-      image: p.image || p.imageUrl || null,
-    }));
+    const projects = (data || [])
+      .map(p => ({
+        category: p.category || p.types?.[0] || "Web",
+        createdAt: p.createdAt
+          ? { seconds: p.createdAt.seconds ?? 0 }
+          : { seconds: 0 },
+        desc: p.desc || p.description || "",
+        description: p.description || p.desc || "",
+        githubUrl: p.githubUrl || null,
+        imageUrl: p.imageUrl || p.image || null,
+        liveUrl: p.liveUrl || p.projectUrl || null,
+        metrics: p.metrics || null,
+        tags: Array.isArray(p.tags) ? p.tags : [],
+        technologies: Array.isArray(p.technologies) ? p.technologies : [],
+        title: p.title || "",
+        types: Array.isArray(p.types) ? p.types : p.type ? [p.type] : ["web"],
+      }))
+      .sort((a, b) => b.createdAt.seconds - a.createdAt.seconds);
     return { props: { projects } };
   } catch (err) {
     return { props: { projects: [] } };
