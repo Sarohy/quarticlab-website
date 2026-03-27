@@ -93,5 +93,18 @@ NEXT_PUBLIC_collectionBlogs   (inferred)
 ```
 Firebase credentials are in `src/firebase/firebaseConfig.js` (not in env — do not move without updating `firebaseRequests.js`).
 
-always run eslint and prettier on changed files before committing — the pre-commit hook will catch any issues, but it's best to fix them beforehand for a smoother commit experience.
+## ⚠️ Mandatory: Lint & Prettier Compliance (AI Agents)
+
+**Every file you create or edit MUST pass ESLint + Prettier before you consider the task done.**
+
+1. **printWidth is 80** — break lines that exceed it. Ternaries, JSX props, and function args that go over 80 chars must be wrapped.
+2. **Strings must use double quotes** (`"..."` not `'...'`).
+3. **Trailing commas everywhere** (`trailingComma: "all"`) — objects, arrays, function params.
+4. **No `console.log` / `console.error`** — ESLint's `no-console` rule is active. Remove debug logs before finishing.
+5. **No unused variables/imports** — ESLint's `no-unused-vars` rule is active.
+6. **JSX props must be sorted alphabetically** (case-insensitive) — `react/jsx-sort-props` is enforced.
+7. **Single-line JSX elements** — if all props fit within 80 chars, keep the element on one line. Only break to multi-line when it exceeds printWidth.
+8. **Object/map keys** — don't quote keys that are valid JS identifiers (e.g. `iOS:` not `"iOS":`).
+9. **After every edit**, mentally verify the changed lines against these rules. If unsure, run `npx eslint <file>` or `npx prettier --check <file>` to confirm.
+10. **Before declaring a task complete**, run `npm run lint` on all changed files and fix any remaining issues.
 

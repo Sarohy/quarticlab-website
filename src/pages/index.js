@@ -399,7 +399,9 @@ function useCountUp(target, isFloat, duration = 2000) {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      setValue(isFloat ? +(target * eased).toFixed(1) : Math.floor(target * eased));
+      setValue(
+        isFloat ? +(target * eased).toFixed(1) : Math.floor(target * eased),
+      );
       if (progress < 1) {
         requestAnimationFrame(tick);
       }
@@ -442,10 +444,7 @@ function StatCard({ stat, delay }) {
       ref={ref}
       style={{ transitionDelay: delay }}
     >
-      <div
-        className={styles.statGlow}
-        style={{ background: stat.accent }}
-      />
+      <div className={styles.statGlow} style={{ background: stat.accent }} />
       <div className={styles.statRing} style={{ borderColor: stat.accent }}>
         <span className={styles.statIcon}>{stat.icon}</span>
       </div>
@@ -454,10 +453,7 @@ function StatCard({ stat, delay }) {
         {stat.suffix}
       </span>
       <span className={styles.statLabel}>{stat.label}</span>
-      <div
-        className={styles.statBar}
-        style={{ background: stat.accent }}
-      />
+      <div className={styles.statBar} style={{ background: stat.accent }} />
     </div>
   );
 }
@@ -475,11 +471,7 @@ function StatsSection() {
         </div>
         <div className={styles.statsGrid}>
           {stats.map((s, i) => (
-            <StatCard
-              delay={`${i * 120}ms`}
-              key={s.label}
-              stat={s}
-            />
+            <StatCard delay={`${i * 120}ms`} key={s.label} stat={s} />
           ))}
         </div>
       </div>
