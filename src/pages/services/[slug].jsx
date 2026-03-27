@@ -131,6 +131,7 @@ const allServices = [
     label: "AI & ML",
   },
   { slug: "devops-cloud", icon: DevopsIcon, label: "DevOps & Cloud" },
+  { slug: "genai-automation", icon: AIDevIcon, label: "GenAI & Automation" },
 ];
 
 const content = {
@@ -1179,6 +1180,196 @@ const content = {
       {
         q: "Why choose Zweidevs for DevOps?",
         a: "We create cooperative partnerships, promoting open communication, shared accountability, and enthusiasm for your DevOps goals.",
+      },
+    ],
+  },
+  "genai-automation": {
+    category: "GenAI & Automation",
+    image: AIImg,
+    heroTitle: "Build AI That Actually Works in Production",
+    heroSub:
+      "We build production-grade Generative AI apps, autonomous agents, " +
+      "and automation pipelines — not demos.",
+    heading: "Generative AI, AI Agents, and Automation Built for Your Business",
+    description:
+      "The future belongs to businesses that deploy AI intelligently. " +
+      "Zweidevs builds production-ready Generative AI solutions, " +
+      "multi-agent systems, and automation pipelines that eliminate " +
+      "bottlenecks and unlock new revenue streams.\n\nFrom fine-tuning " +
+      "LLMs on your proprietary data to deploying autonomous AI agents " +
+      "that plan and execute complex tasks — we deliver outcomes, not " +
+      "prototypes.",
+    offerings: [
+      {
+        icon: ai1Icon,
+        title: "Generative AI Applications",
+        desc:
+          "Custom chatbots, content tools, and intelligent search " +
+          "powered by the latest LLMs — built for your domain and " +
+          "deployed at scale.",
+      },
+      {
+        icon: ai2Icon,
+        title: "Multi-Agent AI Systems",
+        desc:
+          "Autonomous agents that plan, reason, and execute complex " +
+          "multi-step tasks without human intervention.",
+      },
+      {
+        icon: ai3Icon,
+        title: "AI Audit & Transformation",
+        desc:
+          "We audit your existing workflows, identify automation " +
+          "opportunities, and build a roadmap to AI-driven operations.",
+      },
+      {
+        icon: ai4Icon,
+        title: "MLOps & Model Deployment",
+        desc:
+          "End-to-end ML pipelines, model versioning, monitoring, and " +
+          "CI/CD for AI systems — so your models stay fresh in production.",
+      },
+      {
+        icon: ai5Icon,
+        title: "LLM Fine-tuning on Custom Data",
+        desc:
+          "Fine-tune foundation models on your proprietary datasets to " +
+          "create domain-expert AI that outperforms off-the-shelf solutions.",
+      },
+      {
+        icon: ai6Icon,
+        title: "Robotic Process Automation (RPA)",
+        desc:
+          "Eliminate repetitive manual tasks with intelligent RPA bots " +
+          "that integrate with your existing tools and workflows.",
+      },
+    ],
+    projects: [
+      {
+        image: ai1,
+        title: "AI VST",
+        desc:
+          "High-end DAW plugins powered by AI for professional-grade " +
+          "sound generation and mixing.",
+      },
+      {
+        image: ai2,
+        title: "Twinciti",
+        desc:
+          "Robust infrastructure integrating 3D graphics, machine " +
+          "learning, and AI-driven automation.",
+      },
+      {
+        image: ai3,
+        title: "AI Research Platform",
+        desc:
+          "LLM-powered research assistant enabling semantic search and " +
+          "automated report generation.",
+      },
+    ],
+    process: {
+      title: "How We Build GenAI Solutions",
+      desc:
+        "From discovery to deployment, we follow a proven process to " +
+        "deliver production-ready AI systems.",
+      steps: [
+        {
+          title: "Discovery & Scoping",
+          desc:
+            "We map your business processes, identify high-impact " +
+            "automation opportunities, and define success metrics.",
+        },
+        {
+          title: "Model Selection & Design",
+          desc:
+            "We evaluate foundation models, RAG architectures, and " +
+            "agent frameworks to select the best fit for your use case.",
+        },
+        {
+          title: "Prototype & Validate",
+          desc:
+            "Rapid prototyping with real data to validate accuracy, " +
+            "latency, and cost before full build-out.",
+        },
+        {
+          title: "Build & Integrate",
+          desc:
+            "Production-grade development with full integration into " +
+            "your existing systems, APIs, and data pipelines.",
+        },
+        {
+          title: "Deploy & Monitor",
+          desc:
+            "MLOps-driven deployment with real-time monitoring, drift " +
+            "detection, and continuous improvement loops.",
+        },
+      ],
+    },
+    audience: {
+      title: "We Build GenAI Solutions For",
+      desc:
+        "Whether you're exploring AI for the first time or scaling " +
+        "existing models, we meet you where you are.",
+      cards: [
+        {
+          title: "Startups",
+          desc:
+            "Ship AI-native products fast. We help startups integrate " +
+            "LLMs and automation into their core product from day one.",
+        },
+        {
+          title: "Scale-ups",
+          desc:
+            "Automate repetitive operations, unlock data insights, and " +
+            "build AI features that create competitive moats.",
+        },
+        {
+          title: "Enterprises",
+          desc:
+            "Large-scale AI transformation: fine-tuned models, " +
+            "multi-agent systems, and enterprise-grade MLOps infrastructure.",
+        },
+      ],
+    },
+    techStack: [
+      {
+        group: "AI & LLMs",
+        chips: ["OpenAI", "LangChain", "LlamaIndex", "Hugging Face"],
+      },
+      {
+        group: "Backend & Infra",
+        chips: ["Python", "FastAPI", "TensorFlow", "PyTorch"],
+      },
+      { group: "Cloud & MLOps", chips: ["AWS", "GCP", "Docker", "Kubernetes"] },
+    ],
+    faq: [
+      {
+        q: "What's the difference between GenAI and traditional AI/ML?",
+        a:
+          "Traditional ML models predict or classify. Generative AI " +
+          "creates — text, code, images, decisions. GenAI apps use LLMs " +
+          "to understand context and generate intelligent responses.",
+      },
+      {
+        q: "How long does it take to build a production GenAI solution?",
+        a:
+          "A focused MVP typically takes 4–8 weeks. Complex multi-agent " +
+          "systems or fine-tuned models run 3–6 months depending on data " +
+          "availability and scope.",
+      },
+      {
+        q: "Can you fine-tune AI models on our proprietary data?",
+        a:
+          "Yes. We handle data preparation, model selection, fine-tuning, " +
+          "evaluation, and deployment — with full ownership of the trained " +
+          "model passing to you.",
+      },
+      {
+        q: "How do you ensure the AI outputs are accurate and safe?",
+        a:
+          "We implement evaluation frameworks, guardrails, " +
+          "human-in-the-loop checkpoints, and ongoing monitoring to keep " +
+          "your AI aligned with business expectations.",
       },
     ],
   },
