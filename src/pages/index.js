@@ -227,13 +227,12 @@ function HeroSection({ router }) {
         <div className={styles.heroText}>
           <span className={styles.heroBadge}>🚀 Software Development</span>
           <h1 className={styles.heroH1}>
-            Empowering <br />
-            <span className={styles.heroAccent}>Innovation</span>
+            Build Smarter. Ship Faster.{" "}
+            <span className={styles.heroAccent}>Own the Future.</span>
           </h1>
           <p className={styles.heroSub}>
-            We engineer robust software using mobile, web, cloud &amp;
-            blockchain capabilities — delivering thoughtfully innovated products
-            that exceed expectations.
+            We deliver AI, Blockchain, IoT, and custom software solutions — from
+            MVP to enterprise scale. Trusted by 50+ clients across 3 continents.
           </p>
           <div className={styles.heroCtas}>
             <button
@@ -245,13 +244,13 @@ function HeroSection({ router }) {
                 )
               }
             >
-              Book a Meeting
+              Book a Free Call
             </button>
             <button
               className={styles.btnOutline}
-              onClick={() => router.push("/services")}
+              onClick={() => router.push("/projects")}
             >
-              Our Services →
+              View Our Work →
             </button>
           </div>
         </div>
