@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import navLinks from "@component/Constants/navLinks";
-const MenuIcon = dynamic(() => import("@mui/icons-material/Menu"));
-const CloseIcon = dynamic(() => import("@mui/icons-material/Close"));
 import ZweidevsLogo from "../../../../public/assets/headerIcons/logoWithText.svg";
 import styles from "./header.module.css";
-import { Button } from "@mui/material";
+
 function Header() {
   const route = useRouter();
   const pathSegments = route.pathname.split("/");
@@ -22,12 +19,12 @@ function Header() {
   });
   const { mobileView, drawerOpen } = state;
 
-  const toggleDrawer = () => {
+  const toggleDrawer = useCallback(() => {
     setState(prevState => ({
       ...prevState,
       drawerOpen: !prevState.drawerOpen,
     }));
-  };
+  }, []);
 
   useEffect(() => {
     const setResponsiveness = () => {
@@ -36,9 +33,9 @@ function Header() {
         : setState(prevState => ({ ...prevState, mobileView: false }));
     };
     setResponsiveness();
-    window.addEventListener("resize", () => setResponsiveness());
+    window.addEventListener("resize", setResponsiveness);
     return () => {
-      window.removeEventListener("resize", () => setResponsiveness());
+      window.removeEventListener("resize", setResponsiveness);
     };
   }, []);
 
@@ -49,92 +46,122 @@ function Header() {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () =>
-      !drawerOpen &&
-      setState(prevState => ({ ...prevState, drawerOpen: false }));
-    window.addEventListener("scroll", handleScroll);
+    if (drawerOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      document.body.style.overflow = "";
     };
-  }, []);
+  }, [drawerOpen]);
 
   const displayWeb = () => (
-    <>
-      <div
-        className={`${styles.headerContainer} ${
-          scrolled ? styles.scrolled : ""
-        }`}
-      >
-        <Link href={"/"}>
-          <Image
-            alt="Zweidevs | Custom Software Development Services Company"
-            className={styles.headerLogo}
-            src={ZweidevsLogo}
-            width={180}
-          />
-        </Link>
-        <div className={styles.contentContainer}>
-          <div className={`${styles.pagesContainer} ${styles.headerNav}`}>
-            {navLinks.map(({ href, text }) => (
-              <Link
-                className={`${styles.pageLabel} ${
-                  pathInitialSegment === href ? styles.activePage : ""
-                }`}
-                href={href}
-                key={href}
-              >
-                {text}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
-    </>
+    <header
+      className={`${styles.headerContainer} ${scrolled ? styles.scrolled : ""}`}
+    >
+      <Link className={styles.logoLink} href={"/"}>
+        <Image
+          alt="Zweidevs | Custom Software Development Services Company"
+          className={styles.headerLogo}
+          height={40}
+          src={ZweidevsLogo}
+          width={160}
+        />
+      </Link>
+      <nav className={`${styles.pagesContainer} ${styles.headerNav}`}>
+        {navLinks.map(({ href, text }) => (
+          <Link
+            className={`${styles.pageLabel} ${
+              pathInitialSegment === href ? styles.activePage : ""
+            }`}
+            href={href}
+            key={href}
+          >
+            <span className={styles.pageLabelText}>{text}</span>
+          </Link>
+        ))}
+      </nav>
+      <Link className={styles.ctaButton} href="/contactUs">
+        {"Let's Talk"}
+      </Link>
+    </header>
   );
 
   const displayMobile = () => (
     <>
-      <div
+      <header
         className={`${styles.headerContainer} ${
           scrolled ? styles.scrolled : ""
-        }`}
-        style={mobileView ? { padding: "3%" } : undefined}
+        } ${styles.mobileHeader}`}
       >
-        <Link href={"/"}>
-          <Image alt="zweidevsDrawer" src={ZweidevsLogo} width={180} />
+        <Link className={styles.logoLink} href={"/"}>
+          <Image
+            alt="zweidevsDrawer"
+            height={36}
+            src={ZweidevsLogo}
+            width={140}
+          />
         </Link>
-        <Button className={styles.ButtonStyle} onClick={toggleDrawer}>
-          {" "}
-          {drawerOpen ? (
-            <CloseIcon color="#ff9700" />
-          ) : (
-            <MenuIcon color="#ff9700" />
-          )}
-        </Button>
-      </div>
-      {drawerOpen && (
-        <div className={styles.mobileHeaderMenu}>
-          {navLinks.map(({ href, text }) => (
+        <button
+          aria-label={drawerOpen ? "Close menu" : "Open menu"}
+          className={`${styles.hamburger} ${
+            drawerOpen ? styles.hamburgerActive : ""
+          }`}
+          onClick={toggleDrawer}
+          type="button"
+        >
+          <span className={styles.hamburgerLine} />
+          <span className={styles.hamburgerLine} />
+          <span className={styles.hamburgerLine} />
+        </button>
+      </header>
+
+      <div
+        className={`${styles.mobileOverlay} ${
+          drawerOpen ? styles.mobileOverlayVisible : ""
+        }`}
+        onClick={toggleDrawer}
+      />
+
+      <nav
+        className={`${styles.mobileDrawer} ${
+          drawerOpen ? styles.mobileDrawerOpen : ""
+        }`}
+      >
+        <div className={styles.mobileDrawerContent}>
+          {navLinks.map(({ href, text }, index) => (
             <Link
-              className={`${styles.mobileHeaderMenuItem} ${
-                styles.LinkFontStyle
-              } ${route.pathname === href ? styles.activePage : ""}`}
+              className={`${styles.mobileNavLink} ${
+                route.pathname === href ? styles.activePage : ""
+              }`}
               href={href}
               key={href}
               onClick={toggleDrawer}
+              style={{ animationDelay: `${index * 0.06 + 0.1}s` }}
             >
-              {text}
+              <span className={styles.mobileNavIndex}>
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className={styles.mobileNavText}>{text}</span>
             </Link>
           ))}
+          <Link
+            className={styles.mobileCtaButton}
+            href="/contactUs"
+            onClick={toggleDrawer}
+          >
+            {"Let's Talk"}
+          </Link>
         </div>
-      )}
+      </nav>
     </>
   );
+
   return (
     <>
       <Head>
         <title>Zweidevs</title>
-        {/* <meta name={metaName} content={metaContent} /> */}
         <meta
           content="Zweidevs is a service-oriented company providing creative and innovative solutions for your business domain.we create a strategy."
           name="description"

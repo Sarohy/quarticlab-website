@@ -1,22 +1,28 @@
 import Image from "next/image";
+import Link from "next/link";
 import dynamic from "next/dynamic";
 const FooterAbout = dynamic(() => import("./FooterAbout"));
 const FooterSocial = dynamic(() => import("./FooterSocial"));
 const FooterServices = dynamic(() => import("./FooterServices"));
 const FooterAllServices = dynamic(() => import("./FooterAllServices"));
-import CopyrightLeftLine from "../../../../public/assets/footerIcons/copyrightLeftLine.svg";
-import CopyrightRightLine from "../../../../public/assets/footerIcons/copyrightRightLine.svg";
+import Logo from "../../../../public/assets/footerIcons/logo.svg";
 import styles from "./footer.module.css";
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <>
-      <div className={styles.footerMainContainer}>
+    <footer className={styles.footerMainContainer}>
+      {/* ── Top accent line ──────────────────── */}
+      <div className={styles.footerAccentBar} />
+
+      {/* ── Main grid ────────────────────────── */}
+      <div className={styles.footerInner}>
         <div className={styles.footerSectionContainer}>
           <div className={styles.footAboutWidth}>
             <FooterAbout />
           </div>
-          <div className={styles.footSocialWidth}>
+          <div className={styles.footNavWidth}>
             <FooterServices />
           </div>
           <div className={styles.footServiceWidth}>
@@ -27,21 +33,29 @@ function Footer() {
           </div>
         </div>
 
-        <div className={styles.footerRightsContainer}>
-          <Image
-            alt={"copy-right-left-line"}
-            className={styles.footerRightsImage}
-            src={CopyrightLeftLine}
-          />
-          <p>© 2023 Zweidevs. All Rights Reserved By Zweidevs</p>
-          <Image
-            alt={"copy-right-right-line"}
-            className={styles.footerRightsImage}
-            src={CopyrightRightLine}
-          />
+        {/* ── Divider ────────────────────────── */}
+        <div className={styles.footerDivider} />
+
+        {/* ── Bottom bar ─────────────────────── */}
+        <div className={styles.footerBottomBar}>
+          <div className={styles.footerBottomLeft}>
+            <Image alt="zweidevs" height={28} src={Logo} width={28} />
+            <span className={styles.footerCopyright}>
+              © {currentYear} Zweidevs. All Rights Reserved.
+            </span>
+          </div>
+          <div className={styles.footerBottomRight}>
+            <Link className={styles.footerBottomLink} href="/contactUs">
+              Contact
+            </Link>
+            <span className={styles.footerDot}>·</span>
+            <Link className={styles.footerBottomLink} href="/aboutus">
+              About
+            </Link>
+          </div>
         </div>
       </div>
-    </>
+    </footer>
   );
 }
 

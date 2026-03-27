@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import FBHover from "../../../../public/assets/footerIcons/facebookHover.svg";
@@ -16,8 +15,6 @@ const FooterSocial = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-  const [hoverState, setHoverState] = useState(false);
-  const [selectImage, setSelectImage] = useState("fb");
 
   const socialMediaData = [
     {
@@ -34,11 +31,10 @@ const FooterSocial = () => {
       image: InstaLogo,
       hoverImage: InstaHover,
     },
-
     {
       name: "youtube",
       href: "https://youtube.com/@Zweidevs?si=7uR6r0W4GBzelhoo",
-      alt: "zweidevs twitter",
+      alt: "zweidevs youtube",
       image: YoutubeIcon,
       hoverImage: YoutubeIconHover,
     },
@@ -52,48 +48,42 @@ const FooterSocial = () => {
   ];
 
   return (
-    <>
-      <div
-        className={`${styles.footerFadeEl} ${
-          inView ? styles.footerVisible : ""
-        }`}
-        ref={observerRef}
-        style={{ transitionDelay: "240ms" }}
-      >
-        <h3>Find Us On</h3>
-
-        <div className={styles.imageSocialMain}>
-          {socialMediaData &&
-            socialMediaData.map((element, key) => (
-              <a
-                className={styles.imageContainer}
-                href={element.href}
-                key={key}
-                target="_blank"
-              >
-                <div
-                  onMouseEnter={() => {
-                    setHoverState(true);
-                    setSelectImage(element.name);
-                  }}
-                  onMouseLeave={() => setHoverState(false)}
-                >
-                  <Image
-                    alt={element.alt || "social-meida-image"}
-                    className={styles.imageContainerIcons}
-                    key={element.name}
-                    src={
-                      hoverState && selectImage === element.name
-                        ? element.hoverImage
-                        : element.image
-                    }
-                  />
-                </div>
-              </a>
-            ))}
-        </div>
+    <div
+      className={`${styles.footerFadeEl} ${inView ? styles.footerVisible : ""}`}
+      ref={observerRef}
+      style={{ transitionDelay: "240ms" }}
+    >
+      <h3 className={styles.footerColumnTitle}>Connect</h3>
+      <p className={styles.footerSocialSubtext}>
+        Follow us for the latest updates and insights.
+      </p>
+      <div className={styles.socialIconsGrid}>
+        {socialMediaData.map(element => (
+          <a
+            className={styles.socialIconCard}
+            href={element.href}
+            key={element.name}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Image
+              alt={element.alt || "social-media-image"}
+              className={styles.socialIcon}
+              height={22}
+              src={element.image}
+              width={22}
+            />
+            <Image
+              alt={element.alt || "social-media-image"}
+              className={styles.socialIconHover}
+              height={22}
+              src={element.hoverImage}
+              width={22}
+            />
+          </a>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 

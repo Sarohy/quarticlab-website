@@ -1,140 +1,362 @@
+/* ═══════════════════════════════════════════════
+   Modern Sleek Header — Glassmorphism + Micro-interactions
+   ═══════════════════════════════════════════════ */
+
+/* ── Base header bar ────────────────────────── */
 .headerContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 15vh;
-  padding: 1.5% 2.5%;
-  background-color: white;
+  height: 72px;
+  padding: 0 3.5%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 11111;
   font-family: "Poppins", sans-serif;
-  transition: box-shadow 0.3s ease;
-}
-.ButtonStyle {
-  color: #ff9700 !important;
-}
-.LinkFontStyle {
-  font-family: "Poppins";
+  transition: background 0.35s ease, box-shadow 0.35s ease, height 0.35s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-.mobileHeaderMenu {
-  background-color: white;
-  background-image: url("../../../../public/assets/mobileBg.svg");
+.scrolled {
+  height: 62px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 1px 32px rgba(0, 0, 0, 0.08);
+  border-bottom-color: transparent;
+}
+
+/* ── Logo ────────────────────────────────────── */
+.logoLink {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  position: fixed;
-  z-index: 100;
-  width: 100%;
+  text-decoration: none;
 }
 
-.mobileHeaderMenuItem {
-  font-family: "Poppins", sans-serif;
-  color: black;
-  border-bottom: 2px solid rgba(205, 208, 216, 0.5);
-  width: 95%;
-  text-align: center;
-  font-size: 1rem;
-  padding: 24px 0px 24px 0px;
+.headerLogo {
+  opacity: 0;
+  animation: logoSlideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.05s;
+  transition: transform 0.3s ease;
+}
+.headerLogo:hover {
+  transform: scale(1.04);
 }
 
-.contentContainer {
-  width: max-content;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-}
-
+/* ── Nav links ───────────────────────────────── */
 .pagesContainer {
-  gap: 20px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
 }
 
-.instantBookingBtn {
-  background-color: #ff9700;
-  font-family: poppins;
-  font-size: 1rem;
-  padding: 13px;
-  border-radius: 4px;
+.headerNav {
+  opacity: 0;
+  animation: navSlideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.15s;
+}
+
+.pageLabel {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #2b2a35;
+  padding: 8px 16px;
+  border-radius: 8px;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.25s ease, background 0.25s ease;
+  overflow: hidden;
+}
+
+.pageLabelText {
+  position: relative;
+  z-index: 1;
+}
+
+.pageLabel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(255, 151, 0, 0.08), rgba(255, 151, 0, 0.04));
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.pageLabel:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.pageLabel:hover {
+  color: #ff9700;
 }
 
 .activePage {
   color: #ff9700 !important;
 }
 
-.pageLabel {
-  font-family: poppins;
-  font-size: 1rem;
-  color: black;
-  position: relative;
-  padding-bottom: 3px;
-}
-.pageLabel::after {
+.activePage::after {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #ff9700;
-  transition: width 0.25s ease;
-}
-.pageLabel:hover::after {
-  width: 100%;
-}
-.pageLabel:hover {
-  color: #ff9700;
-  transition: color 0.2s ease;
-}
-.headerLocationIcon {
-  /* position: absolute; */
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 20px;
-  height: 20px;
-  left: 53px;
-  top: 24px;
-
-  /* background: url(image.png); */
+  height: 3px;
+  background: linear-gradient(90deg, #ff9700, #ffb84d);
+  border-radius: 3px;
+  animation: activeIndicator 0.3s ease forwards;
 }
 
-.headerCenterRow {
+/* ── CTA Button ──────────────────────────────── */
+.ctaButton {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #ff9700, #e88b05);
+  padding: 10px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  opacity: 0;
+  animation: ctaFadeIn 0.5s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.ctaButton::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ffb84d, #ff9700);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50px;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 151, 0, 0.35);
+}
+
+.ctaButton:hover::before {
+  opacity: 1;
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════
+   Mobile — Hamburger + Slide-in Drawer
+   ═══════════════════════════════════════════════ */
+
+.mobileHeader {
+  padding: 0 5%;
+}
+
+/* ── CSS-only hamburger ──────────────────────── */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 11112;
+}
+
+.hamburgerLine {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background: #2b2a35;
+  border-radius: 4px;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease, background 0.25s ease;
+}
+
+.hamburgerActive .hamburgerLine:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+  background: #ff9700;
+}
+.hamburgerActive .hamburgerLine:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburgerActive .hamburgerLine:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+  background: #ff9700;
+}
+
+/* ── Fullscreen overlay ──────────────────────── */
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 11110;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.mobileOverlayVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ── Drawer panel ────────────────────────────── */
+.mobileDrawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 85%;
+  max-width: 380px;
+  height: 100vh;
+  height: 100dvh;
+  background: #fff;
+  z-index: 11111;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(102%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.08);
+}
+
+.mobileDrawerOpen {
+  transform: translateX(0);
+}
+
+.mobileDrawerContent {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 32px 40px;
+  gap: 4px;
+  flex: 1;
+}
+
+/* ── Mobile nav links ────────────────────────── */
+.mobileNavLink {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #2b2a35;
+  text-decoration: none;
+  padding: 16px 12px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
+  gap: 16px;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  opacity: 0;
+  animation: mobileNavItemIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* ── Scroll shadow ────────────────────────── */
-.scrolled {
-  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.09);
+.mobileNavLink:hover,
+.mobileNavLink:active {
+  background: rgba(255, 151, 0, 0.06);
+  color: #ff9700;
+  transform: translateX(4px);
 }
 
-/* ── Entry animations ────────────────────── */
-.headerLogo {
-  opacity: 0;
-  animation: headerLogoIn 0.55s ease forwards;
-  animation-delay: 0.05s;
+.mobileNavIndex {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ff9700;
+  opacity: 0.5;
+  font-variant-numeric: tabular-nums;
 }
-.headerNav {
-  opacity: 0;
-  animation: headerNavIn 0.55s ease forwards;
-  animation-delay: 0.15s;
-  gap: 20px;
-  display: flex;
-  justify-content: space-between;
+
+.mobileNavText {
+  letter-spacing: 0.03em;
 }
-@keyframes headerLogoIn {
+
+.mobileCtaButton {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #ff9700, #e88b05);
+  padding: 16px 32px;
+  border-radius: 14px;
+  text-decoration: none;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  opacity: 0;
+  animation: mobileNavItemIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+.mobileCtaButton:active {
+  transform: scale(0.97);
+}
+
+/* ═══════════════════════════════════════════════
+   Keyframes
+   ═══════════════════════════════════════════════ */
+
+@keyframes logoSlideIn {
   from {
     opacity: 0;
-    transform: translateX(-24px);
+    transform: translateX(-20px);
   }
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
-@keyframes headerNavIn {
+
+@keyframes navSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ctaFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes activeIndicator {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 20px;
+    opacity: 1;
+  }
+}
+
+@keyframes mobileNavItemIn {
   from {
     opacity: 0;
     transform: translateX(24px);
@@ -145,17 +367,17 @@
   }
 }
 
-/* ── Mobile menu slide-down ───────────────── */
-.mobileHeaderMenu {
-  animation: mobileMenuIn 0.28s ease forwards;
-}
-@keyframes mobileMenuIn {
-  from {
-    opacity: 0;
-    transform: translateY(-12px);
+/* ═══════════════════════════════════════════════
+   Responsive fine-tuning
+   ═══════════════════════════════════════════════ */
+
+@media (max-width: 1100px) {
+  .pageLabel {
+    font-size: 0.8rem;
+    padding: 8px 12px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .ctaButton {
+    font-size: 0.8rem;
+    padding: 9px 22px;
   }
 }
