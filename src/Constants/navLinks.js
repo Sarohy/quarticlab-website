@@ -3,6 +3,7 @@ import routesPaths from "./routePaths";
 const navLinks = [
   { href: routesPaths.home, text: "Home" },
   { href: routesPaths.services, text: "Services" },
+  { href: routesPaths.aiServices, text: "AI Services" },
   { href: routesPaths.projects, text: "Portfolio" },
   { href: routesPaths.aboutUs, text: "About" },
   { href: routesPaths.howWeWork, text: "How We Work" },

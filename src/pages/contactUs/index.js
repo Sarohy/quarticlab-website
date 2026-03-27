@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { postAPIWithoutAuth } from "@component/pages/api/api";
+import Alert from "@mui/material/Alert";
+import { submitContactForm } from "@component/firebase/firebaseRequests";
 import { urls } from "@component/utils/urls";
 import HSLogo from "../../../public/assets/HomeIcons/zweidevsLogo.svg";
 import FbLogo from "../../../public/assets/footerIcons/fbIcon.svg";
@@ -17,9 +18,9 @@ const contactMethods = [
   {
     icon: "📧",
     title: "Email Us",
-    detail: "info@zweidevs.com",
-    href: "mailto:info@zweidevs.com",
-    desc: "Drop us a line anytime",
+    detail: "hello@zweidevs.com",
+    href: "mailto:hello@zweidevs.com",
+    desc: "We typically respond within 24 hours.",
   },
   {
     icon: "📍",
@@ -230,15 +231,17 @@ function ContactCards() {
 function FormSection() {
   const [allCountries, setAllCountries] = useState([]);
   const [form, setForm] = useState({
-    name: "",
-    email: "",
+    budget: "",
     contact: "",
     country: "Pakistan",
     description: "",
+    email: "",
+    name: "",
     service: "",
   });
-  const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [alertMsg, setAlertMsg] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -261,31 +264,64 @@ function FormSection() {
     setForm(prev => ({ ...prev, [name]: value }));
   };
 
+  const validate = () => {
+    const errs = {};
+    if (!form.name.trim()) {
+      errs.name = "Full name is required.";
+    }
+    if (!form.email.trim()) {
+      errs.email = "Email address is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      errs.email = "Please enter a valid email address.";
+    }
+    if (!form.description.trim()) {
+      errs.description = "Please describe your project.";
+    }
+    return errs;
+  };
+
   const handleSubmit = async e => {
     e.preventDefault();
-    setSending(true);
+    setAlertMsg(null);
+    const errs = validate();
+    if (Object.keys(errs).length) {
+      setErrors(errs);
+      return;
+    }
+    setErrors({});
+    setSubmitting(true);
     try {
-      await postAPIWithoutAuth("/dev/contact", {
-        name: form.name,
-        email: form.email,
-        phone_number: form.contact,
+      await submitContactForm({
+        budget: form.budget,
         country: form.country,
-        des: `[${form.service || "General"}] ${form.description}`,
+        description: form.description,
+        email: form.email,
+        name: form.name,
+        phone: form.contact,
+        service: form.service,
       });
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 5000);
+      setAlertMsg({
+        message: "Thanks! We\u2019ll get back to you within 24 hours.",
+        severity: "success",
+      });
       setForm({
-        name: "",
-        email: "",
+        budget: "",
         contact: "",
         country: "Pakistan",
         description: "",
+        email: "",
+        name: "",
         service: "",
       });
     } catch {
-      /* silent */
+      setAlertMsg({
+        message:
+          "Something went wrong. Please email us directly at " +
+          "hello@zweidevs.com",
+        severity: "error",
+      });
     } finally {
-      setSending(false);
+      setSubmitting(false);
     }
   };
 
@@ -341,10 +377,14 @@ function FormSection() {
           className={`${styles.contactForm} ${styles.reveal}`}
           onSubmit={handleSubmit}
         >
-          {submitted && (
-            <div className={styles.successToast}>
-              ✅ Message sent successfully! We&apos;ll be in touch soon.
-            </div>
+          {alertMsg && (
+            <Alert
+              onClose={() => setAlertMsg(null)}
+              severity={alertMsg.severity}
+              sx={{ mb: 2 }}
+            >
+              {alertMsg.message}
+            </Alert>
           )}
 
           <div className={styles.formGrid}>
@@ -358,10 +398,20 @@ function FormSection() {
                 name="name"
                 onChange={handleChange}
                 placeholder="John Doe"
-                required
                 type="text"
                 value={form.name}
               />
+              {errors.name && (
+                <p
+                  style={{
+                    color: "#d32f2f",
+                    fontSize: "12px",
+                    margin: "4px 0 0",
+                  }}
+                >
+                  {errors.name}
+                </p>
+              )}
             </div>
             <div className={styles.formGroup}>
               <label className={styles.formLabel} htmlFor="cf-email">
@@ -373,10 +423,20 @@ function FormSection() {
                 name="email"
                 onChange={handleChange}
                 placeholder="john@company.com"
-                required
                 type="email"
                 value={form.email}
               />
+              {errors.email && (
+                <p
+                  style={{
+                    color: "#d32f2f",
+                    fontSize: "12px",
+                    margin: "4px 0 0",
+                  }}
+                >
+                  {errors.email}
+                </p>
+              )}
             </div>
             <div className={styles.formGroup}>
               <label className={styles.formLabel} htmlFor="cf-country">
@@ -432,11 +492,32 @@ function FormSection() {
               <option value="Blockchain Development">
                 Blockchain Development
               </option>
+              <option value="AI/ML Development">AI/ML Development</option>
+              <option value="IoT Development">IoT Development</option>
+              <option value="Game Development">Game Development</option>
+              <option value="GenAI & Automation">GenAI &amp; Automation</option>
               <option value="UI/UX Design">UI/UX Design</option>
-              <option value="DevOps & Cloud">DevOps &amp; Cloud</option>
-              <option value="AI & ML">AI &amp; Machine Learning</option>
-              <option value="E-commerce">E-commerce Development</option>
               <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div className={styles.formGroup}>
+            <label className={styles.formLabel} htmlFor="cf-budget">
+              Project Budget
+            </label>
+            <select
+              className={styles.formInput}
+              id="cf-budget"
+              name="budget"
+              onChange={handleChange}
+              value={form.budget}
+            >
+              <option value="">Select a budget range (optional)</option>
+              <option value="Under $5K">Under $5K</option>
+              <option value="$5K–$15K">$5K&ndash;$15K</option>
+              <option value="$15K–$50K">$15K&ndash;$50K</option>
+              <option value="$50K+">$50K+</option>
+              <option value="Not Sure">Not Sure</option>
             </select>
           </div>
 
@@ -454,16 +535,27 @@ function FormSection() {
               rows={5}
               value={form.description}
             />
+            {errors.description && (
+              <p
+                style={{
+                  color: "#d32f2f",
+                  fontSize: "12px",
+                  margin: "4px 0 0",
+                }}
+              >
+                {errors.description}
+              </p>
+            )}
           </div>
 
           <button
             className={`${styles.btnPrimary} ${
-              sending ? styles.btnSending : ""
+              submitting ? styles.btnSending : ""
             }`}
-            disabled={sending}
+            disabled={submitting}
             type="submit"
           >
-            {sending ? "Sending..." : "Send Message →"}
+            {submitting ? "Sending..." : "Send Message →"}
           </button>
         </form>
       </div>

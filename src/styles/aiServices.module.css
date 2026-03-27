@@ -1,0 +1,33 @@
+/* ═══════════════════════════════════════════
+   AI Services Page
+   Palette: #FF9700, #0A0A0F, #2B2A35, #F9F9F9
+   ═══════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% -10%,
+    rgba(255, 151, 0, 0.12),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.heroBadge {
+  display: inline-block;
+}
+
+.heroH1 {
+  font-family: "Poppins", sans-serif;
+}
+
+.tile {
+  font-family: "Poppins", sans-serif;
+}

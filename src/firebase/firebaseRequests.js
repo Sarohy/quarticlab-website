@@ -42,3 +42,9 @@ const collectionReviews = "reviews"; // collection name in Firestore
 
 export const getAllReviews = () => getAllItems(collectionReviews);
 export const addReview = data => addItem(collectionReviews, data);
+
+// contact form submissions
+const collectionContactSubmissions = "contact_submissions";
+
+export const submitContactForm = data =>
+  addItem(collectionContactSubmissions, data);

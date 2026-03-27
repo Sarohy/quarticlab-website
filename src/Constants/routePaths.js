@@ -1,6 +1,7 @@
 const routesPaths = {
   home: "/",
   services: "/services",
+  aiServices: "/ai-services",
   aboutUs: "/aboutus",
   blogs: "/blog",
   projects: "/projects",
