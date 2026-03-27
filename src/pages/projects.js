@@ -104,7 +104,7 @@ export default function ProjectsNewPage({ projects = [] }) {
   return (
     <div className={styles.page}>
       <Head>
-        <title>Portfolio | Zweidevs — Web, Mobile &amp; AI Projects</title>
+        <title>Portfolio | Zweidevs</title>
         <meta
           content={
             "Explore Zweidevs' portfolio of software projects spanning web " +

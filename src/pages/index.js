@@ -177,7 +177,9 @@ function useReveal(selector) {
 
 export default function LandingPage({
   projects = [],
+  projectsError = false,
   services = [],
+  servicesError = false,
   testimonials = defaultTestimonials,
 }) {
   const router = useRouter();
@@ -186,7 +188,7 @@ export default function LandingPage({
   return (
     <div className={styles.page}>
       <Head>
-        <title>Zweidevs — Empowering Digital Innovation</title>
+        <title>Zweidevs | AI, Blockchain &amp; Software Development</title>
         <meta
           content="Welcome to Zweidevs - Your Gateway to Digital Innovation. Explore our IT services, from web development and blockchain solutions to mobile app development and AI-powered solutions."
           name="description"
@@ -197,13 +199,17 @@ export default function LandingPage({
       <HeroSection router={router} />
 
       {/* ─── SERVICES ─────────────────────────── */}
-      <ServicesSection router={router} services={services} />
+      <ServicesSection
+        router={router}
+        services={services}
+        servicesError={servicesError}
+      />
 
       {/* ─── ABOUT ────────────────────────────── */}
       <AboutSection router={router} />
 
       {/* ─── PROJECTS ─────────────────────────── */}
-      <ProjectsSection projects={projects} />
+      <ProjectsSection projects={projects} projectsError={projectsError} />
 
       {/* ─── STATS ────────────────────────────── */}
       <StatsSection />
@@ -273,7 +279,7 @@ function HeroSection({ router }) {
   );
 }
 
-function ServicesSection({ router, services }) {
+function ServicesSection({ router, services, servicesError }) {
   return (
     <section className={styles.services} id="services">
       <div className={styles.container}>
@@ -283,32 +289,38 @@ function ServicesSection({ router, services }) {
             Everything Your Business Needs
           </h2>
         </div>
-        <div className={styles.servicesGrid}>
-          {services.map((s, i) => {
-            const icon = serviceIconMap[s.title] || WebDevIcon;
-            return (
-              <div
-                className={`${styles.serviceCard} ${styles.reveal}`}
-                key={s.title}
-                onClick={() => router.push(s.href)}
-                style={{ transitionDelay: `${i * 70}ms` }}
-              >
-                <div className={styles.serviceIconWrap}>
-                  <Image
-                    alt={s.title}
-                    className={styles.serviceIcon}
-                    height={56}
-                    src={icon}
-                    width={56}
-                  />
+        {servicesError ? (
+          <p style={{ color: "#ef5350", textAlign: "center" }}>
+            Unable to load services right now. Please try again later.
+          </p>
+        ) : (
+          <div className={styles.servicesGrid}>
+            {services.map((s, i) => {
+              const icon = serviceIconMap[s.title] || WebDevIcon;
+              return (
+                <div
+                  className={`${styles.serviceCard} ${styles.reveal}`}
+                  key={s.title}
+                  onClick={() => router.push(s.href)}
+                  style={{ transitionDelay: `${i * 70}ms` }}
+                >
+                  <div className={styles.serviceIconWrap}>
+                    <Image
+                      alt={s.title}
+                      className={styles.serviceIcon}
+                      height={56}
+                      src={icon}
+                      width={56}
+                    />
+                  </div>
+                  <h3 className={styles.serviceCardTitle}>{s.title}</h3>
+                  <p className={styles.serviceCardDesc}>{s.desc}</p>
+                  <span className={styles.serviceLink}>Learn more →</span>
                 </div>
-                <h3 className={styles.serviceCardTitle}>{s.title}</h3>
-                <p className={styles.serviceCardDesc}>{s.desc}</p>
-                <span className={styles.serviceLink}>Learn more →</span>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        )}
         <div className={styles.servicesCta}>
           <button
             className={styles.btnOutline}
@@ -359,7 +371,7 @@ function AboutSection({ router }) {
   );
 }
 
-function ProjectsSection({ projects }) {
+function ProjectsSection({ projects, projectsError }) {
   const router = useRouter();
   return (
     <section className={styles.projectsSec}>
@@ -370,36 +382,42 @@ function ProjectsSection({ projects }) {
             Our Top Projects
           </h2>
         </div>
-        <div className={styles.projectsGrid}>
-          {projects.map((p, i) => (
-            <div
-              className={`${styles.projectCard} ${styles.reveal}`}
-              key={p.title}
-              style={{ transitionDelay: `${i * 100}ms` }}
-            >
-              <div className={styles.projectImgWrap}>
-                {p.image ? (
-                  <Image
-                    alt={p.title}
-                    className={styles.projectImg}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 25vw"
-                    src={p.image}
-                  />
-                ) : (
-                  <div className={styles.projectImgPlaceholder} />
-                )}
-                {p.types?.[0] && (
-                  <span className={styles.projectTag}>{p.types[0]}</span>
-                )}
+        {projectsError ? (
+          <p style={{ color: "#ef5350", textAlign: "center" }}>
+            Unable to load projects right now. Please try again later.
+          </p>
+        ) : (
+          <div className={styles.projectsGrid}>
+            {projects.map((p, i) => (
+              <div
+                className={`${styles.projectCard} ${styles.reveal}`}
+                key={p.title}
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                <div className={styles.projectImgWrap}>
+                  {p.image ? (
+                    <Image
+                      alt={p.title}
+                      className={styles.projectImg}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 25vw"
+                      src={p.image}
+                    />
+                  ) : (
+                    <div className={styles.projectImgPlaceholder} />
+                  )}
+                  {p.types?.[0] && (
+                    <span className={styles.projectTag}>{p.types[0]}</span>
+                  )}
+                </div>
+                <div className={styles.projectBody}>
+                  <h3 className={styles.projectTitle}>{p.title}</h3>
+                  <p className={styles.projectDesc}>{p.desc}</p>
+                </div>
               </div>
-              <div className={styles.projectBody}>
-                <h3 className={styles.projectTitle}>{p.title}</h3>
-                <p className={styles.projectDesc}>{p.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
         <div className={styles.servicesCta}>
           <button
             className={styles.btnOutline}
@@ -615,6 +633,7 @@ function TechSection() {
 export async function getServerSideProps() {
   // ── projects ───────────────────────────────────
   let projects = [];
+  let projectsError = false;
   try {
     const pData = await getAllProjects();
     projects = (pData || [])
@@ -632,10 +651,11 @@ export async function getServerSideProps() {
       )
       .slice(0, 4);
   } catch (_) {
-    projects = [];
+    projectsError = true;
   }
   // ── services ────────────────────────────────────
   let services = [];
+  let servicesError = false;
   try {
     const svcData = await getAllServices();
     services = (svcData || [])
@@ -652,9 +672,9 @@ export async function getServerSideProps() {
           ? a.title.localeCompare(b.title)
           : a.order - b.order,
       )
-      .slice(0, 8);
+      .slice(0, 6);
   } catch (_) {
-    services = [];
+    servicesError = true;
   }
 
   // ── testimonials ─────────────────────────────────
@@ -674,12 +694,28 @@ export async function getServerSideProps() {
 
     if (!testimonials.length) {
       return {
-        props: { projects, services, testimonials: defaultTestimonials },
+        props: {
+          projects,
+          projectsError,
+          services,
+          servicesError,
+          testimonials: defaultTestimonials,
+        },
       };
     }
-    return { props: { projects, services, testimonials } };
+    return {
+      props: { projects, projectsError, services, servicesError, testimonials },
+    };
   } catch (_) {
-    return { props: { projects, services, testimonials: defaultTestimonials } };
+    return {
+      props: {
+        projects,
+        projectsError,
+        services,
+        servicesError,
+        testimonials: defaultTestimonials,
+      },
+    };
   }
 }
 

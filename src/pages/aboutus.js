@@ -17,18 +17,18 @@ const stats = [
 const qualities = [
   {
     icon: "🎯",
-    title: "Dedication & Focus",
-    desc: "At Zweidevs, we have curated a team of mobile app developers who consistently deliver their best work. They invest their time and effort into your project to meet your specific needs. By hiring professional app developers with practical knowledge, you gain an advantage over your competitors.",
+    title: "Full-Stack Expertise",
+    desc: "From mobile apps to blockchain protocols. No outsourcing.",
   },
   {
-    icon: "💰",
-    title: "Budget Friendly",
-    desc: "Our services are designed to be cost-effective without compromising on quality. We understand the importance of budget constraints, and our team works diligently to provide solutions that align with your financial resources while delivering excellent value.",
+    icon: "💬",
+    title: "Transparent Process",
+    desc: "Weekly standups, shared dashboards, no surprises.",
   },
   {
-    icon: "🛡️",
-    title: "24/7 Support Team",
-    desc: "We have a dedicated support team available round-the-clock to address any concerns or queries you may have. Whether it\u2019s technical assistance or general inquiries, our team is committed to providing prompt and reliable assistance.",
+    icon: "🚀",
+    title: "Startup Speed, Enterprise Quality",
+    desc: "We've built for funded startups and scaled with them.",
   },
 ];
 
@@ -87,7 +87,7 @@ export default function AboutNewPage() {
   return (
     <div className={styles.page}>
       <Head>
-        <title>Zweidevs - Our Journey in IT Services</title>
+        <title>About Us | Zweidevs</title>
         <meta
           content="Get to know Zweidevs - We are a team of tech enthusiasts passionate about creating digital solutions. Learn about our journey, values, and dedication to excellence in IT services."
           name="description"
@@ -100,13 +100,14 @@ export default function AboutNewPage() {
         <div className={styles.heroInner}>
           <span className={styles.heroBadge}>🏢 About Zweidevs</span>
           <h1 className={styles.heroH1}>
-            Our <span className={styles.heroAccent}>Vision</span>
+            We Are <span className={styles.heroAccent}>Zweidevs</span> — A
+            Product-First Studio from Lahore
           </h1>
           <p className={styles.heroSub}>
-            With a focus on creative ideas, innovation, and determination,
-            Zweidevs strives to facilitate your marketing journey. We utilize
-            advanced technology and robust business strategies that your company
-            requires in this digital age.
+            Founded in 2020, Zweidevs is a software studio building digital
+            products for a global market. We specialize in AI, Blockchain, IoT,
+            and full-stack development — with $0.5M in funding raised and 150+
+            projects delivered across 3 continents.
           </p>
         </div>
         <div className={styles.heroWave} />
@@ -239,12 +240,11 @@ function QualitiesSection() {
         <div className={styles.sectionHeader}>
           <span className={styles.sectionTag}>Zweidevs</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Team With Strong Interpersonal Skills
+            Why Choose Us
           </h2>
           <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
-            We have managed to build a team of developers with exceptional
-            interpersonal skills. Here are some qualities you would love to
-            learn about:
+            Three reasons our clients keep coming back — and why you should
+            choose Zweidevs for your next project.
           </p>
         </div>
         <div className={styles.qualitiesGrid}>

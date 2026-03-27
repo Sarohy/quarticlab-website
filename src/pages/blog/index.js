@@ -1,7 +1,14 @@
+// TODO: Connect to a CMS or Firestore 'blog_posts' collection when content is ready.
+// For now, using static placeholder cards.
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Chip from "@mui/material/Chip";
+import Typography from "@mui/material/Typography";
 import { getApiWithoutAuth } from "../api/api";
 import styles from "./blogNew.module.css";
 
@@ -88,7 +95,7 @@ const BlogNew = () => {
   return (
     <div className={styles.page}>
       <Head>
-        <title>Blog — Zweidevs Insights & Articles</title>
+        <title>Blog | Zweidevs</title>
         <meta
           content="Read the latest insights on web development, mobile apps, blockchain, AI, and digital strategy from the Zweidevs team."
           name="description"
@@ -116,7 +123,7 @@ const BlogNew = () => {
       <section className={styles.articlesSec}>
         <div className={styles.container}>
           <div className={styles.articlesHeader}>
-            <h2 className={styles.articlesHeading}>Latest Articles</h2>
+            <h2 className={styles.articlesHeading}>Insights from the Team</h2>
             <div className={styles.filterBar}>
               {filters.map(f => (
                 <button
@@ -138,7 +145,7 @@ const BlogNew = () => {
               <p className={styles.loadingText}>Loading articles...</p>
             </div>
           ) : filtered.length === 0 ? (
-            <p className={styles.empty}>No articles found for this category.</p>
+            <PlaceholderCards />
           ) : (
             <div className={styles.grid} key={animKey}>
               {filtered.map((item, i) => (
@@ -195,6 +202,114 @@ const BlogNew = () => {
     </div>
   );
 };
+
+/* ── static placeholder cards ────────────────────── */
+
+const placeholderPosts = [
+  {
+    id: "placeholder-1",
+    category: "AI",
+    title: "How Generative AI Is Reshaping Product Development",
+    excerpt:
+      "From ideation to deployment, AI-assisted workflows are cutting " +
+      "delivery cycles in half. Here's what we've seen in the field.",
+    author: "Abdul Rehman Sarohy",
+    date: "March 15, 2026",
+  },
+  {
+    id: "placeholder-2",
+    category: "Blockchain",
+    title: "Building Trust with On-Chain Verification",
+    excerpt:
+      "Why smart-contract-based audit trails are becoming the default " +
+      "for supply-chain and fintech projects in 2026.",
+    author: "Ali Zain",
+    date: "February 28, 2026",
+  },
+  {
+    id: "placeholder-3",
+    category: "Web Dev",
+    title: "Next.js 15 Performance Patterns We're Using Right Now",
+    excerpt:
+      "Server Components, Partial Pre-rendering, and edge caching — " +
+      "a practical guide from our engineering team.",
+    author: "Zweidevs Team",
+    date: "January 20, 2026",
+  },
+];
+
+function PlaceholderCards() {
+  return (
+    <Box
+      sx={{
+        display: "grid",
+        gap: 3,
+        gridTemplateColumns: {
+          md: "repeat(3, 1fr)",
+          sm: "repeat(2, 1fr)",
+          xs: "1fr",
+        },
+      }}
+    >
+      {placeholderPosts.map(post => (
+        <Card
+          key={post.id}
+          sx={{
+            borderRadius: 2,
+            boxShadow: 2,
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Box bgcolor="grey.200" height={180} />
+          <CardContent sx={{ flexGrow: 1 }}>
+            <Chip label={post.category} size="small" sx={{ mb: 1.5 }} />
+            <Typography
+              component="h3"
+              gutterBottom
+              sx={{ fontWeight: 700 }}
+              variant="h6"
+            >
+              {post.title}
+            </Typography>
+            <Typography
+              color="text.secondary"
+              sx={{
+                WebkitBoxOrient: "vertical",
+                WebkitLineClamp: 2,
+                display: "-webkit-box",
+                overflow: "hidden",
+              }}
+              variant="body2"
+            >
+              {post.excerpt}
+            </Typography>
+          </CardContent>
+          <Box
+            sx={{
+              alignItems: "center",
+              display: "flex",
+              justifyContent: "space-between",
+              pb: 2,
+              px: 2,
+            }}
+          >
+            <Typography color="text.disabled" variant="caption">
+              {post.author} &middot; {post.date}
+            </Typography>
+            <Typography
+              color="text.disabled"
+              sx={{ cursor: "not-allowed" }}
+              variant="caption"
+            >
+              Read more &rarr;
+            </Typography>
+          </Box>
+        </Card>
+      ))}
+    </Box>
+  );
+}
 
 export default BlogNew;
 

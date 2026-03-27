@@ -963,16 +963,20 @@
   }
 
   .statsGrid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   .statCard {
-    padding: 32px 16px 28px;
+    padding: 28px 12px 24px;
   }
 
   .statValue {
-    font-size: 30px;
+    font-size: 28px;
+  }
+
+  .statLabel {
+    font-size: 12px;
   }
 
   .formRow {

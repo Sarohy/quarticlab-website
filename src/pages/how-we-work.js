@@ -190,7 +190,12 @@ export default function HowWeWork() {
           </Typography>
           <Typography
             component="h1"
-            sx={{ fontWeight: 800, lineHeight: 1.15, mb: 3 }}
+            sx={{
+              fontWeight: 800,
+              fontSize: { md: "3.75rem", xs: "1.9rem" },
+              lineHeight: 1.15,
+              mb: 3,
+            }}
             variant="h2"
           >
             Our Process Is as Important{" "}

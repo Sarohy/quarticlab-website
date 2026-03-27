@@ -143,9 +143,7 @@ export default function ServicesNew({ services = [] }) {
   return (
     <div className={styles.page}>
       <Head>
-        <title>
-          IT Services — Web, Blockchain, AI, Mobile & More | Zweidevs
-        </title>
+        <title>Services | Zweidevs</title>
         <meta
           content="Comprehensive IT Services — web and mobile app development, blockchain, AI, IoT, UI/UX, game development, DevOps and more. Elevate your digital presence with Zweidevs."
           name="description"

@@ -122,7 +122,7 @@ export default function ContactNewPage() {
   return (
     <div className={styles.page}>
       <Head>
-        <title>Contact Us — Zweidevs</title>
+        <title>Contact | Zweidevs</title>
         <meta
           content="Get in touch with Zweidevs. Let's discuss your project, explore collaboration opportunities, or just say hello."
           name="description"
