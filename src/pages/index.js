@@ -113,11 +113,41 @@ const defaultTestimonials = [
 ];
 
 const stats = [
-  { value: "412+", label: "Projects Completed" },
-  { value: "682+", label: "Positive Reviews" },
-  { value: "95+", label: "Team Members" },
-  { value: "3.5M$", label: "Funding Raised" },
-  { value: "99%", label: "Customer Satisfaction" },
+  {
+    target: 412,
+    suffix: "+",
+    label: "Projects Completed",
+    icon: "🚀",
+    accent: "#ff9700",
+  },
+  {
+    target: 682,
+    suffix: "+",
+    label: "Positive Reviews",
+    icon: "⭐",
+    accent: "#ffc107",
+  },
+  {
+    target: 95,
+    suffix: "+",
+    label: "Team Members",
+    icon: "👥",
+    accent: "#4fc3f7",
+  },
+  {
+    target: 3.5,
+    suffix: "M$",
+    label: "Funding Raised",
+    icon: "💰",
+    accent: "#66bb6a",
+  },
+  {
+    target: 99,
+    suffix: "%",
+    label: "Customer Satisfaction",
+    icon: "❤️",
+    accent: "#ef5350",
+  },
 ];
 
 /* ── hooks ───────────────────────────────────────── */
@@ -355,45 +385,101 @@ function ProjectsSection() {
   );
 }
 
-function StatsSection() {
-  const refs = useRef([]);
+function useCountUp(target, isFloat, duration = 2000) {
+  const [value, setValue] = useState(0);
+  const started = useRef(false);
+
+  const start = () => {
+    if (started.current) {
+      return;
+    }
+    started.current = true;
+    const startTime = performance.now();
+    const tick = now => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(isFloat ? +(target * eased).toFixed(1) : Math.floor(target * eased));
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      }
+    };
+    requestAnimationFrame(tick);
+  };
+
+  return [value, start];
+}
+
+function StatCard({ stat, delay }) {
+  const isFloat = !Number.isInteger(stat.target);
+  const [count, startCount] = useCountUp(stat.target, isFloat);
+  const ref = useRef(null);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) {
+      return;
+    }
     const obs = new IntersectionObserver(
       entries => {
         entries.forEach(e => {
           if (e.isIntersecting) {
             e.target.classList.add(styles.visible);
+            startCount();
             obs.unobserve(e.target);
           }
         });
       },
-      { threshold: 0.2 },
+      { threshold: 0.25 },
     );
-    refs.current.forEach(r => {
-      if (r) {
-        obs.observe(r);
-      }
-    });
+    obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [startCount]);
 
   return (
+    <div
+      className={`${styles.statCard} ${styles.statReveal}`}
+      ref={ref}
+      style={{ transitionDelay: delay }}
+    >
+      <div
+        className={styles.statGlow}
+        style={{ background: stat.accent }}
+      />
+      <div className={styles.statRing} style={{ borderColor: stat.accent }}>
+        <span className={styles.statIcon}>{stat.icon}</span>
+      </div>
+      <span className={styles.statValue} style={{ color: stat.accent }}>
+        {count}
+        {stat.suffix}
+      </span>
+      <span className={styles.statLabel}>{stat.label}</span>
+      <div
+        className={styles.statBar}
+        style={{ background: stat.accent }}
+      />
+    </div>
+  );
+}
+
+function StatsSection() {
+  return (
     <section className={styles.statsSec}>
+      <div className={styles.statsBgDots} />
       <div className={styles.container}>
+        <div className={styles.statsHeader}>
+          <span className={styles.sectionTag}>Why Zweidevs</span>
+          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
+            Numbers That Speak for Themselves
+          </h2>
+        </div>
         <div className={styles.statsGrid}>
           {stats.map((s, i) => (
-            <div
-              className={`${styles.statCard} ${styles.statReveal}`}
+            <StatCard
+              delay={`${i * 120}ms`}
               key={s.label}
-              ref={el => {
-                refs.current[i] = el;
-              }}
-              style={{ transitionDelay: `${i * 90}ms` }}
-            >
-              <span className={styles.statValue}>{s.value}</span>
-              <span className={styles.statLabel}>{s.label}</span>
-            </div>
+              stat={s}
+            />
           ))}
         </div>
       </div>
