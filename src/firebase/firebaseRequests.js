@@ -1,5 +1,12 @@
 import { getApps, initializeApp } from "firebase/app";
-import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 import firebaseConfig from "./firebaseConfig";
 
 // Initialize Firebase — reuse existing app to avoid duplicate-app error in SSR/ISR
@@ -48,3 +55,22 @@ const collectionContactSubmissions = "contact_submissions";
 
 export const submitContactForm = data =>
   addItem(collectionContactSubmissions, data);
+
+// zweidevs service details (full detail-page content per slug)
+const collectionServiceDetails = "service_details";
+
+export const getAllServiceDetails = () => getAllItems(collectionServiceDetails);
+
+export const getServiceBySlug = async slug => {
+  const q = query(
+    collection(db, collectionServiceDetails),
+    where("slug", "==", slug),
+  );
+  const snap = await getDocs(q);
+  if (snap.empty) {
+    return null;
+  }
+  return snap.docs[0].data();
+};
+
+export const addServiceDetail = data => addItem(collectionServiceDetails, data);
