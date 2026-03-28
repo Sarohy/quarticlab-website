@@ -49,19 +49,6 @@ import CardContent from "@mui/material/CardContent";
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
 
-/* ── slugify helper ─────────────────────────── */
-const slugMap = {
-  "Web Development": "web-development",
-  "Mobile App Development": "mobile-development",
-  "Blockchain Development": "blockchain-development",
-  "AI/ML Development": "ai-ml-development",
-  "IoT Development": "iot-development",
-  "Game Development": "game-development",
-  "GenAI & Automation": "genai-automation",
-  "UI/UX Design": "ui-ux-design",
-  DevOps: "devops",
-};
-
 /* ── icon maps for dynamic Firestore data ──── */
 const serviceIconMap = {
   "Web Development": WebDevIcon,
@@ -394,7 +381,7 @@ export async function getServerSideProps() {
           })
           .filter(Boolean);
         const order = Number(svc.order_no ?? svc.order ?? 0);
-        const slug = svc.slug || slugMap[title] || "";
+        const slug = svc.slug || "";
 
         return { icon, title, desc, techs, order, slug };
       })
