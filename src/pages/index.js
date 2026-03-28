@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import Script from "next/script";
 import { useRouter } from "next/router";
 import HSLogo from "../../public/assets/HomeIcons/zweidevsLogo.svg";
 import HS3Img from "../../public/assets/HomeIcons/HS3Img.svg";
@@ -194,6 +195,10 @@ export default function LandingPage({
           name="description"
         />
       </Head>
+      <Script
+        src="https://widget.clutch.co/static/js/widget.js"
+        strategy="lazyOnload"
+      />
 
       {/* ─── HERO ─────────────────────────────── */}
       <HeroSection router={router} />
@@ -261,6 +266,18 @@ function HeroSection({ router }) {
             >
               View Our Work →
             </button>
+          </div>
+          <div className={styles.clutchBadge}>
+            <div
+              className="clutch-widget"
+              data-clutchcompany-id="1461075"
+              data-expandifr="true"
+              data-height="40"
+              data-nofollow="false"
+              data-scale="100"
+              data-url="https://widget.clutch.co"
+              data-widget-type="1"
+            />
           </div>
         </div>
         <div className={styles.heroVisual}>

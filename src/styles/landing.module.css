@@ -209,6 +209,10 @@
   flex-wrap: wrap;
 }
 
+.clutchBadge {
+  margin-top: 20px;
+}
+
 .heroVisual {
   flex: 0 0 auto;
   animation: heroLogoIn 1s 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
