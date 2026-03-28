@@ -88,10 +88,6 @@ function Footer() {
             <Link className={styles.footerBottomLink} href="/aboutus">
               About
             </Link>
-            <span className={styles.footerDot}>·</span>
-            <Link className={styles.footerBottomLink} href="/how-we-work">
-              How We Work
-            </Link>
           </div>
         </div>
       </div>

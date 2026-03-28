@@ -1,53 +1,134 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import AboutImg from "../../public/assets/AboutUs/AboutUsMainImg.png";
 import styles from "../styles/aboutNew.module.css";
 
 /* ── data ────────────────────────────────────────── */
 
 const stats = [
-  { value: "412+", label: "Projects Completed" },
-  { value: "682+", label: "Positive Reviews" },
-  { value: "95+", label: "Team Members" },
-  { value: "3.5M$", label: "Funding Raised" },
-  { value: "99%", label: "Customer Satisfaction" },
+  { label: "Projects Delivered", value: "150+" },
+  { label: "Positive Reviews", value: "680+" },
+  { label: "Countries Served", value: "12+" },
+  { label: "Customer Satisfaction", value: "99%" },
 ];
 
-const qualities = [
+const values = [
   {
+    desc: "From mobile to blockchain to AI — one team, zero outsourcing.",
     icon: "🎯",
     title: "Full-Stack Expertise",
-    desc: "From mobile apps to blockchain protocols. No outsourcing.",
   },
   {
+    desc: "Weekly demos, shared dashboards, and no surprises — ever.",
     icon: "💬",
-    title: "Transparent Process",
-    desc: "Weekly standups, shared dashboards, no surprises.",
+    title: "Radical Transparency",
   },
   {
+    desc: "Startup speed with enterprise-grade quality and security.",
     icon: "🚀",
-    title: "Startup Speed, Enterprise Quality",
-    desc: "We've built for funded startups and scaled with them.",
+    title: "Ship Fast, Ship Right",
+  },
+  {
+    desc: "Your idea gets a scope, timeline, and cost in 16 hours.",
+    icon: "⚡",
+    title: "16-Hour Estimates",
   },
 ];
 
-const founders = [
+const processSteps = [
   {
-    name: "Abdul Rehman Sarohy",
-    role: "Co Founder",
-    img: "https://zweidevs-internal-prod.s3.ap-south-1.amazonaws.com/assets/Sarohy.svg",
-    linkedin: "https://linkedin.com/in/abdul-rehman-sarohy-0b40b0128",
-    instagram: "https://www.instagram.com/zweidevs.official",
-    facebook: "https://www.facebook.com/zweidevs",
+    day: "Day 1",
+    desc: "We learn your goals, constraints, budget, and timeline.",
+    label: "Discovery Call",
   },
   {
-    name: "Ali Zain",
-    role: "Co Founder",
-    img: "https://zweidevs-internal-prod.s3.ap-south-1.amazonaws.com/assets/Ali.svg",
-    linkedin: "https://linkedin.com/in/ali-zain-803416116",
-    instagram: "https://www.instagram.com/zweidevs.official",
-    facebook: "https://www.facebook.com/zweidevs",
+    day: "Day 3–5",
+    desc: "Scope, timeline, team composition, and detailed cost breakdown.",
+    label: "Proposal & SOW",
+  },
+  {
+    day: "Week 1",
+    desc: "Repo setup, sprint board, CI/CD, and full team introduction.",
+    label: "Kickoff & Sprint Planning",
+  },
+  {
+    day: "Week 2+",
+    desc: "2-week sprints with a live demo every Friday.",
+    label: "Development Sprints",
+  },
+  {
+    day: "Final Sprint",
+    desc: "Full QA, staging environment, and dedicated client testing.",
+    label: "QA & Staging",
+  },
+  {
+    day: "Final Week",
+    desc: "Deployment, documentation, and 30-day free support included.",
+    label: "Launch & Handoff",
+  },
+];
+
+const engagementModels = [
+  {
+    ctaLabel: "Start with Fixed Price",
+    includes: [
+      "Scoped requirements document",
+      "Fixed timeline & budget",
+      "2 rounds of revisions included",
+      "No hidden costs",
+    ],
+    timeline: "Typical: 4–12 weeks",
+    title: "Fixed Price",
+    when: "Best for well-defined projects with clear scope.",
+  },
+  {
+    ctaLabel: "Start with T&M",
+    includes: [
+      "Weekly billing",
+      "Flexible scope",
+      "Direct developer access",
+      "Monthly reporting",
+    ],
+    timeline: "Typical: Ongoing",
+    title: "Time & Material",
+    when: "Best when requirements evolve as you build.",
+  },
+  {
+    ctaLabel: "Start with Dedicated Team",
+    includes: [
+      "Senior devs + PM",
+      "Daily standups",
+      "Shared Slack & Jira",
+      "30-day scale notice",
+    ],
+    timeline: "Typical: 3+ months",
+    title: "Dedicated Team",
+    when: "Best for long-term product work needing reliability.",
+  },
+];
+
+const faqs = [
+  {
+    a: "We typically start at $5,000. For smaller scopes, we offer fixed-price packages.",
+    q: "What\u2019s your minimum project size?",
+  },
+  {
+    a: "Yes, always — before any discovery or scoping call.",
+    q: "Do you sign NDAs?",
+  },
+  {
+    a: "Yes. Every project has a dedicated PM and a shared Slack channel.",
+    q: "Will we have a dedicated project manager?",
+  },
+  {
+    a: "Yes. Our dedicated team model starts at $30/hr for senior developers.",
+    q: "Can we hire a dedicated developer?",
+  },
+  {
+    a: "30 days of free support is included. After that, we offer monthly retainer plans.",
+    q: "What happens after launch?",
   },
 ];
 
@@ -77,19 +158,17 @@ function useReveal(selector) {
 
 /* ── page ────────────────────────────────────────── */
 
-export default function AboutNewPage() {
+export default function AboutPage() {
+  const router = useRouter();
   useReveal(`.${styles.reveal}`);
-
-  const requestDemo = () => {
-    window.open("https://calendly.com/request-demo-zweidevs/meeting", "_blank");
-  };
+  const [openFaq, setOpenFaq] = useState(null);
 
   return (
     <div className={styles.page}>
       <Head>
         <title>About Us | Zweidevs</title>
         <meta
-          content="Get to know Zweidevs - We are a team of tech enthusiasts passionate about creating digital solutions. Learn about our journey, values, and dedication to excellence in IT services."
+          content="Zweidevs is a product-first software studio from Lahore. Learn about our values, process, engagement models, and what it's like to work with us."
           name="description"
         />
       </Head>
@@ -100,15 +179,33 @@ export default function AboutNewPage() {
         <div className={styles.heroInner}>
           <span className={styles.heroBadge}>🏢 About Zweidevs</span>
           <h1 className={styles.heroH1}>
-            We Are <span className={styles.heroAccent}>Zweidevs</span> — A
-            Product-First Studio from Lahore
+            We Build Software That{" "}
+            <span className={styles.heroAccent}>Actually Ships</span>
           </h1>
           <p className={styles.heroSub}>
-            Founded in 2020, Zweidevs is a software studio building digital
-            products for a global market. We specialize in AI, Blockchain, IoT,
-            and full-stack development — with $0.5M in funding raised and 150+
-            projects delivered across 3 continents.
+            Founded in 2020, Zweidevs is a product-first studio helping startups
+            and enterprises bring ideas to market — fast. AI, Blockchain, IoT,
+            and full-stack development across 3 continents.
           </p>
+          <div className={styles.heroCtas}>
+            <button
+              className={styles.btnPrimary}
+              onClick={() => router.push("/contactUs")}
+            >
+              Start a Project
+            </button>
+            <button
+              className={styles.btnOutline}
+              onClick={() =>
+                window.open(
+                  "https://calendly.com/request-demo-zweidevs/meeting",
+                  "_blank",
+                )
+              }
+            >
+              ⚡ Get Estimate in 16 Hrs
+            </button>
+          </div>
         </div>
         <div className={styles.heroWave} />
       </section>
@@ -116,28 +213,40 @@ export default function AboutNewPage() {
       {/* ─── MISSION ──────────────────────────── */}
       <MissionSection />
 
+      {/* ─── VALUES ───────────────────────────── */}
+      <ValuesSection />
+
       {/* ─── STATS ────────────────────────────── */}
       <StatsSection />
 
-      {/* ─── QUALITIES ────────────────────────── */}
-      <QualitiesSection />
+      {/* ─── PROCESS TIMELINE ─────────────────── */}
+      <ProcessSection />
 
-      {/* ─── FOUNDERS ─────────────────────────── */}
-      <FoundersSection />
+      {/* ─── ENGAGEMENT MODELS ────────────────── */}
+      <ModelsSection router={router} />
+
+      {/* ─── FAQ ──────────────────────────────── */}
+      <FaqSection openFaq={openFaq} setOpenFaq={setOpenFaq} />
 
       {/* ─── CTA ──────────────────────────────── */}
-      <section className={styles.ctaSec}>
+      <section className={styles.ctaSection}>
         <div className={styles.container}>
-          <div className={`${styles.ctaCard} ${styles.reveal}`}>
-            <h2 className={styles.ctaH2}>
-              Are You Ready For Meaningful Results?
-            </h2>
-            <p className={styles.ctaSub}>
-              We can help you bring your vision to life with our expert team of
-              designers and developers.
+          <div className={`${styles.ctaBanner} ${styles.reveal}`}>
+            <h2 className={styles.ctaTitle}>Ready to Build Something Great?</h2>
+            <p className={styles.ctaDesc}>
+              Get your project estimate in 16 hours. No commitment, no pressure
+              — just clarity.
             </p>
-            <button className={styles.btnPrimary} onClick={requestDemo}>
-              Book a Meeting →
+            <button
+              className={styles.btnPrimary}
+              onClick={() =>
+                window.open(
+                  "https://calendly.com/request-demo-zweidevs/meeting",
+                  "_blank",
+                )
+              }
+            >
+              ⚡ Get Free Estimate →
             </button>
           </div>
         </div>
@@ -146,7 +255,7 @@ export default function AboutNewPage() {
   );
 }
 
-/* ── sections ────────────────────────────────────── */
+/* ── section components ──────────────────────────── */
 
 function MissionSection() {
   return (
@@ -162,22 +271,51 @@ function MissionSection() {
         </div>
         <div className={`${styles.missionText} ${styles.reveal}`}>
           <span className={styles.sectionTag}>Who We Are</span>
-          <h2 className={styles.sectionTitle}>Our Mission</h2>
+          <h2 className={styles.sectionTitle}>
+            Your Engineering Partner, Not Just a Vendor
+          </h2>
           <p className={styles.missionDesc}>
-            Zweidevs stands as the preeminent digital agency in the realm of
-            business solutions. Our commitment to excellence and a
-            service-oriented approach defines our very essence. We specialize in
-            providing dynamic and groundbreaking solutions meticulously crafted
-            to suit your unique business domain.
+            We&apos;re a tight-knit team of engineers, designers, and product
+            thinkers who embed into your workflow. We don&apos;t just write code
+            — we challenge assumptions, propose better architectures, and own
+            outcomes.
           </p>
           <p className={styles.missionDesc}>
-            At Zweidevs, we not only meet but exceed your expectations, driven
-            by a passion for delivering thoughtfully innovated, eye-catching
-            products that leave a lasting impression. Our dedicated team takes
-            immense pride in engineering your requirements into robust software
-            solutions, harnessing the full potential of cutting-edge
-            technologies spanning mobile, web, cloud, and e-commerce.
+            From early-stage MVPs to scaling enterprise platforms, we bring the
+            same intensity: transparent communication, 2-week sprint cycles, and
+            a relentless focus on shipping software that users actually love.
           </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ValuesSection() {
+  return (
+    <section className={styles.valuesSec}>
+      <div className={styles.container}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionTag}>Why Zweidevs</span>
+          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
+            What Sets Us Apart
+          </h2>
+          <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
+            Four principles that define every project we take on.
+          </p>
+        </div>
+        <div className={styles.valuesGrid}>
+          {values.map((v, i) => (
+            <div
+              className={`${styles.valueCard} ${styles.reveal}`}
+              key={v.title}
+              style={{ transitionDelay: `${i * 100}ms` }}
+            >
+              <span className={styles.valueIcon}>{v.icon}</span>
+              <h3 className={styles.valueTitle}>{v.title}</h3>
+              <p className={styles.valueDesc}>{v.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -210,9 +348,6 @@ function StatsSection() {
   return (
     <section className={styles.statsSec}>
       <div className={styles.container}>
-        <h2 className={`${styles.statsHeading} ${styles.reveal}`}>
-          Zweidevs Achievements Since 2020
-        </h2>
         <div className={styles.statsGrid}>
           {stats.map((s, i) => (
             <div
@@ -233,30 +368,32 @@ function StatsSection() {
   );
 }
 
-function QualitiesSection() {
+function ProcessSection() {
   return (
-    <section className={styles.qualitiesSec}>
+    <section className={styles.timelineSection}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Zweidevs</span>
+          <span className={styles.sectionTag}>Our Process</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Why Choose Us
+            How a Typical Project Works
           </h2>
           <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
-            Three reasons our clients keep coming back — and why you should
-            choose Zweidevs for your next project.
+            Transparent milestones from first call to launch day.
           </p>
         </div>
-        <div className={styles.qualitiesGrid}>
-          {qualities.map((q, i) => (
+        <div className={styles.timeline}>
+          {processSteps.map((step, i) => (
             <div
-              className={`${styles.qualityCard} ${styles.reveal}`}
-              key={q.title}
-              style={{ transitionDelay: `${i * 100}ms` }}
+              className={`${styles.timelineItem} ${styles.reveal}`}
+              key={step.label}
+              style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <span className={styles.qualityIcon}>{q.icon}</span>
-              <h3 className={styles.qualityTitle}>{q.title}</h3>
-              <p className={styles.qualityDesc}>{q.desc}</p>
+              <div className={styles.timelineDot}>{i + 1}</div>
+              <div className={styles.timelineContent}>
+                <span className={styles.timelineBadge}>{step.day}</span>
+                <h3 className={styles.timelineLabel}>{step.label}</h3>
+                <p className={styles.timelineDesc}>{step.desc}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -265,87 +402,89 @@ function QualitiesSection() {
   );
 }
 
-function FoundersSection() {
+function ModelsSection({ router }) {
   return (
-    <section className={styles.foundersSec}>
+    <section className={styles.modelsSection}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Our Founders</span>
+          <span className={styles.sectionTag}>Engagement Models</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Our Expertise Will Help You
+            Choose How We Work Together
           </h2>
           <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
-            Collectively, we possess a greater intellect than any one of us
-            individually. We engage in passionate debates, embrace ongoing
-            learning, and exhibit unwavering dedication as we guide our team
-            towards establishing ourselves as the foremost technology partner.
+            Flexible models designed to fit your stage, budget, and timeline.
           </p>
         </div>
-        <div className={styles.foundersGrid}>
-          {founders.map((f, i) => (
+        <div className={styles.modelsGrid}>
+          {engagementModels.map((m, i) => (
             <div
-              className={`${styles.founderCard} ${styles.reveal}`}
-              key={f.name}
-              style={{ transitionDelay: `${i * 120}ms` }}
+              className={`${styles.modelCard} ${styles.reveal}`}
+              key={m.title}
+              style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <div className={styles.founderImgWrap}>
-                <Image
-                  alt={`Zweidevs | ${f.name}`}
-                  className={styles.founderImg}
-                  height={140}
-                  quality={100}
-                  src={f.img}
-                  width={140}
-                />
-              </div>
-              <h3 className={styles.founderName}>{f.name}</h3>
-              <p className={styles.founderRole}>{f.role}</p>
-              <div className={styles.founderSocials}>
-                <a
-                  className={styles.socialLink}
-                  href={f.instagram}
-                  rel="noopener noreferrer"
-                  target="_blank"
+              <span className={styles.modelTimeline}>{m.timeline}</span>
+              <h3 className={styles.modelTitle}>{m.title}</h3>
+              <p className={styles.modelWhen}>{m.when}</p>
+              <ul className={styles.modelList}>
+                {m.includes.map(item => (
+                  <li className={styles.modelListItem} key={item}>
+                    <span className={styles.modelCheck}>✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <button
+                className={styles.modelCardBtn}
+                onClick={() => router.push("/contactUs")}
+              >
+                {m.ctaLabel}
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FaqSection({ openFaq, setOpenFaq }) {
+  return (
+    <section className={styles.faqSection}>
+      <div className={styles.container}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionTag}>FAQ</span>
+          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
+            Common Questions
+          </h2>
+        </div>
+        <div className={styles.faqList}>
+          {faqs.map((faq, i) => (
+            <div
+              className={`${styles.faqItem} ${
+                openFaq === i ? styles.faqItemOpen : ""
+              }`}
+              key={faq.q}
+            >
+              <button
+                aria-expanded={openFaq === i}
+                className={styles.faqQuestion}
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+              >
+                {faq.q}
+                <span
+                  className={`${styles.faqChevron} ${
+                    openFaq === i ? styles.faqChevronOpen : ""
+                  }`}
                 >
-                  <svg
-                    fill="currentColor"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    width="20"
-                  >
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-                  </svg>
-                </a>
-                <a
-                  className={styles.socialLink}
-                  href={f.facebook}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <svg
-                    fill="currentColor"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    width="20"
-                  >
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                  </svg>
-                </a>
-                <a
-                  className={styles.socialLink}
-                  href={f.linkedin}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <svg
-                    fill="currentColor"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    width="20"
-                  >
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  </svg>
-                </a>
+                  ▾
+                </span>
+              </button>
+              <div
+                className={`${styles.faqAnswer} ${
+                  openFaq === i ? styles.faqAnswerOpen : ""
+                }`}
+              >
+                <p className={styles.faqAnswerText}>{faq.a}</p>
               </div>
             </div>
           ))}

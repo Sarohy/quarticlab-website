@@ -5,7 +5,6 @@ const navLinks = [
   { hasDropdown: true, href: routesPaths.services, text: "Services" },
   { href: routesPaths.projects, text: "Portfolio" },
   { href: routesPaths.aboutUs, text: "About" },
-  { href: routesPaths.howWeWork, text: "How We Work" },
   { href: routesPaths.blogs, text: "Blog" },
   { href: routesPaths.contactUs, text: "Contact" },
 ];
