@@ -29,12 +29,22 @@ const FooterAbout = () => {
         <h3 className={styles.footerAboutHeading}>ZWEIDEVS</h3>
       </div>
       <p className={styles.footerAboutZweidevs}>
-        Zweidevs provides dedicated remote teams that work closely with you to
-        design and build your idea into a product that scales.
+        We build software that scales — from MVPs to enterprise-grade platforms.
+        Dedicated teams, transparent process, real results.
       </p>
       <div className={styles.footerAboutTagline}>
         <span className={styles.taglineDash} />
-        <span className={styles.taglineText}>Turning ideas into reality</span>
+        <span className={styles.taglineText}>Ship faster. Scale smarter.</span>
+      </div>
+      <div className={styles.trustBadges}>
+        <div className={styles.trustBadge}>
+          <span className={styles.trustBadgeValue}>50+</span>
+          <span className={styles.trustBadgeLabel}>Projects Delivered</span>
+        </div>
+        <div className={styles.trustBadge}>
+          <span className={styles.trustBadgeValue}>16h</span>
+          <span className={styles.trustBadgeLabel}>Estimate Turnaround</span>
+        </div>
       </div>
     </div>
   );

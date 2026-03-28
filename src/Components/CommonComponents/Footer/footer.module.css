@@ -1,6 +1,160 @@
 /* ═══════════════════════════════════════════════
-   Modern Footer — Clean, Dark-surface Design
+   Footer — CTA Banner + Clean Dark Surface
    ═══════════════════════════════════════════════ */
+
+/* ── CTA Banner (above footer) ───────────────── */
+.ctaBanner {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaBanner::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 151, 0, 0.12) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.ctaBanner::after {
+  content: "";
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 184, 77, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.ctaBannerInner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 64px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaBannerContent {
+  flex: 1;
+  max-width: 560px;
+}
+
+.ctaBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.ctaBadgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34d399;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+.ctaBannerTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin: 0 0 14px;
+}
+
+.ctaHighlight {
+  background: linear-gradient(90deg, #ff9700, #ffb84d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ctaBannerDesc {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #9a9cb0;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.ctaBannerActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.ctaBannerButton {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #ff9700, #e88b05);
+  padding: 16px 36px;
+  border-radius: 14px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaBannerButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(255, 151, 0, 0.35);
+}
+
+.ctaBannerButton:active {
+  transform: translateY(0);
+}
+
+.ctaBtnIcon {
+  font-size: 1.1rem;
+}
+
+.ctaBannerSecondary {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #9a9cb0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ctaBannerSecondary:hover {
+  color: #ff9700;
+}
 
 /* ── Main container ──────────────────────────── */
 .footerMainContainer {
@@ -84,14 +238,17 @@
   width: 30%;
   flex-shrink: 0;
 }
+
 .footNavWidth {
   width: 14%;
   flex-shrink: 0;
 }
+
 .footServiceWidth {
   width: 22%;
   flex-shrink: 0;
 }
+
 .footSocialWidth {
   width: 20%;
   flex-shrink: 0;
@@ -112,7 +269,11 @@
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(255, 151, 0, 0.15), rgba(255, 151, 0, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 151, 0, 0.15),
+    rgba(255, 151, 0, 0.05)
+  );
   border: 1px solid rgba(255, 151, 0, 0.2);
   flex-shrink: 0;
 }
@@ -155,6 +316,34 @@
   font-style: italic;
   color: #ff9700;
   letter-spacing: 0.02em;
+}
+
+/* ── Trust badges ────────────────────────────── */
+.trustBadges {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.trustBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.trustBadgeValue {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ff9700;
+}
+
+.trustBadgeLabel {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #6b6d80;
 }
 
 /* ── Link lists (Quick Links + Services) ─────── */
@@ -334,10 +523,50 @@
 }
 
 /* ═══════════════════════════════════════════════
+   Keyframes
+   ═══════════════════════════════════════════════ */
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.5);
+  }
+}
+
+/* ═══════════════════════════════════════════════
    Responsive — Mobile
    ═══════════════════════════════════════════════ */
 
 @media screen and (max-width: 590px) {
+  .ctaBannerInner {
+    flex-direction: column;
+    padding: 48px 6%;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .ctaBannerContent {
+    max-width: 100%;
+  }
+
+  .ctaBadge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ctaBannerTitle {
+    font-size: 1.5rem;
+  }
+
+  .ctaBannerDesc {
+    font-size: 0.85rem;
+  }
+
   .footerInner {
     padding: 40px 6% 24px;
   }
@@ -392,6 +621,10 @@
   .footerAboutImageContainer {
     margin-bottom: 16px;
   }
+
+  .trustBadges {
+    justify-content: center;
+  }
 }
 
 /* ═══════════════════════════════════════════════
@@ -399,6 +632,22 @@
    ═══════════════════════════════════════════════ */
 
 @media screen and (min-width: 591px) and (max-width: 1100px) {
+  .ctaBannerInner {
+    flex-direction: column;
+    text-align: center;
+    padding: 56px 5%;
+    gap: 32px;
+  }
+
+  .ctaBannerContent {
+    max-width: 100%;
+  }
+
+  .ctaBadge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .footerInner {
     padding: 48px 5% 28px;
   }

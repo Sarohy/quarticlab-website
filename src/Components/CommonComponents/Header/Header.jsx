@@ -1,9 +1,12 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import navLinks, { HEADER_CTA } from "@component/Constants/navLinks";
+import navLinks, {
+  HEADER_CTA,
+  SERVICE_DROPDOWN,
+} from "@component/Constants/navLinks";
 import ZweidevsLogo from "../../../../public/assets/headerIcons/logoWithText.svg";
 import styles from "./header.module.css";
 
@@ -17,6 +20,11 @@ function Header() {
     mobileView: null,
     drawerOpen: false,
   });
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const dropdownTimeout = useRef(null);
+  const dropdownRef = useRef(null);
+
   const { mobileView, drawerOpen } = state;
 
   const toggleDrawer = useCallback(() => {
@@ -24,13 +32,33 @@ function Header() {
       ...prevState,
       drawerOpen: !prevState.drawerOpen,
     }));
+    setMobileServicesOpen(false);
+  }, []);
+
+  const openDropdown = useCallback(() => {
+    if (dropdownTimeout.current) {
+      clearTimeout(dropdownTimeout.current);
+    }
+    setDropdownOpen(true);
+  }, []);
+
+  const closeDropdown = useCallback(() => {
+    dropdownTimeout.current = setTimeout(() => {
+      setDropdownOpen(false);
+    }, 200);
   }, []);
 
   useEffect(() => {
     const setResponsiveness = () => {
       return window.innerWidth < 900
-        ? setState(prevState => ({ ...prevState, mobileView: true }))
-        : setState(prevState => ({ ...prevState, mobileView: false }));
+        ? setState(prevState => ({
+            ...prevState,
+            mobileView: true,
+          }))
+        : setState(prevState => ({
+            ...prevState,
+            mobileView: false,
+          }));
     };
     setResponsiveness();
     window.addEventListener("resize", setResponsiveness);
@@ -56,13 +84,22 @@ function Header() {
     };
   }, [drawerOpen]);
 
+  /* close dropdown on route change */
+  useEffect(() => {
+    setDropdownOpen(false);
+    setMobileServicesOpen(false);
+  }, [route.asPath]);
+
+  const isServicesActive =
+    pathInitialSegment === "/services" || pathInitialSegment === "/ai-services";
+
   const displayWeb = () => (
     <header
       className={`${styles.headerContainer} ${scrolled ? styles.scrolled : ""}`}
     >
       <Link className={styles.logoLink} href={"/"}>
         <Image
-          alt="Zweidevs | Custom Software Development Services Company"
+          alt="Zweidevs | Custom Software Development"
           className={styles.headerLogo}
           height={40}
           src={ZweidevsLogo}
@@ -70,25 +107,108 @@ function Header() {
         />
       </Link>
       <nav className={`${styles.pagesContainer} ${styles.headerNav}`}>
-        {navLinks.map(({ href, text }) => (
-          <Link
-            className={`${styles.pageLabel} ${
-              pathInitialSegment === href ? styles.activePage : ""
-            }`}
-            href={href}
-            key={href}
-          >
-            <span className={styles.pageLabelText}>{text}</span>
-          </Link>
-        ))}
+        {navLinks.map(({ href, text, hasDropdown }) =>
+          hasDropdown ? (
+            <div
+              className={styles.dropdownTrigger}
+              key={href}
+              onMouseEnter={openDropdown}
+              onMouseLeave={closeDropdown}
+              ref={dropdownRef}
+            >
+              <Link
+                className={`${styles.pageLabel} ${
+                  isServicesActive ? styles.activePage : ""
+                }`}
+                href={href}
+              >
+                <span className={styles.pageLabelText}>{text}</span>
+                <span
+                  className={`${styles.chevron} ${
+                    dropdownOpen ? styles.chevronUp : ""
+                  }`}
+                >
+                  ▾
+                </span>
+              </Link>
+
+              {/* ── Mega Dropdown ─── */}
+              <div
+                className={`${styles.megaDropdown} ${
+                  dropdownOpen ? styles.megaDropdownOpen : ""
+                }`}
+              >
+                <div className={styles.megaDropdownInner}>
+                  {SERVICE_DROPDOWN.map(group => (
+                    <div
+                      className={styles.megaDropdownColumn}
+                      key={group.label}
+                    >
+                      <span className={styles.megaGroupLabel}>
+                        {group.label}
+                      </span>
+                      {group.items.map(item => (
+                        <Link
+                          className={`${styles.megaDropdownItem} ${
+                            route.asPath === item.href
+                              ? styles.megaItemActive
+                              : ""
+                          }`}
+                          href={item.href}
+                          key={item.href}
+                        >
+                          <span className={styles.megaItemEmoji}>
+                            {item.emoji}
+                          </span>
+                          <div className={styles.megaItemContent}>
+                            <span className={styles.megaItemTitle}>
+                              {item.text}
+                            </span>
+                            <span className={styles.megaItemDesc}>
+                              {item.desc}
+                            </span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  ))}
+
+                  {/* ── Dropdown footer ── */}
+                  <div className={styles.megaDropdownFooter}>
+                    <span className={styles.megaFooterText}>
+                      Not sure which service fits?
+                    </span>
+                    <Link className={styles.megaFooterLink} href="/services">
+                      View all services →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <Link
+              className={`${styles.pageLabel} ${
+                pathInitialSegment === href ? styles.activePage : ""
+              }`}
+              href={href}
+              key={href}
+            >
+              <span className={styles.pageLabelText}>{text}</span>
+            </Link>
+          ),
+        )}
       </nav>
+
+      {/* ── CTA with urgency pulse ── */}
       <a
         className={styles.ctaButton}
         href={HEADER_CTA.href}
         rel="noopener noreferrer"
         target="_blank"
       >
-        {HEADER_CTA.label}
+        <span className={styles.ctaPulse} />
+        <span className={styles.ctaIcon}>⚡</span>
+        <span className={styles.ctaLabel}>{HEADER_CTA.label}</span>
       </a>
     </header>
   );
@@ -135,22 +255,86 @@ function Header() {
         }`}
       >
         <div className={styles.mobileDrawerContent}>
-          {navLinks.map(({ href, text }, index) => (
-            <Link
-              className={`${styles.mobileNavLink} ${
-                route.pathname === href ? styles.activePage : ""
-              }`}
-              href={href}
-              key={href}
-              onClick={toggleDrawer}
-              style={{ animationDelay: `${index * 0.06 + 0.1}s` }}
-            >
-              <span className={styles.mobileNavIndex}>
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className={styles.mobileNavText}>{text}</span>
-            </Link>
-          ))}
+          {navLinks.map(({ href, text, hasDropdown }, index) =>
+            hasDropdown ? (
+              <div className={styles.mobileAccordion} key={href}>
+                <button
+                  className={`${styles.mobileNavLink} ${
+                    isServicesActive ? styles.activePage : ""
+                  }`}
+                  onClick={() => setMobileServicesOpen(prev => !prev)}
+                  style={{
+                    animationDelay: `${index * 0.06 + 0.1}s`,
+                  }}
+                  type="button"
+                >
+                  <span className={styles.mobileNavIndex}>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className={styles.mobileNavText}>{text}</span>
+                  <span
+                    className={`${styles.mobileChevron} ${
+                      mobileServicesOpen ? styles.mobileChevronUp : ""
+                    }`}
+                  >
+                    ▾
+                  </span>
+                </button>
+
+                <div
+                  className={`${styles.mobileAccordionPanel} ${
+                    mobileServicesOpen ? styles.mobileAccordionOpen : ""
+                  }`}
+                >
+                  <Link
+                    className={styles.mobileSubLink}
+                    href="/services"
+                    onClick={toggleDrawer}
+                  >
+                    All Services
+                  </Link>
+                  {SERVICE_DROPDOWN.flatMap(group =>
+                    group.items.map(item => (
+                      <Link
+                        className={`${styles.mobileSubLink} ${
+                          route.asPath === item.href
+                            ? styles.mobileSubLinkActive
+                            : ""
+                        }`}
+                        href={item.href}
+                        key={item.href}
+                        onClick={toggleDrawer}
+                      >
+                        <span className={styles.mobileSubEmoji}>
+                          {item.emoji}
+                        </span>
+                        {item.text}
+                      </Link>
+                    )),
+                  )}
+                </div>
+              </div>
+            ) : (
+              <Link
+                className={`${styles.mobileNavLink} ${
+                  route.pathname === href ? styles.activePage : ""
+                }`}
+                href={href}
+                key={href}
+                onClick={toggleDrawer}
+                style={{
+                  animationDelay: `${index * 0.06 + 0.1}s`,
+                }}
+              >
+                <span className={styles.mobileNavIndex}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className={styles.mobileNavText}>{text}</span>
+              </Link>
+            ),
+          )}
+
+          {/* ── Mobile CTA ── */}
           <a
             className={styles.mobileCtaButton}
             href={HEADER_CTA.href}
@@ -158,6 +342,7 @@ function Header() {
             rel="noopener noreferrer"
             target="_blank"
           >
+            <span className={styles.ctaIcon}>⚡</span>
             {HEADER_CTA.label}
           </a>
         </div>

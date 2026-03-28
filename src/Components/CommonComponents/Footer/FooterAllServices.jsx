@@ -12,21 +12,42 @@ const FooterAllServices = () => {
   });
 
   const cardData = [
-    { cardTitle: "Web Development", href: urls.services.WebApp.url },
     {
-      cardTitle: "Mobile App Development",
+      cardTitle: "Web Development",
+      href: urls.services.WebApp.url,
+    },
+    {
+      cardTitle: "Mobile Apps",
       href: urls.services.MobileApp.url,
     },
     {
-      cardTitle: "Blockchain Development",
+      cardTitle: "Blockchain",
       href: urls.services.BC.url,
     },
-    { cardTitle: "AI/ML Development", href: urls.services.AI.url },
-    { cardTitle: "IoT Development", href: urls.services.IoT.url },
-    { cardTitle: "Game Development", href: urls.services.GD.url },
-    { cardTitle: "GenAI & Automation", href: urls.services.GenAI.url },
-    { cardTitle: "UI/UX Design", href: urls.services.UIUX.url },
-    { cardTitle: "DevOps", href: urls.services.DevOPS.url },
+    {
+      cardTitle: "AI / ML",
+      href: urls.services.AI.url,
+    },
+    {
+      cardTitle: "IoT Solutions",
+      href: urls.services.IoT.url,
+    },
+    {
+      cardTitle: "Game Dev",
+      href: urls.services.GD.url,
+    },
+    {
+      cardTitle: "GenAI & Automation",
+      href: urls.services.GenAI.url,
+    },
+    {
+      cardTitle: "UI/UX Design",
+      href: urls.services.UIUX.url,
+    },
+    {
+      cardTitle: "DevOps & Cloud",
+      href: urls.services.DevOPS.url,
+    },
   ];
 
   return (

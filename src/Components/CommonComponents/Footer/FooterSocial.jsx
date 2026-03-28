@@ -18,32 +18,32 @@ const FooterSocial = () => {
 
   const socialMediaData = [
     {
-      name: "fb",
-      href: "https://www.facebook.com/zweidevs",
       alt: "zweidevs facebook",
-      image: FbLogo,
+      href: "https://www.facebook.com/zweidevs",
       hoverImage: FBHover,
+      image: FbLogo,
+      name: "fb",
     },
     {
-      name: "insta",
-      href: "https://instagram.com/zweidevs.tech?igshid=OGQ5ZDc2ODk2ZA==",
       alt: "zweidevs instagram",
-      image: InstaLogo,
+      href: "https://instagram.com/zweidevs.tech?igshid=OGQ5ZDc2ODk2ZA==",
       hoverImage: InstaHover,
+      image: InstaLogo,
+      name: "insta",
     },
     {
-      name: "youtube",
-      href: "https://youtube.com/@Zweidevs?si=7uR6r0W4GBzelhoo",
       alt: "zweidevs youtube",
-      image: YoutubeIcon,
+      href: "https://youtube.com/@Zweidevs?si=7uR6r0W4GBzelhoo",
       hoverImage: YoutubeIconHover,
+      image: YoutubeIcon,
+      name: "youtube",
     },
     {
-      name: "linkedin",
-      href: "https://www.linkedin.com/company/zweidevs/",
       alt: "zweidevs linkedin",
-      image: LinkedInLogo,
+      href: "https://www.linkedin.com/company/zweidevs/",
       hoverImage: LinkedInHover,
+      image: LinkedInLogo,
+      name: "linkedin",
     },
   ];
 
@@ -55,7 +55,7 @@ const FooterSocial = () => {
     >
       <h3 className={styles.footerColumnTitle}>Connect</h3>
       <p className={styles.footerSocialSubtext}>
-        Follow us for the latest updates and insights.
+        Follow us for the latest updates, case studies & insights.
       </p>
       <div className={styles.socialIconsGrid}>
         {socialMediaData.map(element => (
