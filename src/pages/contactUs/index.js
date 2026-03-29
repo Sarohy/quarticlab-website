@@ -1,16 +1,9 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import Alert from "@mui/material/Alert";
 import { submitContactForm } from "@component/firebase/firebaseRequests";
-import { urls } from "@component/utils/urls";
 import HSLogo from "../../../public/assets/HomeIcons/zweidevsLogo.svg";
-import FbLogo from "../../../public/assets/footerIcons/fbIcon.svg";
-import InstaLogo from "../../../public/assets/footerIcons/instaIcon.svg";
-import LinkedInLogo from "../../../public/assets/footerIcons/linkedInIcon.svg";
-import YoutubeIcon from "../../../public/assets/footerIcons/youtubeIcon.svg";
-import Logo from "../../../public/assets/footerIcons/logo.svg";
 import styles from "../../styles/contactNew.module.css";
 
 /* ── data ────────────────────────────────────────── */
@@ -54,41 +47,6 @@ const faqs = [
   {
     q: "Can I hire a dedicated development team?",
     a: "Yes! We provide dedicated remote teams that integrate seamlessly with your existing workflow and culture.",
-  },
-];
-
-const servicesList = [
-  { label: "Web Development", href: urls.services.WebApp.url },
-  { label: "Mobile App Development", href: urls.services.MobileApp.url },
-  { label: "Blockchain Development", href: urls.services.BC.url },
-  { label: "AI/ML Development", href: urls.services.AI.url },
-  { label: "IoT Development", href: urls.services.IoT.url },
-  { label: "Game Development", href: urls.services.GD.url },
-  { label: "GenAI & Automation", href: urls.services.GenAI.url },
-  { label: "UI/UX Design", href: urls.services.UIUX.url },
-  { label: "DevOps", href: urls.services.DevOPS.url },
-];
-
-const socialLinks = [
-  {
-    icon: FbLogo,
-    alt: "Facebook",
-    href: "https://www.facebook.com/zweidevs",
-  },
-  {
-    icon: InstaLogo,
-    alt: "Instagram",
-    href: "https://instagram.com/zweidevs.tech?igshid=OGQ5ZDc2ODk2ZA==",
-  },
-  {
-    icon: YoutubeIcon,
-    alt: "YouTube",
-    href: "https://youtube.com/@Zweidevs?si=7uR6r0W4GBzelhoo",
-  },
-  {
-    icon: LinkedInLogo,
-    alt: "LinkedIn",
-    href: "https://www.linkedin.com/company/zweidevs/",
   },
 ];
 
@@ -140,12 +98,6 @@ export default function ContactNewPage() {
 
       {/* ─── FAQ ──────────────────────────────── */}
       <FAQSection />
-
-      {/* ─── CTA BANNER ──────────────────────── */}
-      <CTABanner />
-
-      {/* ─── FOOTER ──────────────────────────── */}
-      <FooterSection />
     </div>
   );
 }
@@ -610,119 +562,5 @@ function FAQSection() {
         </div>
       </div>
     </section>
-  );
-}
-
-/* ══════════════════════════════════════════════════
-   CTA BANNER
-   ══════════════════════════════════════════════════ */
-function CTABanner() {
-  return (
-    <section className={styles.ctaSec}>
-      <div className={styles.ctaBg} />
-      <div className={`${styles.container} ${styles.ctaInner}`}>
-        <h2 className={`${styles.ctaTitle} ${styles.reveal}`}>
-          Ready to Start Your Project?
-        </h2>
-        <p className={`${styles.ctaSub} ${styles.reveal}`}>
-          Book a free 30-minute strategy session with our experts.
-        </p>
-        <button
-          className={`${styles.btnPrimary} ${styles.ctaBtn} ${styles.reveal}`}
-          onClick={() =>
-            window.open(
-              "https://calendly.com/request-demo-zweidevs/meeting",
-              "_blank",
-            )
-          }
-        >
-          Schedule a Meeting 🗓️
-        </button>
-      </div>
-    </section>
-  );
-}
-
-/* ══════════════════════════════════════════════════
-   FOOTER SECTION
-   ══════════════════════════════════════════════════ */
-function FooterSection() {
-  return (
-    <footer className={styles.footer}>
-      <div className={`${styles.container} ${styles.footerInner}`}>
-        {/* brand column */}
-        <div className={styles.footerBrand}>
-          <div className={styles.footerLogoWrap}>
-            <Image alt="Zweidevs" height={40} src={Logo} width={40} />
-            <span className={styles.footerLogoText}>ZWEIDEVS</span>
-          </div>
-          <p className={styles.footerBrandDesc}>
-            Zweidevs provides dedicated remote teams that work closely with you
-            to design and build your idea.
-          </p>
-          <div className={styles.footerSocials}>
-            {socialLinks.map(s => (
-              <a
-                className={styles.footerSocialLink}
-                href={s.href}
-                key={s.alt}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <Image alt={s.alt} height={24} src={s.icon} width={24} />
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {/* quick links */}
-        <div className={styles.footerCol}>
-          <h4 className={styles.footerColTitle}>Quick Links</h4>
-          <Link className={styles.footerLink} href="/">
-            Home
-          </Link>
-          <Link className={styles.footerLink} href="/projects">
-            Projects
-          </Link>
-          <Link className={styles.footerLink} href="/aboutus">
-            About Us
-          </Link>
-          <Link className={styles.footerLink} href="/services">
-            Services
-          </Link>
-          <Link className={styles.footerLink} href="/blog">
-            Blogs
-          </Link>
-        </div>
-
-        {/* services */}
-        <div className={styles.footerCol}>
-          <h4 className={styles.footerColTitle}>Services</h4>
-          {servicesList.map(s => (
-            <Link className={styles.footerLink} href={s.href} key={s.label}>
-              {s.label}
-            </Link>
-          ))}
-        </div>
-
-        {/* contact info */}
-        <div className={styles.footerCol}>
-          <h4 className={styles.footerColTitle}>Contact</h4>
-          <a className={styles.footerLink} href="mailto:info@zweidevs.com">
-            info@zweidevs.com
-          </a>
-          <a className={styles.footerLink} href="tel:+923094446225">
-            +92 309 444 6225
-          </a>
-          <span className={styles.footerLink}>
-            Johar Town, Lahore, Pakistan
-          </span>
-        </div>
-      </div>
-
-      <div className={styles.footerBottom}>
-        <p>© {new Date().getFullYear()} Zweidevs. All Rights Reserved.</p>
-      </div>
-    </footer>
   );
 }
