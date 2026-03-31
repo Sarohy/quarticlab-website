@@ -1,7 +1,5 @@
-import dynamic from "next/dynamic";
+import Link from "next/link";
 import { useRouter } from "next/router";
-const Grid = dynamic(() => import("@mui/material/Grid"));
-const Link = dynamic(() => import("@mui/material/Link"));
 import { useInView } from "react-intersection-observer";
 import styles from "./footer.module.css";
 import { urls } from "@component/utils/urls";
@@ -19,67 +17,61 @@ const FooterAllServices = () => {
       href: urls.services.WebApp.url,
     },
     {
-      cardTitle: "Blockchain Development",
-      href: urls.services.BC.url,
-    },
-    {
-      cardTitle: "Mobile App Development",
+      cardTitle: "Mobile Apps",
       href: urls.services.MobileApp.url,
     },
     {
-      cardTitle: "UI/UX Development",
-      href: urls.services.UIUX.url,
+      cardTitle: "Blockchain",
+      href: urls.services.BC.url,
     },
     {
-      cardTitle: "Game Development",
-      href: urls.services.GD.url,
-    },
-    {
-      cardTitle: "IOT Devices",
-      href: urls.services.IoT.url,
-    },
-    {
-      cardTitle: "Artificial Intelligence & Machine Learning",
+      cardTitle: "AI / ML",
       href: urls.services.AI.url,
     },
     {
-      cardTitle: "DevOps & Cloud Services",
+      cardTitle: "IoT Solutions",
+      href: urls.services.IoT.url,
+    },
+    {
+      cardTitle: "Game Dev",
+      href: urls.services.GD.url,
+    },
+    {
+      cardTitle: "GenAI & Automation",
+      href: urls.services.GenAI.url,
+    },
+    {
+      cardTitle: "UI/UX Design",
+      href: urls.services.UIUX.url,
+    },
+    {
+      cardTitle: "DevOps & Cloud",
       href: urls.services.DevOPS.url,
     },
   ];
+
   return (
-    <>
-      <div
-        className={`${styles.footerFadeEl} ${
-          inView ? styles.footerVisible : ""
-        }`}
-        ref={observerRef}
-        style={{ transitionDelay: "160ms" }}
-      >
-        <h3>Services</h3>
-        <div className={styles.footerServicesItemsContainer}>
-          <Grid container spacing={2.5} xl={10}>
-            {cardData.map(({ href, cardTitle }, index) => (
-              <Grid item key={index} xs={12}>
-                <Link
-                  className={`${styles.footerServiceItem} ${
-                    router.pathname === href
-                      ? styles.colorOrange
-                      : styles.colorGrid
-                  }`}
-                  color={"#596380"}
-                  href={href}
-                  key={href}
-                  underline="none"
-                >
-                  {cardTitle}
-                </Link>
-              </Grid>
-            ))}
-          </Grid>
-        </div>
+    <div
+      className={`${styles.footerFadeEl} ${inView ? styles.footerVisible : ""}`}
+      ref={observerRef}
+      style={{ transitionDelay: "160ms" }}
+    >
+      <h3 className={styles.footerColumnTitle}>Services</h3>
+      <div className={styles.footerLinksList}>
+        {cardData.map(({ href, cardTitle }) => (
+          <Link
+            className={`${styles.footerLinkItem} ${
+              router.pathname === href ? styles.colorOrange : ""
+            }`}
+            href={href}
+            key={href}
+          >
+            <span className={styles.footerLinkArrow}>→</span>
+            {cardTitle}
+          </Link>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 

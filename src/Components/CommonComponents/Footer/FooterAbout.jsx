@@ -10,31 +10,43 @@ const FooterAbout = () => {
   });
 
   return (
-    <>
-      <div
-        className={`${styles.footerSlideLeft} ${
-          inView ? styles.footerVisible : ""
-        }`}
-        ref={observerRef}
-      >
-        <div className={styles.footerAboutImageContainer}>
+    <div
+      className={`${styles.footerSlideLeft} ${
+        inView ? styles.footerVisible : ""
+      }`}
+      ref={observerRef}
+    >
+      <div className={styles.footerAboutImageContainer}>
+        <div className={styles.footerLogoGlow}>
           <Image
             alt="zweidevs"
             className={styles.footerAboutImageContainerLogo}
+            height={42}
             src={Logo}
-            width={76}
+            width={42}
           />
-          <h3 className={styles.footerAboutHeading}>ZWEIDEVS</h3>
         </div>
-        <p className={styles.footerAboutZweidevs}>
-          {`
-            Zweidevs provides dedicated \n
-            remote teams that work closely with \n
-            you to design and build your idea.
-          `}
-        </p>
+        <h3 className={styles.footerAboutHeading}>ZWEIDEVS</h3>
       </div>
-    </>
+      <p className={styles.footerAboutZweidevs}>
+        We build software that scales — from MVPs to enterprise-grade platforms.
+        Dedicated teams, transparent process, real results.
+      </p>
+      <div className={styles.footerAboutTagline}>
+        <span className={styles.taglineDash} />
+        <span className={styles.taglineText}>Ship faster. Scale smarter.</span>
+      </div>
+      <div className={styles.trustBadges}>
+        <div className={styles.trustBadge}>
+          <span className={styles.trustBadgeValue}>50+</span>
+          <span className={styles.trustBadgeLabel}>Projects Delivered</span>
+        </div>
+        <div className={styles.trustBadge}>
+          <span className={styles.trustBadgeValue}>16h</span>
+          <span className={styles.trustBadgeLabel}>Estimate Turnaround</span>
+        </div>
+      </div>
+    </div>
   );
 };
 

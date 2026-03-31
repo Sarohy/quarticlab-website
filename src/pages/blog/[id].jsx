@@ -1,63 +1,80 @@
-import React, { useEffect } from "react";
-import dynamic from "next/dynamic";
+import { useEffect } from "react";
+import Head from "next/head";
 import { useRouter } from "next/router";
-const PageBanner = dynamic(
-  () => import("@component/Components/CommonComponents/PageBanner"),
-);
-import styles from "./blog.module.css";
+import styles from "./blogNew.module.css";
 
-const Id = () => {
+/* ── hooks ───────────────────────────────────────── */
+
+function useReveal(selector) {
+  useEffect(() => {
+    const els = document.querySelectorAll(selector);
+    if (!els.length) {
+      return;
+    }
+    const obs = new IntersectionObserver(
+      entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add(styles.visible);
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+    els.forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, [selector]);
+}
+
+/* ── page ────────────────────────────────────────── */
+
+const BlogDetail = () => {
   const router = useRouter();
   const { data } = router.query;
+  const parsed = data ? JSON.parse(data) : null;
 
-  const parsedData = data ? JSON.parse(data) : null;
-
-  const bannerData = {
-    title: parsedData?.title,
-    heading: parsedData?.category,
-  };
-  const animatedDivRefs = React.useRef(null);
-
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.1,
-    };
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__backInUp",
-            "animate__delay-0s",
-          );
-        }
-      });
-    }, options);
-
-    if (animatedDivRefs.current) {
-      observer.observe(animatedDivRefs.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  useReveal(`.${styles.reveal}`);
 
   return (
-    <div className={styles.BlogIdMTop}>
-      <PageBanner {...bannerData} />
-      <div className={styles.BlogIdPadding}>
-        <div
-          className={styles.blogDetails}
-          dangerouslySetInnerHTML={{ __html: parsedData?.description }}
-          ref={animatedDivRefs}
-        />
-      </div>
+    <div className={styles.page}>
+      <Head>
+        <title>{parsed?.title || "Blog"} — Zweidevs</title>
+      </Head>
+
+      {/* ─── HERO ─────────────────────────────── */}
+      <section className={styles.hero}>
+        <div className={styles.heroBg} />
+        <div className={styles.heroInner}>
+          {parsed?.category && (
+            <span className={styles.heroBadge}>{parsed.category}</span>
+          )}
+          <h1 className={styles.heroH1}>{parsed?.title || "Blog Post"}</h1>
+        </div>
+        <div className={styles.heroWave} />
+      </section>
+
+      {/* ─── CONTENT ──────────────────────────── */}
+      <section className={styles.detailSec}>
+        <div className={styles.container}>
+          <article
+            className={`${styles.detailContent} ${styles.reveal}`}
+            dangerouslySetInnerHTML={{
+              __html: parsed?.description || "",
+            }}
+          />
+          <div className={styles.detailBack}>
+            <button
+              className={styles.btnOutline}
+              onClick={() => router.push("/blogNew")}
+            >
+              ← Back to Articles
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
 
-export default Id;
+export default BlogDetail;
