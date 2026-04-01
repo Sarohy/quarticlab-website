@@ -1,0 +1,10 @@
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- outer ring -->
+  <circle cx="32" cy="32" r="30" fill="#0f1117" stroke="#e040fb" stroke-width="2"/>
+  <!-- claw / talons -->
+  <path d="M20 44 C18 36 22 28 28 24 C26 30 27 36 32 38 C37 36 38 30 36 24 C42 28 46 36 44 44" stroke="#e040fb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- top knuckle arc -->
+  <path d="M24 24 C26 18 30 16 32 16 C34 16 38 18 40 24" stroke="#e040fb" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <!-- inner highlight -->
+  <circle cx="32" cy="32" r="4" fill="#e040fb" opacity="0.25"/>
+</svg>

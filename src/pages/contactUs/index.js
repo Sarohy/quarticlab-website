@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Alert from "@mui/material/Alert";
 import { submitContactForm } from "@component/firebase/firebaseRequests";
+import CountrySelect from "@component/Components/CommonComponents/CountrySelect/CountrySelect";
 import HSLogo from "../../../public/assets/HomeIcons/zweidevsLogo.svg";
 import styles from "../../styles/contactNew.module.css";
 
@@ -181,11 +182,10 @@ function ContactCards() {
    FORM + INFO SECTION
    ══════════════════════════════════════════════════ */
 function FormSection() {
-  const [allCountries, setAllCountries] = useState([]);
   const [form, setForm] = useState({
     budget: "",
     contact: "",
-    country: "Pakistan",
+    country: "",
     description: "",
     email: "",
     name: "",
@@ -194,19 +194,6 @@ function FormSection() {
   const [errors, setErrors] = useState({});
   const [alertMsg, setAlertMsg] = useState(null);
   const [submitting, setSubmitting] = useState(false);
-
-  useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
-      .then(r => r.json())
-      .then(data => {
-        const list = data
-          .map(c => c?.name?.common)
-          .filter(Boolean)
-          .sort();
-        setAllCountries(list);
-      })
-      .catch(() => {});
-  }, []);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -394,19 +381,12 @@ function FormSection() {
               <label className={styles.formLabel} htmlFor="cf-country">
                 Country
               </label>
-              <select
-                className={styles.formInput}
+              <CountrySelect
                 id="cf-country"
                 name="country"
                 onChange={handleChange}
                 value={form.country}
-              >
-                {allCountries.map(c => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
+              />
             </div>
             <div className={styles.formGroup}>
               <label className={styles.formLabel} htmlFor="cf-phone">

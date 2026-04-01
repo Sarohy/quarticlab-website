@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -8,10 +8,38 @@ import styles from "../styles/aboutNew.module.css";
 /* ── data ────────────────────────────────────────── */
 
 const stats = [
-  { label: "Projects Delivered", value: "150+" },
-  { label: "Positive Reviews", value: "680+" },
-  { label: "Countries Served", value: "12+" },
-  { label: "Customer Satisfaction", value: "99%" },
+  {
+    accent: "#ff9700",
+    icon: "🚀",
+    label: "Projects Delivered",
+    suffix: "+",
+    target: 150,
+    wide: true,
+  },
+  {
+    accent: "#4fc3f7",
+    icon: "🌍",
+    label: "Countries Served",
+    suffix: "+",
+    target: 12,
+    wide: false,
+  },
+  {
+    accent: "#ffc107",
+    icon: "⭐",
+    label: "Positive Reviews",
+    suffix: "+",
+    target: 680,
+    wide: false,
+  },
+  {
+    accent: "#66bb6a",
+    icon: "💎",
+    label: "Customer Satisfaction",
+    suffix: "%",
+    target: 99,
+    wide: true,
+  },
 ];
 
 const values = [
@@ -133,6 +161,28 @@ const faqs = [
 ];
 
 /* ── hooks ───────────────────────────────────────── */
+
+function useCountUp(target, duration = 1600) {
+  const [count, setCount] = useState(0);
+  const started = useRef(false);
+  const start = useCallback(() => {
+    if (started.current) {
+      return;
+    }
+    started.current = true;
+    const t0 = performance.now();
+    const step = now => {
+      const progress = Math.min((now - t0) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * target));
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    };
+    requestAnimationFrame(step);
+  }, [target, duration]);
+  return [count, start];
+}
 
 function useReveal(selector) {
   useEffect(() => {
@@ -322,45 +372,68 @@ function ValuesSection() {
   );
 }
 
-function StatsSection() {
-  const refs = useRef([]);
+function StatCard({ s, delay }) {
+  const [count, startCount] = useCountUp(s.target);
+  const ref = useRef(null);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) {
+      return;
+    }
     const obs = new IntersectionObserver(
       entries => {
         entries.forEach(e => {
           if (e.isIntersecting) {
-            e.target.classList.add(styles.visible);
+            e.target.classList.add(styles.statVisible);
+            startCount();
             obs.unobserve(e.target);
           }
         });
       },
-      { threshold: 0.2 },
+      { threshold: 0.25 },
     );
-    refs.current.forEach(r => {
-      if (r) {
-        obs.observe(r);
-      }
-    });
+    obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [startCount]);
 
   return (
+    <div
+      className={`${styles.statCard} ${s.wide ? styles.statCardWide : ""}`}
+      ref={ref}
+      style={{ transitionDelay: delay }}
+    >
+      <div className={styles.statGlowOrb} style={{ background: s.accent }} />
+      <div className={styles.statTop}>
+        <span className={styles.statIcon}>{s.icon}</span>
+        <div className={styles.statRing} style={{ borderColor: s.accent }} />
+      </div>
+      <div className={styles.statNum} style={{ color: s.accent }}>
+        {count}
+        {s.suffix}
+      </div>
+      <span className={styles.statLabel}>{s.label}</span>
+      <div className={styles.statBar} style={{ background: s.accent }} />
+    </div>
+  );
+}
+
+function StatsSection() {
+  return (
     <section className={styles.statsSec}>
+      <div className={styles.statsBgDots} />
       <div className={styles.container}>
+        <div className={styles.statsHeader}>
+          <span className={styles.sectionTag}>Impact &amp; Scale</span>
+          <h2 className={`${styles.sectionTitle} ${styles.statsTitleReveal}`}>
+            Numbers That Speak
+            <br />
+            <span className={styles.statsAccentText}>for Themselves</span>
+          </h2>
+        </div>
         <div className={styles.statsGrid}>
           {stats.map((s, i) => (
-            <div
-              className={`${styles.statCard} ${styles.statReveal}`}
-              key={s.label}
-              ref={el => {
-                refs.current[i] = el;
-              }}
-              style={{ transitionDelay: `${i * 90}ms` }}
-            >
-              <span className={styles.statValue}>{s.value}</span>
-              <span className={styles.statLabel}>{s.label}</span>
-            </div>
+            <StatCard delay={`${i * 110}ms`} key={s.label} s={s} />
           ))}
         </div>
       </div>

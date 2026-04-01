@@ -22,6 +22,8 @@ import ArduinoIcon from "../../public/assets/serviceIcons/arduinoIcon.svg";
 import AWSIcon from "../../public/assets/serviceIcons/AWS.svg";
 import AzureIcon from "../../public/assets/serviceIcons/AzureIcon.svg";
 import BlenderIcon from "../../public/assets/serviceIcons/blender.svg";
+import CrewAIIcon from "../../public/assets/serviceIcons/crewai.svg";
+import DifyIcon from "../../public/assets/serviceIcons/dify.svg";
 import DockerIcon from "../../public/assets/serviceIcons/docker.svg";
 import EthIcon from "../../public/assets/serviceIcons/ethIcon.svg";
 import FigmaIcon from "../../public/assets/serviceIcons/figmaIcon.svg";
@@ -32,12 +34,15 @@ import GraphQLIcon from "../../public/assets/serviceIcons/graphql.svg";
 import HuggingFaceIcon from "../../public/assets/serviceIcons/huggingface.svg";
 import KubernetesIcon from "../../public/assets/serviceIcons/kubernetes.svg";
 import LangChainIcon from "../../public/assets/serviceIcons/langchain.svg";
+import LangFlowIcon from "../../public/assets/serviceIcons/langflow.svg";
+import MakeIcon from "../../public/assets/serviceIcons/make.svg";
 import MongoIcon from "../../public/assets/serviceIcons/mongodb.svg";
 import N8nIcon from "../../public/assets/serviceIcons/n8n.svg";
 import NestIcon from "../../public/assets/serviceIcons/nestjs.svg";
 import NextIcon from "../../public/assets/serviceIcons/next.svg";
 import NodeIcon from "../../public/assets/serviceIcons/node.svg";
 import OllamaIcon from "../../public/assets/serviceIcons/ollama.svg";
+import OpenClawIcon from "../../public/assets/serviceIcons/openclaw.svg";
 import OpenAIIcon from "../../public/assets/serviceIcons/openAIIcon.svg";
 import PostgresIcon from "../../public/assets/serviceIcons/postgres.svg";
 import PyTorchIcon from "../../public/assets/serviceIcons/pyTorch.svg";
@@ -53,6 +58,7 @@ import TypeScriptIcon from "../../public/assets/serviceIcons/typescript.svg";
 import UnityIcon from "../../public/assets/serviceIcons/unityIcon.svg";
 import VueIcon from "../../public/assets/serviceIcons/vue.svg";
 import ZapierIcon from "../../public/assets/serviceIcons/zapier.svg";
+import CountrySelect from "@component/Components/CommonComponents/CountrySelect/CountrySelect";
 import {
   getAllProjects,
   getAllReviews,
@@ -95,9 +101,14 @@ const techLogos = [
   { name: "PyTorch", src: PyTorchIcon },
   { name: "OpenAI", src: OpenAIIcon },
   { name: "LangChain", src: LangChainIcon },
+  { name: "LangFlow", src: LangFlowIcon },
   { name: "HuggingFace", src: HuggingFaceIcon },
   { name: "Anthropic", src: AnthropicIcon },
+  { name: "CrewAI", src: CrewAIIcon },
+  { name: "Dify", src: DifyIcon },
   { name: "n8n", src: N8nIcon },
+  { name: "OpenClaw", src: OpenClawIcon },
+  { name: "Make", src: MakeIcon },
   { name: "Zapier", src: ZapierIcon },
   { name: "Ollama", src: OllamaIcon },
   { name: "Solidity", src: EthIcon },
@@ -775,28 +786,14 @@ export async function getServerSideProps() {
 }
 
 function ContactSection() {
-  const [allCountries, setAllCountries] = useState([]);
   const [form, setForm] = useState({
     name: "",
     email: "",
     contact: "",
-    country: "Pakistan",
+    country: "",
     description: "",
   });
   const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
-      .then(r => r.json())
-      .then(data => {
-        const list = data
-          .map(c => c?.name?.common)
-          .filter(Boolean)
-          .sort();
-        setAllCountries(list);
-      })
-      .catch(() => {});
-  }, []);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -887,18 +884,12 @@ function ContactSection() {
             />
           </div>
           <div className={styles.formRow}>
-            <select
-              className={styles.formInput}
+            <CountrySelect
+              id="landing-country"
               name="country"
               onChange={handleChange}
               value={form.country}
-            >
-              {allCountries.map(c => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
+            />
             <input
               className={styles.formInput}
               name="contact"
