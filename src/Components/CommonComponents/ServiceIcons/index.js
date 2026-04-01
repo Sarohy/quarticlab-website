@@ -184,32 +184,176 @@ export const AiMlIcon = ({ color = "#FF9700", size = 24, ...props }) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      d="M12 3C7.58 3 4 6.58 4 11c0 2.5 1.2 4.7 3 6.2V20a1 1 0 001 1h8a1 1 0 001-1v-2.8c1.8-1.5 3-3.7 3-6.2 0-4.42-3.58-8-8-8z"
+    {/* Input layer */}
+    <circle
+      cx="3"
+      cy="7"
+      fill={color}
+      fillOpacity="0.2"
+      r="1.6"
       stroke={color}
-      strokeLinejoin="round"
-      strokeWidth="1.1"
+      strokeWidth="1"
     />
-    <circle cx="9.5" cy="10" fill={color} r="1.2" />
-    <circle cx="14.5" cy="10" fill={color} r="1.2" />
-    <path
-      d="M9 14c.8.8 2 1.2 3 1.2s2.2-.4 3-1.2"
+    <circle
+      cx="3"
+      cy="12"
+      fill={color}
+      fillOpacity="0.2"
+      r="1.6"
       stroke={color}
-      strokeLinecap="round"
-      strokeWidth="0.9"
+      strokeWidth="1"
+    />
+    <circle
+      cx="3"
+      cy="17"
+      fill={color}
+      fillOpacity="0.2"
+      r="1.6"
+      stroke={color}
+      strokeWidth="1"
+    />
+    {/* Hidden layer */}
+    <circle
+      cx="12"
+      cy="5"
+      fill={color}
+      fillOpacity="0.2"
+      r="1.6"
+      stroke={color}
+      strokeWidth="1"
+    />
+    <circle
+      cx="12"
+      cy="10.5"
+      fill={color}
+      fillOpacity="0.2"
+      r="1.6"
+      stroke={color}
+      strokeWidth="1"
+    />
+    <circle
+      cx="12"
+      cy="16"
+      fill={color}
+      fillOpacity="0.2"
+      r="1.6"
+      stroke={color}
+      strokeWidth="1"
+    />
+    <circle
+      cx="12"
+      cy="21"
+      fill={color}
+      fillOpacity="0.15"
+      r="1.6"
+      stroke={color}
+      strokeOpacity="0.5"
+      strokeWidth="0.85"
+    />
+    {/* Output layer */}
+    <circle
+      cx="21"
+      cy="9"
+      fill={color}
+      fillOpacity="0.25"
+      r="1.6"
+      stroke={color}
+      strokeWidth="1"
+    />
+    <circle
+      cx="21"
+      cy="15"
+      fill={color}
+      fillOpacity="0.25"
+      r="1.6"
+      stroke={color}
+      strokeWidth="1"
+    />
+    {/* Edges: input → hidden */}
+    <path
+      d="M4.6 7.4L10.4 5.3"
+      stroke={color}
+      strokeOpacity="0.35"
+      strokeWidth="0.7"
     />
     <path
-      d="M9 21h6M10 23h4"
+      d="M4.6 7.6L10.4 10.2"
       stroke={color}
-      strokeLinecap="round"
-      strokeWidth="0.9"
+      strokeOpacity="0.35"
+      strokeWidth="0.7"
     />
     <path
-      d="M12 3V1M4.5 6L3 4.5M19.5 6L21 4.5"
+      d="M4.6 8L10.4 15.6"
       stroke={color}
-      strokeLinecap="round"
-      strokeOpacity="0.45"
-      strokeWidth="0.75"
+      strokeOpacity="0.2"
+      strokeWidth="0.7"
+    />
+    <path
+      d="M4.6 12L10.4 10.8"
+      stroke={color}
+      strokeOpacity="0.35"
+      strokeWidth="0.7"
+    />
+    <path
+      d="M4.6 12L10.4 16"
+      stroke={color}
+      strokeOpacity="0.35"
+      strokeWidth="0.7"
+    />
+    <path
+      d="M4.6 17L10.4 16.3"
+      stroke={color}
+      strokeOpacity="0.35"
+      strokeWidth="0.7"
+    />
+    <path
+      d="M4.6 17L10.4 10.8"
+      stroke={color}
+      strokeOpacity="0.2"
+      strokeWidth="0.7"
+    />
+    <path
+      d="M4.6 17.4L10.4 21"
+      stroke={color}
+      strokeOpacity="0.25"
+      strokeWidth="0.7"
+    />
+    {/* Edges: hidden → output */}
+    <path
+      d="M13.6 5.3L19.4 9"
+      stroke={color}
+      strokeOpacity="0.35"
+      strokeWidth="0.7"
+    />
+    <path
+      d="M13.6 10.5L19.4 9.3"
+      stroke={color}
+      strokeOpacity="0.4"
+      strokeWidth="0.7"
+    />
+    <path
+      d="M13.6 10.7L19.4 14.8"
+      stroke={color}
+      strokeOpacity="0.35"
+      strokeWidth="0.7"
+    />
+    <path
+      d="M13.6 16L19.4 15.2"
+      stroke={color}
+      strokeOpacity="0.4"
+      strokeWidth="0.7"
+    />
+    <path
+      d="M13.6 16L19.4 9.5"
+      stroke={color}
+      strokeOpacity="0.2"
+      strokeWidth="0.7"
+    />
+    <path
+      d="M13.6 21L19.4 15.4"
+      stroke={color}
+      strokeOpacity="0.25"
+      strokeWidth="0.7"
     />
   </svg>
 );
@@ -288,29 +432,30 @@ export const GenAiIcon = ({ color = "#FF9700", size = 24, ...props }) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
+    {/* Gear / cog */}
+    <path d="M12 8a4 4 0 100 8 4 4 0 000-8z" stroke={color} strokeWidth="1.1" />
+    <circle cx="12" cy="12" fill={color} r="1.4" />
     <path
-      d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"
-      fill={color}
-      fillOpacity="0.15"
+      d="M12 2v2M12 20v2M2 12h2M20 12h2"
       stroke={color}
-      strokeLinejoin="round"
+      strokeLinecap="round"
+      strokeWidth="1.1"
+    />
+    <path
+      d="M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41
+         M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+      stroke={color}
+      strokeLinecap="round"
+      strokeOpacity="0.45"
       strokeWidth="0.9"
     />
+    {/* Lightning bolt overlay — AI spark */}
     <path
-      d="M18 14l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z"
-      fill={color}
-      fillOpacity="0.25"
+      d="M13.5 9.5l-2.5 3h2l-1 3"
       stroke={color}
+      strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth="0.75"
-    />
-    <path
-      d="M5 16l.7 2.1L7.8 19l-2.1.7L5 21.8l-.7-2.1L2.2 19l2.1-.7L5 16z"
-      fill={color}
-      fillOpacity="0.2"
-      stroke={color}
-      strokeLinejoin="round"
-      strokeWidth="0.65"
+      strokeWidth="1"
     />
   </svg>
 );
