@@ -313,6 +313,14 @@
   background: linear-gradient(135deg, #ff9700, #ffb84d);
 }
 
+.serviceIconWrap svg {
+  transition: filter 0.3s;
+}
+
+.serviceCard:hover .serviceIconWrap svg {
+  filter: brightness(0) invert(1);
+}
+
 .serviceIcon {
   transition: filter 0.3s;
 }
@@ -484,6 +492,15 @@
 .statsHeader {
   text-align: center;
   margin-bottom: 56px;
+}
+
+.statsSec .sectionTitle {
+  color: #fff;
+}
+
+.statsSec .sectionTag {
+  background: rgba(255, 151, 0, 0.15);
+  color: #ffb84d;
 }
 
 .statsGrid {
@@ -730,7 +747,7 @@
 .techMarquee {
   display: flex;
   width: max-content;
-  animation: marquee 30s linear infinite;
+  animation: marquee 55s linear infinite;
 }
 
 @keyframes marquee {
@@ -750,8 +767,8 @@
 
 .techTrack {
   display: flex;
-  align-items: center;
-  gap: 48px;
+  align-items: flex-start;
+  gap: 32px;
   padding: 0 32px;
   flex-shrink: 0;
 }
@@ -761,21 +778,43 @@
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
-  gap: 8px;
+  gap: 10px;
+  width: 96px;
+}
+
+.techItemIconWrap {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: #f5f5f5;
+  padding: 12px;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.techItemIconWrap:hover {
+  background: #ffe8c2;
+  transform: translateY(-3px);
 }
 
 .techItemIcon {
-  height: 40px;
+  max-height: 48px;
+  max-width: 48px;
+  width: auto;
+  height: auto;
   object-fit: contain;
-  width: 40px;
+  display: block;
 }
 
 .techItemLabel {
   color: #888;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.03em;
   white-space: nowrap;
+  text-align: center;
 }
 
 /* ═══════════════════════════════════════════

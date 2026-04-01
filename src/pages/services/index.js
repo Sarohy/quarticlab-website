@@ -4,16 +4,11 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 import { getAllServices } from "../../firebase/firebaseRequests";
-
-/* ── service icons ──────────────────────────── */
-import WebDevIcon from "../../../public/assets/serviceIcons/webdevIcon.svg";
-import BlockchainIcon from "../../../public/assets/serviceIcons/blockchainIcon.svg";
-import MobileDevIcon from "../../../public/assets/serviceIcons/MobDevIcon.svg";
-import UIUXIcon from "../../../public/assets/serviceIcons/uiuxIcon.svg";
-import GameDevIcon from "../../../public/assets/serviceIcons/GameDevIcon.svg";
-import IOTDevIcon from "../../../public/assets/serviceIcons/IOTIcon.svg";
-import AIDevIcon from "../../../public/assets/serviceIcons/AIDevIcon.svg";
-import DevopsIcon from "../../../public/assets/serviceIcons/devopsIcon.svg";
+import {
+  SERVICE_ICON_BY_SLUG,
+  SERVICE_ICON_MAP,
+  WebDevIcon,
+} from "@component/Components/CommonComponents/ServiceIcons";
 
 /* ── tech icons ─────────────────────────────── */
 import NodeIcon from "../../../public/assets/serviceIcons/node.svg";
@@ -50,17 +45,7 @@ import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
 
 /* ── icon maps for dynamic Firestore data ──── */
-const serviceIconMap = {
-  "Web Development": WebDevIcon,
-  "Mobile App Development": MobileDevIcon,
-  "Blockchain Development": BlockchainIcon,
-  "AI/ML Development": AIDevIcon,
-  "IoT Development": IOTDevIcon,
-  "Game Development": GameDevIcon,
-  "GenAI & Automation": OpenAIIcon,
-  "UI/UX Design": UIUXIcon,
-  DevOps: DevopsIcon,
-};
+const serviceIconMap = SERVICE_ICON_MAP;
 
 const techIconMap = {
   Android: AndroidIcon,
@@ -117,6 +102,35 @@ function useReveal() {
       refs.current.push(el);
     }
   };
+}
+
+/* ── helper components ──────────────────────── */
+
+function ServiceIconRender({ size, slug, title }) {
+  const Icon =
+    SERVICE_ICON_BY_SLUG[slug] || serviceIconMap[title] || WebDevIcon;
+  return (
+    <div className={styles.serviceIconWrap}>
+      <Icon size={size} />
+    </div>
+  );
+}
+
+function TechBubbles({ names = [] }) {
+  if (!names.length) {
+    return null;
+  }
+  return (
+    <div className={styles.serviceCardFooter}>
+      {names
+        .filter(name => techIconMap[name])
+        .map(name => (
+          <div className={styles.techBubble} key={name} title={name}>
+            <Image alt={name} height={16} src={techIconMap[name]} width={16} />
+          </div>
+        ))}
+    </div>
+  );
 }
 
 /* ═══════════════════════════════════════════
@@ -197,15 +211,11 @@ export default function ServicesNew({ services = [] }) {
                     size="small"
                     sx={{ bgcolor: "success.light", mb: 1.5 }}
                   />
-                  <div className={styles.serviceIconWrap}>
-                    <Image
-                      alt={genAiSvc.title}
-                      className={styles.serviceIcon}
-                      height={32}
-                      src={genAiSvc.icon}
-                      width={32}
-                    />
-                  </div>
+                  <ServiceIconRender
+                    size={32}
+                    slug={genAiSvc.slug}
+                    title={genAiSvc.title}
+                  />
                   <h3 className={styles.serviceCardTitle}>{genAiSvc.title}</h3>
                   <p className={styles.serviceCardDesc}>
                     {genAiSvc.desc ||
@@ -227,33 +237,14 @@ export default function ServicesNew({ services = [] }) {
                   ref={addRef}
                   style={{ transitionDelay: `${i * 0.06}s` }}
                 >
-                  <div className={styles.serviceIconWrap}>
-                    <Image
-                      alt={svc.title}
-                      className={styles.serviceIcon}
-                      height={32}
-                      src={svc.icon}
-                      width={32}
-                    />
-                  </div>
+                  <ServiceIconRender
+                    size={32}
+                    slug={svc.slug}
+                    title={svc.title}
+                  />
                   <h3 className={styles.serviceCardTitle}>{svc.title}</h3>
                   <p className={styles.serviceCardDesc}>{svc.desc}</p>
-                  <div className={styles.serviceCardFooter}>
-                    {svc.techs.map(tech => (
-                      <div
-                        className={styles.techBubble}
-                        key={tech.t}
-                        title={tech.t}
-                      >
-                        <Image
-                          alt={tech.t}
-                          height={16}
-                          src={tech.img}
-                          width={16}
-                        />
-                      </div>
-                    ))}
-                  </div>
+                  <TechBubbles names={svc.techNames} />
                   <span className={styles.serviceLink}>
                     Learn More <span aria-hidden="true">→</span>
                   </span>
@@ -369,21 +360,11 @@ export async function getServerSideProps() {
       .map(svc => {
         const title = svc.title || "";
         const desc = svc.desc || svc.description || "";
-        const icon = serviceIconMap[title] || WebDevIcon;
         const techNames = Array.isArray(svc.techs) ? svc.techs : [];
-        const techs = techNames
-          .map(name => {
-            const img = techIconMap[name];
-            if (!img) {
-              return null;
-            }
-            return { img, t: name };
-          })
-          .filter(Boolean);
         const order = Number(svc.order_no ?? svc.order ?? 0);
         const slug = svc.slug || "";
 
-        return { icon, title, desc, techs, order, slug };
+        return { title, desc, techNames, order, slug };
       })
       .sort((a, b) => {
         if (a.order === b.order) {

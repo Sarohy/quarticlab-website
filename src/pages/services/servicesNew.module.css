@@ -295,6 +295,14 @@
   background: linear-gradient(135deg, #ff9700, #ffb84d);
 }
 
+.serviceIconWrap svg {
+  transition: filter 0.35s;
+}
+
+.serviceCard:hover .serviceIconWrap svg {
+  filter: brightness(0) invert(1);
+}
+
 .serviceIcon {
   transition: filter 0.35s;
 }

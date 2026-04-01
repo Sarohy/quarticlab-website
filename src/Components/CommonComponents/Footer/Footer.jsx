@@ -25,11 +25,11 @@ function Footer() {
             </span>
             <h2 className={styles.ctaBannerTitle}>
               Get Your Project Estimate
-              <span className={styles.ctaHighlight}> in 16 Hours</span>
+              <span className={styles.ctaHighlight}> in 12 Hours</span>
             </h2>
             <p className={styles.ctaBannerDesc}>
               Share your idea — we&apos;ll send a detailed scope, timeline &
-              cost breakdown within 16 hours. No strings attached.
+              cost breakdown within 12 hours. No strings attached.
             </p>
           </div>
           <div className={styles.ctaBannerActions}>

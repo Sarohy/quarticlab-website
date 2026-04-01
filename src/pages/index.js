@@ -11,26 +11,48 @@ import ClientSvg3 from "../../public/assets/HomeIcons/clients/rishi.png";
 import ClientSvg4 from "../../public/assets/HomeIcons/clients/anton.png";
 import ClientSvg5 from "../../public/assets/HomeIcons/clients/tony-malik.png";
 import ClientSvg6 from "../../public/assets/HomeIcons/clients/tommy.png";
-import WebDevIcon from "../../public/assets/serviceIcons/webdevIcon.svg";
-import BlockchainIcon from "../../public/assets/serviceIcons/blockchainIcon.svg";
-import MobileDevIcon from "../../public/assets/serviceIcons/MobDevIcon.svg";
-import UIUXIcon from "../../public/assets/serviceIcons/uiuxIcon.svg";
-import GameDevIcon from "../../public/assets/serviceIcons/GameDevIcon.svg";
-import IOTDevIcon from "../../public/assets/serviceIcons/IOTIcon.svg";
-import AIDevIcon from "../../public/assets/serviceIcons/AIDevIcon.svg";
-import DevopsIcon from "../../public/assets/serviceIcons/devopsIcon.svg";
+import {
+  SERVICE_ICON_BY_SLUG,
+  SERVICE_ICON_MAP,
+  WebDevIcon,
+} from "@component/Components/CommonComponents/ServiceIcons";
+import AnthropicIcon from "../../public/assets/serviceIcons/anthropic.svg";
+import AngularIcon from "../../public/assets/serviceIcons/angular.svg";
 import ArduinoIcon from "../../public/assets/serviceIcons/arduinoIcon.svg";
 import AWSIcon from "../../public/assets/serviceIcons/AWS.svg";
+import AzureIcon from "../../public/assets/serviceIcons/AzureIcon.svg";
+import BlenderIcon from "../../public/assets/serviceIcons/blender.svg";
+import DockerIcon from "../../public/assets/serviceIcons/docker.svg";
 import EthIcon from "../../public/assets/serviceIcons/ethIcon.svg";
+import FigmaIcon from "../../public/assets/serviceIcons/figmaIcon.svg";
+import FirebaseIcon from "../../public/assets/serviceIcons/firebase.svg";
 import FlutterIcon from "../../public/assets/serviceIcons/Flutter.svg";
-import KerasIcon from "../../public/assets/serviceIcons/kerasIcon.svg";
+import GCloudIcon from "../../public/assets/serviceIcons/googlecloudIcon.svg";
+import GraphQLIcon from "../../public/assets/serviceIcons/graphql.svg";
+import HuggingFaceIcon from "../../public/assets/serviceIcons/huggingface.svg";
+import KubernetesIcon from "../../public/assets/serviceIcons/kubernetes.svg";
+import LangChainIcon from "../../public/assets/serviceIcons/langchain.svg";
+import MongoIcon from "../../public/assets/serviceIcons/mongodb.svg";
+import N8nIcon from "../../public/assets/serviceIcons/n8n.svg";
+import NestIcon from "../../public/assets/serviceIcons/nestjs.svg";
 import NextIcon from "../../public/assets/serviceIcons/next.svg";
 import NodeIcon from "../../public/assets/serviceIcons/node.svg";
+import OllamaIcon from "../../public/assets/serviceIcons/ollama.svg";
 import OpenAIIcon from "../../public/assets/serviceIcons/openAIIcon.svg";
 import PostgresIcon from "../../public/assets/serviceIcons/postgres.svg";
+import PyTorchIcon from "../../public/assets/serviceIcons/pyTorch.svg";
 import PythonIcon from "../../public/assets/serviceIcons/py.svg";
 import ReactIcon from "../../public/assets/serviceIcons/react.svg";
+import RedisIcon from "../../public/assets/serviceIcons/redis.svg";
+import SolanaIcon from "../../public/assets/serviceIcons/solanaIcon.svg";
+import SwiftIcon from "../../public/assets/serviceIcons/swift.svg";
+import TailwindIcon from "../../public/assets/serviceIcons/tailwind.svg";
+import TensorFlowIcon from "../../public/assets/serviceIcons/tensorflow.svg";
+import ThreeJSIcon from "../../public/assets/serviceIcons/threejs.svg";
+import TypeScriptIcon from "../../public/assets/serviceIcons/typescript.svg";
 import UnityIcon from "../../public/assets/serviceIcons/unityIcon.svg";
+import VueIcon from "../../public/assets/serviceIcons/vue.svg";
+import ZapierIcon from "../../public/assets/serviceIcons/zapier.svg";
 import {
   getAllProjects,
   getAllReviews,
@@ -41,16 +63,7 @@ import styles from "../styles/landing.module.css";
 
 /* ── data ────────────────────────────────────────── */
 
-const serviceIconMap = {
-  "Web Development": WebDevIcon,
-  "Blockchain Development": BlockchainIcon,
-  "Mobile App Development": MobileDevIcon,
-  "UI/UX Development": UIUXIcon,
-  "Game Development": GameDevIcon,
-  "IOT Devices": IOTDevIcon,
-  "Artificial Intelligence & Machine Learning": AIDevIcon,
-  "DevOps & Cloud Services": DevopsIcon,
-};
+const serviceIconMap = SERVICE_ICON_MAP;
 
 const slugMap = {
   "Web Development": "web-development",
@@ -68,13 +81,38 @@ const techLogos = [
   { name: "React", src: ReactIcon },
   { name: "Next.js", src: NextIcon },
   { name: "Node.js", src: NodeIcon },
+  { name: "TypeScript", src: TypeScriptIcon },
   { name: "Python", src: PythonIcon },
-  { name: "Solidity", src: EthIcon },
+  { name: "Vue.js", src: VueIcon },
+  { name: "Angular", src: AngularIcon },
+  { name: "NestJS", src: NestIcon },
+  { name: "GraphQL", src: GraphQLIcon },
+  { name: "TailwindCSS", src: TailwindIcon },
+  { name: "Three.js", src: ThreeJSIcon },
   { name: "Flutter", src: FlutterIcon },
-  { name: "TensorFlow", src: KerasIcon },
-  { name: "AWS", src: AWSIcon },
-  { name: "PostgreSQL", src: PostgresIcon },
+  { name: "Swift", src: SwiftIcon },
+  { name: "TensorFlow", src: TensorFlowIcon },
+  { name: "PyTorch", src: PyTorchIcon },
   { name: "OpenAI", src: OpenAIIcon },
+  { name: "LangChain", src: LangChainIcon },
+  { name: "HuggingFace", src: HuggingFaceIcon },
+  { name: "Anthropic", src: AnthropicIcon },
+  { name: "n8n", src: N8nIcon },
+  { name: "Zapier", src: ZapierIcon },
+  { name: "Ollama", src: OllamaIcon },
+  { name: "Solidity", src: EthIcon },
+  { name: "Solana", src: SolanaIcon },
+  { name: "AWS", src: AWSIcon },
+  { name: "Azure", src: AzureIcon },
+  { name: "GCP", src: GCloudIcon },
+  { name: "Docker", src: DockerIcon },
+  { name: "Kubernetes", src: KubernetesIcon },
+  { name: "Firebase", src: FirebaseIcon },
+  { name: "MongoDB", src: MongoIcon },
+  { name: "PostgreSQL", src: PostgresIcon },
+  { name: "Redis", src: RedisIcon },
+  { name: "Figma", src: FigmaIcon },
+  { name: "Blender", src: BlenderIcon },
   { name: "Unity", src: UnityIcon },
   { name: "Arduino", src: ArduinoIcon },
 ];
@@ -313,7 +351,10 @@ function ServicesSection({ router, services, servicesError }) {
         ) : (
           <div className={styles.servicesGrid}>
             {services.map((s, i) => {
-              const icon = serviceIconMap[s.title] || WebDevIcon;
+              const Icon =
+                SERVICE_ICON_BY_SLUG[s.slug] ||
+                serviceIconMap[s.title] ||
+                WebDevIcon;
               return (
                 <div
                   className={`${styles.serviceCard} ${styles.reveal}`}
@@ -322,13 +363,7 @@ function ServicesSection({ router, services, servicesError }) {
                   style={{ transitionDelay: `${i * 70}ms` }}
                 >
                   <div className={styles.serviceIconWrap}>
-                    <Image
-                      alt={s.title}
-                      className={styles.serviceIcon}
-                      height={56}
-                      src={icon}
-                      width={56}
-                    />
+                    <Icon size={56} />
                   </div>
                   <h3 className={styles.serviceCardTitle}>{s.title}</h3>
                   <p className={styles.serviceCardDesc}>{s.desc}</p>
@@ -618,13 +653,16 @@ function TestimonialsSection({ testimonials }) {
 function TechSection() {
   const track = techLogos.map(t => (
     <div className={styles.techItem} key={t.name}>
-      <Image
-        alt={t.name}
-        className={styles.techItemIcon}
-        height={40}
-        src={t.src}
-        width={40}
-      />
+      <div className={styles.techItemIconWrap}>
+        <Image
+          alt={t.name}
+          className={styles.techItemIcon}
+          height={48}
+          src={t.src}
+          style={{ width: "auto", height: "auto", maxHeight: "48px" }}
+          width={48}
+        />
+      </div>
       <span className={styles.techItemLabel}>{t.name}</span>
     </div>
   ));
@@ -682,7 +720,7 @@ export async function getServerSideProps() {
         const order = Number(svc.order_no ?? svc.order ?? 0);
         const slug = svc.slug || slugMap[title] || "";
         const href = slug ? `/services/${slug}` : "/services";
-        return { title, desc, order, href };
+        return { title, desc, order, href, slug };
       })
       .sort((a, b) =>
         a.order === b.order

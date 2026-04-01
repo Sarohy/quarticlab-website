@@ -31,9 +31,9 @@ const values = [
     title: "Ship Fast, Ship Right",
   },
   {
-    desc: "Your idea gets a scope, timeline, and cost in 16 hours.",
+    desc: "Your idea gets a scope, timeline, and cost in 12 hours.",
     icon: "⚡",
-    title: "16-Hour Estimates",
+    title: "12-Hour Estimates",
   },
 ];
 
@@ -203,7 +203,7 @@ export default function AboutPage() {
                 )
               }
             >
-              ⚡ Get Estimate in 16 Hrs
+              ⚡ Get Estimate in 12 Hrs
             </button>
           </div>
         </div>
@@ -234,7 +234,7 @@ export default function AboutPage() {
           <div className={`${styles.ctaBanner} ${styles.reveal}`}>
             <h2 className={styles.ctaTitle}>Ready to Build Something Great?</h2>
             <p className={styles.ctaDesc}>
-              Get your project estimate in 16 hours. No commitment, no pressure
+              Get your project estimate in 12 hours. No commitment, no pressure
               — just clarity.
             </p>
             <button

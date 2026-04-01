@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,8 +7,40 @@ import navLinks, {
   HEADER_CTA,
   SERVICE_DROPDOWN,
 } from "@component/Constants/navLinks";
+import { SERVICE_ICON_BY_SLUG } from "@component/Components/CommonComponents/ServiceIcons";
+import { useNavServices } from "@component/utils/ServicesContext";
 import ZweidevsLogo from "../../../../public/assets/headerIcons/logoWithText.svg";
 import styles from "./header.module.css";
+
+/* ── dropdown config ─────────────────────────────── */
+const SLUG_DESC = {
+  "ai-ml-development": "ML models, NLP & computer vision",
+  "blockchain-development": "Smart contracts, DeFi & Web3",
+  devops: "CI/CD, Kubernetes & cloud infra",
+  "game-development": "Unity, Unreal & immersive experiences",
+  "genai-automation": "LLMs, agents, RAG & automation",
+  "iot-development": "Connected devices & edge computing",
+  "mobile-development": "iOS, Android & cross-platform apps",
+  "ui-ux-design": "Interfaces that convert & delight",
+  "web-development": "React, Next.js, Node & scalable platforms",
+};
+
+const DROPDOWN_GROUPS_CONFIG = [
+  {
+    label: "Development",
+    slugs: [
+      "web-development",
+      "mobile-development",
+      "blockchain-development",
+      "iot-development",
+      "game-development",
+    ],
+  },
+  {
+    label: "AI & Design",
+    slugs: ["genai-automation", "ai-ml-development", "ui-ux-design", "devops"],
+  },
+];
 
 function Header() {
   const route = useRouter();
@@ -26,6 +58,31 @@ function Header() {
   const dropdownRef = useRef(null);
 
   const { mobileView, drawerOpen } = state;
+
+  const rawServices = useNavServices();
+  const activeDropdown = useMemo(() => {
+    if (!rawServices.length) {
+      return SERVICE_DROPDOWN;
+    }
+    const groups = DROPDOWN_GROUPS_CONFIG.map(group => ({
+      label: group.label,
+      items: group.slugs
+        .map(slug => {
+          const svc = rawServices.find(s => s.slug === slug);
+          if (!svc) {
+            return null;
+          }
+          return {
+            desc: SLUG_DESC[slug] || "",
+            href: `/services/${slug}`,
+            icon: slug,
+            text: svc.title,
+          };
+        })
+        .filter(Boolean),
+    })).filter(g => g.items.length > 0);
+    return groups.length ? groups : SERVICE_DROPDOWN;
+  }, [rawServices]);
 
   const toggleDrawer = useCallback(() => {
     setState(prevState => ({
@@ -139,7 +196,7 @@ function Header() {
                 }`}
               >
                 <div className={styles.megaDropdownInner}>
-                  {SERVICE_DROPDOWN.map(group => (
+                  {activeDropdown.map(group => (
                     <div
                       className={styles.megaDropdownColumn}
                       key={group.label}
@@ -158,7 +215,10 @@ function Header() {
                           key={item.href}
                         >
                           <span className={styles.megaItemEmoji}>
-                            {item.emoji}
+                            {(() => {
+                              const Icon = SERVICE_ICON_BY_SLUG[item.icon];
+                              return Icon ? <Icon size={22} /> : null;
+                            })()}
                           </span>
                           <div className={styles.megaItemContent}>
                             <span className={styles.megaItemTitle}>
@@ -293,7 +353,7 @@ function Header() {
                   >
                     All Services
                   </Link>
-                  {SERVICE_DROPDOWN.flatMap(group =>
+                  {activeDropdown.flatMap(group =>
                     group.items.map(item => (
                       <Link
                         className={`${styles.mobileSubLink} ${
@@ -306,7 +366,10 @@ function Header() {
                         onClick={toggleDrawer}
                       >
                         <span className={styles.mobileSubEmoji}>
-                          {item.emoji}
+                          {(() => {
+                            const Icon = SERVICE_ICON_BY_SLUG[item.icon];
+                            return Icon ? <Icon size={18} /> : null;
+                          })()}
                         </span>
                         {item.text}
                       </Link>

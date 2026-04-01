@@ -16,32 +16,32 @@ export const SERVICE_DROPDOWN = [
     items: [
       {
         desc: "React, Next.js, Node & scalable platforms",
-        emoji: "🌐",
         href: "/services/web-development",
+        icon: "web-development",
         text: "Web Development",
       },
       {
         desc: "iOS, Android & cross-platform apps",
-        emoji: "📱",
         href: "/services/mobile-development",
+        icon: "mobile-development",
         text: "Mobile Apps",
       },
       {
         desc: "Smart contracts, DeFi & Web3",
-        emoji: "⛓️",
         href: "/services/blockchain-development",
+        icon: "blockchain-development",
         text: "Blockchain",
       },
       {
         desc: "Connected devices & edge computing",
-        emoji: "📡",
         href: "/services/iot-development",
+        icon: "iot-development",
         text: "IoT Solutions",
       },
       {
         desc: "Unity, Unreal & immersive experiences",
-        emoji: "🎮",
         href: "/services/game-development",
+        icon: "game-development",
         text: "Game Development",
       },
     ],
@@ -51,26 +51,26 @@ export const SERVICE_DROPDOWN = [
     items: [
       {
         desc: "LLMs, agents, RAG & automation",
-        emoji: "🤖",
         href: "/services/genai-automation",
+        icon: "genai-automation",
         text: "GenAI & Automation",
       },
       {
         desc: "ML models, NLP & computer vision",
-        emoji: "🧠",
         href: "/services/ai-ml-development",
+        icon: "ai-ml-development",
         text: "AI / ML Development",
       },
       {
         desc: "Interfaces that convert & delight",
-        emoji: "🎨",
         href: "/services/ui-ux-design",
+        icon: "ui-ux-design",
         text: "UI/UX Design",
       },
       {
         desc: "CI/CD, Kubernetes & cloud infra",
-        emoji: "☁️",
         href: "/services/devops",
+        icon: "devops",
         text: "DevOps & Cloud",
       },
     ],
@@ -78,7 +78,7 @@ export const SERVICE_DROPDOWN = [
 ];
 
 export const HEADER_CTA = {
-  label: "Get Estimate in 16 Hrs",
+  label: "Get Estimate in 12 Hrs",
   href: "https://calendly.com/request-demo-zweidevs/meeting",
 };
 

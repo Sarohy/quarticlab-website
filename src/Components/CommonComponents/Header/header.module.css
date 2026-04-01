@@ -307,8 +307,9 @@
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   opacity: 0;
-  animation: ctaFadeIn 0.5s ease forwards;
-  animation-delay: 0.3s;
+  animation:
+    ctaFadeIn 0.5s ease 0.3s forwards,
+    ctaWobble 3.5s ease-in-out 1.5s infinite;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -633,6 +634,31 @@
   50% {
     transform: translate(-50%, -50%) scale(1.15);
     opacity: 0.3;
+  }
+}
+
+@keyframes ctaWobble {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 16px rgba(255, 151, 0, 0.35);
+  }
+  10% {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 28px rgba(255, 151, 0, 0.55);
+  }
+  20% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 16px rgba(255, 151, 0, 0.35);
+  }
+  30% {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 22px rgba(255, 151, 0, 0.48);
+  }
+  40% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 16px rgba(255, 151, 0, 0.35);
   }
 }
 
