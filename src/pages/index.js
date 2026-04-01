@@ -58,13 +58,14 @@ import TypeScriptIcon from "../../public/assets/serviceIcons/typescript.svg";
 import UnityIcon from "../../public/assets/serviceIcons/unityIcon.svg";
 import VueIcon from "../../public/assets/serviceIcons/vue.svg";
 import ZapierIcon from "../../public/assets/serviceIcons/zapier.svg";
+import Alert from "@mui/material/Alert";
 import CountrySelect from "@component/Components/CommonComponents/CountrySelect/CountrySelect";
 import {
   getAllProjects,
   getAllReviews,
   getAllServices,
+  submitContactForm,
 } from "@component/firebase/firebaseRequests";
-import { postAPIWithoutAuth } from "@component/pages/api/api";
 import styles from "../styles/landing.module.css";
 
 /* ── data ────────────────────────────────────────── */
@@ -787,13 +788,15 @@ export async function getServerSideProps() {
 
 function ContactSection() {
   const [form, setForm] = useState({
-    name: "",
-    email: "",
     contact: "",
     country: "",
     description: "",
+    email: "",
+    name: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [alertMsg, setAlertMsg] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -803,27 +806,60 @@ function ContactSection() {
     setForm(prev => ({ ...prev, [name]: value }));
   };
 
+  const validate = () => {
+    const errs = {};
+    if (!form.name.trim()) {
+      errs.name = "Full name is required.";
+    }
+    if (!form.email.trim()) {
+      errs.email = "Email address is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      errs.email = "Please enter a valid email address.";
+    }
+    if (!form.description.trim()) {
+      errs.description = "Please describe your project.";
+    }
+    return errs;
+  };
+
   const handleSubmit = async e => {
     e.preventDefault();
+    setAlertMsg(null);
+    const errs = validate();
+    if (Object.keys(errs).length) {
+      setErrors(errs);
+      return;
+    }
+    setErrors({});
+    setSubmitting(true);
     try {
-      await postAPIWithoutAuth("/dev/contact", {
-        name: form.name,
-        email: form.email,
-        phone_number: form.contact,
+      await submitContactForm({
         country: form.country,
-        des: form.description,
+        description: form.description,
+        email: form.email,
+        name: form.name,
+        phone: form.contact,
       });
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 4000);
+      setAlertMsg({
+        message: "Thanks! We\u2019ll get back to you within 24 hours.",
+        severity: "success",
+      });
       setForm({
-        name: "",
-        email: "",
         contact: "",
         country: "Pakistan",
         description: "",
+        email: "",
+        name: "",
       });
     } catch {
-      /* silent */
+      setAlertMsg({
+        message:
+          "Something went wrong. Please email us directly at " +
+          "hello@zweidevs.com",
+        severity: "error",
+      });
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -858,30 +894,58 @@ function ContactSection() {
           className={`${styles.contactForm} ${styles.reveal}`}
           onSubmit={handleSubmit}
         >
-          {submitted && (
-            <div className={styles.successToast}>
-              ✅ Message sent! We&apos;ll be in touch soon.
-            </div>
+          {alertMsg && (
+            <Alert
+              onClose={() => setAlertMsg(null)}
+              severity={alertMsg.severity}
+              sx={{ mb: 2 }}
+            >
+              {alertMsg.message}
+            </Alert>
           )}
           <div className={styles.formRow}>
-            <input
-              className={styles.formInput}
-              name="name"
-              onChange={handleChange}
-              placeholder="Your Name"
-              required
-              type="text"
-              value={form.name}
-            />
-            <input
-              className={styles.formInput}
-              name="email"
-              onChange={handleChange}
-              placeholder="Email Address"
-              required
-              type="email"
-              value={form.email}
-            />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <input
+                className={styles.formInput}
+                name="name"
+                onChange={handleChange}
+                placeholder="Your Name"
+                type="text"
+                value={form.name}
+              />
+              {errors.name && (
+                <p
+                  style={{
+                    color: "#d32f2f",
+                    fontSize: "12px",
+                    margin: "4px 0 0",
+                  }}
+                >
+                  {errors.name}
+                </p>
+              )}
+            </div>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <input
+                className={styles.formInput}
+                name="email"
+                onChange={handleChange}
+                placeholder="Email Address"
+                type="email"
+                value={form.email}
+              />
+              {errors.email && (
+                <p
+                  style={{
+                    color: "#d32f2f",
+                    fontSize: "12px",
+                    margin: "4px 0 0",
+                  }}
+                >
+                  {errors.email}
+                </p>
+              )}
+            </div>
           </div>
           <div className={styles.formRow}>
             <CountrySelect
@@ -895,7 +959,6 @@ function ContactSection() {
               name="contact"
               onChange={handleChange}
               placeholder="Phone Number"
-              required
               type="text"
               value={form.contact}
             />
@@ -905,12 +968,26 @@ function ContactSection() {
             name="description"
             onChange={handleChange}
             placeholder="Tell us about your project..."
-            required
             rows={5}
             value={form.description}
           />
-          <button className={styles.btnPrimary} type="submit">
-            Send Message
+          {errors.description && (
+            <p
+              style={{
+                color: "#d32f2f",
+                fontSize: "12px",
+                margin: "-14px 0 10px",
+              }}
+            >
+              {errors.description}
+            </p>
+          )}
+          <button
+            className={styles.btnPrimary}
+            disabled={submitting}
+            type="submit"
+          >
+            {submitting ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>
