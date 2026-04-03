@@ -708,7 +708,7 @@ export async function getServerSideProps() {
         title: p.title || "",
         desc: p.desc || p.description || "",
         types: Array.isArray(p.types) ? p.types : p.type ? [p.type] : [],
-        image: p.image || p.imageUrl || null,
+        image: p.image || p.image_url || p.imageUrl || p.img || null,
         order: Number(p.order_no ?? p.order ?? 0),
       }))
       .sort((a, b) =>
