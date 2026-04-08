@@ -411,6 +411,64 @@
   gap: 32px;
 }
 
+/* carousel */
+.projectCarousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  min-height: 480px;
+}
+
+.projectSlide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateX(40px);
+}
+
+.projectSlideActive {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  position: relative;
+}
+
+.carouselControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.carouselBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #ff9700;
+  background: transparent;
+  color: #ff9700;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.carouselBtn:hover {
+  background: #ff9700;
+  color: #fff;
+}
+
+.carouselDots {
+  display: flex;
+  gap: 8px;
+}
+
 .projectCard {
   border-radius: 20px;
   overflow: hidden;
@@ -433,11 +491,35 @@
 
 .projectImg {
   object-fit: cover;
-  transition: transform 0.5s;
+  transition: transform 0.5s, opacity 0.35s;
 }
 
 .projectCard:hover .projectImg {
   transform: scale(1.06);
+}
+
+.projectImgDots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.projectImgDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transition: background 0.2s, transform 0.2s;
+  display: block;
+}
+
+.projectImgDotActive {
+  background: #ff9700;
+  transform: scale(1.3);
 }
 
 .projectTag {

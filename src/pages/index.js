@@ -435,8 +435,102 @@ function AboutSection({ router }) {
   );
 }
 
+function ProjectCard({ p }) {
+  const [imgIdx, setImgIdx] = useState(0);
+  const imgIntervalRef = useRef(null);
+  const images = p.image || [];
+
+  const handleMouseEnter = () => {
+    if (images.length <= 1) {
+      return;
+    }
+    imgIntervalRef.current = setInterval(() => {
+      setImgIdx(i => (i + 1) % images.length);
+    }, 5000);
+  };
+
+  const handleMouseLeave = () => {
+    clearInterval(imgIntervalRef.current);
+    setImgIdx(0);
+  };
+
+  useEffect(() => () => clearInterval(imgIntervalRef.current), []);
+
+  const currentImg = images[imgIdx] || null;
+
+  return (
+    <div
+      className={styles.projectCard}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div className={styles.projectImgWrap}>
+        {currentImg ? (
+          <Image
+            alt={p.title}
+            className={styles.projectImg}
+            fill
+            key={currentImg}
+            sizes="(max-width: 768px) 100vw, 60vw"
+            src={currentImg}
+          />
+        ) : (
+          <div className={styles.projectImgPlaceholder} />
+        )}
+        {p.types?.[0] && (
+          <span className={styles.projectTag}>{p.types[0]}</span>
+        )}
+        {images.length > 1 && (
+          <div className={styles.projectImgDots}>
+            {images.map((_, di) => (
+              <span
+                className={`${styles.projectImgDot} ${
+                  di === imgIdx ? styles.projectImgDotActive : ""
+                }`}
+                key={di}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+      <div className={styles.projectBody}>
+        <h3 className={styles.projectTitle}>{p.title}</h3>
+        <p className={styles.projectDesc}>{p.desc}</p>
+      </div>
+    </div>
+  );
+}
+
 function ProjectsSection({ projects, projectsError }) {
   const router = useRouter();
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const total = projects.length;
+  const intervalRef = useRef(null);
+
+  useEffect(() => {
+    if (!total) {
+      return;
+    }
+    if (paused) {
+      clearInterval(intervalRef.current);
+      return;
+    }
+    intervalRef.current = setInterval(() => {
+      setActive(i => (i + 1) % total);
+    }, 4000);
+    return () => clearInterval(intervalRef.current);
+  }, [paused, total]);
+
+  const prev = () => {
+    clearInterval(intervalRef.current);
+    setActive(i => (i - 1 + total) % total);
+  };
+  const next = () => {
+    clearInterval(intervalRef.current);
+    setActive(i => (i + 1) % total);
+  };
+
   return (
     <section className={styles.projectsSec}>
       <div className={styles.container}>
@@ -451,36 +545,53 @@ function ProjectsSection({ projects, projectsError }) {
             Unable to load projects right now. Please try again later.
           </p>
         ) : (
-          <div className={styles.projectsGrid}>
-            {projects.map((p, i) => (
-              <div
-                className={`${styles.projectCard} ${styles.reveal}`}
-                key={p.title}
-                style={{ transitionDelay: `${i * 100}ms` }}
+          <>
+            <div
+              className={styles.projectCarousel}
+              onMouseEnter={() => setPaused(true)}
+              onMouseLeave={() => setPaused(false)}
+            >
+              {projects.map((p, i) => (
+                <div
+                  className={`${styles.projectSlide} ${
+                    i === active ? styles.projectSlideActive : ""
+                  }`}
+                  key={p.title}
+                >
+                  <ProjectCard p={p} />
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.carouselControls}>
+              <button
+                aria-label="Previous project"
+                className={styles.carouselBtn}
+                onClick={prev}
               >
-                <div className={styles.projectImgWrap}>
-                  {p.image ? (
-                    <Image
-                      alt={p.title}
-                      className={styles.projectImg}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 25vw"
-                      src={p.image}
-                    />
-                  ) : (
-                    <div className={styles.projectImgPlaceholder} />
-                  )}
-                  {p.types?.[0] && (
-                    <span className={styles.projectTag}>{p.types[0]}</span>
-                  )}
-                </div>
-                <div className={styles.projectBody}>
-                  <h3 className={styles.projectTitle}>{p.title}</h3>
-                  <p className={styles.projectDesc}>{p.desc}</p>
-                </div>
+                &#8592;
+              </button>
+              <div className={styles.carouselDots}>
+                {projects.map((p, i) => (
+                  <button
+                    aria-label={`Go to project ${i + 1}`}
+                    className={`${styles.dot} ${
+                      i === active ? styles.dotActive : ""
+                    }`}
+                    key={p.title}
+                    onClick={() => setActive(i)}
+                  />
+                ))}
               </div>
-            ))}
-          </div>
+              <button
+                aria-label="Next project"
+                className={styles.carouselBtn}
+                onClick={next}
+              >
+                &#8594;
+              </button>
+            </div>
+          </>
         )}
         <div className={styles.servicesCta}>
           <button
@@ -708,7 +819,13 @@ export async function getServerSideProps() {
         title: p.title || "",
         desc: p.desc || p.description || "",
         types: Array.isArray(p.types) ? p.types : p.type ? [p.type] : [],
-        image: p.image || p.image_url || p.imageUrl || p.img || null,
+        image: (() => {
+          const raw = p.image_urls || p.image || p.imageUrl || p.img || null;
+          if (Array.isArray(raw)) {
+            return raw.filter(Boolean);
+          }
+          return raw ? [raw] : [];
+        })(),
         order: Number(p.order_no ?? p.order ?? 0),
       }))
       .sort((a, b) =>
@@ -716,7 +833,7 @@ export async function getServerSideProps() {
           ? a.title.localeCompare(b.title)
           : a.order - b.order,
       )
-      .slice(0, 4);
+      .slice(0, 5);
   } catch (_) {
     projectsError = true;
   }
