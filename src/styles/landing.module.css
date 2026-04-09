@@ -48,7 +48,8 @@
 .reveal {
   opacity: 0;
   transform: translateY(32px);
-  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -71,7 +72,10 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    background 0.25s;
   box-shadow: 0 4px 20px rgba(255, 151, 0, 0.3);
 }
 
@@ -94,7 +98,9 @@
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   cursor: pointer;
-  transition: border-color 0.25s, background 0.25s;
+  transition:
+    border-color 0.25s,
+    background 0.25s;
 }
 
 .btnOutline:hover {
@@ -285,8 +291,10 @@
   border-radius: 16px;
   padding: 32px 24px;
   cursor: pointer;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.35s, border-color 0.35s;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s,
+    border-color 0.35s;
   display: flex;
   flex-direction: column;
 }
@@ -413,27 +421,24 @@
 
 /* carousel */
 .projectCarousel {
-  position: relative;
   overflow: hidden;
-  border-radius: 20px;
-  min-height: 480px;
+}
+
+.projectTrack {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .projectSlide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  transform: translateX(40px);
+  flex: 0 0 50%;
+  padding: 0 12px;
+  box-sizing: border-box;
 }
 
-.projectSlideActive {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(0);
-  position: relative;
+@media (max-width: 768px) {
+  .projectSlide {
+    flex: 0 0 100%;
+  }
 }
 
 .carouselControls {
@@ -456,7 +461,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .carouselBtn:hover {
@@ -474,7 +481,9 @@
   overflow: hidden;
   background: #fff;
   border: 1px solid #eee;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s;
 }
 
 .projectCard:hover {
@@ -491,35 +500,19 @@
 
 .projectImg {
   object-fit: cover;
-  transition: transform 0.5s, opacity 0.35s;
+  transition:
+    transform 0.5s,
+    opacity 0.35s;
 }
 
 .projectCard:hover .projectImg {
   transform: scale(1.06);
 }
 
-.projectImgDots {
+.projectImgPlaceholder {
   position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
-  z-index: 2;
-}
-
-.projectImgDot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.45);
-  transition: background 0.2s, transform 0.2s;
-  display: block;
-}
-
-.projectImgDotActive {
-  background: #ff9700;
-  transform: scale(1.3);
+  inset: 0;
+  background: #f0f0f0;
 }
 
 .projectTag {
@@ -566,7 +559,10 @@
 .statsBgDots {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255, 151, 0, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(
+    rgba(255, 151, 0, 0.08) 1px,
+    transparent 1px
+  );
   background-size: 28px 28px;
   pointer-events: none;
 }
@@ -605,8 +601,10 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   overflow: hidden;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.45s, box-shadow 0.45s;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.45s,
+    box-shadow 0.45s;
 }
 
 .statCard:hover {
@@ -644,7 +642,9 @@
   justify-content: center;
   margin-bottom: 18px;
   background: rgba(255, 255, 255, 0.03);
-  transition: transform 0.4s, box-shadow 0.4s;
+  transition:
+    transform 0.4s,
+    box-shadow 0.4s;
 }
 
 .statCard:hover .statRing {
@@ -683,7 +683,10 @@
   height: 3px;
   border-radius: 3px 3px 0 0;
   opacity: 0;
-  transition: opacity 0.4s, left 0.4s, right 0.4s;
+  transition:
+    opacity 0.4s,
+    left 0.4s,
+    right 0.4s;
 }
 
 .statCard:hover .statBar {
@@ -696,7 +699,8 @@
 .statReveal {
   opacity: 0;
   transform: translateY(36px) scale(0.92);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -715,7 +719,7 @@
 
 .testimonialCarousel {
   position: relative;
-  height: 280px;
+  height: 340px;
   overflow: hidden;
 }
 
@@ -732,7 +736,9 @@
   padding: 40px 24px;
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.55s, transform 0.55s;
+  transition:
+    opacity 0.55s,
+    transform 0.55s;
   pointer-events: none;
 }
 
@@ -742,11 +748,26 @@
   pointer-events: auto;
 }
 
-.testimonialStars {
-  font-size: 22px;
-  color: #ff9700;
-  margin-bottom: 16px;
-  letter-spacing: 4px;
+.testimonialCompanyTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.testimonialCompanyLogoTop {
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.65;
+}
+
+.testimonialCompanyNameTop {
+  font-size: 13px;
+  font-weight: 600;
+  color: #9aa0af;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .testimonialText {
@@ -789,6 +810,19 @@
   color: #2b2a35;
 }
 
+.testimonialAuthorInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.testimonialPosition {
+  font-size: 13px;
+  color: #596380;
+  margin-top: 2px;
+}
+
 .testimonialDots {
   display: flex;
   justify-content: center;
@@ -803,7 +837,9 @@
   border: none;
   background: #ddd;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  transition:
+    background 0.3s,
+    transform 0.3s;
   padding: 0;
 }
 
@@ -873,7 +909,9 @@
   border-radius: 16px;
   background: #f5f5f5;
   padding: 12px;
-  transition: background 0.25s, transform 0.25s;
+  transition:
+    background 0.25s,
+    transform 0.25s;
 }
 
 .techItemIconWrap:hover {
@@ -972,7 +1010,9 @@
   font-size: 14px;
   background: #fafafa;
   color: #2b2a35;
-  transition: border-color 0.25s, box-shadow 0.25s;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s;
   outline: none;
   width: 100%;
 }
@@ -992,7 +1032,9 @@
   background: #fafafa;
   color: #2b2a35;
   resize: vertical;
-  transition: border-color 0.25s, box-shadow 0.25s;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s;
   outline: none;
   margin-bottom: 20px;
 }

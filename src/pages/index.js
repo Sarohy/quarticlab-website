@@ -133,31 +133,49 @@ const defaultTestimonials = [
   {
     img: ClientSvg2,
     name: "Theresa",
+    position: "Product Manager",
+    company: "TechVentures",
+    companyLogoUrl: null,
     text: "Working with this fantastic team was an excellent experience. They excel at development and finding new solutions. Their expertise and talent are impressive.",
   },
   {
     img: ClientSvg3,
     name: "Rishi Sareen",
+    position: "CTO",
+    company: "Sareen Solutions",
+    companyLogoUrl: null,
     text: "The team's exceptional communication resulted in the successful delivery of the project. It would be my pleasure to work with them again in the future.",
   },
   {
     img: ClientSvg1,
     name: "Nick Angelov",
+    position: "Founder",
+    company: "Angelov Group",
+    companyLogoUrl: null,
     text: "Zweidevs met our expectations. They delivered the product that provided us with a high-quality base from which to move forward. Highly recommended!",
   },
   {
     img: ClientSvg4,
     name: "Anton Benz",
+    position: "CEO",
+    company: "BenzDigital",
+    companyLogoUrl: null,
     text: "These developers were excellent to work with. I would definitely recommend them to anyone looking for great work, and I look forward to hiring them again.",
   },
   {
     img: ClientSvg5,
     name: "Tony Malik",
+    position: "Director of Engineering",
+    company: "Malik Enterprises",
+    companyLogoUrl: null,
     text: "The Zweidevs team has extensive knowledge of the work, and after working with them for 5-6 months, they have become our go-to development company.",
   },
   {
     img: ClientSvg6,
     name: "Tommy Vacek",
+    position: "Project Lead",
+    company: "Vacek Studio",
+    companyLogoUrl: null,
     text: "Zweidevs' team did a fantastic job scoping our project. Their adaptability was impressive, and they always succeeded in exceeding our expectations.",
   },
 ];
@@ -436,61 +454,22 @@ function AboutSection({ router }) {
 }
 
 function ProjectCard({ p }) {
-  const [imgIdx, setImgIdx] = useState(0);
-  const imgIntervalRef = useRef(null);
-  const images = p.image || [];
-
-  const handleMouseEnter = () => {
-    if (images.length <= 1) {
-      return;
-    }
-    imgIntervalRef.current = setInterval(() => {
-      setImgIdx(i => (i + 1) % images.length);
-    }, 5000);
-  };
-
-  const handleMouseLeave = () => {
-    clearInterval(imgIntervalRef.current);
-    setImgIdx(0);
-  };
-
-  useEffect(() => () => clearInterval(imgIntervalRef.current), []);
-
-  const currentImg = images[imgIdx] || null;
-
   return (
-    <div
-      className={styles.projectCard}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div className={styles.projectCard}>
       <div className={styles.projectImgWrap}>
-        {currentImg ? (
+        {p.image ? (
           <Image
             alt={p.title}
             className={styles.projectImg}
             fill
-            key={currentImg}
-            sizes="(max-width: 768px) 100vw, 60vw"
-            src={currentImg}
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+            src={p.image}
           />
         ) : (
           <div className={styles.projectImgPlaceholder} />
         )}
         {p.types?.[0] && (
           <span className={styles.projectTag}>{p.types[0]}</span>
-        )}
-        {images.length > 1 && (
-          <div className={styles.projectImgDots}>
-            {images.map((_, di) => (
-              <span
-                className={`${styles.projectImgDot} ${
-                  di === imgIdx ? styles.projectImgDotActive : ""
-                }`}
-                key={di}
-              />
-            ))}
-          </div>
         )}
       </div>
       <div className={styles.projectBody}>
@@ -501,15 +480,18 @@ function ProjectCard({ p }) {
   );
 }
 
+const CAROUSEL_VISIBLE = 2;
+
 function ProjectsSection({ projects, projectsError }) {
   const router = useRouter();
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const total = projects.length;
+  const maxActive = Math.max(0, total - CAROUSEL_VISIBLE);
   const intervalRef = useRef(null);
 
   useEffect(() => {
-    if (!total) {
+    if (!total || maxActive === 0) {
       return;
     }
     if (paused) {
@@ -517,19 +499,15 @@ function ProjectsSection({ projects, projectsError }) {
       return;
     }
     intervalRef.current = setInterval(() => {
-      setActive(i => (i + 1) % total);
+      setActive(i => (i >= maxActive ? 0 : i + 1));
     }, 4000);
     return () => clearInterval(intervalRef.current);
-  }, [paused, total]);
+  }, [paused, total, maxActive]);
 
-  const prev = () => {
-    clearInterval(intervalRef.current);
-    setActive(i => (i - 1 + total) % total);
-  };
-  const next = () => {
-    clearInterval(intervalRef.current);
-    setActive(i => (i + 1) % total);
-  };
+  const prev = () => setActive(i => (i <= 0 ? maxActive : i - 1));
+  const next = () => setActive(i => (i >= maxActive ? 0 : i + 1));
+
+  const translateX = `translateX(calc(-${active} * (100% / ${CAROUSEL_VISIBLE})))`;
 
   return (
     <section className={styles.projectsSec}>
@@ -551,46 +529,48 @@ function ProjectsSection({ projects, projectsError }) {
               onMouseEnter={() => setPaused(true)}
               onMouseLeave={() => setPaused(false)}
             >
-              {projects.map((p, i) => (
-                <div
-                  className={`${styles.projectSlide} ${
-                    i === active ? styles.projectSlideActive : ""
-                  }`}
-                  key={p.title}
-                >
-                  <ProjectCard p={p} />
-                </div>
-              ))}
-            </div>
-
-            <div className={styles.carouselControls}>
-              <button
-                aria-label="Previous project"
-                className={styles.carouselBtn}
-                onClick={prev}
+              <div
+                className={styles.projectTrack}
+                style={{ transform: translateX }}
               >
-                &#8592;
-              </button>
-              <div className={styles.carouselDots}>
-                {projects.map((p, i) => (
-                  <button
-                    aria-label={`Go to project ${i + 1}`}
-                    className={`${styles.dot} ${
-                      i === active ? styles.dotActive : ""
-                    }`}
-                    key={p.title}
-                    onClick={() => setActive(i)}
-                  />
+                {projects.map(p => (
+                  <div className={styles.projectSlide} key={p.title}>
+                    <ProjectCard p={p} />
+                  </div>
                 ))}
               </div>
-              <button
-                aria-label="Next project"
-                className={styles.carouselBtn}
-                onClick={next}
-              >
-                &#8594;
-              </button>
             </div>
+
+            {maxActive > 0 && (
+              <div className={styles.carouselControls}>
+                <button
+                  aria-label="Previous projects"
+                  className={styles.carouselBtn}
+                  onClick={prev}
+                >
+                  &#8592;
+                </button>
+                <div className={styles.carouselDots}>
+                  {Array.from({ length: maxActive + 1 }, (_, i) => (
+                    <button
+                      aria-label={`Go to position ${i + 1}`}
+                      className={`${styles.dot} ${
+                        i === active ? styles.dotActive : ""
+                      }`}
+                      key={i}
+                      onClick={() => setActive(i)}
+                    />
+                  ))}
+                </div>
+                <button
+                  aria-label="Next projects"
+                  className={styles.carouselBtn}
+                  onClick={next}
+                >
+                  &#8594;
+                </button>
+              </div>
+            )}
           </>
         )}
         <div className={styles.servicesCta}>
@@ -736,15 +716,30 @@ function TestimonialsSection({ testimonials }) {
               }`}
               key={t.name}
             >
-              <div className={styles.testimonialStars}>★★★★★</div>
+              {(t.companyLogoUrl || t.company) && (
+                <div className={styles.testimonialCompanyTop}>
+                  {t.companyLogoUrl && (
+                    <Image
+                      alt={t.company}
+                      className={styles.testimonialCompanyLogoTop}
+                      height={28}
+                      src={t.companyLogoUrl}
+                      width={56}
+                    />
+                  )}
+                  <span className={styles.testimonialCompanyNameTop}>
+                    {t.company}
+                  </span>
+                </div>
+              )}
               <p className={styles.testimonialText}>&ldquo;{t.text}&rdquo;</p>
               <div className={styles.testimonialAuthor}>
-                {t.img ? (
+                {t.avatarUrl || t.img ? (
                   <Image
                     alt={t.name}
                     className={styles.testimonialAvatar}
                     height={48}
-                    src={t.img}
+                    src={t.avatarUrl || t.img}
                     width={48}
                   />
                 ) : (
@@ -752,7 +747,14 @@ function TestimonialsSection({ testimonials }) {
                     {t.name ? t.name.charAt(0).toUpperCase() : "?"}
                   </div>
                 )}
-                <span className={styles.testimonialName}>{t.name}</span>
+                <div className={styles.testimonialAuthorInfo}>
+                  <span className={styles.testimonialName}>{t.name}</span>
+                  {t.position && (
+                    <span className={styles.testimonialPosition}>
+                      {t.position}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           ))}
@@ -819,13 +821,7 @@ export async function getServerSideProps() {
         title: p.title || "",
         desc: p.desc || p.description || "",
         types: Array.isArray(p.types) ? p.types : p.type ? [p.type] : [],
-        image: (() => {
-          const raw = p.image_urls || p.image || p.imageUrl || p.img || null;
-          if (Array.isArray(raw)) {
-            return raw.filter(Boolean);
-          }
-          return raw ? [raw] : [];
-        })(),
+        image: p.image_url || p.image || p.imageUrl || p.img || null,
         order: Number(p.order_no ?? p.order ?? 0),
       }))
       .sort((a, b) =>
@@ -865,13 +861,15 @@ export async function getServerSideProps() {
   try {
     const data = await getAllReviews();
     const testimonials = (data || [])
-      .map(r => {
-        const name = r.name || "";
-        const text = r.text || r.review || r.desc || "";
-        const img = r.img || r.image || r.avatar || null;
-        const order = Number(r.order_no ?? r.order ?? 0);
-        return { name, text, img, order };
-      })
+      .map(r => ({
+        name: r.name || "",
+        text: r.text || r.review || r.desc || "",
+        avatarUrl: r.avatar_url || r.avatar || r.img || r.image || null,
+        company: r.company || "",
+        companyLogoUrl: r.company_logo_url || null,
+        position: r.position || "",
+        order: Number(r.order_no ?? r.order ?? 0),
+      }))
       .sort((a, b) =>
         a.order === b.order ? a.name.localeCompare(b.name) : a.order - b.order,
       );
