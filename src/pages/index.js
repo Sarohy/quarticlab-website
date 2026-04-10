@@ -478,6 +478,7 @@ function ProjectCard({ p }) {
 }
 
 const CAROUSEL_VISIBLE = 2;
+const CAROUSEL_STEP = 2;
 
 function ProjectsSection({ projects, projectsError }) {
   const router = useRouter();
@@ -496,13 +497,15 @@ function ProjectsSection({ projects, projectsError }) {
       return;
     }
     intervalRef.current = setInterval(() => {
-      setActive(i => (i >= maxActive ? 0 : i + 1));
+      setActive(i => (i + CAROUSEL_STEP > maxActive ? 0 : i + CAROUSEL_STEP));
     }, 4000);
     return () => clearInterval(intervalRef.current);
   }, [paused, total, maxActive]);
 
-  const prev = () => setActive(i => (i <= 0 ? maxActive : i - 1));
-  const next = () => setActive(i => (i >= maxActive ? 0 : i + 1));
+  const prev = () =>
+    setActive(i => (i - CAROUSEL_STEP < 0 ? maxActive : i - CAROUSEL_STEP));
+  const next = () =>
+    setActive(i => (i + CAROUSEL_STEP > maxActive ? 0 : i + CAROUSEL_STEP));
 
   const translateX = `translateX(calc(-${active} * (100% / ${CAROUSEL_VISIBLE})))`;
 
@@ -548,16 +551,21 @@ function ProjectsSection({ projects, projectsError }) {
                   &#8592;
                 </button>
                 <div className={styles.carouselDots}>
-                  {Array.from({ length: maxActive + 1 }, (_, i) => (
-                    <button
-                      aria-label={`Go to position ${i + 1}`}
-                      className={`${styles.dot} ${
-                        i === active ? styles.dotActive : ""
-                      }`}
-                      key={i}
-                      onClick={() => setActive(i)}
-                    />
-                  ))}
+                  {Array.from(
+                    {
+                      length: Math.ceil((maxActive + 1) / CAROUSEL_STEP),
+                    },
+                    (_, i) => (
+                      <button
+                        aria-label={`Go to position ${i + 1}`}
+                        className={`${styles.dot} ${
+                          i * CAROUSEL_STEP === active ? styles.dotActive : ""
+                        }`}
+                        key={i}
+                        onClick={() => setActive(i * CAROUSEL_STEP)}
+                      />
+                    ),
+                  )}
                 </div>
                 <button
                   aria-label="Next projects"

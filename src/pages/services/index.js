@@ -41,7 +41,6 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
 
 /* ── icon maps for dynamic Firestore data ──── */
@@ -138,8 +137,6 @@ function TechBubbles({ names = [] }) {
   ═══════════════════════════════════════════ */
 export default function ServicesNew({ services = [] }) {
   const addRef = useReveal();
-  const genAiSvc = services.find(s => s.slug === "genai-automation");
-  const regularSvcs = services.filter(s => s.slug !== "genai-automation");
 
   return (
     <div className={styles.page}>
@@ -199,38 +196,8 @@ export default function ServicesNew({ services = [] }) {
           </div>
 
           <Grid container spacing={3}>
-            {genAiSvc && (
-              <Grid item xs={12}>
-                <Link
-                  className={`${styles.serviceCard} ${styles.reveal}`}
-                  href={`/services/${genAiSvc.slug}`}
-                  ref={addRef}
-                >
-                  <Chip
-                    label="New"
-                    size="small"
-                    sx={{ bgcolor: "success.light", mb: 1.5 }}
-                  />
-                  <ServiceIconRender
-                    size={32}
-                    slug={genAiSvc.slug}
-                    title={genAiSvc.title}
-                  />
-                  <h3 className={styles.serviceCardTitle}>{genAiSvc.title}</h3>
-                  <p className={styles.serviceCardDesc}>
-                    {genAiSvc.desc ||
-                      "Supercharge your business with Generative AI, " +
-                        "autonomous AI Agents, and end-to-end " +
-                        "Automation pipelines — built for your business."}
-                  </p>
-                  <span className={styles.serviceLink}>
-                    Learn More <span aria-hidden="true">→</span>
-                  </span>
-                </Link>
-              </Grid>
-            )}
-            {regularSvcs.map((svc, i) => (
-              <Grid item key={svc.title} md={4} sm={6} xs={12}>
+            {services.map((svc, i) => (
+              <Grid item key={svc.title} xs={12}>
                 <Link
                   className={`${styles.serviceCard} ${styles.reveal}`}
                   href={svc.slug ? `/services/${svc.slug}` : "/services"}
