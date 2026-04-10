@@ -482,14 +482,27 @@ const CAROUSEL_STEP = 2;
 
 function ProjectsSection({ projects, projectsError }) {
   const router = useRouter();
-  const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
   const total = projects.length;
-  const maxActive = Math.max(0, total - CAROUSEL_VISIBLE);
+
+  // Build looped array: [lastN clones, ...real, firstN clones]
+  const looped =
+    total > 0
+      ? [
+          ...projects.slice(-CAROUSEL_VISIBLE),
+          ...projects,
+          ...projects.slice(0, CAROUSEL_VISIBLE),
+        ]
+      : [];
+
+  // idx starts at CAROUSEL_VISIBLE = first real slide
+  const [idx, setIdx] = useState(CAROUSEL_VISIBLE);
+  const [noTransition, setNoTransition] = useState(false);
+  const [paused, setPaused] = useState(false);
   const intervalRef = useRef(null);
 
+  // Auto-advance — just keep incrementing; clone detection handles wrap
   useEffect(() => {
-    if (!total || maxActive === 0) {
+    if (!total || total <= CAROUSEL_VISIBLE) {
       return;
     }
     if (paused) {
@@ -497,17 +510,41 @@ function ProjectsSection({ projects, projectsError }) {
       return;
     }
     intervalRef.current = setInterval(() => {
-      setActive(i => (i + CAROUSEL_STEP > maxActive ? 0 : i + CAROUSEL_STEP));
+      setIdx(i => i + CAROUSEL_STEP);
     }, 4000);
     return () => clearInterval(intervalRef.current);
-  }, [paused, total, maxActive]);
+  }, [paused, total]);
 
-  const prev = () =>
-    setActive(i => (i - CAROUSEL_STEP < 0 ? maxActive : i - CAROUSEL_STEP));
-  const next = () =>
-    setActive(i => (i + CAROUSEL_STEP > maxActive ? 0 : i + CAROUSEL_STEP));
+  // After instant-jump render, re-enable transition on the next paint
+  useEffect(() => {
+    if (!noTransition) {
+      return;
+    }
+    const raf = requestAnimationFrame(() => {
+      requestAnimationFrame(() => setNoTransition(false));
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [noTransition]);
 
-  const translateX = `translateX(calc(-${active} * (100% / ${CAROUSEL_VISIBLE})))`;
+  // When CSS transition ends, detect clone zone and teleport seamlessly
+  const handleTransitionEnd = () => {
+    if (idx >= total + CAROUSEL_VISIBLE) {
+      setNoTransition(true);
+      setIdx(CAROUSEL_VISIBLE);
+    } else if (idx < CAROUSEL_VISIBLE) {
+      setNoTransition(true);
+      setIdx(total);
+    }
+  };
+
+  const prev = () => setIdx(i => i - CAROUSEL_STEP);
+  const next = () => setIdx(i => i + CAROUSEL_STEP);
+
+  const translateX = `translateX(calc(-${idx} * (100% / ${CAROUSEL_VISIBLE})))`;
+
+  const dotCount = Math.ceil(total / CAROUSEL_STEP);
+  const realIdx = (((idx - CAROUSEL_VISIBLE) % total) + total) % total;
+  const activeDot = Math.floor(realIdx / CAROUSEL_STEP) % dotCount;
 
   return (
     <section className={styles.projectsSec}>
@@ -531,17 +568,21 @@ function ProjectsSection({ projects, projectsError }) {
             >
               <div
                 className={styles.projectTrack}
-                style={{ transform: translateX }}
+                onTransitionEnd={handleTransitionEnd}
+                style={{
+                  transform: translateX,
+                  transition: noTransition ? "none" : undefined,
+                }}
               >
-                {projects.map(p => (
-                  <div className={styles.projectSlide} key={p.title}>
+                {looped.map((p, i) => (
+                  <div className={styles.projectSlide} key={i}>
                     <ProjectCard p={p} />
                   </div>
                 ))}
               </div>
             </div>
 
-            {maxActive > 0 && (
+            {total > CAROUSEL_VISIBLE && (
               <div className={styles.carouselControls}>
                 <button
                   aria-label="Previous projects"
@@ -551,21 +592,18 @@ function ProjectsSection({ projects, projectsError }) {
                   &#8592;
                 </button>
                 <div className={styles.carouselDots}>
-                  {Array.from(
-                    {
-                      length: Math.ceil((maxActive + 1) / CAROUSEL_STEP),
-                    },
-                    (_, i) => (
-                      <button
-                        aria-label={`Go to position ${i + 1}`}
-                        className={`${styles.dot} ${
-                          i * CAROUSEL_STEP === active ? styles.dotActive : ""
-                        }`}
-                        key={i}
-                        onClick={() => setActive(i * CAROUSEL_STEP)}
-                      />
-                    ),
-                  )}
+                  {Array.from({ length: dotCount }, (_, i) => (
+                    <button
+                      aria-label={`Go to page ${i + 1}`}
+                      className={`${styles.dot} ${
+                        i === activeDot ? styles.dotActive : ""
+                      }`}
+                      key={i}
+                      onClick={() =>
+                        setIdx(CAROUSEL_VISIBLE + i * CAROUSEL_STEP)
+                      }
+                    />
+                  ))}
                 </div>
                 <button
                   aria-label="Next projects"
