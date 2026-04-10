@@ -468,9 +468,6 @@ function ProjectCard({ p }) {
         ) : (
           <div className={styles.projectImgPlaceholder} />
         )}
-        {p.types?.[0] && (
-          <span className={styles.projectTag}>{p.types[0]}</span>
-        )}
       </div>
       <div className={styles.projectBody}>
         <h3 className={styles.projectTitle}>{p.title}</h3>
@@ -817,6 +814,7 @@ export async function getServerSideProps() {
   try {
     const pData = await getAllProjects();
     projects = (pData || [])
+      .filter(p => p.is_active !== false)
       .map(p => ({
         title: p.title || "",
         desc: p.desc || p.description || "",
@@ -829,7 +827,7 @@ export async function getServerSideProps() {
           ? a.title.localeCompare(b.title)
           : a.order - b.order,
       )
-      .slice(0, 5);
+      .slice(0, 10);
   } catch (_) {
     projectsError = true;
   }
@@ -861,6 +859,7 @@ export async function getServerSideProps() {
   try {
     const data = await getAllReviews();
     const testimonials = (data || [])
+      .filter(r => r.is_active !== false)
       .map(r => ({
         name: r.name || "",
         text: r.text || r.review || r.desc || "",
