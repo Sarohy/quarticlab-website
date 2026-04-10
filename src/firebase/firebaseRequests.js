@@ -2,6 +2,7 @@ import { getApps, initializeApp } from "firebase/app";
 import {
   addDoc,
   collection,
+  documentId,
   getDocs,
   getFirestore,
   query,
@@ -37,6 +38,25 @@ const collectionProjects = "projects"; // collection name in Firestore
 
 export const getAllProjects = () => getAllItems(collectionProjects);
 export const addProject = data => addItem(collectionProjects, data);
+
+// fetch specific projects by their Firestore document IDs (max 30 per call)
+export const getProjectsByIds = async ids => {
+  if (!ids || !ids.length) {
+    return [];
+  }
+  const results = [];
+  // Firestore 'in' supports up to 30 items per query
+  for (let i = 0; i < ids.length; i += 30) {
+    const chunk = ids.slice(i, i + 30);
+    const q = query(
+      collection(db, collectionProjects),
+      where(documentId(), "in", chunk),
+    );
+    const snap = await getDocs(q);
+    snap.forEach(doc => results.push({ id: doc.id, ...doc.data() }));
+  }
+  return results;
+};
 
 // zweidevs services
 const collectionServices = "services"; // collection name in Firestore

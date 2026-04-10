@@ -115,6 +115,7 @@ import DevopsIcon from "../../../public/assets/serviceIcons/devopsIcon.svg";
 /* ── firebase ───────────────────────────────── */
 import {
   getAllServiceDetails,
+  getProjectsByIds,
   getServiceBySlug,
 } from "@component/firebase/firebaseRequests";
 
@@ -318,11 +319,15 @@ function FaqItem({ item }) {
    Firestore, resolves assets, renders page.
    Key={slug} ensures useReveal fires fresh.
    ═══════════════════════════════════════════ */
-function ServiceDetailContent({ data, otherServices }) {
+function ServiceDetailContent({ data, linkedProjects, otherServices }) {
   const addRef = useReveal();
   const heroImage = heroImageMap[data.heroImageKey] || AIImg;
   const offerings = resolveOfferings(data.offerings);
-  const projects = resolveProjects(data.projects);
+  // Use Firestore-linked projects if available, else fall back to static imageKey projects
+  const projects =
+    linkedProjects && linkedProjects.length > 0
+      ? linkedProjects
+      : resolveProjects(data.projects);
 
   return (
     <div className={styles.page}>
@@ -443,17 +448,21 @@ function ServiceDetailContent({ data, otherServices }) {
                 >
                   <div className={styles.projectImgWrap}>
                     <span className={styles.projectIndex}>{i + 1}</span>
-                    <Image
-                      alt={p.title}
-                      className={styles.projectImg}
-                      fill
-                      sizes="(max-width: 590px) 100vw, 33vw"
-                      src={p.image}
-                    />
+                    {(p.image || p.image_url) && (
+                      <Image
+                        alt={p.title}
+                        className={styles.projectImg}
+                        fill
+                        sizes="(max-width: 590px) 100vw, 33vw"
+                        src={p.image_url || p.image}
+                      />
+                    )}
                   </div>
                   <div className={styles.projectBody}>
                     <h3 className={styles.projectTitle}>{p.title}</h3>
-                    <p className={styles.projectDesc}>{p.desc}</p>
+                    <p className={styles.projectDesc}>
+                      {p.desc || p.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -693,7 +702,11 @@ function ServiceDetailContent({ data, otherServices }) {
 /* ═══════════════════════════════════════════
    PAGE COMPONENT — receives SSR data
    ═══════════════════════════════════════════ */
-export default function ServiceDetailPage({ serviceData, otherServices }) {
+export default function ServiceDetailPage({
+  serviceData,
+  otherServices,
+  linkedProjects,
+}) {
   if (!serviceData) {
     return (
       <div
@@ -719,6 +732,7 @@ export default function ServiceDetailPage({ serviceData, otherServices }) {
     <ServiceDetailContent
       data={serviceData}
       key={serviceData.slug}
+      linkedProjects={linkedProjects}
       otherServices={otherServices}
       slug={serviceData.slug}
     />
@@ -738,8 +752,32 @@ export async function getServerSideProps(context) {
     ]);
 
     if (!serviceData) {
-      return { props: { serviceData: null, otherServices: [] } };
+      return {
+        props: { serviceData: null, otherServices: [], linkedProjects: [] },
+      };
     }
+
+    // Fetch referenced projects by Firestore document IDs
+    const projectIds = Array.isArray(serviceData.projectIds)
+      ? serviceData.projectIds.filter(Boolean)
+      : [];
+    const rawLinkedProjects = projectIds.length
+      ? await getProjectsByIds(projectIds)
+      : [];
+    const linkedProjects = rawLinkedProjects
+      .filter(p => p.is_active !== false)
+      .map(p => ({
+        title: p.title || "",
+        desc: p.desc || p.description || "",
+        image_url: p.image_url || p.image || p.imageUrl || null,
+        types: Array.isArray(p.types) ? p.types : [],
+        order: Number(p.order_no ?? p.order ?? 0),
+      }))
+      .sort((a, b) =>
+        a.order === b.order
+          ? a.title.localeCompare(b.title)
+          : a.order - b.order,
+      );
 
     // Build "other services" nav list (exclude current)
     const otherServices = (allDetails || [])
@@ -759,11 +797,12 @@ export async function getServerSideProps(context) {
       props: {
         serviceData,
         otherServices,
+        linkedProjects,
       },
     };
   } catch {
     return {
-      props: { serviceData: null, otherServices: [] },
+      props: { serviceData: null, otherServices: [], linkedProjects: [] },
     };
   }
 }
