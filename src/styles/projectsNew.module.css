@@ -23,7 +23,8 @@
 .reveal {
   opacity: 0;
   transform: translateY(32px);
-  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -46,7 +47,10 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    background 0.25s;
   box-shadow: 0 4px 20px rgba(255, 151, 0, 0.3);
 }
 
@@ -185,7 +189,10 @@
   border: 2px solid transparent;
   border-radius: 40px;
   cursor: pointer;
-  transition: color 0.3s, background 0.3s, border-color 0.3s,
+  transition:
+    color 0.3s,
+    background 0.3s,
+    border-color 0.3s,
     transform 0.25s;
 }
 
@@ -209,99 +216,31 @@
 }
 
 /* ═══════════════════════════════════════════
-   PROJECT GRID
+   PROJECT LIST (alternating rows)
    ═══════════════════════════════════════════ */
-.gridSec {
-  padding: 56px 0 100px;
+.listSec {
+  padding: 72px 0 100px;
   background: #fff;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-
-/* ── card ─────────────────────────────────── */
-.card {
-  border-radius: 20px;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid #eee;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.4s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.1);
-}
-
-/* ── card image ───────────────────────────── */
-.cardImgWrap {
-  position: relative;
-  width: 100%;
-  padding-top: 62%;
-  overflow: hidden;
-}
-
-.cardImg {
-  object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.4s;
-}
-
-.card:hover .cardImg {
-  transform: scale(1.05);
-  filter: brightness(0.55);
-}
-
-/* ── image placeholder (no image in Firestore) ── */
-.cardImgPlaceholder {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #2b2a35 0%, #3d3b4a 100%);
-}
-
-.cardImgPlaceholder::after {
-  content: "💼";
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 48px;
-  opacity: 0.25;
-}
-
-/* ── hover overlay ────────────────────────── */
-.cardOverlay {
-  position: absolute;
-  inset: 0;
+.projectsList {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  opacity: 0;
-  transition: opacity 0.4s;
-  z-index: 2;
 }
 
-.card:hover .cardOverlay {
-  opacity: 1;
-}
-
-.cardTechs {
+.projectRow {
   display: flex;
-  gap: 14px;
-  animation: techPop 0.4s 0.05s cubic-bezier(0.22, 1, 0.36, 1) both;
+  align-items: center;
+  gap: 72px;
+  padding: 72px 0;
+  border-bottom: 1px solid #f0f0f0;
+  animation: rowFadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-@keyframes techPop {
+@keyframes rowFadeIn {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -309,73 +248,74 @@
   }
 }
 
-.techIcon {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
-  padding: 6px;
-  backdrop-filter: blur(4px);
-  transition: transform 0.25s;
+.projectRow:last-child {
+  border-bottom: none;
 }
 
-.techIcon:hover {
-  transform: scale(1.15);
+.projectRowReverse {
+  flex-direction: row-reverse;
 }
 
-.demoBtn {
-  display: inline-flex;
-  align-items: center;
+.projectImgSide {
+  flex: 0 0 52%;
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f0f0f0;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+.projectRowImg {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.projectImgSide:hover .projectRowImg {
+  transform: scale(1.04);
+}
+
+.projectImgPlaceholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #2b2a35 0%, #3d3b4a 100%);
+}
+
+.projectContentSide {
+  flex: 1;
+  min-width: 0;
+}
+
+.projectRowTags {
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
-  padding: 10px 24px;
-  background: #ff9700;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.projectTypeTag {
+  font-size: 12px;
   font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.25s, transform 0.25s;
-  animation: techPop 0.4s 0.12s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.demoBtn:hover {
-  background: #e88a00;
-  transform: translateY(-2px);
-}
-
-.demoBtnIcon {
-  width: 18px;
-  height: 18px;
-}
-
-/* ── card body ────────────────────────────── */
-.cardBody {
-  padding: 24px;
-}
-
-.cardTag {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
   color: #ff9700;
   background: rgba(255, 151, 0, 0.08);
-  padding: 4px 12px;
-  border-radius: 16px;
-  margin-bottom: 12px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 151, 0, 0.2);
 }
 
-.cardTitle {
-  font-size: 19px;
-  font-weight: 700;
-  margin: 0 0 8px;
+.projectRowTitle {
+  font-size: clamp(22px, 2.5vw, 34px);
+  font-weight: 800;
+  line-height: 1.2;
   color: #2b2a35;
+  margin: 0 0 16px;
 }
 
-.cardDesc {
-  font-size: 14px;
-  line-height: 1.65;
+.projectRowDesc {
+  font-size: 16px;
+  line-height: 1.75;
   color: #596380;
   margin: 0;
 }
@@ -385,7 +325,7 @@
   text-align: center;
   font-size: 16px;
   color: #999;
-  padding: 60px 0;
+  padding: 80px 0;
 }
 
 /* ═══════════════════════════════════════════
@@ -426,9 +366,8 @@
    RESPONSIVE
    ═══════════════════════════════════════════ */
 @media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
+  .projectRow {
+    gap: 48px;
   }
 }
 
@@ -441,14 +380,27 @@
   .ctaSub {
     max-width: 100%;
   }
+
+  .projectRow {
+    gap: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projectRow,
+  .projectRowReverse {
+    flex-direction: column;
+    gap: 28px;
+    padding: 48px 0;
+  }
+
+  .projectImgSide {
+    flex: none;
+    width: 100%;
+  }
 }
 
 @media (max-width: 640px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
   .heroH1 {
     font-size: 28px;
   }
@@ -464,14 +416,6 @@
   .filterBtn {
     padding: 8px 18px;
     font-size: 13px;
-  }
-
-  .cardBody {
-    padding: 20px;
-  }
-
-  .cardTitle {
-    font-size: 17px;
   }
 }
 

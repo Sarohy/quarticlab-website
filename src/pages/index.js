@@ -837,6 +837,7 @@ export async function getServerSideProps() {
   try {
     const svcData = await getAllServices();
     services = (svcData || [])
+      .filter(svc => svc.is_active !== false)
       .map(svc => {
         const title = svc.title || "";
         const desc = svc.desc || svc.description || "";
@@ -850,7 +851,7 @@ export async function getServerSideProps() {
           ? a.title.localeCompare(b.title)
           : a.order - b.order,
       )
-      .slice(0, 6);
+      .slice(0, 8);
   } catch (_) {
     servicesError = true;
   }
