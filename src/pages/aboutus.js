@@ -429,34 +429,39 @@ export default function AboutPage() {
       <section className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={styles.heroInner}>
-          <span className={styles.heroBadge}>about quartic lab</span>
-          <h1 className={styles.heroH1}>
-            we build software that{" "}
-            <span className={styles.heroAccent}>actually ships</span>
-          </h1>
-          <p className={styles.heroSub}>
-            founded in 2020, quartic lab is a research-driven studio helping
-            startups and enterprises bring ideas to market. ai, blockchain, iot,
-            and full-stack development across 3 continents.
-          </p>
-          <div className={styles.heroCtas}>
-            <button
-              className={styles.btnPrimary}
-              onClick={() => router.push("/contactUs")}
-            >
-              start a project
-            </button>
-            <button
-              className={styles.btnOutline}
-              onClick={() =>
-                window.open(
-                  "https://calendly.com/request-demo-zweidevs/meeting",
-                  "_blank",
-                )
-              }
-            >
-              get estimate in 12 hrs
-            </button>
+          <div className={styles.heroText}>
+            <span className={styles.heroBadge}>about quartic lab</span>
+            <h1 className={styles.heroH1}>
+              we build software that{" "}
+              <span className={styles.heroAccent}>actually ships</span>
+            </h1>
+            <p className={styles.heroSub}>
+              founded in 2020, quartic lab is a research-driven studio helping
+              startups and enterprises bring ideas to market. ai, blockchain,
+              iot, and full-stack development across 3 continents.
+            </p>
+            <div className={styles.heroCtas}>
+              <button
+                className={styles.btnPrimary}
+                onClick={() => router.push("/contactUs")}
+              >
+                start a project
+              </button>
+              <button
+                className={styles.btnOutline}
+                onClick={() =>
+                  window.open(
+                    "https://calendly.com/request-demo-zweidevs/meeting",
+                    "_blank",
+                  )
+                }
+              >
+                get estimate in 12 hrs
+              </button>
+            </div>
+            <div className={styles.heroScroll}>
+              <span className={styles.scrollDot} />
+            </div>
           </div>
         </div>
         <div className={styles.heroWave} />

@@ -47,7 +47,7 @@ function QuarticMark({
   accent = "oklch(58% 0.12 45)",
   animated = false,
   bg = "oklch(95% 0.018 75)",
-  fg = "oklch(20% 0.05 255)",
+  fg = "#000",
   size = 40,
 }) {
   /*

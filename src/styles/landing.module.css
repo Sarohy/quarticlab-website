@@ -124,7 +124,7 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: var(--ql-linen);
+  background: var(--ql-oxford);
   overflow: hidden;
 }
 
@@ -132,10 +132,27 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    ellipse 80% 60% at 20% 50%,
-    oklch(58% 0.12 45 / 0.06) 0%,
-    transparent 70%
+      ellipse 60% 50% at 25% 40%,
+      oklch(58% 0.12 45 / 0.1) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 80% 70%,
+      oklch(58% 0.12 45 / 0.05) 0%,
+      transparent 45%
+    );
+  pointer-events: none;
+}
+
+.heroBg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    oklch(95% 0.018 75 / 0.04) 1px,
+    transparent 1px
   );
+  background-size: 32px 32px;
   pointer-events: none;
 }
 
@@ -175,8 +192,7 @@
   font-weight: 500;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--ql-oxford);
-  opacity: 0.55;
+  color: var(--ql-copper);
   margin-bottom: 28px;
 }
 
@@ -186,7 +202,7 @@
   font-weight: 400;
   line-height: 0.98;
   letter-spacing: -1.5px;
-  color: var(--ql-oxford);
+  color: var(--ql-linen);
   margin: 0 0 28px;
   max-width: 700px;
 }
@@ -199,8 +215,7 @@
 .heroSub {
   font-size: 16px;
   line-height: 1.6;
-  color: var(--ql-oxford);
-  opacity: 0.6;
+  color: oklch(95% 0.018 75 / 0.6);
   max-width: 520px;
   margin-bottom: 36px;
 }
@@ -232,36 +247,28 @@
 .heroLogoRing {
   width: 280px;
   height: 280px;
+  border-radius: 50%;
+  background: oklch(58% 0.12 45 / 0.04);
+  border: 1px solid oklch(58% 0.12 45 / 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
-/* Ambient ring glow behind the mark */
 .heroLogoRing::before {
   content: "";
   position: absolute;
   inset: -18px;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    oklch(58% 0.12 45 / 0.12) 0%,
-    transparent 70%
-  );
-  animation: ringPulse 4s ease-in-out infinite;
+  border: 1px dashed oklch(58% 0.12 45 / 0.1);
+  animation: spinSlow 30s linear infinite;
   pointer-events: none;
 }
 
-@keyframes ringPulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.12);
-    opacity: 1;
+@keyframes spinSlow {
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -271,7 +278,13 @@
 }
 
 .heroWave {
-  display: none;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: var(--ql-canvas);
+  clip-path: ellipse(55% 100% at 50% 100%);
 }
 
 /* ═══════════════════════════════════════════

@@ -123,14 +123,11 @@
    ═══════════════════════════════════════════ */
 .hero {
   position: relative;
-  min-height: 72vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
   background: var(--ql-oxford);
   overflow: hidden;
-  padding: 140px 24px 100px;
 }
 
 .heroBg {
@@ -164,11 +161,21 @@
 
 .heroInner {
   position: relative;
-  max-width: 720px;
-  animation: heroFadeIn 0.8s ease both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 140px 24px 100px;
+  width: 100%;
 }
 
-@keyframes heroFadeIn {
+.heroText {
+  animation: heroSlideIn 0.8s ease both;
+}
+
+@keyframes heroSlideIn {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -176,6 +183,37 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.heroScroll {
+  width: 22px;
+  height: 36px;
+  border: 1.5px solid oklch(58% 0.12 45 / 0.35);
+  border-radius: 11px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+  margin-top: 36px;
+}
+
+.scrollDot {
+  width: 3px;
+  height: 8px;
+  background: var(--ql-copper);
+  border-radius: 3px;
+  animation: abScrollBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes abScrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(12px);
+    opacity: 0.3;
   }
 }
 
@@ -209,14 +247,14 @@
   font-size: 16px;
   line-height: 1.7;
   color: oklch(95% 0.018 75 / 0.6);
-  max-width: 560px;
+  max-width: 480px;
   margin: 0 auto 36px;
 }
 
 .heroCtas {
   display: flex;
-  gap: 14px;
   justify-content: center;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
@@ -809,7 +847,19 @@
 @media (max-width: 900px) {
   .hero {
     min-height: auto;
+  }
+
+  .heroInner {
+    text-align: center;
     padding: 100px 24px 80px;
+  }
+
+  .heroCtas {
+    justify-content: center;
+  }
+
+  .heroScroll {
+    margin: 28px auto 0;
   }
 
   .missionInner {
