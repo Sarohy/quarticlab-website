@@ -332,7 +332,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices }) {
   return (
     <div className={styles.page}>
       <Head>
-        <title>{`${data.category} — Zweidevs`}</title>
+        <title>{`${data.category} — Quartic Lab`}</title>
         <meta content={data.heroSub} name="description" />
       </Head>
 

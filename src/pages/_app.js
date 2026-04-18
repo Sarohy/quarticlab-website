@@ -3,10 +3,6 @@ import Head from "next/head";
 import NextApp from "next/app";
 import dynamic from "next/dynamic";
 const Layout = dynamic(() => import("@component/Components/Layout"));
-import "@fontsource/poppins/300.css";
-import "@fontsource/poppins/400.css";
-import "@fontsource/poppins/500.css";
-import "@fontsource/poppins/700.css";
 import "@component/styles/globals.css";
 import { getAllServices } from "@component/firebase/firebaseRequests";
 import { ServicesContext } from "@component/utils/ServicesContext";
@@ -23,9 +19,9 @@ export default function App({ Component, navServices, pageProps }) {
   const organizationSchema = {
     "@context": "http://schema.org",
     "@type": "Organization",
-    name: "Zweidevs (Pvt) Ltd",
+    name: "Quartic Lab",
     description:
-      "Zweidevs is a service-oriented company providing creative and innovative solutions for your business domain. We believe in exceeding your expectations by delivering thoughtfully innovated eye-catching products on your desk. We take a pride in engineering your requirements into robust software using our mobile, web, cloud and e-commerce capabilities",
+      "Quartic Lab builds instruments for people who build instruments. Four tools — data, inference, simulation, interface — joined end-to-end.",
     url: process.env.NEXT_PUBLIC_URL,
     logo: process.env.NEXT_PUBLIC_LOGO,
     address: {
@@ -50,7 +46,7 @@ export default function App({ Component, navServices, pageProps }) {
           <script type="application/ld+json">
             {JSON.stringify(organizationSchema)}
           </script>
-          <title>Zweidevs</title>
+          <title>Quartic Lab</title>
         </Head>
         <Component {...pageProps} />
       </Layout>

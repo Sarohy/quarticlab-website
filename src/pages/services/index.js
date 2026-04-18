@@ -141,9 +141,9 @@ export default function ServicesNew({ services = [] }) {
   return (
     <div className={styles.page}>
       <Head>
-        <title>Services | Zweidevs</title>
+        <title>Services | Quartic Lab</title>
         <meta
-          content="Comprehensive IT Services — web and mobile app development, blockchain, AI, IoT, UI/UX, game development, DevOps and more. Elevate your digital presence with Zweidevs."
+          content="Comprehensive IT Services — web and mobile app development, blockchain, AI, IoT, UI/UX, game development, DevOps and more. Elevate your digital presence with Quartic Lab."
           name="description"
         />
       </Head>
@@ -158,7 +158,7 @@ export default function ServicesNew({ services = [] }) {
             <span className={styles.heroAccent}>Under One Roof</span>
           </h1>
           <p className={styles.heroSub}>
-            Zweidevs is a professional agency that strives to enhance your
+            Quartic Lab is a professional agency that strives to enhance your
             journey through creative ideas, innovation, and unwavering
             determination. We leverage cutting-edge technology and robust
             strategies to cater to your needs.

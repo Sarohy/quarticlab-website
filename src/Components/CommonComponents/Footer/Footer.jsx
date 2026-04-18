@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
@@ -7,7 +6,7 @@ const FooterSocial = dynamic(() => import("./FooterSocial"));
 const FooterServices = dynamic(() => import("./FooterServices"));
 const FooterAllServices = dynamic(() => import("./FooterAllServices"));
 
-import Logo from "../../../../public/assets/footerIcons/logo.svg";
+import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
 import styles from "./footer.module.css";
 
 function Footer() {
@@ -24,12 +23,12 @@ function Footer() {
               Avg. response: 4 hours
             </span>
             <h2 className={styles.ctaBannerTitle}>
-              Get Your Project Estimate
-              <span className={styles.ctaHighlight}> in 12 Hours</span>
+              Get your project estimate
+              <span className={styles.ctaHighlight}> in 12 hours</span>
             </h2>
             <p className={styles.ctaBannerDesc}>
               Share your idea — we&apos;ll send a detailed scope, timeline &
-              cost breakdown within 12 hours. No strings attached.
+              cost breakdown. No strings attached.
             </p>
           </div>
           <div className={styles.ctaBannerActions}>
@@ -39,11 +38,10 @@ function Footer() {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <span className={styles.ctaBtnIcon}>⚡</span>
-              Get Free Estimate
+              Start a project
             </a>
             <Link className={styles.ctaBannerSecondary} href="/contactUs">
-              or send us a message →
+              or send us a message
             </Link>
           </div>
         </div>
@@ -75,9 +73,9 @@ function Footer() {
         {/* ── Bottom bar ─────────────────────── */}
         <div className={styles.footerBottomBar}>
           <div className={styles.footerBottomLeft}>
-            <Image alt="zweidevs" height={28} src={Logo} width={28} />
+            <QuarticMark size={24} />
             <span className={styles.footerCopyright}>
-              © {currentYear} Zweidevs. All Rights Reserved.
+              {currentYear} Quartic Lab. All rights reserved.
             </span>
           </div>
           <div className={styles.footerBottomRight}>

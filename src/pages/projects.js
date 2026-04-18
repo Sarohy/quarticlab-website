@@ -10,7 +10,7 @@ import Box from "@mui/material/Box";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
-const SITE_URL = "https://www.zweidevs.com";
+const SITE_URL = "https://www.quarticlab.com";
 
 /* ── reveal hook ─────────────────────────────────── */
 function useReveal() {
@@ -73,21 +73,21 @@ export default function ProjectsNewPage({ projects = [] }) {
     "@context": "https://schema.org",
     "@type": "ItemList",
     description:
-      "A curated list of custom software projects built by Zweidevs, " +
+      "A curated list of custom software projects built by Quartic Lab, " +
       "covering web apps, mobile apps, AI & ML solutions, and blockchain " +
       "platforms.",
     itemListElement: projects.map((p, i) => ({
       "@type": "ListItem",
       item: {
         "@type": "SoftwareApplication",
-        author: { "@type": "Organization", name: "Zweidevs", url: SITE_URL },
+        author: { "@type": "Organization", name: "Quartic Lab", url: SITE_URL },
         description: p.desc,
         name: p.title,
         ...(p.imageUrl ? { image: p.imageUrl } : {}),
       },
       position: i + 1,
     })),
-    name: "Zweidevs Portfolio — Software Development Projects",
+    name: "Quartic Lab Portfolio — Software Development Projects",
     numberOfItems: projects.length,
     url: `${SITE_URL}/projects`,
   };
@@ -95,10 +95,10 @@ export default function ProjectsNewPage({ projects = [] }) {
   return (
     <div className={styles.page}>
       <Head>
-        <title>Portfolio | Zweidevs</title>
+        <title>Portfolio | Quartic Lab</title>
         <meta
           content={
-            "Explore Zweidevs' portfolio of software projects spanning web " +
+            "Explore Quartic Lab's portfolio of software projects spanning web " +
             "apps, mobile applications, AI & ML solutions, and blockchain " +
             "platforms. Trusted by global clients."
           }
@@ -116,12 +116,12 @@ export default function ProjectsNewPage({ projects = [] }) {
         <meta content="website" property="og:type" />
         <meta content={`${SITE_URL}/projects`} property="og:url" />
         <meta
-          content="Portfolio | Zweidevs — Web, Mobile & AI Projects"
+          content="Portfolio | Quartic Lab — Web, Mobile & AI Projects"
           property="og:title"
         />
         <meta
           content={
-            "Explore Zweidevs' portfolio of software projects spanning web " +
+            "Explore Quartic Lab's portfolio of software projects spanning web " +
             "apps, mobile applications, AI & ML solutions, and blockchain " +
             "platforms."
           }
@@ -131,15 +131,15 @@ export default function ProjectsNewPage({ projects = [] }) {
           content={`${SITE_URL}/assets/og-projects.jpg`}
           property="og:image"
         />
-        <meta content="Zweidevs" property="og:site_name" />
+        <meta content="Quartic Lab" property="og:site_name" />
         <meta content="summary_large_image" name="twitter:card" />
         <meta
-          content="Portfolio | Zweidevs — Web, Mobile & AI Projects"
+          content="Portfolio | Quartic Lab — Web, Mobile & AI Projects"
           name="twitter:title"
         />
         <meta
           content={
-            "Explore Zweidevs' portfolio of software projects spanning web " +
+            "Explore Quartic Lab's portfolio of software projects spanning web " +
             "apps, mobile applications, AI & ML solutions, and blockchain " +
             "platforms."
           }
@@ -271,7 +271,7 @@ export default function ProjectsNewPage({ projects = [] }) {
 
       {/* ─── CTA BANNER ───────────────────────── */}
       <section
-        aria-label="Start a project with Zweidevs"
+        aria-label="Start a project with Quartic Lab"
         className={styles.ctaSec}
       >
         <div className={`${styles.container} ${styles.ctaInner}`}>
@@ -283,7 +283,7 @@ export default function ProjectsNewPage({ projects = [] }) {
             </p>
           </div>
           <button
-            aria-label="Book a meeting with Zweidevs"
+            aria-label="Book a meeting with Quartic Lab"
             className={`${styles.btnPrimary} ${styles.reveal}`}
             onClick={requestDemo}
             ref={addRef}

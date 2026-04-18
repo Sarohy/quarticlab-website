@@ -78,7 +78,7 @@ export const SERVICE_DROPDOWN = [
 ];
 
 export const HEADER_CTA = {
-  label: "Get Estimate in 12 Hrs",
+  label: "Start a project",
   href: "https://calendly.com/request-demo-zweidevs/meeting",
 };
 

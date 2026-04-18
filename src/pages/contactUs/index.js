@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import Image from "next/image";
 import Alert from "@mui/material/Alert";
 import { submitContactForm } from "@component/firebase/firebaseRequests";
 import CountrySelect from "@component/Components/CommonComponents/CountrySelect/CountrySelect";
-import HSLogo from "../../../public/assets/HomeIcons/zweidevsLogo.svg";
+import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
 import styles from "../../styles/contactNew.module.css";
 
 /* ── data ────────────────────────────────────────── */
@@ -12,8 +11,8 @@ const contactMethods = [
   {
     icon: "📧",
     title: "Email Us",
-    detail: "hello@zweidevs.com",
-    href: "mailto:hello@zweidevs.com",
+    detail: "hello@quarticlab.com",
+    href: "mailto:hello@quarticlab.com",
     desc: "We typically respond within 24 hours.",
   },
   {
@@ -81,9 +80,9 @@ export default function ContactNewPage() {
   return (
     <div className={styles.page}>
       <Head>
-        <title>Contact | Zweidevs</title>
+        <title>Contact | Quartic Lab</title>
         <meta
-          content="Get in touch with Zweidevs. Let's discuss your project, explore collaboration opportunities, or just say hello."
+          content="Get in touch with Quartic Lab. Let's discuss your project, explore collaboration opportunities, or just say hello."
           name="description"
         />
       </Head>
@@ -135,12 +134,7 @@ function HeroBanner() {
 
         <div className={styles.heroVisual}>
           <div className={styles.heroLogoRing}>
-            <Image
-              alt="Zweidevs logo"
-              className={styles.heroLogo}
-              priority
-              src={HSLogo}
-            />
+            <QuarticMark size={120} />
           </div>
         </div>
       </div>
@@ -256,7 +250,7 @@ function FormSection() {
       setAlertMsg({
         message:
           "Something went wrong. Please email us directly at " +
-          "hello@zweidevs.com",
+          "hello@quarticlab.com",
         severity: "error",
       });
     } finally {

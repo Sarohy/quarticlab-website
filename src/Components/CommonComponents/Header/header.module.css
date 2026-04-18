@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   Header — Glassmorphism + Mega Dropdown + Urgency CTA
+   Header — Quartic Lab · Oxford + Copper
    ═══════════════════════════════════════════════ */
 
 /* ── Base header bar ────────────────────────── */
@@ -7,24 +7,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 64px;
   padding: 0 3.5%;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: oklch(95% 0.018 75 / 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 11111;
-  font-family: "Poppins", sans-serif;
-  transition: background 0.35s ease, box-shadow 0.35s ease, height 0.35s ease;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  font-family: var(--font-body);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    height 0.3s ease;
+  border-bottom: 1px solid oklch(20% 0.05 255 / 0.05);
 }
 
 .scrolled {
-  height: 62px;
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 1px 32px rgba(0, 0, 0, 0.08);
+  height: 56px;
+  background: oklch(95% 0.018 75 / 0.97);
+  box-shadow: 0 1px 24px rgba(0, 0, 0, 0.06);
   border-bottom-color: transparent;
 }
 
@@ -32,45 +35,67 @@
 .logoLink {
   display: flex;
   align-items: center;
+  gap: 10px;
   text-decoration: none;
+  animation: logoFadeIn 0.5s ease both;
 }
 
-.headerLogo {
-  opacity: 0;
-  animation: logoSlideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.05s;
-  transition: transform 0.3s ease;
+.logoText {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ql-oxford);
+  letter-spacing: -0.3px;
+  line-height: 1;
 }
 
-.headerLogo:hover {
-  transform: scale(1.04);
+.logoTextLight {
+  font-weight: 400;
+  opacity: 0.5;
+}
+
+@keyframes logoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ── Nav links ───────────────────────────────── */
 .pagesContainer {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .headerNav {
-  opacity: 0;
-  animation: navSlideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.15s;
+  animation: navFadeIn 0.5s ease 0.1s both;
+}
+
+@keyframes navFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .pageLabel {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.875rem;
+  font-family: var(--font-body);
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  color: #2b2a35;
+  color: var(--ql-oxford);
   padding: 8px 14px;
-  border-radius: 8px;
-  position: relative;
+  border-radius: 2px;
   text-decoration: none;
-  transition: color 0.25s ease, background 0.25s ease;
-  overflow: hidden;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -82,8 +107,8 @@
 }
 
 .chevron {
-  font-size: 0.7rem;
-  transition: transform 0.3s ease;
+  font-size: 0.65rem;
+  transition: transform 0.25s ease;
   display: inline-block;
   margin-top: 1px;
 }
@@ -92,117 +117,79 @@
   transform: rotate(180deg);
 }
 
-.pageLabel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 8px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 151, 0, 0.08),
-    rgba(255, 151, 0, 0.04)
-  );
-  opacity: 0;
-  transform: scale(0.92);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.pageLabel:hover::before {
-  opacity: 1;
-  transform: scale(1);
-}
-
 .pageLabel:hover {
-  color: #ff9700;
+  color: var(--ql-copper);
 }
 
 .activePage {
-  color: #ff9700 !important;
+  color: var(--ql-copper);
 }
 
 .activePage::after {
   content: "";
   position: absolute;
-  bottom: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 3px;
-  background: linear-gradient(90deg, #ff9700, #ffb84d);
-  border-radius: 3px;
-  animation: activeIndicator 0.3s ease forwards;
+  bottom: 0;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: var(--ql-copper);
+  border-radius: 1px;
 }
 
-/* ═══════════════════════════════════════════════
-   Mega Dropdown
-   ═══════════════════════════════════════════════ */
-
+/* ── Dropdown trigger ────────────────────────── */
 .dropdownTrigger {
   position: relative;
 }
 
+/* ── Mega Dropdown ───────────────────────────── */
 .megaDropdown {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(8px);
-  width: 640px;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 16px;
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(0, 0, 0, 0.04);
+  transform: translateX(-50%);
+  padding-top: 12px;
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-  z-index: 11112;
-  padding-top: 12px;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
 }
 
 .megaDropdownOpen {
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
-}
-
-/* invisible bridge between nav link and dropdown so hover doesn't break */
-.megaDropdown::before {
-  content: "";
-  position: absolute;
-  top: -16px;
-  left: 0;
-  right: 0;
-  height: 16px;
 }
 
 .megaDropdownInner {
+  background: var(--ql-linen);
+  border: 1px solid oklch(20% 0.05 255 / 0.08);
+  border-radius: 2px;
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.04);
+  padding: 28px 32px 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
-  padding: 8px;
+  gap: 8px 32px;
+  min-width: 520px;
 }
 
 .megaDropdownColumn {
-  padding: 12px 8px;
-}
-
-.megaDropdownColumn:first-child {
-  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .megaGroupLabel {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #9a9cb0;
-  padding: 0 12px 10px;
-  display: block;
+  color: var(--ql-oxford);
+  opacity: 0.4;
+  margin-bottom: 10px;
+  padding-left: 12px;
 }
 
 .megaDropdownItem {
@@ -210,25 +197,28 @@
   align-items: flex-start;
   gap: 12px;
   padding: 10px 12px;
-  border-radius: 10px;
+  border-radius: 2px;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.15s ease;
 }
 
 .megaDropdownItem:hover {
-  background: rgba(255, 151, 0, 0.06);
-  transform: translateX(2px);
+  background: oklch(20% 0.05 255 / 0.04);
 }
 
 .megaItemActive {
-  background: rgba(255, 151, 0, 0.08) !important;
+  background: oklch(58% 0.12 45 / 0.06);
 }
 
 .megaItemEmoji {
-  font-size: 1.3rem;
-  line-height: 1;
   flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 2px;
+  color: var(--ql-copper);
 }
 
 .megaItemContent {
@@ -238,191 +228,145 @@
 }
 
 .megaItemTitle {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #2b2a35;
-  line-height: 1.3;
-}
-
-.megaDropdownItem:hover .megaItemTitle {
-  color: #ff9700;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ql-oxford);
 }
 
 .megaItemDesc {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.72rem;
-  font-weight: 400;
-  color: #9a9cb0;
-  line-height: 1.4;
+  font-size: 12px;
+  color: var(--ql-oxford);
+  opacity: 0.45;
+  line-height: 1.35;
 }
 
-/* ── Dropdown footer bar ─────────────────── */
 .megaDropdownFooter {
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
-  background: rgba(0, 0, 0, 0.02);
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 0 0 16px 16px;
-  margin: 0 -8px -8px;
+  padding: 14px 12px 4px;
+  margin-top: 8px;
+  border-top: 1px solid oklch(20% 0.05 255 / 0.06);
 }
 
 .megaFooterText {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.8rem;
-  color: #9a9cb0;
+  font-size: 13px;
+  color: var(--ql-oxford);
+  opacity: 0.45;
 }
 
 .megaFooterLink {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #ff9700;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ql-copper);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s;
 }
 
 .megaFooterLink:hover {
-  color: #e88b05;
+  opacity: 0.7;
 }
 
-/* ═══════════════════════════════════════════════
-   CTA Button — Urgency Design with Pulse
-   ═══════════════════════════════════════════════ */
-
+/* ── CTA button ──────────────────────────────── */
 .ctaButton {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(135deg, #ff9700, #e88b05);
-  padding: 10px 24px;
-  border-radius: 50px;
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  opacity: 0;
-  animation:
-    ctaFadeIn 0.5s ease 0.3s forwards,
-    ctaWobble 3.5s ease-in-out 1.5s infinite;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  white-space: nowrap;
-}
-
-.ctaPulse {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  border-radius: 50px;
-  background: rgba(255, 151, 0, 0.4);
-  animation: ctaPulseAnim 2s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.ctaIcon {
-  font-size: 1rem;
+  padding: 10px 20px;
+  background: var(--ql-oxford);
+  color: var(--ql-linen);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 2px;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    transform 0.2s;
   position: relative;
-  z-index: 1;
+  animation: ctaFadeIn 0.5s ease 0.2s both;
 }
 
-.ctaLabel {
-  position: relative;
-  z-index: 1;
-}
-
-.ctaButton::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #ffb84d, #ff9700);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 50px;
+@keyframes ctaFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .ctaButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 151, 0, 0.35);
+  background: var(--ql-midnight);
+  transform: translateY(-1px);
 }
 
-.ctaButton:hover::before {
-  opacity: 1;
+.ctaPulse {
+  display: none;
 }
 
-.ctaButton:active {
-  transform: translateY(0);
+.ctaIcon {
+  display: none;
+}
+
+.ctaLabel {
+  /* inherits from button */
 }
 
 /* ═══════════════════════════════════════════════
-   Mobile — Hamburger + Slide-in Drawer
+   MOBILE
    ═══════════════════════════════════════════════ */
-
 .mobileHeader {
-  padding: 0 5%;
+  justify-content: space-between;
 }
 
-/* ── CSS-only hamburger ──────────────────────── */
+/* ── Hamburger ───────────────────────────────── */
 .hamburger {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 5px;
-  width: 44px;
-  height: 44px;
-  background: transparent;
+  background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 8px;
   z-index: 11112;
 }
 
 .hamburgerLine {
   display: block;
-  width: 24px;
-  height: 2.5px;
-  background: #2b2a35;
-  border-radius: 4px;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.25s ease, background 0.25s ease;
+  width: 22px;
+  height: 2px;
+  background: var(--ql-oxford);
+  border-radius: 1px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .hamburgerActive .hamburgerLine:nth-child(1) {
-  transform: translateY(7.5px) rotate(45deg);
-  background: #ff9700;
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
 .hamburgerActive .hamburgerLine:nth-child(2) {
   opacity: 0;
-  transform: scaleX(0);
 }
 
 .hamburgerActive .hamburgerLine:nth-child(3) {
-  transform: translateY(-7.5px) rotate(-45deg);
-  background: #ff9700;
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ── Fullscreen overlay ──────────────────────── */
+/* ── Overlay ─────────────────────────────────── */
 .mobileOverlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: oklch(20% 0.05 255 / 0.4);
   z-index: 11110;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .mobileOverlayVisible {
@@ -430,22 +374,19 @@
   visibility: visible;
 }
 
-/* ── Drawer panel ────────────────────────────── */
+/* ── Drawer ──────────────────────────────────── */
 .mobileDrawer {
   position: fixed;
   top: 0;
   right: 0;
-  width: 85%;
-  max-width: 380px;
-  height: 100vh;
-  height: 100dvh;
-  background: #fff;
+  bottom: 0;
+  width: 320px;
+  max-width: 85vw;
+  background: var(--ql-linen);
   z-index: 11111;
-  display: flex;
-  flex-direction: column;
-  transform: translateX(102%);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.08);
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow-y: auto;
 }
 
 .mobileDrawerOpen {
@@ -453,266 +394,129 @@
 }
 
 .mobileDrawerContent {
+  padding: 80px 28px 28px;
   display: flex;
   flex-direction: column;
-  padding: 100px 32px 40px;
   gap: 4px;
-  flex: 1;
-  overflow-y: auto;
 }
 
-/* ── Mobile nav links ────────────────────────── */
 .mobileNavLink {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: #2b2a35;
-  text-decoration: none;
-  padding: 16px 12px;
-  border-radius: 12px;
   display: flex;
   align-items: center;
-  gap: 16px;
-  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
-  opacity: 0;
-  animation: mobileNavItemIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  background: none;
+  gap: 12px;
+  padding: 14px 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ql-oxford);
+  text-decoration: none;
   border: none;
+  background: none;
   cursor: pointer;
   width: 100%;
   text-align: left;
+  border-bottom: 1px solid oklch(20% 0.05 255 / 0.06);
+  animation: mobileNavSlide 0.4s ease both;
 }
 
-.mobileNavLink:hover,
-.mobileNavLink:active {
-  background: rgba(255, 151, 0, 0.06);
-  color: #ff9700;
-  transform: translateX(4px);
+@keyframes mobileNavSlide {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .mobileNavIndex {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #ff9700;
-  opacity: 0.5;
-  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  opacity: 0.3;
+  min-width: 20px;
 }
 
 .mobileNavText {
-  letter-spacing: 0.03em;
-  flex: 1;
+  /* inherits */
 }
 
 .mobileChevron {
-  font-size: 0.8rem;
-  transition: transform 0.3s ease;
+  font-size: 0.65rem;
   margin-left: auto;
+  transition: transform 0.25s;
 }
 
 .mobileChevronUp {
   transform: rotate(180deg);
 }
 
-/* ── Mobile Accordion (Services) ─────────── */
+/* ── Accordion panel ─────────────────────────── */
 .mobileAccordion {
-  display: flex;
-  flex-direction: column;
+  /* container */
 }
 
 .mobileAccordionPanel {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  padding-left: 20px;
+  transition: max-height 0.35s ease;
 }
 
 .mobileAccordionOpen {
-  max-height: 800px;
+  max-height: 600px;
 }
 
 .mobileSubLink {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: #6b6d80;
-  text-decoration: none;
-  padding: 10px 16px;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: background 0.2s ease, color 0.2s ease;
-  border-left: 2px solid rgba(255, 151, 0, 0.15);
-  margin-left: 8px;
+  padding: 10px 0 10px 32px;
+  font-size: 14px;
+  color: var(--ql-oxford);
+  opacity: 0.7;
+  text-decoration: none;
+  transition: opacity 0.2s;
 }
 
 .mobileSubLink:hover {
-  background: rgba(255, 151, 0, 0.06);
-  color: #ff9700;
-  border-left-color: #ff9700;
+  opacity: 1;
+  color: var(--ql-copper);
 }
 
 .mobileSubLinkActive {
-  color: #ff9700;
-  font-weight: 500;
-  border-left-color: #ff9700;
+  color: var(--ql-copper);
+  opacity: 1;
 }
 
 .mobileSubEmoji {
-  font-size: 1rem;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ql-copper);
 }
 
+/* ── Mobile CTA ──────────────────────────────── */
 .mobileCtaButton {
-  font-family: "Poppins", sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(135deg, #ff9700, #e88b05);
-  padding: 16px 32px;
-  border-radius: 14px;
-  text-decoration: none;
-  text-align: center;
-  margin-top: auto;
-  margin-bottom: 24px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  opacity: 0;
-  animation: mobileNavItemIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.4s;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  margin-top: 20px;
+  padding: 14px 24px;
+  background: var(--ql-oxford);
+  color: var(--ql-linen);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 2px;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
 
-.mobileCtaButton:active {
-  transform: scale(0.97);
-}
-
-/* ═══════════════════════════════════════════════
-   Keyframes
-   ═══════════════════════════════════════════════ */
-
-@keyframes logoSlideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes navSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes ctaFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes ctaPulseAnim {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.15);
-    opacity: 0.3;
-  }
-}
-
-@keyframes ctaWobble {
-  0%,
-  60%,
-  100% {
-    transform: translateY(0) scale(1);
-    box-shadow: 0 4px 16px rgba(255, 151, 0, 0.35);
-  }
-  10% {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 8px 28px rgba(255, 151, 0, 0.55);
-  }
-  20% {
-    transform: translateY(0) scale(1);
-    box-shadow: 0 4px 16px rgba(255, 151, 0, 0.35);
-  }
-  30% {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 6px 22px rgba(255, 151, 0, 0.48);
-  }
-  40% {
-    transform: translateY(0) scale(1);
-    box-shadow: 0 4px 16px rgba(255, 151, 0, 0.35);
-  }
-}
-
-@keyframes activeIndicator {
-  from {
-    width: 0;
-    opacity: 0;
-  }
-  to {
-    width: 20px;
-    opacity: 1;
-  }
-}
-
-@keyframes mobileNavItemIn {
-  from {
-    opacity: 0;
-    transform: translateX(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* ═══════════════════════════════════════════════
-   Responsive fine-tuning
-   ═══════════════════════════════════════════════ */
-
-@media (max-width: 1100px) {
-  .pageLabel {
-    font-size: 0.8rem;
-    padding: 8px 10px;
-  }
-  .ctaButton {
-    font-size: 0.78rem;
-    padding: 9px 18px;
-  }
-  .megaDropdown {
-    width: 560px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .pagesContainer {
-    gap: 2px;
-  }
-  .pageLabel {
-    font-size: 0.75rem;
-    padding: 7px 8px;
-  }
-  .ctaButton {
-    font-size: 0.75rem;
-    padding: 8px 14px;
-    gap: 4px;
-  }
+.mobileCtaButton:hover {
+  background: var(--ql-midnight);
 }

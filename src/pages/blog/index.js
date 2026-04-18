@@ -95,9 +95,9 @@ const BlogNew = () => {
   return (
     <div className={styles.page}>
       <Head>
-        <title>Blog | Zweidevs</title>
+        <title>Blog | Quartic Lab</title>
         <meta
-          content="Read the latest insights on web development, mobile apps, blockchain, AI, and digital strategy from the Zweidevs team."
+          content="Read the latest insights on web development, mobile apps, blockchain, AI, and digital strategy from the Quartic Lab team."
           name="description"
         />
       </Head>
@@ -233,7 +233,7 @@ const placeholderPosts = [
     excerpt:
       "Server Components, Partial Pre-rendering, and edge caching — " +
       "a practical guide from our engineering team.",
-    author: "Zweidevs Team",
+    author: "Quartic Lab Team",
     date: "January 20, 2026",
   },
 ];

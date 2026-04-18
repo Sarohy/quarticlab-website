@@ -1,6 +1,5 @@
-import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import Logo from "../../../../public/assets/footerIcons/logo.svg";
+import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
 import styles from "./footer.module.css";
 
 const FooterAbout = () => {
@@ -18,32 +17,31 @@ const FooterAbout = () => {
     >
       <div className={styles.footerAboutImageContainer}>
         <div className={styles.footerLogoGlow}>
-          <Image
-            alt="zweidevs"
-            className={styles.footerAboutImageContainerLogo}
-            height={42}
-            src={Logo}
-            width={42}
+          <QuarticMark
+            accent="oklch(58% 0.12 45)"
+            bg="oklch(20% 0.05 255)"
+            fg="oklch(95% 0.018 75)"
+            size={36}
           />
         </div>
-        <h3 className={styles.footerAboutHeading}>ZWEIDEVS</h3>
+        <h3 className={styles.footerAboutHeading}>QUARTIC LAB</h3>
       </div>
       <p className={styles.footerAboutZweidevs}>
-        We build software that scales — from MVPs to enterprise-grade platforms.
-        Dedicated teams, transparent process, real results.
+        We build instruments for people who build instruments. Four disciplines,
+        one research environment.
       </p>
       <div className={styles.footerAboutTagline}>
         <span className={styles.taglineDash} />
-        <span className={styles.taglineText}>Ship faster. Scale smarter.</span>
+        <span className={styles.taglineText}>Build precisely.</span>
       </div>
       <div className={styles.trustBadges}>
         <div className={styles.trustBadge}>
           <span className={styles.trustBadgeValue}>50+</span>
-          <span className={styles.trustBadgeLabel}>Projects Delivered</span>
+          <span className={styles.trustBadgeLabel}>Projects delivered</span>
         </div>
         <div className={styles.trustBadge}>
-          <span className={styles.trustBadgeValue}>16h</span>
-          <span className={styles.trustBadgeLabel}>Estimate Turnaround</span>
+          <span className={styles.trustBadgeValue}>12h</span>
+          <span className={styles.trustBadgeLabel}>Estimate turnaround</span>
         </div>
       </div>
     </div>

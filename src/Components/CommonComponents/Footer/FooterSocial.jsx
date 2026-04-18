@@ -18,28 +18,28 @@ const FooterSocial = () => {
 
   const socialMediaData = [
     {
-      alt: "zweidevs facebook",
+      alt: "quartic lab facebook",
       href: "https://www.facebook.com/zweidevs",
       hoverImage: FBHover,
       image: FbLogo,
       name: "fb",
     },
     {
-      alt: "zweidevs instagram",
+      alt: "quartic lab instagram",
       href: "https://instagram.com/zweidevs.tech?igshid=OGQ5ZDc2ODk2ZA==",
       hoverImage: InstaHover,
       image: InstaLogo,
       name: "insta",
     },
     {
-      alt: "zweidevs youtube",
+      alt: "quartic lab youtube",
       href: "https://youtube.com/@Zweidevs?si=7uR6r0W4GBzelhoo",
       hoverImage: YoutubeIconHover,
       image: YoutubeIcon,
       name: "youtube",
     },
     {
-      alt: "zweidevs linkedin",
+      alt: "quartic lab linkedin",
       href: "https://www.linkedin.com/company/zweidevs/",
       hoverImage: LinkedInHover,
       image: LinkedInLogo,

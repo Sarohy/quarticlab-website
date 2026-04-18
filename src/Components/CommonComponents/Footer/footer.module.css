@@ -1,437 +1,319 @@
 /* ═══════════════════════════════════════════════
-   Footer — CTA Banner + Clean Dark Surface
+   Footer — Quartic Lab · Oxford + Copper
    ═══════════════════════════════════════════════ */
 
-/* ── CTA Banner (above footer) ───────────────── */
-.ctaBanner {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  position: relative;
+/* ── Main container ──────────────────────────── */
+.footerMainContainer {
+  font-family: var(--font-body);
+  color: var(--ql-linen);
   overflow: hidden;
 }
 
-.ctaBanner::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 151, 0, 0.12) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
-}
-
-.ctaBanner::after {
-  content: "";
-  position: absolute;
-  bottom: -30%;
-  left: -5%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 184, 77, 0.08) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
+/* ── CTA Banner ──────────────────────────────── */
+.ctaBanner {
+  background: var(--ql-oxford);
+  padding: 64px 24px;
 }
 
 .ctaBannerInner {
-  max-width: 1320px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 64px 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 48px;
-  position: relative;
-  z-index: 1;
+  gap: 40px;
 }
 
 .ctaBannerContent {
   flex: 1;
-  max-width: 560px;
 }
 
 .ctaBadge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: "Poppins", sans-serif;
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: #34d399;
-  background: rgba(52, 211, 153, 0.1);
-  border: 1px solid rgba(52, 211, 153, 0.2);
-  padding: 6px 14px;
-  border-radius: 50px;
-  margin-bottom: 20px;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ql-copper);
+  margin-bottom: 16px;
 }
 
 .ctaBadgeDot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #34d399;
-  animation: dotPulse 2s ease-in-out infinite;
+  background: var(--ql-copper);
 }
 
 .ctaBannerTitle {
-  font-family: "Poppins", sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.3;
-  margin: 0 0 14px;
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--ql-linen);
+  margin: 0 0 12px;
 }
 
 .ctaHighlight {
-  background: linear-gradient(90deg, #ff9700, #ffb84d);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--ql-copper);
 }
 
 .ctaBannerDesc {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: #9a9cb0;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.55;
+  opacity: 0.55;
   margin: 0;
+  max-width: 480px;
 }
 
 .ctaBannerActions {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .ctaBannerButton {
-  font-family: "Poppins", sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(135deg, #ff9700, #e88b05);
-  padding: 16px 36px;
-  border-radius: 14px;
-  text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  white-space: nowrap;
-  position: relative;
-  overflow: hidden;
+  padding: 14px 28px;
+  background: var(--ql-copper);
+  color: var(--ql-oxford);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 2px;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
 
 .ctaBannerButton:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(255, 151, 0, 0.35);
-}
-
-.ctaBannerButton:active {
-  transform: translateY(0);
+  background: var(--ql-copper-dk);
+  color: var(--ql-linen);
+  transform: translateY(-1px);
 }
 
 .ctaBtnIcon {
-  font-size: 1.1rem;
+  display: none;
 }
 
 .ctaBannerSecondary {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: #9a9cb0;
+  font-size: 13px;
+  color: var(--ql-linen);
+  opacity: 0.5;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s;
 }
 
 .ctaBannerSecondary:hover {
-  color: #ff9700;
+  opacity: 0.8;
 }
 
-/* ── Main container ──────────────────────────── */
-.footerMainContainer {
-  background: #1a1a2e;
-  position: relative;
-  overflow: hidden;
-}
-
-.footerMainContainer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 151, 0, 0.06) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
-}
-
+/* ── Accent bar ──────────────────────────────── */
 .footerAccentBar {
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    #ff9700 20%,
-    #ffb84d 50%,
-    #ff9700 80%,
-    transparent 100%
-  );
+  height: 2px;
+  background: var(--ql-copper);
 }
 
+/* ── Footer inner ────────────────────────────── */
 .footerInner {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 60px 5% 32px;
+  background: var(--ql-midnight);
+  padding: 56px 24px 32px;
 }
 
-.footerMainContainer h3 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.4;
-  color: #ffffff;
-  margin: 0 0 8px;
-}
-
-.colorOrange {
-  color: #ff9700 !important;
-}
-
-/* ── Column title with underline accent ──────── */
-.footerColumnTitle {
-  position: relative;
-  padding-bottom: 14px;
-  margin-bottom: 20px !important;
-}
-
-.footerColumnTitle::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 32px;
-  height: 3px;
-  border-radius: 3px;
-  background: linear-gradient(90deg, #ff9700, #ffb84d);
-}
-
-/* ── Grid layout ─────────────────────────────── */
 .footerSectionContainer {
-  display: flex;
-  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
   gap: 40px;
 }
 
-.footAboutWidth {
-  width: 30%;
-  flex-shrink: 0;
-}
-
-.footNavWidth {
-  width: 14%;
-  flex-shrink: 0;
-}
-
-.footServiceWidth {
-  width: 22%;
-  flex-shrink: 0;
-}
-
+.footAboutWidth,
+.footNavWidth,
+.footServiceWidth,
 .footSocialWidth {
-  width: 20%;
-  flex-shrink: 0;
+  /* grid children, min-width handled by grid */
 }
 
-/* ── About section ───────────────────────────── */
+/* ── Footer column titles ────────────────────── */
+.footerColumnTitle {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--ql-linen);
+  margin: 0 0 20px;
+}
+
+/* ── Footer links ────────────────────────────── */
+.footerLinksList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footerLinkItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ql-linen);
+  opacity: 0.5;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  padding: 4px 0;
+}
+
+.footerLinkItem:hover {
+  opacity: 0.85;
+  color: var(--ql-copper);
+}
+
+.colorOrange {
+  color: var(--ql-copper);
+  opacity: 0.85;
+}
+
+.footerLinkArrow {
+  font-size: 11px;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+.footerLinkItem:hover .footerLinkArrow {
+  opacity: 0.8;
+}
+
+/* ── Footer About ────────────────────────────── */
 .footerAboutImageContainer {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .footerLogoGlow {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 151, 0, 0.15),
-    rgba(255, 151, 0, 0.05)
-  );
-  border: 1px solid rgba(255, 151, 0, 0.2);
-  flex-shrink: 0;
+}
+
+.footerAboutImageContainerLogo {
+  /* not used */
 }
 
 .footerAboutHeading {
-  font-size: 22px !important;
-  letter-spacing: 0.08em;
-  color: #fff !important;
-  margin: 0 !important;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: var(--ql-linen);
+  margin: 0;
 }
 
 .footerAboutZweidevs {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #9a9cb0;
-  margin: 0 0 20px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ql-linen);
+  opacity: 0.5;
+  margin: 0 0 16px;
 }
 
 .footerAboutTagline {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .taglineDash {
-  display: block;
-  width: 24px;
+  width: 16px;
   height: 2px;
-  border-radius: 2px;
-  background: #ff9700;
-  flex-shrink: 0;
+  background: var(--ql-copper);
 }
 
 .taglineText {
-  font-family: "Poppins", sans-serif;
-  font-size: 13px;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: 15px;
   font-style: italic;
-  color: #ff9700;
-  letter-spacing: 0.02em;
+  color: var(--ql-copper);
 }
 
-/* ── Trust badges ────────────────────────────── */
 .trustBadges {
   display: flex;
   gap: 24px;
-  margin-top: 24px;
 }
 
 .trustBadge {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 2px;
 }
 
 .trustBadgeValue {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.2rem;
+  font-size: 20px;
   font-weight: 700;
-  color: #ff9700;
+  color: var(--ql-linen);
 }
 
 .trustBadgeLabel {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.7rem;
-  font-weight: 400;
-  color: #6b6d80;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: var(--ql-linen);
+  opacity: 0.4;
 }
 
-/* ── Link lists (Quick Links + Services) ─────── */
-.footerLinksList {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-top: 8px;
-}
-
-.footerLinkItem {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  color: #9a9cb0;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 0;
-  border-radius: 6px;
-  transition: color 0.25s ease, transform 0.25s ease;
-}
-
-.footerLinkItem:hover {
-  color: #ff9700;
-  transform: translateX(4px);
-}
-
-.footerLinkArrow {
-  font-size: 12px;
-  color: #ff9700;
-  opacity: 0;
-  transform: translateX(-6px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.footerLinkItem:hover .footerLinkArrow {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* ── Social section ──────────────────────────── */
+/* ── Footer Social ───────────────────────────── */
 .footerSocialSubtext {
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  color: #9a9cb0;
-  line-height: 1.6;
-  margin: 0 0 20px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ql-linen);
+  opacity: 0.45;
+  margin: 0 0 16px;
 }
 
 .socialIconsGrid {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .socialIconCard {
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: background 0.3s ease, border-color 0.3s ease,
-    transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  cursor: pointer;
+  border: 1px solid oklch(95% 0.018 75 / 0.12);
+  border-radius: 2px;
   text-decoration: none;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+  position: relative;
+}
+
+.socialIconCard:hover {
+  border-color: var(--ql-copper);
+  background: oklch(58% 0.12 45 / 0.08);
 }
 
 .socialIcon {
-  transition: opacity 0.25s ease;
+  transition: opacity 0.2s;
 }
 
 .socialIconHover {
   position: absolute;
   opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-.socialIconCard:hover {
-  background: rgba(255, 151, 0, 0.1);
-  border-color: rgba(255, 151, 0, 0.3);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 151, 0, 0.15);
+  transition: opacity 0.2s;
 }
 
 .socialIconCard:hover .socialIcon {
@@ -442,37 +324,55 @@
   opacity: 1;
 }
 
-/* ── Divider ─────────────────────────────────── */
-.footerDivider {
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.08) 20%,
-    rgba(255, 255, 255, 0.08) 80%,
-    transparent 100%
-  );
-  margin: 40px 0 24px;
+/* ── Scroll animations ───────────────────────── */
+.footerSlideLeft {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
 }
 
-/* ── Bottom bar ──────────────────────────────── */
+.footerFadeEl {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
+}
+
+.footerVisible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* ── Divider & bottom bar ────────────────────── */
+.footerDivider {
+  height: 1px;
+  background: oklch(95% 0.018 75 / 0.08);
+  max-width: 1100px;
+  margin: 40px auto 24px;
+}
+
 .footerBottomBar {
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .footerBottomLeft {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .footerCopyright {
-  font-family: "Poppins", sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  color: #6b6d80;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  opacity: 0.4;
 }
 
 .footerBottomRight {
@@ -482,130 +382,49 @@
 }
 
 .footerBottomLink {
-  font-family: "Poppins", sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  color: #9a9cb0;
+  font-size: 12px;
+  color: var(--ql-linen);
+  opacity: 0.45;
   text-decoration: none;
-  transition: color 0.25s ease;
+  transition: opacity 0.2s;
 }
 
 .footerBottomLink:hover {
-  color: #ff9700;
+  opacity: 0.8;
 }
 
 .footerDot {
-  color: #6b6d80;
-  font-size: 16px;
+  opacity: 0.25;
+  font-size: 10px;
 }
 
 /* ═══════════════════════════════════════════════
-   Scroll-triggered animations
+   RESPONSIVE
    ═══════════════════════════════════════════════ */
-
-.footerFadeEl {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.footerSlideLeft {
-  opacity: 0;
-  transform: translateX(-30px);
-  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.footerVisible {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
-/* ═══════════════════════════════════════════════
-   Keyframes
-   ═══════════════════════════════════════════════ */
-
-@keyframes dotPulse {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.4;
-    transform: scale(1.5);
-  }
-}
-
-/* ═══════════════════════════════════════════════
-   Responsive — Mobile
-   ═══════════════════════════════════════════════ */
-
-@media screen and (max-width: 590px) {
+@media (max-width: 900px) {
   .ctaBannerInner {
     flex-direction: column;
-    padding: 48px 6%;
-    gap: 32px;
     text-align: center;
+    align-items: center;
   }
 
-  .ctaBannerContent {
-    max-width: 100%;
-  }
-
-  .ctaBadge {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .ctaBannerTitle {
-    font-size: 1.5rem;
+  .ctaBannerActions {
+    align-items: center;
   }
 
   .ctaBannerDesc {
-    font-size: 0.85rem;
-  }
-
-  .footerInner {
-    padding: 40px 6% 24px;
+    max-width: 100%;
   }
 
   .footerSectionContainer {
-    flex-direction: column;
+    grid-template-columns: 1fr 1fr;
     gap: 32px;
   }
+}
 
-  .footAboutWidth,
-  .footNavWidth,
-  .footServiceWidth,
-  .footSocialWidth {
-    width: 100%;
-  }
-
-  .footerAboutZweidevs {
-    font-size: 14px;
-  }
-
-  .footerMainContainer h3 {
-    font-size: 16px;
-  }
-
-  .footerLinkItem {
-    font-size: 14px;
-  }
-
-  .footerColumnTitle::after {
-    left: 0;
-  }
-
-  .socialIconsGrid {
-    gap: 10px;
-  }
-
-  .socialIconCard {
-    width: 40px;
-    height: 40px;
+@media (max-width: 600px) {
+  .footerSectionContainer {
+    grid-template-columns: 1fr;
   }
 
   .footerBottomBar {
@@ -614,108 +433,8 @@
     text-align: center;
   }
 
-  .footerCopyright {
-    font-size: 12px;
-  }
-
-  .footerAboutImageContainer {
-    margin-bottom: 16px;
-  }
-
   .trustBadges {
-    justify-content: center;
-  }
-}
-
-/* ═══════════════════════════════════════════════
-   Responsive — Tablet
-   ═══════════════════════════════════════════════ */
-
-@media screen and (min-width: 591px) and (max-width: 1100px) {
-  .ctaBannerInner {
     flex-direction: column;
-    text-align: center;
-    padding: 56px 5%;
-    gap: 32px;
-  }
-
-  .ctaBannerContent {
-    max-width: 100%;
-  }
-
-  .ctaBadge {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .footerInner {
-    padding: 48px 5% 28px;
-  }
-
-  .footerSectionContainer {
-    flex-wrap: wrap;
-    gap: 32px;
-  }
-
-  .footAboutWidth {
-    width: 45%;
-  }
-
-  .footNavWidth {
-    width: 22%;
-  }
-
-  .footServiceWidth {
-    width: 100%;
-    order: 3;
-  }
-
-  .footSocialWidth {
-    width: 25%;
-  }
-
-  .footerAboutZweidevs {
-    font-size: 14px;
-  }
-
-  .footerMainContainer h3 {
-    font-size: 16px;
-  }
-
-  .footerLinkItem {
-    font-size: 13px;
-  }
-
-  .footerServiceLinksGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4px;
-  }
-
-  .socialIconsGrid {
-    flex-direction: row;
-  }
-
-  .footerBottomBar {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
-/* ═══════════════════════════════════════════════
-   Responsive — Small Desktop
-   ═══════════════════════════════════════════════ */
-
-@media screen and (min-width: 1101px) and (max-width: 1300px) {
-  .footerAboutZweidevs {
-    font-size: 14px;
-  }
-
-  .footerLinkItem {
-    font-size: 13px;
-  }
-
-  .footerMainContainer h3 {
-    font-size: 16px;
+    gap: 12px;
   }
 }

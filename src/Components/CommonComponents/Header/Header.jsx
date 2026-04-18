@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import navLinks, {
   HEADER_CTA,
@@ -9,7 +8,7 @@ import navLinks, {
 } from "@component/Constants/navLinks";
 import { SERVICE_ICON_BY_SLUG } from "@component/Components/CommonComponents/ServiceIcons";
 import { useNavServices } from "@component/utils/ServicesContext";
-import ZweidevsLogo from "../../../../public/assets/headerIcons/logoWithText.svg";
+import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
 import styles from "./header.module.css";
 
 /* ── dropdown config ─────────────────────────────── */
@@ -155,13 +154,10 @@ function Header() {
       className={`${styles.headerContainer} ${scrolled ? styles.scrolled : ""}`}
     >
       <Link className={styles.logoLink} href={"/"}>
-        <Image
-          alt="Zweidevs | Custom Software Development"
-          className={styles.headerLogo}
-          height={40}
-          src={ZweidevsLogo}
-          width={160}
-        />
+        <QuarticMark size={32} />
+        <span className={styles.logoText}>
+          Quartic <span className={styles.logoTextLight}>Lab</span>
+        </span>
       </Link>
       <nav className={`${styles.pagesContainer} ${styles.headerNav}`}>
         {navLinks.map(({ href, text, hasDropdown }) =>
@@ -281,12 +277,10 @@ function Header() {
         } ${styles.mobileHeader}`}
       >
         <Link className={styles.logoLink} href={"/"}>
-          <Image
-            alt="zweidevsDrawer"
-            height={36}
-            src={ZweidevsLogo}
-            width={140}
-          />
+          <QuarticMark size={28} />
+          <span className={styles.logoText}>
+            Quartic <span className={styles.logoTextLight}>Lab</span>
+          </span>
         </Link>
         <button
           aria-label={drawerOpen ? "Close menu" : "Open menu"}
@@ -416,16 +410,16 @@ function Header() {
   return (
     <>
       <Head>
-        <title>Zweidevs</title>
+        <title>Quartic Lab</title>
         <meta
-          content="Zweidevs is a service-oriented company providing creative and innovative solutions for your business domain.we create a strategy."
+          content="Quartic Lab builds instruments for people who build instruments. Data, inference, simulation, interface — joined end-to-end."
           name="description"
         />
         <meta
-          content="software development, web design, custom software, startups, businesses, blockchain, block chain, devOps, ui/ux designer, web development, app development, nft, metaverse, defi"
+          content="software development, AI, blockchain, IoT, web development, mobile apps, machine learning, GenAI, automation"
           name="keywords"
         />
-        <meta content="Zweidevs" name="author" />
+        <meta content="Quartic Lab" name="author" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="index, follow" name="robots" />
         <meta content="index, follow" name="googlebot" />

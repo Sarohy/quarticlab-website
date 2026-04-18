@@ -216,9 +216,9 @@ export default function AboutPage() {
   return (
     <div className={styles.page}>
       <Head>
-        <title>About Us | Zweidevs</title>
+        <title>About Us | Quartic Lab</title>
         <meta
-          content="Zweidevs is a product-first software studio from Lahore. Learn about our values, process, engagement models, and what it's like to work with us."
+          content="Quartic Lab is a research-driven software studio from Lahore. Learn about our values, process, engagement models, and what it's like to work with us."
           name="description"
         />
       </Head>
@@ -227,15 +227,15 @@ export default function AboutPage() {
       <section className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={styles.heroInner}>
-          <span className={styles.heroBadge}>🏢 About Zweidevs</span>
+          <span className={styles.heroBadge}>🏢 About Quartic Lab</span>
           <h1 className={styles.heroH1}>
             We Build Software That{" "}
             <span className={styles.heroAccent}>Actually Ships</span>
           </h1>
           <p className={styles.heroSub}>
-            Founded in 2020, Zweidevs is a product-first studio helping startups
-            and enterprises bring ideas to market — fast. AI, Blockchain, IoT,
-            and full-stack development across 3 continents.
+            Founded in 2020, Quartic Lab is a research-driven studio helping
+            startups and enterprises bring ideas to market — fast. AI,
+            Blockchain, IoT, and full-stack development across 3 continents.
           </p>
           <div className={styles.heroCtas}>
             <button
@@ -313,7 +313,7 @@ function MissionSection() {
       <div className={`${styles.container} ${styles.missionInner}`}>
         <div className={`${styles.missionImg} ${styles.reveal}`}>
           <Image
-            alt="About Zweidevs team"
+            alt="About Quartic Lab team"
             className={styles.missionImage}
             quality={100}
             src={AboutImg}
@@ -346,7 +346,7 @@ function ValuesSection() {
     <section className={styles.valuesSec}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Why Zweidevs</span>
+          <span className={styles.sectionTag}>Why Quartic Lab</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
             What Sets Us Apart
           </h2>

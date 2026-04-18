@@ -94,7 +94,7 @@ export default function AIServicesPage() {
   return (
     <div className={styles.page}>
       <Head>
-        <title>GenAI &amp; AI Automation | Zweidevs</title>
+        <title>GenAI &amp; AI Automation | Quartic Lab</title>
         <meta
           content={
             "Production-grade Generative AI, " +

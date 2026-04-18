@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Script from "next/script";
 import { useRouter } from "next/router";
-import HSLogo from "../../public/assets/HomeIcons/zweidevsLogo.svg";
+import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
 import HS3Img from "../../public/assets/HomeIcons/HS3Img.svg";
 import ClientSvg1 from "../../public/assets/HomeIcons/clients/nick-angelov.png";
 import ClientSvg2 from "../../public/assets/HomeIcons/clients/theresa.png";
@@ -152,7 +152,7 @@ const defaultTestimonials = [
     position: "Founder",
     company: "Angelov Group",
     companyLogoUrl: null,
-    text: "Zweidevs met our expectations. They delivered the product that provided us with a high-quality base from which to move forward. Highly recommended!",
+    text: "Quartic Lab met our expectations. They delivered the product that provided us with a high-quality base from which to move forward. Highly recommended.",
   },
   {
     img: ClientSvg4,
@@ -168,7 +168,7 @@ const defaultTestimonials = [
     position: "Director of Engineering",
     company: "Malik Enterprises",
     companyLogoUrl: null,
-    text: "The Zweidevs team has extensive knowledge of the work, and after working with them for 5-6 months, they have become our go-to development company.",
+    text: "The Quartic Lab team has extensive knowledge of the work, and after working with them for 5-6 months, they have become our go-to development company.",
   },
   {
     img: ClientSvg6,
@@ -176,7 +176,7 @@ const defaultTestimonials = [
     position: "Project Lead",
     company: "Vacek Studio",
     companyLogoUrl: null,
-    text: "Zweidevs' team did a fantastic job scoping our project. Their adaptability was impressive, and they always succeeded in exceeding our expectations.",
+    text: "The Quartic Lab team did a fantastic job scoping our project. Their adaptability was impressive, and they always succeeded in exceeding our expectations.",
   },
 ];
 
@@ -184,37 +184,37 @@ const stats = [
   {
     target: 412,
     suffix: "+",
-    label: "Projects Completed",
-    icon: "🚀",
-    accent: "#ff9700",
+    label: "Projects completed",
+    icon: "",
+    accent: "var(--ql-copper)",
   },
   {
     target: 682,
     suffix: "+",
-    label: "Positive Reviews",
-    icon: "⭐",
-    accent: "#ffc107",
+    label: "Positive reviews",
+    icon: "",
+    accent: "var(--ql-copper)",
   },
   {
     target: 95,
     suffix: "+",
-    label: "Team Members",
-    icon: "👥",
-    accent: "#4fc3f7",
+    label: "Team members",
+    icon: "",
+    accent: "var(--ql-copper)",
   },
   {
     target: 3.5,
     suffix: "M$",
-    label: "Funding Raised",
-    icon: "💰",
-    accent: "#66bb6a",
+    label: "Funding raised",
+    icon: "",
+    accent: "var(--ql-copper)",
   },
   {
     target: 99,
     suffix: "%",
-    label: "Customer Satisfaction",
-    icon: "❤️",
-    accent: "#ef5350",
+    label: "Client satisfaction",
+    icon: "",
+    accent: "var(--ql-copper)",
   },
 ];
 
@@ -257,9 +257,9 @@ export default function LandingPage({
   return (
     <div className={styles.page}>
       <Head>
-        <title>Zweidevs | AI, Blockchain &amp; Software Development</title>
+        <title>Quartic Lab | AI, Blockchain &amp; Software Development</title>
         <meta
-          content="Welcome to Zweidevs - Your Gateway to Digital Innovation. Explore our IT services, from web development and blockchain solutions to mobile app development and AI-powered solutions."
+          content="Quartic Lab builds instruments for people who build instruments. Four tools — data, inference, simulation, interface — joined end-to-end."
           name="description"
         />
       </Head>
@@ -307,14 +307,14 @@ function HeroSection({ router }) {
       <div className={styles.heroBg} />
       <div className={styles.heroInner}>
         <div className={styles.heroText}>
-          <span className={styles.heroBadge}>🚀 Software Development</span>
+          <span className={styles.heroBadge}>Quartic Lab</span>
           <h1 className={styles.heroH1}>
-            Build Smarter. Ship Faster.{" "}
-            <span className={styles.heroAccent}>Own the Future.</span>
+            We build <span className={styles.heroAccent}>instruments</span> for
+            people who build instruments.
           </h1>
           <p className={styles.heroSub}>
-            We deliver AI, Blockchain, IoT, and custom software solutions — from
-            MVP to enterprise scale. Trusted by 50+ clients across 3 continents.
+            Four tools — data, inference, simulation, interface — joined
+            end-to-end. One research environment for teams that ship.
           </p>
           <div className={styles.heroCtas}>
             <button
@@ -326,13 +326,13 @@ function HeroSection({ router }) {
                 )
               }
             >
-              Book a Free Call
+              Start a project
             </button>
             <button
               className={styles.btnOutline}
               onClick={() => router.push("/projects")}
             >
-              View Our Work →
+              View our work
             </button>
           </div>
           <div className={styles.clutchBadge}>
@@ -350,12 +350,7 @@ function HeroSection({ router }) {
         </div>
         <div className={styles.heroVisual}>
           <div className={styles.heroLogoRing}>
-            <Image
-              alt="Zweidevs logo"
-              className={styles.heroLogo}
-              priority
-              src={HSLogo}
-            />
+            <QuarticMark size={260} />
           </div>
         </div>
       </div>
@@ -369,9 +364,9 @@ function ServicesSection({ router, services, servicesError }) {
     <section className={styles.services} id="services">
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>What We Do</span>
+          <span className={styles.sectionTag}>What we do</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Everything Your Business Needs
+            Everything your business needs
           </h2>
         </div>
         {servicesError ? (
@@ -408,7 +403,7 @@ function ServicesSection({ router, services, servicesError }) {
             className={styles.btnOutline}
             onClick={() => router.push("/services")}
           >
-            Explore All Services →
+            Explore all services
           </button>
         </div>
       </div>
@@ -421,28 +416,26 @@ function AboutSection({ router }) {
     <section className={styles.about}>
       <div className={`${styles.container} ${styles.aboutInner}`}>
         <div className={`${styles.aboutText} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>Who We Are</span>
+          <span className={styles.sectionTag}>Who we are</span>
           <h2 className={styles.sectionTitle}>
-            Work With Top Notch Designers &amp; Developers
+            Precisely engineered software, shipped on time
           </h2>
           <p className={styles.aboutDesc}>
-            Zweidevs is a service-oriented company providing creative and
-            innovative solutions for your business domain. We believe in
-            exceeding your expectations by delivering thoughtfully innovated
-            eye-catching products on your desk. We take pride in engineering
-            your requirements into robust software using our mobile, web, cloud
-            and e-commerce capabilities.
+            Quartic Lab is a research-driven studio that turns ideas into
+            production-grade platforms. We combine deep expertise in AI,
+            blockchain, IoT and full-stack engineering with a transparent,
+            milestone-based process. One team, four disciplines, zero guesswork.
           </p>
           <button
             className={styles.btnPrimary}
             onClick={() => router.push("/aboutus")}
           >
-            Explore More
+            Learn more
           </button>
         </div>
         <div className={`${styles.aboutVisual} ${styles.reveal}`}>
           <Image
-            alt="About Zweidevs"
+            alt="About Quartic Lab"
             className={styles.aboutImg}
             quality={100}
             src={HS3Img}
@@ -552,7 +545,7 @@ function ProjectsSection({ projects, projectsError }) {
         <div className={styles.sectionHeader}>
           <span className={styles.sectionTag}>Portfolio</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Our Top Projects
+            Selected work
           </h2>
         </div>
         {projectsError ? (
@@ -621,7 +614,7 @@ function ProjectsSection({ projects, projectsError }) {
             className={styles.btnOutline}
             onClick={() => router.push("/projects")}
           >
-            View All Projects →
+            View all projects
           </button>
         </div>
       </div>
@@ -708,9 +701,9 @@ function StatsSection() {
       <div className={styles.statsBgDots} />
       <div className={styles.container}>
         <div className={styles.statsHeader}>
-          <span className={styles.sectionTag}>Why Zweidevs</span>
+          <span className={styles.sectionTag}>Why Quartic Lab</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Numbers That Speak for Themselves
+            Numbers that speak for themselves
           </h2>
         </div>
         <div className={styles.statsGrid}>
@@ -748,7 +741,7 @@ function TestimonialsSection({ testimonials }) {
         <div className={styles.sectionHeader}>
           <span className={styles.sectionTag}>Testimonials</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            What Clients Say About Us
+            What clients say about us
           </h2>
         </div>
         <div className={styles.testimonialCarousel}>
@@ -838,7 +831,7 @@ function TechSection() {
     <section className={styles.techSec}>
       <div className={styles.container}>
         <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-          Technologies We Work With
+          Technologies we work with
         </h2>
       </div>
       <div className={styles.techMarquee}>
@@ -1016,7 +1009,7 @@ function ContactSection() {
       setAlertMsg({
         message:
           "Something went wrong. Please email us directly at " +
-          "hello@zweidevs.com",
+          "hello@quarticlab.com",
         severity: "error",
       });
     } finally {
@@ -1028,9 +1021,9 @@ function ContactSection() {
     <section className={styles.contactSec} id="contact">
       <div className={`${styles.container} ${styles.contactInner}`}>
         <div className={`${styles.contactInfo} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>Get In Touch</span>
+          <span className={styles.sectionTag}>Get in touch</span>
           <h2 className={styles.sectionTitle}>
-            Let&apos;s Build Something Great Together
+            Let&apos;s build something together
           </h2>
           <p className={styles.contactDesc}>
             Have a project in mind? Fill out the form and our team will get back

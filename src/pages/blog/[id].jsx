@@ -39,7 +39,7 @@ const BlogDetail = () => {
   return (
     <div className={styles.page}>
       <Head>
-        <title>{parsed?.title || "Blog"} — Zweidevs</title>
+        <title>{parsed?.title || "Blog"} — Quartic Lab</title>
       </Head>
 
       {/* ─── HERO ─────────────────────────────── */}
