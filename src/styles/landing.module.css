@@ -131,12 +131,11 @@
 .heroBg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(
-      ellipse 80% 60% at 20% 50%,
-      oklch(58% 0.12 45 / 0.06) 0%,
-      transparent 70%
-    );
+  background: radial-gradient(
+    ellipse 80% 60% at 20% 50%,
+    oklch(58% 0.12 45 / 0.06) 0%,
+    transparent 70%
+  );
   pointer-events: none;
 }
 
@@ -601,7 +600,9 @@
   justify-content: center;
   margin: 0 auto 20px;
   background: oklch(58% 0.12 45 / 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .statCard:hover .statRing {
