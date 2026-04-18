@@ -5,11 +5,6 @@ import styles from "../styles/projectsNew.module.css";
 
 import { getAllProjects } from "../firebase/firebaseRequests";
 
-/* ── MUI ─────────────────────────────────────────── */
-import Box from "@mui/material/Box";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-
 const SITE_URL = "https://www.quarticlab.com";
 
 /* ── reveal hook ─────────────────────────────────── */
@@ -159,13 +154,13 @@ export default function ProjectsNewPage({ projects = [] }) {
       <section aria-label="Portfolio hero banner" className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={styles.heroInner}>
-          <span className={styles.heroBadge}>💼 Portfolio</span>
+          <span className={styles.heroBadge}>portfolio</span>
           <h1 className={styles.heroH1}>
-            Everything Your Business Needs{" "}
-            <span className={styles.heroAccent}>Under One Roof</span>
+            everything your business needs{" "}
+            <span className={styles.heroAccent}>under one roof</span>
           </h1>
           <p className={styles.heroSub}>
-            We&apos;ve worked across multiple verticals and a range of services
+            we&apos;ve worked across multiple verticals and a range of services
             to create engaging and innovative digital experiences.
           </p>
         </div>
@@ -178,44 +173,19 @@ export default function ProjectsNewPage({ projects = [] }) {
         className={styles.filterSec}
       >
         <div className={styles.container}>
-          <Box display="flex" justifyContent="center">
-            <ToggleButtonGroup
-              aria-label="Project category filter"
-              exclusive
-              onChange={(_, val) => {
-                if (val !== null) {
-                  setActiveCategory(val);
-                }
-              }}
-              sx={{
-                flexWrap: "wrap",
-                gap: 1,
-                "& .MuiToggleButton-root": {
-                  border: "1px solid #e0e0e0",
-                  borderRadius: "24px !important",
-                  color: "#596380",
-                  fontSize: "13px",
-                  fontWeight: 500,
-                  px: 2.5,
-                  py: 0.75,
-                  textTransform: "none",
-                  "&.Mui-selected": {
-                    bgcolor: "#FF9700",
-                    borderColor: "#FF9700",
-                    color: "#fff",
-                    "&:hover": { bgcolor: "#e08600" },
-                  },
-                },
-              }}
-              value={activeCategory}
-            >
-              {categories.map(cat => (
-                <ToggleButton key={cat} value={cat}>
-                  {cat}
-                </ToggleButton>
-              ))}
-            </ToggleButtonGroup>
-          </Box>
+          <div className={styles.filterBar}>
+            {categories.map(cat => (
+              <button
+                className={`${styles.filterBtn} ${
+                  activeCategory === cat ? styles.filterActive : ""
+                }`}
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -224,7 +194,7 @@ export default function ProjectsNewPage({ projects = [] }) {
         <div className={styles.container}>
           {filtered.length === 0 ? (
             <p className={styles.empty}>
-              No projects in this category yet. Check back soon!
+              no projects in this category yet. check back soon.
             </p>
           ) : (
             <div className={styles.projectsList}>
@@ -276,9 +246,9 @@ export default function ProjectsNewPage({ projects = [] }) {
       >
         <div className={`${styles.container} ${styles.ctaInner}`}>
           <div className={`${styles.ctaText} ${styles.reveal}`} ref={addRef}>
-            <h2 className={styles.ctaH2}>Have a Project in Mind?</h2>
+            <h2 className={styles.ctaH2}>have a project in mind?</h2>
             <p className={styles.ctaSub}>
-              Let&apos;s discuss how we can bring your vision to life with our
+              let&apos;s discuss how we can bring your vision to life with our
               expert team.
             </p>
           </div>
@@ -288,7 +258,7 @@ export default function ProjectsNewPage({ projects = [] }) {
             onClick={requestDemo}
             ref={addRef}
           >
-            Book a Meeting →
+            book a meeting
           </button>
         </div>
       </section>

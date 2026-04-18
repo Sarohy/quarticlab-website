@@ -1,15 +1,15 @@
 /* ═══════════════════════════════════════════
-   Projects New — Modern Redesign
-   Palette: #FF9700, #2B2A35, #FFF, #F9F9F9
-   Same design language as landing page
+   Projects — Quartic Lab · Oxford + Copper
+   Palette: copper, oxford, linen, parchment, canvas
+   Type: Instrument Serif · Space Grotesk · IBM Plex Mono
    ═══════════════════════════════════════════ */
 
-/* ── reset & base ─────────────────────────── */
+/* ── base ─────────────────────────────────── */
 .page {
-  font-family: "Poppins", sans-serif;
-  color: #2b2a35;
+  font-family: var(--font-body);
+  color: var(--ql-oxford);
   overflow-x: hidden;
-  background: #ffffff;
+  background: var(--ql-canvas);
 }
 
 /* ── reusable ─────────────────────────────── */
@@ -22,10 +22,10 @@
 /* ── reveal animation ─────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(24px);
   transition:
-    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.55s ease,
+    transform 0.55s ease;
 }
 
 .visible {
@@ -38,26 +38,26 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 32px;
-  background: #ff9700;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-size: 15px;
+  padding: 14px 28px;
+  background: var(--ql-oxford);
+  color: var(--ql-linen);
+  font-family: var(--font-body);
+  font-size: 14px;
   font-weight: 600;
   border: none;
-  border-radius: 10px;
+  border-radius: 2px;
   cursor: pointer;
+  letter-spacing: 0.3px;
   transition:
-    transform 0.25s,
-    box-shadow 0.25s,
-    background 0.25s;
-  box-shadow: 0 4px 20px rgba(255, 151, 0, 0.3);
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
 }
 
 .btnPrimary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(255, 151, 0, 0.45);
-  background: #e88a00;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background: var(--ql-midnight);
 }
 
 /* ═══════════════════════════════════════════
@@ -69,7 +69,7 @@
   align-items: center;
   justify-content: center;
   min-height: 50vh;
-  background: linear-gradient(135deg, #2b2a35 0%, #1a1925 100%);
+  background: var(--ql-oxford);
   overflow: hidden;
   text-align: center;
 }
@@ -78,15 +78,27 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(
-      circle at 25% 50%,
-      rgba(255, 151, 0, 0.1) 0%,
-      transparent 50%
+      ellipse 60% 50% at 25% 40%,
+      oklch(58% 0.12 45 / 0.08) 0%,
+      transparent 55%
     ),
     radial-gradient(
-      circle at 75% 60%,
-      rgba(255, 151, 0, 0.06) 0%,
-      transparent 40%
+      ellipse 50% 40% at 80% 70%,
+      oklch(58% 0.12 45 / 0.04) 0%,
+      transparent 45%
     );
+  pointer-events: none;
+}
+
+.heroBg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    oklch(95% 0.018 75 / 0.04) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
   pointer-events: none;
 }
 
@@ -94,13 +106,13 @@
   position: relative;
   max-width: 800px;
   padding: 120px 24px 80px;
-  animation: heroFadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: heroFadeIn 0.8s ease both;
 }
 
 @keyframes heroFadeIn {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -110,47 +122,35 @@
 
 .heroBadge {
   display: inline-block;
-  font-size: 13px;
+  font-family: var(--font-mono);
+  font-size: 11px;
   font-weight: 500;
-  color: #ff9700;
-  letter-spacing: 1.5px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  padding: 6px 14px;
-  border: 1px solid rgba(255, 151, 0, 0.3);
-  border-radius: 20px;
-  background: rgba(255, 151, 0, 0.06);
+  color: var(--ql-copper);
+  margin-bottom: 24px;
 }
 
 .heroH1 {
-  font-size: clamp(32px, 5vw, 56px);
-  font-weight: 800;
-  line-height: 1.15;
-  color: #fff;
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  color: var(--ql-linen);
   margin: 0 0 20px;
 }
 
 .heroAccent {
-  color: #ff9700;
-  position: relative;
-}
-
-.heroAccent::after {
-  content: "";
-  position: absolute;
-  bottom: 2px;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background: rgba(255, 151, 0, 0.3);
-  border-radius: 3px;
+  color: var(--ql-copper);
+  font-style: italic;
 }
 
 .heroSub {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.65);
-  max-width: 600px;
+  color: oklch(95% 0.018 75 / 0.6);
+  max-width: 560px;
   margin: 0 auto;
 }
 
@@ -160,7 +160,7 @@
   left: 0;
   width: 100%;
   height: 60px;
-  background: #fff;
+  background: var(--ql-canvas);
   clip-path: ellipse(55% 100% at 50% 100%);
 }
 
@@ -169,50 +169,47 @@
    ═══════════════════════════════════════════ */
 .filterSec {
   padding: 48px 0 0;
-  background: #fff;
+  background: var(--ql-canvas);
 }
 
 .filterBar {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .filterBtn {
-  padding: 10px 24px;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
+  padding: 8px 20px;
+  font-family: var(--font-body);
+  font-size: 13px;
   font-weight: 600;
-  color: #596380;
-  background: #f4f4f5;
-  border: 2px solid transparent;
-  border-radius: 40px;
+  color: oklch(20% 0.05 255 / 0.55);
+  background: var(--ql-parchment);
+  border: 1px solid oklch(20% 0.05 255 / 0.06);
+  border-radius: 2px;
   cursor: pointer;
   transition:
-    color 0.3s,
-    background 0.3s,
-    border-color 0.3s,
-    transform 0.25s;
+    color 0.25s,
+    background 0.25s,
+    border-color 0.25s;
 }
 
 .filterBtn:hover {
-  color: #ff9700;
-  background: rgba(255, 151, 0, 0.06);
-  border-color: rgba(255, 151, 0, 0.25);
+  color: var(--ql-copper);
+  border-color: oklch(58% 0.12 45 / 0.2);
 }
 
 .filterActive {
-  color: #fff;
-  background: #ff9700;
-  border-color: #ff9700;
-  box-shadow: 0 4px 16px rgba(255, 151, 0, 0.3);
+  color: var(--ql-linen);
+  background: var(--ql-oxford);
+  border-color: var(--ql-oxford);
 }
 
 .filterActive:hover {
-  color: #fff;
-  background: #e88a00;
-  border-color: #e88a00;
+  color: var(--ql-linen);
+  background: var(--ql-midnight);
+  border-color: var(--ql-midnight);
 }
 
 /* ═══════════════════════════════════════════
@@ -220,7 +217,7 @@
    ═══════════════════════════════════════════ */
 .listSec {
   padding: 72px 0 100px;
-  background: #fff;
+  background: var(--ql-canvas);
 }
 
 .projectsList {
@@ -233,14 +230,14 @@
   align-items: center;
   gap: 72px;
   padding: 72px 0;
-  border-bottom: 1px solid #f0f0f0;
-  animation: rowFadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  border-bottom: 1px solid oklch(20% 0.05 255 / 0.06);
+  animation: rowFadeIn 0.5s ease both;
 }
 
 @keyframes rowFadeIn {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -260,25 +257,25 @@
   flex: 0 0 52%;
   position: relative;
   aspect-ratio: 16 / 10;
-  border-radius: 20px;
+  border-radius: 2px;
   overflow: hidden;
-  background: #f0f0f0;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  background: var(--ql-parchment);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
 }
 
 .projectRowImg {
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.5s ease;
 }
 
 .projectImgSide:hover .projectRowImg {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .projectImgPlaceholder {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #2b2a35 0%, #3d3b4a 100%);
+  background: linear-gradient(135deg, var(--ql-oxford), var(--ql-midnight));
 }
 
 .projectContentSide {
@@ -294,37 +291,41 @@
 }
 
 .projectTypeTag {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #ff9700;
-  background: rgba(255, 151, 0, 0.08);
-  padding: 5px 14px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 151, 0, 0.2);
+  color: var(--ql-copper);
+  background: oklch(58% 0.12 45 / 0.06);
+  padding: 5px 12px;
+  border-radius: 2px;
+  border: 1px solid oklch(58% 0.12 45 / 0.12);
 }
 
 .projectRowTitle {
-  font-size: clamp(22px, 2.5vw, 34px);
-  font-weight: 800;
-  line-height: 1.2;
-  color: #2b2a35;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.5vw, 36px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--ql-oxford);
   margin: 0 0 16px;
 }
 
 .projectRowDesc {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.75;
-  color: #596380;
+  color: oklch(20% 0.05 255 / 0.55);
   margin: 0;
 }
 
 /* ── empty state ──────────────────────────── */
 .empty {
   text-align: center;
-  font-size: 16px;
-  color: #999;
+  font-size: 15px;
+  color: oklch(20% 0.05 255 / 0.45);
   padding: 80px 0;
 }
 
@@ -333,7 +334,7 @@
    ═══════════════════════════════════════════ */
 .ctaSec {
   padding: 80px 0;
-  background: linear-gradient(135deg, #2b2a35 0%, #1a1925 100%);
+  background: var(--ql-oxford);
 }
 
 .ctaInner {
@@ -348,18 +349,29 @@
 }
 
 .ctaH2 {
-  font-size: clamp(26px, 3.5vw, 40px);
-  font-weight: 700;
-  color: #fff;
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ql-linen);
   margin: 0 0 12px;
 }
 
 .ctaSub {
-  font-size: 16px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.65);
+  font-size: 15px;
+  line-height: 1.7;
+  color: oklch(95% 0.018 75 / 0.6);
   margin: 0;
   max-width: 480px;
+}
+
+.ctaSec .btnPrimary {
+  background: var(--ql-copper);
+  color: var(--ql-linen);
+}
+
+.ctaSec .btnPrimary:hover {
+  background: oklch(52% 0.12 45);
 }
 
 /* ═══════════════════════════════════════════
@@ -407,25 +419,5 @@
 
   .heroInner {
     padding: 100px 20px 60px;
-  }
-
-  .filterBar {
-    gap: 8px;
-  }
-
-  .filterBtn {
-    padding: 8px 18px;
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 420px) {
-  .filterBar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .filterBtn {
-    text-align: center;
   }
 }
