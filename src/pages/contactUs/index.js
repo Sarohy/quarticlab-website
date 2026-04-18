@@ -165,7 +165,7 @@ function HeroBanner() {
 
         <div className={styles.heroVisual}>
           <div className={styles.heroLogoRing}>
-            <QuarticMark animated fg="oklch(95% 0.018 75)" size={100} />
+            <QuarticMark animated size={200} />
           </div>
         </div>
       </div>

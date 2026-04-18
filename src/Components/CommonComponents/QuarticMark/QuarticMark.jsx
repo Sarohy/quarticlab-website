@@ -47,6 +47,7 @@ function QuarticMark({
   accent = "oklch(58% 0.12 45)",
   animated = false,
   bg = "oklch(95% 0.018 75)",
+  edgeColor = "#6b7280",
   fg = "#000",
   size = 40,
 }) {
@@ -99,7 +100,7 @@ function QuarticMark({
             : e.bi === 0
               ? accent
               : fg
-          : fg;
+          : edgeColor;
         const visible = phase === "done";
         return (
           <line
@@ -155,7 +156,7 @@ function QuarticMark({
               fill={nodeColor}
               r="6.5"
               style={{
-                stroke: isHovered ? nodeColor : bg,
+                stroke: bg,
                 strokeWidth: 2,
                 transform: isHovered
                   ? `translate(${n.x}px,${n.y}px) scale(1.18)` +
