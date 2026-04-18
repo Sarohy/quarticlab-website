@@ -11,15 +11,15 @@
   flex: 1;
   min-width: 0;
   width: 100%;
-  padding: 14px 36px 14px 18px;
-  font-family: "Poppins", sans-serif;
+  padding: 14px 36px 14px 16px;
+  font-family: var(--font-body, "Space Grotesk", sans-serif);
   font-size: 14px;
-  color: #2b2a35;
-  background: #fafafa;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
+  color: var(--ql-oxford, oklch(20% 0.05 255));
+  background: var(--ql-canvas, #eee8dc);
+  border: 1px solid oklch(20% 0.05 255 / 0.1);
+  border-radius: 2px;
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s;
   cursor: text;
   box-sizing: border-box;
   white-space: nowrap;
@@ -27,62 +27,69 @@
   text-overflow: ellipsis;
 }
 
+.input::placeholder {
+  color: var(--ql-oxford, oklch(20% 0.05 255));
+  opacity: 0.35;
+}
+
 .input:focus {
-  border-color: #ff9700;
-  box-shadow: 0 0 0 3px rgba(255, 151, 0, 0.1);
+  border-color: var(--ql-copper, oklch(58% 0.12 45));
 }
 
 .caret {
   position: absolute;
-  right: 14px;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 9px;
-  color: #aaa;
+  font-size: 8px;
+  color: var(--ql-oxford, oklch(20% 0.05 255));
+  opacity: 0.4;
   pointer-events: none;
   user-select: none;
 }
 
 .dropdown {
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 4px);
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #fff;
-  border: 1.5px solid #e8e8e8;
-  border-radius: 12px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-  max-height: 240px;
+  background: var(--ql-linen, oklch(95% 0.018 75));
+  border: 1px solid oklch(20% 0.05 255 / 0.1);
+  border-radius: 2px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  max-height: 220px;
   overflow-y: auto;
-  padding: 6px 0;
+  padding: 4px 0;
   list-style: none;
   margin: 0;
   scrollbar-width: thin;
-  scrollbar-color: #e0e0e0 transparent;
+  scrollbar-color: oklch(20% 0.05 255 / 0.15) transparent;
 }
 
 .option {
-  padding: 10px 16px;
-  font-size: 14px;
-  font-family: "Poppins", sans-serif;
-  color: #2b2a35;
+  padding: 9px 16px;
+  font-family: var(--font-body, "Space Grotesk", sans-serif);
+  font-size: 13px;
+  color: var(--ql-oxford, oklch(20% 0.05 255));
   cursor: pointer;
-  transition: background 0.15s;
+  transition: background 0.12s;
 }
 
 .optionActive {
-  background: rgba(255, 151, 0, 0.08);
+  background: oklch(58% 0.12 45 / 0.07);
 }
 
 .optionSelected {
-  color: #ff9700;
+  color: var(--ql-copper, oklch(58% 0.12 45));
   font-weight: 600;
 }
 
 .noResult {
-  padding: 12px 16px;
-  font-size: 13px;
-  color: #aaa;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  color: var(--ql-oxford, oklch(20% 0.05 255));
+  opacity: 0.4;
   text-align: center;
 }

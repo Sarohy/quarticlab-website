@@ -218,17 +218,15 @@
 
 .heroVisual {
   flex: 0 0 auto;
-  animation: heroMarkIn 1s ease 0.3s both;
+  animation: heroMarkIn 0.6s ease both;
 }
 
 @keyframes heroMarkIn {
   from {
     opacity: 0;
-    transform: scale(0.85);
   }
   to {
     opacity: 1;
-    transform: scale(1);
   }
 }
 
@@ -238,6 +236,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+/* Ambient ring glow behind the mark */
+.heroLogoRing::before {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    oklch(58% 0.12 45 / 0.12) 0%,
+    transparent 70%
+  );
+  animation: ringPulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ringPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
 }
 
 .heroLogo {
@@ -358,12 +384,13 @@
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.aboutImg {
-  max-width: 100%;
+.aboutDoodle {
+  width: 100%;
+  max-width: 440px;
   height: auto;
-  border-radius: 2px;
 }
 
 /* ═══════════════════════════════════════════
@@ -568,16 +595,25 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  border: 2px solid;
+  border: 1.5px solid;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
-  opacity: 0.7;
+  background: oklch(58% 0.12 45 / 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.statCard:hover .statRing {
+  transform: scale(1.1);
+  box-shadow: 0 0 24px oklch(58% 0.12 45 / 0.18);
 }
 
 .statIcon {
   font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .statValue {

@@ -1,11 +1,15 @@
 /**
  * Inline SVG service icons — modern line-art style.
- * Palette: #FF9700 (orange), #2B2A35 (dark).
+ * Palette: oklch(58% 0.12 45) (copper), oklch(20% 0.05 255) (oxford).
  * Each icon accepts `size` and `color` props.
  */
 
 /* ── Web Development ──────────────────────── */
-export const WebDevIcon = ({ color = "#FF9700", size = 24, ...props }) => (
+export const WebDevIcon = ({
+  color = "oklch(58% 0.12 45)",
+  size = 24,
+  ...props
+}) => (
   <svg
     fill="none"
     height={size}
@@ -45,7 +49,11 @@ export const WebDevIcon = ({ color = "#FF9700", size = 24, ...props }) => (
 );
 
 /* ── Mobile App Development ───────────────── */
-export const MobileAppIcon = ({ color = "#FF9700", size = 24, ...props }) => (
+export const MobileAppIcon = ({
+  color = "oklch(58% 0.12 45)",
+  size = 24,
+  ...props
+}) => (
   <svg
     fill="none"
     height={size}
@@ -110,7 +118,11 @@ export const MobileAppIcon = ({ color = "#FF9700", size = 24, ...props }) => (
 );
 
 /* ── Blockchain Development ───────────────── */
-export const BlockchainIcon = ({ color = "#FF9700", size = 24, ...props }) => (
+export const BlockchainIcon = ({
+  color = "oklch(58% 0.12 45)",
+  size = 24,
+  ...props
+}) => (
   <svg
     fill="none"
     height={size}
@@ -175,7 +187,11 @@ export const BlockchainIcon = ({ color = "#FF9700", size = 24, ...props }) => (
 );
 
 /* ── AI / ML Development ──────────────────── */
-export const AiMlIcon = ({ color = "#FF9700", size = 24, ...props }) => (
+export const AiMlIcon = ({
+  color = "oklch(58% 0.12 45)",
+  size = 24,
+  ...props
+}) => (
   <svg
     fill="none"
     height={size}
@@ -359,7 +375,11 @@ export const AiMlIcon = ({ color = "#FF9700", size = 24, ...props }) => (
 );
 
 /* ── IoT Development ──────────────────────── */
-export const IotIcon = ({ color = "#FF9700", size = 24, ...props }) => (
+export const IotIcon = ({
+  color = "oklch(58% 0.12 45)",
+  size = 24,
+  ...props
+}) => (
   <svg
     fill="none"
     height={size}
@@ -396,7 +416,11 @@ export const IotIcon = ({ color = "#FF9700", size = 24, ...props }) => (
 );
 
 /* ── Game Development ─────────────────────── */
-export const GameDevIcon = ({ color = "#FF9700", size = 24, ...props }) => (
+export const GameDevIcon = ({
+  color = "oklch(58% 0.12 45)",
+  size = 24,
+  ...props
+}) => (
   <svg
     fill="none"
     height={size}
@@ -423,7 +447,11 @@ export const GameDevIcon = ({ color = "#FF9700", size = 24, ...props }) => (
 );
 
 /* ── GenAI & Automation ───────────────────── */
-export const GenAiIcon = ({ color = "#FF9700", size = 24, ...props }) => (
+export const GenAiIcon = ({
+  color = "oklch(58% 0.12 45)",
+  size = 24,
+  ...props
+}) => (
   <svg
     fill="none"
     height={size}
@@ -461,7 +489,11 @@ export const GenAiIcon = ({ color = "#FF9700", size = 24, ...props }) => (
 );
 
 /* ── UI/UX Design ─────────────────────────── */
-export const UiUxIcon = ({ color = "#FF9700", size = 24, ...props }) => (
+export const UiUxIcon = ({
+  color = "oklch(58% 0.12 45)",
+  size = 24,
+  ...props
+}) => (
   <svg
     fill="none"
     height={size}
@@ -494,7 +526,11 @@ export const UiUxIcon = ({ color = "#FF9700", size = 24, ...props }) => (
 );
 
 /* ── DevOps & Cloud ───────────────────────── */
-export const DevOpsIcon = ({ color = "#FF9700", size = 24, ...props }) => (
+export const DevOpsIcon = ({
+  color = "oklch(58% 0.12 45)",
+  size = 24,
+  ...props
+}) => (
   <svg
     fill="none"
     height={size}
