@@ -3,16 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
-/* ── service hero images ────────────────────── */
-import WebDevImg from "../../../public/assets/serviceIcons/webdev.jpg";
-import BlockchainImg from "../../../public/assets/serviceIcons/bcdev.jpg";
-import MobileImg from "../../../public/assets/serviceIcons/mobodev.jpg";
-import UIUXImg from "../../../public/assets/serviceIcons/UIUX.jpg";
-import GameDevImg from "../../../public/assets/serviceIcons/GD.jpg";
-import IoTImg from "../../../public/assets/serviceIcons/iot.png";
-import AIImg from "../../../public/assets/serviceIcons/AI.jpg";
-import DevOpsImg from "../../../public/assets/serviceIcons/devops.webp";
-
 /* ── offering icons — web ───────────────────── */
 import designIcon from "../../../public/assets/serviceIcons/webServicesIcons/design.svg";
 import backendIcon from "../../../public/assets/serviceIcons/webServicesIcons/backend.svg";
@@ -112,6 +102,9 @@ import IOTDevIcon from "../../../public/assets/serviceIcons/IOTIcon.svg";
 import AIDevIcon from "../../../public/assets/serviceIcons/AIDevIcon.svg";
 import DevopsIcon from "../../../public/assets/serviceIcons/devopsIcon.svg";
 
+/* ── animated service illustrations ─────────── */
+import ServiceDoodle from "@component/Components/CommonComponents/ServiceDoodles/ServiceDoodles";
+
 /* ── firebase ───────────────────────────────── */
 import {
   getAllServiceDetails,
@@ -126,18 +119,6 @@ import styles from "./servicesNew.module.css";
    Images and icons cannot live in Firestore,
    so we map string keys to static imports.
    ════════════════════════════════════════════ */
-
-const heroImageMap = {
-  "web-development": WebDevImg,
-  "blockchain-development": BlockchainImg,
-  "mobile-development": MobileImg,
-  "ui-ux-design": UIUXImg,
-  "game-development": GameDevImg,
-  "iot-development": IoTImg,
-  "ai-ml-development": AIImg,
-  devops: DevOpsImg,
-  "genai-automation": AIImg,
-};
 
 const iconMap = {
   /* web */
@@ -319,9 +300,8 @@ function FaqItem({ item }) {
    Firestore, resolves assets, renders page.
    Key={slug} ensures useReveal fires fresh.
    ═══════════════════════════════════════════ */
-function ServiceDetailContent({ data, linkedProjects, otherServices }) {
+function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
   const addRef = useReveal();
-  const heroImage = heroImageMap[data.heroImageKey] || AIImg;
   const offerings = resolveOfferings(data.offerings);
   // Use Firestore-linked projects if available, else fall back to static imageKey projects
   const projects =
@@ -392,13 +372,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices }) {
               </button>
             </div>
             <div className={styles.overviewVisual}>
-              <Image
-                alt={data.category}
-                className={styles.overviewImg}
-                height={360}
-                src={heroImage}
-                width={480}
-              />
+              <ServiceDoodle slug={slug} />
             </div>
           </div>
         </div>

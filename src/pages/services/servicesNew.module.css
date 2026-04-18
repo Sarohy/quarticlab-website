@@ -135,8 +135,7 @@
 .heroBg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(
+  background: radial-gradient(
       ellipse 60% 50% at 25% 40%,
       oklch(58% 0.12 45 / 0.08) 0%,
       transparent 55%
@@ -281,14 +280,13 @@
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.overviewImg {
+.overviewVisual svg {
   width: 100%;
-  max-width: 480px;
+  max-width: 460px;
   height: auto;
-  border-radius: 2px;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
 }
 
 /* ═══════════════════════════════════════════
