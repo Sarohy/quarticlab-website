@@ -9,7 +9,7 @@ import styles from "../../styles/contactNew.module.css";
 /* ── data ────────────────────────────────────────── */
 const contactMethods = [
   {
-    desc: "we typically respond within 24 hours.",
+    desc: "We typically respond within 24 hours.",
     detail: "hello@quarticlab.com",
     href: "mailto:hello@quarticlab.com",
     icon: (
@@ -31,10 +31,10 @@ const contactMethods = [
         />
       </svg>
     ),
-    title: "email us",
+    title: "Email us",
   },
   {
-    desc: "our headquarters",
+    desc: "Our headquarters",
     detail: "6-B, Block B Phase 1, Johar Town, Lahore",
     href: "https://maps.google.com/?q=Johar+Town+Lahore",
     icon: (
@@ -47,10 +47,10 @@ const contactMethods = [
         <circle cx="14" cy="11" r="3" stroke="currentColor" strokeWidth="1.5" />
       </svg>
     ),
-    title: "visit us",
+    title: "Visit us",
   },
   {
-    desc: "mon – fri, 9 am – 6 pm",
+    desc: "Mon – Fri, 9 am – 6 pm",
     detail: "+92 309 444 6225",
     href: "tel:+923094446225",
     icon: (
@@ -63,7 +63,7 @@ const contactMethods = [
         />
       </svg>
     ),
-    title: "call us",
+    title: "Call us",
   },
 ];
 
@@ -148,13 +148,13 @@ function HeroBanner() {
 
       <div className={styles.heroInner}>
         <div className={styles.heroText}>
-          <span className={styles.heroBadge}>get in touch</span>
+          <span className={styles.heroBadge}>Get in touch</span>
           <h1 className={styles.heroH1}>
-            we would love to <br />
+            We would love to <br />
             <span className={styles.heroAccent}>hear from you</span>
           </h1>
           <p className={styles.heroSub}>
-            whether you have a groundbreaking idea, need a technical partner, or
+            Whether you have a groundbreaking idea, need a technical partner, or
             just want to explore possibilities — our team is ready to listen and
             deliver.
           </p>
@@ -294,14 +294,14 @@ function FormSection() {
       <div className={`${styles.container} ${styles.formInner}`}>
         {/* Left side info */}
         <div className={`${styles.formInfo} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>get in touch</span>
+          <span className={styles.sectionTag}>Get in touch</span>
           <h2 className={styles.sectionTitle}>
-            let us build something{" "}
+            Let us build something{" "}
             <span className={styles.accentText}>great</span> together
           </h2>
           <p className={styles.formInfoDesc}>
-            fill out the form and our team will get back to you within 24 hours.
-            we are excited to learn about your vision.
+            Fill out the form and our team will get back to you within 24 hours.
+            We are excited to learn about your vision.
           </p>
 
           <div className={styles.highlights}>
@@ -325,7 +325,7 @@ function FormSection() {
               </span>
               <div>
                 <strong>24hr response</strong>
-                <span>quick turnaround guaranteed</span>
+                <span>Quick turnaround guaranteed</span>
               </div>
             </div>
             <div className={styles.highlight}>
@@ -351,7 +351,7 @@ function FormSection() {
               </span>
               <div>
                 <strong>NDA protected</strong>
-                <span>your ideas stay safe</span>
+                <span>Your ideas stay safe</span>
               </div>
             </div>
             <div className={styles.highlight}>
@@ -366,8 +366,8 @@ function FormSection() {
                 </svg>
               </span>
               <div>
-                <strong>free consultation</strong>
-                <span>no strings attached</span>
+                <strong>Free consultation</strong>
+                <span>No strings attached</span>
               </div>
             </div>
             <div className={styles.highlight}>
@@ -390,8 +390,8 @@ function FormSection() {
                 </svg>
               </span>
               <div>
-                <strong>agile process</strong>
-                <span>transparent and iterative</span>
+                <strong>Agile process</strong>
+                <span>Transparent and iterative</span>
               </div>
             </div>
           </div>
@@ -595,12 +595,12 @@ function FAQSection() {
     <section className={styles.faqSec}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>faq</span>
+          <span className={styles.sectionTag}>FAQ</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            frequently asked questions
+            Frequently asked questions
           </h2>
           <p className={`${styles.faqSubtitle} ${styles.reveal}`}>
-            quick answers to the questions we get asked most often
+            Quick answers to the questions we get asked most often
           </p>
         </div>
 

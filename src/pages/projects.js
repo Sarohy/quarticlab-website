@@ -154,13 +154,13 @@ export default function ProjectsNewPage({ projects = [] }) {
       <section aria-label="Portfolio hero banner" className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={styles.heroInner}>
-          <span className={styles.heroBadge}>portfolio</span>
+          <span className={styles.heroBadge}>Portfolio</span>
           <h1 className={styles.heroH1}>
-            everything your business needs{" "}
+            Everything your business needs{" "}
             <span className={styles.heroAccent}>under one roof</span>
           </h1>
           <p className={styles.heroSub}>
-            we&apos;ve worked across multiple verticals and a range of services
+            We&apos;ve worked across multiple verticals and a range of services
             to create engaging and innovative digital experiences.
           </p>
         </div>
@@ -194,7 +194,7 @@ export default function ProjectsNewPage({ projects = [] }) {
         <div className={styles.container}>
           {filtered.length === 0 ? (
             <p className={styles.empty}>
-              no projects in this category yet. check back soon.
+              No projects in this category yet. Check back soon.
             </p>
           ) : (
             <div className={styles.projectsList}>
@@ -246,9 +246,9 @@ export default function ProjectsNewPage({ projects = [] }) {
       >
         <div className={`${styles.container} ${styles.ctaInner}`}>
           <div className={`${styles.ctaText} ${styles.reveal}`} ref={addRef}>
-            <h2 className={styles.ctaH2}>have a project in mind?</h2>
+            <h2 className={styles.ctaH2}>Have a project in mind?</h2>
             <p className={styles.ctaSub}>
-              let&apos;s discuss how we can bring your vision to life with our
+              Let&apos;s discuss how we can bring your vision to life with our
               expert team.
             </p>
           </div>
@@ -258,7 +258,7 @@ export default function ProjectsNewPage({ projects = [] }) {
             onClick={requestDemo}
             ref={addRef}
           >
-            book a meeting
+            Book a meeting
           </button>
         </div>
       </section>

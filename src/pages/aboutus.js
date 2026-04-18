@@ -6,100 +6,100 @@ import styles from "../styles/aboutNew.module.css";
 /* ── data ────────────────────────────────────────── */
 
 const stats = [
-  { label: "projects delivered", suffix: "+", target: 150 },
-  { label: "countries served", suffix: "+", target: 12 },
-  { label: "positive reviews", suffix: "+", target: 680 },
-  { label: "client satisfaction", suffix: "%", target: 99 },
+  { label: "Projects delivered", suffix: "+", target: 150 },
+  { label: "Countries served", suffix: "+", target: 12 },
+  { label: "Positive reviews", suffix: "+", target: 680 },
+  { label: "Client satisfaction", suffix: "%", target: 99 },
 ];
 
 const values = [
   {
-    desc: "from mobile to blockchain to ai — one team, zero outsourcing.",
-    title: "full-stack expertise",
+    desc: "From mobile to blockchain to AI — one team, zero outsourcing.",
+    title: "Full-stack expertise",
   },
   {
-    desc: "weekly demos, shared dashboards, and no surprises.",
-    title: "radical transparency",
+    desc: "Weekly demos, shared dashboards, and no surprises.",
+    title: "Radical transparency",
   },
   {
-    desc: "startup speed with enterprise-grade quality and security.",
-    title: "ship fast, ship right",
+    desc: "Startup speed with enterprise-grade quality and security.",
+    title: "Ship fast, ship right",
   },
   {
-    desc: "your idea gets a scope, timeline, and cost within 12 hours.",
+    desc: "Your idea gets a scope, timeline, and cost within 12 hours.",
     title: "12-hour estimates",
   },
 ];
 
 const processSteps = [
   {
-    day: "day 1",
-    desc: "we learn your goals, constraints, budget, and timeline.",
-    label: "discovery call",
+    day: "Day 1",
+    desc: "We learn your goals, constraints, budget, and timeline.",
+    label: "Discovery call",
   },
   {
-    day: "day 3\u20135",
-    desc: "scope, timeline, team composition, and detailed cost breakdown.",
-    label: "proposal & sow",
+    day: "Day 3\u20135",
+    desc: "Scope, timeline, team composition, and detailed cost breakdown.",
+    label: "Proposal & SOW",
   },
   {
-    day: "week 1",
-    desc: "repo setup, sprint board, ci/cd, and full team introduction.",
-    label: "kickoff & sprint planning",
+    day: "Week 1",
+    desc: "Repo setup, sprint board, CI/CD, and full team introduction.",
+    label: "Kickoff & sprint planning",
   },
   {
-    day: "week 2+",
-    desc: "2-week sprints with a live demo every friday.",
-    label: "development sprints",
+    day: "Week 2+",
+    desc: "2-week sprints with a live demo every Friday.",
+    label: "Development sprints",
   },
   {
-    day: "final sprint",
-    desc: "full qa, staging environment, and dedicated client testing.",
-    label: "qa & staging",
+    day: "Final sprint",
+    desc: "Full QA, staging environment, and dedicated client testing.",
+    label: "QA & staging",
   },
   {
-    day: "final week",
-    desc: "deployment, documentation, and 30-day free support included.",
-    label: "launch & handoff",
+    day: "Final week",
+    desc: "Deployment, documentation, and 30-day free support included.",
+    label: "Launch & handoff",
   },
 ];
 
 const engagementModels = [
   {
-    ctaLabel: "start with fixed price",
+    ctaLabel: "Start with fixed price",
     includes: [
-      "scoped requirements document",
-      "fixed timeline & budget",
+      "Scoped requirements document",
+      "Fixed timeline & budget",
       "2 rounds of revisions included",
-      "no hidden costs",
+      "No hidden costs",
     ],
-    timeline: "typical: 4\u201312 weeks",
-    title: "fixed price",
-    when: "best for well-defined projects with clear scope.",
+    timeline: "Typical: 4\u201312 weeks",
+    title: "Fixed price",
+    when: "Best for well-defined projects with clear scope.",
   },
   {
-    ctaLabel: "start with t&m",
+    ctaLabel: "Start with T&M",
     includes: [
-      "weekly billing",
-      "flexible scope",
-      "direct developer access",
-      "monthly reporting",
+      "Weekly billing",
+      "Flexible scope",
+      "Direct developer access",
+      "Monthly reporting",
     ],
-    timeline: "typical: ongoing",
-    title: "time & material",
-    when: "best when requirements evolve as you build.",
+    timeline: "Typical: ongoing",
+    title: "Time & material",
+    when: "Best when requirements evolve as you build.",
   },
   {
-    ctaLabel: "start with dedicated team",
+    ctaLabel: "Start with dedicated team",
     includes: [
-      "senior devs + pm",
-      "daily standups",
-      "shared slack & jira",
+      "Senior devs + PM",
+      "Daily standups",
+      "Shared Slack & Jira",
       "30-day scale notice",
     ],
-    timeline: "typical: 3+ months",
-    title: "dedicated team",
-    when: "best for long-term product work needing reliability.",
+    timeline: "Typical: 3+ months",
+    title: "Dedicated team",
+    when: "Best for long-term product work needing reliability.",
   },
 ];
 
@@ -1181,7 +1181,7 @@ export default function AboutPage() {
   return (
     <div className={styles.page}>
       <Head>
-        <title>about us &mdash; quartic lab</title>
+        <title>About Us &mdash; Quartic Lab</title>
         <meta
           content="Quartic Lab is a research-driven software studio from Lahore. Learn about our values, process, engagement models, and what it is like to work with us."
           name="description"
@@ -1193,22 +1193,22 @@ export default function AboutPage() {
         <div className={styles.heroBg} />
         <div className={styles.heroInner}>
           <div className={styles.heroText}>
-            <span className={styles.heroBadge}>about quartic lab</span>
+            <span className={styles.heroBadge}>About Quartic Lab</span>
             <h1 className={styles.heroH1}>
-              we build software that{" "}
+              We build software that{" "}
               <span className={styles.heroAccent}>actually ships</span>
             </h1>
             <p className={styles.heroSub}>
-              founded in 2020, quartic lab is a research-driven studio helping
-              startups and enterprises bring ideas to market. ai, blockchain,
-              iot, and full-stack development across 3 continents.
+              Founded in 2020, Quartic Lab is a research-driven studio helping
+              startups and enterprises bring ideas to market. AI, blockchain,
+              IoT, and full-stack development across 3 continents.
             </p>
             <div className={styles.heroCtas}>
               <button
                 className={styles.btnPrimary}
                 onClick={() => router.push("/contactUs")}
               >
-                start a project
+                Start a project
               </button>
               <button
                 className={styles.btnOutline}
@@ -1219,7 +1219,7 @@ export default function AboutPage() {
                   )
                 }
               >
-                get estimate in 12 hrs
+                Get estimate in 12 hrs
               </button>
             </div>
             <div className={styles.heroScroll}>
@@ -1252,9 +1252,9 @@ export default function AboutPage() {
       <section className={styles.ctaSection}>
         <div className={styles.container}>
           <div className={`${styles.ctaBanner} ${styles.reveal}`}>
-            <h2 className={styles.ctaTitle}>ready to build something great?</h2>
+            <h2 className={styles.ctaTitle}>Ready to build something great?</h2>
             <p className={styles.ctaDesc}>
-              get your project estimate in 12 hours. no commitment, no pressure
+              Get your project estimate in 12 hours. No commitment, no pressure
               &mdash; just clarity.
             </p>
             <button
@@ -1266,7 +1266,7 @@ export default function AboutPage() {
                 )
               }
             >
-              get free estimate
+              Get free estimate
             </button>
           </div>
         </div>
@@ -1285,18 +1285,18 @@ function MissionSection() {
           <MissionDoodle />
         </div>
         <div className={`${styles.missionText} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>who we are</span>
+          <span className={styles.sectionTag}>Who we are</span>
           <h2 className={styles.sectionTitle}>
-            your engineering partner, not just a vendor
+            Your engineering partner, not just a vendor
           </h2>
           <p className={styles.missionDesc}>
-            we&apos;re a tight-knit team of engineers, designers, and product
-            thinkers who embed into your workflow. we don&apos;t just write code
+            We&apos;re a tight-knit team of engineers, designers, and product
+            thinkers who embed into your workflow. We don&apos;t just write code
             &mdash; we challenge assumptions, propose better architectures, and
             own outcomes.
           </p>
           <p className={styles.missionDesc}>
-            from early-stage mvps to scaling enterprise platforms, we bring the
+            From early-stage MVPs to scaling enterprise platforms, we bring the
             same intensity: transparent communication, 2-week sprint cycles, and
             a relentless focus on shipping software that users actually love.
           </p>
@@ -1311,12 +1311,12 @@ function ValuesSection() {
     <section className={styles.valuesSec}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>why quartic lab</span>
+          <span className={styles.sectionTag}>Why Quartic Lab</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            what sets us apart
+            What sets us apart
           </h2>
           <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
-            four principles that define every project we take on.
+            Four principles that define every project we take on.
           </p>
         </div>
         <div className={styles.valuesGrid}>
@@ -1388,9 +1388,9 @@ function StatsSection() {
       <div className={styles.statsBgDots} />
       <div className={styles.container}>
         <div className={styles.statsHeader}>
-          <span className={styles.sectionTag}>impact &amp; scale</span>
+          <span className={styles.sectionTag}>Impact &amp; scale</span>
           <h2 className={`${styles.sectionTitle} ${styles.statsTitleReveal}`}>
-            numbers that speak
+            Numbers that speak
             <br />
             <span className={styles.statsAccentText}>for themselves</span>
           </h2>
@@ -1410,12 +1410,12 @@ function ProcessSection() {
     <section className={styles.timelineSection}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>our process</span>
+          <span className={styles.sectionTag}>Our process</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            how a typical project works
+            How a typical project works
           </h2>
           <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
-            transparent milestones from first call to launch day.
+            Transparent milestones from first call to launch day.
           </p>
         </div>
         <div className={styles.timeline}>
@@ -1444,12 +1444,12 @@ function ModelsSection({ router }) {
     <section className={styles.modelsSection}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>engagement models</span>
+          <span className={styles.sectionTag}>Engagement models</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            choose how we work together
+            Choose how we work together
           </h2>
           <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
-            flexible models designed to fit your stage, budget, and timeline.
+            Flexible models designed to fit your stage, budget, and timeline.
           </p>
         </div>
         <div className={styles.modelsGrid}>
@@ -1489,9 +1489,9 @@ function FaqSection({ openFaq, setOpenFaq }) {
     <section className={styles.faqSection}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>faq</span>
+          <span className={styles.sectionTag}>FAQ</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            common questions
+            Common questions
           </h2>
         </div>
         <div className={styles.faqList}>

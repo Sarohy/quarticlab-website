@@ -338,10 +338,10 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
                 )
               }
             >
-              request a demo
+              Request a demo
             </button>
             <Link className={styles.btnOutline} href="/services">
-              all services
+              All services
             </Link>
           </div>
         </div>
@@ -368,7 +368,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
                   )
                 }
               >
-                schedule a call
+                Schedule a call
               </button>
             </div>
             <div className={styles.overviewVisual}>
@@ -382,7 +382,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
       <section className={styles.offeringsSec}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionTag}>what we offer</span>
+            <span className={styles.sectionTag}>What we offer</span>
             <h2 className={styles.sectionTitle}>{data.category} Services</h2>
           </div>
           <div className={styles.offeringsGrid}>
@@ -409,7 +409,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
         <section className={styles.projectsSec}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>portfolio</span>
+              <span className={styles.sectionTag}>Portfolio</span>
               <h2 className={styles.sectionTitle}>{data.category} Projects</h2>
             </div>
             <div className={styles.projectsGrid}>
@@ -454,10 +454,10 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
           >
             <div className={styles.letsTalkText}>
               <h3 className={styles.letsTalkTitle}>
-                do you have unique requirements?
+                Do you have unique requirements?
               </h3>
               <p className={styles.letsTalkDesc}>
-                we have the expertise to deliver you a custom solution no one
+                We have the expertise to deliver you a custom solution no one
                 else has.
               </p>
             </div>
@@ -470,7 +470,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
                 )
               }
             >
-              schedule a call
+              Schedule a call
             </button>
           </div>
         </div>
@@ -481,7 +481,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
         <section className={styles.processSec}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>our process</span>
+              <span className={styles.sectionTag}>Our process</span>
               <h2 className={styles.sectionTitle}>{data.process.title}</h2>
               {data.process.desc && (
                 <p className={styles.sectionDesc}>{data.process.desc}</p>
@@ -515,7 +515,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
         <section className={styles.audienceSec}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>who we serve</span>
+              <span className={styles.sectionTag}>Who we serve</span>
               <h2 className={styles.sectionTitle}>{data.audience.title}</h2>
               {data.audience.desc && (
                 <p className={styles.sectionDesc}>{data.audience.desc}</p>
@@ -543,8 +543,8 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
         <section className={styles.techStackSec}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>technology</span>
-              <h2 className={styles.sectionTitle}>tech stack</h2>
+              <span className={styles.sectionTag}>Technology</span>
+              <h2 className={styles.sectionTitle}>Tech stack</h2>
             </div>
             <div className={styles.techStackGrid}>
               {data.techStack.map(g => (
@@ -572,9 +572,9 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
             ref={addRef}
           >
             <div className={styles.letsTalkText}>
-              <h3 className={styles.letsTalkTitle}>ready to get started?</h3>
+              <h3 className={styles.letsTalkTitle}>Ready to get started?</h3>
               <p className={styles.letsTalkDesc}>
-                let&apos;s talk about how we can help you build something great.
+                Let&apos;s talk about how we can help you build something great.
               </p>
             </div>
             <button
@@ -586,7 +586,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
                 )
               }
             >
-              let&apos;s talk
+              Let&apos;s talk
             </button>
           </div>
         </div>
@@ -597,8 +597,8 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
         <section className={styles.otherServicesSec}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>explore more</span>
-              <h2 className={styles.sectionTitle}>other services</h2>
+              <span className={styles.sectionTag}>Explore more</span>
+              <h2 className={styles.sectionTitle}>Other services</h2>
             </div>
             <div className={styles.otherServicesGrid}>
               {otherServices.map((s, i) => (
@@ -630,9 +630,9 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
         <section className={styles.faqSec}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>faq</span>
+              <span className={styles.sectionTag}>FAQ</span>
               <h2 className={styles.sectionTitle}>
-                frequently asked questions
+                Frequently asked questions
               </h2>
             </div>
             <div className={styles.faqList}>
@@ -649,11 +649,11 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
         <div className={styles.container}>
           <div className={`${styles.ctaCard} ${styles.reveal}`} ref={addRef}>
             <h2 className={styles.ctaTitle}>
-              not finding the right fit? stay connected
+              Not finding the right fit? Stay connected
             </h2>
             <p className={styles.ctaDesc}>
-              we have the expertise to deliver you a custom solution no one else
-              has. book a free consultation today.
+              We have the expertise to deliver you a custom solution no one else
+              has. Book a free consultation today.
             </p>
             <button
               className={styles.btnPrimary}
@@ -664,7 +664,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
                 )
               }
             >
-              book a free consultation
+              Book a free consultation
             </button>
           </div>
         </div>
@@ -694,9 +694,9 @@ export default function ServiceDetailPage({
           gap: 16,
         }}
       >
-        <h1 style={{ color: "var(--ql-oxford)" }}>service not found</h1>
+        <h1 style={{ color: "var(--ql-oxford)" }}>Service not found</h1>
         <Link className={styles.btnPrimary} href="/services">
-          back to services
+          Back to services
         </Link>
       </div>
     );
