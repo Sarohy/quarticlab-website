@@ -9,44 +9,80 @@ import styles from "../../styles/contactNew.module.css";
 /* ── data ────────────────────────────────────────── */
 const contactMethods = [
   {
-    icon: "📧",
-    title: "Email Us",
+    desc: "We typically respond within 24 hours.",
     detail: "hello@quarticlab.com",
     href: "mailto:hello@quarticlab.com",
-    desc: "We typically respond within 24 hours.",
+    icon: (
+      <svg fill="none" height="28" viewBox="0 0 28 28" width="28">
+        <rect
+          height="16"
+          rx="1"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          width="22"
+          x="3"
+          y="6"
+        />
+        <path
+          d="M3 8l11 7 11-7"
+          stroke="currentColor"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
+        />
+      </svg>
+    ),
+    title: "Email us",
   },
   {
-    icon: "📍",
-    title: "Visit Us",
+    desc: "Our headquarters",
     detail: "6-B, Block B Phase 1, Johar Town, Lahore",
     href: "https://maps.google.com/?q=Johar+Town+Lahore",
-    desc: "Our headquarters",
+    icon: (
+      <svg fill="none" height="28" viewBox="0 0 28 28" width="28">
+        <path
+          d="M14 3C9.58 3 6 6.58 6 11c0 6.5 8 14 8 14s8-7.5 8-14c0-4.42-3.58-8-8-8z"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <circle cx="14" cy="11" r="3" stroke="currentColor" strokeWidth="1.5" />
+      </svg>
+    ),
+    title: "Visit us",
   },
   {
-    icon: "📞",
-    title: "Call Us",
+    desc: "Mon - Fri, 9 am - 6 pm",
     detail: "+92 309 444 6225",
     href: "tel:+923094446225",
-    desc: "Mon – Fri, 9am – 6pm",
+    icon: (
+      <svg fill="none" height="28" viewBox="0 0 28 28" width="28">
+        <path
+          d="M6 4h5l2 5-3 2a11 11 0 005 5l2-3 5 2v5a2 2 0 01-2 2A16 16 0 014 6a2 2 0 012-2z"
+          stroke="currentColor"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
+        />
+      </svg>
+    ),
+    title: "Call us",
   },
 ];
 
 const faqs = [
   {
-    q: "What is the typical project timeline?",
     a: "Depending on scope, projects range from 4 weeks for MVPs to 6+ months for full-scale platforms. We provide a detailed timeline during the discovery phase.",
+    q: "What is the typical project timeline?",
   },
   {
+    a: "We offer flexible support and maintenance packages to keep your product running smoothly after launch.",
     q: "Do you offer post-launch support?",
-    a: "Absolutely. We offer flexible support and maintenance packages to keep your product running smoothly after launch.",
   },
   {
-    q: "What technologies do you specialise in?",
     a: "React, Next.js, React Native, Node.js, Python, Blockchain (Solidity), AWS, GCP and more — we choose the best stack for your needs.",
+    q: "What technologies do you specialise in?",
   },
   {
+    a: "Yes. We provide dedicated remote teams that integrate seamlessly with your existing workflow and culture.",
     q: "Can I hire a dedicated development team?",
-    a: "Yes! We provide dedicated remote teams that integrate seamlessly with your existing workflow and culture.",
   },
 ];
 
@@ -82,7 +118,7 @@ export default function ContactNewPage() {
       <Head>
         <title>Contact | Quartic Lab</title>
         <meta
-          content="Get in touch with Quartic Lab. Let's discuss your project, explore collaboration opportunities, or just say hello."
+          content="Get in touch with Quartic Lab. Let us discuss your project, explore collaboration opportunities, or just say hello."
           name="description"
         />
       </Head>
@@ -93,7 +129,7 @@ export default function ContactNewPage() {
       {/* ─── CONTACT METHODS ─────────────────── */}
       <ContactCards />
 
-      {/* ─── FORM + MAP ──────────────────────── */}
+      {/* ─── FORM + INFO ─────────────────────── */}
       <FormSection />
 
       {/* ─── FAQ ──────────────────────────────── */}
@@ -109,18 +145,13 @@ function HeroBanner() {
   return (
     <section className={styles.hero}>
       <div className={styles.heroBg} />
-      {/* floating particles */}
-      <span className={`${styles.particle} ${styles.p1}`} />
-      <span className={`${styles.particle} ${styles.p2}`} />
-      <span className={`${styles.particle} ${styles.p3}`} />
-      <span className={`${styles.particle} ${styles.p4}`} />
 
       <div className={styles.heroInner}>
         <div className={styles.heroText}>
-          <span className={styles.heroBadge}>💬 Let&apos;s Talk</span>
+          <span className={styles.heroBadge}>Get in touch</span>
           <h1 className={styles.heroH1}>
-            We&apos;d Love to <br />
-            <span className={styles.heroAccent}>Hear From You</span>
+            We would love to <br />
+            <span className={styles.heroAccent}>hear from you</span>
           </h1>
           <p className={styles.heroSub}>
             Whether you have a groundbreaking idea, need a technical partner, or
@@ -134,7 +165,7 @@ function HeroBanner() {
 
         <div className={styles.heroVisual}>
           <div className={styles.heroLogoRing}>
-            <QuarticMark size={120} />
+            <QuarticMark size={100} />
           </div>
         </div>
       </div>
@@ -234,7 +265,7 @@ function FormSection() {
         service: form.service,
       });
       setAlertMsg({
-        message: "Thanks! We\u2019ll get back to you within 24 hours.",
+        message: "Thanks. We will get back to you within 24 hours.",
         severity: "success",
       });
       setForm({
@@ -263,43 +294,104 @@ function FormSection() {
       <div className={`${styles.container} ${styles.formInner}`}>
         {/* Left side info */}
         <div className={`${styles.formInfo} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>Get In Touch</span>
+          <span className={styles.sectionTag}>Get in touch</span>
           <h2 className={styles.sectionTitle}>
-            Let&apos;s Build Something{" "}
-            <span className={styles.accentText}>Great</span> Together
+            Let us build something{" "}
+            <span className={styles.accentText}>great</span> together
           </h2>
           <p className={styles.formInfoDesc}>
             Fill out the form and our team will get back to you within 24 hours.
-            We&apos;re excited to learn about your vision.
+            We are excited to learn about your vision.
           </p>
 
           <div className={styles.highlights}>
             <div className={styles.highlight}>
-              <span className={styles.highlightIcon}>⚡</span>
+              <span className={styles.highlightIcon}>
+                <svg fill="none" height="20" viewBox="0 0 20 20" width="20">
+                  <circle
+                    cx="10"
+                    cy="10"
+                    r="8"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  />
+                  <path
+                    d="M10 5v5l3 3"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeWidth="1.5"
+                  />
+                </svg>
+              </span>
               <div>
-                <strong>24hr Response</strong>
+                <strong>24hr response</strong>
                 <span>Quick turnaround guaranteed</span>
               </div>
             </div>
             <div className={styles.highlight}>
-              <span className={styles.highlightIcon}>🛡️</span>
+              <span className={styles.highlightIcon}>
+                <svg fill="none" height="20" viewBox="0 0 20 20" width="20">
+                  <rect
+                    height="14"
+                    rx="1"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    width="14"
+                    x="3"
+                    y="3"
+                  />
+                  <path
+                    d="M7 10l2 2 4-4"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                  />
+                </svg>
+              </span>
               <div>
-                <strong>NDA Protected</strong>
+                <strong>NDA protected</strong>
                 <span>Your ideas stay safe</span>
               </div>
             </div>
             <div className={styles.highlight}>
-              <span className={styles.highlightIcon}>💬</span>
+              <span className={styles.highlightIcon}>
+                <svg fill="none" height="20" viewBox="0 0 20 20" width="20">
+                  <path
+                    d="M3 5h14v10H7l-4 3V5z"
+                    stroke="currentColor"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                  />
+                </svg>
+              </span>
               <div>
-                <strong>Free Consultation</strong>
+                <strong>Free consultation</strong>
                 <span>No strings attached</span>
               </div>
             </div>
             <div className={styles.highlight}>
-              <span className={styles.highlightIcon}>🚀</span>
+              <span className={styles.highlightIcon}>
+                <svg fill="none" height="20" viewBox="0 0 20 20" width="20">
+                  <path
+                    d="M3 14l5-5 3 3 6-6"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                  />
+                  <path
+                    d="M13 6h4v4"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                  />
+                </svg>
+              </span>
               <div>
-                <strong>Agile Process</strong>
-                <span>Transparent & iterative</span>
+                <strong>Agile process</strong>
+                <span>Transparent and iterative</span>
               </div>
             </div>
           </div>
@@ -323,7 +415,7 @@ function FormSection() {
           <div className={styles.formGrid}>
             <div className={styles.formGroup}>
               <label className={styles.formLabel} htmlFor="cf-name">
-                Full Name
+                Full name
               </label>
               <input
                 className={styles.formInput}
@@ -348,7 +440,7 @@ function FormSection() {
             </div>
             <div className={styles.formGroup}>
               <label className={styles.formLabel} htmlFor="cf-email">
-                Email Address
+                Email address
               </label>
               <input
                 className={styles.formInput}
@@ -384,7 +476,7 @@ function FormSection() {
             </div>
             <div className={styles.formGroup}>
               <label className={styles.formLabel} htmlFor="cf-phone">
-                Phone Number
+                Phone number
               </label>
               <input
                 className={styles.formInput}
@@ -401,7 +493,7 @@ function FormSection() {
 
           <div className={styles.formGroup}>
             <label className={styles.formLabel} htmlFor="cf-service">
-              Service Interested In
+              Service interested in
             </label>
             <select
               className={styles.formInput}
@@ -429,7 +521,7 @@ function FormSection() {
 
           <div className={styles.formGroup}>
             <label className={styles.formLabel} htmlFor="cf-budget">
-              Project Budget
+              Project budget
             </label>
             <select
               className={styles.formInput}
@@ -449,7 +541,7 @@ function FormSection() {
 
           <div className={styles.formGroup}>
             <label className={styles.formLabel} htmlFor="cf-desc">
-              Project Details
+              Project details
             </label>
             <textarea
               className={styles.formTextarea}
@@ -481,7 +573,7 @@ function FormSection() {
             disabled={submitting}
             type="submit"
           >
-            {submitting ? "Sending..." : "Send Message →"}
+            {submitting ? "Sending..." : "Send message"}
           </button>
         </form>
       </div>
@@ -505,7 +597,7 @@ function FAQSection() {
         <div className={styles.sectionHeader}>
           <span className={styles.sectionTag}>FAQ</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Frequently Asked Questions
+            Frequently asked questions
           </h2>
           <p className={`${styles.faqSubtitle} ${styles.reveal}`}>
             Quick answers to the questions we get asked most often
@@ -518,14 +610,14 @@ function FAQSection() {
               className={`${styles.faqItem} ${styles.reveal} ${
                 openIdx === i ? styles.faqOpen : ""
               }`}
-              key={i}
+              key={faq.q}
               onClick={() => toggle(i)}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <div className={styles.faqQuestion}>
                 <h3>{faq.q}</h3>
                 <span className={styles.faqToggle}>
-                  {openIdx === i ? "−" : "+"}
+                  {openIdx === i ? "\u2212" : "+"}
                 </span>
               </div>
               <div className={styles.faqAnswer}>

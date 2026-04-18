@@ -1,139 +1,105 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Head from "next/head";
-import Image from "next/image";
 import { useRouter } from "next/router";
-import AboutImg from "../../public/assets/AboutUs/AboutUsMainImg.png";
 import styles from "../styles/aboutNew.module.css";
 
 /* ── data ────────────────────────────────────────── */
 
 const stats = [
-  {
-    accent: "#ff9700",
-    icon: "🚀",
-    label: "Projects Delivered",
-    suffix: "+",
-    target: 150,
-    wide: true,
-  },
-  {
-    accent: "#4fc3f7",
-    icon: "🌍",
-    label: "Countries Served",
-    suffix: "+",
-    target: 12,
-    wide: false,
-  },
-  {
-    accent: "#ffc107",
-    icon: "⭐",
-    label: "Positive Reviews",
-    suffix: "+",
-    target: 680,
-    wide: false,
-  },
-  {
-    accent: "#66bb6a",
-    icon: "💎",
-    label: "Customer Satisfaction",
-    suffix: "%",
-    target: 99,
-    wide: true,
-  },
+  { label: "projects delivered", suffix: "+", target: 150 },
+  { label: "countries served", suffix: "+", target: 12 },
+  { label: "positive reviews", suffix: "+", target: 680 },
+  { label: "client satisfaction", suffix: "%", target: 99 },
 ];
 
 const values = [
   {
-    desc: "From mobile to blockchain to AI — one team, zero outsourcing.",
-    icon: "🎯",
-    title: "Full-Stack Expertise",
+    desc: "from mobile to blockchain to ai — one team, zero outsourcing.",
+    title: "full-stack expertise",
   },
   {
-    desc: "Weekly demos, shared dashboards, and no surprises — ever.",
-    icon: "💬",
-    title: "Radical Transparency",
+    desc: "weekly demos, shared dashboards, and no surprises.",
+    title: "radical transparency",
   },
   {
-    desc: "Startup speed with enterprise-grade quality and security.",
-    icon: "🚀",
-    title: "Ship Fast, Ship Right",
+    desc: "startup speed with enterprise-grade quality and security.",
+    title: "ship fast, ship right",
   },
   {
-    desc: "Your idea gets a scope, timeline, and cost in 12 hours.",
-    icon: "⚡",
-    title: "12-Hour Estimates",
+    desc: "your idea gets a scope, timeline, and cost within 12 hours.",
+    title: "12-hour estimates",
   },
 ];
 
 const processSteps = [
   {
-    day: "Day 1",
-    desc: "We learn your goals, constraints, budget, and timeline.",
-    label: "Discovery Call",
+    day: "day 1",
+    desc: "we learn your goals, constraints, budget, and timeline.",
+    label: "discovery call",
   },
   {
-    day: "Day 3–5",
-    desc: "Scope, timeline, team composition, and detailed cost breakdown.",
-    label: "Proposal & SOW",
+    day: "day 3\u20135",
+    desc: "scope, timeline, team composition, and detailed cost breakdown.",
+    label: "proposal & sow",
   },
   {
-    day: "Week 1",
-    desc: "Repo setup, sprint board, CI/CD, and full team introduction.",
-    label: "Kickoff & Sprint Planning",
+    day: "week 1",
+    desc: "repo setup, sprint board, ci/cd, and full team introduction.",
+    label: "kickoff & sprint planning",
   },
   {
-    day: "Week 2+",
-    desc: "2-week sprints with a live demo every Friday.",
-    label: "Development Sprints",
+    day: "week 2+",
+    desc: "2-week sprints with a live demo every friday.",
+    label: "development sprints",
   },
   {
-    day: "Final Sprint",
-    desc: "Full QA, staging environment, and dedicated client testing.",
-    label: "QA & Staging",
+    day: "final sprint",
+    desc: "full qa, staging environment, and dedicated client testing.",
+    label: "qa & staging",
   },
   {
-    day: "Final Week",
-    desc: "Deployment, documentation, and 30-day free support included.",
-    label: "Launch & Handoff",
+    day: "final week",
+    desc: "deployment, documentation, and 30-day free support included.",
+    label: "launch & handoff",
   },
 ];
 
 const engagementModels = [
   {
-    ctaLabel: "Start with Fixed Price",
+    ctaLabel: "start with fixed price",
     includes: [
-      "Scoped requirements document",
-      "Fixed timeline & budget",
+      "scoped requirements document",
+      "fixed timeline & budget",
       "2 rounds of revisions included",
-      "No hidden costs",
+      "no hidden costs",
     ],
-    timeline: "Typical: 4–12 weeks",
-    title: "Fixed Price",
-    when: "Best for well-defined projects with clear scope.",
+    timeline: "typical: 4\u201312 weeks",
+    title: "fixed price",
+    when: "best for well-defined projects with clear scope.",
   },
   {
-    ctaLabel: "Start with T&M",
+    ctaLabel: "start with t&m",
     includes: [
-      "Weekly billing",
-      "Flexible scope",
-      "Direct developer access",
-      "Monthly reporting",
+      "weekly billing",
+      "flexible scope",
+      "direct developer access",
+      "monthly reporting",
     ],
-    timeline: "Typical: Ongoing",
-    title: "Time & Material",
-    when: "Best when requirements evolve as you build.",
+    timeline: "typical: ongoing",
+    title: "time & material",
+    when: "best when requirements evolve as you build.",
   },
   {
-    ctaLabel: "Start with Dedicated Team",
+    ctaLabel: "start with dedicated team",
     includes: [
-      "Senior devs + PM",
-      "Daily standups",
-      "Shared Slack & Jira",
+      "senior devs + pm",
+      "daily standups",
+      "shared slack & jira",
       "30-day scale notice",
     ],
-    timeline: "Typical: 3+ months",
-    title: "Dedicated Team",
-    when: "Best for long-term product work needing reliability.",
+    timeline: "typical: 3+ months",
+    title: "dedicated team",
+    when: "best for long-term product work needing reliability.",
   },
 ];
 
@@ -159,6 +125,242 @@ const faqs = [
     q: "What happens after launch?",
   },
 ];
+
+/* ── svg helpers ─────────────────────────────────── */
+
+function StatIcon({ index }) {
+  const icons = [
+    <svg
+      fill="none"
+      key="layers"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.6"
+      viewBox="0 0 24 24"
+      width="28"
+    >
+      <path d="M12 2 2 7l10 5 10-5-10-5Z" />
+      <path d="m2 17 10 5 10-5" />
+      <path d="m2 12 10 5 10-5" />
+    </svg>,
+    <svg
+      fill="none"
+      key="globe"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.6"
+      viewBox="0 0 24 24"
+      width="28"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M2 12h20" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    </svg>,
+    <svg
+      fill="none"
+      key="chat"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.6"
+      viewBox="0 0 24 24"
+      width="28"
+    >
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      <path d="m9 10 2 2 4-4" />
+    </svg>,
+    <svg
+      fill="none"
+      key="target"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.6"
+      viewBox="0 0 24 24"
+      width="28"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+    </svg>,
+  ];
+  return icons[index] || icons[0];
+}
+
+function ValueIcon({ index }) {
+  const icons = [
+    <svg
+      fill="none"
+      key="crosshair"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.6"
+      viewBox="0 0 24 24"
+      width="28"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <line x1="22" x2="18" y1="12" y2="12" />
+      <line x1="6" x2="2" y1="12" y2="12" />
+      <line x1="12" x2="12" y1="2" y2="6" />
+      <line x1="12" x2="12" y1="18" y2="22" />
+    </svg>,
+    <svg
+      fill="none"
+      key="eye"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.6"
+      viewBox="0 0 24 24"
+      width="28"
+    >
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>,
+    <svg
+      fill="none"
+      key="zap"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.6"
+      viewBox="0 0 24 24"
+      width="28"
+    >
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+    </svg>,
+    <svg
+      fill="none"
+      key="clock"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.6"
+      viewBox="0 0 24 24"
+      width="28"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>,
+  ];
+  return icons[index] || icons[0];
+}
+
+function MissionDoodle() {
+  return (
+    <svg
+      className={styles.missionDoodle}
+      fill="none"
+      viewBox="0 0 400 400"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="200"
+        cy="200"
+        r="160"
+        stroke="oklch(20% 0.05 255 / 0.08)"
+        strokeDasharray="6 8"
+        strokeWidth="1"
+      />
+      <circle
+        cx="200"
+        cy="200"
+        r="110"
+        stroke="oklch(58% 0.12 45 / 0.15)"
+        strokeWidth="1"
+      />
+      <circle
+        cx="200"
+        cy="200"
+        r="60"
+        stroke="oklch(58% 0.12 45 / 0.25)"
+        strokeWidth="1.5"
+      />
+      <rect
+        fill="oklch(20% 0.05 255)"
+        height="48"
+        rx="2"
+        width="80"
+        x="160"
+        y="176"
+      />
+      <text
+        dominantBaseline="central"
+        fill="oklch(58% 0.12 45)"
+        fontFamily="var(--font-mono)"
+        fontSize="9"
+        fontWeight="600"
+        letterSpacing="2"
+        textAnchor="middle"
+        x="200"
+        y="200"
+      >
+        QUARTIC
+      </text>
+      {[
+        { angle: 0, label: "DATA" },
+        { angle: 90, label: "MODEL" },
+        { angle: 180, label: "DEPLOY" },
+        { angle: 270, label: "MEASURE" },
+      ].map(node => {
+        const rad = (node.angle * Math.PI) / 180;
+        const cx = 200 + 110 * Math.cos(rad);
+        const cy = 200 + 110 * Math.sin(rad);
+        return (
+          <g key={node.label}>
+            <rect
+              fill="oklch(58% 0.12 45 / 0.12)"
+              height="28"
+              rx="2"
+              stroke="oklch(58% 0.12 45 / 0.3)"
+              strokeWidth="1"
+              width="56"
+              x={cx - 28}
+              y={cy - 14}
+            />
+            <text
+              dominantBaseline="central"
+              fill="oklch(58% 0.12 45)"
+              fontFamily="var(--font-mono)"
+              fontSize="8"
+              fontWeight="500"
+              letterSpacing="1.5"
+              textAnchor="middle"
+              x={cx}
+              y={cy}
+            >
+              {node.label}
+            </text>
+            <line
+              stroke="oklch(58% 0.12 45 / 0.15)"
+              strokeDasharray="3 4"
+              strokeWidth="1"
+              x1={200 + 60 * Math.cos(rad)}
+              x2={cx - 28 * Math.cos(rad)}
+              y1={200 + 60 * Math.sin(rad)}
+              y2={cy - 14 * Math.sin(rad)}
+            />
+          </g>
+        );
+      })}
+      {[45, 135, 225, 315].map(deg => {
+        const rad = (deg * Math.PI) / 180;
+        return (
+          <circle
+            cx={200 + 160 * Math.cos(rad)}
+            cy={200 + 160 * Math.sin(rad)}
+            fill="oklch(58% 0.12 45 / 0.25)"
+            key={deg}
+            r="3"
+          />
+        );
+      })}
+    </svg>
+  );
+}
 
 /* ── hooks ───────────────────────────────────────── */
 
@@ -216,9 +418,9 @@ export default function AboutPage() {
   return (
     <div className={styles.page}>
       <Head>
-        <title>About Us | Quartic Lab</title>
+        <title>about us &mdash; quartic lab</title>
         <meta
-          content="Quartic Lab is a research-driven software studio from Lahore. Learn about our values, process, engagement models, and what it's like to work with us."
+          content="Quartic Lab is a research-driven software studio from Lahore. Learn about our values, process, engagement models, and what it is like to work with us."
           name="description"
         />
       </Head>
@@ -227,22 +429,22 @@ export default function AboutPage() {
       <section className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={styles.heroInner}>
-          <span className={styles.heroBadge}>🏢 About Quartic Lab</span>
+          <span className={styles.heroBadge}>about quartic lab</span>
           <h1 className={styles.heroH1}>
-            We Build Software That{" "}
-            <span className={styles.heroAccent}>Actually Ships</span>
+            we build software that{" "}
+            <span className={styles.heroAccent}>actually ships</span>
           </h1>
           <p className={styles.heroSub}>
-            Founded in 2020, Quartic Lab is a research-driven studio helping
-            startups and enterprises bring ideas to market — fast. AI,
-            Blockchain, IoT, and full-stack development across 3 continents.
+            founded in 2020, quartic lab is a research-driven studio helping
+            startups and enterprises bring ideas to market. ai, blockchain, iot,
+            and full-stack development across 3 continents.
           </p>
           <div className={styles.heroCtas}>
             <button
               className={styles.btnPrimary}
               onClick={() => router.push("/contactUs")}
             >
-              Start a Project
+              start a project
             </button>
             <button
               className={styles.btnOutline}
@@ -253,7 +455,7 @@ export default function AboutPage() {
                 )
               }
             >
-              ⚡ Get Estimate in 12 Hrs
+              get estimate in 12 hrs
             </button>
           </div>
         </div>
@@ -282,10 +484,10 @@ export default function AboutPage() {
       <section className={styles.ctaSection}>
         <div className={styles.container}>
           <div className={`${styles.ctaBanner} ${styles.reveal}`}>
-            <h2 className={styles.ctaTitle}>Ready to Build Something Great?</h2>
+            <h2 className={styles.ctaTitle}>ready to build something great?</h2>
             <p className={styles.ctaDesc}>
-              Get your project estimate in 12 hours. No commitment, no pressure
-              — just clarity.
+              get your project estimate in 12 hours. no commitment, no pressure
+              &mdash; just clarity.
             </p>
             <button
               className={styles.btnPrimary}
@@ -296,7 +498,7 @@ export default function AboutPage() {
                 )
               }
             >
-              ⚡ Get Free Estimate →
+              get free estimate
             </button>
           </div>
         </div>
@@ -311,27 +513,22 @@ function MissionSection() {
   return (
     <section className={styles.missionSec}>
       <div className={`${styles.container} ${styles.missionInner}`}>
-        <div className={`${styles.missionImg} ${styles.reveal}`}>
-          <Image
-            alt="About Quartic Lab team"
-            className={styles.missionImage}
-            quality={100}
-            src={AboutImg}
-          />
+        <div className={`${styles.missionVisual} ${styles.reveal}`}>
+          <MissionDoodle />
         </div>
         <div className={`${styles.missionText} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>Who We Are</span>
+          <span className={styles.sectionTag}>who we are</span>
           <h2 className={styles.sectionTitle}>
-            Your Engineering Partner, Not Just a Vendor
+            your engineering partner, not just a vendor
           </h2>
           <p className={styles.missionDesc}>
-            We&apos;re a tight-knit team of engineers, designers, and product
-            thinkers who embed into your workflow. We don&apos;t just write code
-            — we challenge assumptions, propose better architectures, and own
-            outcomes.
+            we&apos;re a tight-knit team of engineers, designers, and product
+            thinkers who embed into your workflow. we don&apos;t just write code
+            &mdash; we challenge assumptions, propose better architectures, and
+            own outcomes.
           </p>
           <p className={styles.missionDesc}>
-            From early-stage MVPs to scaling enterprise platforms, we bring the
+            from early-stage mvps to scaling enterprise platforms, we bring the
             same intensity: transparent communication, 2-week sprint cycles, and
             a relentless focus on shipping software that users actually love.
           </p>
@@ -346,12 +543,12 @@ function ValuesSection() {
     <section className={styles.valuesSec}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Why Quartic Lab</span>
+          <span className={styles.sectionTag}>why quartic lab</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            What Sets Us Apart
+            what sets us apart
           </h2>
           <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
-            Four principles that define every project we take on.
+            four principles that define every project we take on.
           </p>
         </div>
         <div className={styles.valuesGrid}>
@@ -361,7 +558,9 @@ function ValuesSection() {
               key={v.title}
               style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <span className={styles.valueIcon}>{v.icon}</span>
+              <span className={styles.valueIcon}>
+                <ValueIcon index={i} />
+              </span>
               <h3 className={styles.valueTitle}>{v.title}</h3>
               <p className={styles.valueDesc}>{v.desc}</p>
             </div>
@@ -372,7 +571,7 @@ function ValuesSection() {
   );
 }
 
-function StatCard({ s, delay }) {
+function StatCard({ delay, index, s }) {
   const [count, startCount] = useCountUp(s.target);
   const ref = useRef(null);
 
@@ -399,21 +598,18 @@ function StatCard({ s, delay }) {
 
   return (
     <div
-      className={`${styles.statCard} ${s.wide ? styles.statCardWide : ""}`}
+      className={styles.statCard}
       ref={ref}
       style={{ transitionDelay: delay }}
     >
-      <div className={styles.statGlowOrb} style={{ background: s.accent }} />
-      <div className={styles.statTop}>
-        <span className={styles.statIcon}>{s.icon}</span>
-        <div className={styles.statRing} style={{ borderColor: s.accent }} />
-      </div>
-      <div className={styles.statNum} style={{ color: s.accent }}>
+      <span className={styles.statIcon}>
+        <StatIcon index={index} />
+      </span>
+      <div className={styles.statNum}>
         {count}
         {s.suffix}
       </div>
       <span className={styles.statLabel}>{s.label}</span>
-      <div className={styles.statBar} style={{ background: s.accent }} />
     </div>
   );
 }
@@ -424,16 +620,16 @@ function StatsSection() {
       <div className={styles.statsBgDots} />
       <div className={styles.container}>
         <div className={styles.statsHeader}>
-          <span className={styles.sectionTag}>Impact &amp; Scale</span>
+          <span className={styles.sectionTag}>impact &amp; scale</span>
           <h2 className={`${styles.sectionTitle} ${styles.statsTitleReveal}`}>
-            Numbers That Speak
+            numbers that speak
             <br />
-            <span className={styles.statsAccentText}>for Themselves</span>
+            <span className={styles.statsAccentText}>for themselves</span>
           </h2>
         </div>
         <div className={styles.statsGrid}>
           {stats.map((s, i) => (
-            <StatCard delay={`${i * 110}ms`} key={s.label} s={s} />
+            <StatCard delay={`${i * 110}ms`} index={i} key={s.label} s={s} />
           ))}
         </div>
       </div>
@@ -446,12 +642,12 @@ function ProcessSection() {
     <section className={styles.timelineSection}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Our Process</span>
+          <span className={styles.sectionTag}>our process</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            How a Typical Project Works
+            how a typical project works
           </h2>
           <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
-            Transparent milestones from first call to launch day.
+            transparent milestones from first call to launch day.
           </p>
         </div>
         <div className={styles.timeline}>
@@ -480,12 +676,12 @@ function ModelsSection({ router }) {
     <section className={styles.modelsSection}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Engagement Models</span>
+          <span className={styles.sectionTag}>engagement models</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Choose How We Work Together
+            choose how we work together
           </h2>
           <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
-            Flexible models designed to fit your stage, budget, and timeline.
+            flexible models designed to fit your stage, budget, and timeline.
           </p>
         </div>
         <div className={styles.modelsGrid}>
@@ -525,9 +721,9 @@ function FaqSection({ openFaq, setOpenFaq }) {
     <section className={styles.faqSection}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>FAQ</span>
+          <span className={styles.sectionTag}>faq</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Common Questions
+            common questions
           </h2>
         </div>
         <div className={styles.faqList}>
