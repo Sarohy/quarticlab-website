@@ -1,16 +1,11 @@
-// TODO: Connect to a CMS or Firestore 'blog_posts' collection when content is ready.
-// For now, using static placeholder cards.
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Chip from "@mui/material/Chip";
-import Typography from "@mui/material/Typography";
 import { getApiWithoutAuth } from "../api/api";
 import styles from "./blogNew.module.css";
+
+const SITE_URL = "https://www.quarticlab.com";
 
 /* ── hooks ───────────────────────────────────────── */
 
@@ -38,7 +33,7 @@ function useReveal(selector, dep) {
 
 /* ── page ────────────────────────────────────────── */
 
-const BlogNew = () => {
+const BlogPage = () => {
   const router = useRouter();
   const filters = ["All", "Marketing", "Technology", "Grow"];
   const [active, setActive] = useState("All");
@@ -83,7 +78,7 @@ const BlogNew = () => {
 
   const navigateToPost = item => {
     router.push({
-      pathname: `/blogNew/${item.id}`,
+      pathname: `/blog/${item.id}`,
       query: { data: JSON.stringify(item) },
     });
   };
@@ -97,33 +92,49 @@ const BlogNew = () => {
       <Head>
         <title>Blog | Quartic Lab</title>
         <meta
-          content="Read the latest insights on web development, mobile apps, blockchain, AI, and digital strategy from the Quartic Lab team."
+          content={
+            "Read the latest insights on web development, mobile apps, " +
+            "blockchain, AI, and digital strategy from the Quartic Lab team."
+          }
           name="description"
         />
+        <link href={`${SITE_URL}/blog`} rel="canonical" />
+        <meta content="website" property="og:type" />
+        <meta content={`${SITE_URL}/blog`} property="og:url" />
+        <meta content="Blog | Quartic Lab" property="og:title" />
+        <meta
+          content={
+            "Insights on web development, AI, blockchain, and digital " +
+            "strategy from the Quartic Lab team."
+          }
+          property="og:description"
+        />
+        <meta content="Quartic Lab" property="og:site_name" />
+        <meta content="summary_large_image" name="twitter:card" />
       </Head>
 
       {/* ─── HERO ─────────────────────────────── */}
-      <section className={styles.hero}>
+      <section aria-label="Blog hero" className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={styles.heroInner}>
-          <span className={styles.heroBadge}>📝 Top Articles</span>
+          <span className={styles.heroBadge}>Insights</span>
           <h1 className={styles.heroH1}>
-            Everything Your Business Needs{" "}
-            <span className={styles.heroAccent}>Under One Roof</span>
+            Ideas, craft, and{" "}
+            <span className={styles.heroAccent}>engineering</span>
           </h1>
           <p className={styles.heroSub}>
-            We&apos;ve worked across multiple verticals and a range of services
-            to create engaging and innovative digital experiences.
+            Practical perspectives from our team on software development, AI,
+            blockchain, and building products that last.
           </p>
         </div>
         <div className={styles.heroWave} />
       </section>
 
       {/* ─── FILTER + ARTICLES ────────────────── */}
-      <section className={styles.articlesSec}>
+      <section aria-label="Blog articles" className={styles.articlesSec}>
         <div className={styles.container}>
           <div className={styles.articlesHeader}>
-            <h2 className={styles.articlesHeading}>Insights from the Team</h2>
+            <h2 className={styles.articlesHeading}>Insights from the team</h2>
             <div className={styles.filterBar}>
               {filters.map(f => (
                 <button
@@ -142,44 +153,48 @@ const BlogNew = () => {
           {isLoading ? (
             <div className={styles.loadingWrap}>
               <div className={styles.spinner} />
-              <p className={styles.loadingText}>Loading articles...</p>
+              <p className={styles.loadingText}>Loading articles…</p>
             </div>
           ) : filtered.length === 0 ? (
             <PlaceholderCards />
           ) : (
             <div className={styles.grid} key={animKey}>
               {filtered.map((item, i) => (
-                <div
+                <article
                   className={`${styles.card} ${styles.reveal}`}
                   key={item.id}
                   onClick={() => navigateToPost(item)}
-                  style={{
-                    transitionDelay: `${i * 60}ms`,
-                  }}
+                  style={{ transitionDelay: `${i * 60}ms` }}
                 >
                   <div className={styles.cardImgWrap}>
-                    {item.image && (
+                    {item.image ? (
                       <Image
                         alt={item.title}
                         className={styles.cardImg}
                         fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        sizes={
+                          "(max-width: 640px) 100vw, " +
+                          "(max-width: 1024px) 50vw, 33vw"
+                        }
                         src={item.image}
                       />
+                    ) : (
+                      <div className={styles.cardImgPlaceholder} />
                     )}
+                    <div className={styles.cardOverlay} />
                     <span className={styles.cardCategory}>{item.category}</span>
                   </div>
                   <div className={styles.cardBody}>
                     <h3 className={styles.cardTitle}>{item.title}</h3>
                     <div
                       className={styles.cardExcerpt}
-                      dangerouslySetInnerHTML={{
-                        __html: item.description,
-                      }}
+                      dangerouslySetInnerHTML={{ __html: item.description }}
                     />
-                    <span className={styles.readMore}>Read More →</span>
+                    <div className={styles.cardFooter}>
+                      <span className={styles.readMore}>Read article →</span>
+                    </div>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           )}
@@ -187,136 +202,86 @@ const BlogNew = () => {
       </section>
 
       {/* ─── CTA BANNER ───────────────────────── */}
-      <section className={styles.ctaSec}>
-        <div className={styles.container}>
-          <div className={`${styles.ctaCard} ${styles.reveal}`}>
-            <h2 className={styles.ctaH2}>
-              Not Finding The Right Fit? Stay Connected
-            </h2>
-            <button className={styles.btnPrimary} onClick={requestDemo}>
-              Book a Meeting →
-            </button>
+      <section aria-label="Newsletter CTA" className={styles.ctaSec}>
+        <div className={`${styles.container} ${styles.ctaInner}`}>
+          <div className={`${styles.ctaText} ${styles.reveal}`}>
+            <h2 className={styles.ctaH2}>Want to stay ahead of the curve?</h2>
+            <p className={styles.ctaSub}>
+              Book a call with our team to discuss how the latest technology can
+              move your business forward.
+            </p>
           </div>
+          <button className={styles.btnPrimary} onClick={requestDemo}>
+            Book a meeting →
+          </button>
         </div>
       </section>
     </div>
   );
 };
 
-/* ── static placeholder cards ────────────────────── */
+/* ── placeholder cards (shown when API returns no data) ── */
 
 const placeholderPosts = [
   {
     id: "placeholder-1",
+    author: "Abdul Rehman Sarohy",
     category: "AI",
-    title: "How Generative AI Is Reshaping Product Development",
+    date: "March 15, 2026",
     excerpt:
       "From ideation to deployment, AI-assisted workflows are cutting " +
       "delivery cycles in half. Here's what we've seen in the field.",
-    author: "Abdul Rehman Sarohy",
-    date: "March 15, 2026",
+    title: "How generative AI is reshaping product development",
   },
   {
     id: "placeholder-2",
+    author: "Ali Zain",
     category: "Blockchain",
-    title: "Building Trust with On-Chain Verification",
+    date: "February 28, 2026",
     excerpt:
       "Why smart-contract-based audit trails are becoming the default " +
       "for supply-chain and fintech projects in 2026.",
-    author: "Ali Zain",
-    date: "February 28, 2026",
+    title: "Building trust with on-chain verification",
   },
   {
     id: "placeholder-3",
+    author: "Quartic Lab",
     category: "Web Dev",
-    title: "Next.js 15 Performance Patterns We're Using Right Now",
+    date: "January 20, 2026",
     excerpt:
       "Server Components, Partial Pre-rendering, and edge caching — " +
       "a practical guide from our engineering team.",
-    author: "Quartic Lab Team",
-    date: "January 20, 2026",
+    title: "Next.js 15 performance patterns we're using right now",
   },
 ];
 
 function PlaceholderCards() {
   return (
-    <Box
-      sx={{
-        display: "grid",
-        gap: 3,
-        gridTemplateColumns: {
-          md: "repeat(3, 1fr)",
-          sm: "repeat(2, 1fr)",
-          xs: "1fr",
-        },
-      }}
-    >
+    <div className={styles.placeholderGrid}>
       {placeholderPosts.map(post => (
-        <Card
-          key={post.id}
-          sx={{
-            borderRadius: 2,
-            boxShadow: 2,
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <Box bgcolor="grey.200" height={180} />
-          <CardContent sx={{ flexGrow: 1 }}>
-            <Chip label={post.category} size="small" sx={{ mb: 1.5 }} />
-            <Typography
-              component="h3"
-              gutterBottom
-              sx={{ fontWeight: 700 }}
-              variant="h6"
-            >
-              {post.title}
-            </Typography>
-            <Typography
-              color="text.secondary"
-              sx={{
-                WebkitBoxOrient: "vertical",
-                WebkitLineClamp: 2,
-                display: "-webkit-box",
-                overflow: "hidden",
-              }}
-              variant="body2"
-            >
-              {post.excerpt}
-            </Typography>
-          </CardContent>
-          <Box
-            sx={{
-              alignItems: "center",
-              display: "flex",
-              justifyContent: "space-between",
-              pb: 2,
-              px: 2,
-            }}
-          >
-            <Typography color="text.disabled" variant="caption">
-              {post.author} &middot; {post.date}
-            </Typography>
-            <Typography
-              color="text.disabled"
-              sx={{ cursor: "not-allowed" }}
-              variant="caption"
-            >
-              Read more &rarr;
-            </Typography>
-          </Box>
-        </Card>
+        <article className={styles.placeholderCard} key={post.id}>
+          <div className={styles.placeholderImgWrap}>
+            <div className={styles.placeholderImgInner} />
+          </div>
+          <div className={styles.placeholderBody}>
+            <span className={styles.placeholderTag}>{post.category}</span>
+            <h3 className={styles.placeholderTitle}>{post.title}</h3>
+            <p className={styles.placeholderExcerpt}>{post.excerpt}</p>
+            <div className={styles.placeholderMeta}>
+              <span>{post.author}</span>
+              <span>{post.date}</span>
+            </div>
+          </div>
+        </article>
       ))}
-    </Box>
+    </div>
   );
 }
 
-export default BlogNew;
+export default BlogPage;
 
 export async function getStaticProps() {
   return {
-    props: {
-      data: [{ image: "jdfksjfsk" }],
-    },
+    props: {},
   };
 }
