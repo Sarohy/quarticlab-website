@@ -551,9 +551,9 @@ function ServicesSection({ router, services, servicesError }) {
     <section className={styles.services} id="services">
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>What we do</span>
+          <span className={styles.sectionTag}>Services</span>
           <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Everything your business needs
+            Multiple disciplines. One team. Zero handoff overhead.
           </h2>
         </div>
         {servicesError ? (
