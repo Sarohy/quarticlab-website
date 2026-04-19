@@ -448,9 +448,11 @@ export default function LandingPage({
   return (
     <div className={styles.page}>
       <Head>
-        <title>Quartic Lab | AI, Blockchain &amp; Software Development</title>
+        <title>
+          Quartic Lab — Software Development Agency for Web, Mobile &amp; AI
+        </title>
         <meta
-          content="Quartic Lab builds instruments for people who build instruments. Four tools — data, inference, simulation, interface — joined end-to-end."
+          content="A full-service software agency building web, mobile, and AI products for startups and enterprises. 50+ projects shipped across 3 continents. Get a 12-hour project estimate."
           name="description"
         />
       </Head>
@@ -1209,15 +1211,16 @@ function AboutSection({ router }) {
     <section className={styles.about}>
       <div className={`${styles.container} ${styles.aboutInner}`}>
         <div className={`${styles.aboutText} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>Who we are</span>
+          <span className={styles.sectionTag}>About Quartic Lab</span>
           <h2 className={styles.sectionTitle}>
-            Precisely engineered software, shipped on time
+            A senior team that embeds like in-house engineers
           </h2>
           <p className={styles.aboutDesc}>
-            Quartic Lab is a research-driven studio that turns ideas into
-            production-grade platforms. We combine deep expertise in AI,
-            blockchain, IoT and full-stack engineering with a transparent,
-            milestone-based process. One team, four disciplines, zero guesswork.
+            Founded in 2020, Quartic Lab is a full-service software agency
+            shipping web, mobile, and AI products for clients across the US,
+            Europe, and MENA. We work in 2-week sprints with weekly demos,
+            deliver 12-hour estimates on every new brief, and back every launch
+            with 30 days of free support.
           </p>
           <button
             className={styles.btnPrimary}
@@ -1812,28 +1815,14 @@ function ContactSection() {
     <section className={styles.contactSec} id="contact">
       <div className={`${styles.container} ${styles.contactInner}`}>
         <div className={`${styles.contactInfo} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>Get in touch</span>
+          <span className={styles.sectionTag}>Start your project</span>
           <h2 className={styles.sectionTitle}>
-            Let&apos;s build something together
+            Get a scope, timeline, and cost breakdown in 12 hours.
           </h2>
           <p className={styles.contactDesc}>
-            Have a project in mind? Fill out the form and our team will get back
-            to you within 24 hours.
+            Share a few details about your idea. A senior engineer (not a sales
+            rep) will respond within 4 hours with next steps.
           </p>
-          <div className={styles.contactHighlights}>
-            <div className={styles.contactHighlight}>
-              <span className={styles.contactHighlightIcon}>⚡</span>
-              <span>24hr Response Time</span>
-            </div>
-            <div className={styles.contactHighlight}>
-              <span className={styles.contactHighlightIcon}>🛡️</span>
-              <span>NDA Protected</span>
-            </div>
-            <div className={styles.contactHighlight}>
-              <span className={styles.contactHighlightIcon}>💬</span>
-              <span>Free Consultation</span>
-            </div>
-          </div>
         </div>
         <form
           className={`${styles.contactForm} ${styles.reveal}`}

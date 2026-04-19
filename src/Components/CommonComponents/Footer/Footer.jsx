@@ -23,12 +23,12 @@ function Footer() {
               Avg. response: 4 hours
             </span>
             <h2 className={styles.ctaBannerTitle}>
-              Get your project estimate
+              Get a full project estimate
               <span className={styles.ctaHighlight}> in 12 hours</span>
             </h2>
             <p className={styles.ctaBannerDesc}>
-              Share your idea — we&apos;ll send a detailed scope, timeline &
-              cost breakdown. No strings attached.
+              Scope, timeline, team composition, and cost — delivered to your
+              inbox. No sales call required.
             </p>
           </div>
           <div className={styles.ctaBannerActions}>
@@ -38,10 +38,10 @@ function Footer() {
               rel="noopener noreferrer"
               target="_blank"
             >
-              Start a project
+              Book a 30-min call
             </a>
             <Link className={styles.ctaBannerSecondary} href="/contactUs">
-              or send us a message
+              Send a brief instead
             </Link>
           </div>
         </div>
@@ -87,6 +87,21 @@ function Footer() {
               About
             </Link>
           </div>
+        </div>
+
+        {/* ── Legal row ──────────────────────── */}
+        <div className={styles.footerLegalRow}>
+          <Link className={styles.footerLegalLink} href="/privacy">
+            Privacy Policy
+          </Link>
+          <span className={styles.footerDot}>·</span>
+          <Link className={styles.footerLegalLink} href="/terms">
+            Terms of Service
+          </Link>
+          <span className={styles.footerDot}>·</span>
+          <Link className={styles.footerLegalLink} href="/cookies">
+            Cookie Policy
+          </Link>
         </div>
       </div>
     </footer>

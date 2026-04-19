@@ -1,0 +1,63 @@
+/* ═══════════════════════════════════════════
+   Legal pages — Privacy · Terms · Cookies
+   Quartic Lab · Oxford + Copper palette
+   ═══════════════════════════════════════════ */
+
+.page {
+  font-family: var(--font-body);
+  color: var(--ql-oxford);
+  background: var(--ql-canvas);
+  min-height: 60vh;
+  padding: 120px 24px 100px;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ql-copper);
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.08;
+  letter-spacing: -0.8px;
+  color: var(--ql-oxford);
+  margin: 0 0 16px;
+}
+
+.updated {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: oklch(20% 0.05 255 / 0.4);
+  margin: 0 0 40px;
+}
+
+.placeholder {
+  font-size: 15px;
+  line-height: 1.75;
+  color: oklch(20% 0.05 255 / 0.6);
+}
+
+.placeholder a {
+  color: var(--ql-copper);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.placeholder a:hover {
+  color: var(--ql-copper-dk);
+}

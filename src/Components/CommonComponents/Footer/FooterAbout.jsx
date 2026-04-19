@@ -27,12 +27,14 @@ const FooterAbout = () => {
         <h3 className={styles.footerAboutHeading}>QUARTIC LAB</h3>
       </div>
       <p className={styles.footerAboutZweidevs}>
-        We build instruments for people who build instruments. Four disciplines,
-        one research environment.
+        A full-service software agency building web, mobile, and AI products
+        that ship and scale.
       </p>
       <div className={styles.footerAboutTagline}>
         <span className={styles.taglineDash} />
-        <span className={styles.taglineText}>Build precisely.</span>
+        <span className={styles.taglineText}>
+          Based in Lahore. Delivering worldwide.
+        </span>
       </div>
       <div className={styles.trustBadges}>
         <div className={styles.trustBadge}>

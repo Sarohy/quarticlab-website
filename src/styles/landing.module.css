@@ -1029,11 +1029,6 @@
     justify-content: center;
   }
 
-  .heroLogoRing {
-    width: 180px;
-    height: 180px;
-  }
-
   .aboutInner {
     flex-direction: column;
   }
@@ -1074,5 +1069,27 @@
 
   .contactForm {
     padding: 24px;
+  }
+}
+
+@media (max-width: 400px) {
+  .heroH1 {
+    font-size: 36px;
+    letter-spacing: -0.8px;
+  }
+
+  .heroInner {
+    padding: 100px 20px 48px;
+  }
+
+  .btnHeroPrimary,
+  .btnHeroOutline {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .heroCtas {
+    flex-direction: column;
+    width: 100%;
   }
 }
