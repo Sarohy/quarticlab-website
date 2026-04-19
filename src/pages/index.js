@@ -500,27 +500,23 @@ function HeroSection({ router }) {
         <div className={styles.heroText}>
           <span className={styles.heroBadge}>Quartic Lab</span>
           <h1 className={styles.heroH1}>
-            We build <span className={styles.heroAccent}>instruments</span> for
-            people who build instruments.
+            Software that <span className={styles.heroAccent}>ships.</span>{" "}
+            Teams that <span className={styles.heroAccent}>stay.</span>
           </h1>
           <p className={styles.heroSub}>
-            Four tools — data, inference, simulation, interface — joined
-            end-to-end. One research environment for teams that ship.
+            A full-stack software agency building web, mobile, and AI products
+            for startups and enterprises. One senior team, four years shipping,
+            zero handoff overhead.
           </p>
           <div className={styles.heroCtas}>
             <button
-              className={styles.btnPrimary}
-              onClick={() =>
-                window.open(
-                  "https://calendly.com/request-demo-zweidevs/meeting",
-                  "_blank",
-                )
-              }
+              className={styles.btnHeroPrimary}
+              onClick={() => router.push("/contactUs")}
             >
               Start a project
             </button>
             <button
-              className={styles.btnOutline}
+              className={styles.btnHeroOutline}
               onClick={() => router.push("/projects")}
             >
               View our work
