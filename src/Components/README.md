@@ -1,6 +1,6 @@
 # Components
 
-Root of the React component library for the Zweidevs website.
+Root of the React component library for the Quartic Lab website.
 Follows a clear separation of concerns across three layers.
 
 ## Structure
@@ -25,11 +25,11 @@ _app.js
 
 ## Layer Responsibilities
 
-| Layer              | Purpose                                               | Current contents              |
-|--------------------|-------------------------------------------------------|-------------------------------|
-| `Layout`           | Shell that wraps every page — always present          | `Layout.jsx`                  |
-| `CommonComponents` | Header + Footer used by every page via Layout         | `Header/`, `Footer/`          |
-| `MainComponents`   | Reserved for future page-specific section components  | *(empty)*                     |
+| Layer              | Purpose                                              | Current contents     |
+| ------------------ | ---------------------------------------------------- | -------------------- |
+| `Layout`           | Shell that wraps every page — always present         | `Layout.jsx`         |
+| `CommonComponents` | Header + Footer used by every page via Layout        | `Header/`, `Footer/` |
+| `MainComponents`   | Reserved for future page-specific section components | _(empty)_            |
 
 ## Import Alias
 

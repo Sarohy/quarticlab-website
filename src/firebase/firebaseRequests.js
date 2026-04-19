@@ -33,7 +33,7 @@ const addItem = async (collectionName, data) => {
   }
 };
 
-// zweidevs projects
+// Quartic Lab projects
 const collectionProjects = "projects"; // collection name in Firestore
 
 export const getAllProjects = () => getAllItems(collectionProjects);
@@ -58,13 +58,13 @@ export const getProjectsByIds = async ids => {
   return results;
 };
 
-// zweidevs services
+// Quartic Lab services
 const collectionServices = "services"; // collection name in Firestore
 
 export const getAllServices = () => getAllItems(collectionServices);
 export const addService = data => addItem(collectionServices, data);
 
-// zweidevs reviews
+// Quartic Lab reviews
 const collectionReviews = "reviews"; // collection name in Firestore
 
 export const getAllReviews = () => getAllItems(collectionReviews);
@@ -76,7 +76,7 @@ const collectionContactSubmissions = "contact_submissions";
 export const submitContactForm = data =>
   addItem(collectionContactSubmissions, data);
 
-// zweidevs service details (full detail-page content per slug)
+// Quartic Lab service details (full detail-page content per slug)
 const collectionServiceDetails = "service_details";
 
 export const getAllServiceDetails = () => getAllItems(collectionServiceDetails);
