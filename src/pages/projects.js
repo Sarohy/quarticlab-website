@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
+import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/projectsNew.module.css";
 
@@ -38,29 +40,123 @@ function useReveal() {
   };
 }
 
+/* ── constants ───────────────────────────────────── */
+
+const DISCIPLINES = [
+  "All",
+  "Web",
+  "Mobile",
+  "AI/ML",
+  "Blockchain",
+  "IoT",
+  "DevOps",
+  "Design",
+];
+
+const INDUSTRIES = [
+  "All",
+  "EdTech",
+  "FinTech",
+  "Hospitality",
+  "Marketplace",
+  "AI-native SaaS",
+  "HealthTech",
+  "Consumer",
+];
+
 /* ── page ────────────────────────────────────────── */
 
 export default function ProjectsNewPage({ projects = [] }) {
   const addRef = useReveal();
-  const [activeCategory, setActiveCategory] = useState("All");
+  const router = useRouter();
+  const [displayCount, setDisplayCount] = useState(9);
 
-  const categories = [
-    "All",
-    ...new Set(
-      projects.flatMap(p => (p.types.length ? p.types : [p.category || "Web"])),
-    ),
-  ];
+  const activeDiscipline = (() => {
+    if (!router.isReady) {
+      return "All";
+    }
+    const d = router.query.discipline ? String(router.query.discipline) : "";
+    return DISCIPLINES.find(x => x.toLowerCase() === d.toLowerCase()) ?? "All";
+  })();
 
-  const filtered =
-    activeCategory === "All"
+  const activeIndustry = (() => {
+    if (!router.isReady) {
+      return "All";
+    }
+    const ind = router.query.industry ? String(router.query.industry) : "";
+    return INDUSTRIES.find(x => x.toLowerCase() === ind.toLowerCase()) ?? "All";
+  })();
+
+  useEffect(() => {
+    setDisplayCount(9);
+  }, [router.query.discipline, router.query.industry]);
+
+  const industryBase =
+    activeIndustry === "All"
       ? projects
-      : projects.filter(
-          p =>
-            p.types.includes(activeCategory) || p.category === activeCategory,
-        );
+      : projects.filter(p => p.industry === activeIndustry);
 
-  const requestDemo = () => {
-    window.open("https://calendly.com/request-demo-zweidevs/meeting", "_blank");
+  const disciplineBase =
+    activeDiscipline === "All"
+      ? projects
+      : projects.filter(p => p.types.includes(activeDiscipline));
+
+  const disciplineCounts = Object.fromEntries(
+    DISCIPLINES.map(d => [
+      d,
+      d === "All"
+        ? industryBase.length
+        : industryBase.filter(p => p.types.includes(d)).length,
+    ]),
+  );
+
+  const industryCounts = Object.fromEntries(
+    INDUSTRIES.map(ind => [
+      ind,
+      ind === "All"
+        ? disciplineBase.length
+        : disciplineBase.filter(p => p.industry === ind).length,
+    ]),
+  );
+
+  const filtered = projects
+    .filter(
+      p => activeDiscipline === "All" || p.types.includes(activeDiscipline),
+    )
+    .filter(p => activeIndustry === "All" || p.industry === activeIndustry);
+
+  const visible = filtered.slice(0, displayCount);
+  const hasMore = filtered.length > displayCount;
+  const isFiltered = activeDiscipline !== "All" || activeIndustry !== "All";
+
+  const handleDiscipline = val => {
+    const q = {};
+    if (val !== "All") {
+      q.discipline = val.toLowerCase();
+    }
+    if (activeIndustry !== "All") {
+      q.industry = activeIndustry.toLowerCase();
+    }
+    router.push({ pathname: "/projects", query: q }, undefined, {
+      shallow: true,
+    });
+  };
+
+  const handleIndustry = val => {
+    const q = {};
+    if (activeDiscipline !== "All") {
+      q.discipline = activeDiscipline.toLowerCase();
+    }
+    if (val !== "All") {
+      q.industry = val.toLowerCase();
+    }
+    router.push({ pathname: "/projects", query: q }, undefined, {
+      shallow: true,
+    });
+  };
+
+  const clearFilters = () => {
+    router.push({ pathname: "/projects" }, undefined, { shallow: true });
   };
 
   /* ── JSON-LD structured data ── */
@@ -156,12 +252,11 @@ export default function ProjectsNewPage({ projects = [] }) {
         <div className={styles.heroInner}>
           <span className={styles.heroBadge}>Portfolio</span>
           <h1 className={styles.heroH1}>
-            Everything your business needs{" "}
-            <span className={styles.heroAccent}>under one roof</span>
+            Work we&apos;ve <span className={styles.heroAccent}>shipped</span>
           </h1>
           <p className={styles.heroSub}>
-            We&apos;ve worked across multiple verticals and a range of services
-            to create engaging and innovative digital experiences.
+            50+ products shipped across EdTech, FinTech, Hospitality, AI, and
+            more. Filter by discipline or industry to find work most like yours.
           </p>
         </div>
         <div className={styles.heroWave} />
@@ -173,19 +268,59 @@ export default function ProjectsNewPage({ projects = [] }) {
         className={styles.filterSec}
       >
         <div className={styles.container}>
-          <div className={styles.filterBar}>
-            {categories.map(cat => (
-              <button
-                className={`${styles.filterBtn} ${
-                  activeCategory === cat ? styles.filterActive : ""
-                }`}
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-              >
-                {cat}
-              </button>
-            ))}
+          <div className={styles.filterGroup}>
+            <span className={styles.filterGroupLabel}>Discipline</span>
+            <div className={styles.filterGroupBtns}>
+              {DISCIPLINES.filter(
+                d => d === "All" || disciplineCounts[d] > 0,
+              ).map(d => (
+                <button
+                  className={`${styles.filterBtn} ${
+                    activeDiscipline === d ? styles.filterActive : ""
+                  }`}
+                  key={d}
+                  onClick={() => handleDiscipline(d)}
+                >
+                  {d}
+                  {d !== "All" && (
+                    <span className={styles.filterCount}>
+                      ({disciplineCounts[d]})
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
+          <div className={styles.filterGroup}>
+            <span className={styles.filterGroupLabel}>Industry</span>
+            <div className={styles.filterGroupBtns}>
+              {INDUSTRIES.filter(
+                ind => ind === "All" || industryCounts[ind] > 0,
+              ).map(ind => (
+                <button
+                  className={`${styles.filterBtn} ${
+                    activeIndustry === ind ? styles.filterActive : ""
+                  }`}
+                  key={ind}
+                  onClick={() => handleIndustry(ind)}
+                >
+                  {ind}
+                  {ind !== "All" && (
+                    <span className={styles.filterCount}>
+                      ({industryCounts[ind]})
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+          {isFiltered && (
+            <div className={styles.filterClearRow}>
+              <button className={styles.filterClear} onClick={clearFilters}>
+                Clear filters
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -198,7 +333,7 @@ export default function ProjectsNewPage({ projects = [] }) {
             </p>
           ) : (
             <div className={styles.projectsList}>
-              {filtered.map((p, i) => (
+              {visible.map((p, i) => (
                 <div
                   className={`${styles.projectRow} ${
                     i % 2 !== 0 ? styles.projectRowReverse : ""
@@ -239,6 +374,20 @@ export default function ProjectsNewPage({ projects = [] }) {
         </div>
       </section>
 
+      {/* ─── LOAD MORE ─────────────────────────── */}
+      {hasMore && (
+        <section className={styles.loadMoreSec}>
+          <div className={styles.container}>
+            <button
+              className={styles.loadMoreBtn}
+              onClick={() => setDisplayCount(c => c + 9)}
+            >
+              Load more
+            </button>
+          </div>
+        </section>
+      )}
+
       {/* ─── CTA BANNER ───────────────────────── */}
       <section
         aria-label="Start a project with Quartic Lab"
@@ -246,20 +395,28 @@ export default function ProjectsNewPage({ projects = [] }) {
       >
         <div className={`${styles.container} ${styles.ctaInner}`}>
           <div className={`${styles.ctaText} ${styles.reveal}`} ref={addRef}>
-            <h2 className={styles.ctaH2}>Have a project in mind?</h2>
+            <h2 className={styles.ctaH2}>
+              See something like what you&apos;re building?
+            </h2>
             <p className={styles.ctaSub}>
-              Let&apos;s discuss how we can bring your vision to life with our
-              expert team.
+              Send us a brief. We&apos;ll send back a scope, timeline, and cost
+              within 12 hours — pointing to the relevant case study from our
+              portfolio.
             </p>
           </div>
-          <button
-            aria-label="Book a meeting with Quartic Lab"
-            className={`${styles.btnPrimary} ${styles.reveal}`}
-            onClick={requestDemo}
-            ref={addRef}
-          >
-            Book a meeting
-          </button>
+          <div className={`${styles.ctaBtns} ${styles.reveal}`} ref={addRef}>
+            <Link className={styles.ctaBtnPrimary} href="/contactUs">
+              Send your brief
+            </Link>
+            <a
+              className={styles.ctaBtnSecondary}
+              href="https://calendly.com/request-demo-zweidevs/meeting"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Or book a 30-min call
+            </a>
+          </div>
         </div>
       </section>
     </div>
@@ -277,6 +434,7 @@ export async function getServerSideProps() {
         category: p.category || p.types?.[0] || "Web",
         desc: p.desc || p.description || "",
         imageUrl: p.image_url || p.image || p.imageUrl || p.img || null,
+        industry: p.industry || "",
         order: Number(p.order_no ?? p.order ?? 0),
         title: p.title || "",
         types: Array.isArray(p.types) ? p.types : p.type ? [p.type] : [],

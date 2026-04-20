@@ -375,6 +375,162 @@
 }
 
 /* ═══════════════════════════════════════════
+   FILTER BAR — two-row (discipline + industry)
+   ═══════════════════════════════════════════ */
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.filterGroup:last-of-type {
+  margin-bottom: 0;
+}
+
+.filterGroupLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: oklch(20% 0.05 255 / 0.4);
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 80px;
+}
+
+.filterGroupBtns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filterCount {
+  margin-left: 4px;
+  opacity: 0.6;
+  font-size: 11px;
+}
+
+.filterClearRow {
+  margin-top: 16px;
+  text-align: right;
+}
+
+.filterClear {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ql-copper);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.filterClear:hover {
+  color: oklch(48% 0.11 42);
+}
+
+/* ═══════════════════════════════════════════
+   LOAD MORE
+   ═══════════════════════════════════════════ */
+.loadMoreSec {
+  padding: 0 0 80px;
+  background: var(--ql-canvas);
+  text-align: center;
+}
+
+.loadMoreBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 32px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ql-oxford);
+  background: transparent;
+  border: 1.5px solid oklch(20% 0.05 255 / 0.25);
+  border-radius: 2px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition:
+    border-color 0.25s,
+    color 0.25s,
+    background 0.25s;
+}
+
+.loadMoreBtn:hover {
+  border-color: var(--ql-copper);
+  color: var(--ql-copper);
+}
+
+/* ═══════════════════════════════════════════
+   CTA DUAL BUTTONS
+   ═══════════════════════════════════════════ */
+.ctaBtns {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.ctaBtnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background: var(--ql-copper);
+  color: var(--ql-linen);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.ctaBtnPrimary:hover {
+  background: oklch(52% 0.12 45);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.ctaBtnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  background: transparent;
+  color: oklch(95% 0.018 75 / 0.65);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  border: 1.5px solid oklch(95% 0.018 75 / 0.25);
+  border-radius: 2px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  transition:
+    border-color 0.25s,
+    color 0.25s;
+}
+
+.ctaBtnSecondary:hover {
+  border-color: oklch(95% 0.018 75 / 0.55);
+  color: var(--ql-linen);
+}
+
+/* ═══════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════ */
 @media (max-width: 1024px) {
@@ -387,6 +543,10 @@
   .ctaInner {
     flex-direction: column;
     text-align: center;
+  }
+
+  .ctaBtns {
+    align-items: center;
   }
 
   .ctaSub {
@@ -419,5 +579,15 @@
 
   .heroInner {
     padding: 100px 20px 60px;
+  }
+
+  .filterGroup {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .filterGroupLabel {
+    min-width: auto;
   }
 }
