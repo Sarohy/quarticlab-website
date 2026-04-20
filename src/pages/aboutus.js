@@ -33,6 +33,11 @@ const values = [
 
 const processSteps = [
   {
+    day: "Day 0",
+    desc: "NDA signed within 4 business hours of first contact. No discovery call starts without one.",
+    label: "NDA signed",
+  },
+  {
     day: "Day 1",
     desc: "We learn your goals, constraints, budget, and timeline.",
     label: "Discovery call",
@@ -49,7 +54,7 @@ const processSteps = [
   },
   {
     day: "Week 2+",
-    desc: "2-week sprints with a live demo every Friday.",
+    desc: "2-week sprints. Live demo every Friday at 4pm Pakistan / 9am New York. Burndown visible in your Jira instance from day one.",
     label: "Development sprints",
   },
   {
@@ -109,7 +114,7 @@ const faqs = [
     q: "What\u2019s your minimum project size?",
   },
   {
-    a: "Yes, always — before any discovery or scoping call.",
+    a: "Yes, always \u2014 before any discovery or scoping call.",
     q: "Do you sign NDAs?",
   },
   {
@@ -123,6 +128,26 @@ const faqs = [
   {
     a: "30 days of free support is included. After that, we offer monthly retainer plans.",
     q: "What happens after launch?",
+  },
+  {
+    a: "Our core team is in Lahore, Pakistan. We serve clients across North America, Europe, and the Middle East, and regularly overlap working hours with US East Coast, UK, and EU time zones.",
+    q: "Where is your team based?",
+  },
+  {
+    a: "You do. IP transfers to the client on final payment. This is standard in our contracts, and we\u2019re happy to sign custom IP assignment docs if your lawyer requires them.",
+    q: "Who owns the IP of what you build?",
+  },
+  {
+    a: "We absorb the first 10% of scope creep at no extra charge \u2014 it\u2019s in our standard contract. Beyond that, we pause, present the options (cut scope, extend timeline, or add budget), and only continue with written approval.",
+    q: "What happens if the project goes over scope?",
+  },
+  {
+    a: "Yes. Email hello@quarticlab.com and we\u2019ll send you our standard SOW template and MSA within the same business day.",
+    q: "Can we see a sample contract before the discovery call?",
+  },
+  {
+    a: "Every project has at least 3 hours of live overlap with the client\u2019s time zone. Our team regularly works US hours (EST\u00a0/\u00a0PST) for US clients, and EU hours for European clients. We never do 100% async handoffs.",
+    q: "How do you handle time-zone differences?",
   },
 ];
 
@@ -1199,9 +1224,10 @@ export default function AboutPage() {
               <span className={styles.heroAccent}>actually ships</span>
             </h1>
             <p className={styles.heroSub}>
-              Founded in 2020, Quartic Lab is a research-driven studio helping
-              startups and enterprises bring ideas to market. AI, blockchain,
-              IoT, and full-stack development across 3 continents.
+              Founded in 2020. A senior team of 15+ engineers, designers, and
+              PMs in Lahore, Pakistan &mdash; serving clients across the US,
+              Europe, and MENA. 50+ products shipped in web, mobile, AI,
+              blockchain, and IoT.
             </p>
             <div className={styles.heroCtas}>
               <button
@@ -1210,17 +1236,14 @@ export default function AboutPage() {
               >
                 Start a project
               </button>
-              <button
+              <a
                 className={styles.btnOutline}
-                onClick={() =>
-                  window.open(
-                    "https://calendly.com/request-demo-zweidevs/meeting",
-                    "_blank",
-                  )
-                }
+                href="https://calendly.com/request-demo-zweidevs/meeting"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 Get estimate in 12 hrs
-              </button>
+              </a>
             </div>
             <div className={styles.heroScroll}>
               <span className={styles.scrollDot} />
@@ -1252,22 +1275,29 @@ export default function AboutPage() {
       <section className={styles.ctaSection}>
         <div className={styles.container}>
           <div className={`${styles.ctaBanner} ${styles.reveal}`}>
-            <h2 className={styles.ctaTitle}>Ready to build something great?</h2>
+            <h2 className={styles.ctaTitle}>
+              Send us a brief. Get a scope back in 12 hours.
+            </h2>
             <p className={styles.ctaDesc}>
-              Get your project estimate in 12 hours. No commitment, no pressure
-              &mdash; just clarity.
+              No sales call. No “let’s set up a discovery meeting.” Just a real
+              estimate from a senior engineer.
             </p>
-            <button
-              className={styles.btnPrimary}
-              onClick={() =>
-                window.open(
-                  "https://calendly.com/request-demo-zweidevs/meeting",
-                  "_blank",
-                )
-              }
-            >
-              Get free estimate
-            </button>
+            <div className={styles.ctaBtns}>
+              <button
+                className={styles.btnPrimary}
+                onClick={() => router.push("/contactUs")}
+              >
+                Send your brief
+              </button>
+              <a
+                className={styles.ctaBtnSecondary}
+                href="https://calendly.com/request-demo-zweidevs/meeting"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Or book a 30-min call
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1290,15 +1320,17 @@ function MissionSection() {
             Your engineering partner, not just a vendor
           </h2>
           <p className={styles.missionDesc}>
-            We&apos;re a tight-knit team of engineers, designers, and product
-            thinkers who embed into your workflow. We don&apos;t just write code
-            &mdash; we challenge assumptions, propose better architectures, and
-            own outcomes.
+            Quartic Lab started in 2020 as a freelance partnership between two
+            engineers who kept getting the same complaint from clients: “great
+            developers are impossible to find, and the ones you find disappear
+            after launch.” We built the agency we’d want to hire &mdash; senior
+            engineers who take ownership, push back on weak scope, and stick
+            around long enough to see what we built actually work in production.
           </p>
           <p className={styles.missionDesc}>
-            From early-stage MVPs to scaling enterprise platforms, we bring the
-            same intensity: transparent communication, 2-week sprint cycles, and
-            a relentless focus on shipping software that users actually love.
+            Five years in, we’re a 15-person team working in 2-week sprints with
+            weekly demos. We’ve shipped 50+ products across five continents, and
+            we’ve never lost a client mid-project.
           </p>
         </div>
       </div>
@@ -1434,6 +1466,31 @@ function ProcessSection() {
             </div>
           ))}
         </div>
+        <div className={`${styles.supportCallout} ${styles.reveal}`}>
+          <span className={styles.supportCalloutIcon}>
+            <svg
+              fill="none"
+              height="22"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.6"
+              viewBox="0 0 24 24"
+              width="22"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </span>
+          <div>
+            <strong className={styles.supportCalloutHeading}>
+              Every launch includes 30 days of free support
+            </strong>
+            <p className={styles.supportCalloutBody}>
+              Bug fixes, deploy issues, and minor changes &mdash; handled by the
+              same team that built it, at no charge, for 30 days after launch.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -1503,23 +1560,33 @@ function FaqSection({ openFaq, setOpenFaq }) {
               key={faq.q}
             >
               <button
+                aria-controls={`faq-answer-${i}`}
                 aria-expanded={openFaq === i}
                 className={styles.faqQuestion}
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                onKeyDown={e => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setOpenFaq(openFaq === i ? null : i);
+                  }
+                }}
               >
                 {faq.q}
                 <span
+                  aria-hidden="true"
                   className={`${styles.faqChevron} ${
                     openFaq === i ? styles.faqChevronOpen : ""
                   }`}
                 >
-                  ▾
+                  &#9660;
                 </span>
               </button>
               <div
                 className={`${styles.faqAnswer} ${
                   openFaq === i ? styles.faqAnswerOpen : ""
                 }`}
+                id={`faq-answer-${i}`}
+                role="region"
               >
                 <p className={styles.faqAnswerText}>{faq.a}</p>
               </div>

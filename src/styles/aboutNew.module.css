@@ -785,6 +785,44 @@
 }
 
 /* ═══════════════════════════════════════════
+   30-DAY SUPPORT CALLOUT
+   ═══════════════════════════════════════════ */
+.supportCallout {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--ql-oxford);
+  border-radius: 2px;
+  padding: 28px 32px;
+  margin-top: 40px;
+  border-left: 3px solid var(--ql-copper);
+}
+
+.supportCalloutIcon {
+  flex-shrink: 0;
+  color: var(--ql-copper);
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.supportCalloutHeading {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ql-linen);
+  margin-bottom: 6px;
+}
+
+.supportCalloutBody {
+  font-size: 14px;
+  line-height: 1.65;
+  color: oklch(95% 0.018 75 / 0.55);
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════
    CTA BANNER
    ═══════════════════════════════════════════ */
 .ctaSection {
@@ -839,6 +877,37 @@
 
 .ctaBanner .btnPrimary:hover {
   background: var(--ql-copper-dk);
+}
+
+.ctaBtns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.ctaBtnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background: transparent;
+  color: oklch(95% 0.018 75 / 0.65);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid oklch(95% 0.018 75 / 0.22);
+  border-radius: 2px;
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.ctaBtnSecondary:hover {
+  border-color: oklch(95% 0.018 75 / 0.5);
+  color: var(--ql-linen);
 }
 
 /* ═══════════════════════════════════════════
