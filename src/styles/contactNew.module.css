@@ -636,7 +636,7 @@
 }
 
 .faqOpen .faqAnswer {
-  max-height: 200px;
+  max-height: 500px;
 }
 
 .faqAnswer p {
@@ -645,6 +645,212 @@
   color: oklch(20% 0.05 255 / 0.55);
   margin: 0;
   padding: 0 24px 20px;
+}
+
+/* ── phone card extras ────────────────────── */
+.methodDescNote {
+  font-size: 12px;
+  color: oklch(20% 0.05 255 / 0.4);
+  margin: 4px 0 0;
+  font-family: var(--font-mono);
+}
+
+/* ── callback note below cards ────────────── */
+.callbackNote {
+  text-align: center;
+  font-size: 14px;
+  color: oklch(20% 0.05 255 / 0.5);
+  margin: 28px 0 0;
+}
+
+.callbackLink {
+  color: var(--ql-copper);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.callbackLink:hover {
+  color: oklch(48% 0.11 42);
+}
+
+/* ── trust list (replaces highlights) ──────── */
+.trustList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.trustItem {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ql-oxford);
+  padding: 14px 18px;
+  background: var(--ql-canvas);
+  border-radius: 2px;
+  border: 1px solid oklch(20% 0.05 255 / 0.06);
+  letter-spacing: 0.1px;
+}
+
+/* ── form field helpers ─────────────────────── */
+.fieldError {
+  color: #c0392b;
+  font-size: 12px;
+  margin: 4px 0 0;
+}
+
+.fieldHint {
+  font-size: 12px;
+  color: oklch(20% 0.05 255 / 0.45);
+  margin: 6px 0 0;
+}
+
+.inputError {
+  border-color: #c0392b !important;
+}
+
+/* ── file input ──────────────────────────── */
+.formInputFile {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--ql-oxford);
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+/* ── NDA checkbox ────────────────────────── */
+.formGroupCheck {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.checkInput {
+  flex-shrink: 0;
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--ql-copper);
+  cursor: pointer;
+}
+
+.checkLabel {
+  font-size: 14px;
+  color: oklch(20% 0.05 255 / 0.7);
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+/* ── submit error ─────────────────────────── */
+.submitError {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  background: oklch(92% 0.02 25);
+  border: 1px solid oklch(60% 0.05 25 / 0.3);
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.submitError p {
+  font-size: 13px;
+  color: #7b2c2c;
+  margin: 0;
+}
+
+.retryBtn {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: #7b2c2c;
+  background: transparent;
+  border: 1.5px solid oklch(60% 0.05 25 / 0.4);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.retryBtn:hover {
+  background: oklch(88% 0.02 25);
+}
+
+/* ── success panel ───────────────────────── */
+.successPanel {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 80px 0 100px;
+  text-align: center;
+}
+
+.successIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: oklch(58% 0.12 45 / 0.1);
+  color: var(--ql-copper);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.successH2 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ql-oxford);
+  margin: 0 0 16px;
+}
+
+.successDesc {
+  font-size: 15px;
+  line-height: 1.75;
+  color: oklch(20% 0.05 255 / 0.55);
+  margin: 0 0 28px;
+}
+
+.successNext {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: oklch(20% 0.05 255 / 0.4);
+  margin: 0 0 14px;
+}
+
+.successLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.successLinks a {
+  color: var(--ql-copper);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 15px;
+}
+
+.successLinks a:hover {
+  color: oklch(48% 0.11 42);
+}
+
+/* ── faqQuestion button reset ─────────────── */
+.faqQuestion {
+  text-align: left;
 }
 
 /* ═══════════════════════════════════════════

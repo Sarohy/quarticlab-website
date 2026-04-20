@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import Alert from "@mui/material/Alert";
+import Link from "next/link";
 import { submitContactForm } from "@component/firebase/firebaseRequests";
 import CountrySelect from "@component/Components/CommonComponents/CountrySelect/CountrySelect";
 import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
@@ -9,7 +9,7 @@ import styles from "../../styles/contactNew.module.css";
 /* ── data ────────────────────────────────────────── */
 const contactMethods = [
   {
-    desc: "We typically respond within 24 hours.",
+    desc: "We respond within 4 business hours.",
     detail: "hello@quarticlab.com",
     href: "mailto:hello@quarticlab.com",
     icon: (
@@ -34,7 +34,7 @@ const contactMethods = [
     title: "Email us",
   },
   {
-    desc: "Our headquarters",
+    desc: "Our Lahore office · Serving clients in US, EU, and MENA",
     detail: "6-B, Block B Phase 1, Johar Town, Lahore",
     href: "https://maps.google.com/?q=Johar+Town+Lahore",
     icon: (
@@ -50,7 +50,8 @@ const contactMethods = [
     title: "Visit us",
   },
   {
-    desc: "Mon – Fri, 9 am – 6 pm",
+    desc: "Mon – Fri, 9 AM – 6 PM Pakistan Time",
+    descNote: "(11 PM – 8 AM US East · 4 AM – 1 PM London)",
     detail: "+92 309 444 6225",
     href: "tel:+923094446225",
     icon: (
@@ -69,20 +70,28 @@ const contactMethods = [
 
 const faqs = [
   {
-    a: "Depending on scope, projects range from 4 weeks for MVPs to 6+ months for full-scale platforms. We provide a detailed timeline during the discovery phase.",
-    q: "What is the typical project timeline?",
+    a: 'A senior engineer reviews your brief within 4 business hours. You\'ll get a written response with either (a) a scope, timeline, and cost estimate, or (b) clarifying questions if the brief needs more detail. No automated "someone will reach out" message.',
+    q: "What happens after I submit this form?",
   },
   {
-    a: "We offer flexible support and maintenance packages to keep your product running smoothly after launch.",
-    q: "Do you offer post-launch support?",
+    a: "No. Our entire discovery process can be done over email and a shared doc. We only do live calls if you request one.",
+    q: "Do I have to do a sales call?",
   },
   {
-    a: "React, Next.js, React Native, Node.js, Python, Blockchain (Solidity), AWS, GCP and more — we choose the best stack for your needs.",
-    q: "What technologies do you specialise in?",
+    a: "Yes. We deliver a detailed estimate within 12 hours at no charge. For complex projects, we may offer a paid Discovery Sprint ($2,500, 1\u20132 weeks, credited toward the build if you proceed).",
+    q: "Is the initial estimate free?",
   },
   {
-    a: "Yes. We provide dedicated remote teams that integrate seamlessly with your existing workflow and culture.",
-    q: "Can I hire a dedicated development team?",
+    a: "Yes, always \u2014 and before we discuss any project specifics. Check the \u201cI need an NDA\u201d box in the form and we'll send one within 4 hours.",
+    q: "Do you sign NDAs?",
+  },
+  {
+    a: "Our minimum is $5,000. If your project is smaller, we'll refer you to a trusted freelancer in our network \u2014 for free.",
+    q: "What if my project is too small?",
+  },
+  {
+    a: "Our core team is in Lahore (PKT). We regularly overlap working hours with US East Coast, UK, EU, and GCC time zones. Every project has at least 3 hours of live overlap with the client's time zone.",
+    q: "What time zones do you cover?",
   },
 ];
 
@@ -150,13 +159,13 @@ function HeroBanner() {
         <div className={styles.heroText}>
           <span className={styles.heroBadge}>Get in touch</span>
           <h1 className={styles.heroH1}>
-            We would love to <br />
-            <span className={styles.heroAccent}>hear from you</span>
+            Tell us what{" "}
+            <span className={styles.heroAccent}>you&apos;re building</span>
           </h1>
           <p className={styles.heroSub}>
-            Whether you have a groundbreaking idea, need a technical partner, or
-            just want to explore possibilities — our team is ready to listen and
-            deliver.
+            Share a brief of what you&apos;re building. A senior engineer (not a
+            sales rep) will respond within 4 hours with a scope, timeline, and
+            cost estimate — no discovery call required unless you want one.
           </p>
           <div className={styles.heroScroll}>
             <span className={styles.scrollDot} />
@@ -195,9 +204,23 @@ function ContactCards() {
               <h3 className={styles.methodTitle}>{m.title}</h3>
               <p className={styles.methodDetail}>{m.detail}</p>
               <p className={styles.methodDesc}>{m.desc}</p>
+              {m.descNote && (
+                <p className={styles.methodDescNote}>{m.descNote}</p>
+              )}
             </a>
           ))}
         </div>
+        <p className={styles.callbackNote}>
+          Outside Pakistan hours?{" "}
+          <a
+            className={styles.callbackLink}
+            href="https://calendly.com/request-demo-zweidevs/meeting"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Book a 30-min call at a time that works for you →
+          </a>
+        </p>
       </div>
     </section>
   );
@@ -214,18 +237,30 @@ function FormSection() {
     description: "",
     email: "",
     name: "",
+    nda: false,
     service: "",
   });
+  const [file, setFile] = useState(null);
   const [errors, setErrors] = useState({});
-  const [alertMsg, setAlertMsg] = useState(null);
+  const [submitError, setSubmitError] = useState(null);
   const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = e => {
-    const { name, value } = e.target;
+    const { checked, name, type, value } = e.target;
     if (name === "contact" && isNaN(value)) {
       return;
     }
+    if (type === "checkbox") {
+      setForm(prev => ({ ...prev, [name]: checked }));
+      return;
+    }
     setForm(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleFileChange = e => {
+    const f = e.target.files?.[0] ?? null;
+    setFile(f);
   };
 
   const validate = () => {
@@ -238,6 +273,9 @@ function FormSection() {
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       errs.email = "Please enter a valid email address.";
     }
+    if (!form.service) {
+      errs.service = "Please select a service.";
+    }
     if (!form.description.trim()) {
       errs.description = "Please describe your project.";
     }
@@ -246,7 +284,7 @@ function FormSection() {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    setAlertMsg(null);
+    setSubmitError(null);
     const errs = validate();
     if (Object.keys(errs).length) {
       setErrors(errs);
@@ -256,145 +294,88 @@ function FormSection() {
     setSubmitting(true);
     try {
       await submitContactForm({
+        attachmentName: file?.name || "",
         budget: form.budget,
         country: form.country,
         description: form.description,
         email: form.email,
         name: form.name,
+        ndaRequired: form.nda,
         phone: form.contact,
         service: form.service,
       });
-      setAlertMsg({
-        message: "Thanks. We will get back to you within 24 hours.",
-        severity: "success",
-      });
-      setForm({
-        budget: "",
-        contact: "",
-        country: "Pakistan",
-        description: "",
-        email: "",
-        name: "",
-        service: "",
-      });
+      setSubmitted(true);
     } catch {
-      setAlertMsg({
-        message:
-          "Something went wrong. Please email us directly at " +
-          "hello@quarticlab.com",
-        severity: "error",
-      });
+      setSubmitError(
+        "Something went wrong. Please try again or email us directly at " +
+          "hello@quarticlab.com.",
+      );
     } finally {
       setSubmitting(false);
     }
   };
+
+  if (submitted) {
+    return (
+      <section className={styles.formSec}>
+        <div className={styles.container}>
+          <div className={styles.successPanel}>
+            <div className={styles.successIcon}>&#10003;</div>
+            <h2 className={styles.successH2}>Got it. Check your inbox.</h2>
+            <p className={styles.successDesc}>
+              We&apos;ve received your brief. A senior engineer is reviewing it
+              now and will respond within 4 business hours with next steps.
+            </p>
+            <p className={styles.successNext}>In the meantime:</p>
+            <ul className={styles.successLinks}>
+              <li>
+                <a
+                  href="https://calendly.com/request-demo-zweidevs/meeting"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Book a 30-min call now
+                </a>
+              </li>
+              <li>
+                <Link href="/projects">Browse our case studies</Link>
+              </li>
+              <li>
+                <Link href="/aboutus">Read our process in detail</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className={styles.formSec}>
       <div className={`${styles.container} ${styles.formInner}`}>
         {/* Left side info */}
         <div className={`${styles.formInfo} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>Get in touch</span>
+          <span className={styles.sectionTag}>Project brief form</span>
           <h2 className={styles.sectionTitle}>
-            Let us build something{" "}
-            <span className={styles.accentText}>great</span> together
+            The fastest way to get a{" "}
+            <span className={styles.accentText}>real estimate</span>
           </h2>
           <p className={styles.formInfoDesc}>
-            Fill out the form and our team will get back to you within 24 hours.
-            We are excited to learn about your vision.
+            Fill this out in 3 minutes. You&apos;ll get a scope, timeline, team
+            composition, and cost breakdown within 12 business hours — written
+            by a senior engineer, not a sales rep.
           </p>
 
-          <div className={styles.highlights}>
-            <div className={styles.highlight}>
-              <span className={styles.highlightIcon}>
-                <svg fill="none" height="20" viewBox="0 0 20 20" width="20">
-                  <circle
-                    cx="10"
-                    cy="10"
-                    r="8"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  />
-                  <path
-                    d="M10 5v5l3 3"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeWidth="1.5"
-                  />
-                </svg>
-              </span>
-              <div>
-                <strong>24hr response</strong>
-                <span>Quick turnaround guaranteed</span>
-              </div>
-            </div>
-            <div className={styles.highlight}>
-              <span className={styles.highlightIcon}>
-                <svg fill="none" height="20" viewBox="0 0 20 20" width="20">
-                  <rect
-                    height="14"
-                    rx="1"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    width="14"
-                    x="3"
-                    y="3"
-                  />
-                  <path
-                    d="M7 10l2 2 4-4"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                  />
-                </svg>
-              </span>
-              <div>
-                <strong>NDA protected</strong>
-                <span>Your ideas stay safe</span>
-              </div>
-            </div>
-            <div className={styles.highlight}>
-              <span className={styles.highlightIcon}>
-                <svg fill="none" height="20" viewBox="0 0 20 20" width="20">
-                  <path
-                    d="M3 5h14v10H7l-4 3V5z"
-                    stroke="currentColor"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                  />
-                </svg>
-              </span>
-              <div>
-                <strong>Free consultation</strong>
-                <span>No strings attached</span>
-              </div>
-            </div>
-            <div className={styles.highlight}>
-              <span className={styles.highlightIcon}>
-                <svg fill="none" height="20" viewBox="0 0 20 20" width="20">
-                  <path
-                    d="M3 14l5-5 3 3 6-6"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                  />
-                  <path
-                    d="M13 6h4v4"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                  />
-                </svg>
-              </span>
-              <div>
-                <strong>Agile process</strong>
-                <span>Transparent and iterative</span>
-              </div>
-            </div>
-          </div>
+          <ul className={styles.trustList}>
+            <li className={styles.trustItem}>&#10003; 4-hour first response</li>
+            <li className={styles.trustItem}>&#10003; NDA before discovery</li>
+            <li className={styles.trustItem}>
+              &#10003; Written estimate in 12 hours
+            </li>
+            <li className={styles.trustItem}>
+              &#10003; No sales call required
+            </li>
+          </ul>
         </div>
 
         {/* Right side form */}
@@ -402,14 +383,17 @@ function FormSection() {
           className={`${styles.contactForm} ${styles.reveal}`}
           onSubmit={handleSubmit}
         >
-          {alertMsg && (
-            <Alert
-              onClose={() => setAlertMsg(null)}
-              severity={alertMsg.severity}
-              sx={{ mb: 2 }}
-            >
-              {alertMsg.message}
-            </Alert>
+          {submitError && (
+            <div className={styles.submitError}>
+              <p>{submitError}</p>
+              <button
+                className={styles.retryBtn}
+                onClick={() => setSubmitError(null)}
+                type="button"
+              >
+                Retry
+              </button>
+            </div>
           )}
 
           <div className={styles.formGrid}>
@@ -427,15 +411,7 @@ function FormSection() {
                 value={form.name}
               />
               {errors.name && (
-                <p
-                  style={{
-                    color: "#d32f2f",
-                    fontSize: "12px",
-                    margin: "4px 0 0",
-                  }}
-                >
-                  {errors.name}
-                </p>
+                <p className={styles.fieldError}>{errors.name}</p>
               )}
             </div>
             <div className={styles.formGroup}>
@@ -452,15 +428,7 @@ function FormSection() {
                 value={form.email}
               />
               {errors.email && (
-                <p
-                  style={{
-                    color: "#d32f2f",
-                    fontSize: "12px",
-                    margin: "4px 0 0",
-                  }}
-                >
-                  {errors.email}
-                </p>
+                <p className={styles.fieldError}>{errors.email}</p>
               )}
             </div>
             <div className={styles.formGroup}>
@@ -484,7 +452,6 @@ function FormSection() {
                 name="contact"
                 onChange={handleChange}
                 placeholder="+92 300 1234567"
-                required
                 type="text"
                 value={form.contact}
               />
@@ -493,30 +460,38 @@ function FormSection() {
 
           <div className={styles.formGroup}>
             <label className={styles.formLabel} htmlFor="cf-service">
-              Service interested in
+              Service interested in *
             </label>
             <select
-              className={styles.formInput}
+              className={`${styles.formInput} ${
+                errors.service ? styles.inputError : ""
+              }`}
               id="cf-service"
               name="service"
               onChange={handleChange}
+              required
               value={form.service}
             >
-              <option value="">Select a service (optional)</option>
+              <option value="">Select a service</option>
               <option value="Web Development">Web Development</option>
               <option value="Mobile App Development">
                 Mobile App Development
               </option>
+              <option value="AI & Machine Learning">
+                AI &amp; Machine Learning
+              </option>
               <option value="Blockchain Development">
                 Blockchain Development
               </option>
-              <option value="AI/ML Development">AI/ML Development</option>
               <option value="IoT Development">IoT Development</option>
-              <option value="Game Development">Game Development</option>
-              <option value="GenAI & Automation">GenAI &amp; Automation</option>
+              <option value="DevOps & Cloud">DevOps &amp; Cloud</option>
               <option value="UI/UX Design">UI/UX Design</option>
-              <option value="Other">Other</option>
+              <option value="Game Development">Game Development</option>
+              <option value="Not sure / Multiple">Not sure / Multiple</option>
             </select>
+            {errors.service && (
+              <p className={styles.fieldError}>{errors.service}</p>
+            )}
           </div>
 
           <div className={styles.formGroup}>
@@ -532,16 +507,27 @@ function FormSection() {
             >
               <option value="">Select a budget range (optional)</option>
               <option value="Under $5K">Under $5K</option>
-              <option value="$5K–$15K">$5K&ndash;$15K</option>
-              <option value="$15K–$50K">$15K&ndash;$50K</option>
-              <option value="$50K+">$50K+</option>
-              <option value="Not Sure">Not Sure</option>
+              <option value="$5K – $25K">
+                $5K &ndash; $25K (typical fixed-price project)
+              </option>
+              <option value="$25K – $75K">
+                $25K &ndash; $75K (mid-sized build)
+              </option>
+              <option value="$75K – $250K">
+                $75K &ndash; $250K (full product + MVP)
+              </option>
+              <option value="$250K+">$250K+ (enterprise / platform)</option>
+              <option value="Not sure yet">Not sure yet</option>
             </select>
+            <p className={styles.fieldHint}>
+              Under $5K is below our minimum — but we&apos;ll refer you to a
+              trusted freelancer.
+            </p>
           </div>
 
           <div className={styles.formGroup}>
             <label className={styles.formLabel} htmlFor="cf-desc">
-              Project details
+              Project details *
             </label>
             <textarea
               className={styles.formTextarea}
@@ -554,16 +540,38 @@ function FormSection() {
               value={form.description}
             />
             {errors.description && (
-              <p
-                style={{
-                  color: "#d32f2f",
-                  fontSize: "12px",
-                  margin: "4px 0 0",
-                }}
-              >
-                {errors.description}
-              </p>
+              <p className={styles.fieldError}>{errors.description}</p>
             )}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label className={styles.formLabel} htmlFor="cf-file">
+              Attach a brief, deck, wireframe, or spec (optional)
+            </label>
+            <input
+              accept=".pdf,.docx,.png,.jpg,.jpeg,.zip"
+              className={styles.formInputFile}
+              id="cf-file"
+              onChange={handleFileChange}
+              type="file"
+            />
+            <p className={styles.fieldHint}>
+              PDF, DOCX, PNG, JPG, ZIP — max 10 MB
+            </p>
+          </div>
+
+          <div className={styles.formGroupCheck}>
+            <input
+              checked={form.nda}
+              className={styles.checkInput}
+              id="cf-nda"
+              name="nda"
+              onChange={handleChange}
+              type="checkbox"
+            />
+            <label className={styles.checkLabel} htmlFor="cf-nda">
+              I need an NDA signed before sharing details
+            </label>
           </div>
 
           <button
@@ -573,7 +581,7 @@ function FormSection() {
             disabled={submitting}
             type="submit"
           >
-            {submitting ? "Sending..." : "Send message"}
+            {submitting ? "Sending\u2026" : "Send your brief"}
           </button>
         </form>
       </div>
@@ -611,16 +619,33 @@ function FAQSection() {
                 openIdx === i ? styles.faqOpen : ""
               }`}
               key={faq.q}
-              onClick={() => toggle(i)}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className={styles.faqQuestion}>
+              <button
+                aria-controls={`faq-contact-answer-${i}`}
+                aria-expanded={openIdx === i}
+                className={styles.faqQuestion}
+                id={`faq-contact-btn-${i}`}
+                onClick={() => toggle(i)}
+                onKeyDown={e => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    toggle(i);
+                  }
+                }}
+                type="button"
+              >
                 <h3>{faq.q}</h3>
-                <span className={styles.faqToggle}>
+                <span aria-hidden="true" className={styles.faqToggle}>
                   {openIdx === i ? "\u2212" : "+"}
                 </span>
-              </div>
-              <div className={styles.faqAnswer}>
+              </button>
+              <div
+                aria-labelledby={`faq-contact-btn-${i}`}
+                className={styles.faqAnswer}
+                id={`faq-contact-answer-${i}`}
+                role="region"
+              >
                 <p>{faq.a}</p>
               </div>
             </div>
