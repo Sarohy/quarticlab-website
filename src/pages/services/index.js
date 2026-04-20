@@ -37,10 +37,6 @@ import NextIcon from "../../../public/assets/serviceIcons/next.svg";
 import styles from "./servicesNew.module.css";
 
 /* ── MUI ────────────────────────────────────── */
-import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
 
 /* ── icon maps for dynamic Firestore data ──── */
@@ -154,27 +150,24 @@ export default function ServicesNew({ services = [] }) {
         <div className={styles.heroInner}>
           <span className={styles.heroBadge}>Our Expertise</span>
           <h1 className={styles.heroH1}>
-            Everything Your Business Needs{" "}
-            <span className={styles.heroAccent}>Under One Roof</span>
+            Eight disciplines. One senior team.{" "}
+            <span className={styles.heroAccent}>Every project.</span>
           </h1>
           <p className={styles.heroSub}>
-            Quartic Lab is a professional agency that strives to enhance your
-            journey through creative ideas, innovation, and unwavering
-            determination. We leverage cutting-edge technology and robust
-            strategies to cater to your needs.
+            Web, mobile, AI, blockchain, IoT, DevOps, design &mdash; delivered
+            by the same senior team with zero outsourcing. Choose fixed-price,
+            time-and-material, or dedicated team engagement. Project estimates
+            in 12 hours.
           </p>
           <div className={styles.heroCtas}>
-            <button
-              className={styles.btnPrimary}
-              onClick={() =>
-                window.open(
-                  "https://calendly.com/request-demo-zweidevs/meeting",
-                  "_blank",
-                )
-              }
+            <a
+              className={styles.btnHeroPrimary}
+              href="https://calendly.com/request-demo-zweidevs/meeting"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               Schedule a Call
-            </button>
+            </a>
             <Link className={styles.btnOutline} href="#services">
               Explore Services ↓
             </Link>
@@ -187,11 +180,13 @@ export default function ServicesNew({ services = [] }) {
       <section className={styles.servicesSec} id="services">
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionTag}>What We Do</span>
-            <h2 className={styles.sectionTitle}>Our Services</h2>
+            <span className={styles.sectionTag}>Services</span>
+            <h2 className={styles.sectionTitle}>
+              Everything needed to ship a product. Nothing that isn&apos;t.
+            </h2>
             <p className={styles.sectionDesc}>
-              From web and mobile to blockchain, AI and cloud — we build
-              end-to-end digital solutions that scale with your ambitions.
+              Pick one discipline or the whole stack &mdash; we staff the
+              project with senior engineers who&apos;ve shipped it before.
             </p>
           </div>
 
@@ -223,69 +218,117 @@ export default function ServicesNew({ services = [] }) {
       </section>
 
       {/* ── HOW WE ENGAGE ──────────────────────── */}
-      <section className={styles.engageSec}>
+      <section className={styles.engageSec} id="engagement-models">
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionTag}>Engagement Models</span>
-            <h2 className={styles.sectionTitle}>How We Engage</h2>
+            <h2 className={styles.sectionTitle}>Three ways to work with us</h2>
             <p className={styles.sectionDesc}>
-              Choose the model that fits your project. We adapt to your
-              timeline, budget, and team setup.
+              Fixed price for scoped work, time &amp; material for evolving
+              products, dedicated teams for long-term builds. Every engagement
+              comes with a senior PM and weekly demos.
             </p>
           </div>
-          <Grid container spacing={3}>
+          <div className={styles.engageGrid}>
             {[
               {
-                desc: "Defined scope. Clear timeline. Fixed budget. No surprises.",
+                badge: null,
+                cta: "Start a project",
+                desc: "Ideal for well-defined projects. We scope every deliverable upfront, agree on a price, and deliver on schedule.",
+                highlight: false,
+                pricing:
+                  "From $5,000 \u00b7 Scoped deliverable \u00b7 4\u201312 weeks typical",
                 title: "Fixed Price",
               },
               {
-                desc: "Flexible scope. Pay for what you use. Ideal for evolving products.",
+                badge: null,
+                cta: "Start a project",
+                desc: "Best for evolving products. Sprint weekly, prioritise as you learn, and pay only for hours delivered.",
+                highlight: false,
+                pricing:
+                  "From $30/hr \u00b7 Weekly billing \u00b7 Minimum 4 weeks",
                 title: "Time & Material",
               },
               {
-                desc: "Your team, our talent. Daily standups. 30-day notice to scale.",
+                badge: null,
+                cta: "Build a team",
+                desc: "For long-term builds. A full embedded team \u2014 engineers, a PM, and process \u2014 on monthly retainer.",
+                highlight: false,
+                pricing:
+                  "From $30/hr per engineer \u00b7 Monthly retainer \u00b7 3+ month commitment",
                 title: "Dedicated Team",
               },
-            ].map(({ desc, title }) => (
-              <Grid item key={title} md={4} xs={12}>
-                <Card
-                  className={styles.reveal}
-                  ref={addRef}
-                  sx={{
-                    borderRadius: "16px",
-                    boxShadow: "0 4px 24px rgba(43,42,53,0.08)",
-                    display: "flex",
-                    flexDirection: "column",
-                    height: "100%",
-                    p: 1,
-                  }}
+              {
+                badge: "Recommended starting point",
+                cta: "Start a discovery sprint",
+                desc: "Best for complex or unclear scope. 1\u20132 weeks of product and engineering discovery, ending with a signed scope, architecture doc, and fixed estimate. Credited toward the build if you proceed.",
+                highlight: true,
+                pricing:
+                  "From $2,500 \u00b7 1\u20132 weeks \u00b7 Concrete deliverable",
+                title: "Paid Discovery Sprint",
+              },
+            ].map(({ badge, cta, desc, highlight, pricing, title }) => (
+              <div
+                className={`${styles.engageCard} ${
+                  highlight ? styles.engageCardHighlight : ""
+                } ${styles.reveal}`}
+                key={title}
+                ref={addRef}
+              >
+                {badge && (
+                  <span className={styles.engageCardBadge}>{badge}</span>
+                )}
+                <h3 className={styles.engageCardTitle}>{title}</h3>
+                <p className={styles.engageCardDesc}>{desc}</p>
+                <p className={styles.engagePricing}>{pricing}</p>
+                <Link
+                  className={
+                    highlight ? styles.btnPrimary : styles.btnEngageOutline
+                  }
+                  href="/contactUs"
                 >
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <h3 className={styles.engageCardTitle}>{title}</h3>
-                    <p className={styles.engageCardDesc}>{desc}</p>
-                  </CardContent>
-                  <CardActions sx={{ pb: 2, px: 2 }}>
-                    <Button
-                      component={Link}
-                      href="/how-we-work"
-                      size="small"
-                      sx={{
-                        color: "#FF9700",
-                        fontWeight: 600,
-                        textTransform: "none",
-                        "&:hover": {
-                          bgcolor: "rgba(255,151,0,0.08)",
-                        },
-                      }}
-                    >
-                      Learn More →
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
+                  {cta}
+                </Link>
+              </div>
             ))}
-          </Grid>
+          </div>
+        </div>
+      </section>
+
+      {/* ── NOT A FIT ──────────────────────────── */}
+      <section className={styles.notAFitSec}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionTag}>Not a fit if&hellip;</span>
+            <h2 className={styles.sectionTitle}>
+              Who we&apos;re not the right team for
+            </h2>
+          </div>
+          <div className={styles.notAFitGrid}>
+            {[
+              {
+                desc: "We don\u2019t take on sub-$5K projects. If you need a single-page brochure site, we\u2019ll happily refer you to a freelancer who specialises in them.",
+                title: "Budget under $5K",
+              },
+              {
+                desc: "If \u201cship by Friday no matter what\u201d is the brief, we\u2019re not your team. Our sprints are 2 weeks, our estimates are honest, and we push back on scope that breaks on Monday.",
+                title: "Shortest-path MVPs",
+              },
+              {
+                desc: "We don\u2019t do pure body-shop staff-aug. Our dedicated team model comes with a PM, process, and accountability \u2014 not standalone contractors.",
+                title: "Staff augmentation only",
+              },
+            ].map(({ desc, title }) => (
+              <div
+                className={`${styles.notAFitCard} ${styles.reveal}`}
+                key={title}
+                ref={addRef}
+              >
+                <h3 className={styles.notAFitCardTitle}>{title}</h3>
+                <p className={styles.notAFitCardDesc}>{desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -294,23 +337,25 @@ export default function ServicesNew({ services = [] }) {
         <div className={styles.container}>
           <div className={`${styles.ctaCard} ${styles.reveal}`} ref={addRef}>
             <h2 className={styles.ctaTitle}>
-              Ready to Transform Your Business?
+              Get a scoped estimate in 12 hours
             </h2>
             <p className={styles.ctaDesc}>
-              We have the expertise to deliver custom solutions no one else has.
-              Let&apos;s discuss how we can help you achieve your goals.
+              Tell us what you&apos;re building. We&apos;ll send back a scope,
+              timeline, team composition, and cost &mdash; without a sales call.
             </p>
-            <button
-              className={styles.btnPrimary}
-              onClick={() =>
-                window.open(
-                  "https://calendly.com/request-demo-zweidevs/meeting",
-                  "_blank",
-                )
-              }
-            >
-              Book a Free Consultation
-            </button>
+            <div className={styles.ctaBtns}>
+              <Link className={styles.ctaBtnPrimary} href="/contactUs">
+                Get your estimate
+              </Link>
+              <a
+                className={styles.ctaBtnSecondary}
+                href="https://calendly.com/request-demo-zweidevs/meeting"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Or book a 30-min call
+              </a>
+            </div>
           </div>
         </div>
       </section>
