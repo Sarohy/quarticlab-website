@@ -28,6 +28,12 @@ export default function Document() {
           rel="apple-touch-icon"
           sizes="180x180"
         />
+        <link
+          href="/android-chrome-192x192.png"
+          rel="icon"
+          sizes="192x192"
+          type="image/png"
+        />
         <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link
           crossOrigin="anonymous"

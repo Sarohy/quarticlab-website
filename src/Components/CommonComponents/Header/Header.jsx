@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import navLinks, {
@@ -8,7 +9,6 @@ import navLinks, {
 } from "@component/Constants/navLinks";
 import { SERVICE_ICON_BY_SLUG } from "@component/Components/CommonComponents/ServiceIcons";
 import { useNavServices } from "@component/utils/ServicesContext";
-import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
 import styles from "./header.module.css";
 
 /* ── dropdown config ─────────────────────────────── */
@@ -154,7 +154,13 @@ function Header() {
       className={`${styles.headerContainer} ${scrolled ? styles.scrolled : ""}`}
     >
       <Link className={styles.logoLink} href={"/"}>
-        <QuarticMark size={32} />
+        <Image
+          alt="Quartic Lab mark"
+          height={32}
+          src="/mark-dark.svg"
+          style={{ display: "block" }}
+          width={32}
+        />
         <span className={styles.logoText}>
           Quartic <span className={styles.logoTextLight}>Lab</span>
         </span>
@@ -277,7 +283,13 @@ function Header() {
         } ${styles.mobileHeader}`}
       >
         <Link className={styles.logoLink} href={"/"}>
-          <QuarticMark size={28} />
+          <Image
+            alt="Quartic Lab mark"
+            height={28}
+            src="/mark-dark.svg"
+            style={{ display: "block" }}
+            width={28}
+          />
           <span className={styles.logoText}>
             Quartic <span className={styles.logoTextLight}>Lab</span>
           </span>
@@ -423,7 +435,6 @@ function Header() {
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="index, follow" name="robots" />
         <meta content="index, follow" name="googlebot" />
-        <link href="/favicon.ico" rel="icon" />
       </Head>
       {mobileView === null ? null : mobileView ? displayMobile() : displayWeb()}
     </>

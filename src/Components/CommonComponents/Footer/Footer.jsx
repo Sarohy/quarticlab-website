@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 
 const FooterAbout = dynamic(() => import("./FooterAbout"));
@@ -6,7 +7,6 @@ const FooterSocial = dynamic(() => import("./FooterSocial"));
 const FooterServices = dynamic(() => import("./FooterServices"));
 const FooterAllServices = dynamic(() => import("./FooterAllServices"));
 
-import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
 import styles from "./footer.module.css";
 
 function Footer() {
@@ -73,7 +73,13 @@ function Footer() {
         {/* ── Bottom bar ─────────────────────── */}
         <div className={styles.footerBottomBar}>
           <div className={styles.footerBottomLeft}>
-            <QuarticMark size={24} />
+            <Image
+              alt="Quartic Lab mark"
+              height={24}
+              src="/mark-light.svg"
+              style={{ display: "block" }}
+              width={24}
+            />
             <span className={styles.footerCopyright}>
               {currentYear} Quartic Lab. All rights reserved.
             </span>

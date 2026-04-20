@@ -1,5 +1,5 @@
 import { useInView } from "react-intersection-observer";
-import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
+import Image from "next/image";
 import styles from "./footer.module.css";
 
 const FooterAbout = () => {
@@ -17,11 +17,12 @@ const FooterAbout = () => {
     >
       <div className={styles.footerAboutImageContainer}>
         <div className={styles.footerLogoGlow}>
-          <QuarticMark
-            accent="oklch(58% 0.12 45)"
-            bg="oklch(20% 0.05 255)"
-            fg="oklch(95% 0.018 75)"
-            size={36}
+          <Image
+            alt="Quartic Lab mark"
+            height={36}
+            src="/mark-light.svg"
+            style={{ display: "block" }}
+            width={36}
           />
         </div>
         <h3 className={styles.footerAboutHeading}>QUARTIC LAB</h3>
