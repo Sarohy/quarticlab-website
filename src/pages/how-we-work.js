@@ -64,7 +64,7 @@ export default function HowWeWork() {
             services page
           </Link>{" "}
           or{" "}
-          <Link href="/contactUs" style={{ color: "var(--ql-copper)" }}>
+          <Link href="/contact" style={{ color: "var(--ql-copper)" }}>
             get in touch
           </Link>
           .

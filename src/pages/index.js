@@ -542,7 +542,7 @@ function HeroSection({ router }) {
           <div className={styles.heroCtas}>
             <button
               className={styles.btnHeroPrimary}
-              onClick={() => router.push("/contactUs")}
+              onClick={() => router.push("/contact")}
             >
               Start a project
             </button>
@@ -1256,7 +1256,7 @@ function AboutSection({ router }) {
           </p>
           <button
             className={styles.btnPrimary}
-            onClick={() => router.push("/aboutus")}
+            onClick={() => router.push("/about")}
           >
             Learn more
           </button>

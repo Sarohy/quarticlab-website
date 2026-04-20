@@ -285,7 +285,7 @@ export default function ServicesNew({ services = [] }) {
                   className={
                     highlight ? styles.btnPrimary : styles.btnEngageOutline
                   }
-                  href="/contactUs"
+                  href="/contact"
                 >
                   {cta}
                 </Link>
@@ -344,7 +344,7 @@ export default function ServicesNew({ services = [] }) {
               timeline, team composition, and cost &mdash; without a sales call.
             </p>
             <div className={styles.ctaBtns}>
-              <Link className={styles.ctaBtnPrimary} href="/contactUs">
+              <Link className={styles.ctaBtnPrimary} href="/contact">
                 Get your estimate
               </Link>
               <a

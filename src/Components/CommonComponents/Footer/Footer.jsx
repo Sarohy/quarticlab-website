@@ -40,7 +40,7 @@ function Footer() {
             >
               Book a 30-min call
             </a>
-            <Link className={styles.ctaBannerSecondary} href="/contactUs">
+            <Link className={styles.ctaBannerSecondary} href="/contact">
               Send a brief instead
             </Link>
           </div>
@@ -85,11 +85,11 @@ function Footer() {
             </span>
           </div>
           <div className={styles.footerBottomRight}>
-            <Link className={styles.footerBottomLink} href="/contactUs">
+            <Link className={styles.footerBottomLink} href="/contact">
               Contact
             </Link>
             <span className={styles.footerDot}>·</span>
-            <Link className={styles.footerBottomLink} href="/aboutus">
+            <Link className={styles.footerBottomLink} href="/about">
               About
             </Link>
           </div>

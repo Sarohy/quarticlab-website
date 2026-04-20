@@ -341,7 +341,7 @@ function FormSection() {
                 <Link href="/projects">Browse our case studies</Link>
               </li>
               <li>
-                <Link href="/aboutus">Read our process in detail</Link>
+                <Link href="/about">Read our process in detail</Link>
               </li>
             </ul>
           </div>

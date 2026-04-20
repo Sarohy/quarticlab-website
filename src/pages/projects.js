@@ -405,7 +405,7 @@ export default function ProjectsNewPage({ projects = [] }) {
             </p>
           </div>
           <div className={`${styles.ctaBtns} ${styles.reveal}`} ref={addRef}>
-            <Link className={styles.ctaBtnPrimary} href="/contactUs">
+            <Link className={styles.ctaBtnPrimary} href="/contact">
               Send your brief
             </Link>
             <a

@@ -1232,7 +1232,7 @@ export default function AboutPage() {
             <div className={styles.heroCtas}>
               <button
                 className={styles.btnPrimary}
-                onClick={() => router.push("/contactUs")}
+                onClick={() => router.push("/contact")}
               >
                 Start a project
               </button>
@@ -1285,7 +1285,7 @@ export default function AboutPage() {
             <div className={styles.ctaBtns}>
               <button
                 className={styles.btnPrimary}
-                onClick={() => router.push("/contactUs")}
+                onClick={() => router.push("/contact")}
               >
                 Send your brief
               </button>
@@ -1529,7 +1529,7 @@ function ModelsSection({ router }) {
               </ul>
               <button
                 className={styles.modelCardBtn}
-                onClick={() => router.push("/contactUs")}
+                onClick={() => router.push("/contact")}
               >
                 {m.ctaLabel}
               </button>

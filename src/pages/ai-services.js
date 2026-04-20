@@ -121,7 +121,7 @@ export default function AIServicesPage() {
           <div className={styles.heroCtas}>
             <button
               className={styles.btnPrimary}
-              onClick={() => router.push("/contactUs")}
+              onClick={() => router.push("/contact")}
             >
               Talk to an AI Expert
             </button>

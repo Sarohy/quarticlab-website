@@ -2,11 +2,11 @@ const routesPaths = {
   home: "/",
   services: "/services",
   aiServices: "/ai-services",
-  aboutUs: "/aboutus",
+  aboutUs: "/about",
   blogs: "/blog",
   projects: "/projects",
   howWeWork: "/how-we-work",
-  contactUs: "/contactUs",
+  contactUs: "/contact",
 };
 
 export default routesPaths;
