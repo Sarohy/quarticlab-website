@@ -194,6 +194,19 @@
   pointer-events: none;
 }
 
+.heroBg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 45% 35% at 65% 25%,
+    oklch(58% 0.12 45 / 0.07) 0%,
+    transparent 65%
+  );
+  animation: nebulaDrift 14s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
 .heroBg::after {
   content: "";
   position: absolute;
@@ -203,6 +216,7 @@
     transparent 1px
   );
   background-size: 32px 32px;
+  animation: gridDrift 25s linear infinite;
   pointer-events: none;
 }
 
@@ -219,7 +233,6 @@
 
 .heroText {
   flex: 1;
-  animation: heroFadeIn 0.8s ease both;
 }
 
 @keyframes heroFadeIn {
@@ -244,6 +257,7 @@
   text-transform: uppercase;
   color: var(--ql-copper);
   margin-bottom: 28px;
+  animation: heroFadeIn 0.5s 0.05s ease both;
 }
 
 .heroH1 {
@@ -255,11 +269,33 @@
   color: var(--ql-linen);
   margin: 0 0 28px;
   max-width: 700px;
+  animation: heroFadeIn 0.55s 0.2s ease both;
 }
 
 .heroAccent {
   color: var(--ql-copper);
   font-style: italic;
+}
+
+.heroAccentWord {
+  color: var(--ql-copper);
+  font-style: italic;
+  display: inline-block;
+  transition: opacity 0.3s ease;
+}
+
+.heroAccentFading {
+  opacity: 0;
+}
+
+.heroCursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.82em;
+  background: var(--ql-copper);
+  margin-left: 2px;
+  vertical-align: -0.05em;
+  animation: cursorBlink 1s step-end infinite;
 }
 
 .heroSub {
@@ -268,21 +304,24 @@
   color: oklch(95% 0.018 75 / 0.6);
   max-width: 520px;
   margin-bottom: 36px;
+  animation: heroFadeIn 0.55s 0.35s ease both;
 }
 
 .heroCtas {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  animation: heroFadeIn 0.5s 0.5s ease both;
 }
 
 .clutchBadge {
   margin-top: 32px;
+  animation: heroFadeIn 0.5s 0.65s ease both;
 }
 
 .heroVisual {
   flex: 0 0 auto;
-  animation: heroMarkIn 0.6s ease both;
+  animation: heroMarkIn 0.7s 0.4s ease both;
 }
 
 @keyframes heroMarkIn {
@@ -319,6 +358,98 @@
 @keyframes spinSlow {
   to {
     transform: rotate(360deg);
+  }
+}
+
+.orbitRing1 {
+  position: absolute;
+  inset: -36px;
+  border-radius: 50%;
+  border: 1px solid oklch(58% 0.12 45 / 0.08);
+  animation: spinSlow 22s linear infinite reverse;
+  pointer-events: none;
+}
+
+.orbitRing1::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ql-copper);
+  opacity: 0.5;
+  box-shadow: 0 0 8px var(--ql-copper);
+}
+
+.orbitRing2 {
+  position: absolute;
+  inset: -58px;
+  border-radius: 50%;
+  border: 1px dashed oklch(58% 0.12 45 / 0.05);
+  animation: spinSlow 45s linear infinite;
+  pointer-events: none;
+}
+
+.orbitRing2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: oklch(95% 0.018 75 / 0.35);
+}
+
+.pulsePing {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid oklch(58% 0.12 45 / 0.4);
+  animation: sonarPing 3.5s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sonarPing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+@keyframes nebulaDrift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-20px, 15px) scale(1.12);
+  }
+}
+
+@keyframes gridDrift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 32px 32px;
+  }
+}
+
+@keyframes cursorBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }
 

@@ -433,6 +433,9 @@ function useReveal(selector) {
   }, [selector]);
 }
 
+/* ── hero word cycle ────────────────────────────────── */
+const HERO_WORDS = ["ships.", "scales.", "delivers."];
+
 /* ── page ────────────────────────────────────────── */
 
 export default function LandingPage({
@@ -495,6 +498,24 @@ export default function LandingPage({
 /* ── sections ────────────────────────────────────── */
 
 function HeroSection({ router }) {
+  const [wordIdx, setWordIdx] = useState(0);
+  const [fading, setFading] = useState(false);
+
+  useEffect(() => {
+    let tid;
+    const id = setInterval(() => {
+      setFading(true);
+      tid = setTimeout(() => {
+        setWordIdx(i => (i + 1) % HERO_WORDS.length);
+        setFading(false);
+      }, 350);
+    }, 3200);
+    return () => {
+      clearInterval(id);
+      clearTimeout(tid);
+    };
+  }, []);
+
   return (
     <section className={styles.hero}>
       <div className={styles.heroBg} />
@@ -502,8 +523,16 @@ function HeroSection({ router }) {
         <div className={styles.heroText}>
           <span className={styles.heroBadge}>Quartic Lab</span>
           <h1 className={styles.heroH1}>
-            Software that <span className={styles.heroAccent}>ships.</span>{" "}
-            Teams that <span className={styles.heroAccent}>stay.</span>
+            Software that{" "}
+            <span
+              className={`${styles.heroAccentWord} ${
+                fading ? styles.heroAccentFading : ""
+              }`}
+            >
+              {HERO_WORDS[wordIdx]}
+            </span>
+            <span className={styles.heroCursor} /> Teams that{" "}
+            <span className={styles.heroAccent}>stay.</span>
           </h1>
           <p className={styles.heroSub}>
             A full-stack software agency building web, mobile, and AI products
@@ -539,6 +568,9 @@ function HeroSection({ router }) {
         </div>
         <div className={styles.heroVisual}>
           <div className={styles.heroLogoRing}>
+            <div className={styles.orbitRing1} />
+            <div className={styles.orbitRing2} />
+            <div className={styles.pulsePing} />
             <QuarticMark animated size={260} />
           </div>
         </div>
