@@ -136,7 +136,7 @@ export default function ServicesNew({ services = [] }) {
       <Head>
         <title>Services | Quartic Lab</title>
         <meta
-          content="Comprehensive IT Services — web and mobile app development, blockchain, AI, IoT, UI/UX, game development, DevOps and more. Elevate your digital presence with Quartic Lab."
+          content="Web, mobile, AI/ML, GenAI, blockchain, IoT, UI/UX, and DevOps services from Quartic Lab. One senior team, 12-hour estimates on every brief."
           name="description"
         />
       </Head>

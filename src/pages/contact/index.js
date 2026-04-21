@@ -165,7 +165,7 @@ export default function ContactNewPage() {
       <Head>
         <title>Contact | Quartic Lab</title>
         <meta
-          content="Get in touch with Quartic Lab. Let us discuss your project, explore collaboration opportunities, or just say hello."
+          content="Talk to Quartic Lab. Share a brief, get a 12-hour estimate from a senior engineer — not a sales rep. Phone, email, and Lahore office."
           name="description"
         />
         <script

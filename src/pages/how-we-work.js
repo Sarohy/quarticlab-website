@@ -9,7 +9,7 @@ export default function HowWeWork() {
       <Head>
         <title>How We Work | Quartic Lab</title>
         <meta
-          content="Learn how Quartic Lab engages with clients — fixed price, time & material, and dedicated team models."
+          content="How Quartic Lab runs projects — 2-week sprints, fixed-price packages, time & material, dedicated teams, and 30 days of free post-launch support."
           name="description"
         />
       </Head>

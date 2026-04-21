@@ -510,7 +510,7 @@ export default function LandingPage({
           Quartic Lab — Software Development Agency for Web, Mobile &amp; AI
         </title>
         <meta
-          content="A full-service software agency building web, mobile, and AI products for startups and enterprises. 50+ projects shipped across 3 continents. Get a 12-hour project estimate."
+          content="Quartic Lab builds web, mobile, and AI products for startups and enterprises. 50+ projects shipped across 3 continents. Get a 12-hour project estimate."
           name="description"
         />
         <script

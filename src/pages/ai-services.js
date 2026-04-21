@@ -97,9 +97,9 @@ export default function AIServicesPage() {
         <title>GenAI &amp; AI Automation | Quartic Lab</title>
         <meta
           content={
-            "Production-grade Generative AI, " +
-            "autonomous agents, and automation " +
-            "pipelines built for your business."
+            "Production-grade Generative AI, autonomous agents, and " +
+            "automation pipelines built by Quartic Lab for startups and " +
+            "enterprises. Book a free AI scoping call."
           }
           name="description"
         />
