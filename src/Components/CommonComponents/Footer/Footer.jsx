@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { openPreferences } from "@component/utils/consent";
 
 const FooterAbout = dynamic(() => import("./FooterAbout"));
 const FooterSocial = dynamic(() => import("./FooterSocial"));
@@ -108,6 +109,14 @@ function Footer() {
           <Link className={styles.footerLegalLink} href="/cookies">
             Cookie Policy
           </Link>
+          <span className={styles.footerDot}>·</span>
+          <button
+            className={styles.footerLegalLink}
+            onClick={openPreferences}
+            type="button"
+          >
+            Cookie preferences
+          </button>
         </div>
       </div>
     </footer>

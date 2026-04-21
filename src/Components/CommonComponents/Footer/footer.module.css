@@ -416,10 +416,16 @@
   opacity: 0.3;
   text-decoration: none;
   transition: opacity 0.2s;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
-.footerLegalLink:hover {
+.footerLegalLink:hover,
+.footerLegalLink:focus-visible {
   opacity: 0.65;
+  outline: none;
 }
 
 /* ═══════════════════════════════════════════════

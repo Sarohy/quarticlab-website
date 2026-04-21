@@ -66,6 +66,7 @@ import {
   getAllServices,
   submitContactForm,
 } from "@component/firebase/firebaseRequests";
+import { hasFunctionalConsent, useConsent } from "@component/utils/consent";
 import styles from "../styles/landing.module.css";
 
 /* ── data ────────────────────────────────────────── */
@@ -447,6 +448,8 @@ export default function LandingPage({
   testimonials = defaultTestimonials,
 }) {
   const router = useRouter();
+  const consent = useConsent();
+  const functionalOk = hasFunctionalConsent(consent);
   useReveal(`.${styles.reveal}`);
 
   return (
@@ -460,10 +463,12 @@ export default function LandingPage({
           name="description"
         />
       </Head>
-      <Script
-        src="https://widget.clutch.co/static/js/widget.js"
-        strategy="lazyOnload"
-      />
+      {functionalOk && (
+        <Script
+          src="https://widget.clutch.co/static/js/widget.js"
+          strategy="lazyOnload"
+        />
+      )}
 
       {/* ─── HERO ─────────────────────────────── */}
       <HeroSection />
