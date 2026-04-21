@@ -6,20 +6,20 @@ Official website for **Zweidevs (Pvt) Ltd** — a custom software development co
 
 ## Tech Stack
 
-| Category          | Technology                                      |
-|-------------------|-------------------------------------------------|
-| Framework         | [Next.js 13](https://nextjs.org/) (Pages Router) |
-| UI Library        | [MUI v5](https://mui.com/) (Material UI)        |
-| Styling           | CSS Modules + `animate.css`                     |
-| Font              | Poppins (`@fontsource/poppins`)                 |
-| Database          | Firebase Firestore (projects, services, reviews)|
-| HTTP Client       | Axios                                           |
-| Carousel          | `react-material-ui-carousel`                    |
-| Animations        | `animate.css` + `IntersectionObserver`          |
-| Phone Validation  | `libphonenumber-js`                             |
-| Analytics         | Google Analytics (via `next/script`)            |
-| Linting           | ESLint + Prettier + Husky + lint-staged         |
-| Deployment        | Firebase Hosting / Standalone Next.js build     |
+| Category         | Technology                                       |
+| ---------------- | ------------------------------------------------ |
+| Framework        | [Next.js 13](https://nextjs.org/) (Pages Router) |
+| UI Library       | [MUI v5](https://mui.com/) (Material UI)         |
+| Styling          | CSS Modules + `animate.css`                      |
+| Font             | Poppins (`@fontsource/poppins`)                  |
+| Database         | Firebase Firestore (projects, services, reviews) |
+| HTTP Client      | Axios                                            |
+| Carousel         | `react-material-ui-carousel`                     |
+| Animations       | `animate.css` + `IntersectionObserver`           |
+| Phone Validation | `libphonenumber-js`                              |
+| Analytics        | Google Analytics (via `next/script`)             |
+| Linting          | ESLint + Prettier + Husky + lint-staged          |
+| Deployment       | Firebase Hosting / Standalone Next.js build      |
 
 ---
 
@@ -49,16 +49,16 @@ zweidevs-website/
 
 ## Pages & Routes
 
-| URL                              | Description                                         |
-|----------------------------------|-----------------------------------------------------|
-| `/`                              | Home — Hero, services, projects carousel, testimonials, stats, tech slider, contact |
-| `/aboutus`                       | About Zweidevs — vision, story, achievements, team |
-| `/blog`                          | Blog listing with category filter                   |
-| `/blog/:id`                      | Individual blog post (HTML content)                 |
-| `/projects`                      | Full portfolio with type filter                     |
-| `/services`                      | All 8 service areas with tech stacks                |
-| `/services/:serviceName`         | Service detail page (dynamic)                       |
-| `/contactus`                     | Contact form (same as home contact section)         |
+| URL                      | Description                                                                         |
+| ------------------------ | ----------------------------------------------------------------------------------- |
+| `/`                      | Home — Hero, services, projects carousel, testimonials, stats, tech slider, contact |
+| `/aboutus`               | About Zweidevs — vision, story, achievements, team                                  |
+| `/blog`                  | Blog listing with category filter                                                   |
+| `/blog/:id`              | Individual blog post (HTML content)                                                 |
+| `/projects`              | Full portfolio with type filter                                                     |
+| `/services`              | All 8 service areas with tech stacks                                                |
+| `/services/:serviceName` | Service detail page (dynamic)                                                       |
+| `/contactus`             | Contact form (same as home contact section)                                         |
 
 ---
 
@@ -83,6 +83,7 @@ zweidevs-website/
 - npm `>= 9.x`
 
 > ⚠️ Use [`nvm`](https://github.com/nvm-sh/nvm) to manage Node versions:
+>
 > ```bash
 > nvm install 18
 > nvm use 18
@@ -167,11 +168,11 @@ _app.js  (global: Layout, fonts, JSON-LD schema)
 
 ### Component Layers
 
-| Layer              | Location                           | Role                                  |
-|--------------------|------------------------------------|---------------------------------------|
-| Layout             | `src/Components/Layout`            | Shell — always present on every page  |
-| CommonComponents   | `src/Components/CommonComponents`  | Reusable UI (buttons, cards, banners) |
-| MainComponents     | `src/Components/MainComponents`    | Page-specific large sections          |
+| Layer            | Location                          | Role                                  |
+| ---------------- | --------------------------------- | ------------------------------------- |
+| Layout           | `src/Components/Layout`           | Shell — always present on every page  |
+| CommonComponents | `src/Components/CommonComponents` | Reusable UI (buttons, cards, banners) |
+| MainComponents   | `src/Components/MainComponents`   | Page-specific large sections          |
 
 ### Data Flow
 
@@ -196,19 +197,19 @@ _app.js  (global: Layout, fonts, JSON-LD schema)
 
 Each major folder has its own `README.md` with detailed documentation:
 
-| Folder                                     | README                                                              |
-|--------------------------------------------|---------------------------------------------------------------------|
-| `src/`                                     | [src/README.md](src/README.md)                                      |
-| `src/pages/`                               | [src/pages/README.md](src/pages/README.md)                          |
-| `src/Components/`                          | [src/Components/README.md](src/Components/README.md)                |
-| `src/Components/Layout/`                   | [src/Components/Layout/README.md](src/Components/Layout/README.md)  |
-| `src/Components/CommonComponents/`         | [src/Components/CommonComponents/README.md](src/Components/CommonComponents/README.md) |
-| `src/Components/MainComponents/`           | [src/Components/MainComponents/README.md](src/Components/MainComponents/README.md)     |
-| `src/Constants/`                           | [src/Constants/README.md](src/Constants/README.md)                  |
-| `src/firebase/`                            | [src/firebase/README.md](src/firebase/README.md)                    |
-| `src/styles/`                              | [src/styles/README.md](src/styles/README.md)                        |
-| `src/utils/`                               | [src/utils/README.md](src/utils/README.md)                          |
-| `public/`                                  | [public/README.md](public/README.md)                                |
+| Folder                             | README                                                                                 |
+| ---------------------------------- | -------------------------------------------------------------------------------------- |
+| `src/`                             | [src/README.md](src/README.md)                                                         |
+| `src/pages/`                       | [src/pages/README.md](src/pages/README.md)                                             |
+| `src/Components/`                  | [src/Components/README.md](src/Components/README.md)                                   |
+| `src/Components/Layout/`           | [src/Components/Layout/README.md](src/Components/Layout/README.md)                     |
+| `src/Components/CommonComponents/` | [src/Components/CommonComponents/README.md](src/Components/CommonComponents/README.md) |
+| `src/Components/MainComponents/`   | [src/Components/MainComponents/README.md](src/Components/MainComponents/README.md)     |
+| `src/Constants/`                   | [src/Constants/README.md](src/Constants/README.md)                                     |
+| `src/firebase/`                    | [src/firebase/README.md](src/firebase/README.md)                                       |
+| `src/styles/`                      | [src/styles/README.md](src/styles/README.md)                                           |
+| `src/utils/`                       | [src/utils/README.md](src/utils/README.md)                                             |
+| `public/`                          | [public/README.md](public/README.md)                                                   |
 
 ---
 

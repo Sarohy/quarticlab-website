@@ -830,9 +830,7 @@ const services = [
         },
       ],
     },
-    techStack: [
-      { group: "IoT Devices", chips: ["Raspberry Pi", "Arduino"] },
-    ],
+    techStack: [{ group: "IoT Devices", chips: ["Raspberry Pi", "Arduino"] }],
     faq: [
       {
         q: "What are IoT devices?",
@@ -1120,8 +1118,7 @@ const services = [
     heroTitle: "Build AI That Actually Works in Production",
     heroSub:
       "We build production-grade Generative AI apps, autonomous agents, and automation pipelines — not demos.",
-    heading:
-      "Generative AI, AI Agents, and Automation Built for Your Business",
+    heading: "Generative AI, AI Agents, and Automation Built for Your Business",
     description:
       "The future belongs to businesses that deploy AI intelligently. Zweidevs builds production-ready Generative AI solutions, multi-agent systems, and automation pipelines that eliminate bottlenecks and unlock new revenue streams.\n\nFrom fine-tuning LLMs on your proprietary data to deploying autonomous AI agents that plan and execute complex tasks — we deliver outcomes, not prototypes.",
     heroImageKey: "genai-automation",

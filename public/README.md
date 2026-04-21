@@ -49,20 +49,20 @@ public/
 
 ## Asset Naming Conventions
 
-| Folder                | Pattern                        | Example                           |
-|-----------------------|--------------------------------|-----------------------------------|
-| `serviceIcons/`       | `<service>/<name>.svg`         | `aiIcons/ai1.svg`                 |
-| `projectsPage/`       | `<projectName>.png`            | `blockcircle.png`                 |
-| `HomeIcons/clients/`  | `<clientName>.png`             | `nick-angelov.png`                |
-| `HomeIcons/Project/`  | `<type><number>.png`           | `Web1.png`, `Mobo1.png`           |
+| Folder               | Pattern                | Example                 |
+| -------------------- | ---------------------- | ----------------------- |
+| `serviceIcons/`      | `<service>/<name>.svg` | `aiIcons/ai1.svg`       |
+| `projectsPage/`      | `<projectName>.png`    | `blockcircle.png`       |
+| `HomeIcons/clients/` | `<clientName>.png`     | `nick-angelov.png`      |
+| `HomeIcons/Project/` | `<type><number>.png`   | `Web1.png`, `Mobo1.png` |
 
 ## Remote Image Domains
 
 The following external image domains are whitelisted in `next.config.js` for use with `next/image`:
 
-| Domain                          | Used For                          |
-|---------------------------------|-----------------------------------|
-| `firebasestorage.googleapis.com`| Blog post thumbnails from Firebase|
-| `flagcdn.com`                   | Country flag images in contact form|
-| `wallpaperaccess.com`           | External wallpaper assets         |
-| `cdn.dribbble.com`              | External design assets            |
+| Domain                           | Used For                            |
+| -------------------------------- | ----------------------------------- |
+| `firebasestorage.googleapis.com` | Blog post thumbnails from Firebase  |
+| `flagcdn.com`                    | Country flag images in contact form |
+| `wallpaperaccess.com`            | External wallpaper assets           |
+| `cdn.dribbble.com`               | External design assets              |

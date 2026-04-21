@@ -4,10 +4,10 @@ The `Layout` component is the **persistent shell** that wraps every page on the 
 
 ## Files
 
-| File          | Description                        |
-|---------------|------------------------------------|
-| `Layout.jsx`  | Main layout component              |
-| `index.js`    | Re-exports `Layout` as default     |
+| File         | Description                    |
+| ------------ | ------------------------------ |
+| `Layout.jsx` | Main layout component          |
+| `index.js`   | Re-exports `Layout` as default |
 
 ## Structure
 
@@ -23,9 +23,9 @@ The `Layout` component is the **persistent shell** that wraps every page on the 
 
 ## Props
 
-| Prop       | Type        | Description                          |
-|------------|-------------|--------------------------------------|
-| `children` | `ReactNode` | The page component to render inside  |
+| Prop       | Type        | Description                         |
+| ---------- | ----------- | ----------------------------------- |
+| `children` | `ReactNode` | The page component to render inside |
 
 ## Usage
 
@@ -45,5 +45,6 @@ export default function App({ Component, pageProps }) {
 ```
 
 ## Notes
+
 - `Header` and `Footer` are imported from `CommonComponents` barrel export.
 - The wrapping `div` uses the CSS class `content` (defined in `globals.css`) to ensure proper min-height and flex layout.

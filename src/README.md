@@ -17,13 +17,13 @@ src/
 
 ## Quick Reference
 
-| Folder        | What to find there                                                |
-|---------------|-------------------------------------------------------------------|
-| `pages/`      | Route files — each file = one URL                                 |
-| `Components/` | All React components — Layout, CommonComponents, MainComponents   |
-| `Constants/`  | `navLinks`, `routePaths`, `buttonTexts`                           |
-| `firebase/`   | `firebaseConfig.js`, Firestore CRUD exports                       |
-| `styles/`     | `globals.css`, page CSS modules                                   |
-| `utils/`      | `isValidEmail`, `groupArrayElements`, `urls` (service routes)     |
+| Folder        | What to find there                                              |
+| ------------- | --------------------------------------------------------------- |
+| `pages/`      | Route files — each file = one URL                               |
+| `Components/` | All React components — Layout, CommonComponents, MainComponents |
+| `Constants/`  | `navLinks`, `routePaths`, `buttonTexts`                         |
+| `firebase/`   | `firebaseConfig.js`, Firestore CRUD exports                     |
+| `styles/`     | `globals.css`, page CSS modules                                 |
+| `utils/`      | `isValidEmail`, `groupArrayElements`, `urls` (service routes)   |
 
 Each sub-folder has its own `README.md` with detailed documentation.
