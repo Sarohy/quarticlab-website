@@ -33,6 +33,8 @@ export default function Document() {
           sizes="192x192"
           type="image/png"
         />
+        <link href="/site.webmanifest" rel="manifest" />
+        <meta content="#0b132a" name="theme-color" />
         <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link
           crossOrigin="anonymous"
