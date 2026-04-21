@@ -12,7 +12,7 @@
 }
 
 .container {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -41,23 +41,137 @@
 .updated {
   font-family: var(--font-mono);
   font-size: 12px;
-  color: oklch(20% 0.05 255 / 0.4);
+  color: oklch(20% 0.05 255 / 0.5);
+  margin: 0 0 48px;
+  letter-spacing: 0.3px;
+}
+
+.intro {
+  font-size: 17px;
+  line-height: 1.7;
+  color: oklch(20% 0.05 255 / 0.82);
   margin: 0 0 40px;
 }
 
-.placeholder {
-  font-size: 15px;
-  line-height: 1.75;
-  color: oklch(20% 0.05 255 / 0.6);
+.section {
+  margin: 0 0 40px;
 }
 
-.placeholder a {
+.section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.2;
+  color: var(--ql-oxford);
+  margin: 0 0 16px;
+  letter-spacing: -0.3px;
+}
+
+.section h3 {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ql-oxford);
+  margin: 24px 0 10px;
+  letter-spacing: -0.1px;
+}
+
+.section p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: oklch(20% 0.05 255 / 0.78);
+  margin: 0 0 14px;
+}
+
+.section ul,
+.section ol {
+  margin: 0 0 14px;
+  padding-left: 22px;
+}
+
+.section li {
+  font-size: 15px;
+  line-height: 1.75;
+  color: oklch(20% 0.05 255 / 0.78);
+  margin-bottom: 6px;
+}
+
+.section li::marker {
+  color: var(--ql-copper);
+}
+
+.section strong {
+  color: var(--ql-oxford);
+  font-weight: 600;
+}
+
+.section a {
   color: var(--ql-copper);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
 
-.placeholder a:hover {
+.section a:hover {
   color: var(--ql-copper-dk);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0 22px;
+  font-size: 14px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid oklch(20% 0.05 255 / 0.12);
+  vertical-align: top;
+  line-height: 1.55;
+  color: oklch(20% 0.05 255 / 0.8);
+}
+
+.table th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ql-copper);
+  background: oklch(20% 0.05 255 / 0.03);
+}
+
+.contactBlock {
+  margin-top: 56px;
+  padding: 28px 28px 24px;
+  border: 1px solid oklch(20% 0.05 255 / 0.12);
+  border-radius: 4px;
+  background: oklch(20% 0.05 255 / 0.02);
+}
+
+.contactBlock h2 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ql-oxford);
+  margin: 0 0 12px;
+}
+
+.contactBlock p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: oklch(20% 0.05 255 / 0.78);
+  margin: 0 0 6px;
+}
+
+.contactBlock a {
+  color: var(--ql-copper);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
