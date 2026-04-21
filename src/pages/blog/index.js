@@ -187,6 +187,10 @@ const BlogPage = () => {
           }
           name="description"
         />
+        {/* Keep the empty/loading listing out of the index so we don't
+            get ranked for a thin "no articles yet" page. Once posts
+            land (status === "ok"), let search engines crawl it. */}
+        {status !== "ok" && <meta content="noindex, follow" name="robots" />}
         <link href={`${SITE_URL}/blog`} rel="canonical" />
         <meta content="website" property="og:type" />
         <meta content={`${SITE_URL}/blog`} property="og:url" />
