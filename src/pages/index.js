@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import { useRouter } from "next/router";
 import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
 import ClientSvg1 from "../../public/assets/HomeIcons/clients/nick-angelov.png";
 import ClientSvg2 from "../../public/assets/HomeIcons/clients/theresa.png";
@@ -484,7 +483,6 @@ export default function LandingPage({
   servicesError = false,
   testimonials = defaultTestimonials,
 }) {
-  const router = useRouter();
   const consent = useConsent();
   const functionalOk = hasFunctionalConsent(consent);
   useReveal(`.${styles.reveal}`);
@@ -548,14 +546,10 @@ export default function LandingPage({
       <HeroSection />
 
       {/* ─── SERVICES ─────────────────────────── */}
-      <ServicesSection
-        router={router}
-        services={services}
-        servicesError={servicesError}
-      />
+      <ServicesSection services={services} servicesError={servicesError} />
 
       {/* ─── ABOUT ────────────────────────────── */}
-      <AboutSection router={router} />
+      <AboutSection />
 
       {/* ─── PROJECTS ─────────────────────────── */}
       <ProjectsSection projects={projects} projectsError={projectsError} />
@@ -642,7 +636,7 @@ function HeroSection() {
   );
 }
 
-function ServicesSection({ router, services, servicesError }) {
+function ServicesSection({ services, servicesError }) {
   return (
     <section className={styles.services} id="services">
       <div className={styles.container}>
@@ -682,12 +676,9 @@ function ServicesSection({ router, services, servicesError }) {
           </div>
         )}
         <div className={styles.servicesCta}>
-          <button
-            className={styles.btnOutline}
-            onClick={() => router.push("/services")}
-          >
+          <Link className={styles.btnOutline} href="/services">
             Explore all services
-          </button>
+          </Link>
         </div>
       </div>
     </section>
@@ -1302,7 +1293,7 @@ function AboutDoodle() {
   );
 }
 
-function AboutSection({ router }) {
+function AboutSection() {
   return (
     <section className={styles.about}>
       <div className={`${styles.container} ${styles.aboutInner}`}>
@@ -1318,12 +1309,9 @@ function AboutSection({ router }) {
             deliver 12-hour estimates on every new brief, and back every launch
             with 30 days of free support.
           </p>
-          <button
-            className={styles.btnPrimary}
-            onClick={() => router.push("/about")}
-          >
+          <Link className={styles.btnPrimary} href="/about">
             Learn more
-          </button>
+          </Link>
         </div>
         <div className={`${styles.aboutVisual} ${styles.reveal}`}>
           <AboutDoodle />
@@ -1363,7 +1351,6 @@ const CAROUSEL_VISIBLE = 2;
 const CAROUSEL_STEP = 2;
 
 function ProjectsSection({ projects, projectsError }) {
-  const router = useRouter();
   const total = projects.length;
 
   // Build looped array: [lastN clones, ...real, firstN clones]
@@ -1510,12 +1497,9 @@ function ProjectsSection({ projects, projectsError }) {
           </>
         )}
         <div className={styles.servicesCta}>
-          <button
-            className={styles.btnOutline}
-            onClick={() => router.push("/projects")}
-          >
+          <Link className={styles.btnOutline} href="/projects">
             View all projects
-          </button>
+          </Link>
         </div>
       </div>
     </section>
