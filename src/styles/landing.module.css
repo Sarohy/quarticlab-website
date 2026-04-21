@@ -316,9 +316,10 @@
   animation: heroFadeIn 0.5s 0.5s ease both;
 }
 
-.clutchBadge {
+.clutchBadgeInline {
+  display: flex;
+  justify-content: center;
   margin-top: 32px;
-  animation: heroFadeIn 0.5s 0.65s ease both;
 }
 
 .heroVisual {

@@ -627,18 +627,6 @@ function HeroSection() {
               View our work
             </Link>
           </div>
-          <div className={styles.clutchBadge}>
-            <div
-              className="clutch-widget"
-              data-clutchcompany-id="1461075"
-              data-expandifr="true"
-              data-height="40"
-              data-nofollow="false"
-              data-scale="100"
-              data-url="https://widget.clutch.co"
-              data-widget-type="1"
-            />
-          </div>
         </div>
         <div className={styles.heroVisual}>
           <div className={styles.heroLogoRing}>
@@ -1731,6 +1719,18 @@ function TestimonialsSection({ testimonials }) {
               onClick={() => goTo(i)}
             />
           ))}
+        </div>
+        <div aria-label="Clutch reviews" className={styles.clutchBadgeInline}>
+          <div
+            className="clutch-widget"
+            data-clutchcompany-id="1461075"
+            data-expandifr="true"
+            data-height="40"
+            data-nofollow="false"
+            data-scale="100"
+            data-url="https://widget.clutch.co"
+            data-widget-type="1"
+          />
         </div>
       </div>
     </section>
