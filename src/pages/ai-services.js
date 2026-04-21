@@ -104,6 +104,32 @@ export default function AIServicesPage() {
           key="description"
           name="description"
         />
+        <meta
+          content="GenAI & AI Automation — Quartic Lab"
+          key="og:title"
+          property="og:title"
+        />
+        <meta
+          content={
+            "Production-grade Generative AI, autonomous agents, and " +
+            "automation pipelines for startups and enterprises."
+          }
+          key="og:description"
+          property="og:description"
+        />
+        <meta
+          content="GenAI & AI Automation — Quartic Lab"
+          key="twitter:title"
+          name="twitter:title"
+        />
+        <meta
+          content={
+            "Production-grade Generative AI, autonomous agents, and " +
+            "automation pipelines for startups and enterprises."
+          }
+          key="twitter:description"
+          name="twitter:description"
+        />
       </Head>
 
       {/* ── HERO ──────────────────────────── */}
