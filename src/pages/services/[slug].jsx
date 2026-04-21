@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -273,12 +273,22 @@ function useReveal() {
    ═══════════════════════════════════════════ */
 function FaqItem({ item }) {
   const [open, setOpen] = useState(false);
+  const panelId = useId();
+  const buttonId = useId();
 
   return (
     <div className={styles.faqItem}>
-      <button className={styles.faqQuestion} onClick={() => setOpen(v => !v)}>
+      <button
+        aria-controls={panelId}
+        aria-expanded={open}
+        className={styles.faqQuestion}
+        id={buttonId}
+        onClick={() => setOpen(v => !v)}
+        type="button"
+      >
         <span>{item.q}</span>
         <span
+          aria-hidden="true"
           className={`${styles.faqChevron} ${
             open ? styles.faqChevronOpen : ""
           }`}
@@ -287,7 +297,10 @@ function FaqItem({ item }) {
         </span>
       </button>
       <div
+        aria-labelledby={buttonId}
         className={`${styles.faqAnswer} ${open ? styles.faqAnswerOpen : ""}`}
+        id={panelId}
+        role="region"
       >
         <p className={styles.faqAnswerText}>{item.a}</p>
       </div>
