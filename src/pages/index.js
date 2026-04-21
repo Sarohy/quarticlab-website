@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import Script from "next/script";
 import { useRouter } from "next/router";
 import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
@@ -465,7 +466,7 @@ export default function LandingPage({
       />
 
       {/* ─── HERO ─────────────────────────────── */}
-      <HeroSection router={router} />
+      <HeroSection />
 
       {/* ─── SERVICES ─────────────────────────── */}
       <ServicesSection
@@ -497,7 +498,7 @@ export default function LandingPage({
 
 /* ── sections ────────────────────────────────────── */
 
-function HeroSection({ router }) {
+function HeroSection() {
   const [wordIdx, setWordIdx] = useState(0);
   const [fading, setFading] = useState(false);
 
@@ -540,18 +541,12 @@ function HeroSection({ router }) {
             zero handoff overhead.
           </p>
           <div className={styles.heroCtas}>
-            <button
-              className={styles.btnHeroPrimary}
-              onClick={() => router.push("/contact")}
-            >
+            <Link className={styles.btnHeroPrimary} href="/contact">
               Start a project
-            </button>
-            <button
-              className={styles.btnHeroOutline}
-              onClick={() => router.push("/projects")}
-            >
+            </Link>
+            <Link className={styles.btnHeroOutline} href="/projects">
               View our work
-            </button>
+            </Link>
           </div>
           <div className={styles.clutchBadge}>
             <div
@@ -602,7 +597,7 @@ function ServicesSection({ router, services, servicesError }) {
                 serviceIconMap[s.title] ||
                 WebDevIcon;
               return (
-                <a
+                <Link
                   className={`${styles.serviceCard} ${styles.reveal}`}
                   href={s.href}
                   key={s.title}
@@ -614,7 +609,7 @@ function ServicesSection({ router, services, servicesError }) {
                   <h3 className={styles.serviceCardTitle}>{s.title}</h3>
                   <p className={styles.serviceCardDesc}>{s.desc}</p>
                   <span className={styles.serviceLink}>Learn more →</span>
-                </a>
+                </Link>
               );
             })}
           </div>

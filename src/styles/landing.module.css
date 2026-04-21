@@ -121,6 +121,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   padding: 16px 32px;
   background: var(--ql-copper);
   color: var(--ql-linen);
@@ -147,6 +148,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   padding: 16px 32px;
   background: transparent;
   color: oklch(95% 0.018 75 / 0.7);
