@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { SITE_URL } from "@component/utils/siteUrl";
 
 /* ── offering icons — web ───────────────────── */
 import designIcon from "../../../public/assets/serviceIcons/webServicesIcons/design.svg";
@@ -322,10 +323,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
       ? linkedProjects
       : resolveProjects(data.projects);
 
-  const siteUrl = (
-    process.env.NEXT_PUBLIC_URL || "https://www.quarticlab.com"
-  ).replace(/\/$/, "");
-  const serviceUrl = `${siteUrl}/services/${slug}`;
+  const serviceUrl = `${SITE_URL}/services/${slug}`;
 
   const faqSchema =
     Array.isArray(data.faq) && data.faq.length > 0
@@ -351,7 +349,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
     name: data.category,
     description: data.heroSub || data.description,
     url: serviceUrl,
-    provider: { "@id": `${siteUrl}/#organization` },
+    provider: { "@id": `${SITE_URL}/#organization` },
     areaServed: [
       { "@type": "Country", name: "United States" },
       { "@type": "Country", name: "United Kingdom" },

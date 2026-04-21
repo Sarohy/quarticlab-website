@@ -4,6 +4,7 @@ import Link from "next/link";
 import { submitContactForm } from "@component/firebase/firebaseRequests";
 import CountrySelect from "@component/Components/CommonComponents/CountrySelect/CountrySelect";
 import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
+import { SITE_URL } from "@component/utils/siteUrl";
 import styles from "../../styles/contactNew.module.css";
 
 /* ── data ────────────────────────────────────────── */
@@ -143,13 +144,10 @@ function useReveal(selector) {
 export default function ContactNewPage() {
   useReveal(`.${styles.reveal}`);
 
-  const siteUrl = (
-    process.env.NEXT_PUBLIC_URL || "https://www.quarticlab.com"
-  ).replace(/\/$/, "");
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": `${siteUrl}/contact#faq`,
+    "@id": `${SITE_URL}/contact#faq`,
     mainEntity: faqs.map(faq => ({
       "@type": "Question",
       name: faq.q,

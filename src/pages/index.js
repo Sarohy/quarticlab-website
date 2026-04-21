@@ -66,6 +66,7 @@ import {
   submitContactForm,
 } from "@component/firebase/firebaseRequests";
 import { hasFunctionalConsent, useConsent } from "@component/utils/consent";
+import { SITE_URL } from "@component/utils/siteUrl";
 import styles from "../styles/landing.module.css";
 
 /* ── data ────────────────────────────────────────── */
@@ -488,18 +489,15 @@ export default function LandingPage({
   const functionalOk = hasFunctionalConsent(consent);
   useReveal(`.${styles.reveal}`);
 
-  const siteUrl = (
-    process.env.NEXT_PUBLIC_URL || "https://www.quarticlab.com"
-  ).replace(/\/$/, "");
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": `${siteUrl}/#website`,
-    url: `${siteUrl}/`,
+    "@id": `${SITE_URL}/#website`,
+    url: `${SITE_URL}/`,
     name: "Quartic Lab",
     description:
       "A full-service software agency building web, mobile, and AI products for startups and enterprises.",
-    publisher: { "@id": `${siteUrl}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
     inLanguage: "en",
   };
 

@@ -4,9 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { getBlogBySlug } from "@component/firebase/firebaseRequests";
+import { SITE_URL } from "@component/utils/siteUrl";
 import styles from "./blogNew.module.css";
-
-const SITE_URL = "https://www.quarticlab.com";
 
 /* ── helpers ─────────────────────────────── */
 function formatDate(str) {

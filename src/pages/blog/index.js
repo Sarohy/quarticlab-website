@@ -6,9 +6,8 @@ import {
   getAllBlogs,
   subscribeEmail,
 } from "@component/firebase/firebaseRequests";
+import { SITE_URL } from "@component/utils/siteUrl";
 import styles from "./blogNew.module.css";
-
-const SITE_URL = "https://www.quarticlab.com";
 
 const CATEGORIES = [
   { key: "All", label: "All" },

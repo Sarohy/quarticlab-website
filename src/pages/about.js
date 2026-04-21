@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { SITE_URL } from "../utils/siteUrl";
 import styles from "../styles/aboutNew.module.css";
 
 /* ── data ────────────────────────────────────────── */
@@ -1223,13 +1224,10 @@ export default function AboutPage() {
   useReveal(`.${styles.reveal}`);
   const [openFaq, setOpenFaq] = useState(null);
 
-  const siteUrl = (
-    process.env.NEXT_PUBLIC_URL || "https://www.quarticlab.com"
-  ).replace(/\/$/, "");
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": `${siteUrl}/about#faq`,
+    "@id": `${SITE_URL}/about#faq`,
     mainEntity: faqs.map(faq => ({
       "@type": "Question",
       name: faq.q,

@@ -12,6 +12,7 @@ const Layout = dynamic(() => import("@component/Components/Layout"));
 import "@component/styles/globals.css";
 import { getAllServices } from "@component/firebase/firebaseRequests";
 import { ServicesContext } from "@component/utils/ServicesContext";
+import { SITE_URL } from "@component/utils/siteUrl";
 
 // Self-hosted fonts via next/font — removes the external Google Fonts
 // stylesheet request and drops unused weights (audit F6).
@@ -40,10 +41,6 @@ const fontVariables = [
   instrumentSerif.variable,
   ibmPlexMono.variable,
 ].join(" ");
-
-const SITE_URL = (
-  process.env.NEXT_PUBLIC_URL || "https://www.quarticlab.com"
-).replace(/\/$/, "");
 
 function buildCanonicalUrl(asPath) {
   const path = (asPath || "/").split(/[?#]/)[0];

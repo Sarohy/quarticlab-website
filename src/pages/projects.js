@@ -6,8 +6,7 @@ import Image from "next/image";
 import styles from "../styles/projectsNew.module.css";
 
 import { getAllProjects } from "../firebase/firebaseRequests";
-
-const SITE_URL = "https://www.quarticlab.com";
+import { SITE_URL } from "../utils/siteUrl";
 
 /* ── reveal hook ─────────────────────────────────── */
 function useReveal() {
