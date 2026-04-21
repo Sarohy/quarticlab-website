@@ -1445,37 +1445,11 @@ function ProjectsSection({ projects, projectsError }) {
   );
 }
 
-function useCountUp(target, isFloat, duration = 2000) {
-  const [value, setValue] = useState(0);
-  const started = useRef(false);
-
-  const start = () => {
-    if (started.current) {
-      return;
-    }
-    started.current = true;
-    const startTime = performance.now();
-    const tick = now => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setValue(
-        isFloat ? +(target * eased).toFixed(1) : Math.floor(target * eased),
-      );
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      }
-    };
-    requestAnimationFrame(tick);
-  };
-
-  return [value, start];
-}
-
 function StatCard({ stat, delay }) {
   const isFloat = !Number.isInteger(stat.target);
-  const [count, startCount] = useCountUp(stat.target, isFloat);
+  const [count, setCount] = useState(0);
   const ref = useRef(null);
+  const started = useRef(false);
   const Icon = stat.Icon;
 
   useEffect(() => {
@@ -1488,7 +1462,26 @@ function StatCard({ stat, delay }) {
         entries.forEach(e => {
           if (e.isIntersecting) {
             e.target.classList.add(styles.visible);
-            startCount();
+            if (!started.current) {
+              started.current = true;
+              const duration = 2000;
+              const target = stat.target;
+              const startTime = performance.now();
+              const tick = now => {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                setCount(
+                  isFloat
+                    ? +(target * eased).toFixed(1)
+                    : Math.floor(target * eased),
+                );
+                if (progress < 1) {
+                  requestAnimationFrame(tick);
+                }
+              };
+              requestAnimationFrame(tick);
+            }
             obs.unobserve(e.target);
           }
         });
@@ -1497,7 +1490,8 @@ function StatCard({ stat, delay }) {
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [startCount]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div
