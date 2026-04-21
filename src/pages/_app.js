@@ -53,10 +53,65 @@ function buildCanonicalUrl(asPath) {
   return `${SITE_URL}${path.replace(/\/$/, "")}`;
 }
 
+// Turn "ai-ml-development" into "AI ML Development", "ui-ux-design"
+// into "UI UX Design". Hand-off friendly defaults; a page can still
+// emit its own BreadcrumbList JSON-LD via <Head> to override.
+const BREADCRUMB_LABEL_OVERRIDES = {
+  "ai-ml-development": "AI & Machine Learning",
+  "genai-automation": "GenAI & Automation",
+  "ui-ux-design": "UI/UX Design",
+  "ai-services": "AI Services",
+  "how-we-work": "How We Work",
+  devops: "DevOps",
+  iot: "IoT",
+};
+
+function prettifySegment(segment) {
+  if (BREADCRUMB_LABEL_OVERRIDES[segment]) {
+    return BREADCRUMB_LABEL_OVERRIDES[segment];
+  }
+  return segment
+    .split("-")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+function buildBreadcrumbSchema(asPath) {
+  const path = (asPath || "/").split(/[?#]/)[0];
+  if (path === "/" || path === "") {
+    return null;
+  }
+  const segments = path.split("/").filter(Boolean);
+  const items = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: `${SITE_URL}/`,
+    },
+  ];
+  let accumulated = "";
+  segments.forEach((segment, idx) => {
+    accumulated += `/${segment}`;
+    items.push({
+      "@type": "ListItem",
+      position: idx + 2,
+      name: prettifySegment(segment),
+      item: `${SITE_URL}${accumulated}`,
+    });
+  });
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items,
+  };
+}
+
 export default function App({ Component, navServices, pageProps }) {
   const [svcList, setSvcList] = useState(navServices || []);
   const router = useRouter();
   const canonicalUrl = buildCanonicalUrl(router.asPath);
+  const breadcrumbSchema = buildBreadcrumbSchema(router.asPath);
 
   useEffect(() => {
     if (navServices?.length) {
@@ -164,6 +219,15 @@ export default function App({ Component, navServices, pageProps }) {
             <script type="application/ld+json">
               {JSON.stringify(organizationSchema)}
             </script>
+            {breadcrumbSchema && (
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify(breadcrumbSchema),
+                }}
+                key="breadcrumb-schema"
+                type="application/ld+json"
+              />
+            )}
             <title>Quartic Lab</title>
           </Head>
           <Component {...pageProps} />
