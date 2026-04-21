@@ -94,3 +94,19 @@ export const getServiceBySlug = async slug => {
 };
 
 export const addServiceDetail = data => addItem(collectionServiceDetails, data);
+
+// Quartic Lab blog posts
+const collectionBlogs = "blogs";
+
+export const getAllBlogs = () => getAllItems(collectionBlogs);
+
+export const getBlogBySlug = async slug => {
+  const q = query(collection(db, collectionBlogs), where("slug", "==", slug));
+  const snap = await getDocs(q);
+  if (snap.empty) {
+    return null;
+  }
+  return { id: snap.docs[0].id, ...snap.docs[0].data() };
+};
+
+export const subscribeEmail = data => addItem("newsletter_subscribers", data);

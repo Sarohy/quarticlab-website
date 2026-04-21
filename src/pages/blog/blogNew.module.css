@@ -780,6 +780,557 @@
   border-top: 1px solid oklch(20% 0.05 255 / 0.08);
 }
 
+/* ── card meta row ────────────────────────── */
+.cardMeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: oklch(20% 0.05 255 / 0.4);
+  margin-bottom: 14px;
+}
+
+.cardAuthor {
+  font-weight: 600;
+  color: oklch(20% 0.05 255 / 0.55);
+}
+
+.cardDot {
+  opacity: 0.35;
+}
+
+/* ── filter count badge ───────────────────── */
+.filterCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  background: oklch(20% 0.05 255 / 0.1);
+  border-radius: 20px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.filterActive .filterCount {
+  background: oklch(95% 0.018 75 / 0.15);
+}
+
+/* ── empty / error state ──────────────────── */
+.emptyState {
+  text-align: center;
+  padding: 80px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.emptyTitle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--ql-oxford);
+  margin: 0;
+}
+
+.emptyMeta {
+  font-size: 14px;
+  color: oklch(20% 0.05 255 / 0.5);
+  margin: 0;
+}
+
+.emptyMeta a {
+  color: var(--ql-copper);
+  text-decoration: underline;
+}
+
+/* ── skeleton cards ───────────────────────── */
+@keyframes shimmer {
+  0% {
+    background-position: -600px 0;
+  }
+  100% {
+    background-position: 600px 0;
+  }
+}
+
+.skeletonCard {
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--ql-linen);
+  border: 1px solid oklch(20% 0.05 255 / 0.07);
+  display: flex;
+  flex-direction: column;
+}
+
+.skeletonImg {
+  width: 100%;
+  padding-top: 58%;
+  background: linear-gradient(
+    90deg,
+    var(--ql-parchment) 25%,
+    oklch(92% 0.015 75) 50%,
+    var(--ql-parchment) 75%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.skeletonBody {
+  padding: 22px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skeletonLine {
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--ql-parchment) 25%,
+    oklch(92% 0.015 75) 50%,
+    var(--ql-parchment) 75%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.skeletonTag {
+  height: 20px;
+  width: 72px;
+}
+
+.skeletonTitle {
+  height: 18px;
+  width: 100%;
+}
+
+.skeletonTitleShort {
+  height: 18px;
+  width: 70%;
+}
+
+.skeletonExcerpt {
+  height: 13px;
+  width: 100%;
+}
+
+.skeletonExcerptShort {
+  height: 13px;
+  width: 80%;
+}
+
+.skeletonMeta {
+  height: 11px;
+  width: 55%;
+  margin-top: 4px;
+}
+
+/* ── newsletter section ───────────────────── */
+.newsletterSec {
+  padding: 80px 0;
+  background: var(--ql-parchment);
+  border-top: 1px solid oklch(20% 0.05 255 / 0.07);
+  border-bottom: 1px solid oklch(20% 0.05 255 / 0.07);
+}
+
+.newsletterInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.newsletterText {
+  flex: 1;
+}
+
+.newsletterH2 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.4px;
+  color: var(--ql-oxford);
+  margin: 0 0 12px;
+}
+
+.newsletterSub {
+  font-size: 15px;
+  line-height: 1.7;
+  color: oklch(20% 0.05 255 / 0.6);
+  margin: 0;
+  max-width: 420px;
+}
+
+.newsletterForm {
+  flex: 0 0 auto;
+}
+
+/* ── newsletter / subscribe form ──────────── */
+.subForm {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.subInput {
+  flex: 1;
+  min-width: 220px;
+  padding: 13px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  border: 1px solid oklch(20% 0.05 255 / 0.18);
+  border-radius: 2px;
+  background: var(--ql-linen);
+  color: var(--ql-oxford);
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.subInput:focus {
+  border-color: var(--ql-copper);
+}
+
+.subInput:disabled {
+  opacity: 0.55;
+}
+
+.subError {
+  width: 100%;
+  font-size: 13px;
+  color: oklch(45% 0.18 25);
+}
+
+.subDone {
+  font-size: 14px;
+  color: oklch(40% 0.14 145);
+  font-weight: 600;
+}
+
+/* ── detail page — scroll progress ───────── */
+.scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--ql-copper);
+  z-index: 9999;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ── detail page — back to top ───────────── */
+.backToTop {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--ql-oxford);
+  color: var(--ql-linen);
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px oklch(20% 0.05 255 / 0.2);
+  z-index: 500;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+
+.backToTop:hover {
+  background: var(--ql-copper);
+  transform: translateY(-2px);
+}
+
+/* ── detail page — back link ──────────────── */
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: oklch(95% 0.018 75 / 0.5);
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: var(--ql-linen);
+}
+
+/* ── detail page — meta row ───────────────── */
+.detailMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: oklch(95% 0.018 75 / 0.5);
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+
+.detailAuthor {
+  font-weight: 600;
+  color: oklch(95% 0.018 75 / 0.75);
+}
+
+/* ── share bar ────────────────────────────── */
+.shareBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.shareLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: oklch(95% 0.018 75 / 0.4);
+}
+
+.shareBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid oklch(95% 0.018 75 / 0.18);
+  border-radius: 2px;
+  background: transparent;
+  color: oklch(95% 0.018 75 / 0.7);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.shareBtn:hover {
+  border-color: var(--ql-copper);
+  color: var(--ql-copper);
+}
+
+/* ── table of contents ────────────────────── */
+.toc {
+  background: var(--ql-parchment);
+  border: 1px solid oklch(20% 0.05 255 / 0.07);
+  border-radius: 2px;
+  padding: 20px 24px;
+  margin-bottom: 36px;
+}
+
+.tocToggle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ql-oxford);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tocList {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tocItem,
+.tocSubItem {
+  line-height: 1.4;
+}
+
+.tocSubItem {
+  padding-left: 16px;
+}
+
+.tocLink {
+  font-size: 14px;
+  color: oklch(20% 0.05 255 / 0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.tocLink:hover {
+  color: var(--ql-copper);
+}
+
+/* ── author bio ───────────────────────────── */
+.authorBio {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 28px;
+  background: var(--ql-parchment);
+  border: 1px solid oklch(20% 0.05 255 / 0.07);
+  border-radius: 2px;
+  margin-top: 48px;
+}
+
+.authorAvatar {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--ql-oxford);
+  color: var(--ql-linen);
+  font-family: var(--font-display);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.authorBioText {
+  flex: 1;
+}
+
+.authorBioName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ql-oxford);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.authorBioDesc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: oklch(20% 0.05 255 / 0.55);
+  margin: 0;
+}
+
+/* ── detail newsletter block ──────────────── */
+.detailNewsletter {
+  margin-top: 48px;
+  padding: 32px;
+  background: var(--ql-oxford);
+  border-radius: 2px;
+}
+
+.detailNewsletterH {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ql-linen);
+  margin: 0 0 8px;
+}
+
+.detailNewsletterSub {
+  font-size: 14px;
+  color: oklch(95% 0.018 75 / 0.6);
+  margin: 0 0 20px;
+}
+
+.detailNewsletter .subInput {
+  background: oklch(95% 0.018 75 / 0.06);
+  border-color: oklch(95% 0.018 75 / 0.15);
+  color: var(--ql-linen);
+}
+
+.detailNewsletter .subInput::placeholder {
+  color: oklch(95% 0.018 75 / 0.35);
+}
+
+.detailNewsletter .subDone {
+  color: oklch(75% 0.14 145);
+}
+
+/* ── tag list ─────────────────────────────── */
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  padding: 4px 10px;
+  background: oklch(20% 0.05 255 / 0.06);
+  border: 1px solid oklch(20% 0.05 255 / 0.1);
+  border-radius: 2px;
+  color: oklch(20% 0.05 255 / 0.55);
+}
+
+/* ── detail loading skeletons ─────────────── */
+.detailLoadingWrap {
+  min-height: 100vh;
+  background: var(--ql-canvas);
+}
+
+.skeletonDetailHero {
+  width: 100%;
+  height: 46vh;
+  background: linear-gradient(
+    90deg,
+    var(--ql-oxford) 25%,
+    oklch(22% 0.05 255) 50%,
+    var(--ql-oxford) 75%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.skeletonDetailBody {
+  max-width: 720px;
+  margin: 56px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 24px;
+}
+
+.skeletonDetailTitle {
+  height: 36px;
+  width: 80%;
+}
+
+.skeletonDetailMeta {
+  height: 14px;
+  width: 40%;
+}
+
+.skeletonDetailPara {
+  height: 14px;
+  width: 100%;
+}
+
 /* ═══════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════ */
