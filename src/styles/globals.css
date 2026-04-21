@@ -488,3 +488,22 @@ a {
 .css-1g60ihl-MuiFormControl-root-MuiTextField-root .MuiOutlinedInput-root {
   font-family: var(--font-body);
 }
+
+/* ═══════════════════════════════════════════════
+   Reduced motion — audit E2 / G5
+   Users who've opted into reduced motion (vestibular
+   disorders, motion sensitivity) get near-zero
+   decorative animation. Functional transitions still
+   complete but instantly so focus states remain
+   perceivable.
+   ═══════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
