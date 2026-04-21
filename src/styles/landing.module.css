@@ -483,6 +483,8 @@
 }
 
 .serviceCard {
+  display: block;
+  text-decoration: none;
   background: var(--ql-linen);
   border: 1px solid oklch(20% 0.05 255 / 0.06);
   border-radius: 2px;

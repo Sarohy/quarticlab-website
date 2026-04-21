@@ -602,10 +602,10 @@ function ServicesSection({ router, services, servicesError }) {
                 serviceIconMap[s.title] ||
                 WebDevIcon;
               return (
-                <div
+                <a
                   className={`${styles.serviceCard} ${styles.reveal}`}
+                  href={s.href}
                   key={s.title}
-                  onClick={() => router.push(s.href)}
                   style={{ transitionDelay: `${i * 70}ms` }}
                 >
                   <div className={styles.serviceIconWrap}>
@@ -614,7 +614,7 @@ function ServicesSection({ router, services, servicesError }) {
                   <h3 className={styles.serviceCardTitle}>{s.title}</h3>
                   <p className={styles.serviceCardDesc}>{s.desc}</p>
                   <span className={styles.serviceLink}>Learn more →</span>
-                </div>
+                </a>
               );
             })}
           </div>
