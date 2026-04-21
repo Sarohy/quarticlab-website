@@ -214,7 +214,7 @@ function ContactCards() {
           Outside Pakistan hours?{" "}
           <a
             className={styles.callbackLink}
-            href="https://calendly.com/request-demo-zweidevs/meeting"
+            href="https://calendly.com/quarticlab/meeting"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -330,7 +330,7 @@ function FormSection() {
             <ul className={styles.successLinks}>
               <li>
                 <a
-                  href="https://calendly.com/request-demo-zweidevs/meeting"
+                  href="https://calendly.com/quarticlab/meeting"
                   rel="noopener noreferrer"
                   target="_blank"
                 >

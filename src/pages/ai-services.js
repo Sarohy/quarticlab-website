@@ -217,10 +217,7 @@ export default function AIServicesPage() {
             <button
               className={styles.btnPrimary}
               onClick={() =>
-                window.open(
-                  "https://calendly.com/request-demo-zweidevs/meeting",
-                  "_blank",
-                )
+                window.open("https://calendly.com/quarticlab/meeting", "_blank")
               }
             >
               Book Free AI Audit
