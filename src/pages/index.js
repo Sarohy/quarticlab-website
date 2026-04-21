@@ -1577,23 +1577,17 @@ function TestimonialsSection({ testimonials }) {
               }`}
               key={t.name}
             >
-              {(t.companyLogoUrl || t.company) && (
-                <div className={styles.testimonialCompanyTop}>
-                  {t.companyLogoUrl && (
-                    <Image
-                      alt={t.company}
-                      className={styles.testimonialCompanyLogoTop}
-                      height={28}
-                      src={t.companyLogoUrl}
-                      width={56}
-                    />
-                  )}
-                  <span className={styles.testimonialCompanyNameTop}>
-                    {t.company}
+              <span aria-hidden="true" className={styles.testimonialQuoteMark}>
+                &ldquo;
+              </span>
+              <div aria-label="5 stars" className={styles.testimonialStars}>
+                {[1, 2, 3, 4, 5].map(s => (
+                  <span className={styles.testimonialStar} key={s}>
+                    ★
                   </span>
-                </div>
-              )}
-              <p className={styles.testimonialText}>&ldquo;{t.text}&rdquo;</p>
+                ))}
+              </div>
+              <p className={styles.testimonialText}>{t.text}</p>
               <div className={styles.testimonialAuthor}>
                 {t.avatarUrl || t.img ? (
                   <Image
@@ -1616,6 +1610,21 @@ function TestimonialsSection({ testimonials }) {
                     </span>
                   )}
                 </div>
+                {t.companyLogoUrl ? (
+                  <Image
+                    alt={t.company || "Company logo"}
+                    className={styles.testimonialCompanyLogo}
+                    height={28}
+                    src={t.companyLogoUrl}
+                    width={80}
+                  />
+                ) : (
+                  t.company && (
+                    <span className={styles.testimonialCompanyBadge}>
+                      {t.company}
+                    </span>
+                  )
+                )}
               </div>
             </div>
           ))}
