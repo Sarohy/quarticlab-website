@@ -336,7 +336,11 @@ export default function ProjectsNewPage({ projects = [] }) {
                   <div className={styles.projectImgSide}>
                     {p.imageUrl ? (
                       <Image
-                        alt={p.title}
+                        alt={`${p.title}${
+                          p.types?.length
+                            ? ` — ${p.types.join(", ")} project`
+                            : ""
+                        } by Quartic Lab`}
                         className={styles.projectRowImg}
                         fill
                         sizes="(max-width: 768px) 100vw, 52vw"

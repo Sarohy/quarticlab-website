@@ -502,7 +502,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
                     <span className={styles.projectIndex}>{i + 1}</span>
                     {(p.image || p.image_url) && (
                       <Image
-                        alt={p.title}
+                        alt={`${p.title} — ${data.category} project by Quartic Lab`}
                         className={styles.projectImg}
                         fill
                         sizes="(max-width: 590px) 100vw, 33vw"

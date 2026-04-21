@@ -1352,7 +1352,9 @@ function ProjectCard({ p }) {
       <div className={styles.projectImgWrap}>
         {p.image ? (
           <Image
-            alt={p.title}
+            alt={`${p.title}${
+              p.types?.length ? ` — ${p.types[0]} project` : ""
+            } by Quartic Lab`}
             className={styles.projectImg}
             fill
             sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
