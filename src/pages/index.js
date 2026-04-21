@@ -1390,11 +1390,19 @@ function ProjectsSection({ projects, projectsError }) {
                   transition: noTransition ? "none" : undefined,
                 }}
               >
-                {looped.map((p, i) => (
-                  <div className={styles.projectSlide} key={i}>
-                    <ProjectCard p={p} />
-                  </div>
-                ))}
+                {looped.map((p, i) => {
+                  const isClone =
+                    i < CAROUSEL_VISIBLE || i >= total + CAROUSEL_VISIBLE;
+                  return (
+                    <div
+                      aria-hidden={isClone || undefined}
+                      className={styles.projectSlide}
+                      key={i}
+                    >
+                      <ProjectCard p={p} />
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
@@ -1681,6 +1689,7 @@ export async function getServerSideProps() {
   let projectsError = false;
   try {
     const pData = await getAllProjects();
+    const seen = new Set();
     projects = (pData || [])
       .filter(p => p.is_active !== false)
       .map(p => ({
@@ -1690,6 +1699,16 @@ export async function getServerSideProps() {
         image: p.image_url || p.image || p.imageUrl || p.img || null,
         order: Number(p.order_no ?? p.order ?? 0),
       }))
+      // Dedupe by case-insensitive title so any data entry with the same
+      // project added twice (audit A2) never reaches the carousel.
+      .filter(p => {
+        const key = p.title.trim().toLowerCase();
+        if (!key || seen.has(key)) {
+          return false;
+        }
+        seen.add(key);
+        return true;
+      })
       .sort((a, b) =>
         a.order === b.order
           ? a.title.localeCompare(b.title)
