@@ -5,7 +5,6 @@ const routesPaths = {
   aboutUs: "/about",
   blogs: "/blog",
   projects: "/projects",
-  howWeWork: "/how-we-work",
   contactUs: "/contact",
 };
 
