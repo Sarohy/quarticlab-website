@@ -101,6 +101,7 @@ export default function AIServicesPage() {
             "automation pipelines built by Quartic Lab for startups and " +
             "enterprises. Book a free AI scoping call."
           }
+          key="description"
           name="description"
         />
       </Head>

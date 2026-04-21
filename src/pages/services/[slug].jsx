@@ -363,7 +363,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
     <div className={styles.page}>
       <Head>
         <title>{`${data.category} — Quartic Lab`}</title>
-        <meta content={data.heroSub} name="description" />
+        <meta content={data.heroSub} key="description" name="description" />
         <meta
           content={`${data.category} — Quartic Lab`}
           key="og:title"

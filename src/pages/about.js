@@ -1246,6 +1246,7 @@ export default function AboutPage() {
         <title>About Us &mdash; Quartic Lab</title>
         <meta
           content="Quartic Lab is a research-driven software studio from Lahore. Learn about our values, process, engagement models, and what it is like to work with us."
+          key="description"
           name="description"
         />
         <meta

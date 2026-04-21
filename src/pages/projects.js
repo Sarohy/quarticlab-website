@@ -193,6 +193,7 @@ export default function ProjectsNewPage({ projects = [] }) {
             "apps, mobile applications, AI & ML solutions, and blockchain " +
             "platforms. Trusted by global clients."
           }
+          key="description"
           name="description"
         />
         <meta
