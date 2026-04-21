@@ -139,6 +139,26 @@ export default function ServicesNew({ services = [] }) {
           content="Web, mobile, AI/ML, GenAI, blockchain, IoT, UI/UX, and DevOps services from Quartic Lab. One senior team, 12-hour estimates on every brief."
           name="description"
         />
+        <meta
+          content="Services — Quartic Lab"
+          key="og:title"
+          property="og:title"
+        />
+        <meta
+          content="Web, mobile, AI/ML, GenAI, blockchain, IoT, UI/UX, and DevOps services from Quartic Lab. One senior team, 12-hour estimates on every brief."
+          key="og:description"
+          property="og:description"
+        />
+        <meta
+          content="Services — Quartic Lab"
+          key="twitter:title"
+          name="twitter:title"
+        />
+        <meta
+          content="Web, mobile, AI/ML, GenAI, blockchain, IoT, UI/UX, and DevOps services from Quartic Lab."
+          key="twitter:description"
+          name="twitter:description"
+        />
       </Head>
 
       {/* ── HERO ───────────────────────────────── */}

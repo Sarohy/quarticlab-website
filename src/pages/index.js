@@ -513,6 +513,26 @@ export default function LandingPage({
           content="Quartic Lab builds web, mobile, and AI products for startups and enterprises. 50+ projects shipped across 3 continents. Get a 12-hour project estimate."
           name="description"
         />
+        <meta
+          content="Quartic Lab — Software Development Agency for Web, Mobile & AI"
+          key="og:title"
+          property="og:title"
+        />
+        <meta
+          content="Quartic Lab builds web, mobile, and AI products for startups and enterprises. 50+ projects shipped across 3 continents."
+          key="og:description"
+          property="og:description"
+        />
+        <meta
+          content="Quartic Lab — Software Development Agency for Web, Mobile & AI"
+          key="twitter:title"
+          name="twitter:title"
+        />
+        <meta
+          content="Quartic Lab builds web, mobile, and AI products for startups and enterprises. 50+ projects shipped across 3 continents."
+          key="twitter:description"
+          name="twitter:description"
+        />
         <script
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
           type="application/ld+json"

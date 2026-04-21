@@ -203,11 +203,10 @@ export default function ProjectsNewPage({ projects = [] }) {
           }
           name="keywords"
         />
-        <link href={`${SITE_URL}/projects`} rel="canonical" />
-        <meta content="website" property="og:type" />
-        <meta content={`${SITE_URL}/projects`} property="og:url" />
+        <meta content={`${SITE_URL}/projects`} key="og:url" property="og:url" />
         <meta
           content="Portfolio | Quartic Lab — Web, Mobile & AI Projects"
+          key="og:title"
           property="og:title"
         />
         <meta
@@ -216,16 +215,12 @@ export default function ProjectsNewPage({ projects = [] }) {
             "apps, mobile applications, AI & ML solutions, and blockchain " +
             "platforms."
           }
+          key="og:description"
           property="og:description"
         />
         <meta
-          content={`${SITE_URL}/assets/og-projects.jpg`}
-          property="og:image"
-        />
-        <meta content="Quartic Lab" property="og:site_name" />
-        <meta content="summary_large_image" name="twitter:card" />
-        <meta
           content="Portfolio | Quartic Lab — Web, Mobile & AI Projects"
+          key="twitter:title"
           name="twitter:title"
         />
         <meta
@@ -234,11 +229,8 @@ export default function ProjectsNewPage({ projects = [] }) {
             "apps, mobile applications, AI & ML solutions, and blockchain " +
             "platforms."
           }
+          key="twitter:description"
           name="twitter:description"
-        />
-        <meta
-          content={`${SITE_URL}/assets/og-projects.jpg`}
-          name="twitter:image"
         />
         <script
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -1248,6 +1248,26 @@ export default function AboutPage() {
           content="Quartic Lab is a research-driven software studio from Lahore. Learn about our values, process, engagement models, and what it is like to work with us."
           name="description"
         />
+        <meta
+          content="About Us — Quartic Lab"
+          key="og:title"
+          property="og:title"
+        />
+        <meta
+          content="Quartic Lab is a research-driven software studio from Lahore. 15+ engineers serving clients across the US, Europe, and MENA since 2020."
+          key="og:description"
+          property="og:description"
+        />
+        <meta
+          content="About Us — Quartic Lab"
+          key="twitter:title"
+          name="twitter:title"
+        />
+        <meta
+          content="Quartic Lab is a research-driven software studio from Lahore. 15+ engineers serving clients across the US, Europe, and MENA since 2020."
+          key="twitter:description"
+          name="twitter:description"
+        />
         <script
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
           type="application/ld+json"

@@ -168,6 +168,26 @@ export default function ContactNewPage() {
           content="Talk to Quartic Lab. Share a brief, get a 12-hour estimate from a senior engineer — not a sales rep. Phone, email, and Lahore office."
           name="description"
         />
+        <meta
+          content="Contact — Quartic Lab"
+          key="og:title"
+          property="og:title"
+        />
+        <meta
+          content="Talk to Quartic Lab. Share a brief, get a 12-hour estimate from a senior engineer — not a sales rep."
+          key="og:description"
+          property="og:description"
+        />
+        <meta
+          content="Contact — Quartic Lab"
+          key="twitter:title"
+          name="twitter:title"
+        />
+        <meta
+          content="Talk to Quartic Lab. Share a brief, get a 12-hour estimate from a senior engineer — not a sales rep."
+          key="twitter:description"
+          name="twitter:description"
+        />
         <script
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
           type="application/ld+json"

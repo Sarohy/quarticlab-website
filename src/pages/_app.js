@@ -101,7 +101,66 @@ export default function App({ Component, navServices, pageProps }) {
       <div className={fontVariables} style={{ display: "contents" }}>
         <Layout>
           <Head>
-            <link href={canonicalUrl} rel="canonical" />
+            <link href={canonicalUrl} key="canonical-url" rel="canonical" />
+            <meta
+              content="Quartic Lab"
+              key="og:site_name"
+              property="og:site_name"
+            />
+            <meta content="website" key="og:type" property="og:type" />
+            <meta content="en_US" key="og:locale" property="og:locale" />
+            <meta content={canonicalUrl} key="og:url" property="og:url" />
+            <meta content="Quartic Lab" key="og:title" property="og:title" />
+            <meta
+              content="A full-service software agency building web, mobile, and AI products for startups and enterprises."
+              key="og:description"
+              property="og:description"
+            />
+            <meta
+              content={`${SITE_URL}/apple-touch-icon.png`}
+              key="og:image"
+              property="og:image"
+            />
+            <meta
+              content="512"
+              key="og:image:width"
+              property="og:image:width"
+            />
+            <meta
+              content="512"
+              key="og:image:height"
+              property="og:image:height"
+            />
+            <meta
+              content="Quartic Lab"
+              key="og:image:alt"
+              property="og:image:alt"
+            />
+            <meta
+              content="summary_large_image"
+              key="twitter:card"
+              name="twitter:card"
+            />
+            <meta
+              content="@quarticlab"
+              key="twitter:site"
+              name="twitter:site"
+            />
+            <meta
+              content="Quartic Lab"
+              key="twitter:title"
+              name="twitter:title"
+            />
+            <meta
+              content="A full-service software agency building web, mobile, and AI products for startups and enterprises."
+              key="twitter:description"
+              name="twitter:description"
+            />
+            <meta
+              content={`${SITE_URL}/apple-touch-icon.png`}
+              key="twitter:image"
+              name="twitter:image"
+            />
             <script type="application/ld+json">
               {JSON.stringify(organizationSchema)}
             </script>

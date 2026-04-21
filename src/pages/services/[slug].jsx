@@ -364,6 +364,27 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
       <Head>
         <title>{`${data.category} — Quartic Lab`}</title>
         <meta content={data.heroSub} name="description" />
+        <meta
+          content={`${data.category} — Quartic Lab`}
+          key="og:title"
+          property="og:title"
+        />
+        <meta
+          content={data.heroSub}
+          key="og:description"
+          property="og:description"
+        />
+        <meta content={serviceUrl} key="og:url" property="og:url" />
+        <meta
+          content={`${data.category} — Quartic Lab`}
+          key="twitter:title"
+          name="twitter:title"
+        />
+        <meta
+          content={data.heroSub}
+          key="twitter:description"
+          name="twitter:description"
+        />
         <script
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
           type="application/ld+json"
