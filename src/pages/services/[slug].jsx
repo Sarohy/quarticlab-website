@@ -322,11 +322,58 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
       ? linkedProjects
       : resolveProjects(data.projects);
 
+  const siteUrl = (
+    process.env.NEXT_PUBLIC_URL || "https://www.quarticlab.com"
+  ).replace(/\/$/, "");
+  const serviceUrl = `${siteUrl}/services/${slug}`;
+
+  const faqSchema =
+    Array.isArray(data.faq) && data.faq.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "@id": `${serviceUrl}#faq`,
+          mainEntity: data.faq.map(item => ({
+            "@type": "Question",
+            name: item.q,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.a,
+            },
+          })),
+        }
+      : null;
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${serviceUrl}#service`,
+    name: data.category,
+    description: data.heroSub || data.description,
+    url: serviceUrl,
+    provider: { "@id": `${siteUrl}/#organization` },
+    areaServed: [
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Country", name: "Pakistan" },
+    ],
+  };
+
   return (
     <div className={styles.page}>
       <Head>
         <title>{`${data.category} — Quartic Lab`}</title>
         <meta content={data.heroSub} name="description" />
+        <script
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+          type="application/ld+json"
+        />
+        {faqSchema && (
+          <script
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            type="application/ld+json"
+          />
+        )}
       </Head>
 
       {/* ── HERO ───────────────────────────────── */}

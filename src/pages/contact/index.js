@@ -143,6 +143,23 @@ function useReveal(selector) {
 export default function ContactNewPage() {
   useReveal(`.${styles.reveal}`);
 
+  const siteUrl = (
+    process.env.NEXT_PUBLIC_URL || "https://www.quarticlab.com"
+  ).replace(/\/$/, "");
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${siteUrl}/contact#faq`,
+    mainEntity: faqs.map(faq => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
+
   return (
     <div className={styles.page}>
       <Head>
@@ -150,6 +167,10 @@ export default function ContactNewPage() {
         <meta
           content="Get in touch with Quartic Lab. Let us discuss your project, explore collaboration opportunities, or just say hello."
           name="description"
+        />
+        <script
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          type="application/ld+json"
         />
       </Head>
 
