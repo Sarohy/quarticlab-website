@@ -36,9 +36,6 @@ import NextIcon from "../../../public/assets/serviceIcons/next.svg";
 
 import styles from "./servicesNew.module.css";
 
-/* ── MUI ────────────────────────────────────── */
-import Grid from "@mui/material/Grid";
-
 /* ── icon maps for dynamic Firestore data ──── */
 const serviceIconMap = SERVICE_ICON_MAP;
 
@@ -190,30 +187,35 @@ export default function ServicesNew({ services = [] }) {
             </p>
           </div>
 
-          <Grid container spacing={3}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 24,
+            }}
+          >
             {services.map((svc, i) => (
-              <Grid item key={svc.title} xs={12}>
-                <Link
-                  className={`${styles.serviceCard} ${styles.reveal}`}
-                  href={svc.slug ? `/services/${svc.slug}` : "/services"}
-                  ref={addRef}
-                  style={{ transitionDelay: `${i * 0.06}s` }}
-                >
-                  <ServiceIconRender
-                    size={32}
-                    slug={svc.slug}
-                    title={svc.title}
-                  />
-                  <h3 className={styles.serviceCardTitle}>{svc.title}</h3>
-                  <p className={styles.serviceCardDesc}>{svc.desc}</p>
-                  <TechBubbles names={svc.techNames} />
-                  <span className={styles.serviceLink}>
-                    Learn More <span aria-hidden="true">→</span>
-                  </span>
-                </Link>
-              </Grid>
+              <Link
+                className={`${styles.serviceCard} ${styles.reveal}`}
+                href={svc.slug ? `/services/${svc.slug}` : "/services"}
+                key={svc.title}
+                ref={addRef}
+                style={{ transitionDelay: `${i * 0.06}s` }}
+              >
+                <ServiceIconRender
+                  size={32}
+                  slug={svc.slug}
+                  title={svc.title}
+                />
+                <h3 className={styles.serviceCardTitle}>{svc.title}</h3>
+                <p className={styles.serviceCardDesc}>{svc.desc}</p>
+                <TechBubbles names={svc.techNames} />
+                <span className={styles.serviceLink}>
+                  Learn More <span aria-hidden="true">→</span>
+                </span>
+              </Link>
             ))}
-          </Grid>
+          </div>
         </div>
       </section>
 

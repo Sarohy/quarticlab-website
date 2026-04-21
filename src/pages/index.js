@@ -58,7 +58,6 @@ import TypeScriptIcon from "../../public/assets/serviceIcons/typescript.svg";
 import UnityIcon from "../../public/assets/serviceIcons/unityIcon.svg";
 import VueIcon from "../../public/assets/serviceIcons/vue.svg";
 import ZapierIcon from "../../public/assets/serviceIcons/zapier.svg";
-import Alert from "@mui/material/Alert";
 import CountrySelect from "@component/Components/CommonComponents/CountrySelect/CountrySelect";
 import {
   getAllProjects,
@@ -1790,6 +1789,56 @@ export async function getServerSideProps() {
   }
 }
 
+function InlineAlert({ children, onClose, severity = "info" }) {
+  const palette =
+    severity === "success"
+      ? { bg: "#e7f3ec", border: "#4caf50", fg: "#1b5e20" }
+      : severity === "error"
+        ? { bg: "#fdecea", border: "#d32f2f", fg: "#611a15" }
+        : { bg: "#e8f4fd", border: "#2196f3", fg: "#0d3c61" };
+  return (
+    <div
+      role="alert"
+      style={{
+        alignItems: "flex-start",
+        background: palette.bg,
+        borderLeft: `4px solid ${palette.border}`,
+        borderRadius: 3,
+        color: palette.fg,
+        display: "flex",
+        fontFamily: "var(--font-body)",
+        fontSize: 14,
+        gap: 12,
+        justifyContent: "space-between",
+        lineHeight: 1.5,
+        marginBottom: 16,
+        padding: "12px 14px",
+      }}
+    >
+      <span style={{ flex: 1, minWidth: 0 }}>{children}</span>
+      {onClose && (
+        <button
+          aria-label="Dismiss"
+          onClick={onClose}
+          style={{
+            background: "transparent",
+            border: 0,
+            color: palette.fg,
+            cursor: "pointer",
+            fontSize: 18,
+            lineHeight: 1,
+            opacity: 0.7,
+            padding: 0,
+          }}
+          type="button"
+        >
+          ×
+        </button>
+      )}
+    </div>
+  );
+}
+
 function ContactSection() {
   const [form, setForm] = useState({
     contact: "",
@@ -1885,13 +1934,12 @@ function ContactSection() {
           onSubmit={handleSubmit}
         >
           {alertMsg && (
-            <Alert
+            <InlineAlert
               onClose={() => setAlertMsg(null)}
               severity={alertMsg.severity}
-              sx={{ mb: 2 }}
             >
               {alertMsg.message}
-            </Alert>
+            </InlineAlert>
           )}
           <div className={styles.formRow}>
             <div style={{ flex: 1, minWidth: 0 }}>
