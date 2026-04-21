@@ -5,8 +5,10 @@ import styles from "../styles/aboutNew.module.css";
 
 /* ── data ────────────────────────────────────────── */
 
+// Aligned with the hero/mission prose (50+ products, 15-person team) and
+// the homepage stats block — audit C5.
 const stats = [
-  { label: "Projects delivered", suffix: "+", target: 150 },
+  { label: "Projects delivered", suffix: "+", target: 50 },
   { label: "Countries served", suffix: "+", target: 12 },
   { label: "Positive reviews", suffix: "+", target: 680 },
   { label: "Client satisfaction", suffix: "%", target: 99 },

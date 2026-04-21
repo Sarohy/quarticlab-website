@@ -373,23 +373,25 @@ const StatIconSatisfaction = () => (
   </svg>
 );
 
+// Keep these targets consistent with the About page prose
+// (15-person team, 50+ products shipped) — audit C5.
 const stats = [
   {
-    target: 412,
+    target: 50,
     suffix: "+",
     label: "Projects completed",
     Icon: StatIconProjects,
     accent: "var(--ql-copper)",
   },
   {
-    target: 682,
+    target: 680,
     suffix: "+",
     label: "Positive reviews",
     Icon: StatIconReviews,
     accent: "var(--ql-copper)",
   },
   {
-    target: 95,
+    target: 15,
     suffix: "+",
     label: "Team members",
     Icon: StatIconTeam,
