@@ -1,11 +1,13 @@
 import routesPaths from "./routePaths";
 
+// Blog is intentionally excluded from nav until posts are published
+// (audit C4). The /blog route still exists but is not surfaced in the
+// header or footer quick links.
 const navLinks = [
   { href: routesPaths.home, text: "Home" },
   { hasDropdown: true, href: routesPaths.services, text: "Services" },
   { href: routesPaths.projects, text: "Portfolio" },
   { href: routesPaths.aboutUs, text: "About" },
-  { href: routesPaths.blogs, text: "Blog" },
   { href: routesPaths.contactUs, text: "Contact" },
 ];
 
