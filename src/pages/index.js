@@ -229,7 +229,14 @@ const defaultTestimonials = [
 
 /* Projects: four stacked layers suggesting a build stack */
 const StatIconProjects = () => (
-  <svg fill="none" height="24" viewBox="0 0 24 24" width="24">
+  <svg
+    aria-hidden="true"
+    fill="none"
+    focusable="false"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+  >
     <path
       d="M4 17l8 4 8-4"
       stroke="currentColor"
@@ -256,7 +263,14 @@ const StatIconProjects = () => (
 
 /* Reviews: speech bubble with a single checkmark inside */
 const StatIconReviews = () => (
-  <svg fill="none" height="24" viewBox="0 0 24 24" width="24">
+  <svg
+    aria-hidden="true"
+    fill="none"
+    focusable="false"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+  >
     <path
       d="M4 4h16v12H7l-3 4V4z"
       stroke="currentColor"
@@ -275,7 +289,14 @@ const StatIconReviews = () => (
 
 /* Team: K₃ triangle graph — three connected nodes */
 const StatIconTeam = () => (
-  <svg fill="none" height="24" viewBox="0 0 24 24" width="24">
+  <svg
+    aria-hidden="true"
+    fill="none"
+    focusable="false"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+  >
     <line
       stroke="currentColor"
       strokeOpacity="0.55"
@@ -311,7 +332,14 @@ const StatIconTeam = () => (
 
 /* Funding: an upward arrow bursting through a horizontal bar */
 const StatIconFunding = () => (
-  <svg fill="none" height="24" viewBox="0 0 24 24" width="24">
+  <svg
+    aria-hidden="true"
+    fill="none"
+    focusable="false"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+  >
     <path
       d="M12 20V8"
       stroke="currentColor"
@@ -344,7 +372,14 @@ const StatIconFunding = () => (
 
 /* Satisfaction: a precision target / bullseye */
 const StatIconSatisfaction = () => (
-  <svg fill="none" height="24" viewBox="0 0 24 24" width="24">
+  <svg
+    aria-hidden="true"
+    fill="none"
+    focusable="false"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+  >
     <circle
       cx="12"
       cy="12"
@@ -639,8 +674,10 @@ function ServicesSection({ router, services, servicesError }) {
 function AboutDoodle() {
   return (
     <svg
+      aria-hidden="true"
       className={styles.aboutDoodle}
       fill="none"
+      focusable="false"
       viewBox="0 0 420 400"
       xmlns="http://www.w3.org/2000/svg"
     >

@@ -81,6 +81,8 @@ function QuarticMark({
 
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       height={size}
       style={{ overflow: "visible" }}
       viewBox="0 0 100 100"

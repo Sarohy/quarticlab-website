@@ -11,7 +11,9 @@ export const WebDevIcon = ({
   ...props
 }) => (
   <svg
+    aria-hidden="true"
     fill="none"
+    focusable="false"
     height={size}
     viewBox="0 0 24 24"
     width={size}
@@ -55,7 +57,9 @@ export const MobileAppIcon = ({
   ...props
 }) => (
   <svg
+    aria-hidden="true"
     fill="none"
+    focusable="false"
     height={size}
     viewBox="0 0 24 24"
     width={size}
@@ -124,7 +128,9 @@ export const BlockchainIcon = ({
   ...props
 }) => (
   <svg
+    aria-hidden="true"
     fill="none"
+    focusable="false"
     height={size}
     viewBox="0 0 24 24"
     width={size}
@@ -193,7 +199,9 @@ export const AiMlIcon = ({
   ...props
 }) => (
   <svg
+    aria-hidden="true"
     fill="none"
+    focusable="false"
     height={size}
     viewBox="0 0 24 24"
     width={size}
@@ -381,7 +389,9 @@ export const IotIcon = ({
   ...props
 }) => (
   <svg
+    aria-hidden="true"
     fill="none"
+    focusable="false"
     height={size}
     viewBox="0 0 24 24"
     width={size}
@@ -422,7 +432,9 @@ export const GameDevIcon = ({
   ...props
 }) => (
   <svg
+    aria-hidden="true"
     fill="none"
+    focusable="false"
     height={size}
     viewBox="0 0 24 24"
     width={size}
@@ -453,7 +465,9 @@ export const GenAiIcon = ({
   ...props
 }) => (
   <svg
+    aria-hidden="true"
     fill="none"
+    focusable="false"
     height={size}
     viewBox="0 0 24 24"
     width={size}
@@ -495,7 +509,9 @@ export const UiUxIcon = ({
   ...props
 }) => (
   <svg
+    aria-hidden="true"
     fill="none"
+    focusable="false"
     height={size}
     viewBox="0 0 24 24"
     width={size}
@@ -532,7 +548,9 @@ export const DevOpsIcon = ({
   ...props
 }) => (
   <svg
+    aria-hidden="true"
     fill="none"
+    focusable="false"
     height={size}
     viewBox="0 0 24 24"
     width={size}

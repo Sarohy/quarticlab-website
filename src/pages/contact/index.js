@@ -13,7 +13,14 @@ const contactMethods = [
     detail: "hello@quarticlab.com",
     href: "mailto:hello@quarticlab.com",
     icon: (
-      <svg fill="none" height="28" viewBox="0 0 28 28" width="28">
+      <svg
+        aria-hidden="true"
+        fill="none"
+        focusable="false"
+        height="28"
+        viewBox="0 0 28 28"
+        width="28"
+      >
         <rect
           height="16"
           rx="1"
@@ -38,7 +45,14 @@ const contactMethods = [
     detail: "6-B, Block B Phase 1, Johar Town, Lahore",
     href: "https://maps.google.com/?q=Johar+Town+Lahore",
     icon: (
-      <svg fill="none" height="28" viewBox="0 0 28 28" width="28">
+      <svg
+        aria-hidden="true"
+        fill="none"
+        focusable="false"
+        height="28"
+        viewBox="0 0 28 28"
+        width="28"
+      >
         <path
           d="M14 3C9.58 3 6 6.58 6 11c0 6.5 8 14 8 14s8-7.5 8-14c0-4.42-3.58-8-8-8z"
           stroke="currentColor"
@@ -55,7 +69,14 @@ const contactMethods = [
     detail: "+92 309 444 6225",
     href: "tel:+923094446225",
     icon: (
-      <svg fill="none" height="28" viewBox="0 0 28 28" width="28">
+      <svg
+        aria-hidden="true"
+        fill="none"
+        focusable="false"
+        height="28"
+        viewBox="0 0 28 28"
+        width="28"
+      >
         <path
           d="M6 4h5l2 5-3 2a11 11 0 005 5l2-3 5 2v5a2 2 0 01-2 2A16 16 0 014 6a2 2 0 012-2z"
           stroke="currentColor"

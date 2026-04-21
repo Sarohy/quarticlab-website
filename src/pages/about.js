@@ -158,7 +158,9 @@ const faqs = [
 function StatIcon({ index }) {
   const icons = [
     <svg
+      aria-hidden="true"
       fill="none"
+      focusable="false"
       key="layers"
       stroke="currentColor"
       strokeLinecap="round"
@@ -172,7 +174,9 @@ function StatIcon({ index }) {
       <path d="m2 12 10 5 10-5" />
     </svg>,
     <svg
+      aria-hidden="true"
       fill="none"
+      focusable="false"
       key="globe"
       stroke="currentColor"
       strokeLinecap="round"
@@ -186,7 +190,9 @@ function StatIcon({ index }) {
       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
     </svg>,
     <svg
+      aria-hidden="true"
       fill="none"
+      focusable="false"
       key="chat"
       stroke="currentColor"
       strokeLinecap="round"
@@ -199,7 +205,9 @@ function StatIcon({ index }) {
       <path d="m9 10 2 2 4-4" />
     </svg>,
     <svg
+      aria-hidden="true"
       fill="none"
+      focusable="false"
       key="target"
       stroke="currentColor"
       strokeLinecap="round"
@@ -219,7 +227,9 @@ function StatIcon({ index }) {
 function ValueIcon({ index }) {
   const icons = [
     <svg
+      aria-hidden="true"
       fill="none"
+      focusable="false"
       key="crosshair"
       stroke="currentColor"
       strokeLinecap="round"
@@ -235,7 +245,9 @@ function ValueIcon({ index }) {
       <line x1="12" x2="12" y1="18" y2="22" />
     </svg>,
     <svg
+      aria-hidden="true"
       fill="none"
+      focusable="false"
       key="eye"
       stroke="currentColor"
       strokeLinecap="round"
@@ -248,7 +260,9 @@ function ValueIcon({ index }) {
       <circle cx="12" cy="12" r="3" />
     </svg>,
     <svg
+      aria-hidden="true"
       fill="none"
+      focusable="false"
       key="zap"
       stroke="currentColor"
       strokeLinecap="round"
@@ -260,7 +274,9 @@ function ValueIcon({ index }) {
       <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
     </svg>,
     <svg
+      aria-hidden="true"
       fill="none"
+      focusable="false"
       key="clock"
       stroke="currentColor"
       strokeLinecap="round"
@@ -279,8 +295,10 @@ function ValueIcon({ index }) {
 function MissionDoodle() {
   return (
     <svg
+      aria-hidden="true"
       className={styles.missionDoodle}
       fill="none"
+      focusable="false"
       viewBox="0 0 420 420"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -1471,7 +1489,9 @@ function ProcessSection() {
         <div className={`${styles.supportCallout} ${styles.reveal}`}>
           <span className={styles.supportCalloutIcon}>
             <svg
+              aria-hidden="true"
               fill="none"
+              focusable="false"
               height="22"
               stroke="currentColor"
               strokeLinecap="round"
