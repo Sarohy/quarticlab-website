@@ -65,14 +65,17 @@ export default function App({ Component, navServices, pageProps }) {
   }, [navServices]);
 
   const organizationSchema = {
-    "@context": "http://schema.org",
+    "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
     name: "Quartic Lab",
+    legalName: "Quartic Lab",
     description:
       "A full-service software agency building web, mobile, and AI" +
       " products for startups and enterprises.",
-    url: process.env.NEXT_PUBLIC_URL,
-    logo: process.env.NEXT_PUBLIC_LOGO,
+    url: `${SITE_URL}/`,
+    logo: process.env.NEXT_PUBLIC_LOGO || `${SITE_URL}/mark-dark.svg`,
+    foundingDate: "2020",
     sameAs: [
       "https://www.linkedin.com/company/quarticlab",
       "https://twitter.com/quarticlab",
@@ -84,12 +87,13 @@ export default function App({ Component, navServices, pageProps }) {
       addressLocality: "Lahore",
       addressRegion: "Punjab",
       postalCode: "54000",
-      addressCountry: "Pakistan",
+      addressCountry: "PK",
     },
     contactPoint: {
       "@type": "ContactPoint",
-      contactType: "Telephone",
+      contactType: "customer service",
       telephone: "+923094446225",
+      availableLanguage: ["English"],
     },
   };
   return (

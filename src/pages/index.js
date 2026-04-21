@@ -488,6 +488,21 @@ export default function LandingPage({
   const functionalOk = hasFunctionalConsent(consent);
   useReveal(`.${styles.reveal}`);
 
+  const siteUrl = (
+    process.env.NEXT_PUBLIC_URL || "https://www.quarticlab.com"
+  ).replace(/\/$/, "");
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    url: `${siteUrl}/`,
+    name: "Quartic Lab",
+    description:
+      "A full-service software agency building web, mobile, and AI products for startups and enterprises.",
+    publisher: { "@id": `${siteUrl}/#organization` },
+    inLanguage: "en",
+  };
+
   return (
     <div className={styles.page}>
       <Head>
@@ -497,6 +512,10 @@ export default function LandingPage({
         <meta
           content="A full-service software agency building web, mobile, and AI products for startups and enterprises. 50+ projects shipped across 3 continents. Get a 12-hour project estimate."
           name="description"
+        />
+        <script
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          type="application/ld+json"
         />
       </Head>
       {functionalOk && (
