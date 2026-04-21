@@ -267,6 +267,7 @@ export default function ProjectsNewPage({ projects = [] }) {
                 d => d === "All" || disciplineCounts[d] > 0,
               ).map(d => (
                 <button
+                  aria-pressed={activeDiscipline === d}
                   className={`${styles.filterBtn} ${
                     activeDiscipline === d ? styles.filterActive : ""
                   }`}
@@ -290,6 +291,7 @@ export default function ProjectsNewPage({ projects = [] }) {
                 ind => ind === "All" || industryCounts[ind] > 0,
               ).map(ind => (
                 <button
+                  aria-pressed={activeIndustry === ind}
                   className={`${styles.filterBtn} ${
                     activeIndustry === ind ? styles.filterActive : ""
                   }`}

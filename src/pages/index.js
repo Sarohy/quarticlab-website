@@ -1456,9 +1456,12 @@ function ProjectsSection({ projects, projectsError }) {
         ) : (
           <>
             <div
+              aria-label="Selected projects"
+              aria-roledescription="carousel"
               className={styles.projectCarousel}
               onMouseEnter={() => setPaused(true)}
               onMouseLeave={() => setPaused(false)}
+              role="region"
             >
               <div
                 className={styles.projectTrack}
@@ -1712,9 +1715,15 @@ function TestimonialsSection({ testimonials }) {
             </div>
           ))}
         </div>
-        <div className={styles.testimonialDots}>
+        <div
+          aria-label="Testimonial navigation"
+          className={styles.testimonialDots}
+          role="tablist"
+        >
           {testimonials.map((t, i) => (
             <button
+              aria-current={i === active ? "true" : undefined}
+              aria-label={`Show testimonial ${i + 1} of ${testimonials.length}`}
               className={`${styles.dot} ${
                 i === active ? styles.dotActive : ""
               }`}
