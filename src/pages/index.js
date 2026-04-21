@@ -1534,7 +1534,10 @@ function ProjectsSection({ projects, projectsError }) {
 
 function StatCard({ stat, delay }) {
   const isFloat = !Number.isInteger(stat.target);
-  const [count, setCount] = useState(0);
+  // SSR renders the final target value so crawlers and no-JS users
+  // see "50+ Projects completed", not "0+". The scroll-into-view
+  // count-up animation (below) is progressive enhancement only.
+  const [count, setCount] = useState(stat.target);
   const ref = useRef(null);
   const started = useRef(false);
   const Icon = stat.Icon;
