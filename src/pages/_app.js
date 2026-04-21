@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import NextApp from "next/app";
+import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import {
   IBM_Plex_Mono,
@@ -40,8 +41,22 @@ const fontVariables = [
   ibmPlexMono.variable,
 ].join(" ");
 
+const SITE_URL = (
+  process.env.NEXT_PUBLIC_URL || "https://www.quarticlab.com"
+).replace(/\/$/, "");
+
+function buildCanonicalUrl(asPath) {
+  const path = (asPath || "/").split(/[?#]/)[0];
+  if (path === "/" || path === "") {
+    return `${SITE_URL}/`;
+  }
+  return `${SITE_URL}${path.replace(/\/$/, "")}`;
+}
+
 export default function App({ Component, navServices, pageProps }) {
   const [svcList, setSvcList] = useState(navServices || []);
+  const router = useRouter();
+  const canonicalUrl = buildCanonicalUrl(router.asPath);
 
   useEffect(() => {
     if (navServices?.length) {
@@ -82,6 +97,7 @@ export default function App({ Component, navServices, pageProps }) {
       <div className={fontVariables} style={{ display: "contents" }}>
         <Layout>
           <Head>
+            <link href={canonicalUrl} rel="canonical" />
             <script type="application/ld+json">
               {JSON.stringify(organizationSchema)}
             </script>
