@@ -165,7 +165,10 @@ function Header() {
           Quartic <span className={styles.logoTextLight}>Lab</span>
         </span>
       </Link>
-      <nav className={`${styles.pagesContainer} ${styles.headerNav}`}>
+      <nav
+        aria-label="Primary"
+        className={`${styles.pagesContainer} ${styles.headerNav}`}
+      >
         {navLinks.map(({ href, text, hasDropdown }) =>
           hasDropdown ? (
             <div
@@ -316,6 +319,7 @@ function Header() {
       />
 
       <nav
+        aria-label="Mobile primary"
         className={`${styles.mobileDrawer} ${
           drawerOpen ? styles.mobileDrawerOpen : ""
         }`}
