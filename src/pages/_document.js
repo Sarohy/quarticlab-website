@@ -4,10 +4,10 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta
-          content="Quartic Lab is a software studio offering AI, Blockchain, IoT, Web, and Mobile development services."
-          name="description"
-        />
+        {/* No <meta name="description"> here — each page sets its own
+            description via next/head (audit C2). Leaving a generic tag
+            in _document renders alongside page-specific tags, which
+            search engines treat as duplicates. */}
         <link href="/favicon.ico" rel="icon" sizes="any" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
         <link

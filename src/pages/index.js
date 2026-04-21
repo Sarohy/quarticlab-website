@@ -511,6 +511,7 @@ export default function LandingPage({
         </title>
         <meta
           content="Quartic Lab builds web, mobile, and AI products for startups and enterprises. 50+ projects shipped across 3 continents. Get a 12-hour project estimate."
+          key="description"
           name="description"
         />
         <meta
