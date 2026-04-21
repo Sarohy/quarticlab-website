@@ -2016,8 +2016,12 @@ function ContactSection() {
           )}
           <div className={styles.formRow}>
             <div style={{ flex: 1, minWidth: 0 }}>
+              <label className={styles.srOnly} htmlFor="landing-name">
+                Your name
+              </label>
               <input
                 className={styles.formInput}
+                id="landing-name"
                 name="name"
                 onChange={handleChange}
                 placeholder="Your Name"
@@ -2037,8 +2041,12 @@ function ContactSection() {
               )}
             </div>
             <div style={{ flex: 1, minWidth: 0 }}>
+              <label className={styles.srOnly} htmlFor="landing-email">
+                Email address
+              </label>
               <input
                 className={styles.formInput}
+                id="landing-email"
                 name="email"
                 onChange={handleChange}
                 placeholder="Email Address"
@@ -2060,6 +2068,9 @@ function ContactSection() {
           </div>
           <div className={styles.formRow}>
             <div style={{ flex: 1, minWidth: 0 }}>
+              <label className={styles.srOnly} htmlFor="landing-country">
+                Country
+              </label>
               <CountrySelect
                 id="landing-country"
                 name="country"
@@ -2068,8 +2079,12 @@ function ContactSection() {
               />
             </div>
             <div style={{ flex: 1, minWidth: 0 }}>
+              <label className={styles.srOnly} htmlFor="landing-phone">
+                Phone number
+              </label>
               <input
                 className={styles.formInput}
+                id="landing-phone"
                 name="contact"
                 onChange={handleChange}
                 placeholder="Phone Number"
@@ -2078,8 +2093,12 @@ function ContactSection() {
               />
             </div>
           </div>
+          <label className={styles.srOnly} htmlFor="landing-description">
+            Project details
+          </label>
           <textarea
             className={styles.formTextarea}
+            id="landing-description"
             name="description"
             onChange={handleChange}
             placeholder="Tell us about your project..."
