@@ -21,13 +21,18 @@ export default function App({ Component, navServices, pageProps }) {
     "@type": "Organization",
     name: "Quartic Lab",
     description:
-      "Quartic Lab builds instruments for people who build instruments. Four tools — data, inference, simulation, interface — joined end-to-end.",
+      "A full-service software agency building web, mobile, and AI" +
+      " products for startups and enterprises.",
     url: process.env.NEXT_PUBLIC_URL,
     logo: process.env.NEXT_PUBLIC_LOGO,
+    sameAs: [
+      "https://www.linkedin.com/company/quarticlab",
+      "https://twitter.com/quarticlab",
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress:
-        " 6-B, Block B Phase 1 Johar Town, Lahore, Punjab , Pakistan",
+        "6-B, Block B Phase 1 Johar Town, Lahore, Punjab, Pakistan",
       addressLocality: "Lahore",
       addressRegion: "Punjab",
       postalCode: "54000",
@@ -35,8 +40,8 @@ export default function App({ Component, navServices, pageProps }) {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: process.env.NEXT_PUBLIC_TELEPHONE,
       contactType: "Telephone",
+      telephone: "+923094446225",
     },
   };
   return (
