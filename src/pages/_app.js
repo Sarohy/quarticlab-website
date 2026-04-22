@@ -162,12 +162,6 @@ export default function App({ Component, navServices, pageProps }) {
             <meta content="website" key="og:type" property="og:type" />
             <meta content="en_US" key="og:locale" property="og:locale" />
             <meta content={canonicalUrl} key="og:url" property="og:url" />
-            <meta content="Quartic Lab" key="og:title" property="og:title" />
-            <meta
-              content="A full-service software agency building web, mobile, and AI products for startups and enterprises."
-              key="og:description"
-              property="og:description"
-            />
             <meta
               content={`${SITE_URL}/apple-touch-icon.png`}
               key="og:image"
@@ -199,16 +193,6 @@ export default function App({ Component, navServices, pageProps }) {
               name="twitter:site"
             />
             <meta
-              content="Quartic Lab"
-              key="twitter:title"
-              name="twitter:title"
-            />
-            <meta
-              content="A full-service software agency building web, mobile, and AI products for startups and enterprises."
-              key="twitter:description"
-              name="twitter:description"
-            />
-            <meta
               content={`${SITE_URL}/apple-touch-icon.png`}
               key="twitter:image"
               name="twitter:image"
@@ -225,7 +209,6 @@ export default function App({ Component, navServices, pageProps }) {
                 type="application/ld+json"
               />
             )}
-            <title>Quartic Lab</title>
           </Head>
           <Component {...pageProps} />
         </Layout>

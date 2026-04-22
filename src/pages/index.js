@@ -1432,6 +1432,7 @@ function ProjectsSection({ projects, projectsError }) {
           <>
             <div
               aria-label="Selected projects"
+              aria-live="polite"
               aria-roledescription="carousel"
               className={styles.projectCarousel}
               onMouseEnter={() => setPaused(true)}
