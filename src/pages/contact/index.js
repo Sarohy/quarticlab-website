@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { submitContactForm } from "@component/firebase/firebaseRequests";
@@ -306,6 +306,9 @@ function FormSection() {
   const [submitError, setSubmitError] = useState(null);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  /* ── bot protection ─────────────────────── */
+  const [honeypot, setHoneypot] = useState("");
+  const formLoadTime = useRef(Date.now());
 
   const handleChange = e => {
     const { checked, name, type, value } = e.target;
@@ -345,6 +348,13 @@ function FormSection() {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    /* Silently reject bots: honeypot filled or form submitted faster
+       than any human could read + fill it (~3 s). Show success so bots
+       don't know they were blocked. */
+    if (honeypot || Date.now() - formLoadTime.current < 3000) {
+      setSubmitted(true);
+      return;
+    }
     setSubmitError(null);
     const errs = validate();
     if (Object.keys(errs).length) {
@@ -633,6 +643,21 @@ function FormSection() {
             <label className={styles.checkLabel} htmlFor="cf-nda">
               I need an NDA signed before sharing details
             </label>
+          </div>
+
+          {/* Honeypot — CSS-hidden, invisible to real users.
+               Bots fill it; we silently discard the submission. */}
+          <div aria-hidden="true" className={styles.honeypot}>
+            <label htmlFor="cf-website">Website</label>
+            <input
+              autoComplete="off"
+              id="cf-website"
+              name="website"
+              onChange={e => setHoneypot(e.target.value)}
+              tabIndex={-1}
+              type="text"
+              value={honeypot}
+            />
           </div>
 
           <button

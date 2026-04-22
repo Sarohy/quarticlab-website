@@ -744,6 +744,20 @@
   line-height: 1.5;
 }
 
+/* ── honeypot (bot trap) ──────────────────── */
+/* Positioned offscreen — bots see it, humans don't.
+   Do NOT use display:none or visibility:hidden;
+   some crawlers skip those. */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* ── submit error ─────────────────────────── */
 .submitError {
   display: flex;

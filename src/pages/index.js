@@ -610,7 +610,7 @@ function HeroSection() {
           </h1>
           <p className={styles.heroSub}>
             A full-stack software agency building web, mobile, and AI products
-            for startups and enterprises. One senior team, four years shipping,
+            for startups and enterprises. One senior team, shipping since 2020,
             zero handoff overhead.
           </p>
           <div className={styles.heroCtas}>
