@@ -138,11 +138,6 @@ const iconMap = {
   uiux3Icon,
   uiux4Icon,
   uiux5Icon,
-  /* game dev */
-  gd1Icon,
-  gd2Icon,
-  gd3Icon,
-  gd4Icon,
   /* iot */
   iot1Icon,
   iot2Icon,
@@ -211,7 +206,6 @@ const navIconMap = {
   "blockchain-development": BlockchainIcon,
   "mobile-development": MobileDevIcon,
   "ui-ux-design": UIUXIcon,
-  "game-development": GameDevIcon,
   "iot-development": IOTDevIcon,
   "ai-ml-development": AIDevIcon,
   devops: DevopsIcon,

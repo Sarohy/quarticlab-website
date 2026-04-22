@@ -20,10 +20,6 @@ export const urls = {
       url: "/services/iot-development",
       title: "IoT Development",
     },
-    GD: {
-      url: "/services/game-development",
-      title: "Game Development",
-    },
     GenAI: {
       url: "/services/genai-automation",
       title: "GenAI & Automation",

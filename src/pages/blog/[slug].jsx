@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { getBlogBySlug } from "@component/firebase/firebaseRequests";
 import { SITE_URL } from "@component/utils/siteUrl";
 import styles from "./blogNew.module.css";
@@ -231,31 +230,10 @@ function NewsletterForm({ email, onEmailChange, onSubmit, subStatus }) {
 }
 
 /* ── page ────────────────────────────────── */
-const BlogDetail = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-  const [post, setPost] = useState(null);
-  const [fetchStatus, setFetchStatus] = useState("loading");
+const BlogDetail = ({ post, fetchStatus }) => {
   const [email, setEmail] = useState("");
   const [subStatus, setSubStatus] = useState("idle");
   const contentRef = useRef(null);
-
-  useEffect(() => {
-    if (!slug) {
-      return;
-    }
-    setFetchStatus("loading");
-    getBlogBySlug(slug)
-      .then(data => {
-        if (data) {
-          setPost(data);
-          setFetchStatus("ok");
-        } else {
-          setFetchStatus("notfound");
-        }
-      })
-      .catch(() => setFetchStatus("error"));
-  }, [slug]);
 
   const handleSubscribe = async e => {
     e.preventDefault();
@@ -270,7 +248,7 @@ const BlogDetail = () => {
       await subscribeEmail({
         email,
         source: "blog_detail",
-        slug,
+        slug: post?.slug,
         subscribedAt: new Date().toISOString(),
         confirmed: false,
       });
@@ -281,7 +259,7 @@ const BlogDetail = () => {
     }
   };
 
-  if (fetchStatus === "loading" || !slug) {
+  if (fetchStatus === "loading") {
     return (
       <div className={styles.page}>
         <ScrollProgress />
@@ -507,3 +485,16 @@ const BlogDetail = () => {
 };
 
 export default BlogDetail;
+
+export async function getServerSideProps(context) {
+  const { slug } = context.params;
+  try {
+    const post = await getBlogBySlug(slug);
+    if (!post) {
+      return { props: { post: null, fetchStatus: "notfound" } };
+    }
+    return { props: { post, fetchStatus: "ok" } };
+  } catch {
+    return { props: { post: null, fetchStatus: "error" } };
+  }
+}

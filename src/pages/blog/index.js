@@ -97,16 +97,19 @@ function useReveal(selector, dep) {
 }
 
 /* ── page ────────────────────────────────── */
-const BlogPage = () => {
+const BlogPage = ({ initialPosts, initialError }) => {
   const [active, setActive] = useState("All");
-  const [status, setStatus] = useState("loading");
-  const [blogData, setBlogData] = useState([]);
+  const [blogData, setBlogData] = useState(initialPosts || []);
+  const [status, setStatus] = useState(
+    initialError ? "error" : (initialPosts || []).length ? "ok" : "empty",
+  );
   const [animKey, setAnimKey] = useState(0);
   const [email, setEmail] = useState("");
   const [subStatus, setSubStatus] = useState("idle");
 
   useReveal(`.${styles.reveal}`, animKey);
 
+  /* Client-side retry only — initial data comes from getServerSideProps */
   const fetchData = async () => {
     setStatus("loading");
     try {
@@ -136,11 +139,6 @@ const BlogPage = () => {
       setStatus("error");
     }
   };
-
-  useEffect(() => {
-    fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const handleFilter = f => {
     setActive(f);
@@ -187,9 +185,7 @@ const BlogPage = () => {
           }
           name="description"
         />
-        {/* Keep the empty/loading listing out of the index so we don't
-            get ranked for a thin "no articles yet" page. Once posts
-            land (status === "ok"), let search engines crawl it. */}
+        {/* Noindex until posts exist — status is known at SSR time */}
         {status !== "ok" && <meta content="noindex, follow" name="robots" />}
         <link href={`${SITE_URL}/blog`} rel="canonical" />
         <meta content="website" property="og:type" />
@@ -451,6 +447,26 @@ function NewsletterForm({ email, onEmailChange, onSubmit, subStatus }) {
 
 export default BlogPage;
 
-export async function getStaticProps() {
-  return { props: {} };
+export async function getServerSideProps() {
+  try {
+    const results = await getAllBlogs();
+    const posts = (results || [])
+      .filter(item => item.status === "published")
+      .map(item => ({
+        slug: item.slug,
+        heroImage: item.heroImage || "",
+        title: item.title || "",
+        metaDescription: item.metaDescription || "",
+        author: item.author || "Quartic Lab",
+        publishedDate: item.publishedDate || "",
+        readingTime: item.readingTime || estimateReadTime(item.contentHtml),
+        tags: item.tags || [],
+        category: tagToCategory(item.tags),
+        /* strip contentHtml — not needed on the listing page */
+        contentHtml: "",
+      }));
+    return { props: { initialPosts: posts, initialError: false } };
+  } catch {
+    return { props: { initialPosts: [], initialError: true } };
+  }
 }

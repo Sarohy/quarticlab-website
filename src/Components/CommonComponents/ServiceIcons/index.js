@@ -425,39 +425,6 @@ export const IotIcon = ({
   </svg>
 );
 
-/* ── Game Development ─────────────────────── */
-export const GameDevIcon = ({
-  color = "oklch(58% 0.12 45)",
-  size = 24,
-  ...props
-}) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={size}
-    viewBox="0 0 24 24"
-    width={size}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    <path
-      d="M6 11h4M8 9v4"
-      stroke={color}
-      strokeLinecap="round"
-      strokeWidth="1.1"
-    />
-    <circle cx="16" cy="10" fill={color} r="1" />
-    <circle cx="18" cy="12" fill={color} r="1" />
-    <path
-      d="M2 12a5 5 0 015-5h10a5 5 0 013.5 8.56l-2 2A3 3 0 0116.38 19H15l-1.5-2h-3L9 19H7.62a3 3 0 01-2.12-.88l-2-2A5 5 0 012 12z"
-      stroke={color}
-      strokeLinejoin="round"
-      strokeWidth="1.1"
-    />
-  </svg>
-);
-
 /* ── GenAI & Automation ───────────────────── */
 export const GenAiIcon = ({
   color = "oklch(58% 0.12 45)",
@@ -609,7 +576,6 @@ export const SERVICE_ICON_MAP = {
   "AI/ML Development": AiMlIcon,
   "Blockchain Development": BlockchainIcon,
   DevOps: DevOpsIcon,
-  "Game Development": GameDevIcon,
   "GenAI & Automation": GenAiIcon,
   "IoT Development": IotIcon,
   "Mobile App Development": MobileAppIcon,
@@ -627,7 +593,6 @@ export const SERVICE_ICON_BY_SLUG = {
   "ai-ml-development": AiMlIcon,
   "blockchain-development": BlockchainIcon,
   devops: DevOpsIcon,
-  "game-development": GameDevIcon,
   "genai-automation": GenAiIcon,
   "iot-development": IotIcon,
   "mobile-development": MobileAppIcon,

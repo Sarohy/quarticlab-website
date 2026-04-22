@@ -33,10 +33,6 @@ const FooterAllServices = () => {
       href: urls.services.IoT.url,
     },
     {
-      cardTitle: "Game Dev",
-      href: urls.services.GD.url,
-    },
-    {
       cardTitle: "GenAI & Automation",
       href: urls.services.GenAI.url,
     },

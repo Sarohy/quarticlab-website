@@ -16,7 +16,6 @@ const SLUG_DESC = {
   "ai-ml-development": "ML models, NLP & computer vision",
   "blockchain-development": "Smart contracts, DeFi & Web3",
   devops: "CI/CD, Kubernetes & cloud infra",
-  "game-development": "Unity, Unreal & immersive experiences",
   "genai-automation": "LLMs, agents, RAG & automation",
   "iot-development": "Connected devices & edge computing",
   "mobile-development": "iOS, Android & cross-platform apps",
@@ -32,7 +31,6 @@ const DROPDOWN_GROUPS_CONFIG = [
       "mobile-development",
       "blockchain-development",
       "iot-development",
-      "game-development",
     ],
   },
   {
@@ -146,8 +144,7 @@ function Header() {
     setMobileServicesOpen(false);
   }, [route.asPath]);
 
-  const isServicesActive =
-    pathInitialSegment === "/services" || pathInitialSegment === "/ai-services";
+  const isServicesActive = pathInitialSegment === "/services";
 
   const displayWeb = () => (
     <header

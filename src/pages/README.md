@@ -52,7 +52,7 @@ This folder contains all Next.js pages following the **file-based routing** conv
 ### `services/[serviceName]/ServiceDetails.jsx`
 
 - A single 1800+ line dynamic component that renders different content based on `router.query.serviceName`.
-- Covers: Web Dev, Mobile Dev, UI/UX, Game Dev, Blockchain, AI/ML, IoT, DevOps & Cloud.
+- Covers: Web Dev, Mobile Dev, UI/UX, Blockchain, AI/ML, IoT, DevOps & Cloud.
 
 ## Environment Variables Used
 

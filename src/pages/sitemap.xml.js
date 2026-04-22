@@ -10,7 +10,6 @@ const STATIC_ROUTES = [
   { path: "/about", changefreq: "monthly", priority: "0.80" },
   { path: "/projects", changefreq: "monthly", priority: "0.80" },
   { path: "/contact", changefreq: "monthly", priority: "0.80" },
-  { path: "/ai-services", changefreq: "monthly", priority: "0.70" },
   {
     path: "/services/web-development",
     changefreq: "monthly",
@@ -43,11 +42,6 @@ const STATIC_ROUTES = [
   },
   { path: "/services/devops", changefreq: "monthly", priority: "0.85" },
   { path: "/services/ui-ux-design", changefreq: "monthly", priority: "0.85" },
-  {
-    path: "/services/game-development",
-    changefreq: "monthly",
-    priority: "0.85",
-  },
   { path: "/privacy", changefreq: "yearly", priority: "0.30" },
   { path: "/terms", changefreq: "yearly", priority: "0.30" },
   { path: "/cookies", changefreq: "yearly", priority: "0.30" },

@@ -38,12 +38,6 @@ export const SERVICE_DROPDOWN = [
         icon: "iot-development",
         text: "IoT Solutions",
       },
-      {
-        desc: "Unity, Unreal & immersive experiences",
-        href: "/services/game-development",
-        icon: "game-development",
-        text: "Game Development",
-      },
     ],
   },
   {

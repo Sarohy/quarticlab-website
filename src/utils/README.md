@@ -42,7 +42,6 @@ urls.services.WebApp.title; // "Web Development"
 | `WebApp`    | `/services/web-development`                          | Web Development                            |
 | `MobileApp` | `/services/mobile-app-development`                   | Mobile App Development                     |
 | `UIUX`      | `/services/uiux-development`                         | UI & UX Development                        |
-| `GD`        | `/services/game-development`                         | Game Development                           |
 | `IoT`       | `/services/iot-devices`                              | IOT Devices                                |
 | `AI`        | `/services/artificial-intelligence-machine-learning` | Artificial Intelligence & Machine Learning |
 | `Ecommerce` | `services/E-commerce Development`                    | E-commerce Development                     |

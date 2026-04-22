@@ -77,7 +77,6 @@ const slugMap = {
   "Blockchain Development": "blockchain-development",
   "Mobile App Development": "mobile-app-development",
   "UI/UX Development": "uiux-development",
-  "Game Development": "game-development",
   "IOT Devices": "iot-devices",
   "Artificial Intelligence & Machine Learning":
     "artificial-intelligence-machine-learning",

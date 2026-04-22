@@ -71,7 +71,6 @@ zweidevs-website/
 - IoT Devices
 - DevOps & Cloud
 - UI & UX Design
-- Game Development
 
 ---
 
