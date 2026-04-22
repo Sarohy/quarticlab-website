@@ -128,6 +128,7 @@ const BlogPage = () => {
           }));
         setBlogData(mapped);
         setStatus(mapped.length ? "ok" : "empty");
+        setAnimKey(k => k + 1);
       } else {
         setStatus("empty");
       }

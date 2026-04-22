@@ -402,7 +402,7 @@ const BlogDetail = () => {
           {/* two-col: body + sidebar */}
           <div className={styles.detailLayout}>
             {/* article body */}
-            <div>
+            <div className={styles.detailBodyCol}>
               {post.contentHtml && <TableOfContents html={post.contentHtml} />}
               <article
                 className={styles.detailContent}

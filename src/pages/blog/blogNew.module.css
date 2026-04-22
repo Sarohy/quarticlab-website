@@ -595,7 +595,7 @@
   width: 100%;
   max-width: 900px;
   margin: 0 auto 56px;
-  aspect-ratio: 16 / 7;
+  aspect-ratio: 16 / 9;
   border-radius: 2px;
   overflow: hidden;
   background: var(--ql-parchment);
@@ -720,9 +720,14 @@
 }
 
 /* ── detail sidebar ───────────────────────── */
+.detailBodyCol {
+  min-width: 0;
+  max-width: 720px;
+}
+
 .detailSidebar {
   position: sticky;
-  top: 100px;
+  top: 88px;
 }
 
 .sidebarCard {
@@ -1342,7 +1347,11 @@
   .detailLayout {
     grid-template-columns: 1fr;
     max-width: 720px;
-    gap: 48px;
+    gap: 40px;
+  }
+
+  .detailBodyCol {
+    max-width: 100%;
   }
 
   .detailSidebar {
@@ -1352,8 +1361,12 @@
   .sidebarCard {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 16px;
     align-items: center;
+  }
+
+  .sidebarCta {
+    display: none;
   }
 
   .sidebarDivider {
