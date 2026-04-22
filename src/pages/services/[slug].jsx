@@ -23,12 +23,6 @@ import uiux3Icon from "../../../public/assets/serviceIcons/uiuxIcons/uiux3.svg";
 import uiux4Icon from "../../../public/assets/serviceIcons/uiuxIcons/uiux4.svg";
 import uiux5Icon from "../../../public/assets/serviceIcons/uiuxIcons/uiux5.svg";
 
-/* ── offering icons — gd ────────────────────── */
-import gd1Icon from "../../../public/assets/serviceIcons/gdIcons/gd1.svg";
-import gd2Icon from "../../../public/assets/serviceIcons/gdIcons/gd2.svg";
-import gd3Icon from "../../../public/assets/serviceIcons/gdIcons/gd3.svg";
-import gd4Icon from "../../../public/assets/serviceIcons/gdIcons/gd4.svg";
-
 /* ── offering icons — iot ───────────────────── */
 import iot1Icon from "../../../public/assets/serviceIcons/iotIcons/iot1.svg";
 import iot2Icon from "../../../public/assets/serviceIcons/iotIcons/iot2.svg";
@@ -98,7 +92,6 @@ import WebDevIcon from "../../../public/assets/serviceIcons/webdevIcon.svg";
 import BlockchainIcon from "../../../public/assets/serviceIcons/blockchainIcon.svg";
 import MobileDevIcon from "../../../public/assets/serviceIcons/MobDevIcon.svg";
 import UIUXIcon from "../../../public/assets/serviceIcons/uiuxIcon.svg";
-import GameDevIcon from "../../../public/assets/serviceIcons/GameDevIcon.svg";
 import IOTDevIcon from "../../../public/assets/serviceIcons/IOTIcon.svg";
 import AIDevIcon from "../../../public/assets/serviceIcons/AIDevIcon.svg";
 import DevopsIcon from "../../../public/assets/serviceIcons/devopsIcon.svg";
