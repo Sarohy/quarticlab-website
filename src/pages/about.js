@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { SITE_URL } from "../utils/siteUrl";
@@ -1173,28 +1173,6 @@ function MissionDoodle() {
 
 /* ── hooks ───────────────────────────────────────── */
 
-function useCountUp(target, duration = 1600) {
-  const [count, setCount] = useState(0);
-  const started = useRef(false);
-  const start = useCallback(() => {
-    if (started.current) {
-      return;
-    }
-    started.current = true;
-    const t0 = performance.now();
-    const step = now => {
-      const progress = Math.min((now - t0) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(eased * target));
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
-    };
-    requestAnimationFrame(step);
-  }, [target, duration]);
-  return [count, start];
-}
-
 function useReveal(selector) {
   useEffect(() => {
     const els = document.querySelectorAll(selector);
@@ -1432,8 +1410,11 @@ function ValuesSection() {
 }
 
 function StatCard({ delay, index, s }) {
-  const [count, startCount] = useCountUp(s.target);
+  // Initialise with the final target so SSR and no-JS users
+  // see the real number, not "0+". The count-up is progressive enhancement.
+  const [count, setCount] = useState(s.target);
   const ref = useRef(null);
+  const started = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -1445,7 +1426,22 @@ function StatCard({ delay, index, s }) {
         entries.forEach(e => {
           if (e.isIntersecting) {
             e.target.classList.add(styles.statVisible);
-            startCount();
+            if (!started.current) {
+              started.current = true;
+              const duration = 1600;
+              const target = s.target;
+              const startTime = performance.now();
+              const tick = now => {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                setCount(Math.round(eased * target));
+                if (progress < 1) {
+                  requestAnimationFrame(tick);
+                }
+              };
+              requestAnimationFrame(tick);
+            }
             obs.unobserve(e.target);
           }
         });
@@ -1454,7 +1450,8 @@ function StatCard({ delay, index, s }) {
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [startCount]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div

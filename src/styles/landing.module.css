@@ -284,7 +284,7 @@
   color: var(--ql-linen);
   margin: 0 0 28px;
   max-width: 700px;
-  animation: heroFadeIn 0.55s 0.2s ease both;
+  animation: heroFadeIn 0.4s 0s ease both;
 }
 
 .heroAccent {
