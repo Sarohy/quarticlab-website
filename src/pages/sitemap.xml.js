@@ -1,7 +1,7 @@
 import { SITE_URL } from "@component/utils/siteUrl";
 
 // Generate sitemap.xml per-request so <loc> entries always match the
-// host serving the response (audit F2). /how-we-work and /blog are
+// host serving the response (audit F2) and /blog are
 // intentionally excluded — see audit B1 and B2.
 
 const STATIC_ROUTES = [

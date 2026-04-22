@@ -58,7 +58,7 @@ const BREADCRUMB_LABEL_OVERRIDES = {
   "genai-automation": "GenAI & Automation",
   "ui-ux-design": "UI/UX Design",
   "ai-services": "AI Services",
-  "how-we-work": "How We Work",
+
   devops: "DevOps",
   iot: "IoT",
 };

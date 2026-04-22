@@ -23,13 +23,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   async redirects() {
-    return [
-      {
-        source: "/how-we-work",
-        destination: "/services#engagement-models",
-        permanent: true,
-      },
-    ];
+    return [];
   },
 };
 
