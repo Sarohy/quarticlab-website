@@ -67,6 +67,7 @@ import {
 import { hasFunctionalConsent, useConsent } from "@component/utils/consent";
 import { SITE_URL } from "@component/utils/siteUrl";
 import styles from "../styles/landing.module.css";
+import { siteUrl } from "@component/utils/siteUrl";
 
 /* ── data ────────────────────────────────────────── */
 
@@ -502,33 +503,41 @@ export default function LandingPage({
     <div className={styles.page}>
       <Head>
         <title>
-          Quartic Lab — Software Development Agency for Web, Mobile &amp; AI
+          Quartic Lab — Software development agency for startups & enterprises
         </title>
         <meta
-          content="Quartic Lab builds web, mobile, and AI products for startups and enterprises. 50+ projects shipped across 3 continents. Get a 12-hour project estimate."
-          key="description"
+          content="Quartic Lab is a full-stack software agency. We build AI, web, and mobile products for startups and enterprises. Ship faster with one senior team."
           name="description"
         />
+        <link href={`${siteUrl}/`} rel="canonical" />
+        <meta content="index, follow" name="robots" />
+
+        {/* Open Graph */}
+        <meta content="website" property="og:type" />
         <meta
-          content="Quartic Lab — Software Development Agency for Web, Mobile & AI"
-          key="og:title"
+          content="Quartic Lab — Software that ships. Teams that stay."
           property="og:title"
         />
         <meta
-          content="Quartic Lab builds web, mobile, and AI products for startups and enterprises. 50+ projects shipped across 3 continents."
-          key="og:description"
+          content="Full-stack software agency for startups & enterprises. AI, web, mobile."
           property="og:description"
         />
+        <meta content={`${siteUrl}/`} property="og:url" />
+        <meta content="Quartic Lab" property="og:site_name" />
+        <meta content={`${siteUrl}/og-image.png`} property="og:image" />
+        <meta content="1200" property="og:image:width" />
+        <meta content="630" property="og:image:height" />
+        <meta content="summary_large_image" name="twitter:card" />
+        <meta content="@quarticlab" name="twitter:site" />
         <meta
-          content="Quartic Lab — Software Development Agency for Web, Mobile & AI"
-          key="twitter:title"
+          content="Quartic Lab — Software that ships. Teams that stay."
           name="twitter:title"
         />
         <meta
-          content="Quartic Lab builds web, mobile, and AI products for startups and enterprises. 50+ projects shipped across 3 continents."
-          key="twitter:description"
+          content="Full-stack software agency for startups & enterprises. AI, web, mobile."
           name="twitter:description"
         />
+        <meta content={`${siteUrl}/og-image.png`} name="twitter:image" />
         <script
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
           type="application/ld+json"
