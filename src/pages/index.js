@@ -65,9 +65,8 @@ import {
   submitContactForm,
 } from "@component/firebase/firebaseRequests";
 import { hasFunctionalConsent, useConsent } from "@component/utils/consent";
-import { SITE_URL } from "@component/utils/siteUrl";
 import styles from "../styles/landing.module.css";
-import { siteUrl } from "@component/utils/siteUrl";
+import { SITE_URL } from "@component/utils/siteUrl";
 
 /* ── data ────────────────────────────────────────── */
 
@@ -509,7 +508,7 @@ export default function LandingPage({
           content="Quartic Lab is a full-stack software agency. We build AI, web, and mobile products for startups and enterprises. Ship faster with one senior team."
           name="description"
         />
-        <link href={`${siteUrl}/`} rel="canonical" />
+        <link href={`${SITE_URL}/`} rel="canonical" />
         <meta content="index, follow" name="robots" />
 
         {/* Open Graph */}
@@ -522,9 +521,9 @@ export default function LandingPage({
           content="Full-stack software agency for startups & enterprises. AI, web, mobile."
           property="og:description"
         />
-        <meta content={`${siteUrl}/`} property="og:url" />
+        <meta content={`${SITE_URL}/`} property="og:url" />
         <meta content="Quartic Lab" property="og:site_name" />
-        <meta content={`${siteUrl}/og-image.png`} property="og:image" />
+        <meta content={`${SITE_URL}/og-image.png`} property="og:image" />
         <meta content="1200" property="og:image:width" />
         <meta content="630" property="og:image:height" />
         <meta content="summary_large_image" name="twitter:card" />
@@ -537,7 +536,7 @@ export default function LandingPage({
           content="Full-stack software agency for startups & enterprises. AI, web, mobile."
           name="twitter:description"
         />
-        <meta content={`${siteUrl}/og-image.png`} name="twitter:image" />
+        <meta content={`${SITE_URL}/og-image.png`} name="twitter:image" />
         <script
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
           type="application/ld+json"
