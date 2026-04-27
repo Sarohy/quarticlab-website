@@ -428,10 +428,7 @@ function Header() {
           content="Quartic Lab builds instruments for people who build instruments. Data, inference, simulation, interface — joined end-to-end."
           name="description"
         />
-        <meta
-          content="software development, AI, blockchain, IoT, web development, mobile apps, machine learning, GenAI, automation"
-          name="keywords"
-        />
+
         <meta content="Quartic Lab" name="author" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="index, follow" name="robots" />
