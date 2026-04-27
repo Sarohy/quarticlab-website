@@ -1,17 +1,16 @@
-import Head from "next/head";
 import Link from "next/link";
+import Seo from "@component/Components/CommonComponents/Seo/Seo";
+import { SITE_URL } from "@component/utils/siteUrl";
 import styles from "../styles/legalPage.module.css";
 
 export default function PrivacyPage() {
   return (
     <div className={styles.page}>
-      <Head>
-        <title>Privacy Policy | Quartic Lab</title>
-        <meta
-          content="Quartic Lab privacy policy — what personal data we collect through our website and services, how we use it, and the rights you have over it."
-          name="description"
-        />
-      </Head>
+      <Seo
+        canonical={`${SITE_URL}/privacy`}
+        description="Quartic Lab privacy policy — what personal data we collect through our website and services, how we use it, and the rights you have over it."
+        title="Privacy Policy | Quartic Lab"
+      />
       <div className={styles.container}>
         <span className={styles.eyebrow}>Legal</span>
         <h1 className={styles.heading}>Privacy Policy</h1>

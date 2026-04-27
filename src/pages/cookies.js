@@ -1,17 +1,16 @@
-import Head from "next/head";
 import Link from "next/link";
+import Seo from "@component/Components/CommonComponents/Seo/Seo";
+import { SITE_URL } from "@component/utils/siteUrl";
 import styles from "../styles/legalPage.module.css";
 
 export default function CookiesPage() {
   return (
     <div className={styles.page}>
-      <Head>
-        <title>Cookie Policy | Quartic Lab</title>
-        <meta
-          content="Quartic Lab cookie policy — what cookies and similar technologies we use on our website, why we use them, and how you can control them."
-          name="description"
-        />
-      </Head>
+      <Seo
+        canonical={`${SITE_URL}/cookies`}
+        description="Quartic Lab cookie policy — what cookies and similar technologies we use on our website, why we use them, and how you can control them."
+        title="Cookie Policy | Quartic Lab"
+      />
       <div className={styles.container}>
         <span className={styles.eyebrow}>Legal</span>
         <h1 className={styles.heading}>Cookie Policy</h1>

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import Seo from "@component/Components/CommonComponents/Seo/Seo";
 import styles from "../styles/projectsNew.module.css";
 
 import { getAllProjects } from "../firebase/firebaseRequests";
@@ -184,59 +184,37 @@ export default function ProjectsNewPage({ projects = [] }) {
 
   return (
     <div className={styles.page}>
-      <Head>
-        <title>Portfolio | Quartic Lab</title>
-        <meta
-          content={
-            "Explore Quartic Lab's portfolio of software projects spanning web " +
-            "apps, mobile applications, AI & ML solutions, and blockchain " +
-            "platforms. Trusted by global clients."
-          }
-          key="description"
-          name="description"
-        />
-        <meta
-          content={
-            "software development portfolio, web app development, mobile app " +
-            "development, AI ML projects, blockchain development, React " +
-            "projects, Node.js projects, custom software"
-          }
-          name="keywords"
-        />
-        <meta content={`${SITE_URL}/projects`} key="og:url" property="og:url" />
-        <meta
-          content="Portfolio | Quartic Lab — Web, Mobile & AI Projects"
-          key="og:title"
-          property="og:title"
-        />
-        <meta
-          content={
-            "Explore Quartic Lab's portfolio of software projects spanning web " +
-            "apps, mobile applications, AI & ML solutions, and blockchain " +
-            "platforms."
-          }
-          key="og:description"
-          property="og:description"
-        />
-        <meta
-          content="Portfolio | Quartic Lab — Web, Mobile & AI Projects"
-          key="twitter:title"
-          name="twitter:title"
-        />
-        <meta
-          content={
-            "Explore Quartic Lab's portfolio of software projects spanning web " +
-            "apps, mobile applications, AI & ML solutions, and blockchain " +
-            "platforms."
-          }
-          key="twitter:description"
-          name="twitter:description"
-        />
+      <Seo
+        canonical={`${SITE_URL}/projects`}
+        description={
+          "Explore Quartic Lab's portfolio of software projects spanning web " +
+          "apps, mobile applications, AI & ML solutions, and blockchain " +
+          "platforms. Trusted by global clients."
+        }
+        keywords={
+          "software development portfolio, web app development, mobile app " +
+          "development, AI ML projects, blockchain development, React " +
+          "projects, Node.js projects, custom software"
+        }
+        ogDescription={
+          "Explore Quartic Lab's portfolio of software projects spanning web " +
+          "apps, mobile applications, AI & ML solutions, and blockchain " +
+          "platforms."
+        }
+        ogTitle="Portfolio | Quartic Lab — Web, Mobile & AI Projects"
+        title="Portfolio | Quartic Lab"
+        twitterDescription={
+          "Explore Quartic Lab's portfolio of software projects spanning web " +
+          "apps, mobile applications, AI & ML solutions, and blockchain " +
+          "platforms."
+        }
+        twitterTitle="Portfolio | Quartic Lab — Web, Mobile & AI Projects"
+      >
         <script
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           type="application/ld+json"
         />
-      </Head>
+      </Seo>
 
       {/* ─── HERO BANNER ──────────────────────── */}
       <section aria-label="Portfolio hero banner" className={styles.hero}>

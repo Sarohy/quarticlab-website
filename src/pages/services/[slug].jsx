@@ -1,7 +1,7 @@
 import { useEffect, useId, useRef, useState } from "react";
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import Seo from "@component/Components/CommonComponents/Seo/Seo";
 import { SITE_URL } from "@component/utils/siteUrl";
 
 /* ── offering icons — web ───────────────────── */
@@ -346,30 +346,15 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
 
   return (
     <div className={styles.page}>
-      <Head>
-        <title>{`${data.category} — Quartic Lab`}</title>
-        <meta content={data.heroSub} key="description" name="description" />
-        <meta
-          content={`${data.category} — Quartic Lab`}
-          key="og:title"
-          property="og:title"
-        />
-        <meta
-          content={data.heroSub}
-          key="og:description"
-          property="og:description"
-        />
-        <meta content={serviceUrl} key="og:url" property="og:url" />
-        <meta
-          content={`${data.category} — Quartic Lab`}
-          key="twitter:title"
-          name="twitter:title"
-        />
-        <meta
-          content={data.heroSub}
-          key="twitter:description"
-          name="twitter:description"
-        />
+      <Seo
+        canonical={serviceUrl}
+        description={data.heroSub}
+        ogDescription={data.heroSub}
+        ogTitle={`${data.category} — Quartic Lab`}
+        title={`${data.category} — Quartic Lab`}
+        twitterDescription={data.heroSub}
+        twitterTitle={`${data.category} — Quartic Lab`}
+      >
         <script
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
           type="application/ld+json"
@@ -380,7 +365,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
             type="application/ld+json"
           />
         )}
-      </Head>
+      </Seo>
 
       {/* ── HERO ───────────────────────────────── */}
       <section className={styles.hero}>

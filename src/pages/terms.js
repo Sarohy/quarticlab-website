@@ -1,17 +1,16 @@
-import Head from "next/head";
 import Link from "next/link";
+import Seo from "@component/Components/CommonComponents/Seo/Seo";
+import { SITE_URL } from "@component/utils/siteUrl";
 import styles from "../styles/legalPage.module.css";
 
 export default function TermsPage() {
   return (
     <div className={styles.page}>
-      <Head>
-        <title>Terms of Service | Quartic Lab</title>
-        <meta
-          content="Quartic Lab terms of service — the rules and conditions that govern your use of our website and the professional services we provide."
-          name="description"
-        />
-      </Head>
+      <Seo
+        canonical={`${SITE_URL}/terms`}
+        description="Quartic Lab terms of service — the rules and conditions that govern your use of our website and the professional services we provide."
+        title="Terms of Service | Quartic Lab"
+      />
       <div className={styles.container}>
         <span className={styles.eyebrow}>Legal</span>
         <h1 className={styles.heading}>Terms of Service</h1>

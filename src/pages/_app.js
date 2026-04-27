@@ -42,14 +42,6 @@ const fontVariables = [
   ibmPlexMono.variable,
 ].join(" ");
 
-function buildCanonicalUrl(asPath) {
-  const path = (asPath || "/").split(/[?#]/)[0];
-  if (path === "/" || path === "") {
-    return `${SITE_URL}/`;
-  }
-  return `${SITE_URL}${path.replace(/\/$/, "")}`;
-}
-
 // Turn "ai-ml-development" into "AI ML Development", "ui-ux-design"
 // into "UI UX Design". Hand-off friendly defaults; a page can still
 // emit its own BreadcrumbList JSON-LD via <Head> to override.
@@ -107,7 +99,6 @@ function buildBreadcrumbSchema(asPath) {
 export default function App({ Component, navServices, pageProps }) {
   const [svcList, setSvcList] = useState(navServices || []);
   const router = useRouter();
-  const canonicalUrl = buildCanonicalUrl(router.asPath);
   const breadcrumbSchema = buildBreadcrumbSchema(router.asPath);
 
   useEffect(() => {
@@ -153,7 +144,6 @@ export default function App({ Component, navServices, pageProps }) {
       <div className={fontVariables} style={{ display: "contents" }}>
         <Layout>
           <Head>
-            <link href={canonicalUrl} key="canonical-url" rel="canonical" />
             <meta
               content="Quartic Lab"
               key="og:site_name"
@@ -161,27 +151,6 @@ export default function App({ Component, navServices, pageProps }) {
             />
             <meta content="website" key="og:type" property="og:type" />
             <meta content="en_US" key="og:locale" property="og:locale" />
-            <meta content={canonicalUrl} key="og:url" property="og:url" />
-            <meta
-              content={`${SITE_URL}/apple-touch-icon.png`}
-              key="og:image"
-              property="og:image"
-            />
-            <meta
-              content="512"
-              key="og:image:width"
-              property="og:image:width"
-            />
-            <meta
-              content="512"
-              key="og:image:height"
-              property="og:image:height"
-            />
-            <meta
-              content="Quartic Lab"
-              key="og:image:alt"
-              property="og:image:alt"
-            />
             <meta
               content="summary_large_image"
               key="twitter:card"
@@ -191,11 +160,6 @@ export default function App({ Component, navServices, pageProps }) {
               content="@quarticlab"
               key="twitter:site"
               name="twitter:site"
-            />
-            <meta
-              content={`${SITE_URL}/apple-touch-icon.png`}
-              key="twitter:image"
-              name="twitter:image"
             />
             <script type="application/ld+json">
               {JSON.stringify(organizationSchema)}

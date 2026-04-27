@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import Head from "next/head";
 import Link from "next/link";
+import Seo from "@component/Components/CommonComponents/Seo/Seo";
 import { submitContactForm } from "@component/firebase/firebaseRequests";
 import CountrySelect from "@component/Components/CommonComponents/CountrySelect/CountrySelect";
 import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
@@ -160,38 +160,20 @@ export default function ContactNewPage() {
 
   return (
     <div className={styles.page}>
-      <Head>
-        <title>Contact | Quartic Lab</title>
-        <meta
-          content="Talk to Quartic Lab. Share a brief, get a 12-hour estimate from a senior engineer — not a sales rep. Phone, email, and Lahore office."
-          key="description"
-          name="description"
-        />
-        <meta
-          content="Contact — Quartic Lab"
-          key="og:title"
-          property="og:title"
-        />
-        <meta
-          content="Talk to Quartic Lab. Share a brief, get a 12-hour estimate from a senior engineer — not a sales rep."
-          key="og:description"
-          property="og:description"
-        />
-        <meta
-          content="Contact — Quartic Lab"
-          key="twitter:title"
-          name="twitter:title"
-        />
-        <meta
-          content="Talk to Quartic Lab. Share a brief, get a 12-hour estimate from a senior engineer — not a sales rep."
-          key="twitter:description"
-          name="twitter:description"
-        />
+      <Seo
+        canonical={`${SITE_URL}/contact`}
+        description="Talk to Quartic Lab. Share a brief, get a 12-hour estimate from a senior engineer — not a sales rep. Phone, email, and Lahore office."
+        ogDescription="Talk to Quartic Lab. Share a brief, get a 12-hour estimate from a senior engineer — not a sales rep."
+        ogTitle="Contact — Quartic Lab"
+        title="Contact | Quartic Lab"
+        twitterDescription="Talk to Quartic Lab. Share a brief, get a 12-hour estimate from a senior engineer — not a sales rep."
+        twitterTitle="Contact — Quartic Lab"
+      >
         <script
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
           type="application/ld+json"
         />
-      </Head>
+      </Seo>
 
       {/* ─── HERO ─────────────────────────────── */}
       <HeroBanner />

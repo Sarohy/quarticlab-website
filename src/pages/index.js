@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
+import Seo from "@component/Components/CommonComponents/Seo/Seo";
 import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
 import ClientSvg1 from "../../public/assets/HomeIcons/clients/nick-angelov.png";
 import ClientSvg2 from "../../public/assets/HomeIcons/clients/theresa.png";
@@ -500,48 +500,24 @@ export default function LandingPage({
 
   return (
     <div className={styles.page}>
-      <Head>
-        <title>
-          Quartic Lab — Software development agency for startups & enterprises
-        </title>
-        <meta
-          content="Quartic Lab is a full-stack software agency. We build AI, web, and mobile products for startups and enterprises. Ship faster with one senior team."
-          name="description"
-        />
-        <link href={`${SITE_URL}/`} rel="canonical" />
-        <meta content="index, follow" name="robots" />
-
-        {/* Open Graph */}
-        <meta content="website" property="og:type" />
-        <meta
-          content="Quartic Lab — Software that ships. Teams that stay."
-          property="og:title"
-        />
-        <meta
-          content="Full-stack software agency for startups & enterprises. AI, web, mobile."
-          property="og:description"
-        />
-        <meta content={`${SITE_URL}/`} property="og:url" />
-        <meta content="Quartic Lab" property="og:site_name" />
-        <meta content={`${SITE_URL}/og-image.png`} property="og:image" />
-        <meta content="1200" property="og:image:width" />
-        <meta content="630" property="og:image:height" />
-        <meta content="summary_large_image" name="twitter:card" />
-        <meta content="@quarticlab" name="twitter:site" />
-        <meta
-          content="Quartic Lab — Software that ships. Teams that stay."
-          name="twitter:title"
-        />
-        <meta
-          content="Full-stack software agency for startups & enterprises. AI, web, mobile."
-          name="twitter:description"
-        />
-        <meta content={`${SITE_URL}/og-image.png`} name="twitter:image" />
+      <Seo
+        canonical={`${SITE_URL}/`}
+        description="Quartic Lab is a full-stack software agency. We build AI, web, and mobile products for startups and enterprises. Ship faster with one senior team."
+        ogDescription="Full-stack software agency for startups & enterprises. AI, web, mobile."
+        ogImage={`${SITE_URL}/og-image.png`}
+        ogImageHeight="630"
+        ogImageWidth="1200"
+        ogTitle="Quartic Lab — Software that ships. Teams that stay."
+        robots="index, follow"
+        title="Quartic Lab — Software development agency for startups & enterprises"
+        twitterDescription="Full-stack software agency for startups & enterprises. AI, web, mobile."
+        twitterTitle="Quartic Lab — Software that ships. Teams that stay."
+      >
         <script
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
           type="application/ld+json"
         />
-      </Head>
+      </Seo>
       {functionalOk && (
         <Script
           src="https://widget.clutch.co/static/js/widget.js"

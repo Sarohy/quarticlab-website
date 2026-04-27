@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import Head from "next/head";
 import { useRouter } from "next/router";
+import Seo from "@component/Components/CommonComponents/Seo/Seo";
 import { SITE_URL } from "../utils/siteUrl";
 import styles from "../styles/aboutNew.module.css";
 
@@ -1218,38 +1218,20 @@ export default function AboutPage() {
 
   return (
     <div className={styles.page}>
-      <Head>
-        <title>About Us &mdash; Quartic Lab</title>
-        <meta
-          content="Quartic Lab is a research-driven software studio from Lahore. Learn about our values, process, engagement models, and what it is like to work with us."
-          key="description"
-          name="description"
-        />
-        <meta
-          content="About Us — Quartic Lab"
-          key="og:title"
-          property="og:title"
-        />
-        <meta
-          content="Quartic Lab is a research-driven software studio from Lahore. 15+ engineers serving clients across the US, Europe, and MENA since 2020."
-          key="og:description"
-          property="og:description"
-        />
-        <meta
-          content="About Us — Quartic Lab"
-          key="twitter:title"
-          name="twitter:title"
-        />
-        <meta
-          content="Quartic Lab is a research-driven software studio from Lahore. 15+ engineers serving clients across the US, Europe, and MENA since 2020."
-          key="twitter:description"
-          name="twitter:description"
-        />
+      <Seo
+        canonical={`${SITE_URL}/about`}
+        description="Quartic Lab is a research-driven software studio from Lahore. Learn about our values, process, engagement models, and what it is like to work with us."
+        ogDescription="Quartic Lab is a research-driven software studio from Lahore. 15+ engineers serving clients across the US, Europe, and MENA since 2020."
+        ogTitle="About Us — Quartic Lab"
+        title="About Us — Quartic Lab"
+        twitterDescription="Quartic Lab is a research-driven software studio from Lahore. 15+ engineers serving clients across the US, Europe, and MENA since 2020."
+        twitterTitle="About Us — Quartic Lab"
+      >
         <script
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
           type="application/ld+json"
         />
-      </Head>
+      </Seo>
 
       {/* ─── HERO ─────────────────────────────── */}
       <section className={styles.hero}>

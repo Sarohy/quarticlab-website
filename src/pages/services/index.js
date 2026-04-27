@@ -1,7 +1,8 @@
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import Seo from "@component/Components/CommonComponents/Seo/Seo";
+import { SITE_URL } from "@component/utils/siteUrl";
 
 import { getAllServices } from "../../firebase/firebaseRequests";
 import {
@@ -133,34 +134,15 @@ export default function ServicesNew({ services = [] }) {
 
   return (
     <div className={styles.page}>
-      <Head>
-        <title>Services | Quartic Lab</title>
-        <meta
-          content="Web, mobile, AI/ML, GenAI, blockchain, IoT, UI/UX, and DevOps services from Quartic Lab. One senior team, 12-hour estimates on every brief."
-          key="description"
-          name="description"
-        />
-        <meta
-          content="Services — Quartic Lab"
-          key="og:title"
-          property="og:title"
-        />
-        <meta
-          content="Web, mobile, AI/ML, GenAI, blockchain, IoT, UI/UX, and DevOps services from Quartic Lab. One senior team, 12-hour estimates on every brief."
-          key="og:description"
-          property="og:description"
-        />
-        <meta
-          content="Services — Quartic Lab"
-          key="twitter:title"
-          name="twitter:title"
-        />
-        <meta
-          content="Web, mobile, AI/ML, GenAI, blockchain, IoT, UI/UX, and DevOps services from Quartic Lab."
-          key="twitter:description"
-          name="twitter:description"
-        />
-      </Head>
+      <Seo
+        canonical={`${SITE_URL}/services`}
+        description="Web, mobile, AI/ML, GenAI, blockchain, IoT, UI/UX, and DevOps services from Quartic Lab. One senior team, 12-hour estimates on every brief."
+        ogDescription="Web, mobile, AI/ML, GenAI, blockchain, IoT, UI/UX, and DevOps services from Quartic Lab. One senior team, 12-hour estimates on every brief."
+        ogTitle="Services — Quartic Lab"
+        title="Services | Quartic Lab"
+        twitterDescription="Web, mobile, AI/ML, GenAI, blockchain, IoT, UI/UX, and DevOps services from Quartic Lab."
+        twitterTitle="Services — Quartic Lab"
+      />
 
       {/* ── HERO ───────────────────────────────── */}
       <section className={styles.hero}>

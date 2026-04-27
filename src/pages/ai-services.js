@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Seo from "@component/Components/CommonComponents/Seo/Seo";
+import { SITE_URL } from "../utils/siteUrl";
 
 import AIDevIcon from "../../public/assets/serviceIcons/AIDevIcon.svg";
 import Ai1Icon from "../../public/assets/serviceIcons/aiIcons/ai1.svg";
@@ -93,44 +94,25 @@ export default function AIServicesPage() {
 
   return (
     <div className={styles.page}>
-      <Head>
-        <title>GenAI &amp; AI Automation | Quartic Lab</title>
-        <meta
-          content={
-            "Production-grade Generative AI, autonomous agents, and " +
-            "automation pipelines built by Quartic Lab for startups and " +
-            "enterprises. Book a free AI scoping call."
-          }
-          key="description"
-          name="description"
-        />
-        <meta
-          content="GenAI & AI Automation — Quartic Lab"
-          key="og:title"
-          property="og:title"
-        />
-        <meta
-          content={
-            "Production-grade Generative AI, autonomous agents, and " +
-            "automation pipelines for startups and enterprises."
-          }
-          key="og:description"
-          property="og:description"
-        />
-        <meta
-          content="GenAI & AI Automation — Quartic Lab"
-          key="twitter:title"
-          name="twitter:title"
-        />
-        <meta
-          content={
-            "Production-grade Generative AI, autonomous agents, and " +
-            "automation pipelines for startups and enterprises."
-          }
-          key="twitter:description"
-          name="twitter:description"
-        />
-      </Head>
+      <Seo
+        canonical={`${SITE_URL}/ai-services`}
+        description={
+          "Production-grade Generative AI, autonomous agents, and " +
+          "automation pipelines built by Quartic Lab for startups and " +
+          "enterprises. Book a free AI scoping call."
+        }
+        ogDescription={
+          "Production-grade Generative AI, autonomous agents, and " +
+          "automation pipelines for startups and enterprises."
+        }
+        ogTitle="GenAI & AI Automation — Quartic Lab"
+        title="GenAI & AI Automation | Quartic Lab"
+        twitterDescription={
+          "Production-grade Generative AI, autonomous agents, and " +
+          "automation pipelines for startups and enterprises."
+        }
+        twitterTitle="GenAI & AI Automation — Quartic Lab"
+      />
 
       {/* ── HERO ──────────────────────────── */}
       <section className={styles.hero}>
