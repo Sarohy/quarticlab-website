@@ -509,7 +509,7 @@ export default function LandingPage({
         ogImageWidth="1200"
         ogTitle="Quartic Lab — Software that ships. Teams that stay."
         robots="index, follow"
-        title="Quartic Lab — Software development agency for startups & enterprises"
+        title="Quartic Lab — Software agency for startups &amp; enterprises"
         twitterDescription="Full-stack software agency for startups & enterprises. AI, web, mobile."
         twitterTitle="Quartic Lab — Software that ships. Teams that stay."
       >
