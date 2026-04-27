@@ -386,7 +386,7 @@ export default function ProjectsNewPage({ projects = [] }) {
             </Link>
             <a
               className={styles.ctaBtnSecondary}
-              href="https://calendly.com/quarticlab/meeting"
+              href="https://calendly.com/quarticlab/30min"
               rel="noopener noreferrer"
               target="_blank"
             >

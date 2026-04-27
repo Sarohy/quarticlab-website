@@ -383,7 +383,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
             <button
               className={styles.btnPrimary}
               onClick={() =>
-                window.open("https://calendly.com/quarticlab/meeting", "_blank")
+                window.open("https://calendly.com/quarticlab/30min", "_blank")
               }
             >
               Request a demo
@@ -410,10 +410,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
               <button
                 className={styles.btnPrimary}
                 onClick={() =>
-                  window.open(
-                    "https://calendly.com/quarticlab/meeting",
-                    "_blank",
-                  )
+                  window.open("https://calendly.com/quarticlab/30min", "_blank")
                 }
               >
                 Schedule a call
@@ -512,7 +509,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
             <button
               className={styles.letsTalkBtn}
               onClick={() =>
-                window.open("https://calendly.com/quarticlab/meeting", "_blank")
+                window.open("https://calendly.com/quarticlab/30min", "_blank")
               }
             >
               Schedule a call
@@ -625,7 +622,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
             <button
               className={styles.letsTalkBtn}
               onClick={() =>
-                window.open("https://calendly.com/quarticlab/meeting", "_blank")
+                window.open("https://calendly.com/quarticlab/30min", "_blank")
               }
             >
               Let&apos;s talk
@@ -700,7 +697,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
             <button
               className={styles.btnPrimary}
               onClick={() =>
-                window.open("https://calendly.com/quarticlab/meeting", "_blank")
+                window.open("https://calendly.com/quarticlab/30min", "_blank")
               }
             >
               Book a free consultation

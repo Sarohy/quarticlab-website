@@ -162,7 +162,7 @@ export default function ServicesNew({ services = [] }) {
           <div className={styles.heroCtas}>
             <a
               className={styles.btnHeroPrimary}
-              href="https://calendly.com/quarticlab/meeting"
+              href="https://calendly.com/quarticlab/30min"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -354,7 +354,7 @@ export default function ServicesNew({ services = [] }) {
               </Link>
               <a
                 className={styles.ctaBtnSecondary}
-                href="https://calendly.com/quarticlab/meeting"
+                href="https://calendly.com/quarticlab/30min"
                 rel="noopener noreferrer"
                 target="_blank"
               >

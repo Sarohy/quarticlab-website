@@ -73,7 +73,7 @@ export const SERVICE_DROPDOWN = [
 
 export const HEADER_CTA = {
   label: "Start a project",
-  href: "https://calendly.com/quarticlab/meeting",
+  href: "https://calendly.com/quarticlab/30min",
 };
 
 export default navLinks;

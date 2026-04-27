@@ -35,7 +35,7 @@ function Footer() {
           <div className={styles.ctaBannerActions}>
             <a
               className={styles.ctaBannerButton}
-              href="https://calendly.com/quarticlab/meeting"
+              href="https://calendly.com/quarticlab/30min"
               rel="noopener noreferrer"
               target="_blank"
             >

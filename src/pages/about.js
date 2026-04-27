@@ -1258,7 +1258,7 @@ export default function AboutPage() {
               </button>
               <a
                 className={styles.btnOutline}
-                href="https://calendly.com/quarticlab/meeting"
+                href="https://calendly.com/quarticlab/30min"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -1311,7 +1311,7 @@ export default function AboutPage() {
               </button>
               <a
                 className={styles.ctaBtnSecondary}
-                href="https://calendly.com/quarticlab/meeting"
+                href="https://calendly.com/quarticlab/30min"
                 rel="noopener noreferrer"
                 target="_blank"
               >
