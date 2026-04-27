@@ -493,7 +493,21 @@ export async function getServerSideProps(context) {
     if (!post) {
       return { props: { post: null, fetchStatus: "notfound" } };
     }
-    return { props: { post, fetchStatus: "ok" } };
+    // Firestore Timestamp objects are not JSON-serializable.
+    // Convert any Timestamp fields to ISO strings before returning props.
+    const serializeTimestamp = val => {
+      if (val && typeof val === "object" && typeof val.toDate === "function") {
+        return val.toDate().toISOString();
+      }
+      return val ?? null;
+    };
+    const serialized = {
+      ...post,
+      createdAt: serializeTimestamp(post.createdAt),
+      updatedAt: serializeTimestamp(post.updatedAt),
+      publishedAt: serializeTimestamp(post.publishedAt),
+    };
+    return { props: { post: serialized, fetchStatus: "ok" } };
   } catch {
     return { props: { post: null, fetchStatus: "error" } };
   }
