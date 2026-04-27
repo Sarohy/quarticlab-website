@@ -315,29 +315,6 @@ const BlogPage = ({ initialPosts, initialError }) => {
           </div>
         </div>
       </section>
-
-      {/* ─── CTA BANNER ───────────────────────── */}
-      <section aria-label="Contact CTA" className={styles.ctaSec}>
-        <div className={`${styles.container} ${styles.ctaInner}`}>
-          <div className={`${styles.ctaText} ${styles.reveal}`}>
-            <h2 className={styles.ctaH2}>
-              Prefer a conversation over reading?
-            </h2>
-            <p className={styles.ctaSub}>
-              Book a 30-min call with an engineer. No sales pitch — just a
-              discussion about what you&apos;re building.
-            </p>
-          </div>
-          <a
-            className={styles.btnPrimary}
-            href="https://calendly.com/quarticlab/30min"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Book a call
-          </a>
-        </div>
-      </section>
     </div>
   );
 };
