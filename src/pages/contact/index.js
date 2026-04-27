@@ -11,8 +11,8 @@ import styles from "../../styles/contactNew.module.css";
 const contactMethods = [
   {
     desc: "We respond within 4 business hours.",
-    detail: "hello@quarticlab.com",
-    href: "mailto:hello@quarticlab.com",
+    detail: "contact@quarticlab.com",
+    href: "mailto:contact@quarticlab.com",
     icon: (
       <svg
         aria-hidden="true"
@@ -361,7 +361,7 @@ function FormSection() {
     } catch {
       setSubmitError(
         "Something went wrong. Please try again or email us directly at " +
-          "hello@quarticlab.com.",
+          "contact@quarticlab.com.",
       );
     } finally {
       setSubmitting(false);

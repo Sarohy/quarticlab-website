@@ -2092,7 +2092,7 @@ function ContactSection() {
       setAlertMsg({
         message:
           "Something went wrong. Please email us directly at " +
-          "hello@quarticlab.com",
+          "contact@quarticlab.com",
         severity: "error",
       });
     } finally {

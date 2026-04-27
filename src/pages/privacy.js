@@ -32,7 +32,7 @@ export default function PrivacyPage() {
             mobile, and AI products for startups and enterprises. Our registered
             business address is 6-B, Block B Phase 1 Johar Town, Lahore, Punjab
             54000, Pakistan. For privacy questions you can reach us at{" "}
-            <a href="mailto:hello@quarticlab.com">hello@quarticlab.com</a>.
+            <a href="mailto:contact@quarticlab.com">contact@quarticlab.com</a>.
           </p>
         </section>
 
@@ -214,8 +214,8 @@ export default function PrivacyPage() {
             correct, delete, restrict, object to, or receive a portable copy of
             your personal data, and to withdraw consent where processing is
             based on consent. To exercise any of these rights, email{" "}
-            <a href="mailto:hello@quarticlab.com">hello@quarticlab.com</a>. We
-            will respond within the timeframes required by applicable law.
+            <a href="mailto:contact@quarticlab.com">contact@quarticlab.com</a>.
+            We will respond within the timeframes required by applicable law.
           </p>
           <p>
             If you are in the EEA or UK and believe we have mishandled your
@@ -259,8 +259,8 @@ export default function PrivacyPage() {
           <h2>Contact us</h2>
           <p>
             Questions about this policy or how we handle your data? Reach us at{" "}
-            <a href="mailto:hello@quarticlab.com">hello@quarticlab.com</a> or by
-            post at 6-B, Block B Phase 1 Johar Town, Lahore, Punjab 54000,
+            <a href="mailto:contact@quarticlab.com">contact@quarticlab.com</a>{" "}
+            or by post at 6-B, Block B Phase 1 Johar Town, Lahore, Punjab 54000,
             Pakistan.
           </p>
         </div>

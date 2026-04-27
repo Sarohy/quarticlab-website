@@ -259,7 +259,9 @@ const BlogPage = ({ initialPosts, initialError }) => {
               </button>
               <p className={styles.emptyMeta}>
                 If this keeps happening, reach out:{" "}
-                <a href="mailto:hello@quarticlab.com">hello@quarticlab.com</a>
+                <a href="mailto:contact@quarticlab.com">
+                  contact@quarticlab.com
+                </a>
               </p>
             </div>
           )}

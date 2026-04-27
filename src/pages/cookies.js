@@ -236,8 +236,8 @@ export default function CookiesPage() {
           <h2>Contact us</h2>
           <p>
             Questions about how we use cookies? Reach us at{" "}
-            <a href="mailto:hello@quarticlab.com">hello@quarticlab.com</a> or by
-            post at 6-B, Block B Phase 1 Johar Town, Lahore, Punjab 54000,
+            <a href="mailto:contact@quarticlab.com">contact@quarticlab.com</a>{" "}
+            or by post at 6-B, Block B Phase 1 Johar Town, Lahore, Punjab 54000,
             Pakistan.
           </p>
         </div>

@@ -145,7 +145,7 @@ const faqs = [
     q: "What happens if the project goes over scope?",
   },
   {
-    a: "Yes. Email hello@quarticlab.com and we\u2019ll send you our standard SOW template and MSA within the same business day.",
+    a: "Yes. Email contact@quarticlab.com and we\u2019ll send you our standard SOW template and MSA within the same business day.",
     q: "Can we see a sample contract before the discovery call?",
   },
   {
