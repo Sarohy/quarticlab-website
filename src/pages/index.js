@@ -470,6 +470,54 @@ function useReveal(selector) {
   }, [selector]);
 }
 
+/* ── faq data ──────────────────────────────────────── */
+const HOME_FAQS = [
+  {
+    a:
+      "Quartic Lab is a full-stack software agency. We build AI, web, and" +
+      " mobile products end-to-end for startups and enterprises \u2014 from" +
+      " agentic AI automation to production Next.js apps to native" +
+      " iOS/Android. One senior team, zero handoff overhead.",
+    q: "What does Quartic Lab do?",
+  },
+  {
+    a:
+      "A scoped MVP ships in 6 to 12 weeks. The first two weeks are" +
+      " scoping, architecture, and design. Weeks 3\u20138 are build and" +
+      " internal QA. The final 2\u20134 weeks are user testing, polish, and" +
+      " production deploy. Multi-product or AI-heavy MVPs trend toward" +
+      " 10\u201314 weeks.",
+    q: "How long does it take to ship an MVP with Quartic Lab?",
+  },
+  {
+    a:
+      "Dedicated pods start at $12,000 per month for a 4-person senior" +
+      " team (engineer lead + two full-stack + one designer or MLOps)." +
+      " Pods are billed weekly against fixed-scope sprints \u2014 not by the" +
+      " hour \u2014 so you know the cost before the work starts.",
+    q: "What does an outsourced product team from Quartic Lab cost?",
+  },
+  {
+    a:
+      "We\u2019re based in Lahore, Pakistan, and we run a daily 4\u20135 hour" +
+      " overlap window with US East Coast clients (8\u202fPM\u20131\u202fAM PKT) and" +
+      " full overlap with EU markets. Every pod has at least one engineer" +
+      " who runs the overlap window for sync calls, code review, and demos.",
+    q: "Where is Quartic Lab based and which time zones do you cover?",
+  },
+  {
+    a:
+      "Freelancers handle assigned tickets; we own outcomes. Every Quartic" +
+      " Lab pod has a dedicated PM, in-house QA, and code review baked in" +
+      " \u2014 so you set the deadline and the deliverable, and we own" +
+      " everything between. Most clients who switch from freelancers to us" +
+      " report 2\u20133\u00d7 more shipped functionality per dollar.",
+    q:
+      "How is Quartic Lab different from Upwork freelancers or a typical" +
+      " offshore agency?",
+  },
+];
+
 /* ── hero word cycle ────────────────────────────────── */
 const HERO_WORDS = ["ships.", "scales.", "delivers."];
 
@@ -485,6 +533,20 @@ export default function LandingPage({
   const consent = useConsent();
   const functionalOk = hasFunctionalConsent(consent);
   useReveal(`.${styles.reveal}`);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${SITE_URL}/#faq`,
+    mainEntity: HOME_FAQS.map(faq => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
 
   const websiteSchema = {
     "@context": "https://schema.org",
@@ -517,6 +579,10 @@ export default function LandingPage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
           type="application/ld+json"
         />
+        <script
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          type="application/ld+json"
+        />
       </Seo>
       {functionalOk && (
         <Script
@@ -545,6 +611,9 @@ export default function LandingPage({
 
       {/* ─── TECH ─────────────────────────────── */}
       <TechSection />
+
+      {/* ─── FAQ ──────────────────────────────── */}
+      <FaqSection />
 
       {/* ─── CONTACT ──────────────────────────── */}
       <ContactSection />
@@ -1893,6 +1962,64 @@ function InlineAlert({ children, onClose, severity = "info" }) {
         </button>
       )}
     </div>
+  );
+}
+
+function FaqSection() {
+  const [openIdx, setOpenIdx] = useState(null);
+  return (
+    <section className={styles.faqSec} id="faq">
+      <div className={styles.container}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionTag}>FAQ</span>
+          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
+            Common questions
+          </h2>
+        </div>
+        <div className={styles.faqList}>
+          {HOME_FAQS.map((faq, i) => (
+            <div
+              className={`${styles.faqItem} ${
+                openIdx === i ? styles.faqItemOpen : ""
+              }`}
+              key={faq.q}
+            >
+              <button
+                aria-controls={`home-faq-answer-${i}`}
+                aria-expanded={openIdx === i}
+                className={styles.faqQuestion}
+                onClick={() => setOpenIdx(openIdx === i ? null : i)}
+                onKeyDown={e => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setOpenIdx(openIdx === i ? null : i);
+                  }
+                }}
+              >
+                {faq.q}
+                <span
+                  aria-hidden="true"
+                  className={`${styles.faqChevron} ${
+                    openIdx === i ? styles.faqChevronOpen : ""
+                  }`}
+                >
+                  &#9660;
+                </span>
+              </button>
+              <div
+                className={`${styles.faqAnswer} ${
+                  openIdx === i ? styles.faqAnswerOpen : ""
+                }`}
+                id={`home-faq-answer-${i}`}
+                role="region"
+              >
+                <p className={styles.faqAnswerText}>{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
