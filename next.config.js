@@ -17,7 +17,7 @@ const CSP = [
   // CSS-in-JS / inline styles from Next.js
   "style-src 'self' 'unsafe-inline'",
   // Remote images (see next.config images.remotePatterns)
-  "img-src 'self' data: blob: https://wallpaperaccess.com https://cdn.dribbble.com https://firebasestorage.googleapis.com https://flagcdn.com",
+  "img-src 'self' data: blob: https://wallpaperaccess.com https://cdn.dribbble.com https://firebasestorage.googleapis.com https://storage.googleapis.com https://flagcdn.com",
   // Self-hosted fonts via next/font — no external font CDN needed
   "font-src 'self'",
   // Firebase Firestore + Google Analytics
@@ -70,6 +70,9 @@ const nextConfig = {
   reactStrictMode: false,
   transpilePackages: ["react-intersection-observer"],
   images: {
+    contentDispositionType: "attachment",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         hostname: "wallpaperaccess.com",
@@ -77,9 +80,8 @@ const nextConfig = {
       {
         hostname: "cdn.dribbble.com",
       },
-      {
-        hostname: "firebasestorage.googleapis.com",
-      },
+      { protocol: "https", hostname: "firebasestorage.googleapis.com" },
+      { protocol: "https", hostname: "storage.googleapis.com" },
       {
         hostname: "flagcdn.com",
       },
