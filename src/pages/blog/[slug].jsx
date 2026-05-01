@@ -330,6 +330,33 @@ const BlogDetail = ({ post, fetchStatus }) => {
             property="article:published_time"
           />
         )}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: post.title,
+              image: post.heroImage,
+              datePublished: post.publishedDate,
+              dateModified: post.updatedAt || post.publishedDate,
+              author: {
+                "@type": "Organization",
+                name: "Quartic Lab",
+                url: "https://www.quarticlab.com/",
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Quartic Lab",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://www.quarticlab.com/mark-dark.svg",
+                },
+              },
+              mainEntityOfPage: `https://www.quarticlab.com/blog/${post.slug}`,
+            }),
+          }}
+        />
       </Head>
 
       <ScrollProgress />
