@@ -156,10 +156,6 @@ export default function PrivacyPage() {
               transactional and newsletter email.
             </li>
             <li>
-              <strong>Reviews widget</strong> — Clutch, which displays our
-              verified client reviews on the homepage.
-            </li>
-            <li>
               <strong>Professional advisors</strong> — lawyers, accountants, and
               auditors when required.
             </li>

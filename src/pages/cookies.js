@@ -111,12 +111,6 @@ export default function CookiesPage() {
                 <td>Session / up to 1 year</td>
               </tr>
               <tr>
-                <td>Clutch widget (widget.clutch.co)</td>
-                <td>Displays our verified Clutch reviews on the homepage.</td>
-                <td>Functional</td>
-                <td>Session / up to 1 year</td>
-              </tr>
-              <tr>
                 <td>cookie-consent (Quartic Lab)</td>
                 <td>Stores your cookie consent choice for this site.</td>
                 <td>Strictly necessary</td>
@@ -141,14 +135,6 @@ export default function CookiesPage() {
               target="_blank"
             >
               Calendly
-            </a>
-            , and{" "}
-            <a
-              href="https://clutch.co/privacy-policy"
-              rel="noopener"
-              target="_blank"
-            >
-              Clutch
             </a>
             .
           </p>
