@@ -331,7 +331,6 @@ const BlogDetail = ({ post, fetchStatus }) => {
           />
         )}
         <script
-          type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
@@ -356,6 +355,7 @@ const BlogDetail = ({ post, fetchStatus }) => {
               mainEntityOfPage: `https://www.quarticlab.com/blog/${post.slug}`,
             }),
           }}
+          type="application/ld+json"
         />
       </Head>
 
