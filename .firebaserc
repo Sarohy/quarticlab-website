@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "zweidevs"
-  }
+    "default": "zweidevs-c4c1e",
+    "staging": "zweidevs-c4c1e"
+  },
+  "targets": {},
+  "etags": {}
 }
