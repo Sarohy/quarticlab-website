@@ -721,7 +721,7 @@ function ServicesSection({ services, servicesError }) {
                   </div>
                   <h3 className={styles.serviceCardTitle}>{s.title}</h3>
                   <p className={styles.serviceCardDesc}>{s.desc}</p>
-                  <span className={styles.serviceLink}>Learn more →</span>
+                  <span className={styles.serviceLink}>Learn More →</span>
                 </Link>
               );
             })}
