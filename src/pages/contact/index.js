@@ -539,6 +539,7 @@ function FormSection() {
               <option value="IoT Development">IoT Development</option>
               <option value="DevOps & Cloud">DevOps &amp; Cloud</option>
               <option value="UI/UX Design">UI/UX Design</option>
+              <option value="genai-automation">GenAI &amp; Automation</option>
               <option value="Not sure / Multiple">Not sure / Multiple</option>
             </select>
             {errors.service && (

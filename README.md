@@ -28,24 +28,24 @@ Source for the public marketing site at **www.quarticlab.com** (formerly Zweidev
 
 ## Tech Stack
 
-| Category          | Technology                                                              |
-| ----------------- | ----------------------------------------------------------------------- |
-| Framework         | [Next.js 13.4](https://nextjs.org/) — **Pages Router**                  |
-| Language          | JavaScript (ES2022) + TypeScript-ready (`typescript` installed)         |
-| UI Library        | [MUI v5](https://mui.com/) (`@mui/material`, `@mui/icons-material`, `@mui/lab`) |
-| Styling           | CSS Modules (per-component / per-page) + global `globals.css`           |
-| Fonts             | `next/font/google` — Space Grotesk, Instrument Serif, IBM Plex Mono     |
-| Database          | Firebase Firestore (modular SDK v9)                                     |
-| HTTP Client       | Axios                                                                   |
-| Carousel          | `react-material-ui-carousel`, `react-fast-marquee`                      |
-| Animations        | `IntersectionObserver` + CSS modules (no `animate.css`)                 |
-| Phone Validation  | `libphonenumber-js`                                                     |
-| Image Optim.      | `next/image` + `sharp`                                                  |
-| Analytics         | Google Analytics 4 (consent-gated via `next/script`)                    |
-| Cookie Consent    | First-party banner (`localStorage` — `ql_cookie_consent_v1`)            |
-| Linting/Format    | ESLint + Prettier + Husky + lint-staged                                 |
-| Build Output      | `output: "standalone"` (Node-server bundle)                             |
-| Deployment        | Firebase Hosting / any Node host that runs `next start`                 |
+| Category         | Technology                                                                      |
+| ---------------- | ------------------------------------------------------------------------------- |
+| Framework        | [Next.js 13.4](https://nextjs.org/) — **Pages Router**                          |
+| Language         | JavaScript (ES2022) + TypeScript-ready (`typescript` installed)                 |
+| UI Library       | [MUI v5](https://mui.com/) (`@mui/material`, `@mui/icons-material`, `@mui/lab`) |
+| Styling          | CSS Modules (per-component / per-page) + global `globals.css`                   |
+| Fonts            | `next/font/google` — Space Grotesk, Instrument Serif, IBM Plex Mono             |
+| Database         | Firebase Firestore (modular SDK v9)                                             |
+| HTTP Client      | Axios                                                                           |
+| Carousel         | `react-material-ui-carousel`, `react-fast-marquee`                              |
+| Animations       | `IntersectionObserver` + CSS modules (no `animate.css`)                         |
+| Phone Validation | `libphonenumber-js`                                                             |
+| Image Optim.     | `next/image` + `sharp`                                                          |
+| Analytics        | Google Analytics 4 (consent-gated via `next/script`)                            |
+| Cookie Consent   | First-party banner (`localStorage` — `ql_cookie_consent_v1`)                    |
+| Linting/Format   | ESLint + Prettier + Husky + lint-staged                                         |
+| Build Output     | `output: "standalone"` (Node-server bundle)                                     |
+| Deployment       | Firebase Hosting / any Node host that runs `next start`                         |
 
 **Engines**: Node `>= 18.x`, npm `>= 9.x`.
 
@@ -112,22 +112,22 @@ zweidevs-website/
 
 Every route below is a file in `src/pages/`. Dynamic segments use `[slug].jsx`.
 
-| URL                        | File                              | Notes                                                   |
-| -------------------------- | --------------------------------- | ------------------------------------------------------- |
-| `/`                        | `pages/index.js`                  | Hero, services, projects, testimonials, tech stack, CTA |
-| `/about`                   | `pages/about.js`                  | Mission, values, process, engagement models, stats      |
-| `/projects`                | `pages/projects.js`               | Portfolio with discipline + industry filters            |
-| `/services`                | `pages/services/index.js`         | Index of all 8 service areas                            |
-| `/services/[slug]`         | `pages/services/[slug].jsx`       | Per-service detail (reads from Firestore)               |
-| `/blog`                    | `pages/blog/index.js`             | Listing with category filter + newsletter sign-up       |
-| `/blog/[slug]`             | `pages/blog/[slug].jsx`           | Individual blog post                                    |
-| `/contact`                 | `pages/contact/index.js`          | Contact form (writes to Firestore)                      |
-| `/ai-services`             | `pages/ai-services.js`            | AI-focused landing page                                 |
-| `/privacy`                 | `pages/privacy.js`                | Privacy policy                                          |
-| `/terms`                   | `pages/terms.js`                  | Terms of service                                        |
-| `/cookies`                 | `pages/cookies.js`                | Cookie policy                                           |
-| `/sitemap.xml`             | `pages/sitemap.xml.js`            | SSR-generated, host-aware                               |
-| `/robots.txt`              | `pages/robots.txt.js`             | SSR-generated, AI-crawler allowlist                     |
+| URL                | File                        | Notes                                                   |
+| ------------------ | --------------------------- | ------------------------------------------------------- |
+| `/`                | `pages/index.js`            | Hero, services, projects, testimonials, tech stack, CTA |
+| `/about`           | `pages/about.js`            | Mission, values, process, engagement models, stats      |
+| `/projects`        | `pages/projects.js`         | Portfolio with discipline + industry filters            |
+| `/services`        | `pages/services/index.js`   | Index of all 8 service areas                            |
+| `/services/[slug]` | `pages/services/[slug].jsx` | Per-service detail (reads from Firestore)               |
+| `/blog`            | `pages/blog/index.js`       | Listing with category filter + newsletter sign-up       |
+| `/blog/[slug]`     | `pages/blog/[slug].jsx`     | Individual blog post                                    |
+| `/contact`         | `pages/contact/index.js`    | Contact form (writes to Firestore)                      |
+| `/ai-services`     | `pages/ai-services.js`      | AI-focused landing page                                 |
+| `/privacy`         | `pages/privacy.js`          | Privacy policy                                          |
+| `/terms`           | `pages/terms.js`            | Terms of service                                        |
+| `/cookies`         | `pages/cookies.js`          | Cookie policy                                           |
+| `/sitemap.xml`     | `pages/sitemap.xml.js`      | SSR-generated, host-aware                               |
+| `/robots.txt`      | `pages/robots.txt.js`       | SSR-generated, AI-crawler allowlist                     |
 
 > **About `pages/api/api.js`**: this file is _not_ a Next.js API route — it is an Axios client wrapped in `getApiWithoutAuth` / `postAPIWithoutAuth`. The `pages/api/` folder is otherwise unused; Firestore is the primary backend.
 
@@ -138,12 +138,14 @@ Every route below is a file in `src/pages/`. Dynamic segments use `[slug].jsx`.
 The 8 service areas (sourced from `src/Constants/navLinks.js` → `SERVICE_DROPDOWN` and `src/utils/urls.js`):
 
 **Development**
+
 - Web Development — `/services/web-development`
 - Mobile App Development — `/services/mobile-development`
 - Blockchain Development — `/services/blockchain-development`
 - IoT Solutions — `/services/iot-development`
 
 **AI & Design**
+
 - GenAI & Automation — `/services/genai-automation`
 - AI / ML Development — `/services/ai-ml-development`
 - UI/UX Design — `/services/ui-ux-design`
@@ -234,10 +236,10 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 
 Located in `scripts/` — run with `node`:
 
-| Script                         | Purpose                                                        |
-| ------------------------------ | -------------------------------------------------------------- |
-| `scripts/generateFavicons.js`  | Generate the favicon/PWA icon set from a source SVG            |
-| `scripts/seedServiceDetails.js`| Seed the Firestore `service_details` collection from local data |
+| Script                          | Purpose                                                         |
+| ------------------------------- | --------------------------------------------------------------- |
+| `scripts/generateFavicons.js`   | Generate the favicon/PWA icon set from a source SVG             |
+| `scripts/seedServiceDetails.js` | Seed the Firestore `service_details` collection from local data |
 
 ---
 
@@ -258,11 +260,11 @@ _app.js
 
 ### Component layers
 
-| Layer             | Path                                | Role                                                        |
-| ----------------- | ----------------------------------- | ----------------------------------------------------------- |
-| Layout            | `src/Components/Layout`             | Persistent shell — Header, Footer, consent UI on every page |
-| CommonComponents  | `src/Components/CommonComponents`   | Reusable atoms: Header, Footer, CountrySelect, QuarticMark, ServiceIcons, CookieConsent |
-| MainComponents    | `src/Components/MainComponents`     | Reserved for page-specific large sections                   |
+| Layer            | Path                              | Role                                                                                    |
+| ---------------- | --------------------------------- | --------------------------------------------------------------------------------------- |
+| Layout           | `src/Components/Layout`           | Persistent shell — Header, Footer, consent UI on every page                             |
+| CommonComponents | `src/Components/CommonComponents` | Reusable atoms: Header, Footer, CountrySelect, QuarticMark, ServiceIcons, CookieConsent |
+| MainComponents   | `src/Components/MainComponents`   | Reserved for page-specific large sections                                               |
 
 ### Layout features
 
@@ -277,15 +279,15 @@ _app.js
 
 **Firestore (`src/firebase/firebaseRequests.js`)** is the primary backend. Collections:
 
-| Collection              | Helper                                                |
-| ----------------------- | ----------------------------------------------------- |
-| `projects`              | `getAllProjects`, `getProjectsByIds(ids[])`, `addProject` |
-| `services`              | `getAllServices`, `addService`                        |
-| `service_details`       | `getAllServiceDetails`, `getServiceBySlug`, `addServiceDetail` |
-| `reviews`               | `getAllReviews`, `addReview`                          |
-| `blogs`                 | `getAllBlogs`, `getBlogBySlug`                        |
-| `contact_submissions`   | `submitContactForm`                                   |
-| `newsletter_subscribers`| `subscribeEmail`                                      |
+| Collection               | Helper                                                         |
+| ------------------------ | -------------------------------------------------------------- |
+| `projects`               | `getAllProjects`, `getProjectsByIds(ids[])`, `addProject`      |
+| `services`               | `getAllServices`, `addService`                                 |
+| `service_details`        | `getAllServiceDetails`, `getServiceBySlug`, `addServiceDetail` |
+| `reviews`                | `getAllReviews`, `addReview`                                   |
+| `blogs`                  | `getAllBlogs`, `getBlogBySlug`                                 |
+| `contact_submissions`    | `submitContactForm`                                            |
+| `newsletter_subscribers` | `subscribeEmail`                                               |
 
 `getProjectsByIds` chunks the `documentId() in […]` queries to respect Firestore's 30-item `in` limit.
 
@@ -356,19 +358,19 @@ node .next/standalone/server.js
 
 Each major folder has a more detailed `README.md`:
 
-| Folder                                | README                                                                                 |
-| ------------------------------------- | -------------------------------------------------------------------------------------- |
-| `src/`                                | [src/README.md](src/README.md)                                                         |
-| `src/pages/`                          | [src/pages/README.md](src/pages/README.md)                                             |
-| `src/Components/`                     | [src/Components/README.md](src/Components/README.md)                                   |
-| `src/Components/Layout/`              | [src/Components/Layout/README.md](src/Components/Layout/README.md)                     |
-| `src/Components/CommonComponents/`    | [src/Components/CommonComponents/README.md](src/Components/CommonComponents/README.md) |
-| `src/Components/MainComponents/`      | [src/Components/MainComponents/README.md](src/Components/MainComponents/README.md)     |
-| `src/Constants/`                      | [src/Constants/README.md](src/Constants/README.md)                                     |
-| `src/firebase/`                       | [src/firebase/README.md](src/firebase/README.md)                                       |
-| `src/styles/`                         | [src/styles/README.md](src/styles/README.md)                                           |
-| `src/utils/`                          | [src/utils/README.md](src/utils/README.md)                                             |
-| `public/`                             | [public/README.md](public/README.md)                                                   |
+| Folder                             | README                                                                                 |
+| ---------------------------------- | -------------------------------------------------------------------------------------- |
+| `src/`                             | [src/README.md](src/README.md)                                                         |
+| `src/pages/`                       | [src/pages/README.md](src/pages/README.md)                                             |
+| `src/Components/`                  | [src/Components/README.md](src/Components/README.md)                                   |
+| `src/Components/Layout/`           | [src/Components/Layout/README.md](src/Components/Layout/README.md)                     |
+| `src/Components/CommonComponents/` | [src/Components/CommonComponents/README.md](src/Components/CommonComponents/README.md) |
+| `src/Components/MainComponents/`   | [src/Components/MainComponents/README.md](src/Components/MainComponents/README.md)     |
+| `src/Constants/`                   | [src/Constants/README.md](src/Constants/README.md)                                     |
+| `src/firebase/`                    | [src/firebase/README.md](src/firebase/README.md)                                       |
+| `src/styles/`                      | [src/styles/README.md](src/styles/README.md)                                           |
+| `src/utils/`                       | [src/utils/README.md](src/utils/README.md)                                             |
+| `public/`                          | [public/README.md](public/README.md)                                                   |
 
 For agent-specific guidance, see [.github/copilot-instructions.md](.github/copilot-instructions.md).
 
@@ -378,7 +380,7 @@ For agent-specific guidance, see [.github/copilot-instructions.md](.github/copil
 
 - **Company:** Quartic Lab (formerly Zweidevs (Pvt) Ltd)
 - **Address:** 6-B, Block B Phase 1, Johar Town, Lahore, Punjab 54000, Pakistan
-- **Email:** hello@quarticlab.com
-- **Booking:** [Calendly — Start a project](https://calendly.com/quarticlab/meeting)
+- **Email:** contact@quarticlab.com
+- **Booking:** [Calendly — Start a project](https://calendly.com/quarticlab/30min)
 - **LinkedIn:** [linkedin.com/company/quarticlab](https://www.linkedin.com/company/quarticlab)
 - **Twitter / X:** [@quarticlab](https://twitter.com/quarticlab)
