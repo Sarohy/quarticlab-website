@@ -118,6 +118,58 @@
   color: var(--ql-copper);
 }
 
+/* hero-specific CTA variants (on oxford dark background) */
+.btnHeroPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 16px 32px;
+  background: var(--ql-copper);
+  color: var(--ql-linen);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.btnHeroPrimary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px oklch(58% 0.12 45 / 0.45);
+  background: var(--ql-copper-dk);
+}
+
+.btnHeroOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 16px 32px;
+  background: transparent;
+  color: oklch(95% 0.018 75 / 0.7);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid oklch(95% 0.018 75 / 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.btnHeroOutline:hover {
+  border-color: oklch(95% 0.018 75 / 0.5);
+  color: var(--ql-linen);
+}
+
 /* ═══════════════════════════════════════════
    HERO
    ═══════════════════════════════════════════ */
@@ -924,6 +976,14 @@
   }
 
   .heroCtas {
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btnHeroPrimary,
+  .btnHeroOutline {
+    width: 100%;
     justify-content: center;
   }
 

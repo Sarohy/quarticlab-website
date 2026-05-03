@@ -1251,13 +1251,13 @@ export default function AboutPage() {
             </p>
             <div className={styles.heroCtas}>
               <button
-                className={styles.btnPrimary}
+                className={styles.btnHeroPrimary}
                 onClick={() => router.push("/contact")}
               >
                 Start a project
               </button>
               <a
-                className={styles.btnOutline}
+                className={styles.btnHeroOutline}
                 href="https://calendly.com/quarticlab/30min"
                 rel="noopener noreferrer"
                 target="_blank"
