@@ -381,14 +381,14 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
           <p className={styles.heroSub}>{data.heroSub}</p>
           <div className={styles.heroCtas}>
             <button
-              className={styles.btnPrimary}
+              className={styles.btnHeroPrimary}
               onClick={() =>
                 window.open("https://calendly.com/quarticlab/30min", "_blank")
               }
             >
               Request a demo
             </button>
-            <Link className={styles.btnOutline} href="/services">
+            <Link className={styles.btnHeroOutline} href="/services">
               All services
             </Link>
           </div>
@@ -695,7 +695,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
               has. Book a free consultation today.
             </p>
             <button
-              className={styles.btnPrimary}
+              className={styles.btnHeroPrimary}
               onClick={() =>
                 window.open("https://calendly.com/quarticlab/30min", "_blank")
               }
