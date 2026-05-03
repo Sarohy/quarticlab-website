@@ -257,7 +257,7 @@
   flex: 0 0 52%;
   position: relative;
   aspect-ratio: 16 / 10;
-  border-radius: 2px;
+  border-radius: 12px;
   overflow: hidden;
   background: var(--ql-parchment);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
