@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,12 +19,15 @@ function formatDate(str) {
   });
 }
 
-function estimateReadTime(html = "") {
-  const words = html
+function countWords(html = "") {
+  return html
     .replace(/<[^>]+>/g, " ")
     .split(/\s+/)
     .filter(Boolean).length;
-  return Math.max(1, Math.round(words / 200));
+}
+
+function estimateReadTime(html = "") {
+  return Math.max(1, Math.round(countWords(html) / 200));
 }
 
 function tagToCategory(tags = []) {
@@ -50,8 +53,22 @@ function tagToCategory(tags = []) {
   return "Engineering";
 }
 
-/* ── scroll progress bar ─────────────────── */
-function ScrollProgress() {
+function parseHeadings(html = "") {
+  const out = [];
+  const re = /<h([23])[^>]*id="([^"]+)"[^>]*>(.*?)<\/h[23]>/gi;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    out.push({
+      id: m[2],
+      level: parseInt(m[1], 10),
+      text: m[3].replace(/<[^>]+>/g, ""),
+    });
+  }
+  return out;
+}
+
+/* ── hooks ───────────────────────────────── */
+function useReadingProgress() {
   const [pct, setPct] = useState(0);
 
   useEffect(() => {
@@ -59,12 +76,189 @@ function ScrollProgress() {
       const el = document.documentElement;
       const scrolled = el.scrollTop || document.body.scrollTop;
       const total = el.scrollHeight - el.clientHeight;
-      setPct(total > 0 ? (scrolled / total) * 100 : 0);
+      setPct(total > 0 ? Math.min(100, (scrolled / total) * 100) : 0);
     };
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  return pct;
+}
+
+function useScrollSpy(headingIds) {
+  const [activeId, setActiveId] = useState("");
+  const key = headingIds.join("|");
+
+  useEffect(() => {
+    if (!headingIds.length) {
+      return;
+    }
+    const elements = headingIds
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    if (!elements.length) {
+      return;
+    }
+
+    const obs = new IntersectionObserver(
+      entries => {
+        const visible = entries.filter(e => e.isIntersecting);
+        if (visible.length === 0) {
+          return;
+        }
+        visible.sort(
+          (a, b) =>
+            a.target.getBoundingClientRect().top -
+            b.target.getBoundingClientRect().top,
+        );
+        setActiveId(visible[0].target.id);
+      },
+      { rootMargin: "-80px 0px -65% 0px", threshold: 0 },
+    );
+
+    elements.forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [key]);
+
+  return activeId;
+}
+
+function useEnhanceArticle(ref, html) {
+  useEffect(() => {
+    const root = ref.current;
+    if (!root) {
+      return;
+    }
+
+    // Add hover-reveal anchor links to headings with ids
+    root.querySelectorAll("h2[id], h3[id]").forEach(h => {
+      if (h.querySelector(`.${styles.anchorLink}`)) {
+        return;
+      }
+      const a = document.createElement("a");
+      a.href = `#${h.id}`;
+      a.className = styles.anchorLink;
+      a.setAttribute("aria-label", `Link to ${h.textContent}`);
+      a.textContent = "#";
+      h.appendChild(a);
+    });
+
+    // Add language label + copy button to code blocks
+    const cleanups = [];
+    root.querySelectorAll("pre").forEach(pre => {
+      if (pre.querySelector(`.${styles.codeCopyBtn}`)) {
+        return;
+      }
+      const code = pre.querySelector("code");
+      const langClass =
+        code &&
+        Array.from(code.classList || []).find(c => c.startsWith("language-"));
+      if (langClass) {
+        const label = document.createElement("span");
+        label.className = styles.codeLang;
+        label.textContent = langClass.replace("language-", "");
+        pre.appendChild(label);
+      }
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = styles.codeCopyBtn;
+      btn.textContent = "Copy";
+      const handler = () => {
+        const text = code ? code.innerText : pre.innerText;
+        if (!navigator.clipboard) {
+          return;
+        }
+        navigator.clipboard.writeText(text).then(() => {
+          btn.textContent = "✓ Copied";
+          setTimeout(() => {
+            btn.textContent = "Copy";
+          }, 1800);
+        });
+      };
+      btn.addEventListener("click", handler);
+      pre.appendChild(btn);
+      cleanups.push(() => btn.removeEventListener("click", handler));
+    });
+
+    return () => cleanups.forEach(fn => fn());
+  }, [ref, html]);
+}
+
+/* ── icons ───────────────────────────────── */
+function IconLinkedIn() {
+  return (
+    <svg
+      aria-hidden="true"
+      fill="currentColor"
+      focusable="false"
+      height="14"
+      viewBox="0 0 24 24"
+      width="14"
+    >
+      <path d="M20.4 3H3.6A.6.6 0 0 0 3 3.6v16.8a.6.6 0 0 0 .6.6h16.8a.6.6 0 0 0 .6-.6V3.6a.6.6 0 0 0-.6-.6ZM8.3 18.3H5.7V9.7h2.6v8.6Zm-1.3-9.8a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm11.3 9.8h-2.6v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.3H10V9.7h2.5v1.2h.1c.4-.7 1.2-1.4 2.5-1.4 2.7 0 3.2 1.7 3.2 4v4.8Z" />
+    </svg>
+  );
+}
+
+function IconX() {
+  return (
+    <svg
+      aria-hidden="true"
+      fill="currentColor"
+      focusable="false"
+      height="14"
+      viewBox="0 0 24 24"
+      width="14"
+    >
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231ZM17.083 19.77h1.833L7.084 4.126H5.117L17.083 19.77Z" />
+    </svg>
+  );
+}
+
+function IconLink() {
+  return (
+    <svg
+      aria-hidden="true"
+      fill="none"
+      focusable="false"
+      height="14"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      width="14"
+    >
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+    </svg>
+  );
+}
+
+function IconCheck() {
+  return (
+    <svg
+      aria-hidden="true"
+      fill="none"
+      focusable="false"
+      height="14"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.4"
+      viewBox="0 0 24 24"
+      width="14"
+    >
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
+}
+
+/* ── scroll progress (top bar) ───────────── */
+function ScrollProgress({ pct }) {
   return (
     <div
       aria-hidden="true"
@@ -74,114 +268,175 @@ function ScrollProgress() {
   );
 }
 
-/* ── back to top ─────────────────────────── */
-function BackToTop() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const el = document.documentElement;
-      const scrolled = el.scrollTop || document.body.scrollTop;
-      const total = el.scrollHeight - el.clientHeight;
-      setVisible(total > 0 && scrolled / total > 0.5);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
+/* ── back to top with radial progress ────── */
+function BackToTop({ pct }) {
+  const visible = pct > 25;
   if (!visible) {
     return null;
   }
+  const C = 2 * Math.PI * 20;
+  const offset = C * (1 - pct / 100);
   return (
     <button
       aria-label="Back to top"
       className={styles.backToTop}
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      onClick={() => window.scrollTo({ behavior: "smooth", top: 0 })}
     >
-      ↑
+      <svg
+        aria-hidden="true"
+        className={styles.backToTopRing}
+        focusable="false"
+        height="48"
+        viewBox="0 0 48 48"
+        width="48"
+      >
+        <circle
+          cx="24"
+          cy="24"
+          fill="none"
+          r="20"
+          stroke="oklch(95% 0.018 75 / 0.15)"
+          strokeWidth="2"
+        />
+        <circle
+          cx="24"
+          cy="24"
+          fill="none"
+          r="20"
+          stroke="var(--ql-copper)"
+          strokeDasharray={C}
+          strokeDashoffset={offset}
+          strokeLinecap="round"
+          strokeWidth="2"
+          transform="rotate(-90 24 24)"
+        />
+      </svg>
+      <span aria-hidden="true" className={styles.backToTopArrow}>
+        ↑
+      </span>
     </button>
   );
 }
 
-/* ── copy link ───────────────────────────── */
-function ShareBar({ title }) {
+/* ── vertical share rail (desktop only) ──── */
+function ShareRail({ title }) {
   const [copied, setCopied] = useState(false);
   const url = typeof window !== "undefined" ? window.location.href : SITE_URL;
   const encoded = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title || "");
 
   const handleCopy = () => {
+    if (!navigator.clipboard) {
+      return;
+    }
     navigator.clipboard.writeText(url).then(() => {
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setTimeout(() => setCopied(false), 1800);
     });
   };
 
   return (
-    <div className={styles.shareBar}>
-      <span className={styles.shareLabel}>Share:</span>
-      <button
-        aria-label="Copy link"
-        className={styles.shareBtn}
-        onClick={handleCopy}
-      >
-        {copied ? "✓ Copied" : "Copy link"}
-      </button>
+    <aside aria-label="Share article" className={styles.shareRail}>
+      <span className={styles.shareRailLabel}>Share</span>
       <a
         aria-label="Share on LinkedIn"
-        className={styles.shareBtn}
+        className={styles.shareRailBtn}
         href={`https://www.linkedin.com/shareArticle?mini=true&url=${encoded}&title=${encodedTitle}`}
         rel="noopener noreferrer"
         target="_blank"
       >
-        LinkedIn
+        <IconLinkedIn />
       </a>
       <a
         aria-label="Share on X"
-        className={styles.shareBtn}
+        className={styles.shareRailBtn}
         href={`https://x.com/intent/tweet?url=${encoded}&text=${encodedTitle}`}
         rel="noopener noreferrer"
         target="_blank"
       >
-        X / Twitter
+        <IconX />
       </a>
+      <button
+        aria-label="Copy link"
+        className={styles.shareRailBtn}
+        onClick={handleCopy}
+        type="button"
+      >
+        {copied ? <IconCheck /> : <IconLink />}
+      </button>
+    </aside>
+  );
+}
+
+/* ── reading-progress card (sidebar) ─────── */
+function ProgressCard({ pct, readingTime }) {
+  const minsLeft = Math.max(0, Math.round(readingTime * (1 - pct / 100)));
+  return (
+    <div className={styles.progressCard}>
+      <div className={styles.progressLabel}>
+        <span className={styles.progressPct}>{Math.round(pct)}%</span>
+        <span className={styles.progressMin}>
+          {pct >= 99 ? "Complete" : `${minsLeft} min left`}
+        </span>
+      </div>
+      <div aria-hidden="true" className={styles.progressBar}>
+        <div className={styles.progressFill} style={{ width: `${pct}%` }} />
+      </div>
     </div>
   );
 }
 
-/* ── table of contents ───────────────────── */
-function TableOfContents({ html }) {
-  const [open, setOpen] = useState(true);
-  const headings = [];
-  const re = /<h([23])[^>]*id="([^"]+)"[^>]*>(.*?)<\/h[23]>/gi;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    headings.push({
-      level: parseInt(m[1], 10),
-      id: m[2],
-      text: m[3].replace(/<[^>]+>/g, ""),
-    });
-  }
+/* ── scroll-spy table of contents ────────── */
+function TableOfContents({ activeId, headings, mobile }) {
+  const [open, setOpen] = useState(!mobile);
+
   if (headings.length < 3) {
     return null;
   }
+
+  const handleClick = (e, id) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (!el) {
+      return;
+    }
+    const top = el.getBoundingClientRect().top + window.pageYOffset - 88;
+    window.scrollTo({ behavior: "smooth", top });
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, "", `#${id}`);
+    }
+  };
+
   return (
-    <nav aria-label="Table of contents" className={styles.toc}>
+    <nav
+      aria-label="Article contents"
+      className={mobile ? styles.tocMobile : styles.tocCard}
+    >
       <button
         aria-expanded={open}
         className={styles.tocToggle}
         onClick={() => setOpen(o => !o)}
+        type="button"
       >
-        Contents {open ? "▲" : "▼"}
+        On this page
+        <span aria-hidden="true" className={styles.tocChevron}>
+          {open ? "−" : "+"}
+        </span>
       </button>
       {open && (
         <ol className={styles.tocList}>
           {headings.map(h => (
             <li
-              className={h.level === 3 ? styles.tocSubItem : styles.tocItem}
+              className={`${
+                h.level === 3 ? styles.tocSubItem : styles.tocItem
+              } ${activeId === h.id ? styles.tocActive : ""}`}
               key={h.id}
             >
-              <a className={styles.tocLink} href={`#${h.id}`}>
+              <a
+                className={styles.tocLink}
+                href={`#${h.id}`}
+                onClick={e => handleClick(e, h.id)}
+              >
                 {h.text}
               </a>
             </li>
@@ -192,7 +447,7 @@ function TableOfContents({ html }) {
   );
 }
 
-/* ── newsletter form ─────────────────────── */
+/* ── newsletter ──────────────────────────── */
 function NewsletterForm({ email, onEmailChange, onSubmit, subStatus }) {
   if (subStatus === "done") {
     return (
@@ -235,6 +490,16 @@ const BlogDetail = ({ post, fetchStatus }) => {
   const [subStatus, setSubStatus] = useState("idle");
   const contentRef = useRef(null);
 
+  const headings = useMemo(
+    () => parseHeadings(post?.contentHtml || ""),
+    [post?.contentHtml],
+  );
+  const headingIds = useMemo(() => headings.map(h => h.id), [headings]);
+
+  const pct = useReadingProgress();
+  const activeId = useScrollSpy(headingIds);
+  useEnhanceArticle(contentRef, post?.contentHtml);
+
   const handleSubscribe = async e => {
     e.preventDefault();
     if (!email) {
@@ -246,11 +511,11 @@ const BlogDetail = ({ post, fetchStatus }) => {
     );
     try {
       await subscribeEmail({
-        email,
-        source: "blog_detail",
-        slug: post?.slug,
-        subscribedAt: new Date().toISOString(),
         confirmed: false,
+        email,
+        slug: post?.slug,
+        source: "blog_detail",
+        subscribedAt: new Date().toISOString(),
       });
       setSubStatus("done");
       setEmail("");
@@ -262,7 +527,7 @@ const BlogDetail = ({ post, fetchStatus }) => {
   if (fetchStatus === "loading") {
     return (
       <div className={styles.page}>
-        <ScrollProgress />
+        <ScrollProgress pct={0} />
         <div className={styles.detailLoadingWrap}>
           <div className={styles.skeletonDetailHero} />
           <div className={styles.container}>
@@ -299,10 +564,12 @@ const BlogDetail = ({ post, fetchStatus }) => {
     );
   }
 
-  const category = tagToCategory(post.tags);
+  const wordCount = countWords(post.contentHtml || "");
   const readingTime =
     post.readingTime || estimateReadTime(post.contentHtml || "");
   const canonicalUrl = `${SITE_URL}/blog/${post.slug}`;
+  const authorName = post.author || "Quartic Lab";
+  const authorInitial = authorName.charAt(0).toUpperCase();
 
   return (
     <div className={styles.page}>
@@ -335,97 +602,120 @@ const BlogDetail = ({ post, fetchStatus }) => {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Article",
-              headline: post.title,
-              image: post.heroImage,
-              datePublished: post.publishedDate,
-              dateModified: post.updatedAt || post.publishedDate,
               author: {
                 "@type": "Organization",
                 name: "Quartic Lab",
                 url: "https://www.quarticlab.com/",
               },
+              dateModified: post.updatedAt || post.publishedDate,
+              datePublished: post.publishedDate,
+              headline: post.title,
+              image: post.heroImage,
+              mainEntityOfPage: `https://www.quarticlab.com/blog/${post.slug}`,
               publisher: {
                 "@type": "Organization",
-                name: "Quartic Lab",
                 logo: {
                   "@type": "ImageObject",
                   url: "https://www.quarticlab.com/mark-dark.svg",
                 },
+                name: "Quartic Lab",
               },
-              mainEntityOfPage: `https://www.quarticlab.com/blog/${post.slug}`,
             }),
           }}
           type="application/ld+json"
         />
       </Head>
 
-      <ScrollProgress />
-      <BackToTop />
+      <ScrollProgress pct={pct} />
+      <BackToTop pct={pct} />
 
-      {/* ─── HERO ─────────────────────────────── */}
-      <section aria-label="Article hero" className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className={styles.heroInner}>
+      {/* ─── HEADER ───────────────────────────── */}
+      <header aria-label="Article header" className={styles.detailHeader}>
+        <div className={styles.detailHeaderInner}>
           <Link className={styles.backLink} href="/blog">
             ← Back to blog
           </Link>
-          <span className={styles.heroBadge}>{category}</span>
-          <h1 className={styles.heroH1}>{post.title}</h1>
 
-          {/* meta row */}
-          <div className={styles.detailMeta}>
-            <span className={styles.detailAuthor}>{post.author}</span>
-            <span className={styles.cardDot}>·</span>
-            <span>{formatDate(post.publishedDate)}</span>
-            <span className={styles.cardDot}>·</span>
-            <span>{readingTime} min read</span>
-          </div>
-
-          {/* share bar */}
-          <ShareBar title={post.title} />
-        </div>
-        <div className={styles.heroWave} />
-      </section>
-
-      {/* ─── CONTENT ──────────────────────────── */}
-      <section aria-label="Article content" className={styles.detailSec}>
-        <div className={styles.container}>
-          {/* hero image */}
           {post.heroImage && (
-            <div className={styles.detailHeroImg}>
+            <div className={styles.heroCover}>
               <Image
-                alt={post.title || "Article image"}
-                className={styles.detailHeroImgEl}
+                alt={post.title || "Article cover image"}
+                className={styles.heroCoverImg}
                 fill
                 priority
-                sizes="(max-width: 768px) 100vw, 900px"
+                sizes="(max-width: 1100px) 100vw, 1100px"
                 src={post.heroImage}
               />
             </div>
           )}
+        </div>
+      </header>
 
-          {/* two-col: body + sidebar */}
+      {/* ─── CONTENT ──────────────────────────── */}
+      <section aria-label="Article content" className={styles.detailSec}>
+        <div className={styles.container}>
           <div className={styles.detailLayout}>
-            {/* article body */}
+            <ShareRail title={post.title} />
+
             <div className={styles.detailBodyCol}>
-              {post.contentHtml && <TableOfContents html={post.contentHtml} />}
+              {headings.length >= 3 && (
+                <TableOfContents
+                  activeId={activeId}
+                  headings={headings}
+                  mobile
+                />
+              )}
+              <div className={styles.detailHeaderText}>
+                <h1 className={styles.detailHeaderH1}>{post.title}</h1>
+                {post.metaDescription && (
+                  <p className={styles.detailHeaderDeck}>
+                    {post.metaDescription}
+                  </p>
+                )}
+
+                <div className={styles.detailMeta}>
+                  <div className={styles.detailMetaAuthor}>
+                    <span
+                      aria-hidden="true"
+                      className={styles.detailMetaAvatar}
+                    >
+                      {authorInitial}
+                    </span>
+                    <div className={styles.detailMetaAuthorText}>
+                      <strong className={styles.detailAuthor}>
+                        {authorName}
+                      </strong>
+                      <span className={styles.detailMetaDate}>
+                        {formatDate(post.publishedDate)}
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    className={styles.detailMetaDivider}
+                  />
+                  <div className={styles.detailMetaStats}>
+                    <span>{readingTime} min read</span>
+                    <span aria-hidden="true" className={styles.cardDot}>
+                      ·
+                    </span>
+                    <span>{wordCount.toLocaleString()} words</span>
+                  </div>
+                </div>
+              </div>
               <article
                 className={styles.detailContent}
-                dangerouslySetInnerHTML={{
-                  __html: post.contentHtml || "",
-                }}
+                dangerouslySetInnerHTML={{ __html: post.contentHtml || "" }}
                 ref={contentRef}
               />
 
-              {/* author bio */}
               <div className={styles.authorBio}>
                 <div aria-hidden="true" className={styles.authorAvatar}>
-                  {(post.author || "Q").charAt(0).toUpperCase()}
+                  {authorInitial}
                 </div>
                 <div className={styles.authorBioText}>
-                  <strong className={styles.authorBioName}>
-                    {post.author || "Quartic Lab"}
-                  </strong>
+                  <span className={styles.authorBioLabel}>Written by</span>
+                  <strong className={styles.authorBioName}>{authorName}</strong>
                   <p className={styles.authorBioDesc}>
                     Writing from inside the product — engineers building real
                     software for real clients.
@@ -433,13 +723,13 @@ const BlogDetail = ({ post, fetchStatus }) => {
                 </div>
               </div>
 
-              {/* newsletter */}
               <div className={styles.detailNewsletter}>
+                <span className={styles.detailNewsletterTag}>Newsletter</span>
                 <h3 className={styles.detailNewsletterH}>
                   Get engineering notes in your inbox.
                 </h3>
                 <p className={styles.detailNewsletterSub}>
-                  One email every 2 weeks. No fluff.
+                  One email every 2 weeks. No fluff, no tracking pixels.
                 </p>
                 <NewsletterForm
                   email={email}
@@ -448,27 +738,39 @@ const BlogDetail = ({ post, fetchStatus }) => {
                   subStatus={subStatus}
                 />
               </div>
+
+              <div className={styles.detailBack}>
+                <Link className={styles.btnOutline} href="/blog">
+                  ← Back to articles
+                </Link>
+              </div>
             </div>
 
-            {/* sidebar */}
             <aside className={styles.detailSidebar}>
-              <div className={styles.sidebarCard}>
-                <span className={styles.sidebarLabel}>Category</span>
-                <span className={styles.sidebarCategory}>{category}</span>
+              <div className={styles.sidebarStack}>
+                <ProgressCard pct={pct} readingTime={readingTime} />
 
-                <div className={styles.sidebarDivider} />
+                {headings.length >= 3 && (
+                  <TableOfContents
+                    activeId={activeId}
+                    headings={headings}
+                    mobile={false}
+                  />
+                )}
 
-                <p className={styles.sidebarCta}>
-                  Need help shipping something like this?
-                </p>
-                <Link className={styles.btnPrimary} href="/contact">
-                  Start a project →
-                </Link>
-
-                <div className={styles.sidebarDivider} />
+                <div className={styles.sidebarCtaCard}>
+                  <span className={styles.sidebarLabel}>Work with us</span>
+                  <p className={styles.sidebarCta}>
+                    Need help shipping something like this?
+                  </p>
+                  <Link className={styles.sidebarCtaBtn} href="/contact">
+                    Start a project
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
 
                 {post.tags && post.tags.length > 0 && (
-                  <>
+                  <div className={styles.sidebarTagsCard}>
                     <span className={styles.sidebarLabel}>Tags</span>
                     <div className={styles.tagList}>
                       {post.tags.map(t => (
@@ -477,34 +779,40 @@ const BlogDetail = ({ post, fetchStatus }) => {
                         </span>
                       ))}
                     </div>
-                  </>
+                  </div>
                 )}
               </div>
             </aside>
-          </div>
-
-          {/* back link */}
-          <div className={styles.detailBack}>
-            <Link className={styles.btnOutline} href="/blog">
-              ← Back to articles
-            </Link>
           </div>
         </div>
       </section>
 
       {/* ─── CTA ──────────────────────────────── */}
       <section aria-label="Contact CTA" className={styles.ctaSec}>
-        <div className={`${styles.container} ${styles.ctaInner}`}>
-          <div className={styles.ctaText}>
-            <h2 className={styles.ctaH2}>Need help shipping this?</h2>
+        <div className={styles.container}>
+          <div className={styles.ctaCard}>
+            <span className={styles.ctaTag}>Let&apos;s build</span>
+            <h2 className={styles.ctaH2}>
+              Bring us the brief. We&apos;ll bring the team.
+            </h2>
             <p className={styles.ctaSub}>
-              Book a 30-min call with an engineer. No sales pitch — just a
-              discussion about what you&apos;re building.
+              Book a 30-min call with a senior engineer — or send a project
+              brief and get a written estimate within 12 hours.
             </p>
+            <div className={styles.ctaBtns}>
+              <a
+                className={styles.btnPrimary}
+                href="https://calendly.com/quarticlab/30min"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Book a call
+              </a>
+              <Link className={styles.btnGhost} href="/contact">
+                Send a brief →
+              </Link>
+            </div>
           </div>
-          <Link className={styles.btnPrimary} href="/contact">
-            Book a call →
-          </Link>
         </div>
       </section>
     </div>
@@ -531,11 +839,11 @@ export async function getServerSideProps(context) {
     const serialized = {
       ...post,
       createdAt: serializeTimestamp(post.createdAt),
-      updatedAt: serializeTimestamp(post.updatedAt),
       publishedAt: serializeTimestamp(post.publishedAt),
+      updatedAt: serializeTimestamp(post.updatedAt),
     };
-    return { props: { post: serialized, fetchStatus: "ok" } };
+    return { props: { fetchStatus: "ok", post: serialized } };
   } catch {
-    return { props: { post: null, fetchStatus: "error" } };
+    return { props: { fetchStatus: "error", post: null } };
   }
 }
