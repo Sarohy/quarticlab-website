@@ -15,39 +15,6 @@ function Footer() {
 
   return (
     <footer className={styles.footerMainContainer}>
-      {/* ── CTA Banner ───────────────────────── */}
-      <div className={styles.ctaBanner}>
-        <div className={styles.ctaBannerInner}>
-          <div className={styles.ctaBannerContent}>
-            <span className={styles.ctaBadge}>
-              <span className={styles.ctaBadgeDot} />
-              Avg. response: 4 hours
-            </span>
-            <h2 className={styles.ctaBannerTitle}>
-              Get a full project estimate
-              <span className={styles.ctaHighlight}> in 12 hours</span>
-            </h2>
-            <p className={styles.ctaBannerDesc}>
-              Scope, timeline, team composition, and cost — delivered to your
-              inbox. No sales call required.
-            </p>
-          </div>
-          <div className={styles.ctaBannerActions}>
-            <a
-              className={styles.ctaBannerButton}
-              href="https://calendly.com/quarticlab/30min"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Book a 30-min call
-            </a>
-            <Link className={styles.ctaBannerSecondary} href="/contact">
-              Send a brief instead
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* ── Top accent line ──────────────────── */}
       <div className={styles.footerAccentBar} />
 
