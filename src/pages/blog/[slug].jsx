@@ -30,29 +30,6 @@ function estimateReadTime(html = "") {
   return Math.max(1, Math.round(countWords(html) / 200));
 }
 
-function tagToCategory(tags = []) {
-  if (!tags || !tags.length) {
-    return "Engineering";
-  }
-  const s = tags.join(" ").toLowerCase();
-  if (
-    s.includes("agentic") ||
-    s.includes(" ai") ||
-    s.includes("ml") ||
-    s.includes("machine learning") ||
-    s.includes("llm")
-  ) {
-    return "AI & ML";
-  }
-  if (s.includes("product") || s.includes("saas") || s.includes("workflow")) {
-    return "Product";
-  }
-  if (s.includes("business") || s.includes("agency")) {
-    return "Business";
-  }
-  return "Engineering";
-}
-
 function parseHeadings(html = "") {
   const out = [];
   const re = /<h([23])[^>]*id="([^"]+)"[^>]*>(.*?)<\/h[23]>/gi;
