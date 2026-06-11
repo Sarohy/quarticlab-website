@@ -11,7 +11,6 @@ import ClientSvg5 from "../../public/assets/HomeIcons/clients/tony-malik.png";
 import ClientSvg6 from "../../public/assets/HomeIcons/clients/tommy.png";
 import {
   SERVICE_ICON_BY_SLUG,
-  SERVICE_ICON_MAP,
   WebDevIcon,
 } from "@component/Components/CommonComponents/ServiceIcons";
 import AnthropicIcon from "../../public/assets/serviceIcons/anthropic.svg";
@@ -68,8 +67,6 @@ import styles from "../styles/landing.module.css";
 import { SITE_URL } from "@component/utils/siteUrl";
 
 /* ── data ────────────────────────────────────────── */
-
-const serviceIconMap = SERVICE_ICON_MAP;
 
 const slugMap = {
   "Web Development": "web-development",
@@ -894,40 +891,70 @@ function HeroSection() {
 }
 
 function ServicesSection({ services, servicesError }) {
+  const [active, setActive] = useState(0);
   return (
     <section className={styles.services} id="services">
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Services</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Multiple disciplines. One team. Zero handoff overhead.
-          </h2>
+        <div className={styles.servicesHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              Services
+            </span>
+            <h2 className={styles.servicesTitle}>
+              Multiple disciplines. One team. <em>Zero handoff.</em>
+            </h2>
+          </div>
+          <p className={`${styles.servicesLead} ${styles.reveal}`}>
+            Every engagement runs through a single senior pod — strategy,
+            design, engineering, and deployment under one roof. Select a
+            discipline to expand it.
+          </p>
         </div>
         {servicesError ? (
           <p style={{ color: "#ef5350", textAlign: "center" }}>
             Unable to load services right now. Please try again later.
           </p>
         ) : (
-          <div className={styles.servicesGrid}>
+          <div className={`${styles.panels} ${styles.reveal}`}>
             {services.map((s, i) => {
-              const Icon =
-                SERVICE_ICON_BY_SLUG[s.slug] ||
-                serviceIconMap[s.title] ||
-                WebDevIcon;
+              const num = String(i + 1).padStart(2, "0");
+              const on = active === i;
+              const Icon = SERVICE_ICON_BY_SLUG[s.slug] || WebDevIcon;
               return (
-                <Link
-                  className={`${styles.serviceCard} ${styles.reveal}`}
-                  href={s.href}
+                <div
+                  aria-expanded={on}
+                  className={`${styles.panel} ${on ? styles.panelOn : ""}`}
                   key={s.title}
-                  style={{ transitionDelay: `${i * 70}ms` }}
+                  onClick={() => setActive(i)}
+                  onKeyDown={e => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setActive(i);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
                 >
-                  <div className={styles.serviceIconWrap}>
-                    <Icon size={56} />
+                  <div className={styles.pRail}>
+                    <span className={styles.pIx}>{num}</span>
+                    <span className={styles.pVt}>{s.title}</span>
+                    <span className={styles.pDot} />
                   </div>
-                  <h3 className={styles.serviceCardTitle}>{s.title}</h3>
-                  <p className={styles.serviceCardDesc}>{s.desc}</p>
-                  <span className={styles.serviceLink}>Learn More →</span>
-                </Link>
+                  <div className={styles.pBody}>
+                    <span className={styles.pIx2}>QL/{num}</span>
+                    <div aria-hidden="true" className={styles.pVisual}>
+                      <Icon size={132} />
+                    </div>
+                    <div className={styles.pContent}>
+                      <h3 className={styles.pTitle}>{s.title}</h3>
+                      <p className={styles.pDesc}>{s.desc}</p>
+                      <Link className={styles.pLink} href={s.href}>
+                        EXPLORE →
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               );
             })}
           </div>
