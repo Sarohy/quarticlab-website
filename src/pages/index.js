@@ -1389,111 +1389,74 @@ function StatsSection() {
   );
 }
 
+function TestimonialCard({ hidden, t }) {
+  const avatar = t.avatarUrl || t.img;
+  return (
+    <article aria-hidden={hidden || undefined} className={styles.tq}>
+      <p className={styles.tqText}>{t.text}</p>
+      <footer className={styles.tqFoot}>
+        {avatar ? (
+          <Image
+            alt={hidden ? "" : t.name}
+            className={styles.tqAvatar}
+            height={38}
+            src={avatar}
+            width={38}
+          />
+        ) : (
+          <span aria-hidden="true" className={styles.tqAvatarFallback}>
+            {t.name ? t.name.charAt(0).toUpperCase() : "?"}
+          </span>
+        )}
+        <div className={styles.tqWho}>
+          <b>{t.name}</b>
+          {t.position && <span>{t.position}</span>}
+        </div>
+        {t.company && <span className={styles.tqCo}>{t.company}</span>}
+      </footer>
+    </article>
+  );
+}
+
+function MarqueeRow({ items, keyPrefix, reversed }) {
+  return (
+    <div className={`${styles.tmrow} ${reversed ? styles.tmrowRev : ""}`}>
+      {items.map(t => (
+        <TestimonialCard key={`${keyPrefix}-${t.name}`} t={t} />
+      ))}
+      {items.map(t => (
+        <TestimonialCard hidden key={`${keyPrefix}-dup-${t.name}`} t={t} />
+      ))}
+    </div>
+  );
+}
+
 function TestimonialsSection({ testimonials }) {
-  const [active, setActive] = useState(0);
-  const intervalRef = useRef(null);
-
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setActive(prev => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(intervalRef.current);
-  }, []);
-
-  const goTo = idx => {
-    clearInterval(intervalRef.current);
-    setActive(idx);
-    intervalRef.current = setInterval(() => {
-      setActive(prev => (prev + 1) % testimonials.length);
-    }, 5000);
-  };
+  const mid = Math.ceil(testimonials.length / 2);
+  const rowA = testimonials.slice(0, mid);
+  const rowBRaw = testimonials.slice(mid);
+  const rowB = rowBRaw.length ? rowBRaw : rowA;
 
   return (
-    <section className={styles.testimonialsSec}>
+    <section className={styles.testimonialsSec} id="testimonials">
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Testimonials</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            What clients say about us
-          </h2>
+        <div className={styles.servicesHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              Testimonials
+            </span>
+            <h2 className={styles.servicesTitle}>
+              In their <em>own words</em>
+            </h2>
+          </div>
         </div>
-        <div className={styles.testimonialCarousel}>
-          {testimonials.map((t, i) => (
-            <div
-              className={`${styles.testimonialCard} ${
-                i === active ? styles.testimonialActive : ""
-              }`}
-              key={t.name}
-            >
-              <span aria-hidden="true" className={styles.testimonialQuoteMark}>
-                &ldquo;
-              </span>
-              <div aria-label="5 stars" className={styles.testimonialStars}>
-                {[1, 2, 3, 4, 5].map(s => (
-                  <span className={styles.testimonialStar} key={s}>
-                    ★
-                  </span>
-                ))}
-              </div>
-              <p className={styles.testimonialText}>{t.text}</p>
-              <div className={styles.testimonialAuthor}>
-                {t.avatarUrl || t.img ? (
-                  <Image
-                    alt={t.name}
-                    className={styles.testimonialAvatar}
-                    height={48}
-                    src={t.avatarUrl || t.img}
-                    width={48}
-                  />
-                ) : (
-                  <div className={styles.testimonialAvatarFallback}>
-                    {t.name ? t.name.charAt(0).toUpperCase() : "?"}
-                  </div>
-                )}
-                <div className={styles.testimonialAuthorInfo}>
-                  <span className={styles.testimonialName}>{t.name}</span>
-                  {t.position && (
-                    <span className={styles.testimonialPosition}>
-                      {t.position}
-                    </span>
-                  )}
-                </div>
-                {t.companyLogoUrl ? (
-                  <Image
-                    alt={t.company || "Company logo"}
-                    className={styles.testimonialCompanyLogo}
-                    height={28}
-                    src={t.companyLogoUrl}
-                    width={80}
-                  />
-                ) : (
-                  t.company && (
-                    <span className={styles.testimonialCompanyBadge}>
-                      {t.company}
-                    </span>
-                  )
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-        <div
-          aria-label="Testimonial navigation"
-          className={styles.testimonialDots}
-          role="tablist"
-        >
-          {testimonials.map((t, i) => (
-            <button
-              aria-current={i === active ? "true" : undefined}
-              aria-label={`Show testimonial ${i + 1} of ${testimonials.length}`}
-              className={`${styles.dot} ${
-                i === active ? styles.dotActive : ""
-              }`}
-              key={t.name}
-              onClick={() => goTo(i)}
-            />
-          ))}
-        </div>
+      </div>
+      <div className={`${styles.tmwrap} ${styles.reveal}`}>
+        <MarqueeRow items={rowA} keyPrefix="a" reversed={false} />
+        <MarqueeRow items={rowB} keyPrefix="b" reversed />
+      </div>
+      <div className={styles.container}>
         <div aria-label="Clutch reviews" className={styles.clutchBadgeInline}>
           <div
             className="clutch-widget"

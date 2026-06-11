@@ -969,180 +969,142 @@
    TESTIMONIALS
    ═══════════════════════════════════════════ */
 .testimonialsSec {
-  padding: 100px 0;
-  background: var(--ql-linen);
+  padding: clamp(86px, 11vw, 130px) 0 clamp(70px, 9vw, 110px);
+  background: var(--ql-canvas);
+  border-top: 1px solid oklch(20% 0.05 255 / 0.14);
   overflow: hidden;
 }
 
-.testimonialsSec .sectionTag {
-  color: var(--ql-copper);
-}
-
-.testimonialsSec .sectionTitle {
-  color: var(--ql-oxford);
-}
-
-/* ── carousel track ──────────────────── */
-.testimonialCarousel {
+/* ── dual marquee rows ───────────────── */
+.tmwrap {
   display: grid;
-  max-width: 760px;
-  margin: 0 auto;
+  gap: 22px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
 }
 
-.testimonialCard {
-  grid-area: 1 / 1;
-  opacity: 0;
-  transform: translateX(32px);
-  transition:
-    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+.tmrow {
+  display: flex;
+  width: max-content;
+  animation: tmScroll 60s linear infinite;
+}
+
+.tmrowRev {
+  animation-direction: reverse;
+  animation-duration: 72s;
+}
+
+.tmwrap:hover .tmrow {
+  animation-play-state: paused;
+}
+
+@keyframes tmScroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.tq {
+  width: 430px;
+  flex: none;
+  margin-right: 22px;
+  border: 1px solid oklch(20% 0.05 255 / 0.14);
+  border-radius: 18px;
+  background: oklch(97% 0.012 75);
+  padding: 28px 30px;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 40px 48px;
-  pointer-events: none;
-  background: var(--ql-parchment);
-  border: 1px solid oklch(20% 0.05 255 / 0.07);
-  border-radius: 4px;
+  gap: 18px;
+  transition:
+    border-color 0.35s,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.testimonialActive {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
+.tq:hover {
+  border-color: var(--ql-copper-dk);
+  transform: translateY(-4px);
 }
 
-/* quote mark */
-.testimonialQuoteMark {
+.tqText {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: oklch(20% 0.05 255 / 0.64);
+  margin: 0;
+}
+
+.tqText::before {
+  content: "“ ";
   font-family: var(--font-display);
-  font-size: 80px;
-  line-height: 0.6;
-  color: var(--ql-copper);
-  margin-bottom: 20px;
-  display: block;
-  opacity: 0.7;
-  user-select: none;
+  color: var(--ql-copper-dk);
+  font-size: 1.4em;
 }
 
-/* stars */
-.testimonialStars {
-  display: flex;
-  gap: 3px;
-  margin-bottom: 20px;
-}
-
-.testimonialStar {
-  color: var(--ql-copper);
-  font-size: 14px;
-  line-height: 1;
-}
-
-.testimonialText {
-  font-family: var(--font-display);
-  font-size: clamp(18px, 2.4vw, 24px);
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--ql-oxford);
-  margin: 0 0 32px;
-  letter-spacing: -0.2px;
-  flex: 1;
-}
-
-/* ── author row ──────────────────────── */
-.testimonialAuthor {
+.tqFoot {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding-top: 24px;
-  border-top: 1px solid oklch(20% 0.05 255 / 0.08);
+  gap: 12px;
+  margin-top: auto;
 }
 
-.testimonialAvatar {
-  width: 48px;
-  height: 48px;
+.tqAvatar {
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   object-fit: cover;
-  flex-shrink: 0;
-  border: 2px solid oklch(20% 0.05 255 / 0.1);
+  flex: none;
 }
 
-.testimonialAvatarFallback {
-  width: 48px;
-  height: 48px;
+.tqAvatarFallback {
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: var(--ql-copper);
+  background: var(--ql-oxford);
   color: var(--ql-linen);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   font-weight: 600;
-  font-size: 18px;
-  flex-shrink: 0;
+  font-size: 14px;
+  flex: none;
 }
 
-.testimonialAuthorInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  flex: 1;
-}
-
-.testimonialName {
-  font-weight: 600;
-  font-size: 15px;
+.tqWho b {
+  display: block;
+  font-size: 14px;
   color: var(--ql-oxford);
 }
 
-.testimonialPosition {
+.tqWho span {
+  font-size: 12px;
+  color: oklch(20% 0.05 255 / 0.38);
+}
+
+.tqCo {
+  margin-left: auto;
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.5px;
-  color: oklch(20% 0.05 255 / 0.45);
-}
-
-/* company logo — greyscale, right-aligned */
-.testimonialCompanyLogo {
-  object-fit: contain;
-  filter: grayscale(1);
-  opacity: 0.45;
-  transition: opacity 0.2s;
-  flex-shrink: 0;
-}
-
-.testimonialCard:hover .testimonialCompanyLogo {
-  opacity: 0.65;
-}
-
-/* company name — right-aligned badge */
-.testimonialCompanyBadge {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 1.5px;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: oklch(20% 0.05 255 / 0.4);
-  border: 1px solid oklch(20% 0.05 255 / 0.12);
-  padding: 4px 10px;
-  border-radius: 2px;
+  color: var(--ql-copper-dk);
   white-space: nowrap;
 }
 
-/* unused top-company styles kept for compat */
-.testimonialCompanyTop {
-  display: none;
-}
-.testimonialCompanyLogoTop {
-  display: none;
-}
-.testimonialCompanyNameTop {
-  display: none;
-}
-
-/* ── dots ────────────────────────────── */
-.testimonialDots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 40px;
+@media (prefers-reduced-motion: reduce) {
+  .tmrow {
+    animation: none;
+  }
 }
 
 /* ═══════════════════════════════════════════
