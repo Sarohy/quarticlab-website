@@ -1,0 +1,2770 @@
+{
+  "schema": "runtime-signals/1.0",
+  "note": "RAW SIGNALS (seeds), not findings. Confirm each by reading source before reporting.",
+  "url": "http://localhost:3101/",
+  "baseURL": "http://localhost:3101",
+  "profilesRun": [
+    "desktop",
+    "ipad",
+    "phone"
+  ],
+  "generatedNote": "timestamp/commit are stamped by the agent, not the runner",
+  "profiles": [
+    {
+      "profile": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "deviceScaleFactor": 1,
+      "isMobile": false,
+      "reachable": true,
+      "httpStatus": 200,
+      "console": {
+        "errors": [],
+        "warnings": []
+      },
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "hydration": [],
+      "axe": {
+        "violations": [
+          {
+            "id": "aria-prohibited-attr",
+            "impact": "serious",
+            "help": "Elements must only use permitted ARIA attributes",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-prohibited-attr?application=playwright",
+            "description": "Ensure ARIA attributes are not prohibited for an element's role",
+            "tags": [
+              "cat.aria",
+              "wcag2a",
+              "wcag412",
+              "EN-301-549",
+              "EN-9.4.1.2",
+              "RGAAv4",
+              "RGAA-7.1.1"
+            ],
+            "nodeCount": 1,
+            "nodes": [
+              {
+                "target": [
+                  ".landing_clutchBadgeInline__mGNej"
+                ],
+                "html": "<div aria-label=\"Clutch reviews\" class=\"landing_clutchBadgeInline__mGNej\"><div class=\"clutch-widget\" data-clutchcompany-id=\"1461075\" data-expandifr=\"true\" data-height=\"40\" data-nofollow=\"false\" data-scale=\"100\" data-url=\"https://widget.clut",
+                "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a div with no valid role attribute."
+              }
+            ]
+          },
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ],
+            "nodeCount": 72,
+            "nodes": [
+              {
+                "target": [
+                  ".landing_panelOn__nD0jV > .landing_pBody__FFl5y > .landing_pIx2__KbwF5"
+                ],
+                "html": "<span class=\"landing_pIx2__KbwF5\">QL/<!-- -->01</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.04 (foreground color: #b36139, background color: #05162c, font size: 8.6pt (11.5px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pLink__gNrsG[href$=\"genai-automation\"]"
+                ],
+                "html": "<a class=\"landing_pLink__gNrsG\" href=\"/services/genai-automation\">EXPLORE →</a>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.04 (foreground color: #b36139, background color: #05162c, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > div:nth-child(1) > .landing_psNum__ricc4"
+                ],
+                "html": "<span class=\"landing_psNum__ricc4\">NODE 01 — DESIGN</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.44 (foreground color: #d6bfaf, background color: #eee8dc, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > div:nth-child(1) > .landing_psTitle__XypzQ"
+                ],
+                "html": "<h3 class=\"landing_psTitle__XypzQ\">Scope it like it’s <em>ours.</em></h3>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.7 (foreground color: #b4b4b0, background color: #eee8dc, font size: 36.0pt (48px), font weight: normal). Expected contrast ratio of 3:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > div:nth-child(1) > .landing_psTitle__XypzQ > em"
+                ],
+                "html": "<em>ours.</em>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.44 (foreground color: #d6bfaf, background color: #eee8dc, font size: 36.0pt (48px), font weight: normal). Expected contrast ratio of 3:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > div:nth-child(1) > .landing_psDesc__ZTxuY"
+                ],
+                "html": "<p class=\"landing_psDesc__ZTxuY\">A senior engineer — not a sales rep — reads your brief and returns a scope, timeline, and cost breakdown within 12 hours. Weeks one and two cover architecture, design, and the sprint plan.</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.39 (foreground color: #c9c6c0, background color: #eee8dc, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > .landing_psCard__R6lv8 > .landing_psRow__RH8gk:nth-child(1) > span"
+                ],
+                "html": "<span>Estimate turnaround</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.43 (foreground color: #c9c6c0, background color: #f1ebe0, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > .landing_psCard__R6lv8 > .landing_psRow__RH8gk:nth-child(1) > b"
+                ],
+                "html": "<b>12 hours</b>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.48 (foreground color: #d6bfaf, background color: #f1ebe0, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "nested-interactive",
+            "impact": "serious",
+            "help": "Interactive controls must not be nested",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/nested-interactive?application=playwright",
+            "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+            "tags": [
+              "cat.keyboard",
+              "wcag2a",
+              "wcag412",
+              "TTv5",
+              "TT6.a",
+              "EN-301-549",
+              "EN-9.4.1.2",
+              "RGAAv4",
+              "RGAA-7.1.1"
+            ],
+            "nodeCount": 8,
+            "nodes": [
+              {
+                "target": [
+                  ".landing_panelOn__nD0jV"
+                ],
+                "html": "<div aria-expanded=\"true\" class=\"landing_panel__tmtVR landing_panelOn__nD0jV\" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(2)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(3)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(4)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(5)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(6)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(7)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(8)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              }
+            ]
+          },
+          {
+            "id": "target-size",
+            "impact": "serious",
+            "help": "All touch targets must be 24px large, or leave sufficient space",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/target-size?application=playwright",
+            "description": "Ensure touch targets have sufficient size and space",
+            "tags": [
+              "cat.sensory-and-visual-cues",
+              "wcag22aa",
+              "wcag258"
+            ],
+            "nodeCount": 1,
+            "nodes": [
+              {
+                "target": [
+                  ".landing_pLink__gNrsG[href$=\"genai-automation\"]"
+                ],
+                "html": "<a class=\"landing_pLink__gNrsG\" href=\"/services/genai-automation\">EXPLORE →</a>",
+                "failureSummary": "Fix any of the following:\n  Target has insufficient size (95.5px by 15px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 15px instead of at least 24px."
+              }
+            ]
+          }
+        ],
+        "error": null
+      },
+      "overflow": [
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 3742,
+          "rectX": 0,
+          "rectWidth": 1440,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 2176,
+          "rectX": 0,
+          "rectWidth": 1440,
+          "position": "static",
+          "text": "Restaurant owners don't have time for complicated software. "
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1)",
+          "tag": "div",
+          "pastViewportPx": 2040,
+          "selfOverflowPx": 0,
+          "rectX": -136,
+          "rectWidth": 3616,
+          "position": "static",
+          "text": "Restaurant owners don't have time for complicated software. "
+        },
+        {
+          "selector": "section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8)",
+          "tag": "article",
+          "pastViewportPx": 2018,
+          "selfOverflowPx": 0,
+          "rectX": 3028,
+          "rectWidth": 430,
+          "position": "static",
+          "text": "They delivered our MVP in 8 weeks, which I was skeptical abo"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > p.landing_tqText__WwP41",
+          "tag": "p",
+          "pastViewportPx": 1987,
+          "selfOverflowPx": 0,
+          "rectX": 3059,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "They delivered our MVP in 8 weeks, which I was skeptical abo"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1",
+          "tag": "footer",
+          "pastViewportPx": 1987,
+          "selfOverflowPx": 0,
+          "rectX": 3059,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "LLuqmanFounderTanero"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > span.landing_tqCo__HUFaL:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 1987,
+          "selfOverflowPx": 0,
+          "rectX": 3378,
+          "rectWidth": 49,
+          "position": "static",
+          "text": "Tanero"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL",
+          "tag": "div",
+          "pastViewportPx": 1723,
+          "selfOverflowPx": 0,
+          "rectX": 3109,
+          "rectWidth": 54,
+          "position": "static",
+          "text": "LuqmanFounder"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > b",
+          "tag": "b",
+          "pastViewportPx": 1723,
+          "selfOverflowPx": 0,
+          "rectX": 3109,
+          "rectWidth": 54,
+          "position": "static",
+          "text": "Luqman"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > span",
+          "tag": "span",
+          "pastViewportPx": 1717,
+          "selfOverflowPx": 0,
+          "rectX": 3109,
+          "rectWidth": 48,
+          "position": "static",
+          "text": "Founder"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > span.landing_tqAvatarFallback__Pduik:nth-of-type(1)",
+          "tag": "span",
+          "pastViewportPx": 1657,
+          "selfOverflowPx": 0,
+          "rectX": 3059,
+          "rectWidth": 38,
+          "position": "static",
+          "text": "L"
+        },
+        {
+          "selector": "section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7)",
+          "tag": "article",
+          "pastViewportPx": 1566,
+          "selfOverflowPx": 0,
+          "rectX": 2576,
+          "rectWidth": 430,
+          "position": "static",
+          "text": "We'd already burned through one dev agency before finding Qu"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > p.landing_tqText__WwP41",
+          "tag": "p",
+          "pastViewportPx": 1535,
+          "selfOverflowPx": 0,
+          "rectX": 2607,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "We'd already burned through one dev agency before finding Qu"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1",
+          "tag": "footer",
+          "pastViewportPx": 1535,
+          "selfOverflowPx": 0,
+          "rectX": 2607,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "JJeremy GlasscoProduct ManagerARN"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > span.landing_tqCo__HUFaL:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 1535,
+          "selfOverflowPx": 0,
+          "rectX": 2951,
+          "rectWidth": 25,
+          "position": "static",
+          "text": "ARN"
+        },
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 1484,
+          "rectX": 0,
+          "rectWidth": 1440,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE",
+          "tag": "div",
+          "pastViewportPx": 1367,
+          "selfOverflowPx": 0,
+          "rectX": -2375,
+          "rectWidth": 5182,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 1367,
+          "selfOverflowPx": 0,
+          "rectX": 216,
+          "rectWidth": 2591,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(27)",
+          "tag": "span",
+          "pastViewportPx": 1367,
+          "selfOverflowPx": 0,
+          "rectX": 2736,
+          "rectWidth": 71,
+          "position": "static",
+          "text": "Unity ·"
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r",
+          "tag": "div",
+          "pastViewportPx": 1334,
+          "selfOverflowPx": 0,
+          "rectX": -150,
+          "rectWidth": 2924,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 1334,
+          "selfOverflowPx": 0,
+          "rectX": 1312,
+          "rectWidth": 1462,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(14)",
+          "tag": "span",
+          "pastViewportPx": 1334,
+          "selfOverflowPx": 0,
+          "rectX": 2633,
+          "rectWidth": 141,
+          "position": "static",
+          "text": "React Native ·"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL",
+          "tag": "div",
+          "pastViewportPx": 1323,
+          "selfOverflowPx": 0,
+          "rectX": 2657,
+          "rectWidth": 106,
+          "position": "static",
+          "text": "Jeremy GlasscoProduct Manager"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > b",
+          "tag": "b",
+          "pastViewportPx": 1323,
+          "selfOverflowPx": 0,
+          "rectX": 2657,
+          "rectWidth": 106,
+          "position": "static",
+          "text": "Jeremy Glassco"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > span",
+          "tag": "span",
+          "pastViewportPx": 1318,
+          "selfOverflowPx": 0,
+          "rectX": 2657,
+          "rectWidth": 100,
+          "position": "static",
+          "text": "Product Manager"
+        },
+        {
+          "selector": "div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(14) > b",
+          "tag": "b",
+          "pastViewportPx": 1314,
+          "selfOverflowPx": 0,
+          "rectX": 2633,
+          "rectWidth": 121,
+          "position": "static",
+          "text": "React Native"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(26)",
+          "tag": "span",
+          "pastViewportPx": 1296,
+          "selfOverflowPx": 0,
+          "rectX": 2636,
+          "rectWidth": 101,
+          "position": "static",
+          "text": "Blender ·"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > span.landing_tqAvatarFallback__Pduik:nth-of-type(1)",
+          "tag": "span",
+          "pastViewportPx": 1205,
+          "selfOverflowPx": 0,
+          "rectX": 2607,
+          "rectWidth": 38,
+          "position": "static",
+          "text": "J"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(25)",
+          "tag": "span",
+          "pastViewportPx": 1196,
+          "selfOverflowPx": 0,
+          "rectX": 2555,
+          "rectWidth": 81,
+          "position": "static",
+          "text": "Figma ·"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(13)",
+          "tag": "span",
+          "pastViewportPx": 1193,
+          "selfOverflowPx": 0,
+          "rectX": 2552,
+          "rectWidth": 81,
+          "position": "static",
+          "text": "Swift ·"
+        }
+      ],
+      "brokenImages": [],
+      "touchTargets": [
+        {
+          "selector": "div.__variable_49a339.__variable_bbcc58 > div.content > header.header_headerContainer__A46g6 > a.header_logoLink__P2r7t:nth-of-type(1)",
+          "tag": "a",
+          "w": 139,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Quartic Lab"
+        },
+        {
+          "selector": "div.content > header.header_headerContainer__A46g6 > nav.header_pagesContainer__ileie.header_headerNav__8sNSl > a.header_pageLabel___Yueu.header_activePage__54KiC:nth-of-type(1)",
+          "tag": "a",
+          "w": 66,
+          "h": 34,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Home"
+        },
+        {
+          "selector": "header.header_headerContainer__A46g6 > nav.header_pagesContainer__ileie.header_headerNav__8sNSl > div.header_dropdownTrigger__n6mZY > a.header_pageLabel___Yueu",
+          "tag": "a",
+          "w": 96,
+          "h": 34,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Services▾"
+        },
+        {
+          "selector": "div.content > header.header_headerContainer__A46g6 > nav.header_pagesContainer__ileie.header_headerNav__8sNSl > a.header_pageLabel___Yueu:nth-of-type(2)",
+          "tag": "a",
+          "w": 87,
+          "h": 34,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Portfolio"
+        },
+        {
+          "selector": "div.content > header.header_headerContainer__A46g6 > nav.header_pagesContainer__ileie.header_headerNav__8sNSl > a.header_pageLabel___Yueu:nth-of-type(3)",
+          "tag": "a",
+          "w": 58,
+          "h": 34,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Blog"
+        },
+        {
+          "selector": "div.content > header.header_headerContainer__A46g6 > nav.header_pagesContainer__ileie.header_headerNav__8sNSl > a.header_pageLabel___Yueu:nth-of-type(4)",
+          "tag": "a",
+          "w": 69,
+          "h": 34,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "About"
+        },
+        {
+          "selector": "div.content > header.header_headerContainer__A46g6 > nav.header_pagesContainer__ileie.header_headerNav__8sNSl > a.header_pageLabel___Yueu:nth-of-type(5)",
+          "tag": "a",
+          "w": 83,
+          "h": 34,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Contact"
+        },
+        {
+          "selector": "div.__variable_49a339.__variable_bbcc58 > div.content > header.header_headerContainer__A46g6 > a.header_ctaButton__9p2dR:nth-of-type(2)",
+          "tag": "a",
+          "w": 164,
+          "h": 41,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "⚡Start a project→"
+        },
+        {
+          "selector": "div.landing_panel__tmtVR.landing_panelOn__nD0jV:nth-of-type(1) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "tag": "a",
+          "w": 96,
+          "h": 15,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "EXPLORE →"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(1) > a.footer_fBrandLink__UrY9E",
+          "tag": "a",
+          "w": 309,
+          "h": 33,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "QuarticLAB"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Home"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Services"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Portfolio"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Blog"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(5)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "About"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(6)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Contact"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "GenAI & Automation"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "AI / ML Development"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Web Development"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Mobile Apps"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(5)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "DevOps & Cloud"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(6)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "UI/UX Design"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "LinkedIn"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Facebook"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Instagram"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "YouTube"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(1)",
+          "tag": "a",
+          "w": 46,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Privacy"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(2)",
+          "tag": "a",
+          "w": 37,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Terms"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(3)",
+          "tag": "a",
+          "w": 49,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Cookies"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > button.footer_fLegalBtn__gsPKQ",
+          "tag": "button",
+          "w": 122,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Cookie preferences"
+        },
+        {
+          "selector": "div.cookieConsent_banner__BJOr6 > div.cookieConsent_content__2uBTl:nth-of-type(1) > p.cookieConsent_copy__G73mr:nth-of-type(2) > a",
+          "tag": "a",
+          "w": 90,
+          "h": 18,
+          "belowAA": true,
+          "inlineLinkException": true,
+          "text": "Cookie Policy"
+        }
+      ],
+      "overlaps": [
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(2) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "section.landing_services__cWcyf:nth-of-type(1) > div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(3)",
+          "overlapPx": 801,
+          "aText": "EXPLORE →",
+          "bText": "03Web DevelopmentQL/03Web DevelopmentWe design and develop f"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(3) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "section.landing_services__cWcyf:nth-of-type(1) > div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(4)",
+          "overlapPx": 801,
+          "aText": "EXPLORE →",
+          "bText": "04Mobile App DevelopmentQL/04Mobile App DevelopmentFrom iOS "
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(4) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "section.landing_services__cWcyf:nth-of-type(1) > div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(5)",
+          "overlapPx": 801,
+          "aText": "EXPLORE →",
+          "bText": "05DevOps & CloudQL/05DevOps & CloudWe provide DevOps service"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(5) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "section.landing_services__cWcyf:nth-of-type(1) > div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(6)",
+          "overlapPx": 801,
+          "aText": "EXPLORE →",
+          "bText": "06 IoT DevelopmentQL/06 IoT DevelopmentWe connect the physic"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(6) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "section.landing_services__cWcyf:nth-of-type(1) > div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(7)",
+          "overlapPx": 801,
+          "aText": "EXPLORE →",
+          "bText": "07Blockchain DevelopmentQL/07Blockchain DevelopmentWe build "
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(7) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "section.landing_services__cWcyf:nth-of-type(1) > div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(8)",
+          "overlapPx": 801,
+          "aText": "EXPLORE →",
+          "bText": "08UI/UX DesignQL/08UI/UX DesignWe create clean, user-centere"
+        }
+      ],
+      "structure": {
+        "title": "Quartic Lab",
+        "lang": "en",
+        "h1Count": 1,
+        "hasMainLandmark": true,
+        "hasViewportMeta": true,
+        "docScrollWidth": 1440,
+        "viewportWidth": 1440,
+        "pageHorizontalScroll": false
+      },
+      "webVitals": {
+        "lcp": 2756,
+        "cls": 0,
+        "inp": 0,
+        "fcp": 1696,
+        "ttfb": 1619
+      },
+      "screenshot": ".claude/audit/runtime/landing/desktop.png",
+      "error": null
+    },
+    {
+      "profile": "ipad",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "deviceScaleFactor": 2,
+      "isMobile": true,
+      "reachable": true,
+      "httpStatus": 200,
+      "console": {
+        "errors": [],
+        "warnings": []
+      },
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "hydration": [],
+      "axe": {
+        "violations": [
+          {
+            "id": "aria-prohibited-attr",
+            "impact": "serious",
+            "help": "Elements must only use permitted ARIA attributes",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-prohibited-attr?application=playwright",
+            "description": "Ensure ARIA attributes are not prohibited for an element's role",
+            "tags": [
+              "cat.aria",
+              "wcag2a",
+              "wcag412",
+              "EN-301-549",
+              "EN-9.4.1.2",
+              "RGAAv4",
+              "RGAA-7.1.1"
+            ],
+            "nodeCount": 1,
+            "nodes": [
+              {
+                "target": [
+                  ".landing_clutchBadgeInline__mGNej"
+                ],
+                "html": "<div aria-label=\"Clutch reviews\" class=\"landing_clutchBadgeInline__mGNej\"><div class=\"clutch-widget\" data-clutchcompany-id=\"1461075\" data-expandifr=\"true\" data-height=\"40\" data-nofollow=\"false\" data-scale=\"100\" data-url=\"https://widget.clut",
+                "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a div with no valid role attribute."
+              }
+            ]
+          },
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ],
+            "nodeCount": 69,
+            "nodes": [
+              {
+                "target": [
+                  ".landing_panelOn__nD0jV > .landing_pBody__FFl5y > .landing_pIx2__KbwF5"
+                ],
+                "html": "<span class=\"landing_pIx2__KbwF5\">QL/<!-- -->01</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.04 (foreground color: #b36139, background color: #05162c, font size: 8.6pt (11.5px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pLink__gNrsG[href$=\"genai-automation\"]"
+                ],
+                "html": "<a class=\"landing_pLink__gNrsG\" href=\"/services/genai-automation\">EXPLORE →</a>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.04 (foreground color: #b36139, background color: #05162c, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > div:nth-child(1) > .landing_psNum__ricc4"
+                ],
+                "html": "<span class=\"landing_psNum__ricc4\">NODE 01 — DESIGN</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.44 (foreground color: #d6bfaf, background color: #eee8dc, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > div:nth-child(1) > .landing_psTitle__XypzQ"
+                ],
+                "html": "<h3 class=\"landing_psTitle__XypzQ\">Scope it like it’s <em>ours.</em></h3>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.7 (foreground color: #b4b4b0, background color: #eee8dc, font size: 22.5pt (30px), font weight: normal). Expected contrast ratio of 3:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > div:nth-child(1) > .landing_psTitle__XypzQ > em"
+                ],
+                "html": "<em>ours.</em>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.44 (foreground color: #d6bfaf, background color: #eee8dc, font size: 22.5pt (30px), font weight: normal). Expected contrast ratio of 3:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > div:nth-child(1) > .landing_psDesc__ZTxuY"
+                ],
+                "html": "<p class=\"landing_psDesc__ZTxuY\">A senior engineer — not a sales rep — reads your brief and returns a scope, timeline, and cost breakdown within 12 hours. Weeks one and two cover architecture, design, and the sprint plan.</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.39 (foreground color: #c9c6c0, background color: #eee8dc, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > .landing_psCard__R6lv8 > .landing_psRow__RH8gk:nth-child(1) > span"
+                ],
+                "html": "<span>Estimate turnaround</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.43 (foreground color: #c9c6c0, background color: #f1ebe0, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > .landing_psCard__R6lv8 > .landing_psRow__RH8gk:nth-child(1) > b"
+                ],
+                "html": "<b>12 hours</b>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.48 (foreground color: #d6bfaf, background color: #f1ebe0, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "nested-interactive",
+            "impact": "serious",
+            "help": "Interactive controls must not be nested",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/nested-interactive?application=playwright",
+            "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+            "tags": [
+              "cat.keyboard",
+              "wcag2a",
+              "wcag412",
+              "TTv5",
+              "TT6.a",
+              "EN-301-549",
+              "EN-9.4.1.2",
+              "RGAAv4",
+              "RGAA-7.1.1"
+            ],
+            "nodeCount": 8,
+            "nodes": [
+              {
+                "target": [
+                  ".landing_panelOn__nD0jV"
+                ],
+                "html": "<div aria-expanded=\"true\" class=\"landing_panel__tmtVR landing_panelOn__nD0jV\" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(2)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(3)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(4)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(5)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(6)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(7)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(8)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              }
+            ]
+          },
+          {
+            "id": "target-size",
+            "impact": "serious",
+            "help": "All touch targets must be 24px large, or leave sufficient space",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/target-size?application=playwright",
+            "description": "Ensure touch targets have sufficient size and space",
+            "tags": [
+              "cat.sensory-and-visual-cues",
+              "wcag22aa",
+              "wcag258"
+            ],
+            "nodeCount": 1,
+            "nodes": [
+              {
+                "target": [
+                  ".landing_pLink__gNrsG[href$=\"genai-automation\"]"
+                ],
+                "html": "<a class=\"landing_pLink__gNrsG\" href=\"/services/genai-automation\">EXPLORE →</a>",
+                "failureSummary": "Fix any of the following:\n  Target has insufficient size (95.5px by 15px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 15px instead of at least 24px."
+              }
+            ]
+          }
+        ],
+        "error": null
+      },
+      "overflow": [
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 4414,
+          "rectX": 0,
+          "rectWidth": 768,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 2848,
+          "rectX": 0,
+          "rectWidth": 768,
+          "position": "static",
+          "text": "Restaurant owners don't have time for complicated software. "
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1)",
+          "tag": "div",
+          "pastViewportPx": 2710,
+          "selfOverflowPx": 0,
+          "rectX": -138,
+          "rectWidth": 3616,
+          "position": "static",
+          "text": "Restaurant owners don't have time for complicated software. "
+        },
+        {
+          "selector": "section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8)",
+          "tag": "article",
+          "pastViewportPx": 2688,
+          "selfOverflowPx": 0,
+          "rectX": 3026,
+          "rectWidth": 430,
+          "position": "static",
+          "text": "They delivered our MVP in 8 weeks, which I was skeptical abo"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > p.landing_tqText__WwP41",
+          "tag": "p",
+          "pastViewportPx": 2657,
+          "selfOverflowPx": 0,
+          "rectX": 3057,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "They delivered our MVP in 8 weeks, which I was skeptical abo"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1",
+          "tag": "footer",
+          "pastViewportPx": 2657,
+          "selfOverflowPx": 0,
+          "rectX": 3057,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "LLuqmanFounderTanero"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > span.landing_tqCo__HUFaL:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 2657,
+          "selfOverflowPx": 0,
+          "rectX": 3375,
+          "rectWidth": 49,
+          "position": "static",
+          "text": "Tanero"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL",
+          "tag": "div",
+          "pastViewportPx": 2392,
+          "selfOverflowPx": 0,
+          "rectX": 3107,
+          "rectWidth": 54,
+          "position": "static",
+          "text": "LuqmanFounder"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > b",
+          "tag": "b",
+          "pastViewportPx": 2392,
+          "selfOverflowPx": 0,
+          "rectX": 3107,
+          "rectWidth": 54,
+          "position": "static",
+          "text": "Luqman"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > span",
+          "tag": "span",
+          "pastViewportPx": 2387,
+          "selfOverflowPx": 0,
+          "rectX": 3107,
+          "rectWidth": 48,
+          "position": "static",
+          "text": "Founder"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > span.landing_tqAvatarFallback__Pduik:nth-of-type(1)",
+          "tag": "span",
+          "pastViewportPx": 2327,
+          "selfOverflowPx": 0,
+          "rectX": 3057,
+          "rectWidth": 38,
+          "position": "static",
+          "text": "L"
+        },
+        {
+          "selector": "section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7)",
+          "tag": "article",
+          "pastViewportPx": 2236,
+          "selfOverflowPx": 0,
+          "rectX": 2574,
+          "rectWidth": 430,
+          "position": "static",
+          "text": "We'd already burned through one dev agency before finding Qu"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > p.landing_tqText__WwP41",
+          "tag": "p",
+          "pastViewportPx": 2205,
+          "selfOverflowPx": 0,
+          "rectX": 2605,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "We'd already burned through one dev agency before finding Qu"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1",
+          "tag": "footer",
+          "pastViewportPx": 2205,
+          "selfOverflowPx": 0,
+          "rectX": 2605,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "JJeremy GlasscoProduct ManagerARN"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > span.landing_tqCo__HUFaL:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 2205,
+          "selfOverflowPx": 0,
+          "rectX": 2948,
+          "rectWidth": 25,
+          "position": "static",
+          "text": "ARN"
+        },
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 2156,
+          "rectX": 0,
+          "rectWidth": 768,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE",
+          "tag": "div",
+          "pastViewportPx": 2043,
+          "selfOverflowPx": 0,
+          "rectX": -2371,
+          "rectWidth": 5182,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 2043,
+          "selfOverflowPx": 0,
+          "rectX": 220,
+          "rectWidth": 2591,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(27)",
+          "tag": "span",
+          "pastViewportPx": 2043,
+          "selfOverflowPx": 0,
+          "rectX": 2741,
+          "rectWidth": 71,
+          "position": "static",
+          "text": "Unity ·"
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r",
+          "tag": "div",
+          "pastViewportPx": 2003,
+          "selfOverflowPx": 0,
+          "rectX": -153,
+          "rectWidth": 2924,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 2003,
+          "selfOverflowPx": 0,
+          "rectX": 1309,
+          "rectWidth": 1462,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(14)",
+          "tag": "span",
+          "pastViewportPx": 2003,
+          "selfOverflowPx": 0,
+          "rectX": 2630,
+          "rectWidth": 141,
+          "position": "static",
+          "text": "React Native ·"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL",
+          "tag": "div",
+          "pastViewportPx": 1993,
+          "selfOverflowPx": 0,
+          "rectX": 2655,
+          "rectWidth": 106,
+          "position": "static",
+          "text": "Jeremy GlasscoProduct Manager"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > b",
+          "tag": "b",
+          "pastViewportPx": 1993,
+          "selfOverflowPx": 0,
+          "rectX": 2655,
+          "rectWidth": 106,
+          "position": "static",
+          "text": "Jeremy Glassco"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > span",
+          "tag": "span",
+          "pastViewportPx": 1987,
+          "selfOverflowPx": 0,
+          "rectX": 2655,
+          "rectWidth": 100,
+          "position": "static",
+          "text": "Product Manager"
+        },
+        {
+          "selector": "div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(14) > b",
+          "tag": "b",
+          "pastViewportPx": 1983,
+          "selfOverflowPx": 0,
+          "rectX": 2630,
+          "rectWidth": 121,
+          "position": "static",
+          "text": "React Native"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(26)",
+          "tag": "span",
+          "pastViewportPx": 1973,
+          "selfOverflowPx": 0,
+          "rectX": 2640,
+          "rectWidth": 101,
+          "position": "static",
+          "text": "Blender ·"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > span.landing_tqAvatarFallback__Pduik:nth-of-type(1)",
+          "tag": "span",
+          "pastViewportPx": 1875,
+          "selfOverflowPx": 0,
+          "rectX": 2605,
+          "rectWidth": 38,
+          "position": "static",
+          "text": "J"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(25)",
+          "tag": "span",
+          "pastViewportPx": 1872,
+          "selfOverflowPx": 0,
+          "rectX": 2559,
+          "rectWidth": 81,
+          "position": "static",
+          "text": "Figma ·"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(13)",
+          "tag": "span",
+          "pastViewportPx": 1862,
+          "selfOverflowPx": 0,
+          "rectX": 2549,
+          "rectWidth": 81,
+          "position": "static",
+          "text": "Swift ·"
+        }
+      ],
+      "brokenImages": [],
+      "touchTargets": [
+        {
+          "selector": "div.__variable_49a339.__variable_bbcc58 > div.content > header.header_headerContainer__A46g6.header_mobileHeader__s9ZgI > a.header_logoLink__P2r7t",
+          "tag": "a",
+          "w": 135,
+          "h": 28,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Quartic Lab"
+        },
+        {
+          "selector": "div.__variable_49a339.__variable_bbcc58 > div.content > header.header_headerContainer__A46g6.header_mobileHeader__s9ZgI > button.header_hamburger__vV_7R",
+          "tag": "button",
+          "w": 38,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Open menu"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(1)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "All Services"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(2)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Web Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(3)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Mobile App Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(4)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Blockchain Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(5)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "IoT Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(6)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "GenAI & Automation"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(8)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "UI/UX Design"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(9)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "DevOps & Cloud"
+        },
+        {
+          "selector": "div.landing_panel__tmtVR.landing_panelOn__nD0jV:nth-of-type(1) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "tag": "a",
+          "w": 96,
+          "h": 15,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "EXPLORE →"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(1) > a.footer_fBrandLink__UrY9E",
+          "tag": "a",
+          "w": 329,
+          "h": 33,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "QuarticLAB"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Home"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Services"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Portfolio"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Blog"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(5)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "About"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(6)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Contact"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "GenAI & Automation"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "AI / ML Development"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Web Development"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Mobile Apps"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(5)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "DevOps & Cloud"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(6)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "UI/UX Design"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "LinkedIn"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Facebook"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Instagram"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "YouTube"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(1)",
+          "tag": "a",
+          "w": 46,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Privacy"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(2)",
+          "tag": "a",
+          "w": 37,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Terms"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(3)",
+          "tag": "a",
+          "w": 49,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Cookies"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > button.footer_fLegalBtn__gsPKQ",
+          "tag": "button",
+          "w": 122,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Cookie preferences"
+        },
+        {
+          "selector": "div.cookieConsent_banner__BJOr6:nth-of-type(2) > div.cookieConsent_content__2uBTl:nth-of-type(1) > p.cookieConsent_copy__G73mr:nth-of-type(2) > a",
+          "tag": "a",
+          "w": 90,
+          "h": 18,
+          "belowAA": true,
+          "inlineLinkException": true,
+          "text": "Cookie Policy"
+        }
+      ],
+      "overlaps": [
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(1)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(2)",
+          "overlapPx": 8976,
+          "aText": "All Services",
+          "bText": "03Portfolio"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(2)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(2)",
+          "overlapPx": 4224,
+          "aText": "Web Development",
+          "bText": "03Portfolio"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(2)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(3)",
+          "overlapPx": 4752,
+          "aText": "Web Development",
+          "bText": "04Blog"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(3)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(3)",
+          "overlapPx": 8448,
+          "aText": "Mobile App Development",
+          "bText": "04Blog"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(4)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(4)",
+          "overlapPx": 10032,
+          "aText": "Blockchain Development",
+          "bText": "05About"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(5)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(4)",
+          "overlapPx": 2640,
+          "aText": "IoT Development",
+          "bText": "05About"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(5)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(5)",
+          "overlapPx": 6336,
+          "aText": "IoT Development",
+          "bText": "06Contact"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(6)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(5)",
+          "overlapPx": 6864,
+          "aText": "GenAI & Automation",
+          "bText": "06Contact"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(7)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileCtaButton__ZPK0S:nth-of-type(6)",
+          "overlapPx": 11616,
+          "aText": "AI & Machine Learning Solutions",
+          "bText": "⚡Start a project"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(2) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "section.landing_services__cWcyf:nth-of-type(1) > div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(4)",
+          "overlapPx": 1433,
+          "aText": "EXPLORE →",
+          "bText": "04Mobile App DevelopmentQL/04Mobile App DevelopmentFrom iOS "
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(3) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "section.landing_services__cWcyf:nth-of-type(1) > div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(5)",
+          "overlapPx": 1433,
+          "aText": "EXPLORE →",
+          "bText": "05DevOps & CloudQL/05DevOps & CloudWe provide DevOps service"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(4) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "section.landing_services__cWcyf:nth-of-type(1) > div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(6)",
+          "overlapPx": 1433,
+          "aText": "EXPLORE →",
+          "bText": "06 IoT DevelopmentQL/06 IoT DevelopmentWe connect the physic"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(5) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "section.landing_services__cWcyf:nth-of-type(1) > div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(7)",
+          "overlapPx": 1433,
+          "aText": "EXPLORE →",
+          "bText": "07Blockchain DevelopmentQL/07Blockchain DevelopmentWe build "
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(6) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "section.landing_services__cWcyf:nth-of-type(1) > div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(8)",
+          "overlapPx": 1433,
+          "aText": "EXPLORE →",
+          "bText": "08UI/UX DesignQL/08UI/UX DesignWe create clean, user-centere"
+        }
+      ],
+      "structure": {
+        "title": "Quartic Lab",
+        "lang": "en",
+        "h1Count": 1,
+        "hasMainLandmark": true,
+        "hasViewportMeta": true,
+        "docScrollWidth": 768,
+        "viewportWidth": 768,
+        "pageHorizontalScroll": false
+      },
+      "webVitals": {
+        "lcp": 2572,
+        "cls": 0,
+        "inp": 0,
+        "fcp": 1548,
+        "ttfb": 1507
+      },
+      "screenshot": ".claude/audit/runtime/landing/ipad.png",
+      "error": null
+    },
+    {
+      "profile": "phone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 3,
+      "isMobile": true,
+      "reachable": true,
+      "httpStatus": 200,
+      "console": {
+        "errors": [],
+        "warnings": []
+      },
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "hydration": [],
+      "axe": {
+        "violations": [
+          {
+            "id": "aria-prohibited-attr",
+            "impact": "serious",
+            "help": "Elements must only use permitted ARIA attributes",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-prohibited-attr?application=playwright",
+            "description": "Ensure ARIA attributes are not prohibited for an element's role",
+            "tags": [
+              "cat.aria",
+              "wcag2a",
+              "wcag412",
+              "EN-301-549",
+              "EN-9.4.1.2",
+              "RGAAv4",
+              "RGAA-7.1.1"
+            ],
+            "nodeCount": 1,
+            "nodes": [
+              {
+                "target": [
+                  ".landing_clutchBadgeInline__mGNej"
+                ],
+                "html": "<div aria-label=\"Clutch reviews\" class=\"landing_clutchBadgeInline__mGNej\"><div class=\"clutch-widget\" data-clutchcompany-id=\"1461075\" data-expandifr=\"true\" data-height=\"40\" data-nofollow=\"false\" data-scale=\"100\" data-url=\"https://widget.clut",
+                "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a div with no valid role attribute."
+              }
+            ]
+          },
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ],
+            "nodeCount": 67,
+            "nodes": [
+              {
+                "target": [
+                  ".landing_panelOn__nD0jV > .landing_pBody__FFl5y > .landing_pIx2__KbwF5"
+                ],
+                "html": "<span class=\"landing_pIx2__KbwF5\">QL/<!-- -->01</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.04 (foreground color: #b36139, background color: #05162c, font size: 8.6pt (11.5px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pLink__gNrsG[href$=\"genai-automation\"]"
+                ],
+                "html": "<a class=\"landing_pLink__gNrsG\" href=\"/services/genai-automation\">EXPLORE →</a>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.04 (foreground color: #b36139, background color: #05162c, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > div:nth-child(1) > .landing_psNum__ricc4"
+                ],
+                "html": "<span class=\"landing_psNum__ricc4\">NODE 01 — DESIGN</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.44 (foreground color: #d6bfaf, background color: #eee8dc, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > div:nth-child(1) > .landing_psTitle__XypzQ"
+                ],
+                "html": "<h3 class=\"landing_psTitle__XypzQ\">Scope it like it’s <em>ours.</em></h3>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.7 (foreground color: #b4b4b0, background color: #eee8dc, font size: 22.5pt (30px), font weight: normal). Expected contrast ratio of 3:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > div:nth-child(1) > .landing_psTitle__XypzQ > em"
+                ],
+                "html": "<em>ours.</em>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.44 (foreground color: #d6bfaf, background color: #eee8dc, font size: 22.5pt (30px), font weight: normal). Expected contrast ratio of 3:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > div:nth-child(1) > .landing_psDesc__ZTxuY"
+                ],
+                "html": "<p class=\"landing_psDesc__ZTxuY\">A senior engineer — not a sales rep — reads your brief and returns a scope, timeline, and cost breakdown within 12 hours. Weeks one and two cover architecture, design, and the sprint plan.</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.39 (foreground color: #c9c6c0, background color: #eee8dc, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > .landing_psCard__R6lv8 > .landing_psRow__RH8gk:nth-child(1) > span"
+                ],
+                "html": "<span>Estimate turnaround</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.43 (foreground color: #c9c6c0, background color: #f1ebe0, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".landing_pstep__SL7Ie:nth-child(1) > .landing_psCard__R6lv8 > .landing_psRow__RH8gk:nth-child(1) > b"
+                ],
+                "html": "<b>12 hours</b>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.48 (foreground color: #d6bfaf, background color: #f1ebe0, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "nested-interactive",
+            "impact": "serious",
+            "help": "Interactive controls must not be nested",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/nested-interactive?application=playwright",
+            "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+            "tags": [
+              "cat.keyboard",
+              "wcag2a",
+              "wcag412",
+              "TTv5",
+              "TT6.a",
+              "EN-301-549",
+              "EN-9.4.1.2",
+              "RGAAv4",
+              "RGAA-7.1.1"
+            ],
+            "nodeCount": 8,
+            "nodes": [
+              {
+                "target": [
+                  ".landing_panelOn__nD0jV"
+                ],
+                "html": "<div aria-expanded=\"true\" class=\"landing_panel__tmtVR landing_panelOn__nD0jV\" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(2)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(3)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(4)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(5)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(6)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(7)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              },
+              {
+                "target": [
+                  ".landing_panel__tmtVR[role=\"button\"]:nth-child(8)"
+                ],
+                "html": "<div aria-expanded=\"false\" class=\"landing_panel__tmtVR \" role=\"button\" tabindex=\"0\">",
+                "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+              }
+            ]
+          },
+          {
+            "id": "target-size",
+            "impact": "serious",
+            "help": "All touch targets must be 24px large, or leave sufficient space",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/target-size?application=playwright",
+            "description": "Ensure touch targets have sufficient size and space",
+            "tags": [
+              "cat.sensory-and-visual-cues",
+              "wcag22aa",
+              "wcag258"
+            ],
+            "nodeCount": 1,
+            "nodes": [
+              {
+                "target": [
+                  ".landing_pLink__gNrsG[href$=\"genai-automation\"]"
+                ],
+                "html": "<a class=\"landing_pLink__gNrsG\" href=\"/services/genai-automation\">EXPLORE →</a>",
+                "failureSummary": "Fix any of the following:\n  Target has insufficient size (95.5px by 15px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 15px instead of at least 24px."
+              }
+            ]
+          }
+        ],
+        "error": null
+      },
+      "overflow": [
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 4792,
+          "rectX": 0,
+          "rectWidth": 390,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 3226,
+          "rectX": 0,
+          "rectWidth": 390,
+          "position": "static",
+          "text": "Restaurant owners don't have time for complicated software. "
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1)",
+          "tag": "div",
+          "pastViewportPx": 3069,
+          "selfOverflowPx": 0,
+          "rectX": -157,
+          "rectWidth": 3616,
+          "position": "static",
+          "text": "Restaurant owners don't have time for complicated software. "
+        },
+        {
+          "selector": "section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8)",
+          "tag": "article",
+          "pastViewportPx": 3047,
+          "selfOverflowPx": 0,
+          "rectX": 3007,
+          "rectWidth": 430,
+          "position": "static",
+          "text": "They delivered our MVP in 8 weeks, which I was skeptical abo"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > p.landing_tqText__WwP41",
+          "tag": "p",
+          "pastViewportPx": 3016,
+          "selfOverflowPx": 0,
+          "rectX": 3038,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "They delivered our MVP in 8 weeks, which I was skeptical abo"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1",
+          "tag": "footer",
+          "pastViewportPx": 3016,
+          "selfOverflowPx": 0,
+          "rectX": 3038,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "LLuqmanFounderTanero"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > span.landing_tqCo__HUFaL:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 3016,
+          "selfOverflowPx": 0,
+          "rectX": 3357,
+          "rectWidth": 49,
+          "position": "static",
+          "text": "Tanero"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL",
+          "tag": "div",
+          "pastViewportPx": 2752,
+          "selfOverflowPx": 0,
+          "rectX": 3088,
+          "rectWidth": 54,
+          "position": "static",
+          "text": "LuqmanFounder"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > b",
+          "tag": "b",
+          "pastViewportPx": 2752,
+          "selfOverflowPx": 0,
+          "rectX": 3088,
+          "rectWidth": 54,
+          "position": "static",
+          "text": "Luqman"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > span",
+          "tag": "span",
+          "pastViewportPx": 2746,
+          "selfOverflowPx": 0,
+          "rectX": 3088,
+          "rectWidth": 48,
+          "position": "static",
+          "text": "Founder"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > span.landing_tqAvatarFallback__Pduik:nth-of-type(1)",
+          "tag": "span",
+          "pastViewportPx": 2686,
+          "selfOverflowPx": 0,
+          "rectX": 3038,
+          "rectWidth": 38,
+          "position": "static",
+          "text": "L"
+        },
+        {
+          "selector": "section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7)",
+          "tag": "article",
+          "pastViewportPx": 2595,
+          "selfOverflowPx": 0,
+          "rectX": 2555,
+          "rectWidth": 430,
+          "position": "static",
+          "text": "We'd already burned through one dev agency before finding Qu"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > p.landing_tqText__WwP41",
+          "tag": "p",
+          "pastViewportPx": 2564,
+          "selfOverflowPx": 0,
+          "rectX": 2586,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "We'd already burned through one dev agency before finding Qu"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1",
+          "tag": "footer",
+          "pastViewportPx": 2564,
+          "selfOverflowPx": 0,
+          "rectX": 2586,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "JJeremy GlasscoProduct ManagerARN"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > span.landing_tqCo__HUFaL:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 2564,
+          "selfOverflowPx": 0,
+          "rectX": 2929,
+          "rectWidth": 25,
+          "position": "static",
+          "text": "ARN"
+        },
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 2534,
+          "rectX": 0,
+          "rectWidth": 390,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE",
+          "tag": "div",
+          "pastViewportPx": 2451,
+          "selfOverflowPx": 0,
+          "rectX": -2341,
+          "rectWidth": 5182,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 2451,
+          "selfOverflowPx": 0,
+          "rectX": 250,
+          "rectWidth": 2591,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(27)",
+          "tag": "span",
+          "pastViewportPx": 2451,
+          "selfOverflowPx": 0,
+          "rectX": 2771,
+          "rectWidth": 71,
+          "position": "static",
+          "text": "Unity ·"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(26)",
+          "tag": "span",
+          "pastViewportPx": 2381,
+          "selfOverflowPx": 0,
+          "rectX": 2670,
+          "rectWidth": 101,
+          "position": "static",
+          "text": "Blender ·"
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r",
+          "tag": "div",
+          "pastViewportPx": 2360,
+          "selfOverflowPx": 0,
+          "rectX": -173,
+          "rectWidth": 2924,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 2360,
+          "selfOverflowPx": 0,
+          "rectX": 1288,
+          "rectWidth": 1462,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(14)",
+          "tag": "span",
+          "pastViewportPx": 2360,
+          "selfOverflowPx": 0,
+          "rectX": 2609,
+          "rectWidth": 141,
+          "position": "static",
+          "text": "React Native ·"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL",
+          "tag": "div",
+          "pastViewportPx": 2352,
+          "selfOverflowPx": 0,
+          "rectX": 2636,
+          "rectWidth": 106,
+          "position": "static",
+          "text": "Jeremy GlasscoProduct Manager"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > b",
+          "tag": "b",
+          "pastViewportPx": 2352,
+          "selfOverflowPx": 0,
+          "rectX": 2636,
+          "rectWidth": 106,
+          "position": "static",
+          "text": "Jeremy Glassco"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > span",
+          "tag": "span",
+          "pastViewportPx": 2346,
+          "selfOverflowPx": 0,
+          "rectX": 2636,
+          "rectWidth": 100,
+          "position": "static",
+          "text": "Product Manager"
+        },
+        {
+          "selector": "div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(14) > b",
+          "tag": "b",
+          "pastViewportPx": 2340,
+          "selfOverflowPx": 0,
+          "rectX": 2609,
+          "rectWidth": 121,
+          "position": "static",
+          "text": "React Native"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(25)",
+          "tag": "span",
+          "pastViewportPx": 2280,
+          "selfOverflowPx": 0,
+          "rectX": 2589,
+          "rectWidth": 81,
+          "position": "static",
+          "text": "Figma ·"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > span.landing_tqAvatarFallback__Pduik:nth-of-type(1)",
+          "tag": "span",
+          "pastViewportPx": 2234,
+          "selfOverflowPx": 0,
+          "rectX": 2586,
+          "rectWidth": 38,
+          "position": "static",
+          "text": "J"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(13)",
+          "tag": "span",
+          "pastViewportPx": 2219,
+          "selfOverflowPx": 0,
+          "rectX": 2528,
+          "rectWidth": 81,
+          "position": "static",
+          "text": "Swift ·"
+        }
+      ],
+      "brokenImages": [],
+      "touchTargets": [
+        {
+          "selector": "div.__variable_49a339.__variable_bbcc58 > div.content > header.header_headerContainer__A46g6.header_mobileHeader__s9ZgI > a.header_logoLink__P2r7t",
+          "tag": "a",
+          "w": 135,
+          "h": 28,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Quartic Lab"
+        },
+        {
+          "selector": "div.__variable_49a339.__variable_bbcc58 > div.content > header.header_headerContainer__A46g6.header_mobileHeader__s9ZgI > button.header_hamburger__vV_7R",
+          "tag": "button",
+          "w": 38,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Open menu"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(1)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "All Services"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(2)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Web Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(3)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Mobile App Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(4)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Blockchain Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(5)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "IoT Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(6)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "GenAI & Automation"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(8)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "UI/UX Design"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(9)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "DevOps & Cloud"
+        },
+        {
+          "selector": "div.landing_panel__tmtVR.landing_panelOn__nD0jV:nth-of-type(1) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "tag": "a",
+          "w": 96,
+          "h": 15,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "EXPLORE →"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(1) > a.footer_fBrandLink__UrY9E",
+          "tag": "a",
+          "w": 350,
+          "h": 33,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "QuarticLAB"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Home"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Services"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Portfolio"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Blog"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(5)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "About"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(6)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Contact"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "GenAI & Automation"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "AI / ML Development"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Web Development"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Mobile Apps"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(5)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "DevOps & Cloud"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(6)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "UI/UX Design"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "LinkedIn"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Facebook"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Instagram"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "YouTube"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(1)",
+          "tag": "a",
+          "w": 46,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Privacy"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(2)",
+          "tag": "a",
+          "w": 37,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Terms"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(3)",
+          "tag": "a",
+          "w": 49,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Cookies"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > button.footer_fLegalBtn__gsPKQ",
+          "tag": "button",
+          "w": 122,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Cookie preferences"
+        },
+        {
+          "selector": "div.cookieConsent_banner__BJOr6:nth-of-type(2) > div.cookieConsent_content__2uBTl:nth-of-type(1) > p.cookieConsent_copy__G73mr:nth-of-type(2) > a",
+          "tag": "a",
+          "w": 90,
+          "h": 18,
+          "belowAA": true,
+          "inlineLinkException": true,
+          "text": "Cookie Policy"
+        }
+      ],
+      "overlaps": [
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(1)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(2)",
+          "overlapPx": 8976,
+          "aText": "All Services",
+          "bText": "03Portfolio"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(2)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(2)",
+          "overlapPx": 4224,
+          "aText": "Web Development",
+          "bText": "03Portfolio"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(2)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(3)",
+          "overlapPx": 4752,
+          "aText": "Web Development",
+          "bText": "04Blog"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(3)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(3)",
+          "overlapPx": 8448,
+          "aText": "Mobile App Development",
+          "bText": "04Blog"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(4)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(4)",
+          "overlapPx": 10032,
+          "aText": "Blockchain Development",
+          "bText": "05About"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(5)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(4)",
+          "overlapPx": 2640,
+          "aText": "IoT Development",
+          "bText": "05About"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(5)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(5)",
+          "overlapPx": 6336,
+          "aText": "IoT Development",
+          "bText": "06Contact"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(6)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(5)",
+          "overlapPx": 6864,
+          "aText": "GenAI & Automation",
+          "bText": "06Contact"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(7)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileCtaButton__ZPK0S:nth-of-type(6)",
+          "overlapPx": 11616,
+          "aText": "AI & Machine Learning Solutions",
+          "bText": "⚡Start a project"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(2) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "section.landing_services__cWcyf:nth-of-type(1) > div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(5)",
+          "overlapPx": 1433,
+          "aText": "EXPLORE →",
+          "bText": "05DevOps & CloudQL/05DevOps & CloudWe provide DevOps service"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(3) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "section.landing_services__cWcyf:nth-of-type(1) > div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(6)",
+          "overlapPx": 1433,
+          "aText": "EXPLORE →",
+          "bText": "06 IoT DevelopmentQL/06 IoT DevelopmentWe connect the physic"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(4) > div.landing_pBody__FFl5y:nth-of-type(2) > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "section.landing_services__cWcyf:nth-of-type(1) > div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(7)",
+          "overlapPx": 478,
+          "aText": "EXPLORE →",
+          "bText": "07Blockchain DevelopmentQL/07Blockchain DevelopmentWe build "
+        }
+      ],
+      "structure": {
+        "title": "Quartic Lab",
+        "lang": "en",
+        "h1Count": 1,
+        "hasMainLandmark": true,
+        "hasViewportMeta": true,
+        "docScrollWidth": 390,
+        "viewportWidth": 390,
+        "pageHorizontalScroll": false
+      },
+      "webVitals": {
+        "lcp": 3008,
+        "cls": 0,
+        "inp": 0,
+        "fcp": 1512,
+        "ttfb": 1472
+      },
+      "screenshot": ".claude/audit/runtime/landing/phone.png",
+      "error": null
+    }
+  ]
+}
