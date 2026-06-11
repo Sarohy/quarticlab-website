@@ -1372,11 +1372,16 @@ function StatsSection() {
     <section className={styles.statsSec}>
       <div className={styles.statsBgDots} />
       <div className={styles.container}>
-        <div className={styles.statsHeader}>
-          <span className={styles.sectionTag}>Why Quartic Lab</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Numbers that speak for themselves
-          </h2>
+        <div className={styles.servicesHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              Why Quartic Lab
+            </span>
+            <h2 className={styles.servicesTitle}>
+              Numbers that <em>speak for themselves</em>
+            </h2>
+          </div>
         </div>
         <div className={styles.statsGrid}>
           {stats.map((s, i) => (
