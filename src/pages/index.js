@@ -971,7 +971,7 @@ function ServicesSection({ services, servicesError }) {
           </p>
         </div>
         {servicesError ? (
-          <p style={{ color: "#ef5350", textAlign: "center" }}>
+          <p style={{ color: "#b3261e", textAlign: "center" }}>
             Unable to load services right now. Please try again later.
           </p>
         ) : (
@@ -1243,11 +1243,16 @@ function ProjectsSection({ projects, projectsError }) {
           </p>
         </div>
         {projectsError ? (
-          <p style={{ color: "#ef5350", textAlign: "center" }}>
+          <p style={{ color: "#b3261e", textAlign: "center" }}>
             Unable to load projects right now. Please try again later.
           </p>
         ) : (
           <div className={styles.wstack} ref={stackRef}>
+            {featured.length === 0 && (
+              <p style={{ textAlign: "center", opacity: 0.7 }}>
+                Selected work is on its way. Meanwhile, see the full portfolio.
+              </p>
+            )}
             {featured.map(p => (
               <article className={styles.wcard} key={p.title}>
                 <div className={styles.shot}>
@@ -1317,6 +1322,13 @@ function StatCard({ stat, delay }) {
             e.target.classList.add(styles.visible);
             if (!started.current) {
               started.current = true;
+              if (
+                window.matchMedia("(prefers-reduced-motion: reduce)").matches
+              ) {
+                setCount(stat.target);
+                obs.unobserve(e.target);
+                return;
+              }
               const duration = 2000;
               const target = stat.target;
               const startTime = performance.now();
@@ -1858,6 +1870,9 @@ function ContactSection() {
           <div className={styles.fld}>
             <label htmlFor="landing-name">Your name</label>
             <input
+              aria-describedby={errors.name ? "landing-name-err" : undefined}
+              aria-invalid={errors.name ? true : undefined}
+              aria-required="true"
               className={styles.fldInput}
               id="landing-name"
               name="name"
@@ -1866,12 +1881,17 @@ function ContactSection() {
               value={form.name}
             />
             {errors.name && (
-              <span className={styles.fldErr}>{errors.name}</span>
+              <span className={styles.fldErr} id="landing-name-err">
+                {errors.name}
+              </span>
             )}
           </div>
           <div className={styles.fld}>
             <label htmlFor="landing-email">Email address</label>
             <input
+              aria-describedby={errors.email ? "landing-email-err" : undefined}
+              aria-invalid={errors.email ? true : undefined}
+              aria-required="true"
               className={styles.fldInput}
               id="landing-email"
               name="email"
@@ -1880,7 +1900,9 @@ function ContactSection() {
               value={form.email}
             />
             {errors.email && (
-              <span className={styles.fldErr}>{errors.email}</span>
+              <span className={styles.fldErr} id="landing-email-err">
+                {errors.email}
+              </span>
             )}
           </div>
           <div className={styles.fld}>
@@ -1914,6 +1936,11 @@ function ContactSection() {
           <div className={`${styles.fld} ${styles.fldFull}`}>
             <label htmlFor="landing-description">Project details</label>
             <textarea
+              aria-describedby={
+                errors.description ? "landing-description-err" : undefined
+              }
+              aria-invalid={errors.description ? true : undefined}
+              aria-required="true"
               className={styles.fldTextarea}
               id="landing-description"
               name="description"
@@ -1922,7 +1949,9 @@ function ContactSection() {
               value={form.description}
             />
             {errors.description && (
-              <span className={styles.fldErr}>{errors.description}</span>
+              <span className={styles.fldErr} id="landing-description-err">
+                {errors.description}
+              </span>
             )}
           </div>
           <button

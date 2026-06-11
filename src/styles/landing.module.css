@@ -16,7 +16,7 @@
 
 /* ── reusable ─────────────────────────────── */
 .container {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -413,7 +413,7 @@
   overflow: hidden;
   cursor: pointer;
   contain: paint;
-  will-change: flex-grow;
+  /* RPM-06: avoid will-change on a layout property; revisit animating flex-grow */
   transition:
     flex-grow 0.7s cubic-bezier(0.65, 0, 0.35, 1),
     min-height 0.7s cubic-bezier(0.65, 0, 0.35, 1),
@@ -609,7 +609,7 @@
 .procLine svg {
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 100svh;
   width: 64px;
   display: block;
 }
@@ -956,11 +956,11 @@
 .statValue {
   display: block;
   font-family: var(--font-body);
-  font-size: 36px;
+  font-size: clamp(28px, 4vw, 48px);
   font-weight: 700;
   letter-spacing: -1px;
   margin-bottom: 6px;
-  color: var(--ql-copper) !important;
+  color: var(--ql-copper);
 }
 
 .statLabel {
@@ -1165,7 +1165,7 @@
   font-family: var(--font-mono);
   font-size: 14px;
   letter-spacing: 0.12em;
-  color: oklch(20% 0.05 255 / 0.38);
+  color: oklch(20% 0.05 255 / 0.64);
 }
 
 .techRun b {
