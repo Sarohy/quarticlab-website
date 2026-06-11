@@ -1474,36 +1474,62 @@ function TestimonialsSection({ testimonials }) {
   );
 }
 
-function TechSection() {
-  const allLogos = techCategories.flatMap(cat => cat.items);
-  const track = allLogos.map(t => (
-    <div className={styles.techItem} key={t.name}>
-      <div className={styles.techItemIconWrap}>
-        <Image
-          alt={t.name}
-          className={styles.techItemIcon}
-          height={48}
-          src={t.src}
-          style={{ height: "auto", maxHeight: "48px", width: "auto" }}
-          width={48}
-        />
-      </div>
-      <span className={styles.techItemLabel}>{t.name}</span>
-    </div>
-  ));
+const TECH_HIGHLIGHT = new Set([
+  "Next.js",
+  "TypeScript",
+  "Python",
+  "React Native",
+  "Anthropic",
+  "CrewAI",
+  "AWS",
+  "Kubernetes",
+]);
+
+const techNamesFor = labels =>
+  techCategories
+    .filter(c => labels.includes(c.label))
+    .flatMap(c => c.items.map(it => it.name));
+
+function TechRow({ names, reversed }) {
+  const run = () =>
+    names.map((n, i) => (
+      <span key={`${n}-${i}`}>
+        {TECH_HIGHLIGHT.has(n) ? <b>{n}</b> : n}
+        {" · "}
+      </span>
+    ));
   return (
-    <section className={styles.techSec}>
-      <div className={styles.container}>
-        <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
+    <div className={styles.techMqBox}>
+      <div className={`${styles.techMq} ${reversed ? styles.techMqRev : ""}`}>
+        <span className={styles.techRun}>{run()}</span>
+        <span aria-hidden="true" className={styles.techRun}>
+          {run()}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function TechSection() {
+  const row1 = techNamesFor(["Frontend", "Backend", "Mobile"]);
+  const row2 = techNamesFor([
+    "AI / ML",
+    "Automation",
+    "Blockchain",
+    "Cloud & DevOps",
+    "Data",
+    "Creative",
+  ]);
+  return (
+    <section aria-label="Technologies we work with" className={styles.techSec}>
+      <div className={`${styles.container} ${styles.techHead}`}>
+        <span className={`${styles.eyebrow} ${styles.reveal}`}>
+          <i />
           Technologies we work with
-        </h2>
+        </span>
       </div>
-      <div className={styles.techMarquee}>
-        <div className={styles.techTrack}>{track}</div>
-        <div aria-hidden="true" className={styles.techTrack}>
-          {track}
-        </div>
-      </div>
+      <TechRow names={row1} reversed={false} />
+      <TechRow names={row2} reversed />
     </section>
   );
 }
