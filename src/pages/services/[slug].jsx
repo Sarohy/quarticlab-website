@@ -1,62 +1,10 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useId, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Seo from "@component/Components/CommonComponents/Seo/Seo";
 import { SITE_URL } from "@component/utils/siteUrl";
 
-/* ── offering icons — web ───────────────────── */
-import designIcon from "../../../public/assets/serviceIcons/webServicesIcons/design.svg";
-import backendIcon from "../../../public/assets/serviceIcons/webServicesIcons/backend.svg";
-import ecommerceIcon from "../../../public/assets/serviceIcons/webServicesIcons/ecommerce.svg";
-import frontendIcon from "../../../public/assets/serviceIcons/webServicesIcons/frontend.svg";
-import fullstackIcon from "../../../public/assets/serviceIcons/webServicesIcons/fullstack.svg";
-
-/* ── offering icons — mobile ────────────────── */
-import hybirdMoboIcon from "../../../public/assets/serviceIcons/moboIcons/hybirdMobileIcon.svg";
-import mobo2Icon from "../../../public/assets/serviceIcons/moboIcons/mobo2.svg";
-import mobo3Icon from "../../../public/assets/serviceIcons/moboIcons/mobo3.svg";
-
-/* ── offering icons — uiux ──────────────────── */
-import uiux1Icon from "../../../public/assets/serviceIcons/uiuxIcons/uiux1.svg";
-import uiux2Icon from "../../../public/assets/serviceIcons/uiuxIcons/uiux2.svg";
-import uiux3Icon from "../../../public/assets/serviceIcons/uiuxIcons/uiux3.svg";
-import uiux4Icon from "../../../public/assets/serviceIcons/uiuxIcons/uiux4.svg";
-import uiux5Icon from "../../../public/assets/serviceIcons/uiuxIcons/uiux5.svg";
-
-/* ── offering icons — iot ───────────────────── */
-import iot1Icon from "../../../public/assets/serviceIcons/iotIcons/iot1.svg";
-import iot2Icon from "../../../public/assets/serviceIcons/iotIcons/iot2.svg";
-import iot3Icon from "../../../public/assets/serviceIcons/iotIcons/iot3.svg";
-import iot4Icon from "../../../public/assets/serviceIcons/iotIcons/iot4.svg";
-import iot5Icon from "../../../public/assets/serviceIcons/iotIcons/iot5.svg";
-import iot6Icon from "../../../public/assets/serviceIcons/iotIcons/iot6.svg";
-import iot7Icon from "../../../public/assets/serviceIcons/iotIcons/iot7.svg";
-import iot8Icon from "../../../public/assets/serviceIcons/iotIcons/iot8.svg";
-
-/* ── offering icons — ai ────────────────────── */
-import ai1Icon from "../../../public/assets/serviceIcons/aiIcons/ai1.svg";
-import ai2Icon from "../../../public/assets/serviceIcons/aiIcons/ai2.svg";
-import ai3Icon from "../../../public/assets/serviceIcons/aiIcons/ai3.svg";
-import ai4Icon from "../../../public/assets/serviceIcons/aiIcons/ai4.svg";
-import ai5Icon from "../../../public/assets/serviceIcons/aiIcons/ai5.svg";
-import ai6Icon from "../../../public/assets/serviceIcons/aiIcons/ai6.svg";
-
-/* ── offering icons — devops ────────────────── */
-import dev1Icon from "../../../public/assets/serviceIcons/devOPSIcon/dev1.svg";
-import dev2Icon from "../../../public/assets/serviceIcons/devOPSIcon/dev2.svg";
-import dev3Icon from "../../../public/assets/serviceIcons/devOPSIcon/dev3.svg";
-import dev4Icon from "../../../public/assets/serviceIcons/devOPSIcon/dev4.svg";
-import dev5Icon from "../../../public/assets/serviceIcons/devOPSIcon/dev5.svg";
-import dev6Icon from "../../../public/assets/serviceIcons/devOPSIcon/dev6.svg";
-
-/* ── offering icons — blockchain ────────────── */
-import bc1Icon from "../../../public/assets/serviceIcons/BCIcons/bc1.svg";
-import bc2Icon from "../../../public/assets/serviceIcons/BCIcons/bc2.svg";
-import bc3Icon from "../../../public/assets/serviceIcons/BCIcons/bc3.svg";
-import bc4Icon from "../../../public/assets/serviceIcons/BCIcons/bc4.svg";
-import bc5Icon from "../../../public/assets/serviceIcons/BCIcons/bc5.svg";
-
-/* ── project images ─────────────────────────── */
+/* ── project images (static fallback for non-linked projects) ── */
 import Web1 from "../../../public/assets/HomeIcons/Project/Web1.png";
 import Web2 from "../../../public/assets/HomeIcons/Project/Web2.png";
 import Web3 from "../../../public/assets/HomeIcons/Project/Web3.png";
@@ -87,18 +35,6 @@ import DevOps1 from "../../../public/assets/serviceDetailsIcons/devOpsIcons/devO
 import bc1Proj from "../../../public/assets/serviceDetailsIcons/bcIcons/bc1.png";
 import bc2Proj from "../../../public/assets/serviceDetailsIcons/bcIcons/bc2.png";
 
-/* ── nav icons for "Other services" ─────────── */
-import WebDevIcon from "../../../public/assets/serviceIcons/webdevIcon.svg";
-import BlockchainIcon from "../../../public/assets/serviceIcons/blockchainIcon.svg";
-import MobileDevIcon from "../../../public/assets/serviceIcons/MobDevIcon.svg";
-import UIUXIcon from "../../../public/assets/serviceIcons/uiuxIcon.svg";
-import IOTDevIcon from "../../../public/assets/serviceIcons/IOTIcon.svg";
-import AIDevIcon from "../../../public/assets/serviceIcons/AIDevIcon.svg";
-import DevopsIcon from "../../../public/assets/serviceIcons/devopsIcon.svg";
-
-/* ── animated service illustrations ─────────── */
-import ServiceDoodle from "@component/Components/CommonComponents/ServiceDoodles/ServiceDoodles";
-
 /* ── firebase ───────────────────────────────── */
 import {
   getAllServiceDetails,
@@ -106,62 +42,12 @@ import {
   getServiceBySlug,
 } from "@component/firebase/firebaseRequests";
 
-import styles from "./servicesNew.module.css";
+import styles from "./servicesDetail.module.css";
 
 /* ════════════════════════════════════════════
-   CLIENT-SIDE ASSET LOOKUP MAPS
-   Images and icons cannot live in Firestore,
-   so we map string keys to static imports.
+   Images cannot live in Firestore, so we map
+   string keys to static imports.
    ════════════════════════════════════════════ */
-
-const iconMap = {
-  /* web */
-  designIcon,
-  frontendIcon,
-  backendIcon,
-  fullstackIcon,
-  ecommerceIcon,
-  /* mobile */
-  hybirdMoboIcon,
-  mobo2Icon,
-  mobo3Icon,
-  /* uiux */
-  uiux1Icon,
-  uiux2Icon,
-  uiux3Icon,
-  uiux4Icon,
-  uiux5Icon,
-  /* iot */
-  iot1Icon,
-  iot2Icon,
-  iot3Icon,
-  iot4Icon,
-  iot5Icon,
-  iot6Icon,
-  iot7Icon,
-  iot8Icon,
-  /* ai */
-  ai1Icon,
-  ai2Icon,
-  ai3Icon,
-  ai4Icon,
-  ai5Icon,
-  ai6Icon,
-  /* devops */
-  dev1Icon,
-  dev2Icon,
-  dev3Icon,
-  dev4Icon,
-  dev5Icon,
-  dev6Icon,
-  /* blockchain */
-  bc1Icon,
-  bc2Icon,
-  bc3Icon,
-  bc4Icon,
-  bc5Icon,
-};
-
 const projectImageMap = {
   Web1,
   Web2,
@@ -194,70 +80,14 @@ const projectImageMap = {
   bc2Proj,
 };
 
-const navIconMap = {
-  "web-development": WebDevIcon,
-  "blockchain-development": BlockchainIcon,
-  "mobile-development": MobileDevIcon,
-  "ui-ux-design": UIUXIcon,
-  "iot-development": IOTDevIcon,
-  "ai-ml-development": AIDevIcon,
-  devops: DevopsIcon,
-  "genai-automation": AIDevIcon,
-};
-
-/* ════════════════════════════════════════════
-   HELPERS — resolve Firestore keys to images
-   ════════════════════════════════════════════ */
-
-function resolveOfferings(offerings = []) {
-  return offerings.map(o => ({
-    ...o,
-    icon: iconMap[o.iconKey] || ai1Icon,
-  }));
-}
-
 function resolveProjects(projects = []) {
   return projects
-    .map(p => ({
-      ...p,
-      image: projectImageMap[p.imageKey] || null,
-    }))
+    .map(p => ({ ...p, image: projectImageMap[p.imageKey] || null }))
     .filter(p => p.image);
 }
 
-/* ── reveal hook ────────────────────────────── */
-function useReveal() {
-  const refs = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08 },
-    );
-    refs.current.forEach(el => {
-      if (el) {
-        observer.observe(el);
-      }
-    });
-    return () => observer.disconnect();
-  }, []);
-
-  return el => {
-    if (el && !refs.current.includes(el)) {
-      refs.current.push(el);
-    }
-  };
-}
-
 /* ═══════════════════════════════════════════
-   FAQ ITEM COMPONENT
+   FAQ ITEM (revamped +/× accordion)
    ═══════════════════════════════════════════ */
 function FaqItem({ item }) {
   const [open, setOpen] = useState(false);
@@ -265,52 +95,49 @@ function FaqItem({ item }) {
   const buttonId = useId();
 
   return (
-    <div className={styles.faqItem}>
+    <div className={`${styles.faq} ${open ? styles.faqOpen : ""}`}>
       <button
         aria-controls={panelId}
         aria-expanded={open}
-        className={styles.faqQuestion}
+        className={styles.fq}
         id={buttonId}
         onClick={() => setOpen(v => !v)}
         type="button"
       >
-        <span>{item.q}</span>
-        <span
-          aria-hidden="true"
-          className={`${styles.faqChevron} ${
-            open ? styles.faqChevronOpen : ""
-          }`}
-        >
-          ▼
+        {item.q}
+        <span aria-hidden="true" className={styles.ic}>
+          +
         </span>
       </button>
       <div
         aria-labelledby={buttonId}
-        className={`${styles.faqAnswer} ${open ? styles.faqAnswerOpen : ""}`}
+        className={`${styles.fa} ${open ? styles.faOpen : ""}`}
         id={panelId}
         role="region"
       >
-        <p className={styles.faqAnswerText}>{item.a}</p>
+        <p>{item.a}</p>
       </div>
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════
-   INNER CONTENT — receives data from
-   Firestore, resolves assets, renders page.
-   Key={slug} ensures useReveal fires fresh.
+   DETAIL CONTENT
    ═══════════════════════════════════════════ */
-function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
-  const addRef = useReveal();
-  const offerings = resolveOfferings(data.offerings);
-  // Use Firestore-linked projects if available, else fall back to static imageKey projects
+function ServiceDetailContent({
+  data,
+  linkedProjects,
+  num,
+  otherServices,
+  slug,
+}) {
   const projects =
     linkedProjects && linkedProjects.length > 0
       ? linkedProjects
       : resolveProjects(data.projects);
 
   const serviceUrl = `${SITE_URL}/services/${slug}`;
+  const titleWords = (data.heroTitle || data.category || "").split(" ");
 
   const faqSchema =
     Array.isArray(data.faq) && data.faq.length > 0
@@ -321,10 +148,7 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
           mainEntity: data.faq.map(item => ({
             "@type": "Question",
             name: item.q,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: item.a,
-            },
+            acceptedAnswer: { "@type": "Answer", text: item.a },
           })),
         }
       : null;
@@ -368,120 +192,148 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
       </Seo>
 
       {/* ── HERO ───────────────────────────────── */}
-      <section className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className={styles.heroInner}>
-          <span className={styles.heroBadge}>{data.category}</span>
-          <h1 className={styles.heroH1}>
-            {data.heroTitle.split(" ").slice(0, -1).join(" ")}{" "}
-            <span className={styles.heroAccent}>
-              {data.heroTitle.split(" ").slice(-1)}
-            </span>
+      <header className={styles.dhero}>
+        <span aria-hidden="true" className={styles.dnum}>
+          {num}
+        </span>
+        <div className={styles.container}>
+          <div className={styles.crumb}>
+            <Link href="/services">SERVICES</Link>
+            <span>/</span>
+            <span>{(data.category || "").toUpperCase()}</span>
+          </div>
+          <span className={`${styles.eb} ${styles.dhFade}`}>
+            <i />
+            {data.category}
+          </span>
+          <h1 className={styles.h1}>
+            {titleWords.map((word, i) => (
+              <span className={styles.w} key={`${word}-${i}`}>
+                <span style={{ transitionDelay: `${0.08 + i * 0.055}s` }}>
+                  {i === titleWords.length - 1 ? <em>{word}</em> : word}
+                  {i < titleWords.length - 1 ? " " : ""}
+                </span>
+              </span>
+            ))}
           </h1>
-          <p className={styles.heroSub}>{data.heroSub}</p>
-          <div className={styles.heroCtas}>
-            <button
-              className={styles.btnHeroPrimary}
-              onClick={() =>
-                window.open("https://calendly.com/quarticlab/30min", "_blank")
-              }
+          <p className={`${styles.heroLead} ${styles.dhFade}`}>
+            {data.heroSub}
+          </p>
+          <div className={`${styles.dheroCtas} ${styles.dhFade}`}>
+            <a
+              className={styles.btnPrimary}
+              href="https://calendly.com/quarticlab/30min"
+              rel="noopener noreferrer"
+              target="_blank"
             >
-              Request a demo
-            </button>
-            <Link className={styles.btnHeroOutline} href="/services">
+              Request a demo <span className={styles.arr}>→</span>
+            </a>
+            <Link className={styles.btnOutline} href="/services">
               All services
             </Link>
           </div>
         </div>
-        <div className={styles.heroWave} />
-      </section>
+      </header>
 
-      {/* ── OVERVIEW ───────────────────────────── */}
-      <section className={styles.overviewSec}>
-        <div className={styles.container}>
-          <div
-            className={`${styles.overviewInner} ${styles.reveal}`}
-            ref={addRef}
-          >
-            <div className={styles.overviewText}>
-              <span className={styles.sectionTag}>{data.category}</span>
-              <h2 className={styles.overviewHeading}>{data.heading}</h2>
-              <p className={styles.overviewDesc}>{data.description}</p>
-              <button
-                className={styles.btnPrimary}
-                onClick={() =>
-                  window.open("https://calendly.com/quarticlab/30min", "_blank")
-                }
-              >
-                Schedule a call
-              </button>
-            </div>
-            <div className={styles.overviewVisual}>
-              <ServiceDoodle slug={slug} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── OFFERINGS ──────────────────────────── */}
-      <section className={styles.offeringsSec}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionTag}>What we offer</span>
-            <h2 className={styles.sectionTitle}>{data.category} Services</h2>
-          </div>
-          <div className={styles.offeringsGrid}>
-            {offerings.map((o, i) => (
-              <div
-                className={`${styles.offeringCard} ${styles.reveal}`}
-                key={o.title}
-                ref={addRef}
-                style={{ transitionDelay: `${i * 0.06}s` }}
-              >
-                <div className={styles.offeringIconWrap}>
-                  <Image alt={o.title} height={28} src={o.icon} width={28} />
-                </div>
-                <h3 className={styles.offeringTitle}>{o.title}</h3>
-                <p className={styles.offeringDesc}>{o.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── PROJECTS ───────────────────────────── */}
-      {projects.length > 0 && (
-        <section className={styles.projectsSec}>
+      {/* ── WHAT WE OFFER ──────────────────────── */}
+      {data.offerings?.length > 0 && (
+        <section className={styles.sec}>
           <div className={styles.container}>
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>Portfolio</span>
-              <h2 className={styles.sectionTitle}>{data.category} Projects</h2>
+            <div className={styles.secHead}>
+              <div>
+                <span className={styles.eb}>
+                  <i />
+                  What we offer
+                </span>
+                <h2 className={styles.h2}>
+                  {data.category} <em>services</em>
+                </h2>
+              </div>
+              {data.heading && (
+                <p className={styles.headLead}>{data.heading}</p>
+              )}
             </div>
-            <div className={styles.projectsGrid}>
-              {projects.map((p, i) => (
-                <div
-                  className={`${styles.projectCard} ${styles.reveal}`}
-                  key={p.title}
-                  ref={addRef}
-                  style={{ transitionDelay: `${i * 0.06}s` }}
-                >
-                  <div className={styles.projectImgWrap}>
-                    <span className={styles.projectIndex}>{i + 1}</span>
-                    {(p.image || p.image_url) && (
+            <div className={styles.offerGrid}>
+              {data.offerings.map((o, i) => (
+                <div className={styles.offer} key={o.title}>
+                  <span className={styles.oIx}>
+                    {num}.{i + 1}
+                  </span>
+                  <h3 className={styles.offerTitle}>{o.title}</h3>
+                  <p className={styles.offerDesc}>{o.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── PROCESS ────────────────────────────── */}
+      {data.process?.steps?.length > 0 && (
+        <section className={styles.secTight}>
+          <div className={styles.container}>
+            <div className={styles.secHead}>
+              <div>
+                <span className={styles.eb}>
+                  <i />
+                  Our process
+                </span>
+                <h2 className={styles.h2}>
+                  How we <em>build it</em>
+                </h2>
+              </div>
+            </div>
+            <div className={styles.steps}>
+              {data.process.steps.map((step, i) => (
+                <div className={styles.step} key={step.title}>
+                  <span className={styles.sNum}>
+                    STEP {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className={styles.stepTitle}>{step.title}</h3>
+                  <p className={styles.stepDesc}>{step.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── RELATED WORK (dark) ────────────────── */}
+      {projects.length > 0 && (
+        <section className={`${styles.sec} ${styles.dark}`}>
+          <div className={styles.container}>
+            <div className={styles.secHead}>
+              <div>
+                <span className={styles.eb}>
+                  <i />
+                  Related work
+                </span>
+                <h2 className={styles.h2}>
+                  Shipped in this <em>discipline</em>
+                </h2>
+              </div>
+            </div>
+            <div className={styles.pwGrid}>
+              {projects.map(p => (
+                <div className={styles.pw} key={p.title}>
+                  <div className={styles.pwShot}>
+                    {(p.image_url || p.image) && (
                       <Image
                         alt={`${p.title} — ${data.category} project by Quartic Lab`}
-                        className={styles.projectImg}
+                        className={styles.pwImg}
                         fill
-                        sizes="(max-width: 590px) 100vw, 33vw"
+                        sizes="(max-width: 680px) 100vw, 33vw"
                         src={p.image_url || p.image}
+                        style={{ objectFit: "cover", objectPosition: "top" }}
                       />
                     )}
                   </div>
-                  <div className={styles.projectBody}>
-                    <h3 className={styles.projectTitle}>{p.title}</h3>
-                    <p className={styles.projectDesc}>
-                      {p.desc || p.description}
-                    </p>
+                  <div className={styles.pwB}>
+                    <span className={styles.pwTag}>
+                      {p.types?.[0] || data.category}
+                    </span>
+                    <h3 className={styles.pwTitle}>{p.title}</h3>
+                    <p className={styles.pwDesc}>{p.desc || p.description}</p>
                   </div>
                 </div>
               ))}
@@ -490,89 +342,26 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
         </section>
       )}
 
-      {/* ── LET'S TALK 1 ──────────────────────── */}
-      <section className={styles.letsTalkSec}>
-        <div className={styles.container}>
-          <div
-            className={`${styles.letsTalkCard} ${styles.reveal}`}
-            ref={addRef}
-          >
-            <div className={styles.letsTalkText}>
-              <h3 className={styles.letsTalkTitle}>
-                Do you have unique requirements?
-              </h3>
-              <p className={styles.letsTalkDesc}>
-                We have the expertise to deliver you a custom solution no one
-                else has.
-              </p>
-            </div>
-            <button
-              className={styles.letsTalkBtn}
-              onClick={() =>
-                window.open("https://calendly.com/quarticlab/30min", "_blank")
-              }
-            >
-              Schedule a call
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* ── PROCESS TIMELINE ───────────────────── */}
-      {data.process && (
-        <section className={styles.processSec}>
+      {/* ── WHO WE SERVE ───────────────────────── */}
+      {data.audience?.cards?.length > 0 && (
+        <section className={styles.sec}>
           <div className={styles.container}>
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>Our process</span>
-              <h2 className={styles.sectionTitle}>{data.process.title}</h2>
-              {data.process.desc && (
-                <p className={styles.sectionDesc}>{data.process.desc}</p>
-              )}
+            <div className={styles.secHead}>
+              <div>
+                <span className={styles.eb}>
+                  <i />
+                  Who we serve
+                </span>
+                <h2 className={styles.h2}>
+                  We meet you <em>where you are</em>
+                </h2>
+              </div>
             </div>
-            <div className={styles.processTimeline}>
-              {data.process.steps.map((step, i) => (
-                <div
-                  className={`${styles.processStep} ${styles.reveal}`}
-                  key={step.title}
-                  ref={addRef}
-                  style={{ transitionDelay: `${i * 0.08}s` }}
-                >
-                  <div className={styles.processDot}>
-                    <div className={styles.processDotInner} />
-                  </div>
-                  <span className={styles.processStepNum}>
-                    Step {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className={styles.processStepTitle}>{step.title}</h3>
-                  <p className={styles.processStepDesc}>{step.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── TARGET AUDIENCE ────────────────────── */}
-      {data.audience && (
-        <section className={styles.audienceSec}>
-          <div className={styles.container}>
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>Who we serve</span>
-              <h2 className={styles.sectionTitle}>{data.audience.title}</h2>
-              {data.audience.desc && (
-                <p className={styles.sectionDesc}>{data.audience.desc}</p>
-              )}
-            </div>
-            <div className={styles.audienceGrid}>
-              {data.audience.cards.map((c, i) => (
-                <div
-                  className={`${styles.audienceCard} ${styles.reveal}`}
-                  key={c.title}
-                  ref={addRef}
-                  style={{ transitionDelay: `${i * 0.08}s` }}
-                >
-                  <h3 className={styles.audienceCardTitle}>{c.title}</h3>
-                  <p className={styles.audienceCardDesc}>{c.desc}</p>
+            <div className={styles.serveGrid}>
+              {data.audience.cards.map(c => (
+                <div className={styles.serve} key={c.title}>
+                  <h3 className={styles.serveTitle}>{c.title}</h3>
+                  <p className={styles.serveDesc}>{c.desc}</p>
                 </div>
               ))}
             </div>
@@ -581,20 +370,27 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
       )}
 
       {/* ── TECH STACK ─────────────────────────── */}
-      {data.techStack && data.techStack.length > 0 && (
-        <section className={styles.techStackSec}>
+      {data.techStack?.length > 0 && (
+        <section className={styles.secTight}>
           <div className={styles.container}>
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>Technology</span>
-              <h2 className={styles.sectionTitle}>Tech stack</h2>
+            <div className={styles.secHead}>
+              <div>
+                <span className={styles.eb}>
+                  <i />
+                  Technology
+                </span>
+                <h2 className={styles.h2}>
+                  The <em>stack</em>
+                </h2>
+              </div>
             </div>
-            <div className={styles.techStackGrid}>
+            <div className={styles.stackGrid}>
               {data.techStack.map(g => (
-                <div className={styles.techStackGroup} key={g.group}>
-                  <h3 className={styles.techStackGroupTitle}>{g.group}</h3>
-                  <div className={styles.techChips}>
+                <div className={styles.sg} key={g.group}>
+                  <h4 className={styles.sgTitle}>{g.group}</h4>
+                  <div className={styles.chips}>
                     {g.chips.map(chip => (
-                      <span className={styles.techChip} key={chip}>
+                      <span className={styles.chip} key={chip}>
                         {chip}
                       </span>
                     ))}
@@ -606,72 +402,17 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
         </section>
       )}
 
-      {/* ── LET'S TALK 2 ──────────────────────── */}
-      <section className={styles.letsTalkSec}>
-        <div className={styles.container}>
-          <div
-            className={`${styles.letsTalkCard} ${styles.reveal}`}
-            ref={addRef}
-          >
-            <div className={styles.letsTalkText}>
-              <h3 className={styles.letsTalkTitle}>Ready to get started?</h3>
-              <p className={styles.letsTalkDesc}>
-                Let&apos;s talk about how we can help you build something great.
-              </p>
-            </div>
-            <button
-              className={styles.letsTalkBtn}
-              onClick={() =>
-                window.open("https://calendly.com/quarticlab/30min", "_blank")
-              }
-            >
-              Let&apos;s talk
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* ── OTHER SERVICES ─────────────────────── */}
-      {otherServices.length > 0 && (
-        <section className={styles.otherServicesSec}>
-          <div className={styles.container}>
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>Explore more</span>
-              <h2 className={styles.sectionTitle}>Other services</h2>
-            </div>
-            <div className={styles.otherServicesGrid}>
-              {otherServices.map((s, i) => (
-                <Link
-                  className={`${styles.otherServiceCard} ${styles.reveal}`}
-                  href={`/services/${s.slug}`}
-                  key={s.slug}
-                  ref={addRef}
-                  style={{ transitionDelay: `${i * 0.05}s` }}
-                >
-                  <div className={styles.otherServiceIcon}>
-                    <Image
-                      alt={s.category}
-                      height={24}
-                      src={navIconMap[s.slug] || AIDevIcon}
-                      width={24}
-                    />
-                  </div>
-                  <span className={styles.otherServiceLabel}>{s.category}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* ── FAQ ────────────────────────────────── */}
-      {data.faq && data.faq.length > 0 && (
-        <section className={styles.faqSec}>
+      {data.faq?.length > 0 && (
+        <section className={styles.secTight}>
           <div className={styles.container}>
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>FAQ</span>
-              <h2 className={styles.sectionTitle}>
-                Frequently asked questions
+            <div className={styles.faqHead}>
+              <span className={`${styles.eb} ${styles.ebCenter}`}>
+                <i />
+                FAQ
+              </span>
+              <h2 className={styles.faqTitle}>
+                Frequently asked <em>questions</em>
               </h2>
             </div>
             <div className={styles.faqList}>
@@ -683,26 +424,86 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
         </section>
       )}
 
-      {/* ── CTA ────────────────────────────────── */}
-      <section className={styles.ctaSec}>
-        <div className={styles.container}>
-          <div className={`${styles.ctaCard} ${styles.reveal}`} ref={addRef}>
-            <h2 className={styles.ctaTitle}>
-              Not finding the right fit? Stay connected
+      {/* ── OTHER SERVICES ─────────────────────── */}
+      {otherServices.length > 0 && (
+        <section className={styles.secTight}>
+          <div className={styles.container}>
+            <span className={styles.eb}>
+              <i />
+              Explore more
+            </span>
+            <h2 className={`${styles.h2} ${styles.othersTitle}`}>
+              Other <em>services</em>
             </h2>
-            <p className={styles.ctaDesc}>
-              We have the expertise to deliver you a custom solution no one else
-              has. Book a free consultation today.
-            </p>
-            <button
-              className={styles.btnHeroPrimary}
-              onClick={() =>
-                window.open("https://calendly.com/quarticlab/30min", "_blank")
-              }
-            >
-              Book a free consultation
-            </button>
+            <div className={styles.others}>
+              {otherServices.map(s => (
+                <Link
+                  className={styles.other}
+                  href={`/services/${s.slug}`}
+                  key={s.slug}
+                >
+                  <b>{s.num}</b>
+                  {s.category} →
+                </Link>
+              ))}
+            </div>
           </div>
+        </section>
+      )}
+
+      {/* ── CTA BAND (dark) ────────────────────── */}
+      <section className={styles.ctaSection}>
+        <div aria-hidden="true" className={styles.ctaBg}>
+          <svg viewBox="0 0 100 100">
+            <g
+              opacity=".6"
+              stroke="oklch(93% 0.015 75)"
+              strokeLinecap="round"
+              strokeWidth="1.2"
+            >
+              <line x1="50" x2="82" y1="18" y2="50" />
+              <line x1="50" x2="50" y1="18" y2="82" />
+              <line x1="50" x2="18" y1="18" y2="50" />
+              <line x1="82" x2="50" y1="50" y2="82" />
+              <line x1="82" x2="18" y1="50" y2="50" />
+              <line x1="50" x2="18" y1="82" y2="50" />
+            </g>
+            <g fill="none" stroke="oklch(58% 0.12 45)" strokeWidth="2">
+              <circle cx="50" cy="18" r="6.5" />
+              <circle cx="82" cy="50" r="6.5" />
+              <circle cx="50" cy="82" r="6.5" />
+              <circle cx="18" cy="50" r="6.5" />
+            </g>
+          </svg>
+        </div>
+        <div className={styles.container}>
+          <span className={`${styles.eb} ${styles.ebCenter}`}>
+            <i />
+            Avg. response: 4 hours
+          </span>
+          <h2 className={styles.ctaTitle}>
+            Get a full project estimate in <em>12 hours</em>
+          </h2>
+          <p className={styles.ctaDesc}>
+            Scope, timeline, team composition, and cost — delivered to your
+            inbox. No sales call required.
+          </p>
+          <div className={styles.ctaBtns}>
+            <a
+              className={styles.ctaBtnPrimary}
+              href="https://calendly.com/quarticlab/30min"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Book a 30-min call <span className={styles.arr}>→</span>
+            </a>
+            <Link className={styles.ctaBtnSecondary} href="/contact">
+              Send a brief instead
+            </Link>
+          </div>
+          <p className={styles.ctaNote}>
+            FIXED-SCOPE SPRINTS · WEEKLY DEMOS · 30 DAYS FREE SUPPORT
+          </p>
         </div>
       </section>
     </div>
@@ -713,24 +514,15 @@ function ServiceDetailContent({ data, linkedProjects, otherServices, slug }) {
    PAGE COMPONENT — receives SSR data
    ═══════════════════════════════════════════ */
 export default function ServiceDetailPage({
-  serviceData,
-  otherServices,
   linkedProjects,
+  otherServices,
+  serviceData,
+  serviceNum,
 }) {
   if (!serviceData) {
     return (
-      <div
-        className={styles.page}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          minHeight: "60vh",
-          gap: 16,
-        }}
-      >
-        <h1 style={{ color: "var(--ql-oxford)" }}>Service not found</h1>
+      <div className={styles.notFound}>
+        <h1>Service not found</h1>
         <Link className={styles.btnPrimary} href="/services">
           Back to services
         </Link>
@@ -743,6 +535,7 @@ export default function ServiceDetailPage({
       data={serviceData}
       key={serviceData.slug}
       linkedProjects={linkedProjects}
+      num={serviceNum}
       otherServices={otherServices}
       slug={serviceData.slug}
     />
@@ -763,7 +556,12 @@ export async function getServerSideProps(context) {
 
     if (!serviceData) {
       return {
-        props: { serviceData: null, otherServices: [], linkedProjects: [] },
+        props: {
+          serviceData: null,
+          otherServices: [],
+          linkedProjects: [],
+          serviceNum: "01",
+        },
       };
     }
 
@@ -789,30 +587,40 @@ export async function getServerSideProps(context) {
           : a.order - b.order,
       );
 
-    // Build "other services" nav list (exclude current)
-    const otherServices = (allDetails || [])
+    // Stable display order for service numbering + "other services" list
+    const byOrder = (a, b) => {
+      const ao = Number(a.order ?? 0);
+      const bo = Number(b.order ?? 0);
+      return ao === bo
+        ? (a.category || "").localeCompare(b.category || "")
+        : ao - bo;
+    };
+    const sortedAll = (allDetails || []).slice().sort(byOrder);
+    const numBySlug = {};
+    sortedAll.forEach((s, i) => {
+      numBySlug[s.slug] = String(i + 1).padStart(2, "0");
+    });
+    const serviceNum = numBySlug[slug] || "01";
+
+    const otherServices = sortedAll
       .filter(s => s.slug !== slug)
       .map(s => ({
         slug: s.slug || "",
         category: s.category || "",
-        order: Number(s.order ?? 0),
-      }))
-      .sort((a, b) =>
-        a.order === b.order
-          ? a.category.localeCompare(b.category)
-          : a.order - b.order,
-      );
+        num: numBySlug[s.slug] || "",
+      }));
 
     return {
-      props: {
-        serviceData,
-        otherServices,
-        linkedProjects,
-      },
+      props: { serviceData, otherServices, linkedProjects, serviceNum },
     };
   } catch {
     return {
-      props: { serviceData: null, otherServices: [], linkedProjects: [] },
+      props: {
+        serviceData: null,
+        otherServices: [],
+        linkedProjects: [],
+        serviceNum: "01",
+      },
     };
   }
 }
