@@ -156,75 +156,6 @@ const faqs = [
 
 /* ── svg helpers ─────────────────────────────────── */
 
-function StatIcon({ index }) {
-  const icons = [
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="layers"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <path d="M12 2 2 7l10 5 10-5-10-5Z" />
-      <path d="m2 17 10 5 10-5" />
-      <path d="m2 12 10 5 10-5" />
-    </svg>,
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="globe"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <path d="M2 12h20" />
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-    </svg>,
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="chat"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-      <path d="m9 10 2 2 4-4" />
-    </svg>,
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="target"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="12" r="6" />
-      <circle cx="12" cy="12" r="2" />
-    </svg>,
-  ];
-  return icons[index] || icons[0];
-}
-
 function ValueIcon({ index }) {
   const icons = [
     <svg
@@ -291,884 +222,6 @@ function ValueIcon({ index }) {
     </svg>,
   ];
   return icons[index] || icons[0];
-}
-
-function MissionDoodle() {
-  return (
-    <svg
-      aria-hidden="true"
-      className={styles.missionDoodle}
-      fill="none"
-      focusable="false"
-      viewBox="0 0 420 420"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <style>{`
-          @keyframes ab-float {
-            0%, 100% { transform: translateY(0); }
-            50%      { transform: translateY(-5px); }
-          }
-          @keyframes ab-blink {
-            0%, 45% { opacity: 1; }
-            50%, 95% { opacity: 0; }
-            100% { opacity: 1; }
-          }
-          @keyframes ab-line-appear {
-            from { opacity: 0; transform: translateX(-4px); }
-            to   { opacity: 1; transform: translateX(0); }
-          }
-          @keyframes ab-ping {
-            0%   { r: 3; opacity: 0.7; }
-            100% { r: 12; opacity: 0; }
-          }
-          @keyframes ab-glow {
-            0%, 100% { opacity: 0.15; }
-            50%      { opacity: 0.3; }
-          }
-          @keyframes ab-orbit {
-            to { transform: rotate(360deg); }
-          }
-          @keyframes ab-dash-flow {
-            to { stroke-dashoffset: -20; }
-          }
-          @keyframes ab-arm-type {
-            0%, 100% { transform: rotate(0deg); }
-            25%      { transform: rotate(-2deg); }
-            75%      { transform: rotate(2deg); }
-          }
-          .ab-orbit-ring {
-            animation: ab-orbit 30s linear infinite;
-            transform-origin: 210px 210px;
-          }
-          .ab-orbit-ring-r {
-            animation: ab-orbit 25s linear infinite reverse;
-            transform-origin: 210px 210px;
-          }
-          .ab-float-person {
-            animation: ab-float 4s ease-in-out infinite;
-            transform-origin: 140px 260px;
-          }
-          .ab-float-person2 {
-            animation: ab-float 4.4s ease-in-out 0.8s infinite;
-            transform-origin: 290px 250px;
-          }
-          .ab-arm-l { animation: ab-arm-type 0.5s ease-in-out infinite; transform-origin: 120px 275px; }
-          .ab-arm-r { animation: ab-arm-type 0.5s ease-in-out infinite reverse; transform-origin: 160px 275px; }
-          .ab-arm2-l { animation: ab-arm-type 0.55s ease-in-out 0.2s infinite; transform-origin: 270px 268px; }
-          .ab-arm2-r { animation: ab-arm-type 0.55s ease-in-out 0.2s infinite reverse; transform-origin: 310px 268px; }
-          .ab-cursor { animation: ab-blink 1.1s step-end infinite; }
-          .ab-l1 { animation: ab-line-appear 0.35s ease-out 0.3s both; }
-          .ab-l2 { animation: ab-line-appear 0.35s ease-out 0.7s both; }
-          .ab-l3 { animation: ab-line-appear 0.35s ease-out 1.1s both; }
-          .ab-l4 { animation: ab-line-appear 0.35s ease-out 1.5s both; }
-          .ab-glow { animation: ab-glow 2.8s ease-in-out infinite; }
-          .ab-ping1 { animation: ab-ping 2s ease-out infinite; }
-          .ab-ping2 { animation: ab-ping 2s ease-out 0.7s infinite; }
-          .ab-flow-line {
-            stroke-dasharray: 6 4;
-            animation: ab-dash-flow 1.5s linear infinite;
-          }
-        `}</style>
-      </defs>
-
-      {/* ── faint dot grid ── */}
-      {Array.from({ length: 7 }, (_, r) =>
-        Array.from({ length: 9 }, (_, c) => (
-          <circle
-            cx={25 + c * 46}
-            cy={25 + r * 56}
-            fill="oklch(20% 0.05 255)"
-            key={`g-${r}-${c}`}
-            opacity="0.04"
-            r="1.2"
-          />
-        )),
-      )}
-
-      {/* ── central orbital ring system ── */}
-      <circle
-        className="ab-orbit-ring"
-        cx="210"
-        cy="210"
-        fill="none"
-        r="146"
-        stroke="oklch(20% 0.05 255)"
-        strokeDasharray="4 6"
-        strokeOpacity="0.1"
-        strokeWidth="1"
-      />
-      <circle
-        className="ab-orbit-ring-r"
-        cx="210"
-        cy="210"
-        fill="none"
-        r="120"
-        stroke="oklch(58% 0.12 45)"
-        strokeDasharray="3 5"
-        strokeOpacity="0.12"
-        strokeWidth="1"
-      />
-
-      {/* ── shared whiteboard / screen (centre) ── */}
-      <rect
-        fill="oklch(14% 0.04 255)"
-        height="100"
-        rx="3"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.5"
-        width="130"
-        x="145"
-        y="110"
-      />
-      <rect
-        fill="oklch(16% 0.045 255)"
-        height="86"
-        rx="2"
-        width="118"
-        x="151"
-        y="116"
-      />
-      <rect
-        className="ab-glow"
-        fill="oklch(58% 0.12 45)"
-        height="86"
-        rx="2"
-        width="118"
-        x="151"
-        y="116"
-      />
-
-      {/* whiteboard content — sprint board */}
-      <text
-        className="ab-l1"
-        fill="oklch(58% 0.12 45)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="6.5"
-        fontWeight="600"
-        letterSpacing="1"
-        x="160"
-        y="131"
-      >
-        SPRINT 14
-      </text>
-
-      {/* columns */}
-      <text
-        className="ab-l1"
-        fill="oklch(95% 0.018 75)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="5"
-        opacity="0.5"
-        x="160"
-        y="142"
-      >
-        todo
-      </text>
-      <text
-        className="ab-l1"
-        fill="oklch(95% 0.018 75)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="5"
-        opacity="0.5"
-        x="200"
-        y="142"
-      >
-        doing
-      </text>
-      <text
-        className="ab-l1"
-        fill="oklch(95% 0.018 75)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="5"
-        opacity="0.5"
-        x="240"
-        y="142"
-      >
-        done
-      </text>
-
-      {/* task cards */}
-      <rect
-        className="ab-l2"
-        fill="oklch(25% 0.04 255)"
-        height="14"
-        rx="1"
-        width="30"
-        x="158"
-        y="148"
-      />
-      <rect
-        className="ab-l2"
-        fill="oklch(25% 0.04 255)"
-        height="14"
-        rx="1"
-        width="30"
-        x="158"
-        y="165"
-      />
-      <rect
-        className="ab-l2"
-        fill="oklch(30% 0.05 255)"
-        height="14"
-        rx="1"
-        width="30"
-        x="198"
-        y="148"
-      />
-      <rect
-        className="ab-l3"
-        fill="oklch(58% 0.12 45 / 0.25)"
-        height="14"
-        rx="1"
-        width="30"
-        x="238"
-        y="148"
-      />
-      <rect
-        className="ab-l3"
-        fill="oklch(58% 0.12 45 / 0.25)"
-        height="14"
-        rx="1"
-        width="30"
-        x="238"
-        y="165"
-      />
-      <rect
-        className="ab-l4"
-        fill="oklch(58% 0.12 45 / 0.25)"
-        height="14"
-        rx="1"
-        width="30"
-        x="238"
-        y="182"
-      />
-
-      {/* check marks on done cards */}
-      <text
-        className="ab-l3"
-        fill="oklch(65% 0.12 145)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="7"
-        x="250"
-        y="158"
-      >
-        ✓
-      </text>
-      <text
-        className="ab-l3"
-        fill="oklch(65% 0.12 145)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="7"
-        x="250"
-        y="175"
-      >
-        ✓
-      </text>
-      <text
-        className="ab-l4"
-        fill="oklch(65% 0.12 145)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="7"
-        x="250"
-        y="192"
-      >
-        ✓
-      </text>
-
-      {/* blinking cursor on doing card */}
-      <rect
-        className="ab-cursor"
-        fill="oklch(58% 0.12 45)"
-        height="8"
-        width="4"
-        x="222"
-        y="151"
-      />
-
-      {/* monitor stand */}
-      <line
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.2"
-        x1="210"
-        x2="210"
-        y1="210"
-        y2="228"
-      />
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="5"
-        rx="1"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="0.8"
-        width="30"
-        x="195"
-        y="226"
-      />
-
-      {/* ── desk surface ── */}
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="8"
-        rx="2"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1"
-        width="240"
-        x="90"
-        y="310"
-      />
-      <line
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.3"
-        x1="120"
-        x2="120"
-        y1="318"
-        y2="345"
-      />
-      <line
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.3"
-        x1="300"
-        x2="300"
-        y1="318"
-        y2="345"
-      />
-
-      {/* ── person 1 (left, designer) ── */}
-      <g className="ab-float-person">
-        {/* torso */}
-        <rect
-          fill="oklch(88% 0.03 70)"
-          height="50"
-          rx="5"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="1.2"
-          width="40"
-          x="120"
-          y="255"
-        />
-        {/* neck */}
-        <rect
-          fill="oklch(88% 0.03 70)"
-          height="7"
-          rx="2"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="0.8"
-          width="11"
-          x="135"
-          y="249"
-        />
-        {/* head */}
-        <ellipse
-          cx="140"
-          cy="237"
-          fill="oklch(88% 0.03 70)"
-          rx="16"
-          ry="18"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="1.2"
-        />
-        {/* hair */}
-        <path
-          d="M126 231 C126 217 154 217 154 231"
-          fill="oklch(20% 0.05 255)"
-          opacity="0.7"
-        />
-        {/* eyes */}
-        <ellipse cx="135" cy="236" fill="oklch(20% 0.05 255)" rx="1.5" ry="2" />
-        <ellipse cx="145" cy="236" fill="oklch(20% 0.05 255)" rx="1.5" ry="2" />
-        {/* glasses */}
-        <rect
-          fill="none"
-          height="5"
-          rx="1.5"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="0.9"
-          width="9"
-          x="131"
-          y="233"
-        />
-        <rect
-          fill="none"
-          height="5"
-          rx="1.5"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="0.9"
-          width="9"
-          x="141"
-          y="233"
-        />
-        <line
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="0.7"
-          x1="140"
-          x2="141"
-          y1="236"
-          y2="236"
-        />
-
-        {/* left arm */}
-        <g className="ab-arm-l">
-          <path
-            d="M122 268 L104 286 L98 302"
-            stroke="oklch(20% 0.05 255)"
-            strokeLinecap="round"
-            strokeWidth="4"
-          />
-          <ellipse
-            cx="96"
-            cy="304"
-            fill="oklch(88% 0.03 70)"
-            rx="5"
-            ry="4"
-            stroke="oklch(20% 0.05 255)"
-            strokeWidth="0.8"
-          />
-        </g>
-
-        {/* right arm */}
-        <g className="ab-arm-r">
-          <path
-            d="M158 268 L174 286 L180 302"
-            stroke="oklch(20% 0.05 255)"
-            strokeLinecap="round"
-            strokeWidth="4"
-          />
-          <ellipse
-            cx="183"
-            cy="304"
-            fill="oklch(88% 0.03 70)"
-            rx="5"
-            ry="4"
-            stroke="oklch(20% 0.05 255)"
-            strokeWidth="0.8"
-          />
-        </g>
-      </g>
-
-      {/* person 1 keyboard */}
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="10"
-        rx="2"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="0.8"
-        width="66"
-        x="100"
-        y="300"
-      />
-      {[0, 1, 2, 3].map(i => (
-        <rect
-          fill="oklch(80% 0.025 70)"
-          height="3"
-          key={`k1-${i}`}
-          rx="0.5"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="0.3"
-          width="10"
-          x={106 + i * 13}
-          y="303"
-        />
-      ))}
-
-      {/* ── person 2 (right, developer) ── */}
-      <g className="ab-float-person2">
-        {/* torso */}
-        <rect
-          fill="oklch(88% 0.03 70)"
-          height="50"
-          rx="5"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="1.2"
-          width="40"
-          x="270"
-          y="248"
-        />
-        {/* neck */}
-        <rect
-          fill="oklch(88% 0.03 70)"
-          height="7"
-          rx="2"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="0.8"
-          width="11"
-          x="285"
-          y="242"
-        />
-        {/* head */}
-        <ellipse
-          cx="290"
-          cy="230"
-          fill="oklch(88% 0.03 70)"
-          rx="16"
-          ry="18"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="1.2"
-        />
-        {/* hair — shorter */}
-        <path
-          d="M276 224 C276 210 304 210 304 224"
-          fill="oklch(20% 0.05 255)"
-          opacity="0.6"
-        />
-        {/* eyes */}
-        <ellipse cx="285" cy="229" fill="oklch(20% 0.05 255)" rx="1.5" ry="2" />
-        <ellipse cx="295" cy="229" fill="oklch(20% 0.05 255)" rx="1.5" ry="2" />
-
-        {/* left arm */}
-        <g className="ab-arm2-l">
-          <path
-            d="M272 261 L254 280 L248 296"
-            stroke="oklch(20% 0.05 255)"
-            strokeLinecap="round"
-            strokeWidth="4"
-          />
-          <ellipse
-            cx="246"
-            cy="298"
-            fill="oklch(88% 0.03 70)"
-            rx="5"
-            ry="4"
-            stroke="oklch(20% 0.05 255)"
-            strokeWidth="0.8"
-          />
-        </g>
-
-        {/* right arm */}
-        <g className="ab-arm2-r">
-          <path
-            d="M308 261 L324 280 L330 296"
-            stroke="oklch(20% 0.05 255)"
-            strokeLinecap="round"
-            strokeWidth="4"
-          />
-          <ellipse
-            cx="333"
-            cy="298"
-            fill="oklch(88% 0.03 70)"
-            rx="5"
-            ry="4"
-            stroke="oklch(20% 0.05 255)"
-            strokeWidth="0.8"
-          />
-        </g>
-      </g>
-
-      {/* person 2 laptop */}
-      <rect
-        fill="oklch(14% 0.04 255)"
-        height="8"
-        rx="1"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="0.8"
-        width="46"
-        x="267"
-        y="296"
-      />
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="3"
-        rx="1"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="0.5"
-        width="56"
-        x="262"
-        y="304"
-      />
-      {/* screen glow on laptop */}
-      <rect
-        className="ab-glow"
-        fill="oklch(58% 0.12 45)"
-        height="8"
-        rx="1"
-        width="46"
-        x="267"
-        y="296"
-      />
-
-      {/* ── data flow lines connecting to board ── */}
-      <line
-        className="ab-flow-line"
-        stroke="oklch(58% 0.12 45)"
-        strokeOpacity="0.3"
-        strokeWidth="1"
-        x1="166"
-        x2="180"
-        y1="300"
-        y2="210"
-      />
-      <line
-        className="ab-flow-line"
-        stroke="oklch(58% 0.12 45)"
-        strokeOpacity="0.3"
-        strokeWidth="1"
-        x1="267"
-        x2="240"
-        y1="296"
-        y2="210"
-      />
-
-      {/* ── floating concept bubbles ── */}
-      {/* bubble 1 — data */}
-      <g
-        style={{
-          animation: "ab-float 3.6s ease-in-out 0.4s infinite",
-          transformOrigin: "60px 150px",
-        }}
-      >
-        <circle
-          cx="60"
-          cy="150"
-          fill="oklch(95% 0.018 75)"
-          r="24"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 2"
-          strokeWidth="1"
-        />
-        <text
-          dominantBaseline="middle"
-          fill="oklch(58% 0.12 45)"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="6.5"
-          fontWeight="600"
-          letterSpacing="1"
-          textAnchor="middle"
-          x="60"
-          y="147"
-        >
-          SCOPE
-        </text>
-        <text
-          dominantBaseline="middle"
-          fill="oklch(20% 0.05 255)"
-          fontFamily="Space Grotesk, sans-serif"
-          fontSize="6"
-          opacity="0.5"
-          textAnchor="middle"
-          x="60"
-          y="158"
-        >
-          define
-        </text>
-        <circle
-          className="ab-ping1"
-          cx="60"
-          cy="150"
-          fill="none"
-          r="3"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-        />
-        <line
-          opacity="0.15"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 3"
-          strokeWidth="1"
-          x1="84"
-          x2="145"
-          y1="155"
-          y2="170"
-        />
-      </g>
-
-      {/* bubble 2 — build */}
-      <g
-        style={{
-          animation: "ab-float 4.2s ease-in-out 1.2s infinite",
-          transformOrigin: "370px 130px",
-        }}
-      >
-        <circle
-          cx="370"
-          cy="130"
-          fill="oklch(95% 0.018 75)"
-          r="24"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1.2"
-        />
-        <text
-          dominantBaseline="middle"
-          fill="oklch(58% 0.12 45)"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="6.5"
-          fontWeight="600"
-          letterSpacing="1"
-          textAnchor="middle"
-          x="370"
-          y="127"
-        >
-          BUILD
-        </text>
-        <text
-          dominantBaseline="middle"
-          fill="oklch(20% 0.05 255)"
-          fontFamily="Space Grotesk, sans-serif"
-          fontSize="6"
-          opacity="0.5"
-          textAnchor="middle"
-          x="370"
-          y="138"
-        >
-          sprint
-        </text>
-        <circle
-          className="ab-ping2"
-          cx="370"
-          cy="130"
-          fill="none"
-          r="3"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-        />
-        <line
-          opacity="0.15"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 3"
-          strokeWidth="1"
-          x1="346"
-          x2="275"
-          y1="140"
-          y2="170"
-        />
-      </g>
-
-      {/* bubble 3 — ship */}
-      <g
-        style={{
-          animation: "ab-float 3s ease-in-out 2s infinite",
-          transformOrigin: "60px 60px",
-        }}
-      >
-        <circle
-          cx="60"
-          cy="60"
-          fill="oklch(95% 0.018 75)"
-          r="20"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 2"
-          strokeWidth="1"
-        />
-        <text
-          dominantBaseline="middle"
-          fill="oklch(58% 0.12 45)"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="6.5"
-          fontWeight="600"
-          letterSpacing="1"
-          textAnchor="middle"
-          x="60"
-          y="58"
-        >
-          SHIP
-        </text>
-        <text
-          dominantBaseline="middle"
-          fill="oklch(20% 0.05 255)"
-          fontFamily="Space Grotesk, sans-serif"
-          fontSize="5.5"
-          opacity="0.5"
-          textAnchor="middle"
-          x="60"
-          y="68"
-        >
-          deploy
-        </text>
-      </g>
-
-      {/* bubble 4 — iterate */}
-      <g
-        style={{
-          animation: "ab-float 3.8s ease-in-out 0.8s infinite",
-          transformOrigin: "370px 55px",
-        }}
-      >
-        <circle
-          cx="370"
-          cy="55"
-          fill="oklch(95% 0.018 75)"
-          r="20"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-        />
-        <text
-          dominantBaseline="middle"
-          fill="oklch(58% 0.12 45)"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="6"
-          fontWeight="600"
-          letterSpacing="1"
-          textAnchor="middle"
-          x="370"
-          y="53"
-        >
-          ITERATE
-        </text>
-        <text
-          dominantBaseline="middle"
-          fill="oklch(20% 0.05 255)"
-          fontFamily="Space Grotesk, sans-serif"
-          fontSize="5.5"
-          opacity="0.5"
-          textAnchor="middle"
-          x="370"
-          y="63"
-        >
-          improve
-        </text>
-      </g>
-
-      {/* ── coffee mug (small detail on desk) ── */}
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="10"
-        rx="2"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="0.8"
-        width="8"
-        x="198"
-        y="300"
-      />
-      <path
-        d="M206 303 Q210 303 210 307 Q210 311 206 311"
-        fill="none"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="0.6"
-      />
-
-      {/* ── progress bar at bottom of board ── */}
-      <rect
-        fill="oklch(25% 0.04 255)"
-        height="3"
-        rx="1.5"
-        width="80"
-        x="170"
-        y="198"
-      />
-      <rect
-        className="ab-l4"
-        fill="oklch(58% 0.12 45)"
-        height="3"
-        rx="1.5"
-        width="58"
-        x="170"
-        y="198"
-      />
-
-      {/* ── foot annotation ── */}
-      <text
-        fill="oklch(20% 0.05 255)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="8"
-        letterSpacing="1.5"
-        opacity="0.18"
-        textAnchor="end"
-        x="416"
-        y="410"
-      >
-        quartic lab · team in session
-      </text>
-    </svg>
-  );
 }
 
 /* ── hooks ───────────────────────────────────────── */
@@ -1321,14 +374,11 @@ export default function AboutPage() {
         </div>
       </header>
 
-      {/* ─── MISSION ──────────────────────────── */}
-      <MissionSection />
+      {/* ─── STORY + IMPACT ───────────────────── */}
+      <StorySection />
 
       {/* ─── VALUES ───────────────────────────── */}
       <ValuesSection />
-
-      {/* ─── STATS ────────────────────────────── */}
-      <StatsSection />
 
       {/* ─── PROCESS TIMELINE ─────────────────── */}
       <ProcessSection />
@@ -1375,31 +425,44 @@ export default function AboutPage() {
 
 /* ── section components ──────────────────────────── */
 
-function MissionSection() {
+function StorySection() {
   return (
-    <section className={styles.missionSec}>
-      <div className={`${styles.container} ${styles.missionInner}`}>
-        <div className={`${styles.missionVisual} ${styles.reveal}`}>
-          <MissionDoodle />
+    <section className={styles.story}>
+      <div className={styles.container}>
+        {/* who we are — manifesto */}
+        <div className={styles.maniIn}>
+          <div className={`${styles.maniTxt} ${styles.reveal}`}>
+            <p>
+              &ldquo;Great developers are impossible to find &mdash; and the
+              ones you find <em>disappear after launch.</em>&rdquo;
+            </p>
+            <p>
+              We heard that complaint enough times to build the agency
+              we&rsquo;d want to <em>hire.</em>
+            </p>
+          </div>
+          <div className={`${styles.maniSide} ${styles.reveal}`}>
+            <p>
+              Quartic Lab started in 2020 as a partnership between two engineers
+              who kept getting the same complaint from clients. So we built our
+              answer to it &mdash; senior engineers who take ownership, push
+              back on weak scope, and stick around long enough to see what we
+              built actually work in production.
+            </p>
+            <p>
+              Five years in, we&rsquo;re a 15-person team working in 2-week
+              sprints with weekly demos. We&rsquo;ve shipped 50+ products across
+              five continents &mdash; and we&rsquo;ve never lost a client
+              mid-project.
+            </p>
+          </div>
         </div>
-        <div className={`${styles.missionText} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>Who we are</span>
-          <h2 className={styles.sectionTitle}>
-            Your engineering partner, not just a vendor
-          </h2>
-          <p className={styles.missionDesc}>
-            Quartic Lab started in 2020 as a freelance partnership between two
-            engineers who kept getting the same complaint from clients: “great
-            developers are impossible to find, and the ones you find disappear
-            after launch.” We built the agency we’d want to hire &mdash; senior
-            engineers who take ownership, push back on weak scope, and stick
-            around long enough to see what we built actually work in production.
-          </p>
-          <p className={styles.missionDesc}>
-            Five years in, we’re a 15-person team working in 2-week sprints with
-            weekly demos. We’ve shipped 50+ products across five continents, and
-            we’ve never lost a client mid-project.
-          </p>
+
+        {/* impact — stats ledger */}
+        <div className={styles.sledger}>
+          {stats.map((s, i) => (
+            <LedgerStat delay={`${i * 90}ms`} key={s.label} s={s} />
+          ))}
         </div>
       </div>
     </section>
@@ -1439,7 +502,7 @@ function ValuesSection() {
   );
 }
 
-function StatCard({ delay, index, s }) {
+function LedgerStat({ delay, s }) {
   // Initialise with the final target so SSR and no-JS users
   // see the real number, not "0+". The count-up is progressive enhancement.
   const [count, setCount] = useState(s.target);
@@ -1454,29 +517,26 @@ function StatCard({ delay, index, s }) {
     const obs = new IntersectionObserver(
       entries => {
         entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add(styles.statVisible);
-            if (!started.current) {
-              started.current = true;
-              const duration = 1600;
-              const target = s.target;
-              const startTime = performance.now();
-              const tick = now => {
-                const elapsed = now - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3);
-                setCount(Math.round(eased * target));
-                if (progress < 1) {
-                  requestAnimationFrame(tick);
-                }
-              };
-              requestAnimationFrame(tick);
-            }
+          if (e.isIntersecting && !started.current) {
+            started.current = true;
+            const duration = 1600;
+            const target = s.target;
+            const startTime = performance.now();
+            const tick = now => {
+              const elapsed = now - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              setCount(Math.round(eased * target));
+              if (progress < 1) {
+                requestAnimationFrame(tick);
+              }
+            };
+            requestAnimationFrame(tick);
             obs.unobserve(e.target);
           }
         });
       },
-      { threshold: 0.25 },
+      { threshold: 0.4 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -1485,42 +545,16 @@ function StatCard({ delay, index, s }) {
 
   return (
     <div
-      className={styles.statCard}
+      className={`${styles.sl} ${styles.reveal}`}
       ref={ref}
       style={{ transitionDelay: delay }}
     >
-      <span className={styles.statIcon}>
-        <StatIcon index={index} />
-      </span>
-      <div className={styles.statNum}>
+      <b>
         {count}
-        {s.suffix}
-      </div>
-      <span className={styles.statLabel}>{s.label}</span>
+        <sup>{s.suffix}</sup>
+      </b>
+      <span>{s.label}</span>
     </div>
-  );
-}
-
-function StatsSection() {
-  return (
-    <section className={styles.statsSec}>
-      <div className={styles.statsBgDots} />
-      <div className={styles.container}>
-        <div className={styles.statsHeader}>
-          <span className={styles.sectionTag}>Impact &amp; scale</span>
-          <h2 className={`${styles.sectionTitle} ${styles.statsTitleReveal}`}>
-            Numbers that speak
-            <br />
-            <span className={styles.statsAccentText}>for themselves</span>
-          </h2>
-        </div>
-        <div className={styles.statsGrid}>
-          {stats.map((s, i) => (
-            <StatCard delay={`${i * 110}ms`} index={i} key={s.label} s={s} />
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -1540,45 +574,25 @@ function ProcessSection() {
         <div className={styles.timeline}>
           {processSteps.map((step, i) => (
             <div
-              className={`${styles.timelineItem} ${styles.reveal}`}
+              className={`${styles.tlRow} ${styles.reveal}`}
               key={step.label}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className={styles.timelineDot}>{i + 1}</div>
-              <div className={styles.timelineContent}>
-                <span className={styles.timelineBadge}>{step.day}</span>
-                <h3 className={styles.timelineLabel}>{step.label}</h3>
-                <p className={styles.timelineDesc}>{step.desc}</p>
+              <span className={styles.tlYr}>{step.day}</span>
+              <div>
+                <h3 className={styles.tlTitle}>{step.label}</h3>
+                <p className={styles.tlDesc}>{step.desc}</p>
               </div>
             </div>
           ))}
         </div>
         <div className={`${styles.supportCallout} ${styles.reveal}`}>
-          <span className={styles.supportCalloutIcon}>
-            <svg
-              aria-hidden="true"
-              fill="none"
-              focusable="false"
-              height="22"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.6"
-              viewBox="0 0 24 24"
-              width="22"
-            >
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
+          <b className={styles.supportTag}>30 DAYS FREE</b>
+          <span className={styles.supportText}>
+            Every launch includes 30 days of free support &mdash; bug fixes,
+            deploy issues, and minor changes, handled by the same team that
+            built it, at no charge.
           </span>
-          <div>
-            <strong className={styles.supportCalloutHeading}>
-              Every launch includes 30 days of free support
-            </strong>
-            <p className={styles.supportCalloutBody}>
-              Bug fixes, deploy issues, and minor changes &mdash; handled by the
-              same team that built it, at no charge, for 30 days after launch.
-            </p>
-          </div>
         </div>
       </div>
     </section>
