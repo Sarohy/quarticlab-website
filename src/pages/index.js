@@ -666,14 +666,13 @@ export default function LandingPage({
       {/* ─── PROJECTS ─────────────────────────── */}
       <ProjectsSection projects={projects} projectsError={projectsError} />
 
+      {/* ─── TECH ─────────────────────────────── */}
+      <TechSection />
       {/* ─── STATS ────────────────────────────── */}
       <StatsSection />
 
       {/* ─── TESTIMONIALS ─────────────────────── */}
       <TestimonialsSection testimonials={testimonials} />
-
-      {/* ─── TECH ─────────────────────────────── */}
-      <TechSection />
 
       {/* ─── FAQ ──────────────────────────────── */}
       <FaqSection />
