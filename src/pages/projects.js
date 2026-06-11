@@ -8,7 +8,7 @@ import styles from "../styles/projectsNew.module.css";
 import { getAllProjects } from "../firebase/firebaseRequests";
 import { SITE_URL } from "../utils/siteUrl";
 
-/* ── reveal hook ─────────────────────────────────── */
+/* ── reveal hook (featured rows + CTA) ───────────── */
 function useReveal() {
   const refs = useRef([]);
 
@@ -22,13 +22,9 @@ function useReveal() {
           }
         });
       },
-      { threshold: 0.08 },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
     );
-    refs.current.forEach(el => {
-      if (el) {
-        observer.observe(el);
-      }
-    });
+    refs.current.forEach(el => el && observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
@@ -40,7 +36,6 @@ function useReveal() {
 }
 
 /* ── constants ───────────────────────────────────── */
-
 const DISCIPLINES = [
   "All",
   "Web",
@@ -52,23 +47,87 @@ const DISCIPLINES = [
   "Design",
 ];
 
-const INDUSTRIES = [
-  "All",
-  "EdTech",
-  "FinTech",
-  "Hospitality",
-  "Marketplace",
-  "AI-native SaaS",
-  "HealthTech",
-  "Consumer",
-];
+const PORTFOLIO_KICKER =
+  "PORTFOLIO · 50+ PRODUCTS SHIPPED · FINTECH / EDTECH / AI / SAAS / MARKETPLACES";
+
+/* ── helpers ─────────────────────────────────────── */
+// Stored types may be lowercase ("web", "ai/ml"); normalise to the
+// canonical discipline label for display + matching.
+function canonicalType(t) {
+  const match = DISCIPLINES.find(
+    d => d.toLowerCase() === String(t).toLowerCase(),
+  );
+  return match ?? String(t).charAt(0).toUpperCase() + String(t).slice(1);
+}
+
+function typeMatches(p, discipline) {
+  const target = discipline.toLowerCase();
+  return (p.types || []).some(t => String(t).toLowerCase() === target);
+}
+
+function projectTag(p) {
+  const first = p.types?.[0] ? canonicalType(p.types[0]) : p.category;
+  return [first, p.industry].filter(Boolean).join(" · ");
+}
+
+function projectTags(p) {
+  const tags = (p.types || []).map(canonicalType);
+  if (p.industry && !tags.includes(p.industry)) {
+    tags.push(p.industry);
+  }
+  return tags;
+}
+
+function truncate(text, max = 150) {
+  if (!text || text.length <= max) {
+    return text || "";
+  }
+  const cut = text.lastIndexOf(" ", max);
+  return `${text.slice(0, cut > 0 ? cut : max)}…`;
+}
 
 /* ── page ────────────────────────────────────────── */
-
 export default function ProjectsNewPage({ projects = [] }) {
   const addRef = useReveal();
   const router = useRouter();
-  const [displayCount, setDisplayCount] = useState(9);
+  const kickerRef = useRef(null);
+  const [active, setActive] = useState(null);
+
+  /* scramble the hero kicker on mount */
+  useEffect(() => {
+    const el = kickerRef.current;
+    if (!el) {
+      return;
+    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.textContent = PORTFOLIO_KICKER;
+      return;
+    }
+    const glyphs = "◆#/\\+×—·01";
+    const total = 44;
+    let frame = 0;
+    let tid = null;
+    const tick = () => {
+      let out = "";
+      for (let i = 0; i < PORTFOLIO_KICKER.length; i++) {
+        const threshold = (i / PORTFOLIO_KICKER.length) * total * 0.8;
+        out +=
+          frame > threshold
+            ? PORTFOLIO_KICKER[i]
+            : PORTFOLIO_KICKER[i] === " "
+              ? " "
+              : glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+      el.textContent = out;
+      if (frame++ < total) {
+        tid = setTimeout(tick, 34);
+      } else {
+        el.textContent = PORTFOLIO_KICKER;
+      }
+    };
+    tick();
+    return () => clearTimeout(tid);
+  }, []);
 
   const activeDiscipline = (() => {
     if (!router.isReady) {
@@ -78,84 +137,28 @@ export default function ProjectsNewPage({ projects = [] }) {
     return DISCIPLINES.find(x => x.toLowerCase() === d.toLowerCase()) ?? "All";
   })();
 
-  const activeIndustry = (() => {
-    if (!router.isReady) {
-      return "All";
-    }
-    const ind = router.query.industry ? String(router.query.industry) : "";
-    return INDUSTRIES.find(x => x.toLowerCase() === ind.toLowerCase()) ?? "All";
-  })();
-
-  useEffect(() => {
-    setDisplayCount(9);
-  }, [router.query.discipline, router.query.industry]);
-
-  const industryBase =
-    activeIndustry === "All"
-      ? projects
-      : projects.filter(p => p.industry === activeIndustry);
-
-  const disciplineBase =
-    activeDiscipline === "All"
-      ? projects
-      : projects.filter(p => p.types.includes(activeDiscipline));
-
   const disciplineCounts = Object.fromEntries(
     DISCIPLINES.map(d => [
       d,
       d === "All"
-        ? industryBase.length
-        : industryBase.filter(p => p.types.includes(d)).length,
+        ? projects.length
+        : projects.filter(p => typeMatches(p, d)).length,
     ]),
   );
 
-  const industryCounts = Object.fromEntries(
-    INDUSTRIES.map(ind => [
-      ind,
-      ind === "All"
-        ? disciplineBase.length
-        : disciplineBase.filter(p => p.industry === ind).length,
-    ]),
+  const filtered = projects.filter(
+    p => activeDiscipline === "All" || typeMatches(p, activeDiscipline),
   );
 
-  const filtered = projects
-    .filter(
-      p => activeDiscipline === "All" || p.types.includes(activeDiscipline),
-    )
-    .filter(p => activeIndustry === "All" || p.industry === activeIndustry);
-
-  const visible = filtered.slice(0, displayCount);
-  const hasMore = filtered.length > displayCount;
-  const isFiltered = activeDiscipline !== "All" || activeIndustry !== "All";
+  const featured = projects.slice(0, 3);
+  const industriesCount = new Set(projects.map(p => p.industry).filter(Boolean))
+    .size;
 
   const handleDiscipline = val => {
-    const q = {};
-    if (val !== "All") {
-      q.discipline = val.toLowerCase();
-    }
-    if (activeIndustry !== "All") {
-      q.industry = activeIndustry.toLowerCase();
-    }
+    const q = val === "All" ? {} : { discipline: val.toLowerCase() };
     router.push({ pathname: "/projects", query: q }, undefined, {
       shallow: true,
     });
-  };
-
-  const handleIndustry = val => {
-    const q = {};
-    if (activeDiscipline !== "All") {
-      q.discipline = activeDiscipline.toLowerCase();
-    }
-    if (val !== "All") {
-      q.industry = val.toLowerCase();
-    }
-    router.push({ pathname: "/projects", query: q }, undefined, {
-      shallow: true,
-    });
-  };
-
-  const clearFilters = () => {
-    router.push({ pathname: "/projects" }, undefined, { shallow: true });
   };
 
   /* ── JSON-LD structured data ── */
@@ -216,191 +219,361 @@ export default function ProjectsNewPage({ projects = [] }) {
         />
       </Seo>
 
-      {/* ─── HERO BANNER ──────────────────────── */}
-      <section aria-label="Portfolio hero banner" className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className={styles.heroInner}>
-          <span className={styles.heroBadge}>Portfolio</span>
-          <h1 className={styles.heroH1}>
-            Work we&apos;ve <span className={styles.heroAccent}>shipped</span>
-          </h1>
-          <p className={styles.heroSub}>
-            50+ products shipped across EdTech, FinTech, Hospitality, AI, and
-            more. Filter by discipline or industry to find work most like yours.
-          </p>
-        </div>
-        <div className={styles.heroWave} />
-      </section>
-
-      {/* ─── CATEGORY FILTER ──────────────────── */}
-      <section
-        aria-label="Filter projects by category"
-        className={styles.filterSec}
-      >
+      {/* ─── HERO ──────────────────────────────── */}
+      <header className={styles.phero}>
         <div className={styles.container}>
-          <div className={styles.filterGroup}>
-            <span className={styles.filterGroupLabel}>Discipline</span>
-            <div className={styles.filterGroupBtns}>
-              {DISCIPLINES.filter(
-                d => d === "All" || disciplineCounts[d] > 0,
-              ).map(d => (
-                <button
-                  aria-pressed={activeDiscipline === d}
-                  className={`${styles.filterBtn} ${
-                    activeDiscipline === d ? styles.filterActive : ""
-                  }`}
-                  key={d}
-                  onClick={() => handleDiscipline(d)}
-                >
-                  {d}
-                  {d !== "All" && (
-                    <span className={styles.filterCount}>
-                      ({disciplineCounts[d]})
-                    </span>
-                  )}
-                </button>
-              ))}
+          <span className={styles.kick} ref={kickerRef}>
+            &nbsp;
+          </span>
+          <h1 className={styles.h1}>
+            <span className={styles.ln}>
+              <span>Built here.</span>
+            </span>
+            <span className={styles.ln}>
+              <span>
+                <em>Running out there.</em>
+              </span>
+            </span>
+          </h1>
+          <p className={styles.heroLead}>
+            A selection from the 50+ products we&apos;ve taken from brief to
+            production since 2020 — AI platforms, SaaS, marketplaces, and the
+            automation systems behind them.
+          </p>
+          <div className={styles.pheroMeta}>
+            <div className={styles.pm}>
+              <b>50+</b>
+              <i>Projects shipped</i>
+            </div>
+            <div className={styles.pm}>
+              <b>{projects.length}</b>
+              <i>In this portfolio</i>
+            </div>
+            <div className={styles.pm}>
+              <b>{industriesCount || 6}</b>
+              <i>Industries</i>
+            </div>
+            <div className={styles.pm}>
+              <b>30d</b>
+              <i>Support behind each</i>
             </div>
           </div>
-          <div className={styles.filterGroup}>
-            <span className={styles.filterGroupLabel}>Industry</span>
-            <div className={styles.filterGroupBtns}>
-              {INDUSTRIES.filter(
-                ind => ind === "All" || industryCounts[ind] > 0,
-              ).map(ind => (
-                <button
-                  aria-pressed={activeIndustry === ind}
-                  className={`${styles.filterBtn} ${
-                    activeIndustry === ind ? styles.filterActive : ""
-                  }`}
-                  key={ind}
-                  onClick={() => handleIndustry(ind)}
-                >
-                  {ind}
-                  {ind !== "All" && (
-                    <span className={styles.filterCount}>
-                      ({industryCounts[ind]})
-                    </span>
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-          {isFiltered && (
-            <div className={styles.filterClearRow}>
-              <button className={styles.filterClear} onClick={clearFilters}>
-                Clear filters
-              </button>
-            </div>
-          )}
         </div>
-      </section>
+      </header>
 
-      {/* ─── PROJECT LIST ─────────────────────── */}
-      <section aria-label="Projects portfolio" className={styles.listSec}>
+      {/* ─── FEATURED ─────────────────────────── */}
+      {featured.length > 0 && (
+        <section className={styles.featSec}>
+          <div className={styles.container}>
+            <div className={styles.secHead}>
+              <div className={styles.reveal} ref={addRef}>
+                <span className={styles.eb}>
+                  <i />
+                  Case studies
+                </span>
+                <h2 className={styles.h2}>
+                  A few builds, <em>up close</em>
+                </h2>
+              </div>
+              <p className={`${styles.headLead} ${styles.reveal}`} ref={addRef}>
+                The work we get asked about most — what it does, what it runs
+                on, and what happened after launch.
+              </p>
+            </div>
+            <div className={styles.feat}>
+              {featured.map((p, i) => (
+                <article
+                  className={`${styles.frow} ${styles.reveal}`}
+                  key={p.title}
+                  onClick={() => setActive(p)}
+                  ref={addRef}
+                >
+                  <div className={styles.fshot}>
+                    {p.imageUrl ? (
+                      <Image
+                        alt={`${p.title} by Quartic Lab`}
+                        className={styles.coverImg}
+                        fill
+                        sizes="(max-width: 1040px) 100vw, 55vw"
+                        src={p.imageUrl}
+                        style={{ objectFit: "cover", objectPosition: "top" }}
+                      />
+                    ) : (
+                      <div className={styles.imgPlaceholder} />
+                    )}
+                  </div>
+                  <div className={styles.fbody}>
+                    <span className={styles.fnum}>0{i + 1}</span>
+                    <span className={styles.pwTag}>{projectTag(p)}</span>
+                    <h3 className={styles.frowTitle}>{p.title}</h3>
+                    <p className={styles.frowDesc}>{p.desc}</p>
+                    <div className={styles.tags}>
+                      {projectTags(p).map(t => (
+                        <span className={styles.tg} key={t}>
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ─── FILTER BAR ───────────────────────── */}
+      <div className={styles.fbar} id="grid">
+        <div className={`${styles.container} ${styles.fbarIn}`}>
+          <div
+            aria-label="Filter projects"
+            className={styles.fpills}
+            role="group"
+          >
+            {DISCIPLINES.filter(
+              d => d === "All" || disciplineCounts[d] > 0,
+            ).map(d => (
+              <button
+                aria-pressed={activeDiscipline === d}
+                className={`${styles.fpill} ${
+                  activeDiscipline === d ? styles.on : ""
+                }`}
+                key={d}
+                onClick={() => handleDiscipline(d)}
+              >
+                {d === "All" ? "ALL" : d.toUpperCase()}
+              </button>
+            ))}
+          </div>
+          <span className={styles.fcount}>
+            <b>{filtered.length}</b> / {projects.length} PROJECTS
+          </span>
+        </div>
+      </div>
+
+      {/* ─── PROJECT GRID ─────────────────────── */}
+      <section className={styles.gridSec}>
         <div className={styles.container}>
           {filtered.length === 0 ? (
             <p className={styles.empty}>
               No projects in this category yet. Check back soon.
             </p>
           ) : (
-            <div className={styles.projectsList}>
-              {visible.map((p, i) => (
-                <div
-                  className={`${styles.projectRow} ${
-                    i % 2 !== 0 ? styles.projectRowReverse : ""
-                  }`}
+            <div className={styles.pgrid} key={activeDiscipline}>
+              {filtered.map((p, i) => (
+                <button
+                  aria-haspopup="dialog"
+                  className={styles.pc}
                   key={p.title}
-                  style={{ animationDelay: `${i * 80}ms` }}
+                  onClick={() => setActive(p)}
+                  style={{ animationDelay: `${i * 45}ms` }}
+                  type="button"
                 >
-                  <div className={styles.projectImgSide}>
+                  <div className={styles.shot}>
                     {p.imageUrl ? (
                       <Image
-                        alt={`${p.title}${
-                          p.types?.length
-                            ? ` — ${p.types.join(", ")} project`
-                            : ""
-                        } by Quartic Lab`}
-                        className={styles.projectRowImg}
+                        alt={`${p.title} by Quartic Lab`}
+                        className={styles.coverImg}
                         fill
-                        sizes="(max-width: 768px) 100vw, 52vw"
+                        sizes="(max-width: 680px) 100vw, (max-width: 1040px) 50vw, 33vw"
                         src={p.imageUrl}
+                        style={{ objectFit: "cover", objectPosition: "top" }}
                       />
                     ) : (
-                      <div className={styles.projectImgPlaceholder} />
+                      <div className={styles.imgPlaceholder} />
                     )}
                   </div>
-                  <div className={styles.projectContentSide}>
-                    {p.types?.length > 0 && (
-                      <div className={styles.projectRowTags}>
-                        {p.types.map(type => (
-                          <span className={styles.projectTypeTag} key={type}>
-                            {type}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                    <h2 className={styles.projectRowTitle}>{p.title}</h2>
-                    <p className={styles.projectRowDesc}>{p.desc}</p>
+                  <div className={styles.pcB}>
+                    <span className={styles.pwTag}>{projectTag(p)}</span>
+                    <h3 className={styles.pcTitle}>
+                      {p.title}
+                      <span className={styles.go}>OPEN +</span>
+                    </h3>
+                    <p className={styles.pcDesc}>{truncate(p.desc)}</p>
+                    <div className={styles.tags}>
+                      {projectTags(p).map(t => (
+                        <span className={styles.tg} key={t}>
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           )}
         </div>
       </section>
 
-      {/* ─── LOAD MORE ─────────────────────────── */}
-      {hasMore && (
-        <section className={styles.loadMoreSec}>
-          <div className={styles.container}>
-            <button
-              className={styles.loadMoreBtn}
-              onClick={() => setDisplayCount(c => c + 9)}
+      {/* ─── CTA BAND ─────────────────────────── */}
+      <section className={styles.ctaSection}>
+        <div aria-hidden="true" className={styles.ctaBg}>
+          <svg viewBox="0 0 100 100">
+            <g
+              opacity=".6"
+              stroke="oklch(93% 0.015 75)"
+              strokeLinecap="round"
+              strokeWidth="1.2"
             >
-              Load more
-            </button>
-          </div>
-        </section>
-      )}
-
-      {/* ─── CTA BANNER ───────────────────────── */}
-      <section
-        aria-label="Start a project with Quartic Lab"
-        className={styles.ctaSec}
-      >
-        <div className={`${styles.container} ${styles.ctaInner}`}>
-          <div className={`${styles.ctaText} ${styles.reveal}`} ref={addRef}>
-            <h2 className={styles.ctaH2}>
-              See something like what you&apos;re building?
-            </h2>
-            <p className={styles.ctaSub}>
-              Send us a brief. We&apos;ll send back a scope, timeline, and cost
-              within 12 hours — pointing to the relevant case study from our
-              portfolio.
-            </p>
-          </div>
+              <line x1="50" x2="82" y1="18" y2="50" />
+              <line x1="50" x2="50" y1="18" y2="82" />
+              <line x1="50" x2="18" y1="18" y2="50" />
+              <line x1="82" x2="50" y1="50" y2="82" />
+              <line x1="82" x2="18" y1="50" y2="50" />
+              <line x1="50" x2="18" y1="82" y2="50" />
+            </g>
+            <g fill="none" stroke="oklch(58% 0.12 45)" strokeWidth="2">
+              <circle cx="50" cy="18" r="6.5" />
+              <circle cx="82" cy="50" r="6.5" />
+              <circle cx="50" cy="82" r="6.5" />
+              <circle cx="18" cy="50" r="6.5" />
+            </g>
+          </svg>
+        </div>
+        <div className={styles.container}>
+          <span
+            className={`${styles.eb} ${styles.ebCenter} ${styles.reveal}`}
+            ref={addRef}
+          >
+            <i />
+            Yours could be next
+          </span>
+          <h2 className={`${styles.ctaTitle} ${styles.reveal}`} ref={addRef}>
+            Get a scoped estimate in <em>12 hours</em>
+          </h2>
+          <p className={`${styles.ctaDesc} ${styles.reveal}`} ref={addRef}>
+            Scope, timeline, team composition, and cost — delivered to your
+            inbox. No sales call required.
+          </p>
           <div className={`${styles.ctaBtns} ${styles.reveal}`} ref={addRef}>
-            <Link className={styles.ctaBtnPrimary} href="/contact">
-              Send your brief
-            </Link>
             <a
-              className={styles.ctaBtnSecondary}
+              className={styles.ctaBtnPrimary}
               href="https://calendly.com/quarticlab/30min"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Or book a 30-min call
+              Book a 30-min call <span className={styles.arr}>→</span>
             </a>
+            <Link className={styles.ctaBtnSecondary} href="/contact">
+              Send a brief instead
+            </Link>
           </div>
+          <p className={`${styles.ctaNote} ${styles.reveal}`} ref={addRef}>
+            FIXED-SCOPE SPRINTS · WEEKLY DEMOS · 30 DAYS FREE SUPPORT
+          </p>
         </div>
       </section>
+
+      {/* ─── MODAL ────────────────────────────── */}
+      <ProjectModal onClose={() => setActive(null)} project={active} />
+    </div>
+  );
+}
+
+/* ══════════════════════════════════════════════════
+   PROJECT MODAL
+   ══════════════════════════════════════════════════ */
+function ProjectModal({ onClose, project }) {
+  const [shown, setShown] = useState(false);
+  const closeBtnRef = useRef(null);
+
+  const requestClose = () => {
+    setShown(false);
+    setTimeout(onClose, 320);
+  };
+
+  useEffect(() => {
+    if (!project) {
+      return;
+    }
+    document.body.classList.add(styles.modOpen);
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    let raf = null;
+    if (reduced) {
+      setShown(true);
+    } else {
+      raf = requestAnimationFrame(() =>
+        requestAnimationFrame(() => setShown(true)),
+      );
+    }
+    closeBtnRef.current?.focus();
+
+    const onKey = e => {
+      if (e.key === "Escape") {
+        requestClose();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+
+    return () => {
+      if (raf) {
+        cancelAnimationFrame(raf);
+      }
+      document.removeEventListener("keydown", onKey);
+      document.body.classList.remove(styles.modOpen);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [project]);
+
+  if (!project) {
+    return null;
+  }
+
+  return (
+    <div
+      aria-labelledby="mod-title"
+      aria-modal="true"
+      className={`${styles.mod} ${shown ? styles.modShown : ""}`}
+      role="dialog"
+    >
+      <div className={styles.modOv} onClick={requestClose} />
+      <div className={styles.modP}>
+        <button
+          aria-label="Close"
+          className={styles.modX}
+          onClick={requestClose}
+          ref={closeBtnRef}
+          type="button"
+        >
+          ✕
+        </button>
+        <div className={styles.modShot}>
+          {project.imageUrl ? (
+            <Image
+              alt={project.title}
+              className={styles.coverImg}
+              fill
+              sizes="(max-width: 920px) 100vw, 880px"
+              src={project.imageUrl}
+              style={{ objectFit: "cover", objectPosition: "top" }}
+            />
+          ) : (
+            <div className={styles.imgPlaceholder} />
+          )}
+        </div>
+        <div className={styles.modB}>
+          <span className={styles.pwTag}>{projectTag(project)}</span>
+          <h3 id="mod-title">{project.title}</h3>
+          <p>{project.desc}</p>
+          <div className={styles.tags}>
+            {projectTags(project).map(t => (
+              <span className={styles.tg} key={t}>
+                {t}
+              </span>
+            ))}
+          </div>
+          <Link className={styles.modCta} href="/contact">
+            Build something like this <span className={styles.arr}>→</span>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
 
 /* ── data fetching — SSR (always fresh from Firestore) ── */
-
 export async function getServerSideProps() {
   try {
     const data = await getAllProjects();

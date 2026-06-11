@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
@@ -16,6 +16,9 @@ const CATEGORIES = [
   { key: "Product", label: "Product" },
   { key: "Business", label: "Business" },
 ];
+
+const BLOG_KICKER =
+  "ENGINEERING NOTES · DEEP-DIVES / POST-MORTEMS / OPINIONS · EVERY 2 WEEKS";
 
 /* ── tag → display category ──────────────── */
 function tagToCategory(tags = []) {
@@ -97,7 +100,7 @@ function useReveal(selector, dep) {
 }
 
 /* ── page ────────────────────────────────── */
-const BlogPage = ({ initialPosts, initialError }) => {
+const BlogPage = ({ initialError, initialPosts }) => {
   const [active, setActive] = useState("All");
   const [blogData, setBlogData] = useState(initialPosts || []);
   const [status, setStatus] = useState(
@@ -106,8 +109,45 @@ const BlogPage = ({ initialPosts, initialError }) => {
   const [animKey, setAnimKey] = useState(0);
   const [email, setEmail] = useState("");
   const [subStatus, setSubStatus] = useState("idle");
+  const kickerRef = useRef(null);
 
   useReveal(`.${styles.reveal}`, animKey);
+
+  /* scramble the hero kicker on mount */
+  useEffect(() => {
+    const el = kickerRef.current;
+    if (!el) {
+      return;
+    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.textContent = BLOG_KICKER;
+      return;
+    }
+    const glyphs = "◆#/\\+×—·01";
+    const total = 44;
+    let frame = 0;
+    let tid = null;
+    const tick = () => {
+      let out = "";
+      for (let i = 0; i < BLOG_KICKER.length; i++) {
+        const threshold = (i / BLOG_KICKER.length) * total * 0.8;
+        out +=
+          frame > threshold
+            ? BLOG_KICKER[i]
+            : BLOG_KICKER[i] === " "
+              ? " "
+              : glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+      el.textContent = out;
+      if (frame++ < total) {
+        tid = setTimeout(tick, 34);
+      } else {
+        el.textContent = BLOG_KICKER;
+      }
+    };
+    tick();
+    return () => clearTimeout(tid);
+  }, []);
 
   /* Client-side retry only — initial data comes from getServerSideProps */
   const fetchData = async () => {
@@ -145,7 +185,10 @@ const BlogPage = ({ initialPosts, initialError }) => {
     setAnimKey(p => p + 1);
   };
 
-  const countFor = key => blogData.filter(b => b.category === key).length;
+  const countFor = key =>
+    key === "All"
+      ? blogData.length
+      : blogData.filter(b => b.category === key).length;
 
   const visibleCategories = CATEGORIES.filter(
     c => c.key === "All" || countFor(c.key) > 0,
@@ -153,6 +196,9 @@ const BlogPage = ({ initialPosts, initialError }) => {
 
   const filtered =
     active === "All" ? blogData : blogData.filter(b => b.category === active);
+
+  const featured = filtered[0];
+  const rest = filtered.slice(1);
 
   const handleSubscribe = async e => {
     e.preventDefault();
@@ -206,47 +252,62 @@ const BlogPage = ({ initialPosts, initialError }) => {
       </Head>
 
       {/* ─── HERO ─────────────────────────────── */}
-      <section aria-label="Blog hero" className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className={styles.heroInner}>
-          <h1 className={styles.heroH1}>
-            Engineering notes{" "}
-            <span className={styles.heroAccent}>from the team</span>
+      <header className={styles.bhero}>
+        <div className={styles.container}>
+          <span className={styles.kick} ref={kickerRef}>
+            &nbsp;
+          </span>
+          <h1 className={styles.h1}>
+            <span className={styles.ln}>
+              <span>Engineering notes</span>
+            </span>
+            <span className={styles.ln}>
+              <span>
+                from the <em>team.</em>
+              </span>
+            </span>
           </h1>
-          <p className={styles.heroSub}>
+          <p className={styles.heroLead}>
             Technical deep-dives, post-mortems, and opinionated takes on
             shipping software. Written by the engineers who built it — not the
             marketing team.
           </p>
         </div>
-        <div className={styles.heroWave} />
-      </section>
+      </header>
 
-      {/* ─── FILTER + ARTICLES ────────────────── */}
-      <section aria-label="Blog articles" className={styles.articlesSec}>
-        <div className={styles.container}>
-          <div
-            aria-label="Filter by category"
-            className={styles.filterBar}
-            role="group"
-          >
-            {visibleCategories.map(c => (
-              <button
-                aria-pressed={active === c.key}
-                className={`${styles.filterBtn} ${
-                  active === c.key ? styles.filterActive : ""
-                }`}
-                key={c.key}
-                onClick={() => handleFilter(c.key)}
-              >
-                {c.label}
-                {c.key !== "All" && status === "ok" && (
-                  <span className={styles.filterCount}>{countFor(c.key)}</span>
-                )}
-              </button>
-            ))}
+      {/* ─── FILTER BAR ───────────────────────── */}
+      {status === "ok" && (
+        <div className={styles.fbar} id="posts">
+          <div className={`${styles.container} ${styles.fbarIn}`}>
+            <div
+              aria-label="Filter posts"
+              className={styles.fpills}
+              role="group"
+            >
+              {visibleCategories.map(c => (
+                <button
+                  aria-pressed={active === c.key}
+                  className={`${styles.fpill} ${
+                    active === c.key ? styles.on : ""
+                  }`}
+                  key={c.key}
+                  onClick={() => handleFilter(c.key)}
+                >
+                  {c.key === "All" ? "ALL" : c.label.toUpperCase()}
+                  <b>{countFor(c.key)}</b>
+                </button>
+              ))}
+            </div>
+            <span className={styles.fcount}>
+              <b>{filtered.length}</b> PUBLISHED
+            </span>
           </div>
+        </div>
+      )}
 
+      {/* ─── POSTS ────────────────────────────── */}
+      <section className={styles.postsSec}>
+        <div className={styles.container}>
           {status === "loading" && <SkeletonGrid />}
 
           {status === "error" && (
@@ -272,40 +333,41 @@ const BlogPage = ({ initialPosts, initialError }) => {
                 No articles yet — but we&apos;re writing them now.
               </p>
               <p className={styles.emptyMeta}>
-                Subscribe to be notified when we publish.
+                Subscribe below to be notified when we publish.
               </p>
-              <NewsletterForm
-                email={email}
-                onEmailChange={setEmail}
-                onSubmit={handleSubscribe}
-                subStatus={subStatus}
-              />
             </div>
           )}
 
           {status === "ok" && (
-            <div className={styles.grid} key={animKey}>
-              {filtered.map((item, i) => (
-                <ArticleCard index={i} item={item} key={item.slug} />
-              ))}
+            <div key={`${active}-${animKey}`}>
+              {featured && <FeaturedCard item={featured} />}
+              {rest.length > 0 && (
+                <div className={styles.bgrid}>
+                  {rest.map((item, i) => (
+                    <ArticleCard index={i} item={item} key={item.slug} />
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>
       </section>
 
-      {/* ─── NEWSLETTER ───────────────────────── */}
-      <section aria-label="Newsletter signup" className={styles.newsletterSec}>
-        <div className={`${styles.container} ${styles.newsletterInner}`}>
-          <div className={`${styles.newsletterText} ${styles.reveal}`}>
-            <h2 className={styles.newsletterH2}>
-              Get engineering notes in your inbox.
-            </h2>
-            <p className={styles.newsletterSub}>
+      {/* ─── NEWSLETTER + CALL (dark) ─────────── */}
+      <section className={styles.subSec}>
+        <div className={`${styles.container} ${styles.subGrid}`}>
+          <div className={`${styles.subCard} ${styles.reveal}`}>
+            <span className={styles.eb}>
+              <i />
+              The newsletter
+            </span>
+            <h3 className={styles.subCardH3}>
+              Get engineering notes in your <em>inbox.</em>
+            </h3>
+            <p className={styles.subCardP}>
               One email every 2 weeks. Technical deep-dives, case studies, and
               occasional opinions. No promotional fluff. Unsubscribe anytime.
             </p>
-          </div>
-          <div className={styles.newsletterForm}>
             <NewsletterForm
               email={email}
               onEmailChange={setEmail}
@@ -313,57 +375,122 @@ const BlogPage = ({ initialPosts, initialError }) => {
               subStatus={subStatus}
             />
           </div>
+          <div className={`${styles.callCard} ${styles.reveal}`}>
+            <span className={styles.eb}>
+              <i />
+              Or skip the reading
+            </span>
+            <h3 className={styles.callCardH3}>Prefer a conversation?</h3>
+            <p className={styles.callCardP}>
+              Book a 30-min call with an engineer. No sales pitch — just a
+              discussion about what you&apos;re building.
+            </p>
+            <a
+              className={styles.callBtn}
+              href="https://calendly.com/quarticlab/30min"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Book a call <span className={styles.arr}>→</span>
+            </a>
+          </div>
         </div>
       </section>
     </div>
   );
 };
 
-/* ── article card ────────────────────────── */
-function ArticleCard({ item, index }) {
+/* ── featured post (large) ───────────────── */
+function FeaturedCard({ item }) {
   return (
     <Link
-      className={`${styles.card} ${styles.reveal}`}
+      className={`${styles.fpost} ${styles.reveal}`}
       href={`/blog/${item.slug}`}
-      style={{ transitionDelay: `${index * 60}ms` }}
     >
-      <div className={styles.cardImgWrap}>
+      <div className={styles.fshot}>
         {item.heroImage ? (
           <Image
             alt={item.title}
-            className={styles.cardImg}
+            className={styles.coverImg}
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            priority
+            sizes="(max-width: 1040px) 100vw, 55vw"
             src={item.heroImage}
+            style={{ objectFit: "cover" }}
           />
         ) : (
-          <div className={styles.cardImgPlaceholder} />
+          <div className={styles.imgPlaceholder} />
         )}
-        <div className={styles.cardOverlay} />
-        <span className={styles.cardCategory}>{item.category}</span>
       </div>
-      <div className={styles.cardBody}>
-        <h3 className={styles.cardTitle}>{item.title}</h3>
-        <p className={styles.cardExcerpt}>{item.metaDescription}</p>
-        <div className={styles.cardMeta}>
-          <span className={styles.cardAuthor}>{item.author}</span>
-          <span className={styles.cardDot}>·</span>
-          <span>{formatDate(item.publishedDate)}</span>
-          <span className={styles.cardDot}>·</span>
-          <span>{item.readingTime} min read</span>
-        </div>
-        <div className={styles.cardFooter}>
-          <span className={styles.readMore}>Read article →</span>
-        </div>
+      <div className={styles.fb}>
+        <span className={styles.kcat}>
+          {item.category}
+          <span className={styles.lat}>LATEST</span>
+        </span>
+        <h3 className={styles.fpostTitle}>{item.title}</h3>
+        <p className={styles.fpostExcerpt}>{item.metaDescription}</p>
+        <PostMeta item={item} />
+        <span className={styles.kread}>
+          READ ARTICLE <span>→</span>
+        </span>
       </div>
     </Link>
+  );
+}
+
+/* ── article card ────────────────────────── */
+function ArticleCard({ index, item }) {
+  return (
+    <Link
+      className={styles.bp}
+      href={`/blog/${item.slug}`}
+      style={{ animationDelay: `${index * 60}ms` }}
+    >
+      <div className={styles.bpShot}>
+        {item.heroImage ? (
+          <Image
+            alt={item.title}
+            className={styles.coverImg}
+            fill
+            sizes="(max-width: 680px) 100vw, (max-width: 1040px) 50vw, 33vw"
+            src={item.heroImage}
+            style={{ objectFit: "cover" }}
+          />
+        ) : (
+          <div className={styles.imgPlaceholder} />
+        )}
+      </div>
+      <div className={styles.bb}>
+        <span className={styles.kcat}>{item.category}</span>
+        <h3 className={styles.bpTitle}>{item.title}</h3>
+        <p className={styles.bpExcerpt}>{item.metaDescription}</p>
+        <PostMeta item={item} />
+      </div>
+    </Link>
+  );
+}
+
+/* ── post meta line ──────────────────────── */
+function PostMeta({ item }) {
+  return (
+    <div className={styles.kmeta}>
+      <b>{item.author}</b>
+      <span>·</span>
+      <span>{formatDate(item.publishedDate)}</span>
+      <span>·</span>
+      <span>{item.readingTime} min read</span>
+    </div>
   );
 }
 
 /* ── skeleton grid ───────────────────────── */
 function SkeletonGrid() {
   return (
-    <div aria-busy="true" aria-label="Loading articles" className={styles.grid}>
+    <div
+      aria-busy="true"
+      aria-label="Loading articles"
+      className={styles.bgrid}
+    >
       {Array.from({ length: 6 }).map((_, i) => (
         <div className={styles.skeletonCard} key={i}>
           <div className={styles.skeletonImg} />
@@ -371,13 +498,7 @@ function SkeletonGrid() {
             <div className={`${styles.skeletonLine} ${styles.skeletonTag}`} />
             <div className={`${styles.skeletonLine} ${styles.skeletonTitle}`} />
             <div
-              className={`${styles.skeletonLine} ${styles.skeletonTitleShort}`}
-            />
-            <div
               className={`${styles.skeletonLine} ${styles.skeletonExcerpt}`}
-            />
-            <div
-              className={`${styles.skeletonLine} ${styles.skeletonExcerptShort}`}
             />
             <div className={`${styles.skeletonLine} ${styles.skeletonMeta}`} />
           </div>
@@ -387,12 +508,12 @@ function SkeletonGrid() {
   );
 }
 
-/* ── newsletter form ─────────────────────── */
+/* ── newsletter form (dark sub-card) ─────── */
 function NewsletterForm({ email, onEmailChange, onSubmit, subStatus }) {
   if (subStatus === "done") {
     return (
       <p className={styles.subDone}>
-        ✓ You&apos;re on the list — check your inbox to confirm.
+        ◆ SUBSCRIBED — first note arrives with the next issue.
       </p>
     );
   }
@@ -400,20 +521,22 @@ function NewsletterForm({ email, onEmailChange, onSubmit, subStatus }) {
     <form className={styles.subForm} onSubmit={onSubmit}>
       <input
         aria-label="Email address"
+        autoComplete="email"
         className={styles.subInput}
         disabled={subStatus === "sending"}
         onChange={e => onEmailChange(e.target.value)}
-        placeholder="your@email.com"
+        placeholder="you@company.com"
         required
         type="email"
         value={email}
       />
       <button
-        className={styles.btnPrimary}
+        className={styles.subBtn}
         disabled={subStatus === "sending"}
         type="submit"
       >
         {subStatus === "sending" ? "Subscribing…" : "Subscribe"}
+        <span className={styles.arr}>→</span>
       </button>
       {subStatus === "error" && (
         <span className={styles.subError}>
