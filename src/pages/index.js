@@ -1171,185 +1171,124 @@ function ProcessSection() {
   );
 }
 
-function ProjectCard({ p }) {
-  return (
-    <div className={styles.projectCard}>
-      <div className={styles.projectImgWrap}>
-        {p.image ? (
-          <Image
-            alt={`${p.title}${
-              p.types?.length ? ` — ${p.types[0]} project` : ""
-            } by Quartic Lab`}
-            className={styles.projectImg}
-            fill
-            sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
-            src={p.image}
-          />
-        ) : (
-          <div className={styles.projectImgPlaceholder} />
-        )}
-      </div>
-      <div className={styles.projectBody}>
-        <h3 className={styles.projectTitle}>{p.title}</h3>
-        <p className={styles.projectDesc}>{p.desc}</p>
-      </div>
-    </div>
-  );
-}
-
-const CAROUSEL_VISIBLE = 2;
-const CAROUSEL_STEP = 2;
-
 function ProjectsSection({ projects, projectsError }) {
-  const total = projects.length;
+  const stackRef = useRef(null);
+  const featured = projects.slice(0, 6);
 
-  // Build looped array: [lastN clones, ...real, firstN clones]
-  const looped =
-    total > 0
-      ? [
-          ...projects.slice(-CAROUSEL_VISIBLE),
-          ...projects,
-          ...projects.slice(0, CAROUSEL_VISIBLE),
-        ]
-      : [];
-
-  // idx starts at CAROUSEL_VISIBLE = first real slide
-  const [idx, setIdx] = useState(CAROUSEL_VISIBLE);
-  const [noTransition, setNoTransition] = useState(false);
-  const [paused, setPaused] = useState(false);
-  const intervalRef = useRef(null);
-
-  // Auto-advance — just keep incrementing; clone detection handles wrap
+  /* sticky-stacking: each card scales/dims as the next rises over it */
   useEffect(() => {
-    if (!total || total <= CAROUSEL_VISIBLE) {
+    const root = stackRef.current;
+    if (!root) {
       return;
     }
-    if (paused) {
-      clearInterval(intervalRef.current);
+    const cards = Array.prototype.slice.call(
+      root.querySelectorAll(`.${styles.wcard}`),
+    );
+    if (!cards.length) {
       return;
     }
-    intervalRef.current = setInterval(() => {
-      setIdx(i => i + CAROUSEL_STEP);
-    }, 4000);
-    return () => clearInterval(intervalRef.current);
-  }, [paused, total]);
-
-  // After instant-jump render, re-enable transition on the next paint
-  useEffect(() => {
-    if (!noTransition) {
-      return;
-    }
-    const raf = requestAnimationFrame(() => {
-      requestAnimationFrame(() => setNoTransition(false));
+    const TOP = 100;
+    cards.forEach((c, i) => {
+      c.style.top = `${TOP + i * 16}px`;
     });
-    return () => cancelAnimationFrame(raf);
-  }, [noTransition]);
-
-  // When CSS transition ends, detect clone zone and teleport seamlessly
-  const handleTransitionEnd = () => {
-    if (idx >= total + CAROUSEL_VISIBLE) {
-      setNoTransition(true);
-      setIdx(CAROUSEL_VISIBLE);
-    } else if (idx < CAROUSEL_VISIBLE) {
-      setNoTransition(true);
-      setIdx(total);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
     }
-  };
-
-  const prev = () => setIdx(i => i - CAROUSEL_STEP);
-  const next = () => setIdx(i => i + CAROUSEL_STEP);
-
-  const translateX = `translateX(calc(-${idx} * (100% / ${CAROUSEL_VISIBLE})))`;
-
-  const dotCount = Math.ceil(total / CAROUSEL_STEP);
-  const realIdx = (((idx - CAROUSEL_VISIBLE) % total) + total) % total;
-  const activeDot = Math.floor(realIdx / CAROUSEL_STEP) % dotCount;
+    const upd = () => {
+      cards.forEach((c, i) => {
+        if (i === cards.length - 1) {
+          return;
+        }
+        const next = cards[i + 1];
+        const r = next.getBoundingClientRect();
+        const myTop = TOP + i * 16;
+        const rMe = c.getBoundingClientRect();
+        if (rMe.top <= myTop + 1) {
+          const t = Math.max(
+            0,
+            Math.min(1, (myTop + rMe.height - r.top) / rMe.height),
+          );
+          c.style.transform = `scale(${1 - t * 0.05})`;
+          c.style.filter = `brightness(${1 - t * 0.25})`;
+        } else {
+          c.style.transform = "";
+          c.style.filter = "";
+        }
+      });
+    };
+    window.addEventListener("scroll", upd, { passive: true });
+    window.addEventListener("resize", upd);
+    upd();
+    return () => {
+      window.removeEventListener("scroll", upd);
+      window.removeEventListener("resize", upd);
+    };
+  }, [projects]);
 
   return (
-    <section className={styles.projectsSec}>
+    <section className={styles.work} id="work">
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Portfolio</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Selected work
-          </h2>
+        <div className={styles.servicesHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              Selected work
+            </span>
+            <h2 className={styles.servicesTitle}>
+              Built here. <em>Running out there.</em>
+            </h2>
+          </div>
+          <p className={`${styles.servicesLead} ${styles.reveal}`}>
+            A few of the 50+ products we&apos;ve taken from brief to production.
+            Cards stack as you scroll.
+          </p>
         </div>
         {projectsError ? (
           <p style={{ color: "#ef5350", textAlign: "center" }}>
             Unable to load projects right now. Please try again later.
           </p>
         ) : (
-          <>
-            <div
-              aria-label="Selected projects"
-              aria-live="polite"
-              aria-roledescription="carousel"
-              className={styles.projectCarousel}
-              onMouseEnter={() => setPaused(true)}
-              onMouseLeave={() => setPaused(false)}
-              role="region"
-            >
-              <div
-                className={styles.projectTrack}
-                onTransitionEnd={handleTransitionEnd}
-                style={{
-                  transform: translateX,
-                  transition: noTransition ? "none" : undefined,
-                }}
-              >
-                {looped.map((p, i) => {
-                  const isClone =
-                    i < CAROUSEL_VISIBLE || i >= total + CAROUSEL_VISIBLE;
-                  return (
-                    <div
-                      aria-hidden={isClone || undefined}
-                      className={styles.projectSlide}
-                      key={i}
-                    >
-                      <ProjectCard p={p} />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {total > CAROUSEL_VISIBLE && (
-              <div className={styles.carouselControls}>
-                <button
-                  aria-label="Previous projects"
-                  className={styles.carouselBtn}
-                  onClick={prev}
-                >
-                  &#8592;
-                </button>
-                <div className={styles.carouselDots}>
-                  {Array.from({ length: dotCount }, (_, i) => (
-                    <button
-                      aria-label={`Go to page ${i + 1}`}
-                      className={`${styles.dot} ${
-                        i === activeDot ? styles.dotActive : ""
-                      }`}
-                      key={i}
-                      onClick={() =>
-                        setIdx(CAROUSEL_VISIBLE + i * CAROUSEL_STEP)
-                      }
+          <div className={styles.wstack} ref={stackRef}>
+            {featured.map(p => (
+              <article className={styles.wcard} key={p.title}>
+                <div className={styles.shot}>
+                  {p.image ? (
+                    <Image
+                      alt={`${p.title}${
+                        p.types?.length ? ` — ${p.types[0]} project` : ""
+                      } by Quartic Lab`}
+                      className={styles.shotImg}
+                      fill
+                      sizes="(max-width: 900px) 100vw, 55vw"
+                      src={p.image}
                     />
-                  ))}
+                  ) : (
+                    <div className={styles.shotPlaceholder} />
+                  )}
                 </div>
-                <button
-                  aria-label="Next projects"
-                  className={styles.carouselBtn}
-                  onClick={next}
-                >
-                  &#8594;
-                </button>
-              </div>
-            )}
-          </>
+                <div className={styles.wcBody}>
+                  <span className={styles.wcTag}>
+                    {p.types?.length ? p.types.join(" · ") : "Selected work"}
+                  </span>
+                  <h3 className={styles.wcTitle}>{p.title}</h3>
+                  <p className={styles.wcDesc}>{p.desc}</p>
+                  {p.types?.length > 0 && (
+                    <div className={styles.wcMeta}>
+                      {p.types.map(t => (
+                        <div key={t}>
+                          <b>{t}</b>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
         )}
-        <div className={styles.servicesCta}>
-          <Link className={styles.btnOutline} href="/projects">
-            View all projects
+        <div className={styles.workCta}>
+          <Link className={styles.btnHeroPrimary} href="/projects">
+            View all projects <span className={styles.heroArr}>→</span>
           </Link>
         </div>
       </div>

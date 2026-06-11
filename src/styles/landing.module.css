@@ -8,7 +8,9 @@
 .page {
   font-family: var(--font-body);
   color: var(--ql-oxford);
-  overflow-x: hidden;
+  /* clip keeps horizontal overflow hidden without creating a scroll
+     container (which would disable position:sticky in the work stack) */
+  overflow-x: clip;
   background: var(--ql-canvas);
 }
 
@@ -695,120 +697,139 @@
 }
 
 /* ═══════════════════════════════════════════
-   PROJECTS
+   WORK — sticky stacking cards
    ═══════════════════════════════════════════ */
-.projectsSec {
+.work {
   padding: 100px 0;
-  background: var(--ql-canvas);
+  background: var(--ql-midnight);
+  color: oklch(93% 0.015 75);
 }
 
-.projectCarousel {
-  overflow: hidden;
-  border-radius: 2px;
+/* dark-background header overrides (reuses the services head structure) */
+.work .servicesTitle {
+  color: oklch(93% 0.015 75);
 }
 
-.projectTrack {
-  display: flex;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.projectSlide {
-  flex: 0 0 calc(100% / 2);
-  min-width: 0;
-  padding: 0 10px;
-}
-
-.projectCard {
-  background: var(--ql-linen);
-  border: 1px solid oklch(20% 0.05 255 / 0.06);
-  border-radius: 12px;
-  overflow: hidden;
-  transition:
-    transform 0.25s,
-    box-shadow 0.25s;
-  height: 100%;
-}
-
-.projectCard:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
-}
-
-.projectImgWrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  background: var(--ql-parchment);
-  overflow: hidden;
-}
-
-.projectImg {
-  object-fit: cover;
-}
-
-.projectImgPlaceholder {
-  width: 100%;
-  height: 100%;
-  background: var(--ql-parchment);
-}
-
-.projectBody {
-  padding: 24px;
-}
-
-.projectTitle {
-  font-family: var(--font-body);
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 0 8px;
-  color: var(--ql-oxford);
-}
-
-.projectDesc {
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--ql-oxford);
-  opacity: 0.55;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.carouselControls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 32px;
-}
-
-.carouselBtn {
-  width: 44px;
-  height: 44px;
-  border-radius: 2px;
-  border: 1px solid oklch(20% 0.05 255 / 0.15);
-  background: var(--ql-linen);
-  color: var(--ql-oxford);
-  font-size: 18px;
-  cursor: pointer;
-  transition:
-    background 0.2s,
-    border-color 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carouselBtn:hover {
-  border-color: var(--ql-copper);
+.work .servicesTitle em {
   color: var(--ql-copper);
 }
 
-.carouselDots {
+.work .servicesLead {
+  color: oklch(80% 0.02 70 / 0.66);
+}
+
+.work .eyebrow {
+  color: var(--ql-copper);
+}
+
+.work .eyebrow i {
+  border-color: var(--ql-copper);
+}
+
+.wstack {
+  display: grid;
+  gap: clamp(40px, 5vw, 64px);
+}
+
+.wcard {
+  position: sticky;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  background: oklch(18% 0.045 255);
+  border: 1px solid oklch(93% 0.015 75 / 0.12);
+  border-radius: 22px;
+  overflow: hidden;
+  min-height: 440px;
+  will-change: transform;
+  transform-origin: center top;
+}
+
+.shot {
+  position: relative;
+  overflow: hidden;
+  background: oklch(24% 0.04 255);
+}
+
+.shotImg {
+  object-fit: cover;
+  object-position: top;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wcard:hover .shotImg {
+  transform: scale(1.04);
+}
+
+.shotPlaceholder {
+  position: absolute;
+  inset: 0;
+  background: oklch(24% 0.04 255);
+}
+
+.wcBody {
+  padding: clamp(28px, 3.4vw, 52px);
   display: flex;
-  gap: 8px;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: center;
+}
+
+.wcTag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ql-copper);
+}
+
+.wcTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3vw, 42px);
+  margin: 0;
+  color: oklch(93% 0.015 75);
+}
+
+.wcDesc {
+  font-size: 15.5px;
+  line-height: 1.68;
+  color: oklch(80% 0.02 70 / 0.66);
+  max-width: 44ch;
+  margin: 0;
+}
+
+.wcMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 26px;
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  color: oklch(80% 0.02 70 / 0.66);
+}
+
+.wcMeta b {
+  color: var(--ql-copper);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.workCta {
+  text-align: center;
+  margin-top: 64px;
+}
+
+.work .btnHeroPrimary {
+  background: var(--ql-copper);
+  border-color: var(--ql-copper);
+  color: var(--ql-midnight);
+}
+
+.work .btnHeroPrimary:hover {
+  background: var(--ql-linen);
+  border-color: var(--ql-linen);
+  box-shadow: 0 14px 34px -12px oklch(58% 0.12 45 / 0.5);
 }
 
 .dot {
@@ -1464,8 +1485,13 @@
     max-width: 100%;
   }
 
-  .projectSlide {
-    flex: 0 0 100%;
+  .wcard {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .shot {
+    aspect-ratio: 16 / 9;
   }
 }
 
