@@ -524,6 +524,66 @@ const HERO_STRIP = [
   "30D FREE SUPPORT",
 ];
 
+/* ── how we work (process) ──────────────────────────── */
+const PROCESS_STEPS = [
+  {
+    num: "NODE 01 — DESIGN",
+    lead: "Scope it like it’s ",
+    em: "ours.",
+    desc:
+      "A senior engineer — not a sales rep — reads your brief and returns a" +
+      " scope, timeline, and cost breakdown within 12 hours. Weeks one and two" +
+      " cover architecture, design, and the sprint plan.",
+    rows: [
+      ["Estimate turnaround", "12 hours"],
+      ["First response", "< 4 hours"],
+      ["Deliverable", "scope · timeline · cost"],
+    ],
+  },
+  {
+    num: "NODE 02 — BUILD",
+    lead: "Two-week sprints, ",
+    em: "weekly demos.",
+    desc:
+      "Fixed-scope sprints billed weekly — not by the hour — so the cost is" +
+      " known before work begins. Every Friday you see a working demo, not a" +
+      " status report.",
+    rows: [
+      ["Sprint length", "2 weeks"],
+      ["Demo cadence", "every Friday"],
+      ["Billing", "fixed-scope, weekly"],
+    ],
+  },
+  {
+    num: "NODE 03 — SHIP",
+    lead: "Production is the ",
+    em: "finish line.",
+    desc:
+      "In-house QA, code review, and a dedicated PM are baked into every pod." +
+      " A scoped MVP ships in 6–12 weeks; AI-heavy builds trend toward" +
+      " 10–14.",
+    rows: [
+      ["MVP timeline", "6–12 weeks"],
+      ["QA & review", "built into the pod"],
+      ["Deploy", "production, not staging"],
+    ],
+  },
+  {
+    num: "NODE 04 — SCALE",
+    lead: "We stay after ",
+    em: "launch.",
+    desc:
+      "Every launch is backed by 30 days of free support, with a daily overlap" +
+      " window for US East Coast and full EU coverage for syncs, reviews, and" +
+      " demos.",
+    rows: [
+      ["Post-launch support", "30 days free"],
+      ["US overlap", "4–5 h daily"],
+      ["EU overlap", "full day"],
+    ],
+  },
+];
+
 /* ── page ────────────────────────────────────────── */
 
 export default function LandingPage({
@@ -600,8 +660,8 @@ export default function LandingPage({
       {/* ─── SERVICES ─────────────────────────── */}
       <ServicesSection services={services} servicesError={servicesError} />
 
-      {/* ─── ABOUT ────────────────────────────── */}
-      <AboutSection />
+      {/* ─── HOW WE WORK ──────────────────────── */}
+      <ProcessSection />
 
       {/* ─── PROJECTS ─────────────────────────── */}
       <ProjectsSection projects={projects} projectsError={projectsError} />
@@ -969,636 +1029,142 @@ function ServicesSection({ services, servicesError }) {
   );
 }
 
-/* ── About illustration — a researcher at a workstation
-   Minimal line-art figure, oxford structure, copper accents.
-   CSS keyframe animations injected via <style> tag inside SVG. ── */
-function AboutDoodle() {
+function ProcessSection() {
+  const secRef = useRef(null);
+  const drawRef = useRef(null);
+  const nodeRefs = useRef([]);
+  const stepRefs = useRef([]);
+
+  useEffect(() => {
+    const sec = secRef.current;
+    const draw = drawRef.current;
+    if (!sec || !draw) {
+      return;
+    }
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const LEN = 760;
+    const thresholds = [0.16, 0.42, 0.68, 0.94];
+    const ON = "oklch(48% 0.11 42)";
+    const OFF_FILL = "#eee8dc";
+    const OFF_STROKE = "oklch(20% 0.05 255)";
+    draw.style.strokeDasharray = LEN;
+    draw.style.strokeDashoffset = LEN;
+
+    const upd = () => {
+      const r = sec.getBoundingClientRect();
+      const vh = window.innerHeight;
+      let p = (vh * 0.65 - r.top) / r.height;
+      p = Math.max(0, Math.min(1, p));
+      if (reduced) {
+        p = 1;
+      }
+      draw.style.strokeDashoffset = LEN * (1 - p);
+      nodeRefs.current.forEach((n, i) => {
+        if (!n) {
+          return;
+        }
+        const hit = p >= thresholds[i];
+        n.setAttribute("fill", hit ? ON : OFF_FILL);
+        n.setAttribute("stroke", hit ? ON : OFF_STROKE);
+        const step = stepRefs.current[i];
+        if (step) {
+          step.classList.toggle(styles.pstepOn, hit);
+        }
+      });
+    };
+    window.addEventListener("scroll", upd, { passive: true });
+    window.addEventListener("resize", upd);
+    upd();
+    return () => {
+      window.removeEventListener("scroll", upd);
+      window.removeEventListener("resize", upd);
+    };
+  }, []);
+
   return (
-    <svg
-      aria-hidden="true"
-      className={styles.aboutDoodle}
-      fill="none"
-      focusable="false"
-      viewBox="0 0 420 400"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <style>{`
-          @keyframes ql-blink {
-            0%, 45% { opacity: 1; }
-            50%, 95% { opacity: 0; }
-            100% { opacity: 1; }
-          }
-          @keyframes ql-type {
-            0%   { stroke-dashoffset: 60; }
-            100% { stroke-dashoffset: 0; }
-          }
-          @keyframes ql-line-appear {
-            from { opacity: 0; transform: translateX(-4px); }
-            to   { opacity: 1; transform: translateX(0); }
-          }
-          @keyframes ql-float {
-            0%, 100% { transform: translateY(0px); }
-            50%      { transform: translateY(-4px); }
-          }
-          @keyframes ql-arm-type {
-            0%, 100% { transform: rotate(0deg); }
-            25%      { transform: rotate(-2deg); }
-            75%      { transform: rotate(2deg); }
-          }
-          @keyframes ql-glow-pulse {
-            0%, 100% { opacity: 0.18; }
-            50%      { opacity: 0.35; }
-          }
-          @keyframes ql-node-ping {
-            0%   { r: 3; opacity: 0.8; }
-            100% { r: 10; opacity: 0; }
-          }
-          .ql-float-group {
-            animation: ql-float 4s ease-in-out infinite;
-            transform-origin: 210px 190px;
-          }
-          .ql-arm-l {
-            animation: ql-arm-type 0.42s ease-in-out infinite;
-            transform-origin: 188px 270px;
-          }
-          .ql-arm-r {
-            animation: ql-arm-type 0.42s ease-in-out infinite reverse;
-            transform-origin: 232px 270px;
-          }
-          .ql-cursor {
-            animation: ql-blink 1.1s step-end infinite;
-          }
-          .ql-code-l1 {
-            animation: ql-line-appear 0.35s ease-out 0.2s both;
-          }
-          .ql-code-l2 {
-            animation: ql-line-appear 0.35s ease-out 0.6s both;
-          }
-          .ql-code-l3 {
-            animation: ql-line-appear 0.35s ease-out 1.0s both;
-          }
-          .ql-code-l4 {
-            animation: ql-line-appear 0.35s ease-out 1.4s both;
-          }
-          .ql-code-l5 {
-            animation: ql-line-appear 0.35s ease-out 1.8s both;
-          }
-          .ql-screen-glow {
-            animation: ql-glow-pulse 2.8s ease-in-out infinite;
-          }
-          .ql-ping {
-            animation: ql-node-ping 1.8s ease-out infinite;
-          }
-        `}</style>
-      </defs>
-
-      {/* ── faint background grid ── */}
-      {Array.from({ length: 7 }, (_, row) =>
-        Array.from({ length: 9 }, (_, col) => (
-          <circle
-            cx={30 + col * 46}
-            cy={30 + row * 52}
-            fill="oklch(20% 0.05 255)"
-            key={`g-${row}-${col}`}
-            opacity="0.05"
-            r="1.5"
-          />
-        )),
-      )}
-
-      {/* ── desk surface ── */}
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="12"
-        rx="2"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.2"
-        width="280"
-        x="70"
-        y="318"
-      />
-      {/* desk legs */}
-      <line
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.5"
-        x1="100"
-        x2="100"
-        y1="330"
-        y2="358"
-      />
-      <line
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.5"
-        x1="320"
-        x2="320"
-        y1="330"
-        y2="358"
-      />
-
-      {/* ── monitor stand ── */}
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="8"
-        rx="1"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1"
-        width="36"
-        x="192"
-        y="310"
-      />
-      <line
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.2"
-        x1="210"
-        x2="210"
-        y1="296"
-        y2="318"
-      />
-
-      {/* ── monitor frame ── */}
-      <rect
-        fill="oklch(14% 0.04 255)"
-        height="130"
-        rx="3"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.5"
-        width="192"
-        x="114"
-        y="164"
-      />
-      {/* screen bezel inset */}
-      <rect
-        fill="oklch(16% 0.045 255)"
-        height="114"
-        rx="2"
-        width="176"
-        x="122"
-        y="172"
-      />
-
-      {/* ── screen ambient glow ── */}
-      <rect
-        className="ql-screen-glow"
-        fill="oklch(58% 0.12 45)"
-        height="114"
-        rx="2"
-        width="176"
-        x="122"
-        y="172"
-      />
-
-      {/* ── code lines on screen ── */}
-      <g clipPath="url(#screenClip)" fontFamily="IBM Plex Mono, monospace">
-        <clipPath id="screenClip">
-          <rect height="114" rx="2" width="176" x="122" y="172" />
-        </clipPath>
-
-        {/* prompt line */}
-        <text
-          className="ql-code-l1"
-          fill="oklch(58% 0.12 45)"
-          fontSize="8.5"
-          x="132"
-          y="190"
-        >
-          ▸ quartic.init(config)
-        </text>
-        <text
-          className="ql-code-l2"
-          fill="oklch(75% 0.04 255)"
-          fontSize="8.5"
-          opacity="0.7"
-          x="132"
-          y="204"
-        >
-          &nbsp;&nbsp;loading modules...
-        </text>
-        <text
-          className="ql-code-l3"
-          fill="oklch(58% 0.12 45)"
-          fontSize="8.5"
-          opacity="0.9"
-          x="132"
-          y="218"
-        >
-          ✓ inference v2.4
-        </text>
-        <text
-          className="ql-code-l4"
-          fill="oklch(58% 0.12 45)"
-          fontSize="8.5"
-          opacity="0.9"
-          x="132"
-          y="232"
-        >
-          ✓ simulation v1.9
-        </text>
-        <text
-          className="ql-code-l5"
-          fill="oklch(75% 0.04 255)"
-          fontSize="8.5"
-          opacity="0.6"
-          x="132"
-          y="246"
-        >
-          &nbsp;&nbsp;pipeline ready
-        </text>
-
-        {/* blinking cursor */}
-        <rect
-          className="ql-cursor"
-          fill="oklch(58% 0.12 45)"
-          height="10"
-          width="6"
-          x="132"
-          y="255"
-        />
-      </g>
-
-      {/* ── floating person group (gentle up/down bob) ── */}
-      <g className="ql-float-group">
-        {/* torso */}
-        <rect
-          fill="oklch(88% 0.03 70)"
-          height="62"
-          rx="6"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="1.4"
-          width="50"
-          x="185"
-          y="255"
-        />
-
-        {/* neck */}
-        <rect
-          fill="oklch(88% 0.03 70)"
-          height="10"
-          rx="2"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="1"
-          width="14"
-          x="203"
-          y="246"
-        />
-
-        {/* head */}
-        <ellipse
-          cx="210"
-          cy="232"
-          fill="oklch(88% 0.03 70)"
-          rx="20"
-          ry="22"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="1.4"
-        />
-
-        {/* hair — short strokes */}
-        <path
-          d="M192 226 C192 208 228 208 228 226"
-          fill="oklch(20% 0.05 255)"
-          opacity="0.75"
-        />
-
-        {/* eyes */}
-        <ellipse cx="203" cy="231" fill="oklch(20% 0.05 255)" rx="2" ry="2.5" />
-        <ellipse cx="217" cy="231" fill="oklch(20% 0.05 255)" rx="2" ry="2.5" />
-        {/* glasses */}
-        <rect
-          fill="none"
-          height="7"
-          rx="1.5"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1.1"
-          width="12"
-          x="197"
-          y="227"
-        />
-        <rect
-          fill="none"
-          height="7"
-          rx="1.5"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1.1"
-          width="12"
-          x="211"
-          y="227"
-        />
-        <line
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-          x1="209"
-          x2="211"
-          y1="230.5"
-          y2="230.5"
-        />
-        {/* glasses side arms */}
-        <line
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-          x1="197"
-          x2="192"
-          y1="230.5"
-          y2="230.5"
-        />
-        <line
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-          x1="223"
-          x2="228"
-          y1="230.5"
-          y2="230.5"
-        />
-
-        {/* left arm (typing) */}
-        <g className="ql-arm-l">
-          <path
-            d="M187 268 L166 290 L158 308"
-            stroke="oklch(20% 0.05 255)"
-            strokeLinecap="round"
-            strokeWidth="5"
-          />
-          {/* hand */}
-          <ellipse
-            cx="155"
-            cy="311"
-            fill="oklch(88% 0.03 70)"
-            rx="7"
-            ry="5"
-            stroke="oklch(20% 0.05 255)"
-            strokeWidth="1"
-          />
-        </g>
-
-        {/* right arm (typing) */}
-        <g className="ql-arm-r">
-          <path
-            d="M233 268 L254 290 L262 308"
-            stroke="oklch(20% 0.05 255)"
-            strokeLinecap="round"
-            strokeWidth="5"
-          />
-          {/* hand */}
-          <ellipse
-            cx="265"
-            cy="311"
-            fill="oklch(88% 0.03 70)"
-            rx="7"
-            ry="5"
-            stroke="oklch(20% 0.05 255)"
-            strokeWidth="1"
-          />
-        </g>
-      </g>
-
-      {/* ── keyboard ── */}
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="14"
-        rx="2"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1"
-        width="100"
-        x="160"
-        y="308"
-      />
-      {/* key rows */}
-      {[0, 1, 2, 3, 4].map(i => (
-        <rect
-          fill="oklch(80% 0.025 70)"
-          height="4"
-          key={i}
-          rx="1"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="0.5"
-          width="12"
-          x={167 + i * 16}
-          y="312"
-        />
-      ))}
-      {[0, 1, 2, 3].map(i => (
-        <rect
-          fill="oklch(80% 0.025 70)"
-          height="4"
-          key={i}
-          rx="1"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="0.5"
-          width="12"
-          x={175 + i * 16}
-          y="318"
-        />
-      ))}
-
-      {/* ── floating thought bubbles (concept nodes) ── */}
-      {/* bubble 1 — data */}
-      <g
-        style={{
-          animation: "ql-float 3.6s ease-in-out 0.4s infinite",
-          transformOrigin: "80px 180px",
-        }}
-      >
-        <circle
-          cx="80"
-          cy="180"
-          fill="oklch(95% 0.018 75)"
-          r="28"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 2"
-          strokeWidth="1"
-        />
-        <text
-          dominantBaseline="middle"
-          fill="oklch(58% 0.12 45)"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="7.5"
-          fontWeight="600"
-          letterSpacing="1.5"
-          textAnchor="middle"
-          x="80"
-          y="178"
-        >
-          DATA
-        </text>
-        <text
-          dominantBaseline="middle"
-          fill="oklch(20% 0.05 255)"
-          fontFamily="Space Grotesk, sans-serif"
-          fontSize="7"
-          opacity="0.5"
-          textAnchor="middle"
-          x="80"
-          y="190"
-        >
-          pipeline
-        </text>
-        {/* ping ring */}
-        <circle
-          className="ql-ping"
-          cx="80"
-          cy="180"
-          fill="none"
-          r="3"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-        />
-        {/* connecting dashed line to figure */}
-        <line
-          opacity="0.2"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 3"
-          strokeWidth="1"
-          x1="108"
-          x2="180"
-          y1="180"
-          y2="220"
-        />
-      </g>
-
-      {/* bubble 2 — model */}
-      <g
-        style={{
-          animation: "ql-float 4.2s ease-in-out 1.2s infinite",
-          transformOrigin: "350px 200px",
-        }}
-      >
-        <circle
-          cx="350"
-          cy="200"
-          fill="oklch(95% 0.018 75)"
-          r="28"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1.2"
-        />
-        <text
-          dominantBaseline="middle"
-          fill="oklch(58% 0.12 45)"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="7.5"
-          fontWeight="600"
-          letterSpacing="1.5"
-          textAnchor="middle"
-          x="350"
-          y="197"
-        >
-          MODEL
-        </text>
-        <text
-          dominantBaseline="middle"
-          fill="oklch(20% 0.05 255)"
-          fontFamily="Space Grotesk, sans-serif"
-          fontSize="7"
-          opacity="0.5"
-          textAnchor="middle"
-          x="350"
-          y="209"
-        >
-          v2.4
-        </text>
-        <circle
-          className="ql-ping"
-          cx="350"
-          cy="200"
-          fill="none"
-          r="3"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-          style={{ animationDelay: "0.9s" }}
-        />
-        <line
-          opacity="0.2"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 3"
-          strokeWidth="1"
-          x1="322"
-          x2="248"
-          y1="200"
-          y2="224"
-        />
-      </g>
-
-      {/* bubble 3 — ship */}
-      <g
-        style={{
-          animation: "ql-float 3.0s ease-in-out 2.1s infinite",
-          transformOrigin: "340px 100px",
-        }}
-      >
-        <circle
-          cx="340"
-          cy="100"
-          fill="oklch(95% 0.018 75)"
-          r="24"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 2"
-          strokeWidth="1"
-        />
-        <text
-          dominantBaseline="middle"
-          fill="oklch(58% 0.12 45)"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="7.5"
-          fontWeight="600"
-          letterSpacing="1.5"
-          textAnchor="middle"
-          x="340"
-          y="98"
-        >
-          SHIP
-        </text>
-        <text
-          dominantBaseline="middle"
-          fill="oklch(20% 0.05 255)"
-          fontFamily="Space Grotesk, sans-serif"
-          fontSize="7"
-          opacity="0.5"
-          textAnchor="middle"
-          x="340"
-          y="110"
-        >
-          deploy
-        </text>
-      </g>
-
-      {/* ── foot annotation ── */}
-      <text
-        fill="oklch(20% 0.05 255)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="8.5"
-        letterSpacing="1.5"
-        opacity="0.2"
-        textAnchor="end"
-        x="416"
-        y="392"
-      >
-        quartic lab · researcher in session
-      </text>
-    </svg>
-  );
-}
-
-function AboutSection() {
-  return (
-    <section className={styles.about}>
-      <div className={`${styles.container} ${styles.aboutInner}`}>
-        <div className={`${styles.aboutText} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>About Quartic Lab</span>
-          <h2 className={styles.sectionTitle}>
-            A senior team that embeds like in-house engineers
-          </h2>
-          <p className={styles.aboutDesc}>
-            Founded in 2020, Quartic Lab is a full-service software agency
-            shipping web, mobile, and AI products for clients across the US,
-            Europe, and MENA. We work in 2-week sprints with weekly demos,
-            deliver 12-hour estimates on every new brief, and back every launch
-            with 30 days of free support.
+    <section className={styles.process} id="process" ref={secRef}>
+      <div className={styles.container}>
+        <div className={styles.servicesHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              How we work
+            </span>
+            <h2 className={styles.servicesTitle}>
+              Four nodes. <em>One line.</em>
+            </h2>
+          </div>
+          <p className={`${styles.servicesLead} ${styles.reveal}`}>
+            Our mark is four connected nodes — and so is every engagement. The
+            line below draws itself as you scroll through the way we ship.
           </p>
-          <Link className={styles.btnPrimary} href="/about">
-            Learn more
-          </Link>
         </div>
-        <div className={`${styles.aboutVisual} ${styles.reveal}`}>
-          <AboutDoodle />
+        <div className={styles.procGrid}>
+          <div aria-hidden="true" className={styles.procLine}>
+            <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 64 800">
+              <line
+                stroke="oklch(20% 0.05 255 / 0.14)"
+                strokeWidth="1.5"
+                x1="32"
+                x2="32"
+                y1="20"
+                y2="780"
+              />
+              <line
+                ref={drawRef}
+                stroke="oklch(48% 0.11 42)"
+                strokeWidth="1.5"
+                x1="32"
+                x2="32"
+                y1="20"
+                y2="780"
+              />
+              {[120, 320, 520, 720].map((cy, i) => (
+                <circle
+                  cx="32"
+                  cy={cy}
+                  fill="#eee8dc"
+                  key={cy}
+                  r="7"
+                  ref={el => {
+                    nodeRefs.current[i] = el;
+                  }}
+                  stroke="oklch(20% 0.05 255)"
+                  strokeWidth="1.6"
+                />
+              ))}
+            </svg>
+          </div>
+          <div className={styles.procSteps}>
+            {PROCESS_STEPS.map((s, i) => (
+              <div
+                className={styles.pstep}
+                key={s.num}
+                ref={el => {
+                  stepRefs.current[i] = el;
+                }}
+              >
+                <div>
+                  <span className={styles.psNum}>{s.num}</span>
+                  <h3 className={styles.psTitle}>
+                    {s.lead}
+                    <em>{s.em}</em>
+                  </h3>
+                  <p className={styles.psDesc}>{s.desc}</p>
+                </div>
+                <div className={styles.psCard}>
+                  {s.rows.map(([label, val]) => (
+                    <div className={styles.psRow} key={label}>
+                      <span>{label}</span>
+                      <b>{val}</b>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
