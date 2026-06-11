@@ -15,21 +15,21 @@ const stats = [
   { label: "Client satisfaction", suffix: "%", target: 99 },
 ];
 
-const values = [
+const principles = [
   {
-    desc: "From mobile to blockchain to AI — one team, zero outsourcing.",
+    desc: "From mobile to blockchain to AI — one team, zero outsourcing. Every discipline a product needs, staffed from the same senior bench.",
     title: "Full-stack expertise",
   },
   {
-    desc: "Weekly demos, shared dashboards, and no surprises.",
+    desc: "Weekly demos, shared dashboards, and no surprises. Your Jira instance shows our burndown from day one.",
     title: "Radical transparency",
   },
   {
-    desc: "Startup speed with enterprise-grade quality and security.",
+    desc: "Startup speed with enterprise-grade quality and security. Velocity that doesn’t come back as tech debt.",
     title: "Ship fast, ship right",
   },
   {
-    desc: "Your idea gets a scope, timeline, and cost within 12 hours.",
+    desc: "Your idea gets a scope, timeline, and cost within 12 hours — written by a senior engineer, not a sales rep.",
     title: "12-hour estimates",
   },
 ];
@@ -72,42 +72,52 @@ const processSteps = [
   },
 ];
 
-const engagementModels = [
+// Time-zone overlap bars \u2014 width (%) of the working day and left offset (%)
+// across a 09:00 PKT \u2192 01:00 axis. "hot" marks live client overlap windows.
+const timezones = [
   {
-    ctaLabel: "Start with fixed price",
-    includes: [
-      "Scoped requirements document",
-      "Fixed timeline & budget",
-      "2 rounds of revisions included",
-      "No hidden costs",
-    ],
-    timeline: "Typical: 4\u201312 weeks",
-    title: "Fixed price",
-    when: "Best for well-defined projects with clear scope.",
+    hot: false,
+    left: "3%",
+    sub: "PKT \u00b7 HOME BASE",
+    title: "LAHORE",
+    width: "91%",
   },
   {
-    ctaLabel: "Start with T&M",
-    includes: [
-      "Weekly billing",
-      "Flexible scope",
-      "Direct developer access",
-      "Monthly reporting",
-    ],
-    timeline: "Typical: ongoing",
-    title: "Time & material",
-    when: "Best when requirements evolve as you build.",
+    hot: true,
+    left: "25%",
+    sub: "FULL EU OVERLAP",
+    title: "LONDON",
+    width: "50%",
   },
   {
-    ctaLabel: "Start with dedicated team",
-    includes: [
-      "Senior devs + PM",
-      "Daily standups",
-      "Shared Slack & Jira",
-      "30-day scale notice",
-    ],
-    timeline: "Typical: 3+ months",
-    title: "Dedicated team",
-    when: "Best for long-term product work needing reliability.",
+    hot: true,
+    left: "56%",
+    sub: "4\u20135H DAILY OVERLAP",
+    title: "NEW YORK",
+    width: "44%",
+  },
+];
+
+const weekDays = [
+  {
+    day: "MONDAY",
+    desc: "Priorities confirmed against the sprint plan. Anything ambiguous gets a decision, not a deferral.",
+    title: "Sprint sync",
+  },
+  {
+    day: "TUE\u2013THU",
+    desc: "Features land behind flags with code review and QA as they go. You can watch the board move \u2014 or not, your call.",
+    title: "Heads-down build",
+  },
+  {
+    day: "DAILY",
+    desc: "A standing window in your timezone for questions, reviews, and unblocking \u2014 no \u201cwe\u2019ll get back to you tomorrow.\u201d",
+    title: "Overlap window",
+  },
+  {
+    day: "FRIDAY",
+    desc: "Working software, clickable by you, every week. The sprint isn\u2019t done when the tickets close \u2014 it\u2019s done when you\u2019ve seen it run.",
+    title: "The demo \u2014 4pm PKT / 9am NY",
   },
 ];
 
@@ -153,76 +163,6 @@ const faqs = [
     q: "How do you handle time-zone differences?",
   },
 ];
-
-/* ── svg helpers ─────────────────────────────────── */
-
-function ValueIcon({ index }) {
-  const icons = [
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="crosshair"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <line x1="22" x2="18" y1="12" y2="12" />
-      <line x1="6" x2="2" y1="12" y2="12" />
-      <line x1="12" x2="12" y1="2" y2="6" />
-      <line x1="12" x2="12" y1="18" y2="22" />
-    </svg>,
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="eye"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-      <circle cx="12" cy="12" r="3" />
-    </svg>,
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="zap"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-    </svg>,
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="clock"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <polyline points="12 6 12 12 16 14" />
-    </svg>,
-  ];
-  return icons[index] || icons[0];
-}
 
 /* ── hooks ───────────────────────────────────────── */
 
@@ -314,7 +254,7 @@ export default function AboutPage() {
     <div className={styles.page}>
       <Seo
         canonical={`${SITE_URL}/about`}
-        description="Quartic Lab is a research-driven software studio from Lahore. Learn about our values, process, engagement models, and what it is like to work with us."
+        description="Quartic Lab is a research-driven software studio from Lahore. Learn about our story, process, principles, and what it is like to work with us week to week."
         ogDescription="Quartic Lab is a research-driven software studio from Lahore. 15+ engineers serving clients across the US, Europe, and MENA since 2020."
         ogTitle="About Us — Quartic Lab"
         title="About Us — Quartic Lab"
@@ -377,46 +317,79 @@ export default function AboutPage() {
       {/* ─── STORY + IMPACT ───────────────────── */}
       <StorySection />
 
-      {/* ─── VALUES ───────────────────────────── */}
-      <ValuesSection />
-
       {/* ─── PROCESS TIMELINE ─────────────────── */}
       <ProcessSection />
 
-      {/* ─── ENGAGEMENT MODELS ────────────────── */}
-      <ModelsSection router={router} />
+      {/* ─── PRINCIPLES ───────────────────────── */}
+      <PrinciplesSection />
+
+      {/* ─── TIME-ZONE OVERLAP ────────────────── */}
+      <TimezoneSection />
+
+      {/* ─── A WEEK IN THE POD ────────────────── */}
+      <WeekSection />
 
       {/* ─── FAQ ──────────────────────────────── */}
       <FaqSection openFaq={openFaq} setOpenFaq={setOpenFaq} />
 
       {/* ─── CTA ──────────────────────────────── */}
       <section className={styles.ctaSection}>
+        <div aria-hidden="true" className={styles.ctaBg}>
+          <svg viewBox="0 0 100 100">
+            <g
+              opacity=".6"
+              stroke="oklch(93% 0.015 75)"
+              strokeLinecap="round"
+              strokeWidth="1.2"
+            >
+              <line x1="50" x2="82" y1="18" y2="50" />
+              <line x1="50" x2="50" y1="18" y2="82" />
+              <line x1="50" x2="18" y1="18" y2="50" />
+              <line x1="82" x2="50" y1="50" y2="82" />
+              <line x1="82" x2="18" y1="50" y2="50" />
+              <line x1="50" x2="18" y1="82" y2="50" />
+            </g>
+            <g fill="none" stroke="oklch(58% 0.12 45)" strokeWidth="2">
+              <circle cx="50" cy="18" r="6.5" />
+              <circle cx="82" cy="50" r="6.5" />
+              <circle cx="50" cy="82" r="6.5" />
+              <circle cx="18" cy="50" r="6.5" />
+            </g>
+          </svg>
+        </div>
         <div className={styles.container}>
-          <div className={`${styles.ctaBanner} ${styles.reveal}`}>
-            <h2 className={styles.ctaTitle}>
-              Send us a brief. Get a scope back in 12 hours.
-            </h2>
-            <p className={styles.ctaDesc}>
-              No sales call. No “let’s set up a discovery meeting.” Just a real
-              estimate from a senior engineer.
-            </p>
-            <div className={styles.ctaBtns}>
-              <button
-                className={styles.btnPrimary}
-                onClick={() => router.push("/contact")}
-              >
-                Send your brief
-              </button>
-              <a
-                className={styles.ctaBtnSecondary}
-                href="https://calendly.com/quarticlab/30min"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Or book a 30-min call
-              </a>
-            </div>
+          <span
+            className={`${styles.eyebrow} ${styles.eyebrowCenter} ${styles.reveal}`}
+          >
+            <i />
+            Work with this team
+          </span>
+          <h2 className={`${styles.ctaTitle} ${styles.reveal}`}>
+            Send us a brief. Get a scope back in <em>12 hours.</em>
+          </h2>
+          <p className={`${styles.ctaDesc} ${styles.reveal}`}>
+            No sales call. No “let’s set up a discovery meeting.” Just a real
+            estimate from a senior engineer.
+          </p>
+          <div className={`${styles.ctaBtns} ${styles.reveal}`}>
+            <button
+              className={styles.ctaBtnPrimary}
+              onClick={() => router.push("/contact")}
+            >
+              Send your brief <span className={styles.ctaArr}>→</span>
+            </button>
+            <a
+              className={styles.ctaBtnSecondary}
+              href="https://calendly.com/quarticlab/30min"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Or book a 30-min call
+            </a>
           </div>
+          <p className={`${styles.ctaNote} ${styles.reveal}`}>
+            FIXED-SCOPE SPRINTS · WEEKLY DEMOS · 30 DAYS FREE SUPPORT
+          </p>
         </div>
       </section>
     </div>
@@ -469,31 +442,36 @@ function StorySection() {
   );
 }
 
-function ValuesSection() {
+function PrinciplesSection() {
   return (
-    <section className={styles.valuesSec}>
+    <section className={`${styles.principlesSec} ${styles.dark}`}>
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Why Quartic Lab</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            What sets us apart
-          </h2>
-          <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
+        <div className={styles.secHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              Why Quartic Lab
+            </span>
+            <h2 className={styles.h2}>
+              What sets us <em>apart</em>
+            </h2>
+          </div>
+          <p className={`${styles.headLead} ${styles.reveal}`}>
             Four principles that define every project we take on.
           </p>
         </div>
-        <div className={styles.valuesGrid}>
-          {values.map((v, i) => (
+        <div className={styles.prinList}>
+          {principles.map((p, i) => (
             <div
-              className={`${styles.valueCard} ${styles.reveal}`}
-              key={v.title}
-              style={{ transitionDelay: `${i * 100}ms` }}
+              className={`${styles.prin} ${styles.reveal}`}
+              key={p.title}
+              style={{ transitionDelay: `${i * 90}ms` }}
             >
-              <span className={styles.valueIcon}>
-                <ValueIcon index={i} />
+              <span className={styles.prinIx}>
+                PR/{String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className={styles.valueTitle}>{v.title}</h3>
-              <p className={styles.valueDesc}>{v.desc}</p>
+              <h3 className={styles.prinTitle}>{p.title}</h3>
+              <p className={styles.prinDesc}>{p.desc}</p>
             </div>
           ))}
         </div>
@@ -562,12 +540,17 @@ function ProcessSection() {
   return (
     <section className={styles.timelineSection}>
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Our process</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            How a typical project works
-          </h2>
-          <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
+        <div className={styles.secHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              Our process
+            </span>
+            <h2 className={styles.h2}>
+              How a typical project <em>works</em>
+            </h2>
+          </div>
+          <p className={`${styles.headLead} ${styles.reveal}`}>
             Transparent milestones from first call to launch day.
           </p>
         </div>
@@ -599,43 +582,85 @@ function ProcessSection() {
   );
 }
 
-function ModelsSection({ router }) {
+function TimezoneSection() {
   return (
-    <section className={styles.modelsSection}>
-      <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Engagement models</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Choose how we work together
+    <section className={styles.tzSection}>
+      <div className={`${styles.container} ${styles.aboutSplit}`}>
+        <div className={styles.reveal}>
+          <span className={styles.eyebrow}>
+            <i />
+            Working across time zones
+          </span>
+          <h2 className={styles.h2}>
+            Lahore builds while <em>you sleep</em>
           </h2>
-          <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
-            Flexible models designed to fit your stage, budget, and timeline.
+          <p className={`${styles.headLead} ${styles.tzLead}`}>
+            Our core team is in Lahore. We regularly work US hours (EST/PST) for
+            US clients and EU hours for European clients — every project gets at
+            least 3 hours of live overlap with your time zone, and we never do
+            100% async handoffs.
           </p>
         </div>
-        <div className={styles.modelsGrid}>
-          {engagementModels.map((m, i) => (
+        <div className={`${styles.tzCard} ${styles.reveal}`}>
+          <span className={styles.eyebrow}>
+            <i />A working day, three clocks
+          </span>
+          <div className={styles.tzRows}>
+            {timezones.map(tz => (
+              <div className={styles.tzr} key={tz.title}>
+                <span className={styles.tzL}>
+                  {tz.title}
+                  <span>{tz.sub}</span>
+                </span>
+                <div className={styles.tzBar}>
+                  <div
+                    className={`${styles.tzFill} ${tz.hot ? styles.tzHot : ""}`}
+                    style={{ "--w": tz.width, left: tz.left }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className={styles.tzScale}>
+            <span>09:00 PKT</span>
+            <span>15:00</span>
+            <span>21:00</span>
+            <span>01:00</span>
+          </div>
+          <p className={styles.tzNote}>
+            EVERY PROJECT: 3+ HOURS LIVE OVERLAP · NEVER 100% ASYNC
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WeekSection() {
+  return (
+    <section className={styles.weekSection}>
+      <div className={styles.container}>
+        <div className={styles.secHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              What working with us looks like
+            </span>
+            <h2 className={styles.h2}>
+              A week in the <em>pod</em>
+            </h2>
+          </div>
+        </div>
+        <div className={styles.wkRows}>
+          {weekDays.map((w, i) => (
             <div
-              className={`${styles.modelCard} ${styles.reveal}`}
-              key={m.title}
-              style={{ transitionDelay: `${i * 100}ms` }}
+              className={`${styles.wk} ${styles.reveal}`}
+              key={w.day}
+              style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <span className={styles.modelTimeline}>{m.timeline}</span>
-              <h3 className={styles.modelTitle}>{m.title}</h3>
-              <p className={styles.modelWhen}>{m.when}</p>
-              <ul className={styles.modelList}>
-                {m.includes.map(item => (
-                  <li className={styles.modelListItem} key={item}>
-                    <span className={styles.modelCheck}>✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <button
-                className={styles.modelCardBtn}
-                onClick={() => router.push("/contact")}
-              >
-                {m.ctaLabel}
-              </button>
+              <span className={styles.wkD}>{w.day}</span>
+              <h3 className={styles.wkTitle}>{w.title}</h3>
+              <p className={styles.wkDesc}>{w.desc}</p>
             </div>
           ))}
         </div>
@@ -648,10 +673,15 @@ function FaqSection({ openFaq, setOpenFaq }) {
   return (
     <section className={styles.faqSection}>
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>FAQ</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Common questions
+        <div className={styles.faqHead}>
+          <span
+            className={`${styles.eyebrow} ${styles.eyebrowCenter} ${styles.reveal}`}
+          >
+            <i />
+            FAQ
+          </span>
+          <h2 className={`${styles.faqTitle} ${styles.reveal}`}>
+            Common <em>questions</em>
           </h2>
         </div>
         <div className={styles.faqList}>
@@ -675,13 +705,8 @@ function FaqSection({ openFaq, setOpenFaq }) {
                 }}
               >
                 {faq.q}
-                <span
-                  aria-hidden="true"
-                  className={`${styles.faqChevron} ${
-                    openFaq === i ? styles.faqChevronOpen : ""
-                  }`}
-                >
-                  &#9660;
+                <span aria-hidden="true" className={styles.faqIc}>
+                  +
                 </span>
               </button>
               <div
