@@ -1195,12 +1195,53 @@ function useReveal(selector) {
   }, [selector]);
 }
 
+/* ── hero kicker ───────────────────────────────────── */
+const ABOUT_KICKER =
+  "ABOUT · EST. 2020 · 15+ SENIOR ENGINEERS · LAHORE → WORLDWIDE";
+
 /* ── page ────────────────────────────────────────── */
 
 export default function AboutPage() {
   const router = useRouter();
   useReveal(`.${styles.reveal}`);
   const [openFaq, setOpenFaq] = useState(null);
+  const kickerRef = useRef(null);
+
+  /* scramble the hero kicker on mount */
+  useEffect(() => {
+    const el = kickerRef.current;
+    if (!el) {
+      return;
+    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.textContent = ABOUT_KICKER;
+      return;
+    }
+    const glyphs = "◆#/\\+×—·01";
+    const total = 46;
+    let frame = 0;
+    let tid = null;
+    const tick = () => {
+      let out = "";
+      for (let i = 0; i < ABOUT_KICKER.length; i++) {
+        const threshold = (i / ABOUT_KICKER.length) * total * 0.8;
+        out +=
+          frame > threshold
+            ? ABOUT_KICKER[i]
+            : ABOUT_KICKER[i] === " "
+              ? " "
+              : glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+      el.textContent = out;
+      if (frame++ < total) {
+        tid = setTimeout(tick, 34);
+      } else {
+        el.textContent = ABOUT_KICKER;
+      }
+    };
+    tick();
+    return () => clearTimeout(tid);
+  }, []);
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -1234,44 +1275,51 @@ export default function AboutPage() {
       </Seo>
 
       {/* ─── HERO ─────────────────────────────── */}
-      <section className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className={styles.heroInner}>
-          <div className={styles.heroText}>
-            <span className={styles.heroBadge}>About Quartic Lab</span>
-            <h1 className={styles.heroH1}>
-              We build software that{" "}
-              <span className={styles.heroAccent}>actually ships</span>
-            </h1>
-            <p className={styles.heroSub}>
-              Founded in 2020. A senior team of 15+ engineers, designers, and
-              PMs in Lahore, Pakistan &mdash; serving clients across the US,
-              Europe, and MENA. 50+ products shipped in web, mobile, AI,
-              blockchain, and IoT.
-            </p>
-            <div className={styles.heroCtas}>
-              <button
-                className={styles.btnHeroPrimary}
-                onClick={() => router.push("/contact")}
-              >
-                Start a project
-              </button>
-              <a
-                className={styles.btnHeroOutline}
-                href="https://calendly.com/quarticlab/30min"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Get estimate in 12 hrs
-              </a>
-            </div>
-            <div className={styles.heroScroll}>
-              <span className={styles.scrollDot} />
-            </div>
-          </div>
+      <header className={styles.aHero}>
+        <div aria-hidden="true" className={styles.aHeroMark}>
+          <svg viewBox="0 0 100 100">
+            <g
+              stroke="oklch(20% 0.05 255)"
+              strokeLinecap="round"
+              strokeWidth="1.2"
+            >
+              <line x1="50" x2="82" y1="18" y2="50" />
+              <line x1="50" x2="50" y1="18" y2="82" />
+              <line x1="50" x2="18" y1="18" y2="50" />
+              <line x1="82" x2="50" y1="50" y2="82" />
+              <line x1="82" x2="18" y1="50" y2="50" />
+              <line x1="50" x2="18" y1="82" y2="50" />
+            </g>
+            <g fill="none" stroke="oklch(48% 0.11 42)" strokeWidth="2">
+              <circle cx="50" cy="18" r="6.5" />
+              <circle cx="82" cy="50" r="6.5" />
+              <circle cx="50" cy="82" r="6.5" />
+              <circle cx="18" cy="50" r="6.5" />
+            </g>
+          </svg>
         </div>
-        <div className={styles.heroWave} />
-      </section>
+        <div className={styles.container}>
+          <span className={styles.aKick} ref={kickerRef}>
+            &nbsp;
+          </span>
+          <h1 className={styles.aH1}>
+            <span className={styles.aLn}>
+              <span>We build software</span>
+            </span>
+            <span className={styles.aLn}>
+              <span>
+                that actually <em>ships.</em>
+              </span>
+            </span>
+          </h1>
+          <p className={styles.aLead}>
+            Founded in 2020. A senior team of 15+ engineers, designers, and PMs
+            in Lahore, Pakistan &mdash; serving clients across the US, Europe,
+            and MENA. 50+ products shipped in web, mobile, AI, blockchain, and
+            IoT.
+          </p>
+        </div>
+      </header>
 
       {/* ─── MISSION ──────────────────────────── */}
       <MissionSection />
