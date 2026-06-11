@@ -55,7 +55,6 @@ import TypeScriptIcon from "../../public/assets/serviceIcons/typescript.svg";
 import UnityIcon from "../../public/assets/serviceIcons/unityIcon.svg";
 import VueIcon from "../../public/assets/serviceIcons/vue.svg";
 import ZapierIcon from "../../public/assets/serviceIcons/zapier.svg";
-import CountrySelect from "@component/Components/CommonComponents/CountrySelect/CountrySelect";
 import {
   getAllProjects,
   getAllReviews,
@@ -63,6 +62,7 @@ import {
   submitContactForm,
 } from "@component/firebase/firebaseRequests";
 import { hasFunctionalConsent, useConsent } from "@component/utils/consent";
+import COUNTRIES from "@component/utils/countries";
 import styles from "../styles/landing.module.css";
 import { SITE_URL } from "@component/utils/siteUrl";
 
@@ -1696,53 +1696,48 @@ function FaqSection() {
   return (
     <section className={styles.faqSec} id="faq">
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>FAQ</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Common questions
+        <div className={styles.faqHead}>
+          <span className={`${styles.eyebrow} ${styles.reveal}`}>
+            <i />
+            FAQ
+          </span>
+          <h2 className={`${styles.servicesTitle} ${styles.reveal}`}>
+            Common <em>questions</em>
           </h2>
         </div>
         <div className={styles.faqList}>
-          {HOME_FAQS.map((faq, i) => (
-            <div
-              className={`${styles.faqItem} ${
-                openIdx === i ? styles.faqItemOpen : ""
-              }`}
-              key={faq.q}
-            >
-              <button
-                aria-controls={`home-faq-answer-${i}`}
-                aria-expanded={openIdx === i}
-                className={styles.faqQuestion}
-                onClick={() => setOpenIdx(openIdx === i ? null : i)}
-                onKeyDown={e => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    setOpenIdx(openIdx === i ? null : i);
-                  }
-                }}
-              >
-                {faq.q}
-                <span
-                  aria-hidden="true"
-                  className={`${styles.faqChevron} ${
-                    openIdx === i ? styles.faqChevronOpen : ""
-                  }`}
-                >
-                  &#9660;
-                </span>
-              </button>
+          {HOME_FAQS.map((faq, i) => {
+            const open = openIdx === i;
+            return (
               <div
-                className={`${styles.faqAnswer} ${
-                  openIdx === i ? styles.faqAnswerOpen : ""
+                className={`${styles.faqItem} ${
+                  open ? styles.faqItemOpen : ""
                 }`}
-                id={`home-faq-answer-${i}`}
-                role="region"
+                key={faq.q}
               >
-                <p className={styles.faqAnswerText}>{faq.a}</p>
+                <button
+                  aria-controls={`home-faq-answer-${i}`}
+                  aria-expanded={open}
+                  className={styles.faqQuestion}
+                  onClick={() => setOpenIdx(open ? null : i)}
+                >
+                  {faq.q}
+                  <span aria-hidden="true" className={styles.faqIcon}>
+                    +
+                  </span>
+                </button>
+                <div
+                  className={`${styles.faqAnswer} ${
+                    open ? styles.faqAnswerOpen : ""
+                  }`}
+                  id={`home-faq-answer-${i}`}
+                  role="region"
+                >
+                  <p className={styles.faqAnswerText}>{faq.a}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -1828,137 +1823,116 @@ function ContactSection() {
 
   return (
     <section className={styles.contactSec} id="contact">
-      <div className={`${styles.container} ${styles.contactInner}`}>
-        <div className={`${styles.contactInfo} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>Start your project</span>
-          <h2 className={styles.sectionTitle}>
-            Get a scope, timeline, and cost breakdown in 12 hours.
+      <div className={`${styles.container} ${styles.ctaGrid}`}>
+        <div className={`${styles.ctaInfo} ${styles.reveal}`}>
+          <span className={styles.eyebrow}>
+            <i />
+            Start your project
+          </span>
+          <h2 className={styles.ctaTitle}>
+            Get a scope, timeline, and cost breakdown in <em>12 hours.</em>
           </h2>
-          <p className={styles.contactDesc}>
-            Share a few details about your idea. A senior engineer (not a sales
-            rep) will respond within 4 hours with next steps.
+          <p className={styles.ctaLead}>
+            Share a few details about your idea. A senior engineer — not a sales
+            rep — responds within 4 hours with next steps.
           </p>
         </div>
         <form
-          className={`${styles.contactForm} ${styles.reveal}`}
+          className={`${styles.cform} ${styles.reveal}`}
           onSubmit={handleSubmit}
         >
           {alertMsg && (
-            <InlineAlert
-              onClose={() => setAlertMsg(null)}
-              severity={alertMsg.severity}
-            >
-              {alertMsg.message}
-            </InlineAlert>
+            <div className={styles.fldFull}>
+              <InlineAlert
+                onClose={() => setAlertMsg(null)}
+                severity={alertMsg.severity}
+              >
+                {alertMsg.message}
+              </InlineAlert>
+            </div>
           )}
-          <div className={styles.formRow}>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <label className={styles.srOnly} htmlFor="landing-name">
-                Your name
-              </label>
-              <input
-                className={styles.formInput}
-                id="landing-name"
-                name="name"
-                onChange={handleChange}
-                placeholder="Your Name"
-                type="text"
-                value={form.name}
-              />
-              {errors.name && (
-                <p
-                  style={{
-                    color: "#d32f2f",
-                    fontSize: "12px",
-                    margin: "4px 0 0",
-                  }}
-                >
-                  {errors.name}
-                </p>
-              )}
-            </div>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <label className={styles.srOnly} htmlFor="landing-email">
-                Email address
-              </label>
-              <input
-                className={styles.formInput}
-                id="landing-email"
-                name="email"
-                onChange={handleChange}
-                placeholder="Email Address"
-                type="email"
-                value={form.email}
-              />
-              {errors.email && (
-                <p
-                  style={{
-                    color: "#d32f2f",
-                    fontSize: "12px",
-                    margin: "4px 0 0",
-                  }}
-                >
-                  {errors.email}
-                </p>
-              )}
-            </div>
+          <div className={styles.fld}>
+            <label htmlFor="landing-name">Your name</label>
+            <input
+              className={styles.fldInput}
+              id="landing-name"
+              name="name"
+              onChange={handleChange}
+              type="text"
+              value={form.name}
+            />
+            {errors.name && (
+              <span className={styles.fldErr}>{errors.name}</span>
+            )}
           </div>
-          <div className={styles.formRow}>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <label className={styles.srOnly} htmlFor="landing-country">
-                Country
-              </label>
-              <CountrySelect
-                id="landing-country"
-                name="country"
-                onChange={handleChange}
-                value={form.country}
-              />
-            </div>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <label className={styles.srOnly} htmlFor="landing-phone">
-                Phone number
-              </label>
-              <input
-                className={styles.formInput}
-                id="landing-phone"
-                name="contact"
-                onChange={handleChange}
-                placeholder="Phone Number"
-                type="text"
-                value={form.contact}
-              />
-            </div>
+          <div className={styles.fld}>
+            <label htmlFor="landing-email">Email address</label>
+            <input
+              className={styles.fldInput}
+              id="landing-email"
+              name="email"
+              onChange={handleChange}
+              type="email"
+              value={form.email}
+            />
+            {errors.email && (
+              <span className={styles.fldErr}>{errors.email}</span>
+            )}
           </div>
-          <label className={styles.srOnly} htmlFor="landing-description">
-            Project details
-          </label>
-          <textarea
-            className={styles.formTextarea}
-            id="landing-description"
-            name="description"
-            onChange={handleChange}
-            placeholder="Tell us about your project..."
-            rows={5}
-            value={form.description}
-          />
-          {errors.description && (
-            <p
-              style={{
-                color: "#d32f2f",
-                fontSize: "12px",
-                margin: "-14px 0 10px",
-              }}
+          <div className={styles.fld}>
+            <label htmlFor="landing-country">Country</label>
+            <select
+              className={styles.fldSelect}
+              id="landing-country"
+              name="country"
+              onChange={handleChange}
+              value={form.country}
             >
-              {errors.description}
-            </p>
-          )}
+              <option value="">Select country</option>
+              {COUNTRIES.map(c => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className={styles.fld}>
+            <label htmlFor="landing-phone">Phone number</label>
+            <input
+              className={styles.fldInput}
+              id="landing-phone"
+              name="contact"
+              onChange={handleChange}
+              type="tel"
+              value={form.contact}
+            />
+          </div>
+          <div className={`${styles.fld} ${styles.fldFull}`}>
+            <label htmlFor="landing-description">Project details</label>
+            <textarea
+              className={styles.fldTextarea}
+              id="landing-description"
+              name="description"
+              onChange={handleChange}
+              placeholder="What are you building, and what does done look like?"
+              value={form.description}
+            />
+            {errors.description && (
+              <span className={styles.fldErr}>{errors.description}</span>
+            )}
+          </div>
           <button
-            className={styles.btnPrimary}
+            className={`${styles.btnHeroPrimary} ${styles.cformBtn}`}
             disabled={submitting}
             type="submit"
           >
-            {submitting ? "Sending..." : "Send Message"}
+            {submitting ? (
+              "Sending..."
+            ) : (
+              <>
+                Send message <span className={styles.heroArr}>→</span>
+              </>
+            )}
           </button>
         </form>
       </div>

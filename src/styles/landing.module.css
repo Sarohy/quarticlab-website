@@ -1172,185 +1172,246 @@
 .faqSec {
   padding: 100px 0;
   background: var(--ql-canvas);
+  border-top: 1px solid oklch(20% 0.05 255 / 0.14);
+}
+
+.faqHead {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.faqHead .eyebrow {
+  justify-content: center;
 }
 
 .faqList {
-  max-width: 680px;
+  max-width: 840px;
   margin: 0 auto;
+  border-top: 1px solid oklch(20% 0.05 255 / 0.14);
 }
 
 .faqItem {
-  border: 1px solid oklch(20% 0.05 255 / 0.08);
-  border-radius: 2px;
-  margin-bottom: 10px;
-  overflow: hidden;
-  background: var(--ql-linen);
-  transition:
-    border-color 0.3s,
-    box-shadow 0.3s;
-}
-
-.faqItemOpen {
-  border-color: oklch(58% 0.12 45 / 0.3);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid oklch(20% 0.05 255 / 0.14);
 }
 
 .faqQuestion {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
   width: 100%;
-  padding: 18px 24px;
+  padding: 28px 4px;
   background: none;
-  border: none;
+  border: 0;
+  text-align: left;
   font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--ql-oxford);
   cursor: pointer;
-  text-align: left;
-  gap: 16px;
-  transition: background 0.2s;
 }
 
-.faqQuestion:hover {
-  background: oklch(58% 0.12 45 / 0.03);
+.faqIcon {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid oklch(20% 0.05 255 / 0.14);
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--ql-copper-dk);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s,
+    color 0.3s,
+    border-color 0.3s;
 }
 
-.faqChevron {
-  font-size: 16px;
-  color: var(--ql-copper);
-  transition: transform 0.3s;
-  flex-shrink: 0;
-}
-
-.faqChevronOpen {
-  transform: rotate(180deg);
+.faqItemOpen .faqIcon {
+  transform: rotate(45deg);
+  background: var(--ql-copper-dk);
+  color: var(--ql-linen);
+  border-color: var(--ql-copper-dk);
 }
 
 .faqAnswer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease;
+  transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .faqAnswerOpen {
-  max-height: 300px;
+  max-height: 420px;
 }
 
 .faqAnswerText {
-  font-size: 14px;
-  line-height: 1.8;
-  color: oklch(20% 0.05 255 / 0.55);
   margin: 0;
-  padding: 0 24px 20px;
+  padding: 0 48px 30px 4px;
+  line-height: 1.72;
+  font-size: 15.5px;
+  color: oklch(20% 0.05 255 / 0.64);
+  max-width: 700px;
 }
 
 /* ═══════════════════════════════════════════
    CONTACT
    ═══════════════════════════════════════════ */
 .contactSec {
-  padding: 100px 0;
-  background: var(--ql-linen);
+  padding: clamp(86px, 11vw, 130px) 0;
+  background: var(--ql-midnight);
+  color: oklch(93% 0.015 75);
+  position: relative;
+  overflow: hidden;
 }
 
-.contactInner {
-  display: flex;
-  gap: 64px;
-  align-items: flex-start;
+.ctaGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: start;
 }
 
-.contactInfo {
-  flex: 1;
-  max-width: 420px;
+/* light eyebrow on the dark contact section */
+.contactSec .eyebrow {
+  color: var(--ql-copper);
 }
 
-.contactDesc {
-  font-size: 16px;
-  line-height: 1.6;
-  opacity: 0.6;
-  margin: 16px 0 24px;
+.contactSec .eyebrow i {
+  border-color: var(--ql-copper);
 }
 
-.contactHighlights {
+.ctaTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(36px, 4.6vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: oklch(93% 0.015 75);
+  margin: 20px 0 0;
+}
+
+.ctaTitle em {
+  font-style: italic;
+  color: var(--ql-copper);
+}
+
+.ctaLead {
+  margin-top: 24px;
+  max-width: 46ch;
+  font-size: clamp(15.5px, 1.5vw, 17.5px);
+  line-height: 1.7;
+  color: oklch(80% 0.02 70 / 0.66);
+}
+
+/* ── dark form ── */
+.cform {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.fld {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 8px;
 }
 
-.contactHighlight {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  font-weight: 500;
+.fldFull {
+  grid-column: 1 / -1;
 }
 
-.contactHighlightIcon {
-  font-size: 18px;
-  width: 28px;
-  text-align: center;
+.fld label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: oklch(80% 0.02 70 / 0.66);
 }
 
-.contactForm {
-  flex: 1;
-  background: white;
-  border: 1px solid oklch(20% 0.05 255 / 0.06);
-  border-radius: 2px;
-  padding: 36px;
-}
-
-.formRow {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.formInput {
+.fldInput,
+.fldSelect,
+.fldTextarea {
   width: 100%;
+  background-color: oklch(18% 0.045 255);
+  border: 1px solid oklch(93% 0.015 75 / 0.12);
+  border-radius: 12px;
   padding: 14px 16px;
-  background: var(--ql-canvas);
-  border: 1px solid oklch(20% 0.05 255 / 0.1);
-  border-radius: 2px;
+  color: var(--ql-linen);
   font-family: var(--font-body);
-  font-size: 14px;
-  color: var(--ql-oxford);
-  transition: border-color 0.2s;
+  font-size: 15px;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s;
   outline: none;
 }
 
-.formInput:focus {
-  border-color: var(--ql-copper);
+.fldSelect {
+  appearance: none;
+  background-image: linear-gradient(
+      45deg,
+      transparent 50%,
+      var(--ql-copper) 50%
+    ),
+    linear-gradient(135deg, var(--ql-copper) 50%, transparent 50%);
+  background-position:
+    calc(100% - 21px) 50%,
+    calc(100% - 16px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
-.formInput::placeholder {
-  color: var(--ql-oxford);
-  opacity: 0.35;
+.fldSelect option {
+  background: var(--ql-midnight);
+  color: var(--ql-linen);
 }
 
-.formTextarea {
-  width: 100%;
-  padding: 14px 16px;
-  background: var(--ql-canvas);
-  border: 1px solid oklch(20% 0.05 255 / 0.1);
-  border-radius: 2px;
-  font-family: var(--font-body);
-  font-size: 14px;
-  color: var(--ql-oxford);
-  resize: vertical;
+.fldTextarea {
   min-height: 120px;
-  margin-bottom: 16px;
-  transition: border-color 0.2s;
-  outline: none;
+  resize: vertical;
 }
 
-.formTextarea:focus {
+.fldInput:focus,
+.fldSelect:focus,
+.fldTextarea:focus {
   border-color: var(--ql-copper);
+  box-shadow: 0 0 0 3px oklch(58% 0.12 45 / 0.16);
 }
 
-.formTextarea::placeholder {
-  color: var(--ql-oxford);
-  opacity: 0.35;
+.fldInput::placeholder,
+.fldTextarea::placeholder {
+  color: oklch(80% 0.02 70 / 0.4);
+}
+
+.fldErr {
+  font-size: 12px;
+  color: oklch(70% 0.16 25);
+}
+
+.cformBtn {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 6px;
+}
+
+.contactSec .cformBtn {
+  background: var(--ql-copper);
+  border-color: var(--ql-copper);
+  color: var(--ql-midnight);
+}
+
+.contactSec .cformBtn:hover {
+  background: var(--ql-linen);
+  border-color: var(--ql-linen);
+  box-shadow: 0 14px 34px -12px oklch(58% 0.12 45 / 0.5);
+}
+
+.contactSec .cformBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
 }
 
 /* ═══════════════════════════════════════════
@@ -1428,12 +1489,8 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .contactInner {
-    flex-direction: column;
-  }
-
-  .contactInfo {
-    max-width: 100%;
+  .ctaGrid {
+    grid-template-columns: 1fr;
   }
 
   .wcard {
@@ -1447,8 +1504,8 @@
 }
 
 @media (max-width: 600px) {
-  .formRow {
-    flex-direction: column;
+  .cform {
+    grid-template-columns: 1fr;
   }
 
   .heroStrip {
@@ -1457,10 +1514,6 @@
 
   .statsGrid {
     grid-template-columns: 1fr;
-  }
-
-  .contactForm {
-    padding: 24px;
   }
 }
 
