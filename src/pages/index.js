@@ -982,24 +982,20 @@ function ServicesSection({ services, servicesError }) {
               const Icon = SERVICE_ICON_BY_SLUG[s.slug] || WebDevIcon;
               return (
                 <div
-                  aria-expanded={on}
                   className={`${styles.panel} ${on ? styles.panelOn : ""}`}
                   key={s.title}
-                  onClick={() => setActive(i)}
-                  onKeyDown={e => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      setActive(i);
-                    }
-                  }}
-                  role="button"
-                  tabIndex={0}
                 >
-                  <div className={styles.pRail}>
+                  <button
+                    aria-expanded={on}
+                    aria-label={`Expand ${s.title}`}
+                    className={styles.pRail}
+                    onClick={() => setActive(i)}
+                    type="button"
+                  >
                     <span className={styles.pIx}>{num}</span>
                     <span className={styles.pVt}>{s.title}</span>
                     <span className={styles.pDot} />
-                  </div>
+                  </button>
                   <div className={styles.pBody}>
                     <span className={styles.pIx2}>QL/{num}</span>
                     <div aria-hidden="true" className={styles.pVisual}>
@@ -1068,8 +1064,10 @@ function ProcessSection() {
         n.setAttribute("fill", hit ? ON : OFF_FILL);
         n.setAttribute("stroke", hit ? ON : OFF_STROKE);
         const step = stepRefs.current[i];
-        if (step) {
-          step.classList.toggle(styles.pstepOn, hit);
+        // Latch: once a step is revealed it stays fully readable (a11y --
+        // never drop text back to the 0.25-opacity inactive state on scroll-up).
+        if (step && hit) {
+          step.classList.add(styles.pstepOn);
         }
       });
     };
@@ -1473,7 +1471,11 @@ function TestimonialsSection({ testimonials }) {
         <MarqueeRow items={rowB} keyPrefix="b" reversed />
       </div>
       <div className={styles.container}>
-        <div aria-label="Clutch reviews" className={styles.clutchBadgeInline}>
+        <div
+          aria-label="Clutch reviews"
+          className={styles.clutchBadgeInline}
+          role="group"
+        >
           <div
             className="clutch-widget"
             data-clutchcompany-id="1461075"

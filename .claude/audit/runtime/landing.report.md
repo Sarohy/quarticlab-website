@@ -6,6 +6,19 @@
 - profiles_run: desktop (1440x900), ipad (768x1024), phone (390x844)
 - routes: /
 - schema_version: runtime-1.0
+- status: ALL 4 FINDINGS FIXED + VERIFIED (2026-06-11). Re-probe across desktop/ipad/phone now reports **0 axe violations** (down from 4), 0 console/page/hydration errors, 0 broken images. `next build` Compiled successfully; `npx eslint src/pages/index.js` exit 0.
+
+### Resolution log (verified by re-running the probe against the production build on :3101)
+- [x] F-001 color-contrast -- process steps now LATCH on (stay readable, no re-dim to opacity 0.25); copper text/CTAs on the dark navy sections moved to a lighter `--copper-on-dark` / global `--ql-copper-on-dark` token (oklch(72% 0.13 52)); testimonial position text raised from `/0.38` (2.4:1) to `/0.7`. Also fixed the same root cause in the Footer column titles + CookieConsent (shared chrome that renders on the page). axe `color-contrast`: 72 -> 0 nodes.
+- [x] F-002 nested-interactive -- the panel toggle is now a real `<button>` (the full-bleed `.pRail`); the EXPLORE `<a>` lives in the sibling `.pBody`, no longer nested in an interactive ancestor. axe `nested-interactive`: 8 -> 0.
+- [x] F-003 aria-prohibited-attr -- added `role="group"` to the Clutch badge wrapper so its `aria-label` is permitted. axe `aria-prohibited-attr`: 1 -> 0.
+- [x] F-004 target-size -- `.pLink` EXPLORE link given `min-height: 44px`. axe `target-size`: 1 -> 0; `.pLink` no longer in the phone touch-target list.
+
+> Files changed: src/pages/index.js, src/styles/landing.module.css, src/styles/globals.css
+> (added `--ql-copper-on-dark`), src/Components/CommonComponents/Footer/footer.module.css,
+> src/Components/CommonComponents/CookieConsent/cookieConsent.module.css. The lighter
+> copper is a deliberate palette call (the original `--ql-copper` is unchanged for
+> light-background uses); revert the token value if the brand owner prefers a different shade.
 
 ## Summary
 

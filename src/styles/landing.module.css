@@ -12,6 +12,9 @@
      container (which would disable position:sticky in the work stack) */
   overflow-x: clip;
   background: var(--ql-canvas);
+  /* copper accent lightened for small text on the dark navy sections so it
+     clears WCAG 4.5:1 (var(--ql-copper) lands at ~4.2:1 there) -- A11Y */
+  --copper-on-dark: oklch(72% 0.13 52);
 }
 
 /* ── reusable ─────────────────────────────── */
@@ -430,11 +433,18 @@
 .pRail {
   position: absolute;
   inset: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 24px 0;
+  /* button reset (the rail is a <button> that toggles the panel) */
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
   transition: opacity 0.4s;
 }
 
@@ -545,7 +555,7 @@
   font-family: var(--font-mono);
   font-size: 11.5px;
   letter-spacing: 0.22em;
-  color: var(--ql-copper);
+  color: var(--copper-on-dark);
 }
 
 .pTitle {
@@ -567,10 +577,12 @@
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.2em;
-  color: var(--ql-copper);
+  color: var(--copper-on-dark);
   display: inline-flex;
   gap: 10px;
   align-items: center;
+  /* >=44px hit area for the EXPLORE link (WCAG 2.5.8 target size) */
+  min-height: 44px;
   text-decoration: none;
   transition: color 0.25s;
 }
@@ -719,7 +731,7 @@
 }
 
 .work .eyebrow {
-  color: var(--ql-copper);
+  color: var(--copper-on-dark);
 }
 
 .work .eyebrow i {
@@ -779,7 +791,7 @@
   font-size: 11px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--ql-copper);
+  color: var(--copper-on-dark);
 }
 
 .wcTitle {
@@ -810,7 +822,7 @@
 }
 
 .wcMeta b {
-  color: var(--ql-copper);
+  color: var(--copper-on-dark);
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -821,8 +833,9 @@
 }
 
 .work .btnHeroPrimary {
-  background: var(--ql-copper);
-  border-color: var(--ql-copper);
+  /* lighter copper so the midnight label clears 4.5:1 on the button (A11Y) */
+  background: var(--copper-on-dark);
+  border-color: var(--copper-on-dark);
   color: var(--ql-midnight);
 }
 
@@ -868,7 +881,7 @@
 }
 
 .statsSec .eyebrow {
-  color: var(--ql-copper);
+  color: var(--copper-on-dark);
 }
 
 .statsSec .eyebrow i {
@@ -1101,7 +1114,8 @@
 
 .tqWho span {
   font-size: 12px;
-  color: oklch(20% 0.05 255 / 0.38);
+  /* raised from /0.38 (2.4:1) to clear 4.5:1 on the light card (A11Y) */
+  color: oklch(20% 0.05 255 / 0.7);
 }
 
 .tqCo {
@@ -1289,7 +1303,7 @@
 
 /* light eyebrow on the dark contact section */
 .contactSec .eyebrow {
-  color: var(--ql-copper);
+  color: var(--copper-on-dark);
 }
 
 .contactSec .eyebrow i {
@@ -1411,8 +1425,9 @@
 }
 
 .contactSec .cformBtn {
-  background: var(--ql-copper);
-  border-color: var(--ql-copper);
+  /* lighter copper so the midnight label clears 4.5:1 on the button (A11Y) */
+  background: var(--copper-on-dark);
+  border-color: var(--copper-on-dark);
   color: var(--ql-midnight);
 }
 
