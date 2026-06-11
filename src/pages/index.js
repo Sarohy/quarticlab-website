@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import Seo from "@component/Components/CommonComponents/Seo/Seo";
-import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
 import ClientSvg1 from "../../public/assets/HomeIcons/clients/nick-angelov.png";
 import ClientSvg2 from "../../public/assets/HomeIcons/clients/theresa.png";
 import ClientSvg3 from "../../public/assets/HomeIcons/clients/rishi.png";
@@ -518,8 +517,15 @@ const HOME_FAQS = [
   },
 ];
 
-/* ── hero word cycle ────────────────────────────────── */
-const HERO_WORDS = ["ships.", "scales.", "delivers."];
+/* ── hero copy ──────────────────────────────────────── */
+const HERO_KICKER =
+  "FULL-STACK SOFTWARE AGENCY · EST. 2020 · LAHORE → WORLDWIDE";
+const HERO_STRIP = [
+  "50+ PROJECTS SHIPPED",
+  "12H ESTIMATES",
+  "2-WEEK SPRINTS",
+  "30D FREE SUPPORT",
+];
 
 /* ── page ────────────────────────────────────────── */
 
@@ -624,67 +630,266 @@ export default function LandingPage({
 /* ── sections ────────────────────────────────────── */
 
 function HeroSection() {
-  const [wordIdx, setWordIdx] = useState(0);
-  const [fading, setFading] = useState(false);
+  const canvasRef = useRef(null);
+  const kickerRef = useRef(null);
+  const headlineRef = useRef(null);
 
+  /* ── node-network canvas ── */
   useEffect(() => {
-    let tid;
-    const id = setInterval(() => {
-      setFading(true);
-      tid = setTimeout(() => {
-        setWordIdx(i => (i + 1) % HERO_WORDS.length);
-        setFading(false);
-      }, 350);
-    }, 3200);
+    const cv = canvasRef.current;
+    if (!cv) {
+      return;
+    }
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const ctx = cv.getContext("2d");
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    const parent = cv.parentElement;
+    const mouse = { x: -9999, y: -9999 };
+    const INK = "rgba(35,42,62,";
+    const COPPER = "rgba(166,106,56,";
+    const LINK = 130;
+    let W = 0;
+    let H = 0;
+    let pts = [];
+    let raf = 0;
+    let rT = null;
+    let visible = true;
+
+    const size = () => {
+      const r = parent.getBoundingClientRect();
+      W = r.width;
+      H = r.height;
+      cv.width = W * DPR;
+      cv.height = H * DPR;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      const n = Math.min(90, Math.floor((W * H) / 16000));
+      pts = [];
+      for (let i = 0; i < n; i++) {
+        pts.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.32,
+          vy: (Math.random() - 0.5) * 0.32,
+          r: 1.4 + Math.random() * 1.8,
+        });
+      }
+    };
+    size();
+
+    const onResize = () => {
+      clearTimeout(rT);
+      rT = setTimeout(size, 200);
+    };
+    const onMove = e => {
+      const r = cv.getBoundingClientRect();
+      mouse.x = e.clientX - r.left;
+      mouse.y = e.clientY - r.top;
+    };
+    const onLeave = () => {
+      mouse.x = -9999;
+      mouse.y = -9999;
+    };
+    window.addEventListener("resize", onResize);
+    parent.addEventListener("mousemove", onMove);
+    parent.addEventListener("mouseleave", onLeave);
+    const io = new IntersectionObserver(es => {
+      visible = es[0].isIntersecting;
+    });
+    io.observe(cv);
+
+    if (reduced) {
+      ctx.clearRect(0, 0, W, H);
+      pts.forEach(p => {
+        ctx.fillStyle = INK + "0.45)";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 7);
+        ctx.fill();
+      });
+    } else {
+      const step = () => {
+        raf = requestAnimationFrame(step);
+        if (!visible) {
+          return;
+        }
+        ctx.clearRect(0, 0, W, H);
+        for (let i = 0; i < pts.length; i++) {
+          const p = pts[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > W) {
+            p.vx *= -1;
+          }
+          if (p.y < 0 || p.y > H) {
+            p.vy *= -1;
+          }
+          const dxm = mouse.x - p.x;
+          const dym = mouse.y - p.y;
+          const dm = Math.hypot(dxm, dym);
+          if (dm < 160 && dm > 0.001) {
+            p.x += (dxm / dm) * 0.5;
+            p.y += (dym / dm) * 0.5;
+          }
+        }
+        for (let a = 0; a < pts.length; a++) {
+          for (let b = a + 1; b < pts.length; b++) {
+            const dx = pts[a].x - pts[b].x;
+            const dy = pts[a].y - pts[b].y;
+            const d = Math.hypot(dx, dy);
+            if (d < LINK) {
+              ctx.strokeStyle = COPPER + 0.4 * (1 - d / LINK) + ")";
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(pts[a].x, pts[a].y);
+              ctx.lineTo(pts[b].x, pts[b].y);
+              ctx.stroke();
+            }
+          }
+        }
+        for (let j = 0; j < pts.length; j++) {
+          const q = pts[j];
+          ctx.fillStyle = INK + "0.55)";
+          ctx.beginPath();
+          ctx.arc(q.x, q.y, q.r, 0, 7);
+          ctx.fill();
+        }
+      };
+      step();
+    }
+
     return () => {
-      clearInterval(id);
-      clearTimeout(tid);
+      cancelAnimationFrame(raf);
+      clearTimeout(rT);
+      window.removeEventListener("resize", onResize);
+      parent.removeEventListener("mousemove", onMove);
+      parent.removeEventListener("mouseleave", onLeave);
+      io.disconnect();
     };
   }, []);
 
+  /* ── scramble kicker ── */
+  useEffect(() => {
+    const el = kickerRef.current;
+    if (!el) {
+      return;
+    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.textContent = HERO_KICKER;
+      return;
+    }
+    const glyphs = "◆#/\\+×—·01";
+    const total = 46;
+    let frame = 0;
+    let tid = null;
+    const tick = () => {
+      let out = "";
+      for (let i = 0; i < HERO_KICKER.length; i++) {
+        const threshold = (i / HERO_KICKER.length) * total * 0.8;
+        out +=
+          frame > threshold
+            ? HERO_KICKER[i]
+            : HERO_KICKER[i] === " "
+              ? " "
+              : glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+      el.textContent = out;
+      if (frame++ < total) {
+        tid = setTimeout(tick, 34);
+      } else {
+        el.textContent = HERO_KICKER;
+      }
+    };
+    tick();
+    return () => clearTimeout(tid);
+  }, []);
+
+  /* ── char-split headline ── */
+  useEffect(() => {
+    const node = headlineRef.current;
+    if (!node) {
+      return;
+    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+    const timers = [];
+    const split = n => {
+      Array.prototype.slice.call(n.childNodes).forEach(k => {
+        if (k.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          // Split on whitespace but keep words intact: each word becomes a
+          // nowrap inline-block so the per-char spans can never break mid-word.
+          k.textContent.split(/(\s+)/).forEach(part => {
+            if (!part) {
+              return;
+            }
+            if (/^\s+$/.test(part)) {
+              frag.appendChild(document.createTextNode(part));
+              return;
+            }
+            const word = document.createElement("span");
+            word.className = styles.heroWord;
+            part.split("").forEach(c => {
+              const s = document.createElement("span");
+              s.className = styles.heroChar;
+              s.textContent = c;
+              word.appendChild(s);
+            });
+            frag.appendChild(word);
+          });
+          n.replaceChild(frag, k);
+        } else if (k.nodeType === 1) {
+          split(k);
+        }
+      });
+    };
+    split(node);
+    node.querySelectorAll(`.${styles.heroChar}`).forEach((c, i) => {
+      timers.push(
+        setTimeout(() => c.classList.add(styles.heroCharIn), 350 + i * 26),
+      );
+    });
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
   return (
-    <section className={styles.hero}>
-      <div className={styles.heroBg} />
-      <div className={styles.heroInner}>
-        <div className={styles.heroText}>
-          <span className={styles.heroBadge}>Quartic Lab</span>
-          <h1 className={styles.heroH1}>
-            Software that{" "}
-            <span
-              className={`${styles.heroAccentWord} ${
-                fading ? styles.heroAccentFading : ""
-              }`}
-            >
-              {HERO_WORDS[wordIdx]}
-            </span>
-            <span className={styles.heroCursor} /> Teams that{" "}
-            <span className={styles.heroAccent}>stay.</span>
-          </h1>
+    <header className={styles.hero}>
+      <canvas aria-hidden="true" className={styles.heroNet} ref={canvasRef} />
+      <div className={`${styles.container} ${styles.heroInner}`}>
+        <span className={styles.heroKicker} ref={kickerRef}>
+          &nbsp;
+        </span>
+        <h1 className={styles.heroH1} ref={headlineRef}>
+          <span className={styles.heroLine}>
+            Software that <em>ships.</em>
+          </span>
+          <span className={styles.heroLine}>
+            Teams that <em>stay.</em>
+          </span>
+        </h1>
+        <div className={styles.heroFoot}>
           <p className={styles.heroSub}>
-            A full-stack software agency building web, mobile, and AI products
-            for startups and enterprises. One senior team, shipping since 2020,
-            zero handoff overhead.
+            Web, mobile, and AI products for startups and enterprises —
+            designed, built, and deployed by one senior team with zero handoff
+            overhead.
           </p>
           <div className={styles.heroCtas}>
             <Link className={styles.btnHeroPrimary} href="/contact">
-              Start a project
+              Start a project <span className={styles.heroArr}>→</span>
             </Link>
             <Link className={styles.btnHeroOutline} href="/projects">
-              View our work
+              View work
             </Link>
-          </div>
-        </div>
-        <div className={styles.heroVisual}>
-          <div className={styles.heroLogoRing}>
-            <div className={styles.orbitRing1} />
-            <div className={styles.orbitRing2} />
-            <div className={styles.pulsePing} />
-            <QuarticMark animated size={260} />
           </div>
         </div>
       </div>
-      <div className={styles.heroWave} />
-    </section>
+      <div aria-hidden="true" className={styles.heroStrip}>
+        {HERO_STRIP.map(s => (
+          <span key={s}>{s}</span>
+        ))}
+      </div>
+    </header>
   );
 }
 
