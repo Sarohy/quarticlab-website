@@ -41,7 +41,7 @@ SSR `/sitemap.xml` (16 static routes — **but excludes `/blog` + posts: a top-p
   - The brain AUTO-IMPLEMENTS code-channel tasks (`fixing`, `technical`, `schema-aeo`, and code-side `improve-content`) on a review branch, runs `npm run build` + `npx eslint`, and leaves the diff for the user to review/merge. It does NOT push or merge.
   - Human-channel tasks (`add-blog` publishing to Firestore, `backlink`, `local`/GBP, `measurement` setup, content personalization) are written to Notion for the user to do.
   - To switch behavior, set `code_mode: describe` (brain stops editing code; writes paste-ready instructions instead) or `code_mode: ask` (brain shows each diff and waits for OK).
-- **Branch naming:** `seo-brain/wk-<YYYY-MM-DD>-<short-slug>` off `master`. One branch per weekly run (all that week's code tasks on it). Never commit to `master` directly. Never push unless the user says so.
+- **Branch naming:** `seo-brain/wk-<YYYY-MM-DD>-<short-slug>`. One branch per weekly run. **Base branch = `revamp-landing-page`, NOT `master`** — discovered 2026-06-12 that the SEO infra (`sitemap.xml.js`, `Seo.jsx`, `robots.txt.js`, blog pages, `_app.js` schema) lives on `revamp-landing-page` and is not yet merged to `master`. Branch off `revamp-landing-page` until it merges to `master`, then revert to `master`. Never commit to the base branch directly; switch back to the user's working branch after committing; never push unless the user says so.
 - **Build/lint gate:** every code task must end with `npm run build` exit 0 AND `npx eslint <changed files>` exit 0 before it counts as done.
 
 ---
@@ -87,7 +87,7 @@ SSR `/sitemap.xml` (16 static routes — **but excludes `/blog` + posts: a top-p
 | `/blog/[slug]` | posts | ❌ **excluded** | ❌ raw Head | Article schema, Organization author (should be Person) |
 | `/privacy` `/terms` `/cookies` | policy | ✅ | ✅ | thin, fine |
 
-> **Blog post count:** unknown — read Firestore `blogs` where `status=="published"` on first `p1-audit`/`p5-track` run and record here.
+> **Blog post count:** 2 published in Firestore (found 2026-06-12): `ai-mvp-cost-2026`, `how-to-hire-offshore-ai-development-team`. Both now in `sitemap.xml` as of the Week-1 fix (pending branch merge + deploy).
 > `/ai-services` exists as a route but is NOT in the sitemap — flag for the auditor (intentional or orphan?).
 
 ---
@@ -96,13 +96,17 @@ SSR `/sitemap.xml` (16 static routes — **but excludes `/blog` + posts: a top-p
 
 See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema → content engine → steady state). The brain consumes the next un-started roadmap item each week and replaces it with GSC-driven work once data exists.
 
-- **Current roadmap position:** `Week 1 (not started)`
+- **Current roadmap position:** `Week 1 (in progress — started 2026-06-12; code shipped, 4 measurement tasks pushed to Notion; mark [x] once all 5 Notion tasks are Done)`
 
 ---
 
-## Pending this week
+## Pending this week (Week of 2026-06-08 — pushed to Notion, Source seo-brain/quarticlab/weekly)
 
-- _none yet — first run will populate from roadmap Week 1._
+- ✅ [code] Sitemap overhaul — DONE on branch `seo-brain/wk-2026-06-12-blog-sitemap` (commit c6d5123); awaiting user review/merge/deploy.
+- 🙋 [measurement] Verify GSC + submit sitemap (Due 06-15)
+- 🙋 [measurement] Turn ON GSC→BigQuery export (Due 06-16)
+- 🙋 [measurement] Bing Webmaster + sitemap + AI Performance Report (Due 06-17)
+- 🙋 [measurement] After deploy: request indexing for /blog + 2 posts (Due 06-18)
 
 ## Content queue
 
@@ -153,8 +157,14 @@ See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema
 
 ## Last run
 
-- **Date:** `never` (brain installed 2026-06-12; first run pending).
-- **Skills ran:** —
-- **Files produced:** —
-- **Last audit:** `never`
-- **Keyword clusters last refreshed:** `never`
+- **Date:** `2026-06-12` (first run — full weekly cycle).
+- **Procedures ran:** p5-track (heuristic), p1-audit (/blog), p2-keywords, p6-backlinks, p7-plan, p4-optimize (code: sitemap), p8-explain, p9-notion-push.
+- **Code shipped:** `src/pages/sitemap.xml.js` — blog posts + `/blog` added to sitemap with real `lastmod`; `changefreq`/`priority` dropped. Branch `seo-brain/wk-2026-06-12-blog-sitemap` (commit c6d5123), based on `revamp-landing-page`. Build + eslint green; verified on served prod build (19 URLs, 0 changefreq/priority, 2 published posts included). NOT pushed/merged.
+- **Files produced:** `outputs/weekly-report.md`, `audit-report.md`, `keyword-clusters.md`, `backlinks-tracker.md`, `optimized-pages.md`, `weekly-plan.md`, `weekly-tasks-explained.md`.
+- **Notion:** pushed 5 tasks (1 code/In progress, 4 measurement/Not started) under Source `seo-brain/quarticlab/weekly`.
+- **Last audit:** `2026-06-12` (/blog + blog system).
+- **Keyword clusters last refreshed:** `2026-06-12`.
+
+### Next run (Week 2) should
+- Verify the sitemap branch was merged/deployed (Step 0 — WebFetch live /sitemap.xml for blog URLs); if GSC now exists, switch p5 to data mode.
+- Advance roadmap Week 2: route `/blog` + `/blog/[slug]` through `Seo.jsx` (+ og:image), add `CollectionPage`/breadcrumb, remove the "X WORDS" byline.
