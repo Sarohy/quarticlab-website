@@ -1,13 +1,18 @@
 import { useEffect, useRef, useState } from "react";
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import Seo from "@component/Components/CommonComponents/Seo/Seo";
 import {
   getAllBlogs,
   subscribeEmail,
 } from "@component/firebase/firebaseRequests";
 import { SITE_URL } from "@component/utils/siteUrl";
 import styles from "./blogNew.module.css";
+
+const BLOG_TITLE = "Engineering Notes — Quartic Lab Blog";
+const BLOG_DESCRIPTION =
+  "Technical deep-dives, post-mortems, and opinionated takes on shipping " +
+  "software. Written by the engineers who built it.";
 
 const CATEGORIES = [
   { key: "All", label: "All" },
@@ -222,34 +227,55 @@ const BlogPage = ({ initialError, initialPosts }) => {
 
   return (
     <div className={styles.page}>
-      <Head>
-        <title>Engineering Notes — Quartic Lab Blog</title>
-        <meta
-          content={
-            "Technical deep-dives, post-mortems, and opinionated takes on " +
-            "shipping software. Written by the engineers who built it."
-          }
-          name="description"
+      {/* robots: noindex until posts exist — status is known at SSR time */}
+      <Seo
+        canonical={`${SITE_URL}/blog`}
+        description={BLOG_DESCRIPTION}
+        ogImage={`${SITE_URL}/og-image.png`}
+        ogTitle={BLOG_TITLE}
+        robots={status !== "ok" ? "noindex, follow" : undefined}
+        title={BLOG_TITLE}
+      >
+        {/* Blog hub structured data: marks /blog as a content collection */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              "@id": `${SITE_URL}/blog#webpage`,
+              name: BLOG_TITLE,
+              description: BLOG_DESCRIPTION,
+              url: `${SITE_URL}/blog`,
+              publisher: { "@id": `${SITE_URL}/#organization` },
+            }),
+          }}
+          type="application/ld+json"
         />
-        {/* Noindex until posts exist — status is known at SSR time */}
-        {status !== "ok" && <meta content="noindex, follow" name="robots" />}
-        <link href={`${SITE_URL}/blog`} rel="canonical" />
-        <meta content="website" property="og:type" />
-        <meta content={`${SITE_URL}/blog`} property="og:url" />
-        <meta
-          content="Engineering Notes — Quartic Lab Blog"
-          property="og:title"
+        {/* Home › Blog breadcrumb */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: `${SITE_URL}/`,
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Blog",
+                  item: `${SITE_URL}/blog`,
+                },
+              ],
+            }),
+          }}
+          type="application/ld+json"
         />
-        <meta
-          content={
-            "Technical deep-dives, post-mortems, and opinionated takes on " +
-            "shipping software."
-          }
-          property="og:description"
-        />
-        <meta content="Quartic Lab" property="og:site_name" />
-        <meta content="summary_large_image" name="twitter:card" />
-      </Head>
+      </Seo>
 
       {/* ─── HERO ─────────────────────────────── */}
       <header className={styles.bhero}>

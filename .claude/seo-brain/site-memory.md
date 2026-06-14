@@ -96,17 +96,25 @@ SSR `/sitemap.xml` (16 static routes — **but excludes `/blog` + posts: a top-p
 
 See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema → content engine → steady state). The brain consumes the next un-started roadmap item each week and replaces it with GSC-driven work once data exists.
 
-- **Current roadmap position:** `Week 1 (in progress — started 2026-06-12; code shipped, 4 measurement tasks pushed to Notion; mark [x] once all 5 Notion tasks are Done)`
+- **Current roadmap position:** `Week 2 (in progress — started 2026-06-14: route blog through Seo.jsx + blog-index schema). Week 1: 4/5 Done & verified (sitemap deployed live, GSC + Bing verified, indexing requested); 1 open task (GSC→BigQuery export) rolled into Week 2.`
 
 ---
 
-## Pending this week (Week of 2026-06-08 — pushed to Notion, Source seo-brain/quarticlab/weekly)
+## Week 1 status (Week of 2026-06-08 — verified 2026-06-14)
 
-- ✅ [code] Sitemap overhaul — DONE on branch `seo-brain/wk-2026-06-12-blog-sitemap` (commit c6d5123); awaiting user review/merge/deploy.
-- 🙋 [measurement] Verify GSC + submit sitemap (Due 06-15)
-- 🙋 [measurement] Turn ON GSC→BigQuery export (Due 06-16)
-- 🙋 [measurement] Bing Webmaster + sitemap + AI Performance Report (Due 06-17)
-- 🙋 [measurement] After deploy: request indexing for /blog + 2 posts (Due 06-18)
+- ✅ [code] Sitemap overhaul — DEPLOYED; live sitemap includes `/blog` + both posts (verified via WebFetch 2026-06-14). Notion shows the "Review + merge" task as In progress (formal merge to user's working branch still pending).
+- ✅ [measurement] Verify GSC + submit sitemap — Done.
+- ✅ [measurement] Bing Webmaster + sitemap + AI Performance Report — Done.
+- ✅ [measurement] After deploy: request indexing for /blog + 2 posts — Done.
+- ⬜ [measurement] Turn ON GSC→BigQuery export (Due 06-16) — **STILL OPEN**, rolled into Week 2.
+
+## Pending this week (Week of 2026-06-14 — Week 2, pushed to Notion, Source seo-brain/quarticlab/weekly)
+
+- ✅ [code] Route `blog/[slug].jsx` through `Seo.jsx` (ogImage=heroImage; Article JSON-LD kept) — done on Week-2 branch, awaiting review.
+- ✅ [code] Route `blog/index.js` through `Seo.jsx` + default blog og:image — done on Week-2 branch.
+- ✅ [code] Add `CollectionPage` JSON-LD + Home › Blog breadcrumb to `/blog` — done on Week-2 branch.
+- ✅ [code] Remove the "X WORDS" byline in `blog/[slug].jsx` — done on Week-2 branch.
+- 🙋 [measurement] Turn ON GSC→BigQuery export (rollover from Week 1, Due 06-16).
 
 ## Content queue
 

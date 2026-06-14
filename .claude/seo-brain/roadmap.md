@@ -11,14 +11,14 @@
 ## PHASE 1 — Foundation & discoverability (Weeks 1–4)
 *Goal: every published page is crawlable, in the sitemap, internally linked, and routed through `Seo.jsx`. Nothing else matters until this is true.*
 
-### [~] Week 1 — Blog into the sitemap + stand up measurement  (started 2026-06-12)
-- `[x]` `[fixing/code]` Include `/blog` + every `status=="published"` post in `src/pages/sitemap.xml.js` via a `getServerSideProps` Firestore query; emit per-URL `<lastmod>` from `updatedAt || publishedDate`. Reverse the "intentionally excluded" comment. — **DONE** (branch `seo-brain/wk-2026-06-12-blog-sitemap`, commit c6d5123; verified 19 URLs on served build). Awaiting merge/deploy.
-- `[x]` `[fixing/code]` Replace the uniform `today` lastmod on static routes with each route's true last-modified (or omit where unknown); **drop `<changefreq>` and `<priority>`** from the `<url>` template. — **DONE** (same commit; static routes now `<loc>`-only, real lastmod on posts).
-- `[measurement/human]` Verify `quarticlab.com` in Google Search Console (DNS or HTML-tag). Submit `https://www.quarticlab.com/sitemap.xml`.
-- `[measurement/human]` Turn ON the GSC → BigQuery bulk export (NOT retroactive — every day delayed is lost history). Free within this site's volume.
-- `[measurement/human]` Verify the domain in Bing Webmaster Tools, submit the sitemap, open the AI Performance Report as a Copilot/ChatGPT-citation baseline.
+### [~] Week 1 — Blog into the sitemap + stand up measurement  (started 2026-06-12; 4/5 done as of 2026-06-14)
+- `[x]` `[fixing/code]` Include `/blog` + every `status=="published"` post in `src/pages/sitemap.xml.js` via a `getServerSideProps` Firestore query; emit per-URL `<lastmod>` from `updatedAt || publishedDate`. Reverse the "intentionally excluded" comment. — **DONE & DEPLOYED** (verified 2026-06-14: live `https://www.quarticlab.com/sitemap.xml` includes `/blog` + both posts).
+- `[x]` `[fixing/code]` Replace the uniform `today` lastmod on static routes with each route's true last-modified (or omit where unknown); **drop `<changefreq>` and `<priority>`** from the `<url>` template. — **DONE** (deployed version is `<loc>`-only on static routes). NOTE: a divergent fix landed on `dev` (commit `ebba44b`) that re-adds changefreq/priority — reconcile before merging `dev`.
+- `[x]` `[measurement/human]` Verify `quarticlab.com` in Google Search Console (DNS or HTML-tag). Submit `https://www.quarticlab.com/sitemap.xml`. — **DONE** (Notion, 2026-06-14).
+- `[ ]` `[measurement/human]` Turn ON the GSC → BigQuery bulk export (NOT retroactive — every day delayed is lost history). Free within this site's volume. — **STILL OPEN** (Notion: Not started, Due 06-16). Rolled into Week 2.
+- `[x]` `[measurement/human]` Verify the domain in Bing Webmaster Tools, submit the sitemap, open the AI Performance Report as a Copilot/ChatGPT-citation baseline. — **DONE** (Notion, 2026-06-14).
 
-### [ ] Week 2 — Route blog through Seo.jsx + blog-index schema
+### [~] Week 2 — Route blog through Seo.jsx + blog-index schema  (started 2026-06-14)
 - `[fixing/code]` Replace the raw `<Head>` in `src/pages/blog/[slug].jsx` (~line 479) with `<Seo>`, passing `ogImage={post.heroImage}`; keep the Article JSON-LD as `<Seo>` children.
 - `[fixing/code]` Replace the raw `<Head>` in `src/pages/blog/index.js` (~line 225) with `<Seo>`; add a default blog og:image.
 - `[schema-aeo/code]` Add a `CollectionPage` JSON-LD + `Home › Blog` breadcrumb to `/blog`.
