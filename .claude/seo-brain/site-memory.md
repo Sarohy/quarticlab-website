@@ -176,5 +176,5 @@ See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema
 
 ### Next run (Week 3) should
 - Step 0: Week-2 code is MERGED to `dev` (verified). Still pending: **deploy**, then live verify (Rich Results Test on `/blog` for CollectionPage+Breadcrumb; OG-preview on a post — should show hero image, no "X WORDS"). Confirm the GSC→BigQuery export got turned on; if GSC now has data, switch p5 to data mode.
-- **Reconcile the two sitemap implementations** before `dev` deploys: live/deployed version (no changefreq/priority, per dossier) vs `dev` commit `ebba44b` (re-adds changefreq/priority). `dev` will overwrite the good live version on next deploy — strip changefreq/priority from `dev`'s `sitemap.xml.js` to match the dossier.
+- ~~Reconcile the two sitemap implementations~~ — RESOLVED 2026-06-14 (commit `b0da59c` on `dev`): stripped changefreq/priority and the faked uniform lastmod from `dev`'s `sitemap.xml.js`; static routes are `<loc>`-only, posts keep real `<lastmod>`. `dev` now matches the deployed version + dossier.
 - Advance roadmap Week 3 — internal linking: SSR "Latest insights" on home, "Related posts" on `blog/[slug]`, "From the blog" on `services/[slug]`, add blockchain+IoT links to `Footer.jsx`.
