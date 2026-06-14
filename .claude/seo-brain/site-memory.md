@@ -176,9 +176,9 @@ See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema
 
 ### Deploy verification (2026-06-14, after user deployed dev→prod)
 - ✅ **Blog SEO (Week 2) LIVE & verified:** `/blog` serves `CollectionPage` + `Home›Blog` `BreadcrumbList` + `og:image`=`/og-image.png`; `/blog/ai-mvp-cost-2026` serves `og:type=article` + og:image + NO "WORDS" byline. All confirmed via raw-HTML curl.
-- ❌ **Sitemap fix NOT live yet:** live `/sitemap.xml` still has 19 `<changefreq>` + faked `<lastmod>2026-06-14</lastmod>` on static routes (old build). `dev` source IS correct (commit `b0da59c`). Cause: deploy predated `b0da59c` OR 1-hr CDN edge cache (`max-age=3600`). FIX: redeploy from dev HEAD (285d713+); if still stale, purge Firebase Hosting cache. RE-VERIFY next run.
+- ✅ **Sitemap fix LIVE & verified** (re-checked 2026-06-14 after redeploy): live `/sitemap.xml` has 0 `<changefreq>`, 0 `<priority>`, static routes `<loc>`-only, blog posts carry real `<lastmod>` (/blog 2026-05-05, ai-mvp-cost-2026 2026-05-05, offshore-team 2026-05-01); 19 URLs. Matches dossier. (Was briefly stale post-deploy — resolved on redeploy.)
 
 ### Next run (Week 3) should
-- Step 0: **re-verify the live sitemap** has NO changefreq/priority (the b0da59c fix). Confirm the GSC→BigQuery export got turned on; if GSC now has data, switch p5 to data mode.
+- Step 0: confirm the GSC→BigQuery export got turned on; if GSC now has data, switch p5 to data mode. (Blog SEO + sitemap already verified live 2026-06-14.)
 - Advance roadmap Week 3 — internal linking: SSR "Latest insights" on home, "Related posts" on `blog/[slug]`, "From the blog" on `services/[slug]`, add blockchain+IoT links to `Footer.jsx`.
 - Advance roadmap Week 3 — internal linking: SSR "Latest insights" on home, "Related posts" on `blog/[slug]`, "From the blog" on `services/[slug]`, add blockchain+IoT links to `Footer.jsx`.
