@@ -1,108 +1,104 @@
 # This Week's SEO/AEO Tasks — Plain English
-> Week of 2026-06-08  |  Site: https://www.quarticlab.com  |  For: zero SEO knowledge assumed
+> Week of 2026-06-14 (Week 2)  |  Site: https://www.quarticlab.com  |  For: zero SEO knowledge assumed
 > Auto-regenerated each weekly run.
 
-SEO means getting your site to show up when people search Google. AEO is the same idea for AI assistants (ChatGPT, Perplexity, Gemini) — getting them to mention you. Search engines look at three things: the words people can see on your page, your headings (the H1/H2 structure), and invisible HTML tags that describe the page to machines.
+SEO means getting your site to show up when people search Google. AEO is the same idea for AI assistants (ChatGPT, Perplexity, Gemini) — getting them to mention you. Search engines and AI engines read three things: the words people see on the page, the headings (H1/H2 structure), and invisible HTML tags that describe the page to machines. This week is almost entirely about those invisible tags for your blog.
 
-One task below is marked **✅ DONE BY THE BRAIN** — the code is already written and tested on a separate branch; you just review and merge it. The other four are marked **🙋 NEEDS YOU** — accounts and buttons only you can click. Forward this to whoever maintains the site if you don't do code yourself.
+Four tasks are marked **✅ DONE BY THE BRAIN** — the code is already written and the site builds cleanly on a separate branch; you just review and merge. One task is marked **🙋 NEEDS YOU** — a button only you can click.
+
+**Week 1 recap:** 4 of 5 done. Your sitemap fix is live (blog posts now appear at `https://www.quarticlab.com/sitemap.xml`), Google Search Console and Bing are verified, and indexing was requested. The one leftover — turning on the BigQuery export — is carried into this week as Task 5.
 
 ---
 
-## Task 1 — Put your blog posts on the site's "map" for Google  ·  fixing  ·  ✅ DONE, review  ·  ~30 min
+## Task 1 — Make blog posts share the same SEO "plumbing" as the rest of the site  ·  fixing  ·  ✅ DONE, review  ·  ~45 min
 
 ### What this is
-A **sitemap** is a list of every page on your site that you hand to Google — like the index at the back of a book. Yours was leaving out your entire blog. So even though you have published posts, Google had no easy list pointing to them.
+Every page on your site builds its invisible SEO tags (title, description, social-share image, etc.) through one shared component called `Seo.jsx` — except the blog, which was hand-rolling its own. That meant the blog could drift: miss a tag, duplicate another, or show no image when shared.
 
 ### Why it matters
-Posts that aren't in the sitemap get found slowly or not at all. Your two published posts (the AI-MVP-cost article and the offshore-hiring article) were invisible here. Now they're listed, each with a "last updated" date, which is the one freshness signal Google still trusts.
+When a blog link is pasted into LinkedIn/X/Slack, the preview card comes from these tags. Routing the blog through the shared component guarantees a correct title, description, and a preview image every time, and keeps the canonical URL consistent so Google doesn't see duplicates.
 
-### Steps
-The brain already changed `src/pages/sitemap.xml.js` on the branch `seo-brain/wk-2026-06-12-blog-sitemap` (commit c6d5123). To review:
+### Steps (review only)
+The brain edited `src/pages/blog/[slug].jsx` on branch `seo-brain/wk-2026-06-14-blog-seo`. To review:
 ```bash
-git diff revamp-landing-page...seo-brain/wk-2026-06-12-blog-sitemap -- src/pages/sitemap.xml.js
+git diff dev...seo-brain/wk-2026-06-14-blog-seo -- "src/pages/blog/[slug].jsx"
 ```
-It now pulls your published blog posts from the database and adds them to the sitemap, and it removed two old tags (`changefreq`/`priority`) that Google ignores. When you're happy: merge the branch into your release branch and deploy.
+It swaps the raw header for `<Seo>`, uses the post's hero image as the share image, keeps the existing Google "Article" data, and removes two tags that were already set site-wide. When happy: merge the branch and deploy.
 
-### How to verify it worked
-After deploy, open `https://www.quarticlab.com/sitemap.xml` in a browser — you should see lines for `/blog`, `/blog/ai-mvp-cost-2026`, and `/blog/how-to-hire-offshore-ai-development-team`. (Already confirmed locally: 19 URLs, no changefreq/priority.)
+### How to verify
+After deploy, open any post and use a share-preview checker (e.g. LinkedIn Post Inspector). You should see the post title, description, and the hero image.
 
 ---
 
-## Task 2 — Connect Google Search Console  ·  measurement  ·  🙋 NEEDS YOU  ·  ~45 min
+## Task 2 — Give the blog homepage a proper share image + shared plumbing  ·  fixing  ·  ✅ DONE, review  ·  ~30 min
 
 ### What this is
-**Google Search Console (GSC)** is Google's free dashboard showing what people typed to find you, where you ranked, and how many clicked.
+The blog listing page (`/blog`) had no social-share image at all and also bypassed the shared `Seo.jsx`.
 
 ### Why it matters
-Until this exists, the brain is flying blind — it can't tell you which keywords are improving or slipping. This is the single thing that unlocks real weekly ranking work.
+If someone shares `quarticlab.com/blog`, it now shows your brand image instead of a blank box — small thing, but it's the difference between a link that looks legit and one that looks broken. The "hide from Google until there are posts" safety rule is preserved.
 
-### Steps
-1. Go to https://search.google.com/search-console and add the property `quarticlab.com` (choose "Domain" and add the DNS record it gives you, or use the HTML-tag method).
-2. Once verified, open **Sitemaps** in the left menu and submit `https://www.quarticlab.com/sitemap.xml`.
+### Steps (review only)
+```bash
+git diff dev...seo-brain/wk-2026-06-14-blog-seo -- src/pages/blog/index.js
+```
 
-### How to verify it worked
-The property shows "Verified" and the sitemap shows "Success" with a discovered-URL count (should be ~19+).
+### How to verify
+After deploy, run `https://www.quarticlab.com/blog` through a share-preview checker — a card with the brand image should appear.
 
 ---
 
-## Task 3 — Turn on the BigQuery data export  ·  measurement  ·  🙋 NEEDS YOU  ·  ~30 min
+## Task 3 — Tell Google & AI engines that /blog is a "collection of articles"  ·  schema-aeo  ·  ✅ DONE, review  ·  ~45 min
 
 ### What this is
-GSC only keeps a 16-month, row-capped view. The **BigQuery bulk export** streams your full search data into a free Google database so nothing is lost.
+**Structured data** is invisible labelling that spells out what a page *is*, in a format machines read perfectly. The brain added two labels to `/blog`: one saying "this is a collection of articles," and a **breadcrumb** ("Home › Blog") describing where the page sits in your site.
 
 ### Why it matters
-It is **not** retroactive — it only captures data from the day you switch it on. Every day you wait is history you can never get back. It's free at your traffic level.
+Breadcrumbs can show up directly in Google results, and both labels help AI assistants understand your site is an organized publisher — which is part of how they decide who to cite.
 
-### Steps
-1. In GSC → **Settings** → **Bulk data export**.
-2. Follow the prompts to link a Google Cloud project (create a free one if needed) and confirm.
+### Steps (review only)
+Same file as Task 2 (`src/pages/blog/index.js`) — the two `application/ld+json` blocks at the top of the page.
 
-### How to verify it worked
-GSC Settings shows the export as "Active" with a dataset name.
-
----
-
-## Task 4 — Set up Bing Webmaster Tools  ·  measurement  ·  🙋 NEEDS YOU  ·  ~30 min
-
-### What this is
-Bing's version of Search Console. It matters now because **ChatGPT and Copilot pull from Bing's index**, and Bing has a free report showing when AI engines cite you.
-
-### Steps
-1. Go to https://www.bing.com/webmasters, add `quarticlab.com` (you can import directly from GSC once Task 2 is done).
-2. Submit `https://www.quarticlab.com/sitemap.xml`.
-3. Open the **AI Performance Report** and note the starting numbers as your baseline.
-
-### How to verify it worked
-Site is verified and the sitemap is submitted; the AI Performance Report loads.
+### How to verify
+After deploy, paste `https://www.quarticlab.com/blog` into Google's Rich Results Test (https://search.google.com/test/rich-results) — it should detect `CollectionPage` and `BreadcrumbList` with no errors.
 
 ---
 
-## Task 5 — Ask Google to index the blog posts  ·  measurement  ·  🙋 NEEDS YOU  ·  ~30 min
+## Task 4 — Stop showing (and chasing) a word count on posts  ·  improve-content  ·  ✅ DONE, review  ·  ~30 min
 
 ### What this is
-After the sitemap fix is live, you can tell Google "please look at these now" instead of waiting for it to wander by.
+Each post displayed a "X WORDS" label in its byline. The brain removed it (the "X min read" stays).
 
 ### Why it matters
-It pushes your newly-listed blog URLs into Google's crawl queue immediately. (Do this only after Task 1 is merged + deployed and Task 2 is done.)
+Word count is **not** a ranking factor — Google has said so directly, and large studies confirm it. Showing it quietly trains everyone to pad articles for length instead of answering the reader's question. Removing it keeps the focus on quality.
 
-### Steps
-1. In GSC, use the **URL Inspection** bar at the top.
-2. Paste `https://www.quarticlab.com/blog`, press enter, then click **Request indexing**. Repeat for `/blog/ai-mvp-cost-2026` and `/blog/how-to-hire-offshore-ai-development-team`.
+### Steps (review only)
+Part of the `src/pages/blog/[slug].jsx` diff in Task 1.
 
-### How to verify it worked
-Each URL shows "Indexing requested" / "URL is on Google" over the following days.
+### How to verify
+After deploy, open any post — the byline reads e.g. "MAY 5, 2026 · 7 MIN READ" with no "WORDS".
 
 ---
 
-## Quick glossary
-- **Sitemap** — a machine-readable list of your pages you give Google (`/sitemap.xml`).
-- **lastmod** — the "last modified" date on a sitemap entry; a freshness hint.
-- **Search Console (GSC)** — Google's free dashboard of your search performance.
-- **BigQuery export** — streams your full GSC data into a free database (not retroactive).
-- **Bing Webmaster Tools** — Bing's version of GSC; matters because ChatGPT/Copilot use Bing.
-- **Indexing** — when a search engine has read and stored your page so it can show it.
-- **AEO** — getting AI assistants (ChatGPT/Perplexity/Gemini) to mention your site.
-- **Branch** — a separate copy of the code where changes are reviewed before going live.
+## Task 5 — Turn ON the Google → BigQuery data export  ·  measurement  ·  🙋 NEEDS YOU  ·  ~30 min
 
-## If you don't code yourself
-Task 1 is already implemented on branch `seo-brain/wk-2026-06-12-blog-sitemap` — forward it to your developer to review + merge. Tasks 2-5 are account setup you (or your developer) click through. Total human time ≈ 2.5 hours.
+### What this is
+Google Search Console only keeps 16 months of data and hides a lot of it. The free **BigQuery bulk export** streams your *complete* search data out daily so nothing is lost.
+
+### Why it matters
+It is **not retroactive** — it only captures data from the day you switch it on forward. Every day it's off is history you can never get back. This is the leftover from last week and the only thing standing between the brain and full ranking data later.
+
+### Steps
+1. Go to https://search.google.com/search-console → pick `quarticlab.com`.
+2. Settings (left sidebar) → **Bulk data export**.
+3. Follow the prompts to connect a Google Cloud project (free tier is fine at your volume) and confirm the export.
+
+### How to verify
+In Search Console → Settings → Bulk data export, the status shows the export is active and names the destination BigQuery dataset.
+
+---
+
+### A heads-up for whoever merges the code
+- Branch to review: `seo-brain/wk-2026-06-14-blog-seo` (off `dev`). The site builds cleanly.
+- `/blog` will temporarily have **two** breadcrumb blocks (a global "Home" one from `_app.js` plus the new "Home › Blog" one). That's expected — a later week consolidates them. Harmless in the meantime.
+- Separately: there are now **two versions of the sitemap fix** — the deployed one (live) and a second one on `dev` (commit `ebba44b`). Decide which to keep before merging `dev` so they don't conflict.
