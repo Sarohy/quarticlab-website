@@ -1,7 +1,7 @@
-# Backlinks & Entity Tracker — updated 2026-06-12
+# Backlinks & Entity Tracker — updated 2026-06-14
 
-> Prerequisite (Phase 1) is in progress: blog→sitemap shipped this run; finish Seo.jsx + internal links (Wk 2-3) before pouring effort into earned links.
-> First-run state: most values unknown (`?`) — a one-time backlink audit is the first `backlink` task once Phase 1 lands (Week 6). NAP must match `_app.js` PostalAddress byte-for-byte.
+> Prerequisite (Phase 1) is now COMPLETE and live (sitemap + Seo.jsx + blog schema + related-posts/footer links all deployed/merged). Earned links/citations will now land on discoverable, crawlable pages — so off-site work can begin.
+> **The one-time backlink/entity baseline audit is pulled forward to Week 4** (was Week 6): we need the unknowns (`?`) captured before directory completion + PR. NAP must match `_app.js` PostalAddress byte-for-byte.
 
 ## Directory profiles
 | Profile | URL | Claimed | Complete | NAP-correct | Reviews | Next action |
@@ -24,7 +24,11 @@
 | ai-mvp-cost-2026 (original data) | TBD | Featured.com / Qwoted | not yet | queued Wk 11 | — |
 
 ## Brand mentions to convert to links
-- _(run the one-time backlink audit to populate — Week 6)_
+- _(run the one-time backlink audit to populate — Week 4 task)_
+
+## Next actions (Week 4)
+- **One-time baseline audit (backlink):** capture referring domains (Ahrefs/Semrush free tier or GSC Links report once live), and the claim/completeness status of Clutch, GoodFirms, DesignRush, TheManifest, G2, Crunchbase, LinkedIn Company Page. Fill the `?`s above. Flag any NAP mismatch vs `_app.js`.
+- After the audit: Week 5-6 directory completion (Clutch taxonomy + verified reviews first — it auto-feeds TheManifest) and `sameAs` enrichment (add Clutch/Crunchbase/GitHub).
 
 ## Notes
 - Off-site brand mentions correlate ~3x more with AI citations than backlinks (dossier §4) — prioritize directory presence + PR + mentions over raw link count.

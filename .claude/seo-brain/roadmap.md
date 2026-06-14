@@ -30,10 +30,13 @@
 - `[deferred]` `[fixing/code]` Add a "From the blog" cross-link block to `src/pages/services/[slug].jsx` linking to cluster posts for that service (by `category`). — **DEFERRED by user 2026-06-14**. Research verdict: VALID-but-borderline now (only 2 posts → identical boilerplate sitewide, a devalued anti-pattern). When revisited: inventory-gate (render only when ≥2 topically-relevant posts) AND wire blog→service up-links (the direction that actually lifts the money page). See `outputs/internal-linking-research.md`.
 - `[x]` `[fixing/code]` Add blockchain + IoT service links to `Footer.jsx` (was 6 of 8). — **DONE & MERGED** to `dev` (merge a856bf9). All 8 services now footer-linked.
 
-### [ ] Week 4 — Named authors (E-E-A-T + AEO)
-- `[schema-aeo/code]` In `blog/[slug].jsx` Article JSON-LD (~lines 508–512), replace `author: {"@type":"Organization"}` with a `Person` (`name, url, jobTitle, sameAs:[LinkedIn], worksFor:{"@id": SITE_URL+"/#organization"}`) sourced from a new `author` object on the `blogs` doc; fall back to Organization if absent.
-- `[schema-aeo/code]` Render a visible byline + 1–2 line author bio block on the post page.
-- `[add-blog/human]` Write 1–2 real author profiles (name, title, LinkedIn) and add the `author` object to existing published `blogs` docs in Firestore. (No fake experts.)
+### [~] Week 4 — Named authors (E-E-A-T + AEO)  (started 2026-06-14; +1 content + 1 off-site pulled forward)
+- `[x]` `[schema-aeo/code]` In `blog/[slug].jsx` Article JSON-LD, emit a `Person` author (`name, jobTitle, url, sameAs, worksFor`) from a structured `author` object on the `blogs` doc; fall back to Organization for string authors. — **DONE** on branch `seo-brain/wk-2026-06-14-authors` (commit 58b6d6e). Build green. Awaiting review/merge.
+- `[x]` `[schema-aeo/code]` Render a visible byline role + 1–2 line author bio block on the post page (with optional author link). — **DONE** (same commit; merged into the one author diff).
+- `[ ]` `[add-blog/human]` Write 1–2 real author profiles (name, title, LinkedIn) and add the `author` object to existing published `blogs` docs in Firestore. (No fake experts.) — pushed to Notion (Due 06-17). Also fixes the "Zweidevs Team" byline on `ai-mvp-cost-2026`.
+- `[ ]` `[add-blog/human]` **(pulled forward from Phase 3 — content is the bottleneck)** Adapt + publish the `ai-mvp-cost-2026` original-data post into Firestore. Pushed to Notion (Due 06-19).
+- `[ ]` `[backlink/human]` **(pulled forward from Week 6 — Phase 1 shipped)** One-time backlink + directory baseline audit. Pushed to Notion (Due 06-18).
+- `[ ]` `[measurement/human]` ROLLOVER: Turn ON GSC→BigQuery export (still Not started, Due 06-16).
 
 ---
 

@@ -1,104 +1,117 @@
 # This Week's SEO/AEO Tasks — Plain English
-> Week of 2026-06-14 (Week 2)  |  Site: https://www.quarticlab.com  |  For: zero SEO knowledge assumed
+> Week of 2026-06-14 (Week 4 — Named authors + content)  |  Site: https://www.quarticlab.com  |  For: zero SEO knowledge assumed
 > Auto-regenerated each weekly run.
 
-SEO means getting your site to show up when people search Google. AEO is the same idea for AI assistants (ChatGPT, Perplexity, Gemini) — getting them to mention you. Search engines and AI engines read three things: the words people see on the page, the headings (H1/H2 structure), and invisible HTML tags that describe the page to machines. This week is almost entirely about those invisible tags for your blog.
+SEO = showing up on Google. AEO = the same for AI assistants (ChatGPT, Perplexity, Gemini). This week has one job done by me (the code for named authors) and four for you — and the theme is shifting from *code* to *content*, because your site's plumbing is now solid and the real bottleneck is that you only have 2 published posts.
 
-Four tasks are marked **✅ DONE BY THE BRAIN** — the code is already written and the site builds cleanly on a separate branch; you just review and merge. One task is marked **🙋 NEEDS YOU** — a button only you can click.
+**Recap of what's now live:** clean sitemap (with your blog posts), blog pages with proper share images + structured data, the word-count byline removed, a "Keep reading" related-posts block, and all 8 services in the footer. Phase 1 (make everything findable) is done.
 
-**Week 1 recap:** 4 of 5 done. Your sitemap fix is live (blog posts now appear at `https://www.quarticlab.com/sitemap.xml`), Google Search Console and Bing are verified, and indexing was requested. The one leftover — turning on the BigQuery export — is carried into this week as Task 5.
-
----
-
-## Task 1 — Make blog posts share the same SEO "plumbing" as the rest of the site  ·  fixing  ·  ✅ DONE, review  ·  ~45 min
-
-### What this is
-Every page on your site builds its invisible SEO tags (title, description, social-share image, etc.) through one shared component called `Seo.jsx` — except the blog, which was hand-rolling its own. That meant the blog could drift: miss a tag, duplicate another, or show no image when shared.
-
-### Why it matters
-When a blog link is pasted into LinkedIn/X/Slack, the preview card comes from these tags. Routing the blog through the shared component guarantees a correct title, description, and a preview image every time, and keeps the canonical URL consistent so Google doesn't see duplicates.
-
-### Steps (review only)
-The brain edited `src/pages/blog/[slug].jsx` on branch `seo-brain/wk-2026-06-14-blog-seo`. To review:
-```bash
-git diff dev...seo-brain/wk-2026-06-14-blog-seo -- "src/pages/blog/[slug].jsx"
-```
-It swaps the raw header for `<Seo>`, uses the post's hero image as the share image, keeps the existing Google "Article" data, and removes two tags that were already set site-wide. When happy: merge the branch and deploy.
-
-### How to verify
-After deploy, open any post and use a share-preview checker (e.g. LinkedIn Post Inspector). You should see the post title, description, and the hero image.
+One task is **✅ DONE BY THE BRAIN** (review only). Four are **🙋 NEEDS YOU.**
 
 ---
 
-## Task 2 — Give the blog homepage a proper share image + shared plumbing  ·  fixing  ·  ✅ DONE, review  ·  ~30 min
+## Task 1 — Turn ON the Google → BigQuery data export  ·  measurement  ·  🙋 NEEDS YOU  ·  ~30 min  ·  Due Jun 16
 
 ### What this is
-The blog listing page (`/blog`) had no social-share image at all and also bypassed the shared `Seo.jsx`.
+Google Search Console keeps only ~16 months of data and hides a lot. The free BigQuery export streams your full search data out daily.
 
 ### Why it matters
-If someone shares `quarticlab.com/blog`, it now shows your brand image instead of a blank box — small thing, but it's the difference between a link that looks legit and one that looks broken. The "hide from Google until there are posts" safety rule is preserved.
-
-### Steps (review only)
-```bash
-git diff dev...seo-brain/wk-2026-06-14-blog-seo -- src/pages/blog/index.js
-```
-
-### How to verify
-After deploy, run `https://www.quarticlab.com/blog` through a share-preview checker — a card with the brand image should appear.
-
----
-
-## Task 3 — Tell Google & AI engines that /blog is a "collection of articles"  ·  schema-aeo  ·  ✅ DONE, review  ·  ~45 min
-
-### What this is
-**Structured data** is invisible labelling that spells out what a page *is*, in a format machines read perfectly. The brain added two labels to `/blog`: one saying "this is a collection of articles," and a **breadcrumb** ("Home › Blog") describing where the page sits in your site.
-
-### Why it matters
-Breadcrumbs can show up directly in Google results, and both labels help AI assistants understand your site is an organized publisher — which is part of how they decide who to cite.
-
-### Steps (review only)
-Same file as Task 2 (`src/pages/blog/index.js`) — the two `application/ld+json` blocks at the top of the page.
-
-### How to verify
-After deploy, paste `https://www.quarticlab.com/blog` into Google's Rich Results Test (https://search.google.com/test/rich-results) — it should detect `CollectionPage` and `BreadcrumbList` with no errors.
-
----
-
-## Task 4 — Stop showing (and chasing) a word count on posts  ·  improve-content  ·  ✅ DONE, review  ·  ~30 min
-
-### What this is
-Each post displayed a "X WORDS" label in its byline. The brain removed it (the "X min read" stays).
-
-### Why it matters
-Word count is **not** a ranking factor — Google has said so directly, and large studies confirm it. Showing it quietly trains everyone to pad articles for length instead of answering the reader's question. Removing it keeps the focus on quality.
-
-### Steps (review only)
-Part of the `src/pages/blog/[slug].jsx` diff in Task 1.
-
-### How to verify
-After deploy, open any post — the byline reads e.g. "MAY 5, 2026 · 7 MIN READ" with no "WORDS".
-
----
-
-## Task 5 — Turn ON the Google → BigQuery data export  ·  measurement  ·  🙋 NEEDS YOU  ·  ~30 min
-
-### What this is
-Google Search Console only keeps 16 months of data and hides a lot of it. The free **BigQuery bulk export** streams your *complete* search data out daily so nothing is lost.
-
-### Why it matters
-It is **not retroactive** — it only captures data from the day you switch it on forward. Every day it's off is history you can never get back. This is the leftover from last week and the only thing standing between the brain and full ranking data later.
+It is **not retroactive** — it only captures data from the day you switch it on. This is a carryover from earlier weeks and the single thing blocking me from doing real "what's ranking / what's slipping" work instead of educated guesses.
 
 ### Steps
-1. Go to https://search.google.com/search-console → pick `quarticlab.com`.
-2. Settings (left sidebar) → **Bulk data export**.
-3. Follow the prompts to connect a Google Cloud project (free tier is fine at your volume) and confirm the export.
+1. https://search.google.com/search-console → pick `quarticlab.com`
+2. Settings → **Bulk data export** → connect a Google Cloud project (free tier is fine) → confirm.
 
-### How to verify
-In Search Console → Settings → Bulk data export, the status shows the export is active and names the destination BigQuery dataset.
+### Verify
+Settings → Bulk data export shows the export active with a BigQuery dataset named.
 
 ---
 
-### A heads-up for whoever merges the code
-- Branch to review: `seo-brain/wk-2026-06-14-blog-seo` (off `dev`). The site builds cleanly.
-- `/blog` will temporarily have **two** breadcrumb blocks (a global "Home" one from `_app.js` plus the new "Home › Blog" one). That's expected — a later week consolidates them. Harmless in the meantime.
-- Separately: there are now **two versions of the sitemap fix** — the deployed one (live) and a second one on `dev` (commit `ebba44b`). Decide which to keep before merging `dev` so they don't conflict.
+## Task 2 — Show the real author on each post (and tell Google who wrote it)  ·  schema-aeo  ·  ✅ DONE, review  ·  ~45 min
+
+### What this is
+AI engines and Google increasingly favor content with a **named, credentialed human author** over a faceless brand. I rewired the blog post template so that when a post has author details (name, job title, LinkedIn, short bio), it: (a) tells Google it's written by a *Person* (not just "the company"), and (b) shows a proper byline with role + an author bio with a link.
+
+### Why it matters
+"Named human authors" is one of the few things research consistently links to trust signals and AI-citation eligibility. Right now your posts say the author is the organization — which is the weakest option.
+
+### Steps (review only)
+```bash
+git diff dev...seo-brain/wk-2026-06-14-authors -- "src/pages/blog/[slug].jsx"
+```
+It's built to be safe: until you add author details (Task 3), posts look exactly as they do today. Merge + deploy with Task 3.
+
+### Verify
+After Task 3 + deploy, open a post → you'll see the author's name + role + bio + a "More from…" link, and Google's Rich Results Test will show an `author` of type `Person`.
+
+---
+
+## Task 3 — Write 1–2 author profiles and attach them to your posts  ·  add-blog  ·  🙋 NEEDS YOU  ·  ~90 min  ·  Due Jun 17
+
+### What this is
+Task 2 built the *plumbing*; this fills it with *real people*. Add an `author` object to each published post in your database (Firestore `blogs`), with: name, job title, LinkedIn URL, and a 1–2 sentence bio.
+
+### Why it matters
+This is what actually makes the named-author benefit appear. It also fixes a real bug: the `ai-mvp-cost-2026` post currently shows **"Zweidevs Team"** (an old brand name) as the author — it should be a Quartic Lab person. **Use real people only — never invent experts.**
+
+### Steps
+1. Pick 1–2 real Quartic Lab people who can stand behind the posts (an engineer/founder).
+2. For each, gather: full name, job title, LinkedIn URL, 1–2 sentence bio.
+3. In Firestore, set each post's `author` field to an object like:
+   ```json
+   {
+     "name": "Jane Doe",
+     "jobTitle": "Lead AI Engineer",
+     "url": "https://www.linkedin.com/in/janedoe",
+     "sameAs": ["https://www.linkedin.com/in/janedoe"],
+     "bio": "Jane has shipped production AI systems for fintech and health clients."
+   }
+   ```
+   (If you leave `author` as a plain string, the page safely falls back to the old "Quartic Lab" display.)
+
+### Verify
+Open the post after deploy — the real name, role, and bio show; the "Zweidevs Team" byline is gone.
+
+---
+
+## Task 4 — Publish your first original-data post (the AI-MVP cost article)  ·  add-blog  ·  🙋 NEEDS YOU  ·  ~2 hrs  ·  Due Jun 19
+
+### What this is
+You have a strong draft sitting in the legacy tooling (`~/my-ai-assistant/.claude/seo-brain/outputs/content-drafts/ai-mvp-cost-2026/`). Adapt it into a published post in your `blogs` database (as `contentHtml`, with a meta description, tags, hero image, and the author object from Task 3).
+
+### Why it matters
+This is the **highest-leverage move you have right now.** Your whole site is built to rank/serve content — but you only have 2 posts. More posts means more to rank, more for AI to cite, and it unblocks the homepage/service "related posts" blocks we deliberately deferred. Original-data/cost posts are the single most-cited format by AI engines. Lead with the price range in the first paragraph, use a real HTML table for the cost tiers, and include a short "how we got these numbers" methodology note.
+
+### Steps
+1. Open the existing draft; tighten it for your voice + 2026 numbers.
+2. Create/Update the Firestore `blogs` doc: `status: "published"`, `contentHtml`, `metaDescription`, `tags`, `heroImage`, `author` (from Task 3).
+3. It will appear in the sitemap, the blog index, and "Keep reading" automatically.
+
+### Verify
+The post is live at `/blog/ai-mvp-cost-2026`, in `/sitemap.xml`, and shows on `/blog`.
+
+> Want me to pre-draft the `contentHtml` from the existing draft so this becomes a quick review-and-publish? Just say so.
+
+---
+
+## Task 5 — One-time backlink & directory baseline audit  ·  backlink  ·  🙋 NEEDS YOU  ·  ~90 min  ·  Due Jun 18
+
+### What this is
+Now that your pages are findable, off-site reputation work pays off. First we need a baseline: who currently links to you, and which industry directories you've claimed.
+
+### Why it matters
+Brand mentions + directory presence correlate far more with AI citations than raw backlinks. But you can't improve what you haven't measured — this audit fills in the unknowns so Weeks 5–6 (completing Clutch/GoodFirms/etc.) are targeted, not guesswork.
+
+### Steps
+1. Referring domains: use Ahrefs/Semrush free tier (or the GSC "Links" report once GSC is live).
+2. For each of Clutch, GoodFirms, DesignRush, TheManifest, G2, Crunchbase, LinkedIn Company Page: note claimed? complete? reviews? Is the name/address/phone identical to the site footer?
+3. Record findings in `.claude/seo-brain/outputs/backlinks-tracker.md`.
+
+### Verify
+The `?` cells in the backlinks tracker are filled with real status.
+
+---
+
+### For whoever merges the code
+- Branch: `seo-brain/wk-2026-06-14-authors` (off `dev`). Build green. Merge with Task 3 so the Person data has something to display.
+- Deferred (by earlier decision): homepage + service-page internal-link blocks — revisit once more posts exist.

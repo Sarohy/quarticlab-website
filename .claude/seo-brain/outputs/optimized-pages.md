@@ -50,3 +50,35 @@
 
 ### Known transitional note
 - `/blog` now carries a page-level `Home › Blog` BreadcrumbList while `_app.js` still emits a global Home-only BreadcrumbList → two BreadcrumbList blocks on `/blog`. Roadmap Week 5 consolidates the global breadcrumb into a route-keyed component; acceptable until then.
+
+---
+
+# Week 3 — Internal linking (partial) — 2026-06-14 (merged to dev: merge a856bf9)
+
+## src/Components/CommonComponents/Footer/Footer.jsx
+**Category:** fixing · **Channel:** code · **Status:** DONE & MERGED + (Task 4)
+- Added `/services/blockchain-development` ("Blockchain") and `/services/iot-development` ("IoT Solutions") to `FOOTER_SERVICES` — all 8 services now have site-wide footer links (was 6).
+
+## src/pages/blog/[slug].jsx + blogDetail.module.css
+**Category:** fixing · **Channel:** code · **Status:** DONE & MERGED (Task 2)
+- SSR "Keep reading" related-posts block, ranked by shared tags (newest tiebreak, recent fallback), computed in `getServerSideProps` so links are in the no-JS HTML AI crawlers read. Styled with `.related*` classes.
+- Tasks 1 (homepage block) + 3 (service-page block) DEFERRED pending more content (research: `outputs/internal-linking-research.md`).
+
+---
+
+# Week 4 — Named authors — 2026-06-14 (branch seo-brain/wk-2026-06-14-authors, commit 58b6d6e)
+
+## src/pages/blog/[slug].jsx + blogDetail.module.css
+**Category:** schema-aeo · **Channel:** code · **Status:** done, awaiting review
+
+### What changed
+- Article JSON-LD `author` now emits a `Person` (`name`, optional `jobTitle`/`url`/`sameAs`, `worksFor` → Quartic Lab Organization) when the Firestore `blogs` doc carries a structured `author` OBJECT; falls back to the existing `Organization` author when `author` is a plain string (current data) — zero visible change until structured authors are added.
+- Visible byline gains an author role line (`.brole`); the end-card author block now renders the author bio + an optional "More from <name>" link (`.endcRole`, `.endcAuthorLink`) from `author.url`/`author.sameAs[0]`.
+- Author normalization handles object | string | absent gracefully.
+
+### Verification
+- `npm run build` → compiled successfully; `/blog/[slug]` builds as an SSR route (λ, 6.62 kB).
+- eslint still cannot run in this environment (pre-existing broken `eslint-plugin-react` dep). SWC transpiled cleanly.
+
+### Pairing
+- Needs the human task "add `author` objects to Firestore posts" to display Person data. Until then, behavior is identical to today.

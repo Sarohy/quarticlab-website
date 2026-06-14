@@ -96,7 +96,7 @@ SSR `/sitemap.xml` (16 static routes — **but excludes `/blog` + posts: a top-p
 
 See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema → content engine → steady state). The brain consumes the next un-started roadmap item each week and replaces it with GSC-driven work once data exists.
 
-- **Current roadmap position:** `Week 3 PARTIAL (2026-06-14): tasks 2 (related-posts on blog/[slug]) + 4 (footer blockchain/IoT links) DONE & MERGED to dev (merge a856bf9; pending deploy). Tasks 1 (homepage block) + 3 (service-page block) DEFERRED by user pending more blog content — validated by a 15-agent research workflow (see outputs/internal-linking-research.md). Carryover open: GSC→BigQuery export (measurement, still Not started). Next high-leverage move: publish more cluster posts (Phase 3), then revisit tasks 1 & 3 (task 3 inventory-gated + bidirectional).`
+- **Current roadmap position:** `Week 4 IN PROGRESS (2026-06-14): Named authors. Code (Person author schema + byline/bio, Org fallback) DONE on branch seo-brain/wk-2026-06-14-authors (commit 58b6d6e, awaiting review/merge). 4 tasks pushed to Notion + BigQuery rollover. Pulled forward: publish ai-mvp-cost-2026 (content is the bottleneck) + one-time backlink baseline audit (Phase 1 shipped). Week 3 tasks 2&4 merged to dev (a856bf9); tasks 1&3 deferred pending content. Phase 1 fully verified live.`
 
 ---
 
@@ -108,7 +108,15 @@ See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema
 - ✅ [measurement] After deploy: request indexing for /blog + 2 posts — Done.
 - ⬜ [measurement] Turn ON GSC→BigQuery export (Due 06-16) — **STILL OPEN**, rolled into Week 2.
 
-## Week 3 status (Week of 2026-06-14 — internal linking; NOT pushed to Notion this round — interactive review)
+## Pending this week (Week 4 of 2026-06-14 — Named authors; pushed to Notion, Source seo-brain/quarticlab/weekly)
+
+- ✅ [schema-aeo/code] Person author schema + visible byline/bio (Org fallback) — DONE on branch `seo-brain/wk-2026-06-14-authors` (58b6d6e), awaiting review/merge.
+- 🙋 [add-blog/human] Write 1–2 author profiles + add `author` objects to the 2 Firestore posts (Due 06-17; fixes "Zweidevs Team" byline).
+- 🙋 [add-blog/human] Adapt + publish `ai-mvp-cost-2026` original-data post (Due 06-19; THE content bottleneck; unblocks deferred internal-link blocks).
+- 🙋 [backlink/human] One-time backlink + directory baseline audit (Due 06-18).
+- 🙋 [measurement/human] ROLLOVER: Turn ON GSC→BigQuery export (Due 06-16; already in Notion from Week 1).
+
+## Week 3 status (Week of 2026-06-14 — internal linking; tasks 2&4 merged, 1&3 deferred)
 
 - ✅ [code] Related-posts ("Keep reading") block on `blog/[slug].jsx` by shared tags — DONE & MERGED to `dev` (merge a856bf9, 2026-06-14). Build green. Pending deploy.
 - ✅ [code] Blockchain + IoT links added to `Footer.jsx` (all 8 services) — DONE & MERGED to `dev` (a856bf9).
@@ -173,20 +181,20 @@ See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema
 
 ## Last run
 
-- **Date:** `2026-06-14` (Week 2 — status-check + Week-2 implementation; user-directed, not the full procedure sweep).
-- **Step 0 verification (Week 1):** Live `/sitemap.xml` confirmed to include `/blog` + both posts (sitemap fix DEPLOYED). Notion Week-1 tasks: 3 Done (GSC verify, Bing, request-indexing), 1 In progress (sitemap review/merge — effect already live), 1 Not started (GSC→BigQuery export → rolled into Week 2).
-- **Procedures ran:** Step 0 (Notion + live verify), p4-optimize (4 code tasks), p7-plan (Week 2), p8-explain, p9-notion-push. (Skipped this run by user direction: p5-track, p1-audit, p2-keywords, p6-backlinks — Week 2 is a code-only roadmap week and audit/clusters are <30 days old.)
-- **Code shipped:** `src/pages/blog/[slug].jsx` + `src/pages/blog/index.js` — both routed through `Seo.jsx`; default/hero og:image; `CollectionPage` + `Home › Blog` breadcrumb on `/blog`; `og:type=article` keyed override; removed "X WORDS" byline; JSON-LD uses `SITE_URL`. Branch `seo-brain/wk-2026-06-14-blog-seo` (commit 6a85aa9). `npm run build` green; **eslint could NOT run** (broken transitive dep `has` under `eslint-plugin-react` in installed node_modules — re-run once deps repaired). **MERGED to `dev` via PR #4 (merge commit 069a043) 2026-06-14 — verified on dev working tree. Deploy + live verification still pending.**
-- **Files produced/updated:** `outputs/weekly-plan.md`, `outputs/optimized-pages.md`, `outputs/weekly-tasks-explained.md`.
-- **Notion:** pushed 4 NEW code tasks; after merge, all 4 set to **Status: Done**. Did NOT trash overlapping Week-1 pages (different week, meaningful statuses); did NOT duplicate the BigQuery rollover (it already exists from Week 1, still Not started).
-- **Last audit:** `2026-06-12` (/blog + blog system).
+- **Date:** `2026-06-14` (Week 4 — full weekly procedure sweep, user-directed complete re-run).
+- **Step 0 verification:** Notion (our Source) = 8 Done / 1 Not started. The 1 open: **Turn ON GSC→BigQuery export** (human, Due 06-16) → carried as rollover. Week-2 code tasks + sitemap-merge confirmed Done & verified live earlier this session; no rollover-fails. (Note: the "Review+merge sitemap" task is now Done — user merged.)
+- **Procedures ran:** p5-track (heuristic → weekly-report), p1-audit (/blog/ai-mvp-cost-2026 → audit-report), p6-backlinks (tracker; pulled baseline audit forward), p7-plan (Week 4), p4-optimize (1 code task), p8-explain, p9-notion-push. (p2-keywords skipped — clusters <30 days.)
+- **Code shipped:** `src/pages/blog/[slug].jsx` + `blogDetail.module.css` — `Person` author schema (Organization fallback) + visible byline role + author bio/link. Branch `seo-brain/wk-2026-06-14-authors` (commit 58b6d6e). `npm run build` green; **eslint still cannot run** (broken `eslint-plugin-react` dep). NOT merged — awaiting review + the paired Firestore author task.
+- **Files produced/updated:** `outputs/weekly-report.md`, `audit-report.md`, `backlinks-tracker.md`, `weekly-plan.md`, `weekly-tasks-explained.md`, `optimized-pages.md`.
+- **Notion:** pushed 4 NEW Week-4 tasks (1 schema-aeo/code In-progress, 2 add-blog/human, 1 backlink/human). Did NOT duplicate the existing BigQuery rollover; did NOT trash prior weeks' Done pages.
+- **Last audit:** `2026-06-14` (/blog/ai-mvp-cost-2026 — author/freshness).
 - **Keyword clusters last refreshed:** `2026-06-12`.
 
 ### Deploy verification (2026-06-14, after user deployed dev→prod)
 - ✅ **Blog SEO (Week 2) LIVE & verified:** `/blog` serves `CollectionPage` + `Home›Blog` `BreadcrumbList` + `og:image`=`/og-image.png`; `/blog/ai-mvp-cost-2026` serves `og:type=article` + og:image + NO "WORDS" byline. All confirmed via raw-HTML curl.
 - ✅ **Sitemap fix LIVE & verified** (re-checked 2026-06-14 after redeploy): live `/sitemap.xml` has 0 `<changefreq>`, 0 `<priority>`, static routes `<loc>`-only, blog posts carry real `<lastmod>` (/blog 2026-05-05, ai-mvp-cost-2026 2026-05-05, offshore-team 2026-05-01); 19 URLs. Matches dossier. (Was briefly stale post-deploy — resolved on redeploy.)
 
-### Next run (Week 3) should
-- Step 0: confirm the GSC→BigQuery export got turned on; if GSC now has data, switch p5 to data mode. (Blog SEO + sitemap already verified live 2026-06-14.)
-- Advance roadmap Week 3 — internal linking: SSR "Latest insights" on home, "Related posts" on `blog/[slug]`, "From the blog" on `services/[slug]`, add blockchain+IoT links to `Footer.jsx`.
-- Advance roadmap Week 3 — internal linking: SSR "Latest insights" on home, "Related posts" on `blog/[slug]`, "From the blog" on `services/[slug]`, add blockchain+IoT links to `Footer.jsx`.
+### Next run (Week 5) should
+- Step 0: verify Week-4 outcomes — author code merged/deployed (Rich Results Test shows `Person` once Firestore author objects added), GSC→BigQuery export ON (if so, switch p5 to DATA mode), and check whether `ai-mvp-cost-2026` was republished with a real author. Re-run Step-0 verify on the live author byline.
+- Advance roadmap Week 5 — breadcrumbs site-wide + LocalBusiness/ProfessionalService + entity graph: generalize the Home-only `BreadcrumbList` in `_app.js` into a route-keyed component (services/blog/projects), extend Organization to `["Organization","ProfessionalService"]` with `areaServed`, enrich `sameAs`, extract NAP to a shared constant.
+- If content grew (≥2 topically-relevant posts/service): revisit the DEFERRED internal-link blocks — homepage "Latest insights" + service-page "From the blog" (inventory-gated + bidirectional).
