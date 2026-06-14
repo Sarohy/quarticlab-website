@@ -2,7 +2,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Seo from "@component/Components/CommonComponents/Seo/Seo";
-import { getBlogBySlug } from "@component/firebase/firebaseRequests";
+import {
+  getAllBlogs,
+  getBlogBySlug,
+} from "@component/firebase/firebaseRequests";
 import { SITE_URL } from "@component/utils/siteUrl";
 import styles from "./blogDetail.module.css";
 
@@ -392,7 +395,7 @@ function NewsletterForm({ email, onEmailChange, onSubmit, subStatus }) {
 }
 
 /* ── page ────────────────────────────────── */
-const BlogDetail = ({ fetchStatus, post }) => {
+const BlogDetail = ({ fetchStatus, post, relatedPosts = [] }) => {
   const [email, setEmail] = useState("");
   const [subStatus, setSubStatus] = useState("idle");
   const contentRef = useRef(null);
@@ -615,6 +618,32 @@ const BlogDetail = ({ fetchStatus, post }) => {
             </div>
           )}
 
+          {relatedPosts.length > 0 && (
+            <aside aria-label="Related articles" className={styles.related}>
+              <h2 className={styles.relatedTitle}>Keep reading</h2>
+              <div className={styles.relatedGrid}>
+                {relatedPosts.map(rp => (
+                  <Link
+                    className={styles.relPost}
+                    href={`/blog/${rp.slug}`}
+                    key={rp.slug}
+                  >
+                    <span className={styles.kcat}>{rp.category}</span>
+                    <h3 className={styles.relPostTitle}>{rp.title}</h3>
+                    {rp.metaDescription && (
+                      <p className={styles.relPostExcerpt}>
+                        {rp.metaDescription}
+                      </p>
+                    )}
+                    <span className={styles.relPostMeta}>
+                      {rp.readingTime} min read
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </aside>
+          )}
+
           <div className={styles.endcards}>
             <div className={styles.endc}>
               <div className={styles.who}>
@@ -710,7 +739,46 @@ export async function getServerSideProps(context) {
       publishedAt: serializeTimestamp(post.publishedAt),
       updatedAt: serializeTimestamp(post.updatedAt),
     };
-    return { props: { fetchStatus: "ok", post: serialized } };
+
+    // Related posts: other published posts ranked by shared tags, newest as
+    // tiebreak. Falls back to recent posts when nothing shares a tag so the
+    // block is never empty while there is at least one other article.
+    let relatedPosts = [];
+    try {
+      const all = await getAllBlogs();
+      const currentTags = new Set(
+        (post.tags || []).map(t => String(t).toLowerCase()),
+      );
+      relatedPosts = (all || [])
+        .filter(b => b && b.status === "published" && b.slug && b.slug !== slug)
+        .map(b => ({
+          b,
+          shared: (b.tags || []).filter(t =>
+            currentTags.has(String(t).toLowerCase()),
+          ).length,
+        }))
+        .sort((x, y) => {
+          if (y.shared !== x.shared) {
+            return y.shared - x.shared;
+          }
+          return (
+            new Date(y.b.publishedDate || 0).getTime() -
+            new Date(x.b.publishedDate || 0).getTime()
+          );
+        })
+        .slice(0, 3)
+        .map(({ b }) => ({
+          slug: b.slug,
+          title: b.title || "",
+          metaDescription: b.metaDescription || "",
+          readingTime: b.readingTime || estimateReadTime(b.contentHtml || ""),
+          category: b.category || b.tags?.[0] || "Engineering",
+        }));
+    } catch {
+      relatedPosts = [];
+    }
+
+    return { props: { fetchStatus: "ok", post: serialized, relatedPosts } };
   } catch {
     return { props: { fetchStatus: "error", post: null } };
   }

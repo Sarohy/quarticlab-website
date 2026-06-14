@@ -8,6 +8,8 @@ const FOOTER_SERVICES = [
   { href: "/services/ai-ml-development", text: "AI / ML Development" },
   { href: "/services/web-development", text: "Web Development" },
   { href: "/services/mobile-development", text: "Mobile Apps" },
+  { href: "/services/blockchain-development", text: "Blockchain" },
+  { href: "/services/iot-development", text: "IoT Solutions" },
   { href: "/services/devops", text: "DevOps & Cloud" },
   { href: "/services/ui-ux-design", text: "UI/UX Design" },
 ];
