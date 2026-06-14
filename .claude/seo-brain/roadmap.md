@@ -24,11 +24,11 @@
 - `[x]` `[schema-aeo/code]` Add a `CollectionPage` JSON-LD + `Home › Blog` breadcrumb to `/blog`. — DONE & MERGED.
 - `[x]` `[improve-content/code]` Remove the "X WORDS" byline render in `blog/[slug].jsx` (reading-time kept). — DONE & MERGED.
 
-### [ ] Week 3 — Internal linking (the other half of discoverability)
-- `[fixing/code]` Add an SSR-rendered "Latest insights" block (3–4 related posts by `tags`/`category`) to the homepage `src/pages/index.js`, output in `getServerSideProps`.
-- `[fixing/code]` Add an SSR "Related posts" block to `src/pages/blog/[slug].jsx` (by shared `tags`).
-- `[fixing/code]` Add a "From the blog" cross-link block to `src/pages/services/[slug].jsx` linking to cluster posts for that service (by `category`).
-- `[fixing/code]` Add blockchain + IoT service links to `Footer.jsx` (currently only 6 of 8 services).
+### [~] Week 3 — Internal linking (the other half of discoverability)  (partial 2026-06-14: 2 done, 2 deferred by user)
+- `[deferred]` `[fixing/code]` Add an SSR-rendered "Latest insights" block (3–4 related posts by `tags`/`category`) to the homepage `src/pages/index.js`, output in `getServerSideProps`. — **DEFERRED by user 2026-06-14** pending more content. Research verdict: VALID (discovery hygiene, not a freshness/ranking boost). Revisit once more posts exist.
+- `[x]` `[fixing/code]` Add an SSR "Related posts" block to `src/pages/blog/[slug].jsx` (by shared `tags`). — **DONE** on branch `seo-brain/wk-2026-06-14-internal-links` (commit 1ddbb79). "Keep reading" block, shared-tag ranking, SSR, build green. Awaiting review/merge.
+- `[deferred]` `[fixing/code]` Add a "From the blog" cross-link block to `src/pages/services/[slug].jsx` linking to cluster posts for that service (by `category`). — **DEFERRED by user 2026-06-14**. Research verdict: VALID-but-borderline now (only 2 posts → identical boilerplate sitewide, a devalued anti-pattern). When revisited: inventory-gate (render only when ≥2 topically-relevant posts) AND wire blog→service up-links (the direction that actually lifts the money page). See `outputs/internal-linking-research.md`.
+- `[x]` `[fixing/code]` Add blockchain + IoT service links to `Footer.jsx` (was 6 of 8). — **DONE** on branch `seo-brain/wk-2026-06-14-internal-links` (commit 1ddbb79). All 8 services now footer-linked.
 
 ### [ ] Week 4 — Named authors (E-E-A-T + AEO)
 - `[schema-aeo/code]` In `blog/[slug].jsx` Article JSON-LD (~lines 508–512), replace `author: {"@type":"Organization"}` with a `Person` (`name, url, jobTitle, sameAs:[LinkedIn], worksFor:{"@id": SITE_URL+"/#organization"}`) sourced from a new `author` object on the `blogs` doc; fall back to Organization if absent.

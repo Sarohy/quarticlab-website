@@ -96,7 +96,7 @@ SSR `/sitemap.xml` (16 static routes — **but excludes `/blog` + posts: a top-p
 
 See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema → content engine → steady state). The brain consumes the next un-started roadmap item each week and replaces it with GSC-driven work once data exists.
 
-- **Current roadmap position:** `Week 2 DONE (merged to dev via PR #4, commit 069a043, 2026-06-14; pending deploy + live verify). Next: Week 3 — internal linking. Carryover open: GSC→BigQuery export (measurement, still Not started).`
+- **Current roadmap position:** `Week 3 PARTIAL (2026-06-14): tasks 2 (related-posts on blog/[slug]) + 4 (footer blockchain/IoT links) DONE on branch seo-brain/wk-2026-06-14-internal-links (commit 1ddbb79, awaiting review/merge). Tasks 1 (homepage block) + 3 (service-page block) DEFERRED by user pending more blog content — validated by a 15-agent research workflow (see outputs/internal-linking-research.md). Carryover open: GSC→BigQuery export (measurement, still Not started).`
 
 ---
 
@@ -108,12 +108,20 @@ See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema
 - ✅ [measurement] After deploy: request indexing for /blog + 2 posts — Done.
 - ⬜ [measurement] Turn ON GSC→BigQuery export (Due 06-16) — **STILL OPEN**, rolled into Week 2.
 
-## Pending this week (Week of 2026-06-14 — Week 2, pushed to Notion, Source seo-brain/quarticlab/weekly)
+## Week 3 status (Week of 2026-06-14 — internal linking; NOT pushed to Notion this round — interactive review)
 
-- ✅ [code] Route `blog/[slug].jsx` through `Seo.jsx` (ogImage=heroImage; Article JSON-LD kept) — done on Week-2 branch, awaiting review.
-- ✅ [code] Route `blog/index.js` through `Seo.jsx` + default blog og:image — done on Week-2 branch.
-- ✅ [code] Add `CollectionPage` JSON-LD + Home › Blog breadcrumb to `/blog` — done on Week-2 branch.
-- ✅ [code] Remove the "X WORDS" byline in `blog/[slug].jsx` — done on Week-2 branch.
+- ✅ [code] Related-posts ("Keep reading") block on `blog/[slug].jsx` by shared tags — DONE on branch `seo-brain/wk-2026-06-14-internal-links` (1ddbb79), awaiting review/merge.
+- ✅ [code] Blockchain + IoT links added to `Footer.jsx` (all 8 services) — DONE, same branch.
+- ⏸️ [code] Homepage "Latest insights" block — DEFERRED by user pending more content.
+- ⏸️ [code] Service-page "From the blog" block — DEFERRED by user (only 2 posts → boilerplate risk; needs inventory-gate + bidirectional wiring when revisited).
+- ➡️ **Higher-leverage next move (per research + user decision): publish more cluster blog posts** (roadmap Phase 3 / content queue), THEN revisit tasks 1 & 3.
+
+## Week 2 status (Week of 2026-06-14 — DONE, merged to dev via PR #4, deployed & verified live)
+
+- ✅ [code] Route `blog/[slug].jsx` through `Seo.jsx` (ogImage=heroImage; Article JSON-LD kept).
+- ✅ [code] Route `blog/index.js` through `Seo.jsx` + default blog og:image.
+- ✅ [code] Add `CollectionPage` JSON-LD + Home › Blog breadcrumb to `/blog`.
+- ✅ [code] Remove the "X WORDS" byline in `blog/[slug].jsx`.
 - 🙋 [measurement] Turn ON GSC→BigQuery export (rollover from Week 1, Due 06-16).
 
 ## Content queue
