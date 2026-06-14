@@ -174,7 +174,11 @@ See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema
 - **Last audit:** `2026-06-12` (/blog + blog system).
 - **Keyword clusters last refreshed:** `2026-06-12`.
 
+### Deploy verification (2026-06-14, after user deployed dev→prod)
+- ✅ **Blog SEO (Week 2) LIVE & verified:** `/blog` serves `CollectionPage` + `Home›Blog` `BreadcrumbList` + `og:image`=`/og-image.png`; `/blog/ai-mvp-cost-2026` serves `og:type=article` + og:image + NO "WORDS" byline. All confirmed via raw-HTML curl.
+- ✅ **Sitemap fix LIVE & verified** (re-checked 2026-06-14 after redeploy): live `/sitemap.xml` has 0 `<changefreq>`, 0 `<priority>`, static routes `<loc>`-only, blog posts carry real `<lastmod>` (/blog 2026-05-05, ai-mvp-cost-2026 2026-05-05, offshore-team 2026-05-01); 19 URLs. Matches dossier. (Was briefly stale post-deploy — resolved on redeploy.)
+
 ### Next run (Week 3) should
-- Step 0: Week-2 code is MERGED to `dev` (verified). Still pending: **deploy**, then live verify (Rich Results Test on `/blog` for CollectionPage+Breadcrumb; OG-preview on a post — should show hero image, no "X WORDS"). Confirm the GSC→BigQuery export got turned on; if GSC now has data, switch p5 to data mode.
-- ~~Reconcile the two sitemap implementations~~ — RESOLVED 2026-06-14 (commit `b0da59c` on `dev`): stripped changefreq/priority and the faked uniform lastmod from `dev`'s `sitemap.xml.js`; static routes are `<loc>`-only, posts keep real `<lastmod>`. `dev` now matches the deployed version + dossier.
+- Step 0: confirm the GSC→BigQuery export got turned on; if GSC now has data, switch p5 to data mode. (Blog SEO + sitemap already verified live 2026-06-14.)
+- Advance roadmap Week 3 — internal linking: SSR "Latest insights" on home, "Related posts" on `blog/[slug]`, "From the blog" on `services/[slug]`, add blockchain+IoT links to `Footer.jsx`.
 - Advance roadmap Week 3 — internal linking: SSR "Latest insights" on home, "Related posts" on `blog/[slug]`, "From the blog" on `services/[slug]`, add blockchain+IoT links to `Footer.jsx`.
