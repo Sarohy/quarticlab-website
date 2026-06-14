@@ -1,0 +1,2194 @@
+{
+  "schema": "runtime-signals/1.0",
+  "note": "RAW SIGNALS (seeds), not findings. Confirm each by reading source before reporting.",
+  "url": "http://localhost:3101/",
+  "baseURL": "http://localhost:3101",
+  "profilesRun": [
+    "desktop",
+    "ipad",
+    "phone"
+  ],
+  "generatedNote": "timestamp/commit are stamped by the agent, not the runner",
+  "profiles": [
+    {
+      "profile": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "deviceScaleFactor": 1,
+      "isMobile": false,
+      "reachable": true,
+      "httpStatus": 200,
+      "console": {
+        "errors": [],
+        "warnings": []
+      },
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "hydration": [],
+      "axe": {
+        "violations": [],
+        "error": null
+      },
+      "overflow": [
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 3742,
+          "rectX": 0,
+          "rectWidth": 1440,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 2176,
+          "rectX": 0,
+          "rectWidth": 1440,
+          "position": "static",
+          "text": "Restaurant owners don't have time for complicated software. "
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1)",
+          "tag": "div",
+          "pastViewportPx": 2041,
+          "selfOverflowPx": 0,
+          "rectX": -135,
+          "rectWidth": 3616,
+          "position": "static",
+          "text": "Restaurant owners don't have time for complicated software. "
+        },
+        {
+          "selector": "section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8)",
+          "tag": "article",
+          "pastViewportPx": 2019,
+          "selfOverflowPx": 0,
+          "rectX": 3029,
+          "rectWidth": 430,
+          "position": "static",
+          "text": "They delivered our MVP in 8 weeks, which I was skeptical abo"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > p.landing_tqText__WwP41",
+          "tag": "p",
+          "pastViewportPx": 1988,
+          "selfOverflowPx": 0,
+          "rectX": 3060,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "They delivered our MVP in 8 weeks, which I was skeptical abo"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1",
+          "tag": "footer",
+          "pastViewportPx": 1988,
+          "selfOverflowPx": 0,
+          "rectX": 3060,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "LLuqmanFounderTanero"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > span.landing_tqCo__HUFaL:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 1988,
+          "selfOverflowPx": 0,
+          "rectX": 3379,
+          "rectWidth": 49,
+          "position": "static",
+          "text": "Tanero"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL",
+          "tag": "div",
+          "pastViewportPx": 1724,
+          "selfOverflowPx": 0,
+          "rectX": 3110,
+          "rectWidth": 54,
+          "position": "static",
+          "text": "LuqmanFounder"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > b",
+          "tag": "b",
+          "pastViewportPx": 1724,
+          "selfOverflowPx": 0,
+          "rectX": 3110,
+          "rectWidth": 54,
+          "position": "static",
+          "text": "Luqman"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > span",
+          "tag": "span",
+          "pastViewportPx": 1718,
+          "selfOverflowPx": 0,
+          "rectX": 3110,
+          "rectWidth": 48,
+          "position": "static",
+          "text": "Founder"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > span.landing_tqAvatarFallback__Pduik:nth-of-type(1)",
+          "tag": "span",
+          "pastViewportPx": 1658,
+          "selfOverflowPx": 0,
+          "rectX": 3060,
+          "rectWidth": 38,
+          "position": "static",
+          "text": "L"
+        },
+        {
+          "selector": "section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7)",
+          "tag": "article",
+          "pastViewportPx": 1567,
+          "selfOverflowPx": 0,
+          "rectX": 2577,
+          "rectWidth": 430,
+          "position": "static",
+          "text": "We'd already burned through one dev agency before finding Qu"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > p.landing_tqText__WwP41",
+          "tag": "p",
+          "pastViewportPx": 1536,
+          "selfOverflowPx": 0,
+          "rectX": 2608,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "We'd already burned through one dev agency before finding Qu"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1",
+          "tag": "footer",
+          "pastViewportPx": 1536,
+          "selfOverflowPx": 0,
+          "rectX": 2608,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "JJeremy GlasscoProduct ManagerARN"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > span.landing_tqCo__HUFaL:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 1536,
+          "selfOverflowPx": 0,
+          "rectX": 2952,
+          "rectWidth": 25,
+          "position": "static",
+          "text": "ARN"
+        },
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 1484,
+          "rectX": 0,
+          "rectWidth": 1440,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE",
+          "tag": "div",
+          "pastViewportPx": 1366,
+          "selfOverflowPx": 0,
+          "rectX": -2376,
+          "rectWidth": 5182,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 1366,
+          "selfOverflowPx": 0,
+          "rectX": 215,
+          "rectWidth": 2591,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(27)",
+          "tag": "span",
+          "pastViewportPx": 1366,
+          "selfOverflowPx": 0,
+          "rectX": 2735,
+          "rectWidth": 71,
+          "position": "static",
+          "text": "Unity ·"
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r",
+          "tag": "div",
+          "pastViewportPx": 1335,
+          "selfOverflowPx": 0,
+          "rectX": -149,
+          "rectWidth": 2924,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 1335,
+          "selfOverflowPx": 0,
+          "rectX": 1313,
+          "rectWidth": 1462,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(14)",
+          "tag": "span",
+          "pastViewportPx": 1335,
+          "selfOverflowPx": 0,
+          "rectX": 2634,
+          "rectWidth": 141,
+          "position": "static",
+          "text": "React Native ·"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL",
+          "tag": "div",
+          "pastViewportPx": 1324,
+          "selfOverflowPx": 0,
+          "rectX": 2658,
+          "rectWidth": 106,
+          "position": "static",
+          "text": "Jeremy GlasscoProduct Manager"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > b",
+          "tag": "b",
+          "pastViewportPx": 1324,
+          "selfOverflowPx": 0,
+          "rectX": 2658,
+          "rectWidth": 106,
+          "position": "static",
+          "text": "Jeremy Glassco"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > span",
+          "tag": "span",
+          "pastViewportPx": 1318,
+          "selfOverflowPx": 0,
+          "rectX": 2658,
+          "rectWidth": 100,
+          "position": "static",
+          "text": "Product Manager"
+        },
+        {
+          "selector": "div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(14) > b",
+          "tag": "b",
+          "pastViewportPx": 1315,
+          "selfOverflowPx": 0,
+          "rectX": 2634,
+          "rectWidth": 121,
+          "position": "static",
+          "text": "React Native"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(26)",
+          "tag": "span",
+          "pastViewportPx": 1295,
+          "selfOverflowPx": 0,
+          "rectX": 2634,
+          "rectWidth": 101,
+          "position": "static",
+          "text": "Blender ·"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > span.landing_tqAvatarFallback__Pduik:nth-of-type(1)",
+          "tag": "span",
+          "pastViewportPx": 1206,
+          "selfOverflowPx": 0,
+          "rectX": 2608,
+          "rectWidth": 38,
+          "position": "static",
+          "text": "J"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(13)",
+          "tag": "span",
+          "pastViewportPx": 1194,
+          "selfOverflowPx": 0,
+          "rectX": 2553,
+          "rectWidth": 81,
+          "position": "static",
+          "text": "Swift ·"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(25)",
+          "tag": "span",
+          "pastViewportPx": 1194,
+          "selfOverflowPx": 0,
+          "rectX": 2554,
+          "rectWidth": 81,
+          "position": "static",
+          "text": "Figma ·"
+        }
+      ],
+      "brokenImages": [],
+      "touchTargets": [
+        {
+          "selector": "div.__variable_49a339.__variable_bbcc58 > div.content > header.header_headerContainer__A46g6 > a.header_logoLink__P2r7t:nth-of-type(1)",
+          "tag": "a",
+          "w": 139,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Quartic Lab"
+        },
+        {
+          "selector": "div.content > header.header_headerContainer__A46g6 > nav.header_pagesContainer__ileie.header_headerNav__8sNSl > a.header_pageLabel___Yueu.header_activePage__54KiC:nth-of-type(1)",
+          "tag": "a",
+          "w": 66,
+          "h": 34,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Home"
+        },
+        {
+          "selector": "header.header_headerContainer__A46g6 > nav.header_pagesContainer__ileie.header_headerNav__8sNSl > div.header_dropdownTrigger__n6mZY > a.header_pageLabel___Yueu",
+          "tag": "a",
+          "w": 96,
+          "h": 34,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Services▾"
+        },
+        {
+          "selector": "div.content > header.header_headerContainer__A46g6 > nav.header_pagesContainer__ileie.header_headerNav__8sNSl > a.header_pageLabel___Yueu:nth-of-type(2)",
+          "tag": "a",
+          "w": 87,
+          "h": 34,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Portfolio"
+        },
+        {
+          "selector": "div.content > header.header_headerContainer__A46g6 > nav.header_pagesContainer__ileie.header_headerNav__8sNSl > a.header_pageLabel___Yueu:nth-of-type(3)",
+          "tag": "a",
+          "w": 58,
+          "h": 34,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Blog"
+        },
+        {
+          "selector": "div.content > header.header_headerContainer__A46g6 > nav.header_pagesContainer__ileie.header_headerNav__8sNSl > a.header_pageLabel___Yueu:nth-of-type(4)",
+          "tag": "a",
+          "w": 69,
+          "h": 34,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "About"
+        },
+        {
+          "selector": "div.content > header.header_headerContainer__A46g6 > nav.header_pagesContainer__ileie.header_headerNav__8sNSl > a.header_pageLabel___Yueu:nth-of-type(5)",
+          "tag": "a",
+          "w": 83,
+          "h": 34,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Contact"
+        },
+        {
+          "selector": "div.__variable_49a339.__variable_bbcc58 > div.content > header.header_headerContainer__A46g6 > a.header_ctaButton__9p2dR:nth-of-type(2)",
+          "tag": "a",
+          "w": 164,
+          "h": 41,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "⚡Start a project→"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(1) > a.footer_fBrandLink__UrY9E",
+          "tag": "a",
+          "w": 309,
+          "h": 33,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "QuarticLAB"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Home"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Services"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Portfolio"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Blog"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(5)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "About"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(6)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Contact"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "GenAI & Automation"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "AI / ML Development"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Web Development"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Mobile Apps"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(5)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "DevOps & Cloud"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(6)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "UI/UX Design"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "LinkedIn"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Facebook"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Instagram"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 221,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "YouTube"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(1)",
+          "tag": "a",
+          "w": 46,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Privacy"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(2)",
+          "tag": "a",
+          "w": 37,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Terms"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(3)",
+          "tag": "a",
+          "w": 49,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Cookies"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > button.footer_fLegalBtn__gsPKQ",
+          "tag": "button",
+          "w": 122,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Cookie preferences"
+        },
+        {
+          "selector": "div.cookieConsent_banner__BJOr6 > div.cookieConsent_content__2uBTl:nth-of-type(1) > p.cookieConsent_copy__G73mr:nth-of-type(2) > a",
+          "tag": "a",
+          "w": 90,
+          "h": 18,
+          "belowAA": true,
+          "inlineLinkException": true,
+          "text": "Cookie Policy"
+        }
+      ],
+      "overlaps": [
+        {
+          "a": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(2) > button.landing_pRail__oo_Pc",
+          "b": "div.landing_panel__tmtVR:nth-of-type(2) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "overlapPx": 1369,
+          "aText": "02AI & Machine Learning Solutions",
+          "bText": "EXPLORE →"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(2) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(3) > button.landing_pRail__oo_Pc",
+          "overlapPx": 2306,
+          "aText": "EXPLORE →",
+          "bText": "03Web Development"
+        },
+        {
+          "a": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(3) > button.landing_pRail__oo_Pc",
+          "b": "div.landing_panel__tmtVR:nth-of-type(3) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "overlapPx": 1370,
+          "aText": "03Web Development",
+          "bText": "EXPLORE →"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(3) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(4) > button.landing_pRail__oo_Pc",
+          "overlapPx": 2305,
+          "aText": "EXPLORE →",
+          "bText": "04Mobile App Development"
+        },
+        {
+          "a": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(4) > button.landing_pRail__oo_Pc",
+          "b": "div.landing_panel__tmtVR:nth-of-type(4) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "overlapPx": 1370,
+          "aText": "04Mobile App Development",
+          "bText": "EXPLORE →"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(4) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(5) > button.landing_pRail__oo_Pc",
+          "overlapPx": 2305,
+          "aText": "EXPLORE →",
+          "bText": "05DevOps & Cloud"
+        },
+        {
+          "a": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(5) > button.landing_pRail__oo_Pc",
+          "b": "div.landing_panel__tmtVR:nth-of-type(5) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "overlapPx": 1370,
+          "aText": "05DevOps & Cloud",
+          "bText": "EXPLORE →"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(5) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(6) > button.landing_pRail__oo_Pc",
+          "overlapPx": 2305,
+          "aText": "EXPLORE →",
+          "bText": "06 IoT Development"
+        },
+        {
+          "a": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(6) > button.landing_pRail__oo_Pc",
+          "b": "div.landing_panel__tmtVR:nth-of-type(6) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "overlapPx": 1370,
+          "aText": "06 IoT Development",
+          "bText": "EXPLORE →"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(6) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(7) > button.landing_pRail__oo_Pc",
+          "overlapPx": 2305,
+          "aText": "EXPLORE →",
+          "bText": "07Blockchain Development"
+        },
+        {
+          "a": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(7) > button.landing_pRail__oo_Pc",
+          "b": "div.landing_panel__tmtVR:nth-of-type(7) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "overlapPx": 1370,
+          "aText": "07Blockchain Development",
+          "bText": "EXPLORE →"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(7) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(8) > button.landing_pRail__oo_Pc",
+          "overlapPx": 2305,
+          "aText": "EXPLORE →",
+          "bText": "08UI/UX Design"
+        },
+        {
+          "a": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(8) > button.landing_pRail__oo_Pc",
+          "b": "div.landing_panel__tmtVR:nth-of-type(8) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "overlapPx": 1370,
+          "aText": "08UI/UX Design",
+          "bText": "EXPLORE →"
+        }
+      ],
+      "structure": {
+        "title": "Quartic Lab",
+        "lang": "en",
+        "h1Count": 1,
+        "hasMainLandmark": true,
+        "hasViewportMeta": true,
+        "docScrollWidth": 1440,
+        "viewportWidth": 1440,
+        "pageHorizontalScroll": false
+      },
+      "webVitals": {
+        "lcp": 2460,
+        "cls": 0,
+        "inp": 0,
+        "fcp": 1420,
+        "ttfb": 1339
+      },
+      "screenshot": ".claude/audit/runtime/landing/desktop.png",
+      "error": null
+    },
+    {
+      "profile": "ipad",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "deviceScaleFactor": 2,
+      "isMobile": true,
+      "reachable": true,
+      "httpStatus": 200,
+      "console": {
+        "errors": [],
+        "warnings": []
+      },
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "hydration": [],
+      "axe": {
+        "violations": [],
+        "error": null
+      },
+      "overflow": [
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 4414,
+          "rectX": 0,
+          "rectWidth": 768,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 2848,
+          "rectX": 0,
+          "rectWidth": 768,
+          "position": "static",
+          "text": "Restaurant owners don't have time for complicated software. "
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1)",
+          "tag": "div",
+          "pastViewportPx": 2709,
+          "selfOverflowPx": 0,
+          "rectX": -139,
+          "rectWidth": 3616,
+          "position": "static",
+          "text": "Restaurant owners don't have time for complicated software. "
+        },
+        {
+          "selector": "section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8)",
+          "tag": "article",
+          "pastViewportPx": 2687,
+          "selfOverflowPx": 0,
+          "rectX": 3025,
+          "rectWidth": 430,
+          "position": "static",
+          "text": "They delivered our MVP in 8 weeks, which I was skeptical abo"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > p.landing_tqText__WwP41",
+          "tag": "p",
+          "pastViewportPx": 2656,
+          "selfOverflowPx": 0,
+          "rectX": 3056,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "They delivered our MVP in 8 weeks, which I was skeptical abo"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1",
+          "tag": "footer",
+          "pastViewportPx": 2656,
+          "selfOverflowPx": 0,
+          "rectX": 3056,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "LLuqmanFounderTanero"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > span.landing_tqCo__HUFaL:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 2656,
+          "selfOverflowPx": 0,
+          "rectX": 3375,
+          "rectWidth": 49,
+          "position": "static",
+          "text": "Tanero"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL",
+          "tag": "div",
+          "pastViewportPx": 2392,
+          "selfOverflowPx": 0,
+          "rectX": 3106,
+          "rectWidth": 54,
+          "position": "static",
+          "text": "LuqmanFounder"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > b",
+          "tag": "b",
+          "pastViewportPx": 2392,
+          "selfOverflowPx": 0,
+          "rectX": 3106,
+          "rectWidth": 54,
+          "position": "static",
+          "text": "Luqman"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > span",
+          "tag": "span",
+          "pastViewportPx": 2386,
+          "selfOverflowPx": 0,
+          "rectX": 3106,
+          "rectWidth": 48,
+          "position": "static",
+          "text": "Founder"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > span.landing_tqAvatarFallback__Pduik:nth-of-type(1)",
+          "tag": "span",
+          "pastViewportPx": 2326,
+          "selfOverflowPx": 0,
+          "rectX": 3056,
+          "rectWidth": 38,
+          "position": "static",
+          "text": "L"
+        },
+        {
+          "selector": "section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7)",
+          "tag": "article",
+          "pastViewportPx": 2235,
+          "selfOverflowPx": 0,
+          "rectX": 2573,
+          "rectWidth": 430,
+          "position": "static",
+          "text": "We'd already burned through one dev agency before finding Qu"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > p.landing_tqText__WwP41",
+          "tag": "p",
+          "pastViewportPx": 2204,
+          "selfOverflowPx": 0,
+          "rectX": 2604,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "We'd already burned through one dev agency before finding Qu"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1",
+          "tag": "footer",
+          "pastViewportPx": 2204,
+          "selfOverflowPx": 0,
+          "rectX": 2604,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "JJeremy GlasscoProduct ManagerARN"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > span.landing_tqCo__HUFaL:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 2204,
+          "selfOverflowPx": 0,
+          "rectX": 2948,
+          "rectWidth": 25,
+          "position": "static",
+          "text": "ARN"
+        },
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 2156,
+          "rectX": 0,
+          "rectWidth": 768,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE",
+          "tag": "div",
+          "pastViewportPx": 2044,
+          "selfOverflowPx": 0,
+          "rectX": -2370,
+          "rectWidth": 5182,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 2044,
+          "selfOverflowPx": 0,
+          "rectX": 221,
+          "rectWidth": 2591,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(27)",
+          "tag": "span",
+          "pastViewportPx": 2044,
+          "selfOverflowPx": 0,
+          "rectX": 2742,
+          "rectWidth": 71,
+          "position": "static",
+          "text": "Unity ·"
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r",
+          "tag": "div",
+          "pastViewportPx": 2002,
+          "selfOverflowPx": 0,
+          "rectX": -153,
+          "rectWidth": 2924,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 2002,
+          "selfOverflowPx": 0,
+          "rectX": 1309,
+          "rectWidth": 1462,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(14)",
+          "tag": "span",
+          "pastViewportPx": 2002,
+          "selfOverflowPx": 0,
+          "rectX": 2629,
+          "rectWidth": 141,
+          "position": "static",
+          "text": "React Native ·"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL",
+          "tag": "div",
+          "pastViewportPx": 1992,
+          "selfOverflowPx": 0,
+          "rectX": 2654,
+          "rectWidth": 106,
+          "position": "static",
+          "text": "Jeremy GlasscoProduct Manager"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > b",
+          "tag": "b",
+          "pastViewportPx": 1992,
+          "selfOverflowPx": 0,
+          "rectX": 2654,
+          "rectWidth": 106,
+          "position": "static",
+          "text": "Jeremy Glassco"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > span",
+          "tag": "span",
+          "pastViewportPx": 1986,
+          "selfOverflowPx": 0,
+          "rectX": 2654,
+          "rectWidth": 100,
+          "position": "static",
+          "text": "Product Manager"
+        },
+        {
+          "selector": "div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(14) > b",
+          "tag": "b",
+          "pastViewportPx": 1982,
+          "selfOverflowPx": 0,
+          "rectX": 2629,
+          "rectWidth": 121,
+          "position": "static",
+          "text": "React Native"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(26)",
+          "tag": "span",
+          "pastViewportPx": 1974,
+          "selfOverflowPx": 0,
+          "rectX": 2641,
+          "rectWidth": 101,
+          "position": "static",
+          "text": "Blender ·"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > span.landing_tqAvatarFallback__Pduik:nth-of-type(1)",
+          "tag": "span",
+          "pastViewportPx": 1874,
+          "selfOverflowPx": 0,
+          "rectX": 2604,
+          "rectWidth": 38,
+          "position": "static",
+          "text": "J"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(25)",
+          "tag": "span",
+          "pastViewportPx": 1873,
+          "selfOverflowPx": 0,
+          "rectX": 2560,
+          "rectWidth": 81,
+          "position": "static",
+          "text": "Figma ·"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(13)",
+          "tag": "span",
+          "pastViewportPx": 1861,
+          "selfOverflowPx": 0,
+          "rectX": 2549,
+          "rectWidth": 81,
+          "position": "static",
+          "text": "Swift ·"
+        }
+      ],
+      "brokenImages": [],
+      "touchTargets": [
+        {
+          "selector": "div.__variable_49a339.__variable_bbcc58 > div.content > header.header_headerContainer__A46g6.header_mobileHeader__s9ZgI > a.header_logoLink__P2r7t",
+          "tag": "a",
+          "w": 135,
+          "h": 28,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Quartic Lab"
+        },
+        {
+          "selector": "div.__variable_49a339.__variable_bbcc58 > div.content > header.header_headerContainer__A46g6.header_mobileHeader__s9ZgI > button.header_hamburger__vV_7R",
+          "tag": "button",
+          "w": 38,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Open menu"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(1)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "All Services"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(2)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Web Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(3)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Mobile App Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(4)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Blockchain Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(5)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "IoT Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(6)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "GenAI & Automation"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(8)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "UI/UX Design"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(9)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "DevOps & Cloud"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(1) > a.footer_fBrandLink__UrY9E",
+          "tag": "a",
+          "w": 329,
+          "h": 33,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "QuarticLAB"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Home"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Services"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Portfolio"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Blog"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(5)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "About"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(6)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Contact"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "GenAI & Automation"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "AI / ML Development"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Web Development"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Mobile Apps"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(5)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "DevOps & Cloud"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(6)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "UI/UX Design"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "LinkedIn"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Facebook"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Instagram"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 329,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "YouTube"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(1)",
+          "tag": "a",
+          "w": 46,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Privacy"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(2)",
+          "tag": "a",
+          "w": 37,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Terms"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(3)",
+          "tag": "a",
+          "w": 49,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Cookies"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > button.footer_fLegalBtn__gsPKQ",
+          "tag": "button",
+          "w": 122,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Cookie preferences"
+        },
+        {
+          "selector": "div.cookieConsent_banner__BJOr6:nth-of-type(2) > div.cookieConsent_content__2uBTl:nth-of-type(1) > p.cookieConsent_copy__G73mr:nth-of-type(2) > a",
+          "tag": "a",
+          "w": 90,
+          "h": 18,
+          "belowAA": true,
+          "inlineLinkException": true,
+          "text": "Cookie Policy"
+        }
+      ],
+      "overlaps": [
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(1)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(2)",
+          "overlapPx": 8976,
+          "aText": "All Services",
+          "bText": "03Portfolio"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(2)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(2)",
+          "overlapPx": 4224,
+          "aText": "Web Development",
+          "bText": "03Portfolio"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(2)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(3)",
+          "overlapPx": 4752,
+          "aText": "Web Development",
+          "bText": "04Blog"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(3)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(3)",
+          "overlapPx": 8448,
+          "aText": "Mobile App Development",
+          "bText": "04Blog"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(4)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(4)",
+          "overlapPx": 10032,
+          "aText": "Blockchain Development",
+          "bText": "05About"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(5)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(4)",
+          "overlapPx": 2640,
+          "aText": "IoT Development",
+          "bText": "05About"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(5)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(5)",
+          "overlapPx": 6336,
+          "aText": "IoT Development",
+          "bText": "06Contact"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(6)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(5)",
+          "overlapPx": 6864,
+          "aText": "GenAI & Automation",
+          "bText": "06Contact"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(7)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileCtaButton__ZPK0S:nth-of-type(6)",
+          "overlapPx": 11616,
+          "aText": "AI & Machine Learning Solutions",
+          "bText": "⚡Start a project"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(2) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(4) > button.landing_pRail__oo_Pc",
+          "overlapPx": 4203,
+          "aText": "EXPLORE →",
+          "bText": "04Mobile App Development"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(3) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(5) > button.landing_pRail__oo_Pc",
+          "overlapPx": 2651,
+          "aText": "EXPLORE →",
+          "bText": "05DevOps & Cloud"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(4) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(6) > button.landing_pRail__oo_Pc",
+          "overlapPx": 4203,
+          "aText": "EXPLORE →",
+          "bText": "06 IoT Development"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(5) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(7) > button.landing_pRail__oo_Pc",
+          "overlapPx": 2651,
+          "aText": "EXPLORE →",
+          "bText": "07Blockchain Development"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(6) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(8) > button.landing_pRail__oo_Pc",
+          "overlapPx": 4203,
+          "aText": "EXPLORE →",
+          "bText": "08UI/UX Design"
+        }
+      ],
+      "structure": {
+        "title": "Quartic Lab",
+        "lang": "en",
+        "h1Count": 1,
+        "hasMainLandmark": true,
+        "hasViewportMeta": true,
+        "docScrollWidth": 768,
+        "viewportWidth": 768,
+        "pageHorizontalScroll": false
+      },
+      "webVitals": {
+        "lcp": 2472,
+        "cls": 0,
+        "inp": 0,
+        "fcp": 1452,
+        "ttfb": 1410
+      },
+      "screenshot": ".claude/audit/runtime/landing/ipad.png",
+      "error": null
+    },
+    {
+      "profile": "phone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 3,
+      "isMobile": true,
+      "reachable": true,
+      "httpStatus": 200,
+      "console": {
+        "errors": [],
+        "warnings": []
+      },
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "hydration": [],
+      "axe": {
+        "violations": [],
+        "error": null
+      },
+      "overflow": [
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 4792,
+          "rectX": 0,
+          "rectWidth": 390,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 3226,
+          "rectX": 0,
+          "rectWidth": 390,
+          "position": "static",
+          "text": "Restaurant owners don't have time for complicated software. "
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1)",
+          "tag": "div",
+          "pastViewportPx": 3069,
+          "selfOverflowPx": 0,
+          "rectX": -157,
+          "rectWidth": 3616,
+          "position": "static",
+          "text": "Restaurant owners don't have time for complicated software. "
+        },
+        {
+          "selector": "section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8)",
+          "tag": "article",
+          "pastViewportPx": 3047,
+          "selfOverflowPx": 0,
+          "rectX": 3007,
+          "rectWidth": 430,
+          "position": "static",
+          "text": "They delivered our MVP in 8 weeks, which I was skeptical abo"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > p.landing_tqText__WwP41",
+          "tag": "p",
+          "pastViewportPx": 3016,
+          "selfOverflowPx": 0,
+          "rectX": 3038,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "They delivered our MVP in 8 weeks, which I was skeptical abo"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1",
+          "tag": "footer",
+          "pastViewportPx": 3016,
+          "selfOverflowPx": 0,
+          "rectX": 3038,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "LLuqmanFounderTanero"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > span.landing_tqCo__HUFaL:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 3016,
+          "selfOverflowPx": 0,
+          "rectX": 3357,
+          "rectWidth": 49,
+          "position": "static",
+          "text": "Tanero"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL",
+          "tag": "div",
+          "pastViewportPx": 2752,
+          "selfOverflowPx": 0,
+          "rectX": 3088,
+          "rectWidth": 54,
+          "position": "static",
+          "text": "LuqmanFounder"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > b",
+          "tag": "b",
+          "pastViewportPx": 2752,
+          "selfOverflowPx": 0,
+          "rectX": 3088,
+          "rectWidth": 54,
+          "position": "static",
+          "text": "Luqman"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > span",
+          "tag": "span",
+          "pastViewportPx": 2746,
+          "selfOverflowPx": 0,
+          "rectX": 3088,
+          "rectWidth": 48,
+          "position": "static",
+          "text": "Founder"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(8) > footer.landing_tqFoot__Hvnz1 > span.landing_tqAvatarFallback__Pduik:nth-of-type(1)",
+          "tag": "span",
+          "pastViewportPx": 2686,
+          "selfOverflowPx": 0,
+          "rectX": 3038,
+          "rectWidth": 38,
+          "position": "static",
+          "text": "L"
+        },
+        {
+          "selector": "section.landing_testimonialsSec__gKnYn:nth-of-type(6) > div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7)",
+          "tag": "article",
+          "pastViewportPx": 2595,
+          "selfOverflowPx": 0,
+          "rectX": 2555,
+          "rectWidth": 430,
+          "position": "static",
+          "text": "We'd already burned through one dev agency before finding Qu"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > p.landing_tqText__WwP41",
+          "tag": "p",
+          "pastViewportPx": 2564,
+          "selfOverflowPx": 0,
+          "rectX": 2586,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "We'd already burned through one dev agency before finding Qu"
+        },
+        {
+          "selector": "div.landing_tmwrap__hsWV1.landing_reveal__WkBGj:nth-of-type(2) > div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1",
+          "tag": "footer",
+          "pastViewportPx": 2564,
+          "selfOverflowPx": 0,
+          "rectX": 2586,
+          "rectWidth": 368,
+          "position": "static",
+          "text": "JJeremy GlasscoProduct ManagerARN"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > span.landing_tqCo__HUFaL:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 2564,
+          "selfOverflowPx": 0,
+          "rectX": 2929,
+          "rectWidth": 25,
+          "position": "static",
+          "text": "ARN"
+        },
+        {
+          "selector": "main.layout_main__3UyC_ > div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2)",
+          "tag": "div",
+          "pastViewportPx": 0,
+          "selfOverflowPx": 2534,
+          "rectX": 0,
+          "rectWidth": 390,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE",
+          "tag": "div",
+          "pastViewportPx": 2451,
+          "selfOverflowPx": 0,
+          "rectX": -2341,
+          "rectWidth": 5182,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 2451,
+          "selfOverflowPx": 0,
+          "rectX": 250,
+          "rectWidth": 2591,
+          "position": "static",
+          "text": "OpenAI · LangChain · HuggingFace · TensorFlow · PyTorch · An"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(27)",
+          "tag": "span",
+          "pastViewportPx": 2451,
+          "selfOverflowPx": 0,
+          "rectX": 2771,
+          "rectWidth": 71,
+          "position": "static",
+          "text": "Unity ·"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(26)",
+          "tag": "span",
+          "pastViewportPx": 2381,
+          "selfOverflowPx": 0,
+          "rectX": 2670,
+          "rectWidth": 101,
+          "position": "static",
+          "text": "Blender ·"
+        },
+        {
+          "selector": "div.landing_page__w02VR > section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r",
+          "tag": "div",
+          "pastViewportPx": 2360,
+          "selfOverflowPx": 0,
+          "rectX": -173,
+          "rectWidth": 2924,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "section.landing_techSec___LUB1:nth-of-type(4) > div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2)",
+          "tag": "span",
+          "pastViewportPx": 2360,
+          "selfOverflowPx": 0,
+          "rectX": 1288,
+          "rectWidth": 1462,
+          "position": "static",
+          "text": "React · Next.js · Vue.js · Angular · TailwindCSS · Three.js "
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(14)",
+          "tag": "span",
+          "pastViewportPx": 2360,
+          "selfOverflowPx": 0,
+          "rectX": 2609,
+          "rectWidth": 141,
+          "position": "static",
+          "text": "React Native ·"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL",
+          "tag": "div",
+          "pastViewportPx": 2352,
+          "selfOverflowPx": 0,
+          "rectX": 2636,
+          "rectWidth": 106,
+          "position": "static",
+          "text": "Jeremy GlasscoProduct Manager"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > b",
+          "tag": "b",
+          "pastViewportPx": 2352,
+          "selfOverflowPx": 0,
+          "rectX": 2636,
+          "rectWidth": 106,
+          "position": "static",
+          "text": "Jeremy Glassco"
+        },
+        {
+          "selector": "article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > div.landing_tqWho__CH9bL > span",
+          "tag": "span",
+          "pastViewportPx": 2346,
+          "selfOverflowPx": 0,
+          "rectX": 2636,
+          "rectWidth": 100,
+          "position": "static",
+          "text": "Product Manager"
+        },
+        {
+          "selector": "div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(14) > b",
+          "tag": "b",
+          "pastViewportPx": 2340,
+          "selfOverflowPx": 0,
+          "rectX": 2609,
+          "rectWidth": 121,
+          "position": "static",
+          "text": "React Native"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(3) > div.landing_techMq__IQr4r.landing_techMqRev__PsSSE > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(25)",
+          "tag": "span",
+          "pastViewportPx": 2280,
+          "selfOverflowPx": 0,
+          "rectX": 2589,
+          "rectWidth": 81,
+          "position": "static",
+          "text": "Figma ·"
+        },
+        {
+          "selector": "div.landing_tmrow__0ODo1:nth-of-type(1) > article.landing_tq__x4rjm:nth-of-type(7) > footer.landing_tqFoot__Hvnz1 > span.landing_tqAvatarFallback__Pduik:nth-of-type(1)",
+          "tag": "span",
+          "pastViewportPx": 2234,
+          "selfOverflowPx": 0,
+          "rectX": 2586,
+          "rectWidth": 38,
+          "position": "static",
+          "text": "J"
+        },
+        {
+          "selector": "div.landing_techMqBox__2ugNf:nth-of-type(2) > div.landing_techMq__IQr4r > span.landing_techRun__1NNZ_:nth-of-type(2) > span:nth-of-type(13)",
+          "tag": "span",
+          "pastViewportPx": 2219,
+          "selfOverflowPx": 0,
+          "rectX": 2529,
+          "rectWidth": 81,
+          "position": "static",
+          "text": "Swift ·"
+        }
+      ],
+      "brokenImages": [],
+      "touchTargets": [
+        {
+          "selector": "div.__variable_49a339.__variable_bbcc58 > div.content > header.header_headerContainer__A46g6.header_mobileHeader__s9ZgI > a.header_logoLink__P2r7t",
+          "tag": "a",
+          "w": 135,
+          "h": 28,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Quartic Lab"
+        },
+        {
+          "selector": "div.__variable_49a339.__variable_bbcc58 > div.content > header.header_headerContainer__A46g6.header_mobileHeader__s9ZgI > button.header_hamburger__vV_7R",
+          "tag": "button",
+          "w": 38,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Open menu"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(1)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "All Services"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(2)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Web Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(3)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Mobile App Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(4)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Blockchain Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(5)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "IoT Development"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(6)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "GenAI & Automation"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(8)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "UI/UX Design"
+        },
+        {
+          "selector": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(9)",
+          "tag": "a",
+          "w": 264,
+          "h": 38,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "DevOps & Cloud"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(1) > a.footer_fBrandLink__UrY9E",
+          "tag": "a",
+          "w": 350,
+          "h": 33,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "QuarticLAB"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Home"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Services"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Portfolio"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Blog"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(5)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "About"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(2) > a.footer_fColLink__BHnk9:nth-of-type(6)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Contact"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "GenAI & Automation"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "AI / ML Development"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Web Development"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Mobile Apps"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(5)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "DevOps & Cloud"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(3) > a.footer_fColLink__BHnk9:nth-of-type(6)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "UI/UX Design"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(1)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "LinkedIn"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(2)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Facebook"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(3)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "Instagram"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fGrid__sax3z:nth-of-type(1) > div:nth-of-type(4) > a.footer_fColLink__BHnk9:nth-of-type(4)",
+          "tag": "a",
+          "w": 350,
+          "h": 32,
+          "belowAA": false,
+          "inlineLinkException": false,
+          "text": "YouTube"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(1)",
+          "tag": "a",
+          "w": 46,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Privacy"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(2)",
+          "tag": "a",
+          "w": 37,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Terms"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > a:nth-of-type(3)",
+          "tag": "a",
+          "w": 49,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Cookies"
+        },
+        {
+          "selector": "div.footer_footerInner__UEK93 > div.footer_fBot__EhX59:nth-of-type(2) > span.footer_fLegal__H_s_k:nth-of-type(3) > button.footer_fLegalBtn__gsPKQ",
+          "tag": "button",
+          "w": 122,
+          "h": 17,
+          "belowAA": true,
+          "inlineLinkException": false,
+          "text": "Cookie preferences"
+        },
+        {
+          "selector": "div.cookieConsent_banner__BJOr6:nth-of-type(2) > div.cookieConsent_content__2uBTl:nth-of-type(1) > p.cookieConsent_copy__G73mr:nth-of-type(2) > a",
+          "tag": "a",
+          "w": 90,
+          "h": 18,
+          "belowAA": true,
+          "inlineLinkException": true,
+          "text": "Cookie Policy"
+        }
+      ],
+      "overlaps": [
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(1)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(2)",
+          "overlapPx": 8976,
+          "aText": "All Services",
+          "bText": "03Portfolio"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(2)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(2)",
+          "overlapPx": 4224,
+          "aText": "Web Development",
+          "bText": "03Portfolio"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(2)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(3)",
+          "overlapPx": 4752,
+          "aText": "Web Development",
+          "bText": "04Blog"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(3)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(3)",
+          "overlapPx": 8448,
+          "aText": "Mobile App Development",
+          "bText": "04Blog"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(4)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(4)",
+          "overlapPx": 10032,
+          "aText": "Blockchain Development",
+          "bText": "05About"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(5)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(4)",
+          "overlapPx": 2640,
+          "aText": "IoT Development",
+          "bText": "05About"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(5)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(5)",
+          "overlapPx": 6336,
+          "aText": "IoT Development",
+          "bText": "06Contact"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(6)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileNavLink__hCry6:nth-of-type(5)",
+          "overlapPx": 6864,
+          "aText": "GenAI & Automation",
+          "bText": "06Contact"
+        },
+        {
+          "a": "div.header_mobileDrawerContent__w9SpO > div.header_mobileAccordion__2yTib > div.header_mobileAccordionPanel__17NRC > a.header_mobileSubLink__NmUxT:nth-of-type(7)",
+          "b": "div.content > nav.header_mobileDrawer__rbjnt > div.header_mobileDrawerContent__w9SpO > a.header_mobileCtaButton__ZPK0S:nth-of-type(6)",
+          "overlapPx": 11616,
+          "aText": "AI & Machine Learning Solutions",
+          "bText": "⚡Start a project"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(2) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(5) > button.landing_pRail__oo_Pc",
+          "overlapPx": 1743,
+          "aText": "EXPLORE →",
+          "bText": "05DevOps & Cloud"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(2) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(6) > button.landing_pRail__oo_Pc",
+          "overlapPx": 1313,
+          "aText": "EXPLORE →",
+          "bText": "06 IoT Development"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(3) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(6) > button.landing_pRail__oo_Pc",
+          "overlapPx": 4203,
+          "aText": "EXPLORE →",
+          "bText": "06 IoT Development"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(4) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_container__76NTj > div.landing_panels__HG4N8.landing_reveal__WkBGj:nth-of-type(2) > div.landing_panel__tmtVR:nth-of-type(7) > button.landing_pRail__oo_Pc",
+          "overlapPx": 2770,
+          "aText": "EXPLORE →",
+          "bText": "07Blockchain Development"
+        },
+        {
+          "a": "div.landing_panel__tmtVR:nth-of-type(5) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "b": "div.landing_panel__tmtVR:nth-of-type(6) > div.landing_pBody__FFl5y > div.landing_pContent__6R90O:nth-of-type(2) > a.landing_pLink__gNrsG",
+          "overlapPx": 1863,
+          "aText": "EXPLORE →",
+          "bText": "EXPLORE →"
+        }
+      ],
+      "structure": {
+        "title": "Quartic Lab",
+        "lang": "en",
+        "h1Count": 1,
+        "hasMainLandmark": true,
+        "hasViewportMeta": true,
+        "docScrollWidth": 390,
+        "viewportWidth": 390,
+        "pageHorizontalScroll": false
+      },
+      "webVitals": {
+        "lcp": 3040,
+        "cls": 0,
+        "inp": 0,
+        "fcp": 1532,
+        "ttfb": 1491
+      },
+      "screenshot": ".claude/audit/runtime/landing/phone.png",
+      "error": null
+    }
+  ]
+}

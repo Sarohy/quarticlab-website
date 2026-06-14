@@ -2,6 +2,9 @@
   /* ── Quartic Lab · Oxford + Copper ─────────── */
   --ql-copper: oklch(58% 0.12 45);
   --ql-copper-dk: oklch(48% 0.11 42);
+  /* lighter copper for small text / dark-button fills on dark surfaces so it
+     clears WCAG 4.5:1 (--ql-copper lands at ~4.2:1 on the navy backgrounds) */
+  --ql-copper-on-dark: oklch(72% 0.13 52);
   --ql-parchment: oklch(88% 0.03 70);
   --ql-linen: oklch(95% 0.018 75);
   --ql-oxford: oklch(20% 0.05 255);
@@ -96,7 +99,9 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  /* clip (not hidden) so it doesn't create a scroll container that
+     would break position:sticky in sections like the work stack */
+  overflow-x: clip;
 }
 
 body {

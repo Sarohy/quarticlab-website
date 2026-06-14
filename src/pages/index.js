@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import Seo from "@component/Components/CommonComponents/Seo/Seo";
-import QuarticMark from "@component/Components/CommonComponents/QuarticMark";
 import ClientSvg1 from "../../public/assets/HomeIcons/clients/nick-angelov.png";
 import ClientSvg2 from "../../public/assets/HomeIcons/clients/theresa.png";
 import ClientSvg3 from "../../public/assets/HomeIcons/clients/rishi.png";
@@ -12,7 +11,6 @@ import ClientSvg5 from "../../public/assets/HomeIcons/clients/tony-malik.png";
 import ClientSvg6 from "../../public/assets/HomeIcons/clients/tommy.png";
 import {
   SERVICE_ICON_BY_SLUG,
-  SERVICE_ICON_MAP,
   WebDevIcon,
 } from "@component/Components/CommonComponents/ServiceIcons";
 import AnthropicIcon from "../../public/assets/serviceIcons/anthropic.svg";
@@ -57,7 +55,6 @@ import TypeScriptIcon from "../../public/assets/serviceIcons/typescript.svg";
 import UnityIcon from "../../public/assets/serviceIcons/unityIcon.svg";
 import VueIcon from "../../public/assets/serviceIcons/vue.svg";
 import ZapierIcon from "../../public/assets/serviceIcons/zapier.svg";
-import CountrySelect from "@component/Components/CommonComponents/CountrySelect/CountrySelect";
 import {
   getAllProjects,
   getAllReviews,
@@ -65,12 +62,11 @@ import {
   submitContactForm,
 } from "@component/firebase/firebaseRequests";
 import { hasFunctionalConsent, useConsent } from "@component/utils/consent";
+import COUNTRIES from "@component/utils/countries";
 import styles from "../styles/landing.module.css";
 import { SITE_URL } from "@component/utils/siteUrl";
 
 /* ── data ────────────────────────────────────────── */
-
-const serviceIconMap = SERVICE_ICON_MAP;
 
 const slugMap = {
   "Web Development": "web-development",
@@ -518,8 +514,75 @@ const HOME_FAQS = [
   },
 ];
 
-/* ── hero word cycle ────────────────────────────────── */
-const HERO_WORDS = ["ships.", "scales.", "delivers."];
+/* ── hero copy ──────────────────────────────────────── */
+const HERO_KICKER =
+  "FULL-STACK SOFTWARE AGENCY · EST. 2020 · LAHORE → WORLDWIDE";
+const HERO_STRIP = [
+  "50+ PROJECTS SHIPPED",
+  "12H ESTIMATES",
+  "2-WEEK SPRINTS",
+  "30D FREE SUPPORT",
+];
+
+/* ── how we work (process) ──────────────────────────── */
+const PROCESS_STEPS = [
+  {
+    num: "NODE 01 — DESIGN",
+    lead: "Scope it like it’s ",
+    em: "ours.",
+    desc:
+      "A senior engineer — not a sales rep — reads your brief and returns a" +
+      " scope, timeline, and cost breakdown within 12 hours. Weeks one and two" +
+      " cover architecture, design, and the sprint plan.",
+    rows: [
+      ["Estimate turnaround", "12 hours"],
+      ["First response", "< 4 hours"],
+      ["Deliverable", "scope · timeline · cost"],
+    ],
+  },
+  {
+    num: "NODE 02 — BUILD",
+    lead: "Two-week sprints, ",
+    em: "weekly demos.",
+    desc:
+      "Fixed-scope sprints billed weekly — not by the hour — so the cost is" +
+      " known before work begins. Every Friday you see a working demo, not a" +
+      " status report.",
+    rows: [
+      ["Sprint length", "2 weeks"],
+      ["Demo cadence", "every Friday"],
+      ["Billing", "fixed-scope, weekly"],
+    ],
+  },
+  {
+    num: "NODE 03 — SHIP",
+    lead: "Production is the ",
+    em: "finish line.",
+    desc:
+      "In-house QA, code review, and a dedicated PM are baked into every pod." +
+      " A scoped MVP ships in 6–12 weeks; AI-heavy builds trend toward" +
+      " 10–14.",
+    rows: [
+      ["MVP timeline", "6–12 weeks"],
+      ["QA & review", "built into the pod"],
+      ["Deploy", "production, not staging"],
+    ],
+  },
+  {
+    num: "NODE 04 — SCALE",
+    lead: "We stay after ",
+    em: "launch.",
+    desc:
+      "Every launch is backed by 30 days of free support, with a daily overlap" +
+      " window for US East Coast and full EU coverage for syncs, reviews, and" +
+      " demos.",
+    rows: [
+      ["Post-launch support", "30 days free"],
+      ["US overlap", "4–5 h daily"],
+      ["EU overlap", "full day"],
+    ],
+  },
+];
 
 /* ── page ────────────────────────────────────────── */
 
@@ -597,20 +660,19 @@ export default function LandingPage({
       {/* ─── SERVICES ─────────────────────────── */}
       <ServicesSection services={services} servicesError={servicesError} />
 
-      {/* ─── ABOUT ────────────────────────────── */}
-      <AboutSection />
+      {/* ─── HOW WE WORK ──────────────────────── */}
+      <ProcessSection />
 
       {/* ─── PROJECTS ─────────────────────────── */}
       <ProjectsSection projects={projects} projectsError={projectsError} />
 
+      {/* ─── TECH ─────────────────────────────── */}
+      <TechSection />
       {/* ─── STATS ────────────────────────────── */}
       <StatsSection />
 
       {/* ─── TESTIMONIALS ─────────────────────── */}
       <TestimonialsSection testimonials={testimonials} />
-
-      {/* ─── TECH ─────────────────────────────── */}
-      <TechSection />
 
       {/* ─── FAQ ──────────────────────────────── */}
       <FaqSection />
@@ -624,105 +686,330 @@ export default function LandingPage({
 /* ── sections ────────────────────────────────────── */
 
 function HeroSection() {
-  const [wordIdx, setWordIdx] = useState(0);
-  const [fading, setFading] = useState(false);
+  const canvasRef = useRef(null);
+  const kickerRef = useRef(null);
+  const headlineRef = useRef(null);
 
+  /* ── node-network canvas ── */
   useEffect(() => {
-    let tid;
-    const id = setInterval(() => {
-      setFading(true);
-      tid = setTimeout(() => {
-        setWordIdx(i => (i + 1) % HERO_WORDS.length);
-        setFading(false);
-      }, 350);
-    }, 3200);
+    const cv = canvasRef.current;
+    if (!cv) {
+      return;
+    }
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const ctx = cv.getContext("2d");
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    const parent = cv.parentElement;
+    const mouse = { x: -9999, y: -9999 };
+    const INK = "rgba(35,42,62,";
+    const COPPER = "rgba(166,106,56,";
+    const LINK = 130;
+    let W = 0;
+    let H = 0;
+    let pts = [];
+    let raf = 0;
+    let rT = null;
+    let visible = true;
+
+    const size = () => {
+      const r = parent.getBoundingClientRect();
+      W = r.width;
+      H = r.height;
+      cv.width = W * DPR;
+      cv.height = H * DPR;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      const n = Math.min(90, Math.floor((W * H) / 16000));
+      pts = [];
+      for (let i = 0; i < n; i++) {
+        pts.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.32,
+          vy: (Math.random() - 0.5) * 0.32,
+          r: 1.4 + Math.random() * 1.8,
+        });
+      }
+    };
+    size();
+
+    const onResize = () => {
+      clearTimeout(rT);
+      rT = setTimeout(size, 200);
+    };
+    const onMove = e => {
+      const r = cv.getBoundingClientRect();
+      mouse.x = e.clientX - r.left;
+      mouse.y = e.clientY - r.top;
+    };
+    const onLeave = () => {
+      mouse.x = -9999;
+      mouse.y = -9999;
+    };
+    window.addEventListener("resize", onResize);
+    parent.addEventListener("mousemove", onMove);
+    parent.addEventListener("mouseleave", onLeave);
+    const io = new IntersectionObserver(es => {
+      visible = es[0].isIntersecting;
+    });
+    io.observe(cv);
+
+    if (reduced) {
+      ctx.clearRect(0, 0, W, H);
+      pts.forEach(p => {
+        ctx.fillStyle = INK + "0.45)";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 7);
+        ctx.fill();
+      });
+    } else {
+      const step = () => {
+        raf = requestAnimationFrame(step);
+        if (!visible) {
+          return;
+        }
+        ctx.clearRect(0, 0, W, H);
+        for (let i = 0; i < pts.length; i++) {
+          const p = pts[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > W) {
+            p.vx *= -1;
+          }
+          if (p.y < 0 || p.y > H) {
+            p.vy *= -1;
+          }
+          const dxm = mouse.x - p.x;
+          const dym = mouse.y - p.y;
+          const dm = Math.hypot(dxm, dym);
+          if (dm < 160 && dm > 0.001) {
+            p.x += (dxm / dm) * 0.5;
+            p.y += (dym / dm) * 0.5;
+          }
+        }
+        for (let a = 0; a < pts.length; a++) {
+          for (let b = a + 1; b < pts.length; b++) {
+            const dx = pts[a].x - pts[b].x;
+            const dy = pts[a].y - pts[b].y;
+            const d = Math.hypot(dx, dy);
+            if (d < LINK) {
+              ctx.strokeStyle = COPPER + 0.4 * (1 - d / LINK) + ")";
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(pts[a].x, pts[a].y);
+              ctx.lineTo(pts[b].x, pts[b].y);
+              ctx.stroke();
+            }
+          }
+        }
+        for (let j = 0; j < pts.length; j++) {
+          const q = pts[j];
+          ctx.fillStyle = INK + "0.55)";
+          ctx.beginPath();
+          ctx.arc(q.x, q.y, q.r, 0, 7);
+          ctx.fill();
+        }
+      };
+      step();
+    }
+
     return () => {
-      clearInterval(id);
-      clearTimeout(tid);
+      cancelAnimationFrame(raf);
+      clearTimeout(rT);
+      window.removeEventListener("resize", onResize);
+      parent.removeEventListener("mousemove", onMove);
+      parent.removeEventListener("mouseleave", onLeave);
+      io.disconnect();
     };
   }, []);
 
+  /* ── scramble kicker ── */
+  useEffect(() => {
+    const el = kickerRef.current;
+    if (!el) {
+      return;
+    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.textContent = HERO_KICKER;
+      return;
+    }
+    const glyphs = "◆#/\\+×—·01";
+    const total = 46;
+    let frame = 0;
+    let tid = null;
+    const tick = () => {
+      let out = "";
+      for (let i = 0; i < HERO_KICKER.length; i++) {
+        const threshold = (i / HERO_KICKER.length) * total * 0.8;
+        out +=
+          frame > threshold
+            ? HERO_KICKER[i]
+            : HERO_KICKER[i] === " "
+              ? " "
+              : glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+      el.textContent = out;
+      if (frame++ < total) {
+        tid = setTimeout(tick, 34);
+      } else {
+        el.textContent = HERO_KICKER;
+      }
+    };
+    tick();
+    return () => clearTimeout(tid);
+  }, []);
+
+  /* ── char-split headline ── */
+  useEffect(() => {
+    const node = headlineRef.current;
+    if (!node) {
+      return;
+    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+    const timers = [];
+    const split = n => {
+      Array.prototype.slice.call(n.childNodes).forEach(k => {
+        if (k.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          // Split on whitespace but keep words intact: each word becomes a
+          // nowrap inline-block so the per-char spans can never break mid-word.
+          k.textContent.split(/(\s+)/).forEach(part => {
+            if (!part) {
+              return;
+            }
+            if (/^\s+$/.test(part)) {
+              frag.appendChild(document.createTextNode(part));
+              return;
+            }
+            const word = document.createElement("span");
+            word.className = styles.heroWord;
+            part.split("").forEach(c => {
+              const s = document.createElement("span");
+              s.className = styles.heroChar;
+              s.textContent = c;
+              word.appendChild(s);
+            });
+            frag.appendChild(word);
+          });
+          n.replaceChild(frag, k);
+        } else if (k.nodeType === 1) {
+          split(k);
+        }
+      });
+    };
+    split(node);
+    node.querySelectorAll(`.${styles.heroChar}`).forEach((c, i) => {
+      timers.push(
+        setTimeout(() => c.classList.add(styles.heroCharIn), 350 + i * 26),
+      );
+    });
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
   return (
-    <section className={styles.hero}>
-      <div className={styles.heroBg} />
-      <div className={styles.heroInner}>
-        <div className={styles.heroText}>
-          <span className={styles.heroBadge}>Quartic Lab</span>
-          <h1 className={styles.heroH1}>
-            Software that{" "}
-            <span
-              className={`${styles.heroAccentWord} ${
-                fading ? styles.heroAccentFading : ""
-              }`}
-            >
-              {HERO_WORDS[wordIdx]}
-            </span>
-            <span className={styles.heroCursor} /> Teams that{" "}
-            <span className={styles.heroAccent}>stay.</span>
-          </h1>
+    <header className={styles.hero}>
+      <canvas aria-hidden="true" className={styles.heroNet} ref={canvasRef} />
+      <div className={`${styles.container} ${styles.heroInner}`}>
+        <span className={styles.heroKicker} ref={kickerRef}>
+          &nbsp;
+        </span>
+        <h1 className={styles.heroH1} ref={headlineRef}>
+          <span className={styles.heroLine}>
+            Software that <em>ships.</em>
+          </span>
+          <span className={styles.heroLine}>
+            Teams that <em>stay.</em>
+          </span>
+        </h1>
+        <div className={styles.heroFoot}>
           <p className={styles.heroSub}>
-            A full-stack software agency building web, mobile, and AI products
-            for startups and enterprises. One senior team, shipping since 2020,
-            zero handoff overhead.
+            Web, mobile, and AI products for startups and enterprises —
+            designed, built, and deployed by one senior team with zero handoff
+            overhead.
           </p>
           <div className={styles.heroCtas}>
             <Link className={styles.btnHeroPrimary} href="/contact">
-              Start a project
+              Start a project <span className={styles.heroArr}>→</span>
             </Link>
             <Link className={styles.btnHeroOutline} href="/projects">
-              View our work
+              View work
             </Link>
-          </div>
-        </div>
-        <div className={styles.heroVisual}>
-          <div className={styles.heroLogoRing}>
-            <div className={styles.orbitRing1} />
-            <div className={styles.orbitRing2} />
-            <div className={styles.pulsePing} />
-            <QuarticMark animated size={260} />
           </div>
         </div>
       </div>
-      <div className={styles.heroWave} />
-    </section>
+      <div aria-hidden="true" className={styles.heroStrip}>
+        {HERO_STRIP.map(s => (
+          <span key={s}>{s}</span>
+        ))}
+      </div>
+    </header>
   );
 }
 
 function ServicesSection({ services, servicesError }) {
+  const [active, setActive] = useState(0);
   return (
     <section className={styles.services} id="services">
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Services</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Multiple disciplines. One team. Zero handoff overhead.
-          </h2>
+        <div className={styles.servicesHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              Services
+            </span>
+            <h2 className={styles.servicesTitle}>
+              Multiple disciplines. One team. <em>Zero handoff.</em>
+            </h2>
+          </div>
+          <p className={`${styles.servicesLead} ${styles.reveal}`}>
+            Every engagement runs through a single senior pod — strategy,
+            design, engineering, and deployment under one roof. Select a
+            discipline to expand it.
+          </p>
         </div>
         {servicesError ? (
-          <p style={{ color: "#ef5350", textAlign: "center" }}>
+          <p style={{ color: "#b3261e", textAlign: "center" }}>
             Unable to load services right now. Please try again later.
           </p>
         ) : (
-          <div className={styles.servicesGrid}>
+          <div className={`${styles.panels} ${styles.reveal}`}>
             {services.map((s, i) => {
-              const Icon =
-                SERVICE_ICON_BY_SLUG[s.slug] ||
-                serviceIconMap[s.title] ||
-                WebDevIcon;
+              const num = String(i + 1).padStart(2, "0");
+              const on = active === i;
+              const Icon = SERVICE_ICON_BY_SLUG[s.slug] || WebDevIcon;
               return (
-                <Link
-                  className={`${styles.serviceCard} ${styles.reveal}`}
-                  href={s.href}
+                <div
+                  className={`${styles.panel} ${on ? styles.panelOn : ""}`}
                   key={s.title}
-                  style={{ transitionDelay: `${i * 70}ms` }}
                 >
-                  <div className={styles.serviceIconWrap}>
-                    <Icon size={56} />
+                  <button
+                    aria-expanded={on}
+                    aria-label={`Expand ${s.title}`}
+                    className={styles.pRail}
+                    onClick={() => setActive(i)}
+                    type="button"
+                  >
+                    <span className={styles.pIx}>{num}</span>
+                    <span className={styles.pVt}>{s.title}</span>
+                    <span className={styles.pDot} />
+                  </button>
+                  <div className={styles.pBody}>
+                    <span className={styles.pIx2}>QL/{num}</span>
+                    <div aria-hidden="true" className={styles.pVisual}>
+                      <Icon size={132} />
+                    </div>
+                    <div className={styles.pContent}>
+                      <h3 className={styles.pTitle}>{s.title}</h3>
+                      <p className={styles.pDesc}>{s.desc}</p>
+                      <Link className={styles.pLink} href={s.href}>
+                        EXPLORE →
+                      </Link>
+                    </div>
                   </div>
-                  <h3 className={styles.serviceCardTitle}>{s.title}</h3>
-                  <p className={styles.serviceCardDesc}>{s.desc}</p>
-                  <span className={styles.serviceLink}>Learn More →</span>
-                </Link>
+                </div>
               );
             })}
           </div>
@@ -737,821 +1024,273 @@ function ServicesSection({ services, servicesError }) {
   );
 }
 
-/* ── About illustration — a researcher at a workstation
-   Minimal line-art figure, oxford structure, copper accents.
-   CSS keyframe animations injected via <style> tag inside SVG. ── */
-function AboutDoodle() {
+function ProcessSection() {
+  const secRef = useRef(null);
+  const drawRef = useRef(null);
+  const nodeRefs = useRef([]);
+  const stepRefs = useRef([]);
+
+  useEffect(() => {
+    const sec = secRef.current;
+    const draw = drawRef.current;
+    if (!sec || !draw) {
+      return;
+    }
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const LEN = 760;
+    const thresholds = [0.16, 0.42, 0.68, 0.94];
+    const ON = "oklch(48% 0.11 42)";
+    const OFF_FILL = "#eee8dc";
+    const OFF_STROKE = "oklch(20% 0.05 255)";
+    draw.style.strokeDasharray = LEN;
+    draw.style.strokeDashoffset = LEN;
+
+    const upd = () => {
+      const r = sec.getBoundingClientRect();
+      const vh = window.innerHeight;
+      let p = (vh * 0.65 - r.top) / r.height;
+      p = Math.max(0, Math.min(1, p));
+      if (reduced) {
+        p = 1;
+      }
+      draw.style.strokeDashoffset = LEN * (1 - p);
+      nodeRefs.current.forEach((n, i) => {
+        if (!n) {
+          return;
+        }
+        const hit = p >= thresholds[i];
+        n.setAttribute("fill", hit ? ON : OFF_FILL);
+        n.setAttribute("stroke", hit ? ON : OFF_STROKE);
+        const step = stepRefs.current[i];
+        // Latch: once a step is revealed it stays fully readable (a11y --
+        // never drop text back to the 0.25-opacity inactive state on scroll-up).
+        if (step && hit) {
+          step.classList.add(styles.pstepOn);
+        }
+      });
+    };
+    window.addEventListener("scroll", upd, { passive: true });
+    window.addEventListener("resize", upd);
+    upd();
+    return () => {
+      window.removeEventListener("scroll", upd);
+      window.removeEventListener("resize", upd);
+    };
+  }, []);
+
   return (
-    <svg
-      aria-hidden="true"
-      className={styles.aboutDoodle}
-      fill="none"
-      focusable="false"
-      viewBox="0 0 420 400"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <style>{`
-          @keyframes ql-blink {
-            0%, 45% { opacity: 1; }
-            50%, 95% { opacity: 0; }
-            100% { opacity: 1; }
-          }
-          @keyframes ql-type {
-            0%   { stroke-dashoffset: 60; }
-            100% { stroke-dashoffset: 0; }
-          }
-          @keyframes ql-line-appear {
-            from { opacity: 0; transform: translateX(-4px); }
-            to   { opacity: 1; transform: translateX(0); }
-          }
-          @keyframes ql-float {
-            0%, 100% { transform: translateY(0px); }
-            50%      { transform: translateY(-4px); }
-          }
-          @keyframes ql-arm-type {
-            0%, 100% { transform: rotate(0deg); }
-            25%      { transform: rotate(-2deg); }
-            75%      { transform: rotate(2deg); }
-          }
-          @keyframes ql-glow-pulse {
-            0%, 100% { opacity: 0.18; }
-            50%      { opacity: 0.35; }
-          }
-          @keyframes ql-node-ping {
-            0%   { r: 3; opacity: 0.8; }
-            100% { r: 10; opacity: 0; }
-          }
-          .ql-float-group {
-            animation: ql-float 4s ease-in-out infinite;
-            transform-origin: 210px 190px;
-          }
-          .ql-arm-l {
-            animation: ql-arm-type 0.42s ease-in-out infinite;
-            transform-origin: 188px 270px;
-          }
-          .ql-arm-r {
-            animation: ql-arm-type 0.42s ease-in-out infinite reverse;
-            transform-origin: 232px 270px;
-          }
-          .ql-cursor {
-            animation: ql-blink 1.1s step-end infinite;
-          }
-          .ql-code-l1 {
-            animation: ql-line-appear 0.35s ease-out 0.2s both;
-          }
-          .ql-code-l2 {
-            animation: ql-line-appear 0.35s ease-out 0.6s both;
-          }
-          .ql-code-l3 {
-            animation: ql-line-appear 0.35s ease-out 1.0s both;
-          }
-          .ql-code-l4 {
-            animation: ql-line-appear 0.35s ease-out 1.4s both;
-          }
-          .ql-code-l5 {
-            animation: ql-line-appear 0.35s ease-out 1.8s both;
-          }
-          .ql-screen-glow {
-            animation: ql-glow-pulse 2.8s ease-in-out infinite;
-          }
-          .ql-ping {
-            animation: ql-node-ping 1.8s ease-out infinite;
-          }
-        `}</style>
-      </defs>
-
-      {/* ── faint background grid ── */}
-      {Array.from({ length: 7 }, (_, row) =>
-        Array.from({ length: 9 }, (_, col) => (
-          <circle
-            cx={30 + col * 46}
-            cy={30 + row * 52}
-            fill="oklch(20% 0.05 255)"
-            key={`g-${row}-${col}`}
-            opacity="0.05"
-            r="1.5"
-          />
-        )),
-      )}
-
-      {/* ── desk surface ── */}
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="12"
-        rx="2"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.2"
-        width="280"
-        x="70"
-        y="318"
-      />
-      {/* desk legs */}
-      <line
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.5"
-        x1="100"
-        x2="100"
-        y1="330"
-        y2="358"
-      />
-      <line
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.5"
-        x1="320"
-        x2="320"
-        y1="330"
-        y2="358"
-      />
-
-      {/* ── monitor stand ── */}
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="8"
-        rx="1"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1"
-        width="36"
-        x="192"
-        y="310"
-      />
-      <line
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.2"
-        x1="210"
-        x2="210"
-        y1="296"
-        y2="318"
-      />
-
-      {/* ── monitor frame ── */}
-      <rect
-        fill="oklch(14% 0.04 255)"
-        height="130"
-        rx="3"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.5"
-        width="192"
-        x="114"
-        y="164"
-      />
-      {/* screen bezel inset */}
-      <rect
-        fill="oklch(16% 0.045 255)"
-        height="114"
-        rx="2"
-        width="176"
-        x="122"
-        y="172"
-      />
-
-      {/* ── screen ambient glow ── */}
-      <rect
-        className="ql-screen-glow"
-        fill="oklch(58% 0.12 45)"
-        height="114"
-        rx="2"
-        width="176"
-        x="122"
-        y="172"
-      />
-
-      {/* ── code lines on screen ── */}
-      <g clipPath="url(#screenClip)" fontFamily="IBM Plex Mono, monospace">
-        <clipPath id="screenClip">
-          <rect height="114" rx="2" width="176" x="122" y="172" />
-        </clipPath>
-
-        {/* prompt line */}
-        <text
-          className="ql-code-l1"
-          fill="oklch(58% 0.12 45)"
-          fontSize="8.5"
-          x="132"
-          y="190"
-        >
-          ▸ quartic.init(config)
-        </text>
-        <text
-          className="ql-code-l2"
-          fill="oklch(75% 0.04 255)"
-          fontSize="8.5"
-          opacity="0.7"
-          x="132"
-          y="204"
-        >
-          &nbsp;&nbsp;loading modules...
-        </text>
-        <text
-          className="ql-code-l3"
-          fill="oklch(58% 0.12 45)"
-          fontSize="8.5"
-          opacity="0.9"
-          x="132"
-          y="218"
-        >
-          ✓ inference v2.4
-        </text>
-        <text
-          className="ql-code-l4"
-          fill="oklch(58% 0.12 45)"
-          fontSize="8.5"
-          opacity="0.9"
-          x="132"
-          y="232"
-        >
-          ✓ simulation v1.9
-        </text>
-        <text
-          className="ql-code-l5"
-          fill="oklch(75% 0.04 255)"
-          fontSize="8.5"
-          opacity="0.6"
-          x="132"
-          y="246"
-        >
-          &nbsp;&nbsp;pipeline ready
-        </text>
-
-        {/* blinking cursor */}
-        <rect
-          className="ql-cursor"
-          fill="oklch(58% 0.12 45)"
-          height="10"
-          width="6"
-          x="132"
-          y="255"
-        />
-      </g>
-
-      {/* ── floating person group (gentle up/down bob) ── */}
-      <g className="ql-float-group">
-        {/* torso */}
-        <rect
-          fill="oklch(88% 0.03 70)"
-          height="62"
-          rx="6"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="1.4"
-          width="50"
-          x="185"
-          y="255"
-        />
-
-        {/* neck */}
-        <rect
-          fill="oklch(88% 0.03 70)"
-          height="10"
-          rx="2"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="1"
-          width="14"
-          x="203"
-          y="246"
-        />
-
-        {/* head */}
-        <ellipse
-          cx="210"
-          cy="232"
-          fill="oklch(88% 0.03 70)"
-          rx="20"
-          ry="22"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="1.4"
-        />
-
-        {/* hair — short strokes */}
-        <path
-          d="M192 226 C192 208 228 208 228 226"
-          fill="oklch(20% 0.05 255)"
-          opacity="0.75"
-        />
-
-        {/* eyes */}
-        <ellipse cx="203" cy="231" fill="oklch(20% 0.05 255)" rx="2" ry="2.5" />
-        <ellipse cx="217" cy="231" fill="oklch(20% 0.05 255)" rx="2" ry="2.5" />
-        {/* glasses */}
-        <rect
-          fill="none"
-          height="7"
-          rx="1.5"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1.1"
-          width="12"
-          x="197"
-          y="227"
-        />
-        <rect
-          fill="none"
-          height="7"
-          rx="1.5"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1.1"
-          width="12"
-          x="211"
-          y="227"
-        />
-        <line
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-          x1="209"
-          x2="211"
-          y1="230.5"
-          y2="230.5"
-        />
-        {/* glasses side arms */}
-        <line
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-          x1="197"
-          x2="192"
-          y1="230.5"
-          y2="230.5"
-        />
-        <line
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-          x1="223"
-          x2="228"
-          y1="230.5"
-          y2="230.5"
-        />
-
-        {/* left arm (typing) */}
-        <g className="ql-arm-l">
-          <path
-            d="M187 268 L166 290 L158 308"
-            stroke="oklch(20% 0.05 255)"
-            strokeLinecap="round"
-            strokeWidth="5"
-          />
-          {/* hand */}
-          <ellipse
-            cx="155"
-            cy="311"
-            fill="oklch(88% 0.03 70)"
-            rx="7"
-            ry="5"
-            stroke="oklch(20% 0.05 255)"
-            strokeWidth="1"
-          />
-        </g>
-
-        {/* right arm (typing) */}
-        <g className="ql-arm-r">
-          <path
-            d="M233 268 L254 290 L262 308"
-            stroke="oklch(20% 0.05 255)"
-            strokeLinecap="round"
-            strokeWidth="5"
-          />
-          {/* hand */}
-          <ellipse
-            cx="265"
-            cy="311"
-            fill="oklch(88% 0.03 70)"
-            rx="7"
-            ry="5"
-            stroke="oklch(20% 0.05 255)"
-            strokeWidth="1"
-          />
-        </g>
-      </g>
-
-      {/* ── keyboard ── */}
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="14"
-        rx="2"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1"
-        width="100"
-        x="160"
-        y="308"
-      />
-      {/* key rows */}
-      {[0, 1, 2, 3, 4].map(i => (
-        <rect
-          fill="oklch(80% 0.025 70)"
-          height="4"
-          key={i}
-          rx="1"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="0.5"
-          width="12"
-          x={167 + i * 16}
-          y="312"
-        />
-      ))}
-      {[0, 1, 2, 3].map(i => (
-        <rect
-          fill="oklch(80% 0.025 70)"
-          height="4"
-          key={i}
-          rx="1"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="0.5"
-          width="12"
-          x={175 + i * 16}
-          y="318"
-        />
-      ))}
-
-      {/* ── floating thought bubbles (concept nodes) ── */}
-      {/* bubble 1 — data */}
-      <g
-        style={{
-          animation: "ql-float 3.6s ease-in-out 0.4s infinite",
-          transformOrigin: "80px 180px",
-        }}
-      >
-        <circle
-          cx="80"
-          cy="180"
-          fill="oklch(95% 0.018 75)"
-          r="28"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 2"
-          strokeWidth="1"
-        />
-        <text
-          dominantBaseline="middle"
-          fill="oklch(58% 0.12 45)"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="7.5"
-          fontWeight="600"
-          letterSpacing="1.5"
-          textAnchor="middle"
-          x="80"
-          y="178"
-        >
-          DATA
-        </text>
-        <text
-          dominantBaseline="middle"
-          fill="oklch(20% 0.05 255)"
-          fontFamily="Space Grotesk, sans-serif"
-          fontSize="7"
-          opacity="0.5"
-          textAnchor="middle"
-          x="80"
-          y="190"
-        >
-          pipeline
-        </text>
-        {/* ping ring */}
-        <circle
-          className="ql-ping"
-          cx="80"
-          cy="180"
-          fill="none"
-          r="3"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-        />
-        {/* connecting dashed line to figure */}
-        <line
-          opacity="0.2"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 3"
-          strokeWidth="1"
-          x1="108"
-          x2="180"
-          y1="180"
-          y2="220"
-        />
-      </g>
-
-      {/* bubble 2 — model */}
-      <g
-        style={{
-          animation: "ql-float 4.2s ease-in-out 1.2s infinite",
-          transformOrigin: "350px 200px",
-        }}
-      >
-        <circle
-          cx="350"
-          cy="200"
-          fill="oklch(95% 0.018 75)"
-          r="28"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1.2"
-        />
-        <text
-          dominantBaseline="middle"
-          fill="oklch(58% 0.12 45)"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="7.5"
-          fontWeight="600"
-          letterSpacing="1.5"
-          textAnchor="middle"
-          x="350"
-          y="197"
-        >
-          MODEL
-        </text>
-        <text
-          dominantBaseline="middle"
-          fill="oklch(20% 0.05 255)"
-          fontFamily="Space Grotesk, sans-serif"
-          fontSize="7"
-          opacity="0.5"
-          textAnchor="middle"
-          x="350"
-          y="209"
-        >
-          v2.4
-        </text>
-        <circle
-          className="ql-ping"
-          cx="350"
-          cy="200"
-          fill="none"
-          r="3"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-          style={{ animationDelay: "0.9s" }}
-        />
-        <line
-          opacity="0.2"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 3"
-          strokeWidth="1"
-          x1="322"
-          x2="248"
-          y1="200"
-          y2="224"
-        />
-      </g>
-
-      {/* bubble 3 — ship */}
-      <g
-        style={{
-          animation: "ql-float 3.0s ease-in-out 2.1s infinite",
-          transformOrigin: "340px 100px",
-        }}
-      >
-        <circle
-          cx="340"
-          cy="100"
-          fill="oklch(95% 0.018 75)"
-          r="24"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 2"
-          strokeWidth="1"
-        />
-        <text
-          dominantBaseline="middle"
-          fill="oklch(58% 0.12 45)"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="7.5"
-          fontWeight="600"
-          letterSpacing="1.5"
-          textAnchor="middle"
-          x="340"
-          y="98"
-        >
-          SHIP
-        </text>
-        <text
-          dominantBaseline="middle"
-          fill="oklch(20% 0.05 255)"
-          fontFamily="Space Grotesk, sans-serif"
-          fontSize="7"
-          opacity="0.5"
-          textAnchor="middle"
-          x="340"
-          y="110"
-        >
-          deploy
-        </text>
-      </g>
-
-      {/* ── foot annotation ── */}
-      <text
-        fill="oklch(20% 0.05 255)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="8.5"
-        letterSpacing="1.5"
-        opacity="0.2"
-        textAnchor="end"
-        x="416"
-        y="392"
-      >
-        quartic lab · researcher in session
-      </text>
-    </svg>
-  );
-}
-
-function AboutSection() {
-  return (
-    <section className={styles.about}>
-      <div className={`${styles.container} ${styles.aboutInner}`}>
-        <div className={`${styles.aboutText} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>About Quartic Lab</span>
-          <h2 className={styles.sectionTitle}>
-            A senior team that embeds like in-house engineers
-          </h2>
-          <p className={styles.aboutDesc}>
-            Founded in 2020, Quartic Lab is a full-service software agency
-            shipping web, mobile, and AI products for clients across the US,
-            Europe, and MENA. We work in 2-week sprints with weekly demos,
-            deliver 12-hour estimates on every new brief, and back every launch
-            with 30 days of free support.
+    <section className={styles.process} id="process" ref={secRef}>
+      <div className={styles.container}>
+        <div className={styles.servicesHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              How we work
+            </span>
+            <h2 className={styles.servicesTitle}>
+              Four nodes. <em>One line.</em>
+            </h2>
+          </div>
+          <p className={`${styles.servicesLead} ${styles.reveal}`}>
+            Our mark is four connected nodes — and so is every engagement. The
+            line below draws itself as you scroll through the way we ship.
           </p>
-          <Link className={styles.btnPrimary} href="/about">
-            Learn more
-          </Link>
         </div>
-        <div className={`${styles.aboutVisual} ${styles.reveal}`}>
-          <AboutDoodle />
+        <div className={styles.procGrid}>
+          <div aria-hidden="true" className={styles.procLine}>
+            <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 64 800">
+              <line
+                stroke="oklch(20% 0.05 255 / 0.14)"
+                strokeWidth="1.5"
+                x1="32"
+                x2="32"
+                y1="20"
+                y2="780"
+              />
+              <line
+                ref={drawRef}
+                stroke="oklch(48% 0.11 42)"
+                strokeWidth="1.5"
+                x1="32"
+                x2="32"
+                y1="20"
+                y2="780"
+              />
+              {[120, 320, 520, 720].map((cy, i) => (
+                <circle
+                  cx="32"
+                  cy={cy}
+                  fill="#eee8dc"
+                  key={cy}
+                  r="7"
+                  ref={el => {
+                    nodeRefs.current[i] = el;
+                  }}
+                  stroke="oklch(20% 0.05 255)"
+                  strokeWidth="1.6"
+                />
+              ))}
+            </svg>
+          </div>
+          <div className={styles.procSteps}>
+            {PROCESS_STEPS.map((s, i) => (
+              <div
+                className={styles.pstep}
+                key={s.num}
+                ref={el => {
+                  stepRefs.current[i] = el;
+                }}
+              >
+                <div>
+                  <span className={styles.psNum}>{s.num}</span>
+                  <h3 className={styles.psTitle}>
+                    {s.lead}
+                    <em>{s.em}</em>
+                  </h3>
+                  <p className={styles.psDesc}>{s.desc}</p>
+                </div>
+                <div className={styles.psCard}>
+                  {s.rows.map(([label, val]) => (
+                    <div className={styles.psRow} key={label}>
+                      <span>{label}</span>
+                      <b>{val}</b>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function ProjectCard({ p }) {
-  return (
-    <div className={styles.projectCard}>
-      <div className={styles.projectImgWrap}>
-        {p.image ? (
-          <Image
-            alt={`${p.title}${
-              p.types?.length ? ` — ${p.types[0]} project` : ""
-            } by Quartic Lab`}
-            className={styles.projectImg}
-            fill
-            sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
-            src={p.image}
-          />
-        ) : (
-          <div className={styles.projectImgPlaceholder} />
-        )}
-      </div>
-      <div className={styles.projectBody}>
-        <h3 className={styles.projectTitle}>{p.title}</h3>
-        <p className={styles.projectDesc}>{p.desc}</p>
-      </div>
-    </div>
-  );
-}
-
-const CAROUSEL_VISIBLE = 2;
-const CAROUSEL_STEP = 2;
-
 function ProjectsSection({ projects, projectsError }) {
-  const total = projects.length;
+  const stackRef = useRef(null);
+  const featured = projects.slice(0, 6);
 
-  // Build looped array: [lastN clones, ...real, firstN clones]
-  const looped =
-    total > 0
-      ? [
-          ...projects.slice(-CAROUSEL_VISIBLE),
-          ...projects,
-          ...projects.slice(0, CAROUSEL_VISIBLE),
-        ]
-      : [];
-
-  // idx starts at CAROUSEL_VISIBLE = first real slide
-  const [idx, setIdx] = useState(CAROUSEL_VISIBLE);
-  const [noTransition, setNoTransition] = useState(false);
-  const [paused, setPaused] = useState(false);
-  const intervalRef = useRef(null);
-
-  // Auto-advance — just keep incrementing; clone detection handles wrap
+  /* sticky-stacking: each card scales/dims as the next rises over it */
   useEffect(() => {
-    if (!total || total <= CAROUSEL_VISIBLE) {
+    const root = stackRef.current;
+    if (!root) {
       return;
     }
-    if (paused) {
-      clearInterval(intervalRef.current);
+    const cards = Array.prototype.slice.call(
+      root.querySelectorAll(`.${styles.wcard}`),
+    );
+    if (!cards.length) {
       return;
     }
-    intervalRef.current = setInterval(() => {
-      setIdx(i => i + CAROUSEL_STEP);
-    }, 4000);
-    return () => clearInterval(intervalRef.current);
-  }, [paused, total]);
-
-  // After instant-jump render, re-enable transition on the next paint
-  useEffect(() => {
-    if (!noTransition) {
-      return;
-    }
-    const raf = requestAnimationFrame(() => {
-      requestAnimationFrame(() => setNoTransition(false));
+    const TOP = 100;
+    cards.forEach((c, i) => {
+      c.style.top = `${TOP + i * 16}px`;
     });
-    return () => cancelAnimationFrame(raf);
-  }, [noTransition]);
-
-  // When CSS transition ends, detect clone zone and teleport seamlessly
-  const handleTransitionEnd = () => {
-    if (idx >= total + CAROUSEL_VISIBLE) {
-      setNoTransition(true);
-      setIdx(CAROUSEL_VISIBLE);
-    } else if (idx < CAROUSEL_VISIBLE) {
-      setNoTransition(true);
-      setIdx(total);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
     }
-  };
-
-  const prev = () => setIdx(i => i - CAROUSEL_STEP);
-  const next = () => setIdx(i => i + CAROUSEL_STEP);
-
-  const translateX = `translateX(calc(-${idx} * (100% / ${CAROUSEL_VISIBLE})))`;
-
-  const dotCount = Math.ceil(total / CAROUSEL_STEP);
-  const realIdx = (((idx - CAROUSEL_VISIBLE) % total) + total) % total;
-  const activeDot = Math.floor(realIdx / CAROUSEL_STEP) % dotCount;
+    const upd = () => {
+      cards.forEach((c, i) => {
+        if (i === cards.length - 1) {
+          return;
+        }
+        const next = cards[i + 1];
+        const r = next.getBoundingClientRect();
+        const myTop = TOP + i * 16;
+        const rMe = c.getBoundingClientRect();
+        if (rMe.top <= myTop + 1) {
+          const t = Math.max(
+            0,
+            Math.min(1, (myTop + rMe.height - r.top) / rMe.height),
+          );
+          c.style.transform = `scale(${1 - t * 0.05})`;
+          c.style.filter = `brightness(${1 - t * 0.25})`;
+        } else {
+          c.style.transform = "";
+          c.style.filter = "";
+        }
+      });
+    };
+    window.addEventListener("scroll", upd, { passive: true });
+    window.addEventListener("resize", upd);
+    upd();
+    return () => {
+      window.removeEventListener("scroll", upd);
+      window.removeEventListener("resize", upd);
+    };
+  }, [projects]);
 
   return (
-    <section className={styles.projectsSec}>
+    <section className={styles.work} id="work">
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Portfolio</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Selected work
-          </h2>
+        <div className={styles.servicesHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              Selected work
+            </span>
+            <h2 className={styles.servicesTitle}>
+              Built here. <em>Running out there.</em>
+            </h2>
+          </div>
+          <p className={`${styles.servicesLead} ${styles.reveal}`}>
+            A few of the 50+ products we&apos;ve taken from brief to production.
+            Cards stack as you scroll.
+          </p>
         </div>
         {projectsError ? (
-          <p style={{ color: "#ef5350", textAlign: "center" }}>
+          <p style={{ color: "#b3261e", textAlign: "center" }}>
             Unable to load projects right now. Please try again later.
           </p>
         ) : (
-          <>
-            <div
-              aria-label="Selected projects"
-              aria-live="polite"
-              aria-roledescription="carousel"
-              className={styles.projectCarousel}
-              onMouseEnter={() => setPaused(true)}
-              onMouseLeave={() => setPaused(false)}
-              role="region"
-            >
-              <div
-                className={styles.projectTrack}
-                onTransitionEnd={handleTransitionEnd}
-                style={{
-                  transform: translateX,
-                  transition: noTransition ? "none" : undefined,
-                }}
-              >
-                {looped.map((p, i) => {
-                  const isClone =
-                    i < CAROUSEL_VISIBLE || i >= total + CAROUSEL_VISIBLE;
-                  return (
-                    <div
-                      aria-hidden={isClone || undefined}
-                      className={styles.projectSlide}
-                      key={i}
-                    >
-                      <ProjectCard p={p} />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {total > CAROUSEL_VISIBLE && (
-              <div className={styles.carouselControls}>
-                <button
-                  aria-label="Previous projects"
-                  className={styles.carouselBtn}
-                  onClick={prev}
-                >
-                  &#8592;
-                </button>
-                <div className={styles.carouselDots}>
-                  {Array.from({ length: dotCount }, (_, i) => (
-                    <button
-                      aria-label={`Go to page ${i + 1}`}
-                      className={`${styles.dot} ${
-                        i === activeDot ? styles.dotActive : ""
-                      }`}
-                      key={i}
-                      onClick={() =>
-                        setIdx(CAROUSEL_VISIBLE + i * CAROUSEL_STEP)
-                      }
-                    />
-                  ))}
-                </div>
-                <button
-                  aria-label="Next projects"
-                  className={styles.carouselBtn}
-                  onClick={next}
-                >
-                  &#8594;
-                </button>
-              </div>
+          <div className={styles.wstack} ref={stackRef}>
+            {featured.length === 0 && (
+              <p style={{ textAlign: "center", opacity: 0.7 }}>
+                Selected work is on its way. Meanwhile, see the full portfolio.
+              </p>
             )}
-          </>
+            {featured.map(p => (
+              <article className={styles.wcard} key={p.title}>
+                <div className={styles.shot}>
+                  {p.image ? (
+                    <Image
+                      alt={`${p.title}${
+                        p.types?.length ? ` — ${p.types[0]} project` : ""
+                      } by Quartic Lab`}
+                      className={styles.shotImg}
+                      fill
+                      sizes="(max-width: 900px) 100vw, 55vw"
+                      src={p.image}
+                    />
+                  ) : (
+                    <div className={styles.shotPlaceholder} />
+                  )}
+                </div>
+                <div className={styles.wcBody}>
+                  <span className={styles.wcTag}>
+                    {p.types?.length ? p.types.join(" · ") : "Selected work"}
+                  </span>
+                  <h3 className={styles.wcTitle}>{p.title}</h3>
+                  <p className={styles.wcDesc}>{p.desc}</p>
+                  {p.types?.length > 0 && (
+                    <div className={styles.wcMeta}>
+                      {p.types.map(t => (
+                        <div key={t}>
+                          <b>{t}</b>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
         )}
-        <div className={styles.servicesCta}>
-          <Link className={styles.btnOutline} href="/projects">
-            View all projects
+        <div className={styles.workCta}>
+          <Link className={styles.btnHeroPrimary} href="/projects">
+            View all projects <span className={styles.heroArr}>→</span>
           </Link>
         </div>
       </div>
@@ -1581,6 +1320,13 @@ function StatCard({ stat, delay }) {
             e.target.classList.add(styles.visible);
             if (!started.current) {
               started.current = true;
+              if (
+                window.matchMedia("(prefers-reduced-motion: reduce)").matches
+              ) {
+                setCount(stat.target);
+                obs.unobserve(e.target);
+                return;
+              }
               const duration = 2000;
               const target = stat.target;
               const startTime = performance.now();
@@ -1636,11 +1382,16 @@ function StatsSection() {
     <section className={styles.statsSec}>
       <div className={styles.statsBgDots} />
       <div className={styles.container}>
-        <div className={styles.statsHeader}>
-          <span className={styles.sectionTag}>Why Quartic Lab</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Numbers that speak for themselves
-          </h2>
+        <div className={styles.servicesHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              Why Quartic Lab
+            </span>
+            <h2 className={styles.servicesTitle}>
+              Numbers that <em>speak for themselves</em>
+            </h2>
+          </div>
         </div>
         <div className={styles.statsGrid}>
           {stats.map((s, i) => (
@@ -1652,112 +1403,79 @@ function StatsSection() {
   );
 }
 
+function TestimonialCard({ hidden, t }) {
+  const avatar = t.avatarUrl || t.img;
+  return (
+    <article aria-hidden={hidden || undefined} className={styles.tq}>
+      <p className={styles.tqText}>{t.text}</p>
+      <footer className={styles.tqFoot}>
+        {avatar ? (
+          <Image
+            alt={hidden ? "" : t.name}
+            className={styles.tqAvatar}
+            height={38}
+            src={avatar}
+            width={38}
+          />
+        ) : (
+          <span aria-hidden="true" className={styles.tqAvatarFallback}>
+            {t.name ? t.name.charAt(0).toUpperCase() : "?"}
+          </span>
+        )}
+        <div className={styles.tqWho}>
+          <b>{t.name}</b>
+          {t.position && <span>{t.position}</span>}
+        </div>
+        {t.company && <span className={styles.tqCo}>{t.company}</span>}
+      </footer>
+    </article>
+  );
+}
+
+function MarqueeRow({ items, keyPrefix, reversed }) {
+  return (
+    <div className={`${styles.tmrow} ${reversed ? styles.tmrowRev : ""}`}>
+      {items.map(t => (
+        <TestimonialCard key={`${keyPrefix}-${t.name}`} t={t} />
+      ))}
+      {items.map(t => (
+        <TestimonialCard hidden key={`${keyPrefix}-dup-${t.name}`} t={t} />
+      ))}
+    </div>
+  );
+}
+
 function TestimonialsSection({ testimonials }) {
-  const [active, setActive] = useState(0);
-  const intervalRef = useRef(null);
-
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setActive(prev => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(intervalRef.current);
-  }, []);
-
-  const goTo = idx => {
-    clearInterval(intervalRef.current);
-    setActive(idx);
-    intervalRef.current = setInterval(() => {
-      setActive(prev => (prev + 1) % testimonials.length);
-    }, 5000);
-  };
+  const mid = Math.ceil(testimonials.length / 2);
+  const rowA = testimonials.slice(0, mid);
+  const rowBRaw = testimonials.slice(mid);
+  const rowB = rowBRaw.length ? rowBRaw : rowA;
 
   return (
-    <section className={styles.testimonialsSec}>
+    <section className={styles.testimonialsSec} id="testimonials">
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Testimonials</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            What clients say about us
-          </h2>
+        <div className={styles.servicesHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              Testimonials
+            </span>
+            <h2 className={styles.servicesTitle}>
+              In their <em>own words</em>
+            </h2>
+          </div>
         </div>
-        <div className={styles.testimonialCarousel}>
-          {testimonials.map((t, i) => (
-            <div
-              className={`${styles.testimonialCard} ${
-                i === active ? styles.testimonialActive : ""
-              }`}
-              key={t.name}
-            >
-              <span aria-hidden="true" className={styles.testimonialQuoteMark}>
-                &ldquo;
-              </span>
-              <div aria-label="5 stars" className={styles.testimonialStars}>
-                {[1, 2, 3, 4, 5].map(s => (
-                  <span className={styles.testimonialStar} key={s}>
-                    ★
-                  </span>
-                ))}
-              </div>
-              <p className={styles.testimonialText}>{t.text}</p>
-              <div className={styles.testimonialAuthor}>
-                {t.avatarUrl || t.img ? (
-                  <Image
-                    alt={t.name}
-                    className={styles.testimonialAvatar}
-                    height={48}
-                    src={t.avatarUrl || t.img}
-                    width={48}
-                  />
-                ) : (
-                  <div className={styles.testimonialAvatarFallback}>
-                    {t.name ? t.name.charAt(0).toUpperCase() : "?"}
-                  </div>
-                )}
-                <div className={styles.testimonialAuthorInfo}>
-                  <span className={styles.testimonialName}>{t.name}</span>
-                  {t.position && (
-                    <span className={styles.testimonialPosition}>
-                      {t.position}
-                    </span>
-                  )}
-                </div>
-                {t.companyLogoUrl ? (
-                  <Image
-                    alt={t.company || "Company logo"}
-                    className={styles.testimonialCompanyLogo}
-                    height={28}
-                    src={t.companyLogoUrl}
-                    width={80}
-                  />
-                ) : (
-                  t.company && (
-                    <span className={styles.testimonialCompanyBadge}>
-                      {t.company}
-                    </span>
-                  )
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+      </div>
+      <div className={`${styles.tmwrap} ${styles.reveal}`}>
+        <MarqueeRow items={rowA} keyPrefix="a" reversed={false} />
+        <MarqueeRow items={rowB} keyPrefix="b" reversed />
+      </div>
+      <div className={styles.container}>
         <div
-          aria-label="Testimonial navigation"
-          className={styles.testimonialDots}
-          role="tablist"
+          aria-label="Clutch reviews"
+          className={styles.clutchBadgeInline}
+          role="group"
         >
-          {testimonials.map((t, i) => (
-            <button
-              aria-current={i === active ? "true" : undefined}
-              aria-label={`Show testimonial ${i + 1} of ${testimonials.length}`}
-              className={`${styles.dot} ${
-                i === active ? styles.dotActive : ""
-              }`}
-              key={t.name}
-              onClick={() => goTo(i)}
-            />
-          ))}
-        </div>
-        <div aria-label="Clutch reviews" className={styles.clutchBadgeInline}>
           <div
             className="clutch-widget"
             data-clutchcompany-id="1461075"
@@ -1774,36 +1492,62 @@ function TestimonialsSection({ testimonials }) {
   );
 }
 
-function TechSection() {
-  const allLogos = techCategories.flatMap(cat => cat.items);
-  const track = allLogos.map(t => (
-    <div className={styles.techItem} key={t.name}>
-      <div className={styles.techItemIconWrap}>
-        <Image
-          alt={t.name}
-          className={styles.techItemIcon}
-          height={48}
-          src={t.src}
-          style={{ height: "auto", maxHeight: "48px", width: "auto" }}
-          width={48}
-        />
-      </div>
-      <span className={styles.techItemLabel}>{t.name}</span>
-    </div>
-  ));
+const TECH_HIGHLIGHT = new Set([
+  "Next.js",
+  "TypeScript",
+  "Python",
+  "React Native",
+  "Anthropic",
+  "CrewAI",
+  "AWS",
+  "Kubernetes",
+]);
+
+const techNamesFor = labels =>
+  techCategories
+    .filter(c => labels.includes(c.label))
+    .flatMap(c => c.items.map(it => it.name));
+
+function TechRow({ names, reversed }) {
+  const run = () =>
+    names.map((n, i) => (
+      <span key={`${n}-${i}`}>
+        {TECH_HIGHLIGHT.has(n) ? <b>{n}</b> : n}
+        {" · "}
+      </span>
+    ));
   return (
-    <section className={styles.techSec}>
-      <div className={styles.container}>
-        <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
+    <div className={styles.techMqBox}>
+      <div className={`${styles.techMq} ${reversed ? styles.techMqRev : ""}`}>
+        <span className={styles.techRun}>{run()}</span>
+        <span aria-hidden="true" className={styles.techRun}>
+          {run()}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function TechSection() {
+  const row1 = techNamesFor(["Frontend", "Backend", "Mobile"]);
+  const row2 = techNamesFor([
+    "AI / ML",
+    "Automation",
+    "Blockchain",
+    "Cloud & DevOps",
+    "Data",
+    "Creative",
+  ]);
+  return (
+    <section aria-label="Technologies we work with" className={styles.techSec}>
+      <div className={`${styles.container} ${styles.techHead}`}>
+        <span className={`${styles.eyebrow} ${styles.reveal}`}>
+          <i />
           Technologies we work with
-        </h2>
+        </span>
       </div>
-      <div className={styles.techMarquee}>
-        <div className={styles.techTrack}>{track}</div>
-        <div aria-hidden="true" className={styles.techTrack}>
-          {track}
-        </div>
-      </div>
+      <TechRow names={row1} reversed={false} />
+      <TechRow names={row2} reversed />
     </section>
   );
 }
@@ -1970,53 +1714,48 @@ function FaqSection() {
   return (
     <section className={styles.faqSec} id="faq">
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>FAQ</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Common questions
+        <div className={styles.faqHead}>
+          <span className={`${styles.eyebrow} ${styles.reveal}`}>
+            <i />
+            FAQ
+          </span>
+          <h2 className={`${styles.servicesTitle} ${styles.reveal}`}>
+            Common <em>questions</em>
           </h2>
         </div>
         <div className={styles.faqList}>
-          {HOME_FAQS.map((faq, i) => (
-            <div
-              className={`${styles.faqItem} ${
-                openIdx === i ? styles.faqItemOpen : ""
-              }`}
-              key={faq.q}
-            >
-              <button
-                aria-controls={`home-faq-answer-${i}`}
-                aria-expanded={openIdx === i}
-                className={styles.faqQuestion}
-                onClick={() => setOpenIdx(openIdx === i ? null : i)}
-                onKeyDown={e => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    setOpenIdx(openIdx === i ? null : i);
-                  }
-                }}
-              >
-                {faq.q}
-                <span
-                  aria-hidden="true"
-                  className={`${styles.faqChevron} ${
-                    openIdx === i ? styles.faqChevronOpen : ""
-                  }`}
-                >
-                  &#9660;
-                </span>
-              </button>
+          {HOME_FAQS.map((faq, i) => {
+            const open = openIdx === i;
+            return (
               <div
-                className={`${styles.faqAnswer} ${
-                  openIdx === i ? styles.faqAnswerOpen : ""
+                className={`${styles.faqItem} ${
+                  open ? styles.faqItemOpen : ""
                 }`}
-                id={`home-faq-answer-${i}`}
-                role="region"
+                key={faq.q}
               >
-                <p className={styles.faqAnswerText}>{faq.a}</p>
+                <button
+                  aria-controls={`home-faq-answer-${i}`}
+                  aria-expanded={open}
+                  className={styles.faqQuestion}
+                  onClick={() => setOpenIdx(open ? null : i)}
+                >
+                  {faq.q}
+                  <span aria-hidden="true" className={styles.faqIcon}>
+                    +
+                  </span>
+                </button>
+                <div
+                  className={`${styles.faqAnswer} ${
+                    open ? styles.faqAnswerOpen : ""
+                  }`}
+                  id={`home-faq-answer-${i}`}
+                  role="region"
+                >
+                  <p className={styles.faqAnswerText}>{faq.a}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -2102,137 +1841,133 @@ function ContactSection() {
 
   return (
     <section className={styles.contactSec} id="contact">
-      <div className={`${styles.container} ${styles.contactInner}`}>
-        <div className={`${styles.contactInfo} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>Start your project</span>
-          <h2 className={styles.sectionTitle}>
-            Get a scope, timeline, and cost breakdown in 12 hours.
+      <div className={`${styles.container} ${styles.ctaGrid}`}>
+        <div className={`${styles.ctaInfo} ${styles.reveal}`}>
+          <span className={styles.eyebrow}>
+            <i />
+            Start your project
+          </span>
+          <h2 className={styles.ctaTitle}>
+            Get a scope, timeline, and cost breakdown in <em>12 hours.</em>
           </h2>
-          <p className={styles.contactDesc}>
-            Share a few details about your idea. A senior engineer (not a sales
-            rep) will respond within 4 hours with next steps.
+          <p className={styles.ctaLead}>
+            Share a few details about your idea. A senior engineer — not a sales
+            rep — responds within 4 hours with next steps.
           </p>
         </div>
         <form
-          className={`${styles.contactForm} ${styles.reveal}`}
+          className={`${styles.cform} ${styles.reveal}`}
           onSubmit={handleSubmit}
         >
           {alertMsg && (
-            <InlineAlert
-              onClose={() => setAlertMsg(null)}
-              severity={alertMsg.severity}
-            >
-              {alertMsg.message}
-            </InlineAlert>
+            <div className={styles.fldFull}>
+              <InlineAlert
+                onClose={() => setAlertMsg(null)}
+                severity={alertMsg.severity}
+              >
+                {alertMsg.message}
+              </InlineAlert>
+            </div>
           )}
-          <div className={styles.formRow}>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <label className={styles.srOnly} htmlFor="landing-name">
-                Your name
-              </label>
-              <input
-                className={styles.formInput}
-                id="landing-name"
-                name="name"
-                onChange={handleChange}
-                placeholder="Your Name"
-                type="text"
-                value={form.name}
-              />
-              {errors.name && (
-                <p
-                  style={{
-                    color: "#d32f2f",
-                    fontSize: "12px",
-                    margin: "4px 0 0",
-                  }}
-                >
-                  {errors.name}
-                </p>
-              )}
-            </div>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <label className={styles.srOnly} htmlFor="landing-email">
-                Email address
-              </label>
-              <input
-                className={styles.formInput}
-                id="landing-email"
-                name="email"
-                onChange={handleChange}
-                placeholder="Email Address"
-                type="email"
-                value={form.email}
-              />
-              {errors.email && (
-                <p
-                  style={{
-                    color: "#d32f2f",
-                    fontSize: "12px",
-                    margin: "4px 0 0",
-                  }}
-                >
-                  {errors.email}
-                </p>
-              )}
-            </div>
+          <div className={styles.fld}>
+            <label htmlFor="landing-name">Your name</label>
+            <input
+              aria-describedby={errors.name ? "landing-name-err" : undefined}
+              aria-invalid={errors.name ? true : undefined}
+              aria-required="true"
+              className={styles.fldInput}
+              id="landing-name"
+              name="name"
+              onChange={handleChange}
+              type="text"
+              value={form.name}
+            />
+            {errors.name && (
+              <span className={styles.fldErr} id="landing-name-err">
+                {errors.name}
+              </span>
+            )}
           </div>
-          <div className={styles.formRow}>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <label className={styles.srOnly} htmlFor="landing-country">
-                Country
-              </label>
-              <CountrySelect
-                id="landing-country"
-                name="country"
-                onChange={handleChange}
-                value={form.country}
-              />
-            </div>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <label className={styles.srOnly} htmlFor="landing-phone">
-                Phone number
-              </label>
-              <input
-                className={styles.formInput}
-                id="landing-phone"
-                name="contact"
-                onChange={handleChange}
-                placeholder="Phone Number"
-                type="text"
-                value={form.contact}
-              />
-            </div>
+          <div className={styles.fld}>
+            <label htmlFor="landing-email">Email address</label>
+            <input
+              aria-describedby={errors.email ? "landing-email-err" : undefined}
+              aria-invalid={errors.email ? true : undefined}
+              aria-required="true"
+              className={styles.fldInput}
+              id="landing-email"
+              name="email"
+              onChange={handleChange}
+              type="email"
+              value={form.email}
+            />
+            {errors.email && (
+              <span className={styles.fldErr} id="landing-email-err">
+                {errors.email}
+              </span>
+            )}
           </div>
-          <label className={styles.srOnly} htmlFor="landing-description">
-            Project details
-          </label>
-          <textarea
-            className={styles.formTextarea}
-            id="landing-description"
-            name="description"
-            onChange={handleChange}
-            placeholder="Tell us about your project..."
-            rows={5}
-            value={form.description}
-          />
-          {errors.description && (
-            <p
-              style={{
-                color: "#d32f2f",
-                fontSize: "12px",
-                margin: "-14px 0 10px",
-              }}
+          <div className={styles.fld}>
+            <label htmlFor="landing-country">Country</label>
+            <select
+              className={styles.fldSelect}
+              id="landing-country"
+              name="country"
+              onChange={handleChange}
+              value={form.country}
             >
-              {errors.description}
-            </p>
-          )}
+              <option value="">Select country</option>
+              {COUNTRIES.map(c => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className={styles.fld}>
+            <label htmlFor="landing-phone">Phone number</label>
+            <input
+              className={styles.fldInput}
+              id="landing-phone"
+              name="contact"
+              onChange={handleChange}
+              type="tel"
+              value={form.contact}
+            />
+          </div>
+          <div className={`${styles.fld} ${styles.fldFull}`}>
+            <label htmlFor="landing-description">Project details</label>
+            <textarea
+              aria-describedby={
+                errors.description ? "landing-description-err" : undefined
+              }
+              aria-invalid={errors.description ? true : undefined}
+              aria-required="true"
+              className={styles.fldTextarea}
+              id="landing-description"
+              name="description"
+              onChange={handleChange}
+              placeholder="What are you building, and what does done look like?"
+              value={form.description}
+            />
+            {errors.description && (
+              <span className={styles.fldErr} id="landing-description-err">
+                {errors.description}
+              </span>
+            )}
+          </div>
           <button
-            className={styles.btnPrimary}
+            className={`${styles.btnHeroPrimary} ${styles.cformBtn}`}
             disabled={submitting}
             type="submit"
           >
-            {submitting ? "Sending..." : "Send Message"}
+            {submitting ? (
+              "Sending..."
+            ) : (
+              <>
+                Send message <span className={styles.heroArr}>→</span>
+              </>
+            )}
           </button>
         </form>
       </div>

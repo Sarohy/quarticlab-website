@@ -15,21 +15,21 @@ const stats = [
   { label: "Client satisfaction", suffix: "%", target: 99 },
 ];
 
-const values = [
+const principles = [
   {
-    desc: "From mobile to blockchain to AI — one team, zero outsourcing.",
+    desc: "From mobile to blockchain to AI — one team, zero outsourcing. Every discipline a product needs, staffed from the same senior bench.",
     title: "Full-stack expertise",
   },
   {
-    desc: "Weekly demos, shared dashboards, and no surprises.",
+    desc: "Weekly demos, shared dashboards, and no surprises. Your Jira instance shows our burndown from day one.",
     title: "Radical transparency",
   },
   {
-    desc: "Startup speed with enterprise-grade quality and security.",
+    desc: "Startup speed with enterprise-grade quality and security. Velocity that doesn’t come back as tech debt.",
     title: "Ship fast, ship right",
   },
   {
-    desc: "Your idea gets a scope, timeline, and cost within 12 hours.",
+    desc: "Your idea gets a scope, timeline, and cost within 12 hours — written by a senior engineer, not a sales rep.",
     title: "12-hour estimates",
   },
 ];
@@ -72,42 +72,52 @@ const processSteps = [
   },
 ];
 
-const engagementModels = [
+// Time-zone overlap bars \u2014 width (%) of the working day and left offset (%)
+// across a 09:00 PKT \u2192 01:00 axis. "hot" marks live client overlap windows.
+const timezones = [
   {
-    ctaLabel: "Start with fixed price",
-    includes: [
-      "Scoped requirements document",
-      "Fixed timeline & budget",
-      "2 rounds of revisions included",
-      "No hidden costs",
-    ],
-    timeline: "Typical: 4\u201312 weeks",
-    title: "Fixed price",
-    when: "Best for well-defined projects with clear scope.",
+    hot: false,
+    left: "3%",
+    sub: "PKT \u00b7 HOME BASE",
+    title: "LAHORE",
+    width: "91%",
   },
   {
-    ctaLabel: "Start with T&M",
-    includes: [
-      "Weekly billing",
-      "Flexible scope",
-      "Direct developer access",
-      "Monthly reporting",
-    ],
-    timeline: "Typical: ongoing",
-    title: "Time & material",
-    when: "Best when requirements evolve as you build.",
+    hot: true,
+    left: "25%",
+    sub: "FULL EU OVERLAP",
+    title: "LONDON",
+    width: "50%",
   },
   {
-    ctaLabel: "Start with dedicated team",
-    includes: [
-      "Senior devs + PM",
-      "Daily standups",
-      "Shared Slack & Jira",
-      "30-day scale notice",
-    ],
-    timeline: "Typical: 3+ months",
-    title: "Dedicated team",
-    when: "Best for long-term product work needing reliability.",
+    hot: true,
+    left: "56%",
+    sub: "4\u20135H DAILY OVERLAP",
+    title: "NEW YORK",
+    width: "44%",
+  },
+];
+
+const weekDays = [
+  {
+    day: "MONDAY",
+    desc: "Priorities confirmed against the sprint plan. Anything ambiguous gets a decision, not a deferral.",
+    title: "Sprint sync",
+  },
+  {
+    day: "TUE\u2013THU",
+    desc: "Features land behind flags with code review and QA as they go. You can watch the board move \u2014 or not, your call.",
+    title: "Heads-down build",
+  },
+  {
+    day: "DAILY",
+    desc: "A standing window in your timezone for questions, reviews, and unblocking \u2014 no \u201cwe\u2019ll get back to you tomorrow.\u201d",
+    title: "Overlap window",
+  },
+  {
+    day: "FRIDAY",
+    desc: "Working software, clickable by you, every week. The sprint isn\u2019t done when the tickets close \u2014 it\u2019s done when you\u2019ve seen it run.",
+    title: "The demo \u2014 4pm PKT / 9am NY",
   },
 ];
 
@@ -154,1023 +164,6 @@ const faqs = [
   },
 ];
 
-/* ── svg helpers ─────────────────────────────────── */
-
-function StatIcon({ index }) {
-  const icons = [
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="layers"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <path d="M12 2 2 7l10 5 10-5-10-5Z" />
-      <path d="m2 17 10 5 10-5" />
-      <path d="m2 12 10 5 10-5" />
-    </svg>,
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="globe"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <path d="M2 12h20" />
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-    </svg>,
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="chat"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-      <path d="m9 10 2 2 4-4" />
-    </svg>,
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="target"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="12" r="6" />
-      <circle cx="12" cy="12" r="2" />
-    </svg>,
-  ];
-  return icons[index] || icons[0];
-}
-
-function ValueIcon({ index }) {
-  const icons = [
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="crosshair"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <line x1="22" x2="18" y1="12" y2="12" />
-      <line x1="6" x2="2" y1="12" y2="12" />
-      <line x1="12" x2="12" y1="2" y2="6" />
-      <line x1="12" x2="12" y1="18" y2="22" />
-    </svg>,
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="eye"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-      <circle cx="12" cy="12" r="3" />
-    </svg>,
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="zap"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-    </svg>,
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      key="clock"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-      width="28"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <polyline points="12 6 12 12 16 14" />
-    </svg>,
-  ];
-  return icons[index] || icons[0];
-}
-
-function MissionDoodle() {
-  return (
-    <svg
-      aria-hidden="true"
-      className={styles.missionDoodle}
-      fill="none"
-      focusable="false"
-      viewBox="0 0 420 420"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <style>{`
-          @keyframes ab-float {
-            0%, 100% { transform: translateY(0); }
-            50%      { transform: translateY(-5px); }
-          }
-          @keyframes ab-blink {
-            0%, 45% { opacity: 1; }
-            50%, 95% { opacity: 0; }
-            100% { opacity: 1; }
-          }
-          @keyframes ab-line-appear {
-            from { opacity: 0; transform: translateX(-4px); }
-            to   { opacity: 1; transform: translateX(0); }
-          }
-          @keyframes ab-ping {
-            0%   { r: 3; opacity: 0.7; }
-            100% { r: 12; opacity: 0; }
-          }
-          @keyframes ab-glow {
-            0%, 100% { opacity: 0.15; }
-            50%      { opacity: 0.3; }
-          }
-          @keyframes ab-orbit {
-            to { transform: rotate(360deg); }
-          }
-          @keyframes ab-dash-flow {
-            to { stroke-dashoffset: -20; }
-          }
-          @keyframes ab-arm-type {
-            0%, 100% { transform: rotate(0deg); }
-            25%      { transform: rotate(-2deg); }
-            75%      { transform: rotate(2deg); }
-          }
-          .ab-orbit-ring {
-            animation: ab-orbit 30s linear infinite;
-            transform-origin: 210px 210px;
-          }
-          .ab-orbit-ring-r {
-            animation: ab-orbit 25s linear infinite reverse;
-            transform-origin: 210px 210px;
-          }
-          .ab-float-person {
-            animation: ab-float 4s ease-in-out infinite;
-            transform-origin: 140px 260px;
-          }
-          .ab-float-person2 {
-            animation: ab-float 4.4s ease-in-out 0.8s infinite;
-            transform-origin: 290px 250px;
-          }
-          .ab-arm-l { animation: ab-arm-type 0.5s ease-in-out infinite; transform-origin: 120px 275px; }
-          .ab-arm-r { animation: ab-arm-type 0.5s ease-in-out infinite reverse; transform-origin: 160px 275px; }
-          .ab-arm2-l { animation: ab-arm-type 0.55s ease-in-out 0.2s infinite; transform-origin: 270px 268px; }
-          .ab-arm2-r { animation: ab-arm-type 0.55s ease-in-out 0.2s infinite reverse; transform-origin: 310px 268px; }
-          .ab-cursor { animation: ab-blink 1.1s step-end infinite; }
-          .ab-l1 { animation: ab-line-appear 0.35s ease-out 0.3s both; }
-          .ab-l2 { animation: ab-line-appear 0.35s ease-out 0.7s both; }
-          .ab-l3 { animation: ab-line-appear 0.35s ease-out 1.1s both; }
-          .ab-l4 { animation: ab-line-appear 0.35s ease-out 1.5s both; }
-          .ab-glow { animation: ab-glow 2.8s ease-in-out infinite; }
-          .ab-ping1 { animation: ab-ping 2s ease-out infinite; }
-          .ab-ping2 { animation: ab-ping 2s ease-out 0.7s infinite; }
-          .ab-flow-line {
-            stroke-dasharray: 6 4;
-            animation: ab-dash-flow 1.5s linear infinite;
-          }
-        `}</style>
-      </defs>
-
-      {/* ── faint dot grid ── */}
-      {Array.from({ length: 7 }, (_, r) =>
-        Array.from({ length: 9 }, (_, c) => (
-          <circle
-            cx={25 + c * 46}
-            cy={25 + r * 56}
-            fill="oklch(20% 0.05 255)"
-            key={`g-${r}-${c}`}
-            opacity="0.04"
-            r="1.2"
-          />
-        )),
-      )}
-
-      {/* ── central orbital ring system ── */}
-      <circle
-        className="ab-orbit-ring"
-        cx="210"
-        cy="210"
-        fill="none"
-        r="146"
-        stroke="oklch(20% 0.05 255)"
-        strokeDasharray="4 6"
-        strokeOpacity="0.1"
-        strokeWidth="1"
-      />
-      <circle
-        className="ab-orbit-ring-r"
-        cx="210"
-        cy="210"
-        fill="none"
-        r="120"
-        stroke="oklch(58% 0.12 45)"
-        strokeDasharray="3 5"
-        strokeOpacity="0.12"
-        strokeWidth="1"
-      />
-
-      {/* ── shared whiteboard / screen (centre) ── */}
-      <rect
-        fill="oklch(14% 0.04 255)"
-        height="100"
-        rx="3"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.5"
-        width="130"
-        x="145"
-        y="110"
-      />
-      <rect
-        fill="oklch(16% 0.045 255)"
-        height="86"
-        rx="2"
-        width="118"
-        x="151"
-        y="116"
-      />
-      <rect
-        className="ab-glow"
-        fill="oklch(58% 0.12 45)"
-        height="86"
-        rx="2"
-        width="118"
-        x="151"
-        y="116"
-      />
-
-      {/* whiteboard content — sprint board */}
-      <text
-        className="ab-l1"
-        fill="oklch(58% 0.12 45)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="6.5"
-        fontWeight="600"
-        letterSpacing="1"
-        x="160"
-        y="131"
-      >
-        SPRINT 14
-      </text>
-
-      {/* columns */}
-      <text
-        className="ab-l1"
-        fill="oklch(95% 0.018 75)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="5"
-        opacity="0.5"
-        x="160"
-        y="142"
-      >
-        todo
-      </text>
-      <text
-        className="ab-l1"
-        fill="oklch(95% 0.018 75)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="5"
-        opacity="0.5"
-        x="200"
-        y="142"
-      >
-        doing
-      </text>
-      <text
-        className="ab-l1"
-        fill="oklch(95% 0.018 75)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="5"
-        opacity="0.5"
-        x="240"
-        y="142"
-      >
-        done
-      </text>
-
-      {/* task cards */}
-      <rect
-        className="ab-l2"
-        fill="oklch(25% 0.04 255)"
-        height="14"
-        rx="1"
-        width="30"
-        x="158"
-        y="148"
-      />
-      <rect
-        className="ab-l2"
-        fill="oklch(25% 0.04 255)"
-        height="14"
-        rx="1"
-        width="30"
-        x="158"
-        y="165"
-      />
-      <rect
-        className="ab-l2"
-        fill="oklch(30% 0.05 255)"
-        height="14"
-        rx="1"
-        width="30"
-        x="198"
-        y="148"
-      />
-      <rect
-        className="ab-l3"
-        fill="oklch(58% 0.12 45 / 0.25)"
-        height="14"
-        rx="1"
-        width="30"
-        x="238"
-        y="148"
-      />
-      <rect
-        className="ab-l3"
-        fill="oklch(58% 0.12 45 / 0.25)"
-        height="14"
-        rx="1"
-        width="30"
-        x="238"
-        y="165"
-      />
-      <rect
-        className="ab-l4"
-        fill="oklch(58% 0.12 45 / 0.25)"
-        height="14"
-        rx="1"
-        width="30"
-        x="238"
-        y="182"
-      />
-
-      {/* check marks on done cards */}
-      <text
-        className="ab-l3"
-        fill="oklch(65% 0.12 145)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="7"
-        x="250"
-        y="158"
-      >
-        ✓
-      </text>
-      <text
-        className="ab-l3"
-        fill="oklch(65% 0.12 145)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="7"
-        x="250"
-        y="175"
-      >
-        ✓
-      </text>
-      <text
-        className="ab-l4"
-        fill="oklch(65% 0.12 145)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="7"
-        x="250"
-        y="192"
-      >
-        ✓
-      </text>
-
-      {/* blinking cursor on doing card */}
-      <rect
-        className="ab-cursor"
-        fill="oklch(58% 0.12 45)"
-        height="8"
-        width="4"
-        x="222"
-        y="151"
-      />
-
-      {/* monitor stand */}
-      <line
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.2"
-        x1="210"
-        x2="210"
-        y1="210"
-        y2="228"
-      />
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="5"
-        rx="1"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="0.8"
-        width="30"
-        x="195"
-        y="226"
-      />
-
-      {/* ── desk surface ── */}
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="8"
-        rx="2"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1"
-        width="240"
-        x="90"
-        y="310"
-      />
-      <line
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.3"
-        x1="120"
-        x2="120"
-        y1="318"
-        y2="345"
-      />
-      <line
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="1.3"
-        x1="300"
-        x2="300"
-        y1="318"
-        y2="345"
-      />
-
-      {/* ── person 1 (left, designer) ── */}
-      <g className="ab-float-person">
-        {/* torso */}
-        <rect
-          fill="oklch(88% 0.03 70)"
-          height="50"
-          rx="5"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="1.2"
-          width="40"
-          x="120"
-          y="255"
-        />
-        {/* neck */}
-        <rect
-          fill="oklch(88% 0.03 70)"
-          height="7"
-          rx="2"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="0.8"
-          width="11"
-          x="135"
-          y="249"
-        />
-        {/* head */}
-        <ellipse
-          cx="140"
-          cy="237"
-          fill="oklch(88% 0.03 70)"
-          rx="16"
-          ry="18"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="1.2"
-        />
-        {/* hair */}
-        <path
-          d="M126 231 C126 217 154 217 154 231"
-          fill="oklch(20% 0.05 255)"
-          opacity="0.7"
-        />
-        {/* eyes */}
-        <ellipse cx="135" cy="236" fill="oklch(20% 0.05 255)" rx="1.5" ry="2" />
-        <ellipse cx="145" cy="236" fill="oklch(20% 0.05 255)" rx="1.5" ry="2" />
-        {/* glasses */}
-        <rect
-          fill="none"
-          height="5"
-          rx="1.5"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="0.9"
-          width="9"
-          x="131"
-          y="233"
-        />
-        <rect
-          fill="none"
-          height="5"
-          rx="1.5"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="0.9"
-          width="9"
-          x="141"
-          y="233"
-        />
-        <line
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="0.7"
-          x1="140"
-          x2="141"
-          y1="236"
-          y2="236"
-        />
-
-        {/* left arm */}
-        <g className="ab-arm-l">
-          <path
-            d="M122 268 L104 286 L98 302"
-            stroke="oklch(20% 0.05 255)"
-            strokeLinecap="round"
-            strokeWidth="4"
-          />
-          <ellipse
-            cx="96"
-            cy="304"
-            fill="oklch(88% 0.03 70)"
-            rx="5"
-            ry="4"
-            stroke="oklch(20% 0.05 255)"
-            strokeWidth="0.8"
-          />
-        </g>
-
-        {/* right arm */}
-        <g className="ab-arm-r">
-          <path
-            d="M158 268 L174 286 L180 302"
-            stroke="oklch(20% 0.05 255)"
-            strokeLinecap="round"
-            strokeWidth="4"
-          />
-          <ellipse
-            cx="183"
-            cy="304"
-            fill="oklch(88% 0.03 70)"
-            rx="5"
-            ry="4"
-            stroke="oklch(20% 0.05 255)"
-            strokeWidth="0.8"
-          />
-        </g>
-      </g>
-
-      {/* person 1 keyboard */}
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="10"
-        rx="2"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="0.8"
-        width="66"
-        x="100"
-        y="300"
-      />
-      {[0, 1, 2, 3].map(i => (
-        <rect
-          fill="oklch(80% 0.025 70)"
-          height="3"
-          key={`k1-${i}`}
-          rx="0.5"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="0.3"
-          width="10"
-          x={106 + i * 13}
-          y="303"
-        />
-      ))}
-
-      {/* ── person 2 (right, developer) ── */}
-      <g className="ab-float-person2">
-        {/* torso */}
-        <rect
-          fill="oklch(88% 0.03 70)"
-          height="50"
-          rx="5"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="1.2"
-          width="40"
-          x="270"
-          y="248"
-        />
-        {/* neck */}
-        <rect
-          fill="oklch(88% 0.03 70)"
-          height="7"
-          rx="2"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="0.8"
-          width="11"
-          x="285"
-          y="242"
-        />
-        {/* head */}
-        <ellipse
-          cx="290"
-          cy="230"
-          fill="oklch(88% 0.03 70)"
-          rx="16"
-          ry="18"
-          stroke="oklch(20% 0.05 255)"
-          strokeWidth="1.2"
-        />
-        {/* hair — shorter */}
-        <path
-          d="M276 224 C276 210 304 210 304 224"
-          fill="oklch(20% 0.05 255)"
-          opacity="0.6"
-        />
-        {/* eyes */}
-        <ellipse cx="285" cy="229" fill="oklch(20% 0.05 255)" rx="1.5" ry="2" />
-        <ellipse cx="295" cy="229" fill="oklch(20% 0.05 255)" rx="1.5" ry="2" />
-
-        {/* left arm */}
-        <g className="ab-arm2-l">
-          <path
-            d="M272 261 L254 280 L248 296"
-            stroke="oklch(20% 0.05 255)"
-            strokeLinecap="round"
-            strokeWidth="4"
-          />
-          <ellipse
-            cx="246"
-            cy="298"
-            fill="oklch(88% 0.03 70)"
-            rx="5"
-            ry="4"
-            stroke="oklch(20% 0.05 255)"
-            strokeWidth="0.8"
-          />
-        </g>
-
-        {/* right arm */}
-        <g className="ab-arm2-r">
-          <path
-            d="M308 261 L324 280 L330 296"
-            stroke="oklch(20% 0.05 255)"
-            strokeLinecap="round"
-            strokeWidth="4"
-          />
-          <ellipse
-            cx="333"
-            cy="298"
-            fill="oklch(88% 0.03 70)"
-            rx="5"
-            ry="4"
-            stroke="oklch(20% 0.05 255)"
-            strokeWidth="0.8"
-          />
-        </g>
-      </g>
-
-      {/* person 2 laptop */}
-      <rect
-        fill="oklch(14% 0.04 255)"
-        height="8"
-        rx="1"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="0.8"
-        width="46"
-        x="267"
-        y="296"
-      />
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="3"
-        rx="1"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="0.5"
-        width="56"
-        x="262"
-        y="304"
-      />
-      {/* screen glow on laptop */}
-      <rect
-        className="ab-glow"
-        fill="oklch(58% 0.12 45)"
-        height="8"
-        rx="1"
-        width="46"
-        x="267"
-        y="296"
-      />
-
-      {/* ── data flow lines connecting to board ── */}
-      <line
-        className="ab-flow-line"
-        stroke="oklch(58% 0.12 45)"
-        strokeOpacity="0.3"
-        strokeWidth="1"
-        x1="166"
-        x2="180"
-        y1="300"
-        y2="210"
-      />
-      <line
-        className="ab-flow-line"
-        stroke="oklch(58% 0.12 45)"
-        strokeOpacity="0.3"
-        strokeWidth="1"
-        x1="267"
-        x2="240"
-        y1="296"
-        y2="210"
-      />
-
-      {/* ── floating concept bubbles ── */}
-      {/* bubble 1 — data */}
-      <g
-        style={{
-          animation: "ab-float 3.6s ease-in-out 0.4s infinite",
-          transformOrigin: "60px 150px",
-        }}
-      >
-        <circle
-          cx="60"
-          cy="150"
-          fill="oklch(95% 0.018 75)"
-          r="24"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 2"
-          strokeWidth="1"
-        />
-        <text
-          dominantBaseline="middle"
-          fill="oklch(58% 0.12 45)"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="6.5"
-          fontWeight="600"
-          letterSpacing="1"
-          textAnchor="middle"
-          x="60"
-          y="147"
-        >
-          SCOPE
-        </text>
-        <text
-          dominantBaseline="middle"
-          fill="oklch(20% 0.05 255)"
-          fontFamily="Space Grotesk, sans-serif"
-          fontSize="6"
-          opacity="0.5"
-          textAnchor="middle"
-          x="60"
-          y="158"
-        >
-          define
-        </text>
-        <circle
-          className="ab-ping1"
-          cx="60"
-          cy="150"
-          fill="none"
-          r="3"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-        />
-        <line
-          opacity="0.15"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 3"
-          strokeWidth="1"
-          x1="84"
-          x2="145"
-          y1="155"
-          y2="170"
-        />
-      </g>
-
-      {/* bubble 2 — build */}
-      <g
-        style={{
-          animation: "ab-float 4.2s ease-in-out 1.2s infinite",
-          transformOrigin: "370px 130px",
-        }}
-      >
-        <circle
-          cx="370"
-          cy="130"
-          fill="oklch(95% 0.018 75)"
-          r="24"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1.2"
-        />
-        <text
-          dominantBaseline="middle"
-          fill="oklch(58% 0.12 45)"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="6.5"
-          fontWeight="600"
-          letterSpacing="1"
-          textAnchor="middle"
-          x="370"
-          y="127"
-        >
-          BUILD
-        </text>
-        <text
-          dominantBaseline="middle"
-          fill="oklch(20% 0.05 255)"
-          fontFamily="Space Grotesk, sans-serif"
-          fontSize="6"
-          opacity="0.5"
-          textAnchor="middle"
-          x="370"
-          y="138"
-        >
-          sprint
-        </text>
-        <circle
-          className="ab-ping2"
-          cx="370"
-          cy="130"
-          fill="none"
-          r="3"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-        />
-        <line
-          opacity="0.15"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 3"
-          strokeWidth="1"
-          x1="346"
-          x2="275"
-          y1="140"
-          y2="170"
-        />
-      </g>
-
-      {/* bubble 3 — ship */}
-      <g
-        style={{
-          animation: "ab-float 3s ease-in-out 2s infinite",
-          transformOrigin: "60px 60px",
-        }}
-      >
-        <circle
-          cx="60"
-          cy="60"
-          fill="oklch(95% 0.018 75)"
-          r="20"
-          stroke="oklch(20% 0.05 255)"
-          strokeDasharray="3 2"
-          strokeWidth="1"
-        />
-        <text
-          dominantBaseline="middle"
-          fill="oklch(58% 0.12 45)"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="6.5"
-          fontWeight="600"
-          letterSpacing="1"
-          textAnchor="middle"
-          x="60"
-          y="58"
-        >
-          SHIP
-        </text>
-        <text
-          dominantBaseline="middle"
-          fill="oklch(20% 0.05 255)"
-          fontFamily="Space Grotesk, sans-serif"
-          fontSize="5.5"
-          opacity="0.5"
-          textAnchor="middle"
-          x="60"
-          y="68"
-        >
-          deploy
-        </text>
-      </g>
-
-      {/* bubble 4 — iterate */}
-      <g
-        style={{
-          animation: "ab-float 3.8s ease-in-out 0.8s infinite",
-          transformOrigin: "370px 55px",
-        }}
-      >
-        <circle
-          cx="370"
-          cy="55"
-          fill="oklch(95% 0.018 75)"
-          r="20"
-          stroke="oklch(58% 0.12 45)"
-          strokeWidth="1"
-        />
-        <text
-          dominantBaseline="middle"
-          fill="oklch(58% 0.12 45)"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="6"
-          fontWeight="600"
-          letterSpacing="1"
-          textAnchor="middle"
-          x="370"
-          y="53"
-        >
-          ITERATE
-        </text>
-        <text
-          dominantBaseline="middle"
-          fill="oklch(20% 0.05 255)"
-          fontFamily="Space Grotesk, sans-serif"
-          fontSize="5.5"
-          opacity="0.5"
-          textAnchor="middle"
-          x="370"
-          y="63"
-        >
-          improve
-        </text>
-      </g>
-
-      {/* ── coffee mug (small detail on desk) ── */}
-      <rect
-        fill="oklch(88% 0.03 70)"
-        height="10"
-        rx="2"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="0.8"
-        width="8"
-        x="198"
-        y="300"
-      />
-      <path
-        d="M206 303 Q210 303 210 307 Q210 311 206 311"
-        fill="none"
-        stroke="oklch(20% 0.05 255)"
-        strokeWidth="0.6"
-      />
-
-      {/* ── progress bar at bottom of board ── */}
-      <rect
-        fill="oklch(25% 0.04 255)"
-        height="3"
-        rx="1.5"
-        width="80"
-        x="170"
-        y="198"
-      />
-      <rect
-        className="ab-l4"
-        fill="oklch(58% 0.12 45)"
-        height="3"
-        rx="1.5"
-        width="58"
-        x="170"
-        y="198"
-      />
-
-      {/* ── foot annotation ── */}
-      <text
-        fill="oklch(20% 0.05 255)"
-        fontFamily="IBM Plex Mono, monospace"
-        fontSize="8"
-        letterSpacing="1.5"
-        opacity="0.18"
-        textAnchor="end"
-        x="416"
-        y="410"
-      >
-        quartic lab · team in session
-      </text>
-    </svg>
-  );
-}
-
 /* ── hooks ───────────────────────────────────────── */
 
 function useReveal(selector) {
@@ -1195,12 +188,53 @@ function useReveal(selector) {
   }, [selector]);
 }
 
+/* ── hero kicker ───────────────────────────────────── */
+const ABOUT_KICKER =
+  "ABOUT · EST. 2020 · 15+ SENIOR ENGINEERS · LAHORE → WORLDWIDE";
+
 /* ── page ────────────────────────────────────────── */
 
 export default function AboutPage() {
   const router = useRouter();
   useReveal(`.${styles.reveal}`);
   const [openFaq, setOpenFaq] = useState(null);
+  const kickerRef = useRef(null);
+
+  /* scramble the hero kicker on mount */
+  useEffect(() => {
+    const el = kickerRef.current;
+    if (!el) {
+      return;
+    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.textContent = ABOUT_KICKER;
+      return;
+    }
+    const glyphs = "◆#/\\+×—·01";
+    const total = 46;
+    let frame = 0;
+    let tid = null;
+    const tick = () => {
+      let out = "";
+      for (let i = 0; i < ABOUT_KICKER.length; i++) {
+        const threshold = (i / ABOUT_KICKER.length) * total * 0.8;
+        out +=
+          frame > threshold
+            ? ABOUT_KICKER[i]
+            : ABOUT_KICKER[i] === " "
+              ? " "
+              : glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+      el.textContent = out;
+      if (frame++ < total) {
+        tid = setTimeout(tick, 34);
+      } else {
+        el.textContent = ABOUT_KICKER;
+      }
+    };
+    tick();
+    return () => clearTimeout(tid);
+  }, []);
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -1220,7 +254,7 @@ export default function AboutPage() {
     <div className={styles.page}>
       <Seo
         canonical={`${SITE_URL}/about`}
-        description="Quartic Lab is a research-driven software studio from Lahore. Learn about our values, process, engagement models, and what it is like to work with us."
+        description="Quartic Lab is a research-driven software studio from Lahore. Learn about our story, process, principles, and what it is like to work with us week to week."
         ogDescription="Quartic Lab is a research-driven software studio from Lahore. 15+ engineers serving clients across the US, Europe, and MENA since 2020."
         ogTitle="About Us — Quartic Lab"
         title="About Us — Quartic Lab"
@@ -1234,91 +268,128 @@ export default function AboutPage() {
       </Seo>
 
       {/* ─── HERO ─────────────────────────────── */}
-      <section className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className={styles.heroInner}>
-          <div className={styles.heroText}>
-            <span className={styles.heroBadge}>About Quartic Lab</span>
-            <h1 className={styles.heroH1}>
-              We build software that{" "}
-              <span className={styles.heroAccent}>actually ships</span>
-            </h1>
-            <p className={styles.heroSub}>
-              Founded in 2020. A senior team of 15+ engineers, designers, and
-              PMs in Lahore, Pakistan &mdash; serving clients across the US,
-              Europe, and MENA. 50+ products shipped in web, mobile, AI,
-              blockchain, and IoT.
-            </p>
-            <div className={styles.heroCtas}>
-              <button
-                className={styles.btnHeroPrimary}
-                onClick={() => router.push("/contact")}
-              >
-                Start a project
-              </button>
-              <a
-                className={styles.btnHeroOutline}
-                href="https://calendly.com/quarticlab/30min"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Get estimate in 12 hrs
-              </a>
-            </div>
-            <div className={styles.heroScroll}>
-              <span className={styles.scrollDot} />
-            </div>
-          </div>
+      <header className={styles.aHero}>
+        <div aria-hidden="true" className={styles.aHeroMark}>
+          <svg viewBox="0 0 100 100">
+            <g
+              stroke="oklch(20% 0.05 255)"
+              strokeLinecap="round"
+              strokeWidth="1.2"
+            >
+              <line x1="50" x2="82" y1="18" y2="50" />
+              <line x1="50" x2="50" y1="18" y2="82" />
+              <line x1="50" x2="18" y1="18" y2="50" />
+              <line x1="82" x2="50" y1="50" y2="82" />
+              <line x1="82" x2="18" y1="50" y2="50" />
+              <line x1="50" x2="18" y1="82" y2="50" />
+            </g>
+            <g fill="none" stroke="oklch(48% 0.11 42)" strokeWidth="2">
+              <circle cx="50" cy="18" r="6.5" />
+              <circle cx="82" cy="50" r="6.5" />
+              <circle cx="50" cy="82" r="6.5" />
+              <circle cx="18" cy="50" r="6.5" />
+            </g>
+          </svg>
         </div>
-        <div className={styles.heroWave} />
-      </section>
+        <div className={styles.container}>
+          <span className={styles.aKick} ref={kickerRef}>
+            &nbsp;
+          </span>
+          <h1 className={styles.aH1}>
+            <span className={styles.aLn}>
+              <span>We build software</span>
+            </span>
+            <span className={styles.aLn}>
+              <span>
+                that actually <em>ships.</em>
+              </span>
+            </span>
+          </h1>
+          <p className={styles.aLead}>
+            Founded in 2020. A senior team of 15+ engineers, designers, and PMs
+            in Lahore, Pakistan &mdash; serving clients across the US, Europe,
+            and MENA. 50+ products shipped in web, mobile, AI, blockchain, and
+            IoT.
+          </p>
+        </div>
+      </header>
 
-      {/* ─── MISSION ──────────────────────────── */}
-      <MissionSection />
-
-      {/* ─── VALUES ───────────────────────────── */}
-      <ValuesSection />
-
-      {/* ─── STATS ────────────────────────────── */}
-      <StatsSection />
+      {/* ─── STORY + IMPACT ───────────────────── */}
+      <StorySection />
 
       {/* ─── PROCESS TIMELINE ─────────────────── */}
       <ProcessSection />
 
-      {/* ─── ENGAGEMENT MODELS ────────────────── */}
-      <ModelsSection router={router} />
+      {/* ─── PRINCIPLES ───────────────────────── */}
+      <PrinciplesSection />
+
+      {/* ─── TIME-ZONE OVERLAP ────────────────── */}
+      <TimezoneSection />
+
+      {/* ─── A WEEK IN THE POD ────────────────── */}
+      <WeekSection />
 
       {/* ─── FAQ ──────────────────────────────── */}
       <FaqSection openFaq={openFaq} setOpenFaq={setOpenFaq} />
 
       {/* ─── CTA ──────────────────────────────── */}
       <section className={styles.ctaSection}>
+        <div aria-hidden="true" className={styles.ctaBg}>
+          <svg viewBox="0 0 100 100">
+            <g
+              opacity=".6"
+              stroke="oklch(93% 0.015 75)"
+              strokeLinecap="round"
+              strokeWidth="1.2"
+            >
+              <line x1="50" x2="82" y1="18" y2="50" />
+              <line x1="50" x2="50" y1="18" y2="82" />
+              <line x1="50" x2="18" y1="18" y2="50" />
+              <line x1="82" x2="50" y1="50" y2="82" />
+              <line x1="82" x2="18" y1="50" y2="50" />
+              <line x1="50" x2="18" y1="82" y2="50" />
+            </g>
+            <g fill="none" stroke="oklch(58% 0.12 45)" strokeWidth="2">
+              <circle cx="50" cy="18" r="6.5" />
+              <circle cx="82" cy="50" r="6.5" />
+              <circle cx="50" cy="82" r="6.5" />
+              <circle cx="18" cy="50" r="6.5" />
+            </g>
+          </svg>
+        </div>
         <div className={styles.container}>
-          <div className={`${styles.ctaBanner} ${styles.reveal}`}>
-            <h2 className={styles.ctaTitle}>
-              Send us a brief. Get a scope back in 12 hours.
-            </h2>
-            <p className={styles.ctaDesc}>
-              No sales call. No “let’s set up a discovery meeting.” Just a real
-              estimate from a senior engineer.
-            </p>
-            <div className={styles.ctaBtns}>
-              <button
-                className={styles.btnPrimary}
-                onClick={() => router.push("/contact")}
-              >
-                Send your brief
-              </button>
-              <a
-                className={styles.ctaBtnSecondary}
-                href="https://calendly.com/quarticlab/30min"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Or book a 30-min call
-              </a>
-            </div>
+          <span
+            className={`${styles.eyebrow} ${styles.eyebrowCenter} ${styles.reveal}`}
+          >
+            <i />
+            Work with this team
+          </span>
+          <h2 className={`${styles.ctaTitle} ${styles.reveal}`}>
+            Send us a brief. Get a scope back in <em>12 hours.</em>
+          </h2>
+          <p className={`${styles.ctaDesc} ${styles.reveal}`}>
+            No sales call. No “let’s set up a discovery meeting.” Just a real
+            estimate from a senior engineer.
+          </p>
+          <div className={`${styles.ctaBtns} ${styles.reveal}`}>
+            <button
+              className={styles.ctaBtnPrimary}
+              onClick={() => router.push("/contact")}
+            >
+              Send your brief <span className={styles.ctaArr}>→</span>
+            </button>
+            <a
+              className={styles.ctaBtnSecondary}
+              href="https://calendly.com/quarticlab/30min"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Or book a 30-min call
+            </a>
           </div>
+          <p className={`${styles.ctaNote} ${styles.reveal}`}>
+            FIXED-SCOPE SPRINTS · WEEKLY DEMOS · 30 DAYS FREE SUPPORT
+          </p>
         </div>
       </section>
     </div>
@@ -1327,62 +398,80 @@ export default function AboutPage() {
 
 /* ── section components ──────────────────────────── */
 
-function MissionSection() {
+function StorySection() {
   return (
-    <section className={styles.missionSec}>
-      <div className={`${styles.container} ${styles.missionInner}`}>
-        <div className={`${styles.missionVisual} ${styles.reveal}`}>
-          <MissionDoodle />
+    <section className={styles.story}>
+      <div className={styles.container}>
+        {/* who we are — manifesto */}
+        <div className={styles.maniIn}>
+          <div className={`${styles.maniTxt} ${styles.reveal}`}>
+            <p>
+              &ldquo;Great developers are impossible to find &mdash; and the
+              ones you find <em>disappear after launch.</em>&rdquo;
+            </p>
+            <p>
+              We heard that complaint enough times to build the agency
+              we&rsquo;d want to <em>hire.</em>
+            </p>
+          </div>
+          <div className={`${styles.maniSide} ${styles.reveal}`}>
+            <p>
+              Quartic Lab started in 2020 as a partnership between two engineers
+              who kept getting the same complaint from clients. So we built our
+              answer to it &mdash; senior engineers who take ownership, push
+              back on weak scope, and stick around long enough to see what we
+              built actually work in production.
+            </p>
+            <p>
+              Five years in, we&rsquo;re a 15-person team working in 2-week
+              sprints with weekly demos. We&rsquo;ve shipped 50+ products across
+              five continents &mdash; and we&rsquo;ve never lost a client
+              mid-project.
+            </p>
+          </div>
         </div>
-        <div className={`${styles.missionText} ${styles.reveal}`}>
-          <span className={styles.sectionTag}>Who we are</span>
-          <h2 className={styles.sectionTitle}>
-            Your engineering partner, not just a vendor
-          </h2>
-          <p className={styles.missionDesc}>
-            Quartic Lab started in 2020 as a freelance partnership between two
-            engineers who kept getting the same complaint from clients: “great
-            developers are impossible to find, and the ones you find disappear
-            after launch.” We built the agency we’d want to hire &mdash; senior
-            engineers who take ownership, push back on weak scope, and stick
-            around long enough to see what we built actually work in production.
-          </p>
-          <p className={styles.missionDesc}>
-            Five years in, we’re a 15-person team working in 2-week sprints with
-            weekly demos. We’ve shipped 50+ products across five continents, and
-            we’ve never lost a client mid-project.
-          </p>
+
+        {/* impact — stats ledger */}
+        <div className={styles.sledger}>
+          {stats.map((s, i) => (
+            <LedgerStat delay={`${i * 90}ms`} key={s.label} s={s} />
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function ValuesSection() {
+function PrinciplesSection() {
   return (
-    <section className={styles.valuesSec}>
+    <section className={`${styles.principlesSec} ${styles.dark}`}>
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Why Quartic Lab</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            What sets us apart
-          </h2>
-          <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
+        <div className={styles.secHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              Why Quartic Lab
+            </span>
+            <h2 className={styles.h2}>
+              What sets us <em>apart</em>
+            </h2>
+          </div>
+          <p className={`${styles.headLead} ${styles.reveal}`}>
             Four principles that define every project we take on.
           </p>
         </div>
-        <div className={styles.valuesGrid}>
-          {values.map((v, i) => (
+        <div className={styles.prinList}>
+          {principles.map((p, i) => (
             <div
-              className={`${styles.valueCard} ${styles.reveal}`}
-              key={v.title}
-              style={{ transitionDelay: `${i * 100}ms` }}
+              className={`${styles.prin} ${styles.reveal}`}
+              key={p.title}
+              style={{ transitionDelay: `${i * 90}ms` }}
             >
-              <span className={styles.valueIcon}>
-                <ValueIcon index={i} />
+              <span className={styles.prinIx}>
+                PR/{String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className={styles.valueTitle}>{v.title}</h3>
-              <p className={styles.valueDesc}>{v.desc}</p>
+              <h3 className={styles.prinTitle}>{p.title}</h3>
+              <p className={styles.prinDesc}>{p.desc}</p>
             </div>
           ))}
         </div>
@@ -1391,7 +480,7 @@ function ValuesSection() {
   );
 }
 
-function StatCard({ delay, index, s }) {
+function LedgerStat({ delay, s }) {
   // Initialise with the final target so SSR and no-JS users
   // see the real number, not "0+". The count-up is progressive enhancement.
   const [count, setCount] = useState(s.target);
@@ -1406,29 +495,26 @@ function StatCard({ delay, index, s }) {
     const obs = new IntersectionObserver(
       entries => {
         entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add(styles.statVisible);
-            if (!started.current) {
-              started.current = true;
-              const duration = 1600;
-              const target = s.target;
-              const startTime = performance.now();
-              const tick = now => {
-                const elapsed = now - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3);
-                setCount(Math.round(eased * target));
-                if (progress < 1) {
-                  requestAnimationFrame(tick);
-                }
-              };
-              requestAnimationFrame(tick);
-            }
+          if (e.isIntersecting && !started.current) {
+            started.current = true;
+            const duration = 1600;
+            const target = s.target;
+            const startTime = performance.now();
+            const tick = now => {
+              const elapsed = now - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              setCount(Math.round(eased * target));
+              if (progress < 1) {
+                requestAnimationFrame(tick);
+              }
+            };
+            requestAnimationFrame(tick);
             obs.unobserve(e.target);
           }
         });
       },
-      { threshold: 0.25 },
+      { threshold: 0.4 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -1437,42 +523,16 @@ function StatCard({ delay, index, s }) {
 
   return (
     <div
-      className={styles.statCard}
+      className={`${styles.sl} ${styles.reveal}`}
       ref={ref}
       style={{ transitionDelay: delay }}
     >
-      <span className={styles.statIcon}>
-        <StatIcon index={index} />
-      </span>
-      <div className={styles.statNum}>
+      <b>
         {count}
-        {s.suffix}
-      </div>
-      <span className={styles.statLabel}>{s.label}</span>
+        <sup>{s.suffix}</sup>
+      </b>
+      <span>{s.label}</span>
     </div>
-  );
-}
-
-function StatsSection() {
-  return (
-    <section className={styles.statsSec}>
-      <div className={styles.statsBgDots} />
-      <div className={styles.container}>
-        <div className={styles.statsHeader}>
-          <span className={styles.sectionTag}>Impact &amp; scale</span>
-          <h2 className={`${styles.sectionTitle} ${styles.statsTitleReveal}`}>
-            Numbers that speak
-            <br />
-            <span className={styles.statsAccentText}>for themselves</span>
-          </h2>
-        </div>
-        <div className={styles.statsGrid}>
-          {stats.map((s, i) => (
-            <StatCard delay={`${i * 110}ms`} index={i} key={s.label} s={s} />
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -1480,100 +540,127 @@ function ProcessSection() {
   return (
     <section className={styles.timelineSection}>
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Our process</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            How a typical project works
-          </h2>
-          <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
+        <div className={styles.secHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              Our process
+            </span>
+            <h2 className={styles.h2}>
+              How a typical project <em>works</em>
+            </h2>
+          </div>
+          <p className={`${styles.headLead} ${styles.reveal}`}>
             Transparent milestones from first call to launch day.
           </p>
         </div>
         <div className={styles.timeline}>
           {processSteps.map((step, i) => (
             <div
-              className={`${styles.timelineItem} ${styles.reveal}`}
+              className={`${styles.tlRow} ${styles.reveal}`}
               key={step.label}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className={styles.timelineDot}>{i + 1}</div>
-              <div className={styles.timelineContent}>
-                <span className={styles.timelineBadge}>{step.day}</span>
-                <h3 className={styles.timelineLabel}>{step.label}</h3>
-                <p className={styles.timelineDesc}>{step.desc}</p>
+              <span className={styles.tlYr}>{step.day}</span>
+              <div>
+                <h3 className={styles.tlTitle}>{step.label}</h3>
+                <p className={styles.tlDesc}>{step.desc}</p>
               </div>
             </div>
           ))}
         </div>
         <div className={`${styles.supportCallout} ${styles.reveal}`}>
-          <span className={styles.supportCalloutIcon}>
-            <svg
-              aria-hidden="true"
-              fill="none"
-              focusable="false"
-              height="22"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.6"
-              viewBox="0 0 24 24"
-              width="22"
-            >
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
+          <b className={styles.supportTag}>30 DAYS FREE</b>
+          <span className={styles.supportText}>
+            Every launch includes 30 days of free support &mdash; bug fixes,
+            deploy issues, and minor changes, handled by the same team that
+            built it, at no charge.
           </span>
-          <div>
-            <strong className={styles.supportCalloutHeading}>
-              Every launch includes 30 days of free support
-            </strong>
-            <p className={styles.supportCalloutBody}>
-              Bug fixes, deploy issues, and minor changes &mdash; handled by the
-              same team that built it, at no charge, for 30 days after launch.
-            </p>
-          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function ModelsSection({ router }) {
+function TimezoneSection() {
   return (
-    <section className={styles.modelsSection}>
-      <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>Engagement models</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Choose how we work together
+    <section className={styles.tzSection}>
+      <div className={`${styles.container} ${styles.aboutSplit}`}>
+        <div className={styles.reveal}>
+          <span className={styles.eyebrow}>
+            <i />
+            Working across time zones
+          </span>
+          <h2 className={styles.h2}>
+            Lahore builds while <em>you sleep</em>
           </h2>
-          <p className={`${styles.sectionSubtitle} ${styles.reveal}`}>
-            Flexible models designed to fit your stage, budget, and timeline.
+          <p className={`${styles.headLead} ${styles.tzLead}`}>
+            Our core team is in Lahore. We regularly work US hours (EST/PST) for
+            US clients and EU hours for European clients — every project gets at
+            least 3 hours of live overlap with your time zone, and we never do
+            100% async handoffs.
           </p>
         </div>
-        <div className={styles.modelsGrid}>
-          {engagementModels.map((m, i) => (
+        <div className={`${styles.tzCard} ${styles.reveal}`}>
+          <span className={styles.eyebrow}>
+            <i />A working day, three clocks
+          </span>
+          <div className={styles.tzRows}>
+            {timezones.map(tz => (
+              <div className={styles.tzr} key={tz.title}>
+                <span className={styles.tzL}>
+                  {tz.title}
+                  <span>{tz.sub}</span>
+                </span>
+                <div className={styles.tzBar}>
+                  <div
+                    className={`${styles.tzFill} ${tz.hot ? styles.tzHot : ""}`}
+                    style={{ "--w": tz.width, left: tz.left }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className={styles.tzScale}>
+            <span>09:00 PKT</span>
+            <span>15:00</span>
+            <span>21:00</span>
+            <span>01:00</span>
+          </div>
+          <p className={styles.tzNote}>
+            EVERY PROJECT: 3+ HOURS LIVE OVERLAP · NEVER 100% ASYNC
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WeekSection() {
+  return (
+    <section className={styles.weekSection}>
+      <div className={styles.container}>
+        <div className={styles.secHead}>
+          <div className={styles.reveal}>
+            <span className={styles.eyebrow}>
+              <i />
+              What working with us looks like
+            </span>
+            <h2 className={styles.h2}>
+              A week in the <em>pod</em>
+            </h2>
+          </div>
+        </div>
+        <div className={styles.wkRows}>
+          {weekDays.map((w, i) => (
             <div
-              className={`${styles.modelCard} ${styles.reveal}`}
-              key={m.title}
-              style={{ transitionDelay: `${i * 100}ms` }}
+              className={`${styles.wk} ${styles.reveal}`}
+              key={w.day}
+              style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <span className={styles.modelTimeline}>{m.timeline}</span>
-              <h3 className={styles.modelTitle}>{m.title}</h3>
-              <p className={styles.modelWhen}>{m.when}</p>
-              <ul className={styles.modelList}>
-                {m.includes.map(item => (
-                  <li className={styles.modelListItem} key={item}>
-                    <span className={styles.modelCheck}>✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <button
-                className={styles.modelCardBtn}
-                onClick={() => router.push("/contact")}
-              >
-                {m.ctaLabel}
-              </button>
+              <span className={styles.wkD}>{w.day}</span>
+              <h3 className={styles.wkTitle}>{w.title}</h3>
+              <p className={styles.wkDesc}>{w.desc}</p>
             </div>
           ))}
         </div>
@@ -1586,10 +673,15 @@ function FaqSection({ openFaq, setOpenFaq }) {
   return (
     <section className={styles.faqSection}>
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>FAQ</span>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            Common questions
+        <div className={styles.faqHead}>
+          <span
+            className={`${styles.eyebrow} ${styles.eyebrowCenter} ${styles.reveal}`}
+          >
+            <i />
+            FAQ
+          </span>
+          <h2 className={`${styles.faqTitle} ${styles.reveal}`}>
+            Common <em>questions</em>
           </h2>
         </div>
         <div className={styles.faqList}>
@@ -1613,13 +705,8 @@ function FaqSection({ openFaq, setOpenFaq }) {
                 }}
               >
                 {faq.q}
-                <span
-                  aria-hidden="true"
-                  className={`${styles.faqChevron} ${
-                    openFaq === i ? styles.faqChevronOpen : ""
-                  }`}
-                >
-                  &#9660;
+                <span aria-hidden="true" className={styles.faqIc}>
+                  +
                 </span>
               </button>
               <div

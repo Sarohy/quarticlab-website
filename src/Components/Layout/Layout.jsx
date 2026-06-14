@@ -14,9 +14,6 @@ const ConsentedScripts = dynamic(
 function Layout({ children }) {
   return (
     <div className="content">
-      <a className={styles.skipLink} href="#main-content">
-        Skip to main content
-      </a>
       <Header />
       <main className={styles.main} id="main-content" tabIndex={-1}>
         {children}

@@ -1,470 +1,153 @@
 /* ═══════════════════════════════════════════════
-   Footer — Quartic Lab · Oxford + Copper
+   Footer — Quartic Lab · Oxford + Copper (revamped)
    ═══════════════════════════════════════════════ */
-
-/* ── Main container ──────────────────────────── */
-.footerMainContainer {
-  font-family: var(--font-body);
-  color: var(--ql-linen);
-  overflow: hidden;
-}
-
-/* ── CTA Banner ──────────────────────────────── */
-.ctaBanner {
-  background: var(--ql-oxford);
-  padding: 64px 24px;
-}
-
-.ctaBannerInner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.ctaBannerContent {
-  flex: 1;
-}
-
-.ctaBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--ql-copper);
-  margin-bottom: 16px;
-}
-
-.ctaBadgeDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--ql-copper);
-}
-
-.ctaBannerTitle {
-  font-family: var(--font-display);
-  font-size: clamp(24px, 3vw, 36px);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.15;
-  letter-spacing: -0.5px;
-  color: var(--ql-linen);
-  margin: 0 0 12px;
-}
-
-.ctaHighlight {
-  color: var(--ql-copper);
-}
-
-.ctaBannerDesc {
-  font-size: 15px;
-  line-height: 1.55;
-  opacity: 0.55;
-  margin: 0;
-  max-width: 480px;
-}
-
-.ctaBannerActions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.ctaBannerButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  background: var(--ql-copper);
-  color: var(--ql-oxford);
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 2px;
-  text-decoration: none;
-  transition:
-    background 0.2s,
-    transform 0.2s;
-}
-
-.ctaBannerButton:hover {
-  background: var(--ql-copper-dk);
-  color: var(--ql-linen);
-  transform: translateY(-1px);
-}
-
-.ctaBtnIcon {
-  display: none;
-}
-
-.ctaBannerSecondary {
-  font-size: 13px;
-  color: var(--ql-linen);
-  opacity: 0.5;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-.ctaBannerSecondary:hover {
-  opacity: 0.8;
-}
-
-/* ── Accent bar ──────────────────────────────── */
-.footerAccentBar {
-  height: 2px;
-  background: var(--ql-copper);
-}
-
-/* ── Footer inner ────────────────────────────── */
-.footerInner {
+.footer {
   background: var(--ql-midnight);
-  padding: 56px 24px 32px;
-}
-
-.footerSectionContainer {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
-  gap: 40px;
-}
-
-.footAboutWidth,
-.footNavWidth,
-.footServiceWidth,
-.footSocialWidth {
-  /* grid children, min-width handled by grid */
-}
-
-/* ── Footer column titles ────────────────────── */
-.footerColumnTitle {
+  color: oklch(93% 0.015 75);
+  border-top: 1px solid oklch(93% 0.015 75 / 0.12);
+  padding: 64px 0 36px;
   font-family: var(--font-body);
-  font-size: 14px;
+}
+
+.footerInner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 52px);
+}
+
+/* ── Grid ─────────────────────────────────────── */
+.fGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+/* ── Brand column ─────────────────────────────── */
+.fBrandLink {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+}
+
+.fMark {
+  width: 30px;
+  height: 30px;
+}
+
+.fBn {
   font-weight: 600;
-  letter-spacing: 0.3px;
-  color: var(--ql-linen);
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  color: oklch(93% 0.015 75);
+}
+
+.fBn span {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 8.5px;
+  letter-spacing: 0.44em;
+  color: oklch(80% 0.02 70 / 0.66);
+}
+
+.fBrandText {
+  margin: 18px 0 0;
+  color: oklch(80% 0.02 70 / 0.66);
+  font-size: 14.5px;
+  line-height: 1.66;
+  max-width: 300px;
+}
+
+/* ── Link columns ─────────────────────────────── */
+.fColTitle {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ql-copper-on-dark);
   margin: 0 0 20px;
+  font-weight: 500;
 }
 
-/* ── Footer links ────────────────────────────── */
-.footerLinksList {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+.fColLink {
+  display: block;
+  padding: 7px 0;
+  font-size: 14.5px;
+  color: oklch(80% 0.02 70 / 0.66);
+  text-decoration: none;
+  transition:
+    color 0.25s,
+    transform 0.25s;
 }
 
-.footerLinkItem {
+.fColLink:hover {
+  color: var(--ql-linen);
+  transform: translateX(4px);
+}
+
+/* ── Bottom bar ───────────────────────────────── */
+.fBot {
+  margin-top: 56px;
+  padding-top: 26px;
+  border-top: 1px solid oklch(93% 0.015 75 / 0.12);
   display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: oklch(80% 0.02 70 / 0.66);
+}
+
+.fMono {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+}
+
+.fLegal {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
-  color: var(--ql-linen);
-  opacity: 0.5;
+  flex-wrap: wrap;
+}
+
+.fLegal a,
+.fLegalBtn {
+  color: oklch(80% 0.02 70 / 0.66);
   text-decoration: none;
-  transition: opacity 0.2s;
-  padding: 4px 0;
-}
-
-.footerLinkItem:hover {
-  opacity: 0.85;
-  color: var(--ql-copper);
-}
-
-.colorOrange {
-  color: var(--ql-copper);
-  opacity: 0.85;
-}
-
-.footerLinkArrow {
-  font-size: 11px;
-  opacity: 0.4;
-  transition: opacity 0.2s;
-}
-
-.footerLinkItem:hover .footerLinkArrow {
-  opacity: 0.8;
-}
-
-/* ── Footer About ────────────────────────────── */
-.footerAboutImageContainer {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.footerLogoGlow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footerAboutImageContainerLogo {
-  /* not used */
-}
-
-.footerAboutHeading {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  color: var(--ql-linen);
-  margin: 0;
-}
-
-.footerAboutZweidevs {
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--ql-linen);
-  opacity: 0.5;
-  margin: 0 0 16px;
-}
-
-.footerAboutTagline {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.taglineDash {
-  width: 16px;
-  height: 2px;
-  background: var(--ql-copper);
-}
-
-.taglineText {
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-style: italic;
-  color: var(--ql-copper);
-}
-
-.trustBadges {
-  display: flex;
-  gap: 24px;
-}
-
-.trustBadge {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.trustBadgeValue {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--ql-linen);
-}
-
-.trustBadgeLabel {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.5px;
-  color: var(--ql-linen);
-  opacity: 0.4;
-}
-
-/* ── Footer Social ───────────────────────────── */
-.footerSocialSubtext {
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--ql-linen);
-  opacity: 0.45;
-  margin: 0 0 16px;
-}
-
-.socialIconsGrid {
-  display: flex;
-  gap: 10px;
-}
-
-.socialIconCard {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid oklch(95% 0.018 75 / 0.12);
-  border-radius: 2px;
-  text-decoration: none;
-  transition:
-    border-color 0.2s,
-    background 0.2s;
-  position: relative;
-}
-
-.socialIconCard:hover {
-  border-color: var(--ql-copper);
-  background: oklch(58% 0.12 45 / 0.08);
-}
-
-.socialIcon {
-  transition: opacity 0.2s;
-}
-
-.socialIconHover {
-  position: absolute;
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-.socialIconCard:hover .socialIcon {
-  opacity: 0;
-}
-
-.socialIconCard:hover .socialIconHover {
-  opacity: 1;
-}
-
-/* ── Scroll animations ───────────────────────── */
-.footerSlideLeft {
-  opacity: 0;
-  transform: translateX(-20px);
-  transition:
-    opacity 0.55s ease,
-    transform 0.55s ease;
-}
-
-.footerFadeEl {
-  opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity 0.55s ease,
-    transform 0.55s ease;
-}
-
-.footerVisible {
-  opacity: 1;
-  transform: translate(0);
-}
-
-/* ── Divider & bottom bar ────────────────────── */
-.footerDivider {
-  height: 1px;
-  background: oklch(95% 0.018 75 / 0.08);
-  max-width: 1100px;
-  margin: 40px auto 24px;
-}
-
-.footerBottomBar {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.footerBottomLeft {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.footerCopyright {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.5px;
-  opacity: 0.4;
-}
-
-.footerBottomRight {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.footerBottomLink {
-  font-size: 12px;
-  color: var(--ql-linen);
-  opacity: 0.45;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-.footerBottomLink:hover {
-  opacity: 0.8;
-}
-
-.footerDot {
-  opacity: 0.25;
-  font-size: 10px;
-}
-
-.footerLegalRow {
-  max-width: 1100px;
-  margin: 16px auto 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-top: 16px;
-  border-top: 1px solid oklch(95% 0.018 75 / 0.06);
-}
-
-.footerLegalLink {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.5px;
-  color: var(--ql-linen);
-  opacity: 0.3;
-  text-decoration: none;
-  transition: opacity 0.2s;
-  background: transparent;
+  background: none;
   border: 0;
   padding: 0;
+  font: inherit;
   cursor: pointer;
+  transition: color 0.25s;
 }
 
-.footerLegalLink:hover,
-.footerLegalLink:focus-visible {
-  opacity: 0.65;
-  outline: none;
+.fLegal a:hover,
+.fLegalBtn:hover {
+  color: var(--ql-linen);
 }
 
-/* ═══════════════════════════════════════════════
-   RESPONSIVE
-   ═══════════════════════════════════════════════ */
-@media (max-width: 900px) {
-  .ctaBannerInner {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
+.fSep {
+  opacity: 0.4;
+}
 
-  .ctaBannerActions {
-    align-items: center;
-  }
-
-  .ctaBannerDesc {
-    max-width: 100%;
-  }
-
-  .footerSectionContainer {
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 1040px) {
+  .fGrid {
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
   }
 }
 
-@media (max-width: 600px) {
-  .footerSectionContainer {
+@media (max-width: 680px) {
+  .fGrid {
     grid-template-columns: 1fr;
+    gap: 36px;
   }
 
-  .footerBottomBar {
+  .fBot {
     flex-direction: column;
-    gap: 12px;
-    text-align: center;
-  }
-
-  .trustBadges {
-    flex-direction: column;
-    gap: 12px;
+    gap: 14px;
   }
 }

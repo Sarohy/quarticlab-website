@@ -1,70 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import Seo from "@component/Components/CommonComponents/Seo/Seo";
 import { SITE_URL } from "@component/utils/siteUrl";
 
 import { getAllServices } from "../../firebase/firebaseRequests";
-import {
-  SERVICE_ICON_BY_SLUG,
-  SERVICE_ICON_MAP,
-  WebDevIcon,
-} from "@component/Components/CommonComponents/ServiceIcons";
-
-/* ── tech icons ─────────────────────────────── */
-import NodeIcon from "../../../public/assets/serviceIcons/node.svg";
-import PythonIcon from "../../../public/assets/serviceIcons/py.svg";
-import ReactIcon from "../../../public/assets/serviceIcons/react.svg";
-import JSIcon from "../../../public/assets/serviceIcons/JS.svg";
-import SolanaIcon from "../../../public/assets/serviceIcons/solanaIcon.svg";
-import EthIcon from "../../../public/assets/serviceIcons/ethIcon.svg";
-import AndroidIcon from "../../../public/assets/serviceIcons/androidIcon.svg";
-import IOSIcon from "../../../public/assets/serviceIcons/iOSIcon.svg";
-import FigmaIcon from "../../../public/assets/serviceIcons/figmaIcon.svg";
-import SketchIcon from "../../../public/assets/serviceIcons/sketch.svg";
-import UnityIcon from "../../../public/assets/serviceIcons/unityIcon.svg";
-import BelenderIcon from "../../../public/assets/serviceIcons/blender.svg";
-import RaspbarryPiIcon from "../../../public/assets/serviceIcons/raspbarryPiIcon.svg";
-import ArduinoIcon from "../../../public/assets/serviceIcons/arduinoIcon.svg";
-import PyTorch from "../../../public/assets/serviceIcons/pyTorch.svg";
-import OpenAIIcon from "../../../public/assets/serviceIcons/openAIIcon.svg";
-import AWSIcon from "../../../public/assets/serviceIcons/AWS.svg";
-import AzureIcon from "../../../public/assets/serviceIcons/AzureIcon.svg";
-import GoogleCloudIcon from "../../../public/assets/serviceIcons/googlecloudIcon.svg";
-import Flutter from "../../../public/assets/serviceIcons/Flutter.svg";
-import AngularIcon from "../../../public/assets/serviceIcons/angular.svg";
-import NextIcon from "../../../public/assets/serviceIcons/next.svg";
-
-import styles from "./servicesNew.module.css";
-
-/* ── icon maps for dynamic Firestore data ──── */
-const serviceIconMap = SERVICE_ICON_MAP;
-
-const techIconMap = {
-  Android: AndroidIcon,
-  Angular: AngularIcon,
-  Arduino: ArduinoIcon,
-  AWS: AWSIcon,
-  Azure: AzureIcon,
-  Blender: BelenderIcon,
-  Ethereum: EthIcon,
-  Figma: FigmaIcon,
-  Flutter,
-  GCP: GoogleCloudIcon,
-  iOS: IOSIcon,
-  JS: JSIcon,
-  Next: NextIcon,
-  Node: NodeIcon,
-  OpenAI: OpenAIIcon,
-  PyTorch,
-  Python: PythonIcon,
-  "React Native": ReactIcon,
-  React: ReactIcon,
-  RPi: RaspbarryPiIcon,
-  Sketch: SketchIcon,
-  Solana: SolanaIcon,
-  Unity: UnityIcon,
-};
+import styles from "./servicesIndex.module.css";
 
 /* ── reveal hook ────────────────────────────── */
 function useReveal() {
@@ -80,13 +20,9 @@ function useReveal() {
           }
         });
       },
-      { threshold: 0.08 },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
     );
-    refs.current.forEach(el => {
-      if (el) {
-        observer.observe(el);
-      }
-    });
+    refs.current.forEach(el => el && observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
@@ -97,40 +33,95 @@ function useReveal() {
   };
 }
 
-/* ── helper components ──────────────────────── */
+/* ── constants ──────────────────────────────── */
+const SERVICES_KICKER =
+  "OUR EXPERTISE · FIXED PRICE / T&M / DEDICATED TEAM · ESTIMATES IN 12H";
 
-function ServiceIconRender({ size, slug, title }) {
-  const Icon =
-    SERVICE_ICON_BY_SLUG[slug] || serviceIconMap[title] || WebDevIcon;
-  return (
-    <div className={styles.serviceIconWrap}>
-      <Icon size={size} />
-    </div>
-  );
-}
+const ENGAGEMENT = [
+  {
+    cta: "Start a project",
+    desc: "Ideal for well-defined projects. We scope every deliverable upfront, agree on a price, and deliver on schedule.",
+    ix: "MODEL / A",
+    terms: ["From $5,000", "Scoped deliverable", "4–12 weeks typical"],
+    title: "Fixed Price",
+  },
+  {
+    cta: "Start a project",
+    desc: "Best for evolving products. Sprint weekly, prioritise as you learn, and pay only for hours delivered.",
+    ix: "MODEL / B",
+    terms: ["From $30/hr", "Weekly billing", "Minimum 4 weeks"],
+    title: "Time & Material",
+  },
+  {
+    cta: "Build a team",
+    desc: "For long-term builds. A full embedded team — engineers, a PM, and process — on monthly retainer.",
+    ix: "MODEL / C",
+    terms: [
+      "From $30/hr per engineer",
+      "Monthly retainer",
+      "3+ month commitment",
+    ],
+    title: "Dedicated Team",
+  },
+];
 
-function TechBubbles({ names = [] }) {
-  if (!names.length) {
-    return null;
-  }
-  return (
-    <div className={styles.serviceCardFooter}>
-      {names
-        .filter(name => techIconMap[name])
-        .map(name => (
-          <div className={styles.techBubble} key={name} title={name}>
-            <Image alt={name} height={16} src={techIconMap[name]} width={16} />
-          </div>
-        ))}
-    </div>
-  );
-}
+const NOT_A_FIT = [
+  {
+    desc: "We don’t take on sub-$5K projects. If you need a single-page brochure site, we’ll happily refer you to a freelancer who specialises in them.",
+    title: "Budget under $5K",
+  },
+  {
+    desc: "If “ship by Friday no matter what” is the brief, we’re not your team. Our sprints are 2 weeks, our estimates are honest, and we push back on scope that breaks on Monday.",
+    title: "Shortest-path MVPs",
+  },
+  {
+    desc: "We don’t do pure body-shop staff-aug. Our dedicated team model comes with a PM, process, and accountability — not standalone contractors.",
+    title: "Staff augmentation only",
+  },
+];
 
 /* ═══════════════════════════════════════════
   PAGE COMPONENT
   ═══════════════════════════════════════════ */
 export default function ServicesNew({ services = [] }) {
   const addRef = useReveal();
+  const kickerRef = useRef(null);
+
+  /* scramble the hero kicker on mount */
+  useEffect(() => {
+    const el = kickerRef.current;
+    if (!el) {
+      return;
+    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.textContent = SERVICES_KICKER;
+      return;
+    }
+    const glyphs = "◆#/\\+×—·01";
+    const total = 46;
+    let frame = 0;
+    let tid = null;
+    const tick = () => {
+      let out = "";
+      for (let i = 0; i < SERVICES_KICKER.length; i++) {
+        const threshold = (i / SERVICES_KICKER.length) * total * 0.8;
+        out +=
+          frame > threshold
+            ? SERVICES_KICKER[i]
+            : SERVICES_KICKER[i] === " "
+              ? " "
+              : glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+      el.textContent = out;
+      if (frame++ < total) {
+        tid = setTimeout(tick, 34);
+      } else {
+        el.textContent = SERVICES_KICKER;
+      }
+    };
+    tick();
+    return () => clearTimeout(tid);
+  }, []);
 
   return (
     <div className={styles.page}>
@@ -145,157 +136,153 @@ export default function ServicesNew({ services = [] }) {
       />
 
       {/* ── HERO ───────────────────────────────── */}
-      <section className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className={styles.heroInner}>
-          <span className={styles.heroBadge}>Our Expertise</span>
-          <h1 className={styles.heroH1}>
-            Eight disciplines. One senior team.{" "}
-            <span className={styles.heroAccent}>Every project.</span>
+      <header className={styles.shero}>
+        <div className={styles.container}>
+          <span className={styles.kick} ref={kickerRef}>
+            &nbsp;
+          </span>
+          <h1 className={styles.h1}>
+            <span className={styles.ln}>
+              <span>Eight disciplines.</span>
+            </span>
+            <span className={styles.ln}>
+              <span>One senior team.</span>
+            </span>
+            <span className={styles.ln}>
+              <span>
+                <em>Every project.</em>
+              </span>
+            </span>
           </h1>
-          <p className={styles.heroSub}>
+          <p className={styles.heroLead}>
             Web, mobile, AI, blockchain, IoT, DevOps, design &mdash; delivered
             by the same senior team with zero outsourcing. Choose fixed-price,
             time-and-material, or dedicated team engagement. Project estimates
             in 12 hours.
           </p>
-          <div className={styles.heroCtas}>
+          <div className={styles.sheroCtas}>
             <a
-              className={styles.btnHeroPrimary}
+              className={styles.btnPrimary}
               href="https://calendly.com/quarticlab/30min"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Schedule a Call
+              Schedule a call <span className={styles.arr}>→</span>
             </a>
             <Link className={styles.btnOutline} href="#services">
-              Explore Services ↓
+              Explore services ↓
             </Link>
           </div>
         </div>
-        <div className={styles.heroWave} />
-      </section>
+      </header>
 
       {/* ── SERVICES GRID ──────────────────────── */}
       <section className={styles.servicesSec} id="services">
         <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionTag}>Services</span>
-            <h2 className={styles.sectionTitle}>
-              Everything needed to ship a product. Nothing that isn&apos;t.
-            </h2>
-            <p className={styles.sectionDesc}>
+          <div className={styles.secHead}>
+            <div className={styles.reveal} ref={addRef}>
+              <span className={styles.eb}>
+                <i />
+                Services
+              </span>
+              <h2 className={styles.h2}>
+                Everything needed to ship.
+                <br />
+                <em>Nothing that isn&apos;t.</em>
+              </h2>
+            </div>
+            <p className={`${styles.headLead} ${styles.reveal}`} ref={addRef}>
               Pick one discipline or the whole stack &mdash; we staff the
               project with senior engineers who&apos;ve shipped it before.
             </p>
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 24,
-            }}
-          >
+          <div className={styles.sgrid}>
             {services.map((svc, i) => (
               <Link
-                className={`${styles.serviceCard} ${styles.reveal}`}
+                className={styles.scard}
                 href={svc.slug ? `/services/${svc.slug}` : "/services"}
                 key={svc.title}
-                ref={addRef}
-                style={{ transitionDelay: `${i * 0.06}s` }}
               >
-                <ServiceIconRender
-                  size={32}
-                  slug={svc.slug}
-                  title={svc.title}
-                />
-                <h3 className={styles.serviceCardTitle}>{svc.title}</h3>
-                <p className={styles.serviceCardDesc}>{svc.desc}</p>
-                <TechBubbles names={svc.techNames} />
-                <span className={styles.serviceLink}>
-                  Learn More <span aria-hidden="true">→</span>
+                <span className={styles.scGo}>OPEN →</span>
+                <span className={styles.scIx}>
+                  QL/{String(i + 1).padStart(2, "0")}
                 </span>
+                <h3 className={styles.scardTitle}>{svc.title}</h3>
+                <p className={styles.scardDesc}>{svc.desc}</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── HOW WE ENGAGE ──────────────────────── */}
-      <section className={styles.engageSec} id="engagement-models">
+      {/* ── ENGAGEMENT MODELS (dark) ───────────── */}
+      <section
+        className={`${styles.engageSec} ${styles.dark}`}
+        id="engagement-models"
+      >
         <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionTag}>Engagement Models</span>
-            <h2 className={styles.sectionTitle}>Three ways to work with us</h2>
-            <p className={styles.sectionDesc}>
+          <div className={styles.secHead}>
+            <div className={styles.reveal} ref={addRef}>
+              <span className={styles.eb}>
+                <i />
+                Engagement models
+              </span>
+              <h2 className={styles.h2}>
+                Three ways to <em>work with us</em>
+              </h2>
+            </div>
+            <p className={`${styles.headLead} ${styles.reveal}`} ref={addRef}>
               Fixed price for scoped work, time &amp; material for evolving
               products, dedicated teams for long-term builds. Every engagement
               comes with a senior PM and weekly demos.
             </p>
           </div>
+
           <div className={styles.engageGrid}>
-            {[
-              {
-                badge: null,
-                cta: "Start a project",
-                desc: "Ideal for well-defined projects. We scope every deliverable upfront, agree on a price, and deliver on schedule.",
-                highlight: false,
-                pricing:
-                  "From $5,000 \u00b7 Scoped deliverable \u00b7 4\u201312 weeks typical",
-                title: "Fixed Price",
-              },
-              {
-                badge: null,
-                cta: "Start a project",
-                desc: "Best for evolving products. Sprint weekly, prioritise as you learn, and pay only for hours delivered.",
-                highlight: false,
-                pricing:
-                  "From $30/hr \u00b7 Weekly billing \u00b7 Minimum 4 weeks",
-                title: "Time & Material",
-              },
-              {
-                badge: null,
-                cta: "Build a team",
-                desc: "For long-term builds. A full embedded team \u2014 engineers, a PM, and process \u2014 on monthly retainer.",
-                highlight: false,
-                pricing:
-                  "From $30/hr per engineer \u00b7 Monthly retainer \u00b7 3+ month commitment",
-                title: "Dedicated Team",
-              },
-              {
-                badge: "Recommended starting point",
-                cta: "Start a discovery sprint",
-                desc: "Best for complex or unclear scope. 1\u20132 weeks of product and engineering discovery, ending with a signed scope, architecture doc, and fixed estimate. Credited toward the build if you proceed.",
-                highlight: true,
-                pricing:
-                  "From $2,500 \u00b7 1\u20132 weeks \u00b7 Concrete deliverable",
-                title: "Paid Discovery Sprint",
-              },
-            ].map(({ badge, cta, desc, highlight, pricing, title }) => (
+            {ENGAGEMENT.map((m, i) => (
               <div
-                className={`${styles.engageCard} ${
-                  highlight ? styles.engageCardHighlight : ""
-                } ${styles.reveal}`}
-                key={title}
+                className={`${styles.ecard} ${styles.reveal}`}
+                key={m.title}
                 ref={addRef}
+                style={{ transitionDelay: `${i * 90}ms` }}
               >
-                {badge && (
-                  <span className={styles.engageCardBadge}>{badge}</span>
-                )}
-                <h3 className={styles.engageCardTitle}>{title}</h3>
-                <p className={styles.engageCardDesc}>{desc}</p>
-                <p className={styles.engagePricing}>{pricing}</p>
-                <Link
-                  className={
-                    highlight ? styles.btnPrimary : styles.btnEngageOutline
-                  }
-                  href="/contact"
-                >
-                  {cta}
+                <span className={styles.eIx}>{m.ix}</span>
+                <h3 className={styles.ecardTitle}>{m.title}</h3>
+                <p className={styles.ecardDesc}>{m.desc}</p>
+                <div className={styles.eTerms}>
+                  {m.terms.map((t, j) => (
+                    <span key={t}>
+                      {j === 0 ? <b>{t}</b> : t}
+                      <br />
+                    </span>
+                  ))}
+                </div>
+                <Link className={styles.btnDark} href="/contact">
+                  {m.cta}
                 </Link>
               </div>
             ))}
+          </div>
+
+          <div className={`${styles.disc} ${styles.reveal}`} ref={addRef}>
+            <div>
+              <span className={styles.eIx}>Recommended starting point</span>
+              <h3 className={styles.discTitle}>Paid Discovery Sprint</h3>
+              <p className={styles.discDesc}>
+                Best for complex or unclear scope. 1&ndash;2 weeks of product
+                and engineering discovery, ending with a signed scope,
+                architecture doc, and fixed estimate. Credited toward the build
+                if you proceed.
+              </p>
+              <div className={styles.discTerms}>
+                <b>From $2,500</b> &middot; 1&ndash;2 weeks &middot; Concrete
+                deliverable
+              </div>
+            </div>
+            <Link className={styles.btnPrimary} href="/contact">
+              Start a discovery sprint <span className={styles.arr}>→</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -303,65 +290,94 @@ export default function ServicesNew({ services = [] }) {
       {/* ── NOT A FIT ──────────────────────────── */}
       <section className={styles.notAFitSec}>
         <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionTag}>Not a fit if&hellip;</span>
-            <h2 className={styles.sectionTitle}>
-              Who we&apos;re not the right team for
-            </h2>
+          <div className={styles.secHead}>
+            <div className={styles.reveal} ref={addRef}>
+              <span className={styles.eb}>
+                <i />
+                Not a fit if&hellip;
+              </span>
+              <h2 className={styles.h2}>
+                Who we&apos;re <em>not</em> the right team for
+              </h2>
+            </div>
+            <p className={`${styles.headLead} ${styles.reveal}`} ref={addRef}>
+              Honest scoping starts with honest fit. Three things we&apos;ll
+              tell you upfront, before you spend a call finding out.
+            </p>
           </div>
           <div className={styles.notAFitGrid}>
-            {[
-              {
-                desc: "We don\u2019t take on sub-$5K projects. If you need a single-page brochure site, we\u2019ll happily refer you to a freelancer who specialises in them.",
-                title: "Budget under $5K",
-              },
-              {
-                desc: "If \u201cship by Friday no matter what\u201d is the brief, we\u2019re not your team. Our sprints are 2 weeks, our estimates are honest, and we push back on scope that breaks on Monday.",
-                title: "Shortest-path MVPs",
-              },
-              {
-                desc: "We don\u2019t do pure body-shop staff-aug. Our dedicated team model comes with a PM, process, and accountability \u2014 not standalone contractors.",
-                title: "Staff augmentation only",
-              },
-            ].map(({ desc, title }) => (
+            {NOT_A_FIT.map((item, i) => (
               <div
-                className={`${styles.notAFitCard} ${styles.reveal}`}
-                key={title}
+                className={`${styles.nf} ${styles.reveal}`}
+                key={item.title}
                 ref={addRef}
+                style={{ transitionDelay: `${i * 90}ms` }}
               >
-                <h3 className={styles.notAFitCardTitle}>{title}</h3>
-                <p className={styles.notAFitCardDesc}>{desc}</p>
+                <span className={styles.nfX}>✕</span>
+                <h3 className={styles.nfTitle}>{item.title}</h3>
+                <p className={styles.nfDesc}>{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── CTA ────────────────────────────────── */}
-      <section className={styles.ctaSec}>
+      {/* ── CTA BAND (dark) ────────────────────── */}
+      <section className={styles.ctaSection}>
+        <div aria-hidden="true" className={styles.ctaBg}>
+          <svg viewBox="0 0 100 100">
+            <g
+              opacity=".6"
+              stroke="oklch(93% 0.015 75)"
+              strokeLinecap="round"
+              strokeWidth="1.2"
+            >
+              <line x1="50" x2="82" y1="18" y2="50" />
+              <line x1="50" x2="50" y1="18" y2="82" />
+              <line x1="50" x2="18" y1="18" y2="50" />
+              <line x1="82" x2="50" y1="50" y2="82" />
+              <line x1="82" x2="18" y1="50" y2="50" />
+              <line x1="50" x2="18" y1="82" y2="50" />
+            </g>
+            <g fill="none" stroke="oklch(58% 0.12 45)" strokeWidth="2">
+              <circle cx="50" cy="18" r="6.5" />
+              <circle cx="82" cy="50" r="6.5" />
+              <circle cx="50" cy="82" r="6.5" />
+              <circle cx="18" cy="50" r="6.5" />
+            </g>
+          </svg>
+        </div>
         <div className={styles.container}>
-          <div className={`${styles.ctaCard} ${styles.reveal}`} ref={addRef}>
-            <h2 className={styles.ctaTitle}>
-              Get a scoped estimate in 12 hours
-            </h2>
-            <p className={styles.ctaDesc}>
-              Tell us what you&apos;re building. We&apos;ll send back a scope,
-              timeline, team composition, and cost &mdash; without a sales call.
-            </p>
-            <div className={styles.ctaBtns}>
-              <Link className={styles.ctaBtnPrimary} href="/contact">
-                Get your estimate
-              </Link>
-              <a
-                className={styles.ctaBtnSecondary}
-                href="https://calendly.com/quarticlab/30min"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Or book a 30-min call
-              </a>
-            </div>
+          <span
+            className={`${styles.eb} ${styles.ebCenter} ${styles.reveal}`}
+            ref={addRef}
+          >
+            <i />
+            Avg. response: 4 hours
+          </span>
+          <h2 className={`${styles.ctaTitle} ${styles.reveal}`} ref={addRef}>
+            Get a full project estimate in <em>12 hours</em>
+          </h2>
+          <p className={`${styles.ctaDesc} ${styles.reveal}`} ref={addRef}>
+            Scope, timeline, team composition, and cost — delivered to your
+            inbox. No sales call required.
+          </p>
+          <div className={`${styles.ctaBtns} ${styles.reveal}`} ref={addRef}>
+            <a
+              className={styles.ctaBtnPrimary}
+              href="https://calendly.com/quarticlab/30min"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Book a 30-min call <span className={styles.arr}>→</span>
+            </a>
+            <Link className={styles.ctaBtnSecondary} href="/contact">
+              Send a brief instead
+            </Link>
           </div>
+          <p className={`${styles.ctaNote} ${styles.reveal}`} ref={addRef}>
+            FIXED-SCOPE SPRINTS · WEEKLY DEMOS · 30 DAYS FREE SUPPORT
+          </p>
         </div>
       </section>
     </div>
@@ -369,7 +385,6 @@ export default function ServicesNew({ services = [] }) {
 }
 
 /* ── data fetching — SSR (always fresh from Firestore) ── */
-
 export async function getServerSideProps() {
   try {
     const data = await getAllServices();
@@ -377,11 +392,10 @@ export async function getServerSideProps() {
       .map(svc => {
         const title = svc.title || "";
         const desc = svc.desc || svc.description || "";
-        const techNames = Array.isArray(svc.techs) ? svc.techs : [];
         const order = Number(svc.order_no ?? svc.order ?? 0);
         const slug = svc.slug || "";
 
-        return { title, desc, techNames, order, slug };
+        return { desc, order, slug, title };
       })
       .sort((a, b) => {
         if (a.order === b.order) {

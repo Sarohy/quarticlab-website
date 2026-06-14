@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getBlogBySlug } from "@component/firebase/firebaseRequests";
 import { SITE_URL } from "@component/utils/siteUrl";
-import styles from "./blogNew.module.css";
+import styles from "./blogDetail.module.css";
 
 /* ── helpers ─────────────────────────────── */
 function formatDate(str) {
@@ -164,76 +164,6 @@ function useEnhanceArticle(ref, html) {
   }, [ref, html]);
 }
 
-/* ── icons ───────────────────────────────── */
-function IconLinkedIn() {
-  return (
-    <svg
-      aria-hidden="true"
-      fill="currentColor"
-      focusable="false"
-      height="14"
-      viewBox="0 0 24 24"
-      width="14"
-    >
-      <path d="M20.4 3H3.6A.6.6 0 0 0 3 3.6v16.8a.6.6 0 0 0 .6.6h16.8a.6.6 0 0 0 .6-.6V3.6a.6.6 0 0 0-.6-.6ZM8.3 18.3H5.7V9.7h2.6v8.6Zm-1.3-9.8a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm11.3 9.8h-2.6v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.3H10V9.7h2.5v1.2h.1c.4-.7 1.2-1.4 2.5-1.4 2.7 0 3.2 1.7 3.2 4v4.8Z" />
-    </svg>
-  );
-}
-
-function IconX() {
-  return (
-    <svg
-      aria-hidden="true"
-      fill="currentColor"
-      focusable="false"
-      height="14"
-      viewBox="0 0 24 24"
-      width="14"
-    >
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231ZM17.083 19.77h1.833L7.084 4.126H5.117L17.083 19.77Z" />
-    </svg>
-  );
-}
-
-function IconLink() {
-  return (
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      height="14"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      viewBox="0 0 24 24"
-      width="14"
-    >
-      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-    </svg>
-  );
-}
-
-function IconCheck() {
-  return (
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      height="14"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2.4"
-      viewBox="0 0 24 24"
-      width="14"
-    >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
-
 /* ── scroll progress (top bar) ───────────── */
 function ScrollProgress({ pct }) {
   return (
@@ -247,8 +177,7 @@ function ScrollProgress({ pct }) {
 
 /* ── back to top with radial progress ────── */
 function BackToTop({ pct }) {
-  const visible = pct > 25;
-  if (!visible) {
+  if (pct <= 25) {
     return null;
   }
   const C = 2 * Math.PI * 20;
@@ -272,7 +201,7 @@ function BackToTop({ pct }) {
           cy="24"
           fill="none"
           r="20"
-          stroke="oklch(95% 0.018 75 / 0.15)"
+          stroke="oklch(20% 0.05 255 / 0.14)"
           strokeWidth="2"
         />
         <circle
@@ -280,7 +209,7 @@ function BackToTop({ pct }) {
           cy="24"
           fill="none"
           r="20"
-          stroke="var(--ql-copper)"
+          stroke="var(--ql-copper-dk)"
           strokeDasharray={C}
           strokeDashoffset={offset}
           strokeLinecap="round"
@@ -295,8 +224,92 @@ function BackToTop({ pct }) {
   );
 }
 
-/* ── vertical share rail (desktop only) ──── */
-function ShareRail({ title }) {
+/* ── reading ring meter (sidebar) ────────── */
+function ReadingMeter({ pct, readingTime }) {
+  const minsLeft = Math.max(0, Math.round(readingTime * (1 - pct / 100)));
+  const C = 2 * Math.PI * 22;
+  const offset = C * (1 - pct / 100);
+  return (
+    <div className={styles.scard}>
+      <h4 className={styles.scardH4}>Reading</h4>
+      <div className={styles.meterRow}>
+        <div className={styles.ring}>
+          <svg height="52" viewBox="0 0 52 52" width="52">
+            <circle className={styles.ringBg} cx="26" cy="26" r="22" />
+            <circle
+              className={styles.ringFg}
+              cx="26"
+              cy="26"
+              r="22"
+              strokeDasharray={C}
+              strokeDashoffset={offset}
+            />
+          </svg>
+          <b className={styles.ringPct}>{Math.round(pct)}%</b>
+        </div>
+        <span>{pct >= 99 ? "COMPLETE" : `${minsLeft} MIN LEFT`}</span>
+      </div>
+    </div>
+  );
+}
+
+/* ── table of contents links ─────────────── */
+function TocLinks({ activeId, headings }) {
+  const handleClick = (e, id) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (!el) {
+      return;
+    }
+    const top = el.getBoundingClientRect().top + window.pageYOffset - 88;
+    window.scrollTo({ behavior: "smooth", top });
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, "", `#${id}`);
+    }
+  };
+
+  return (
+    <nav aria-label="Article contents" className={styles.toc}>
+      {headings.map(h => (
+        <a
+          className={`${styles.tocLink} ${h.level === 3 ? styles.tocSub : ""} ${
+            activeId === h.id ? styles.tocOn : ""
+          }`}
+          href={`#${h.id}`}
+          key={h.id}
+          onClick={e => handleClick(e, h.id)}
+        >
+          {h.text}
+        </a>
+      ))}
+    </nav>
+  );
+}
+
+/* ── mobile table of contents ────────────── */
+function MobileToc({ activeId, headings }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className={`${styles.mtoc} ${open ? styles.mtocOpen : ""}`}>
+      <button
+        aria-expanded={open}
+        onClick={() => setOpen(o => !o)}
+        type="button"
+      >
+        ON THIS PAGE
+        <span aria-hidden="true" className={styles.mtocIc}>
+          +
+        </span>
+      </button>
+      <div className={styles.mtocBody}>
+        <TocLinks activeId={activeId} headings={headings} />
+      </div>
+    </div>
+  );
+}
+
+/* ── share card (sidebar) ────────────────── */
+function ShareCard({ title }) {
   const [copied, setCopied] = useState(false);
   const url = typeof window !== "undefined" ? window.location.href : SITE_URL;
   const encoded = encodeURIComponent(url);
@@ -313,114 +326,30 @@ function ShareRail({ title }) {
   };
 
   return (
-    <aside aria-label="Share article" className={styles.shareRail}>
-      <span className={styles.shareRailLabel}>Share</span>
-      <a
-        aria-label="Share on LinkedIn"
-        className={styles.shareRailBtn}
-        href={`https://www.linkedin.com/shareArticle?mini=true&url=${encoded}&title=${encodedTitle}`}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <IconLinkedIn />
-      </a>
-      <a
-        aria-label="Share on X"
-        className={styles.shareRailBtn}
-        href={`https://x.com/intent/tweet?url=${encoded}&text=${encodedTitle}`}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <IconX />
-      </a>
-      <button
-        aria-label="Copy link"
-        className={styles.shareRailBtn}
-        onClick={handleCopy}
-        type="button"
-      >
-        {copied ? <IconCheck /> : <IconLink />}
-      </button>
-    </aside>
-  );
-}
-
-/* ── reading-progress card (sidebar) ─────── */
-function ProgressCard({ pct, readingTime }) {
-  const minsLeft = Math.max(0, Math.round(readingTime * (1 - pct / 100)));
-  return (
-    <div className={styles.progressCard}>
-      <div className={styles.progressLabel}>
-        <span className={styles.progressPct}>{Math.round(pct)}%</span>
-        <span className={styles.progressMin}>
-          {pct >= 99 ? "Complete" : `${minsLeft} min left`}
-        </span>
-      </div>
-      <div aria-hidden="true" className={styles.progressBar}>
-        <div className={styles.progressFill} style={{ width: `${pct}%` }} />
+    <div className={styles.scard}>
+      <h4 className={styles.scardH4}>Share</h4>
+      <div className={styles.shareRow}>
+        <a
+          className={styles.shb}
+          href={`https://www.linkedin.com/shareArticle?mini=true&url=${encoded}&title=${encodedTitle}`}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          LINKEDIN
+        </a>
+        <a
+          className={styles.shb}
+          href={`https://x.com/intent/tweet?url=${encoded}&text=${encodedTitle}`}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          X
+        </a>
+        <button className={styles.shb} onClick={handleCopy} type="button">
+          {copied ? "COPIED" : "COPY"}
+        </button>
       </div>
     </div>
-  );
-}
-
-/* ── scroll-spy table of contents ────────── */
-function TableOfContents({ activeId, headings, mobile }) {
-  const [open, setOpen] = useState(!mobile);
-
-  if (headings.length < 3) {
-    return null;
-  }
-
-  const handleClick = (e, id) => {
-    e.preventDefault();
-    const el = document.getElementById(id);
-    if (!el) {
-      return;
-    }
-    const top = el.getBoundingClientRect().top + window.pageYOffset - 88;
-    window.scrollTo({ behavior: "smooth", top });
-    if (window.history && window.history.replaceState) {
-      window.history.replaceState(null, "", `#${id}`);
-    }
-  };
-
-  return (
-    <nav
-      aria-label="Article contents"
-      className={mobile ? styles.tocMobile : styles.tocCard}
-    >
-      <button
-        aria-expanded={open}
-        className={styles.tocToggle}
-        onClick={() => setOpen(o => !o)}
-        type="button"
-      >
-        On this page
-        <span aria-hidden="true" className={styles.tocChevron}>
-          {open ? "−" : "+"}
-        </span>
-      </button>
-      {open && (
-        <ol className={styles.tocList}>
-          {headings.map(h => (
-            <li
-              className={`${
-                h.level === 3 ? styles.tocSubItem : styles.tocItem
-              } ${activeId === h.id ? styles.tocActive : ""}`}
-              key={h.id}
-            >
-              <a
-                className={styles.tocLink}
-                href={`#${h.id}`}
-                onClick={e => handleClick(e, h.id)}
-              >
-                {h.text}
-              </a>
-            </li>
-          ))}
-        </ol>
-      )}
-    </nav>
   );
 }
 
@@ -429,7 +358,7 @@ function NewsletterForm({ email, onEmailChange, onSubmit, subStatus }) {
   if (subStatus === "done") {
     return (
       <p className={styles.subDone}>
-        ✓ You&apos;re on the list — check your inbox to confirm.
+        ◆ SUBSCRIBED — check your inbox to confirm.
       </p>
     );
   }
@@ -437,16 +366,17 @@ function NewsletterForm({ email, onEmailChange, onSubmit, subStatus }) {
     <form className={styles.subForm} onSubmit={onSubmit}>
       <input
         aria-label="Email address"
+        autoComplete="email"
         className={styles.subInput}
         disabled={subStatus === "sending"}
         onChange={e => onEmailChange(e.target.value)}
-        placeholder="your@email.com"
+        placeholder="you@company.com"
         required
         type="email"
         value={email}
       />
       <button
-        className={styles.btnPrimary}
+        className={styles.btnSub}
         disabled={subStatus === "sending"}
         type="submit"
       >
@@ -462,7 +392,7 @@ function NewsletterForm({ email, onEmailChange, onSubmit, subStatus }) {
 }
 
 /* ── page ────────────────────────────────── */
-const BlogDetail = ({ post, fetchStatus }) => {
+const BlogDetail = ({ fetchStatus, post }) => {
   const [email, setEmail] = useState("");
   const [subStatus, setSubStatus] = useState("idle");
   const contentRef = useRef(null);
@@ -505,24 +435,12 @@ const BlogDetail = ({ post, fetchStatus }) => {
     return (
       <div className={styles.page}>
         <ScrollProgress pct={0} />
-        <div className={styles.detailLoadingWrap}>
-          <div className={styles.skeletonDetailHero} />
-          <div className={styles.container}>
-            <div className={styles.skeletonDetailBody}>
-              <div
-                className={`${styles.skeletonLine} ${styles.skeletonDetailTitle}`}
-              />
-              <div
-                className={`${styles.skeletonLine} ${styles.skeletonDetailMeta}`}
-              />
-              <div
-                className={`${styles.skeletonLine} ${styles.skeletonDetailPara}`}
-              />
-              <div
-                className={`${styles.skeletonLine} ${styles.skeletonDetailPara}`}
-              />
-            </div>
-          </div>
+        <div className={styles.container}>
+          <div className={styles.skeletonHero} />
+          <div className={`${styles.skeletonLine} ${styles.skeletonTitle}`} />
+          <div className={`${styles.skeletonLine} ${styles.skeletonMeta}`} />
+          <div className={`${styles.skeletonLine} ${styles.skeletonPara}`} />
+          <div className={`${styles.skeletonLine} ${styles.skeletonPara}`} />
         </div>
       </div>
     );
@@ -531,7 +449,7 @@ const BlogDetail = ({ post, fetchStatus }) => {
   if (fetchStatus === "notfound" || fetchStatus === "error") {
     return (
       <div className={styles.page}>
-        <div className={styles.emptyState} style={{ paddingTop: "120px" }}>
+        <div className={styles.emptyState}>
           <p className={styles.emptyTitle}>Article not found.</p>
           <Link className={styles.btnPrimary} href="/blog">
             ← Back to blog
@@ -547,6 +465,14 @@ const BlogDetail = ({ post, fetchStatus }) => {
   const canonicalUrl = `${SITE_URL}/blog/${post.slug}`;
   const authorName = post.author || "Quartic Lab";
   const authorInitial = authorName.charAt(0).toUpperCase();
+  const category = post.category || post.tags?.[0] || "Engineering";
+  const bylineMeta = [
+    formatDate(post.publishedDate).toUpperCase(),
+    `${readingTime} MIN READ`,
+    `${wordCount.toLocaleString()} WORDS`,
+  ]
+    .filter(Boolean)
+    .join(" · ");
 
   return (
     <div className={styles.page}>
@@ -606,189 +532,159 @@ const BlogDetail = ({ post, fetchStatus }) => {
       <ScrollProgress pct={pct} />
       <BackToTop pct={pct} />
 
-      {/* ─── HEADER ───────────────────────────── */}
-      <header aria-label="Article header" className={styles.detailHeader}>
-        <div className={styles.detailHeaderInner}>
-          <Link className={styles.backLink} href="/blog">
-            ← Back to blog
-          </Link>
-
+      {/* ─── ARTICLE HERO ─────────────────────── */}
+      <header className={styles.ah}>
+        <div className={styles.container}>
+          <div className={styles.crumb}>
+            <Link href="/blog">← BACK TO BLOG</Link>
+            <span>/</span>
+            <span>{category.toUpperCase()}</span>
+          </div>
+          <span className={styles.kcat}>{category} · ENGINEERING NOTES</span>
+          <h1 className={styles.ahTitle}>{post.title}</h1>
+          {post.metaDescription && (
+            <p className={styles.dek}>{post.metaDescription}</p>
+          )}
+          <div className={styles.byline}>
+            <span aria-hidden="true" className={styles.av}>
+              {authorInitial}
+            </span>
+            <div>
+              <b>{authorName}</b>
+              <span className={styles.bm}>{bylineMeta}</span>
+            </div>
+          </div>
           {post.heroImage && (
-            <div className={styles.heroCover}>
+            <figure className={styles.heroFig}>
               <Image
                 alt={post.title || "Article cover image"}
-                className={styles.heroCoverImg}
-                fill
+                className={styles.heroFigImg}
+                height={630}
                 priority
                 sizes="(max-width: 1100px) 100vw, 1100px"
                 src={post.heroImage}
+                width={1200}
               />
-            </div>
+            </figure>
           )}
         </div>
       </header>
 
-      {/* ─── CONTENT ──────────────────────────── */}
-      <section aria-label="Article content" className={styles.detailSec}>
-        <div className={styles.container}>
-          <div className={styles.detailLayout}>
-            <ShareRail title={post.title} />
+      {/* ─── LAYOUT ───────────────────────────── */}
+      <div className={`${styles.container} ${styles.layout}`}>
+        {/* sidebar */}
+        <aside aria-label="Article tools" className={styles.side}>
+          <div className={styles.sideIn}>
+            <ReadingMeter pct={pct} readingTime={readingTime} />
 
-            <div className={styles.detailBodyCol}>
-              {headings.length >= 3 && (
-                <TableOfContents
-                  activeId={activeId}
-                  headings={headings}
-                  mobile
-                />
-              )}
-              <div className={styles.detailHeaderText}>
-                <h1 className={styles.detailHeaderH1}>{post.title}</h1>
-                {post.metaDescription && (
-                  <p className={styles.detailHeaderDeck}>
-                    {post.metaDescription}
-                  </p>
-                )}
-
-                <div className={styles.detailMeta}>
-                  <div className={styles.detailMetaAuthor}>
-                    <span
-                      aria-hidden="true"
-                      className={styles.detailMetaAvatar}
-                    >
-                      {authorInitial}
-                    </span>
-                    <div className={styles.detailMetaAuthorText}>
-                      <strong className={styles.detailAuthor}>
-                        {authorName}
-                      </strong>
-                      <span className={styles.detailMetaDate}>
-                        {formatDate(post.publishedDate)}
-                      </span>
-                    </div>
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    className={styles.detailMetaDivider}
-                  />
-                  <div className={styles.detailMetaStats}>
-                    <span>{readingTime} min read</span>
-                    <span aria-hidden="true" className={styles.cardDot}>
-                      ·
-                    </span>
-                    <span>{wordCount.toLocaleString()} words</span>
-                  </div>
-                </div>
+            {headings.length >= 3 && (
+              <div className={styles.scard}>
+                <h4 className={styles.scardH4}>On this page</h4>
+                <TocLinks activeId={activeId} headings={headings} />
               </div>
-              <article
-                className={styles.detailContent}
-                dangerouslySetInnerHTML={{ __html: post.contentHtml || "" }}
-                ref={contentRef}
-              />
+            )}
 
-              <div className={styles.authorBio}>
-                <div aria-hidden="true" className={styles.authorAvatar}>
-                  {authorInitial}
-                </div>
-                <div className={styles.authorBioText}>
-                  <span className={styles.authorBioLabel}>Written by</span>
-                  <strong className={styles.authorBioName}>{authorName}</strong>
-                  <p className={styles.authorBioDesc}>
-                    Writing from inside the product — engineers building real
-                    software for real clients.
-                  </p>
-                </div>
-              </div>
+            <ShareCard title={post.title} />
 
-              <div className={styles.detailNewsletter}>
-                <span className={styles.detailNewsletterTag}>Newsletter</span>
-                <h3 className={styles.detailNewsletterH}>
-                  Get engineering notes in your inbox.
-                </h3>
-                <p className={styles.detailNewsletterSub}>
-                  One email every 2 weeks. No fluff, no tracking pixels.
-                </p>
-                <NewsletterForm
-                  email={email}
-                  onEmailChange={setEmail}
-                  onSubmit={handleSubscribe}
-                  subStatus={subStatus}
-                />
-              </div>
-
-              <div className={styles.detailBack}>
-                <Link className={styles.btnOutline} href="/blog">
-                  ← Back to articles
-                </Link>
-              </div>
-            </div>
-
-            <aside className={styles.detailSidebar}>
-              <div className={styles.sidebarStack}>
-                <ProgressCard pct={pct} readingTime={readingTime} />
-
-                {headings.length >= 3 && (
-                  <TableOfContents
-                    activeId={activeId}
-                    headings={headings}
-                    mobile={false}
-                  />
-                )}
-
-                <div className={styles.sidebarCtaCard}>
-                  <span className={styles.sidebarLabel}>Work with us</span>
-                  <p className={styles.sidebarCta}>
-                    Need help shipping something like this?
-                  </p>
-                  <Link className={styles.sidebarCtaBtn} href="/contact">
-                    Start a project
-                    <span aria-hidden="true">→</span>
-                  </Link>
-                </div>
-
-                {post.tags && post.tags.length > 0 && (
-                  <div className={styles.sidebarTagsCard}>
-                    <span className={styles.sidebarLabel}>Tags</span>
-                    <div className={styles.tagList}>
-                      {post.tags.map(t => (
-                        <span className={styles.tag} key={t}>
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── CTA ──────────────────────────────── */}
-      <section aria-label="Contact CTA" className={styles.ctaSec}>
-        <div className={styles.container}>
-          <div className={styles.ctaCard}>
-            <span className={styles.ctaTag}>Let&apos;s build</span>
-            <h2 className={styles.ctaH2}>
-              Bring us the brief. We&apos;ll bring the team.
-            </h2>
-            <p className={styles.ctaSub}>
-              Book a 30-min call with a senior engineer — or send a project
-              brief and get a written estimate within 12 hours.
-            </p>
-            <div className={styles.ctaBtns}>
-              <a
-                className={styles.btnPrimary}
-                href="https://calendly.com/quarticlab/30min"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Book a call
-              </a>
-              <Link className={styles.btnGhost} href="/contact">
-                Send a brief →
+            <div className={`${styles.scard} ${styles.workCard}`}>
+              <h4 className={styles.scardH4}>Work with us</h4>
+              <p className={styles.workCardP}>
+                Need help shipping something like this?
+              </p>
+              <Link className={styles.workCardLink} href="/contact">
+                START A PROJECT →
               </Link>
             </div>
+          </div>
+        </aside>
+
+        {/* article */}
+        <main>
+          {headings.length >= 3 && (
+            <MobileToc activeId={activeId} headings={headings} />
+          )}
+
+          <article
+            className={styles.prose}
+            dangerouslySetInnerHTML={{ __html: post.contentHtml || "" }}
+            ref={contentRef}
+          />
+
+          {post.tags && post.tags.length > 0 && (
+            <div className={styles.tags}>
+              {post.tags.map(t => (
+                <span className={styles.tg} key={t}>
+                  {t}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <div className={styles.endcards}>
+            <div className={styles.endc}>
+              <div className={styles.who}>
+                <span aria-hidden="true" className={styles.endcAv}>
+                  {authorInitial}
+                </span>
+                <div>
+                  <b>{authorName}</b>
+                </div>
+              </div>
+              <p className={styles.endcP}>
+                Writing from inside the product — engineers building real
+                software for real clients.
+              </p>
+            </div>
+
+            <div className={styles.endc}>
+              <h4 className={styles.scardH4}>Newsletter</h4>
+              <b className={styles.endcLead}>
+                Get engineering notes in your inbox.
+              </b>
+              <p className={styles.endcP}>
+                One email every 2 weeks. No fluff, no tracking pixels.
+              </p>
+              <NewsletterForm
+                email={email}
+                onEmailChange={setEmail}
+                onSubmit={handleSubscribe}
+                subStatus={subStatus}
+              />
+            </div>
+          </div>
+
+          <p className={styles.backrow}>
+            <Link href="/blog">← BACK TO ARTICLES</Link>
+          </p>
+        </main>
+      </div>
+
+      {/* ─── CTA BAND ─────────────────────────── */}
+      <section className={styles.ctaBand}>
+        <div className={styles.container}>
+          <span className={`${styles.eb} ${styles.ebCenter}`}>
+            <i />
+            Let&apos;s build
+          </span>
+          <h2 className={styles.ctaH2}>
+            Bring us the brief. We&apos;ll bring the <em>team.</em>
+          </h2>
+          <p className={styles.ctaSub}>
+            Book a 30-min call with a senior engineer — or send a project brief
+            and get a written estimate within 12 hours.
+          </p>
+          <div className={styles.ctaBtns}>
+            <a
+              className={styles.ctaBtnPrimary}
+              href="https://calendly.com/quarticlab/30min"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Book a call <span className={styles.arr}>→</span>
+            </a>
+            <Link className={styles.ctaBtnSecondary} href="/contact">
+              Send a brief <span className={styles.arr}>→</span>
+            </Link>
           </div>
         </div>
       </section>

@@ -271,6 +271,7 @@ function Header() {
         <span className={styles.ctaPulse} />
         <span className={styles.ctaIcon}>⚡</span>
         <span className={styles.ctaLabel}>{HEADER_CTA.label}</span>
+        <span className={styles.ctaArr}>→</span>
       </a>
     </header>
   );
