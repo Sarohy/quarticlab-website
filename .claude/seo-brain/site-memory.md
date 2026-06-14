@@ -96,7 +96,7 @@ SSR `/sitemap.xml` (16 static routes — **but excludes `/blog` + posts: a top-p
 
 See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema → content engine → steady state). The brain consumes the next un-started roadmap item each week and replaces it with GSC-driven work once data exists.
 
-- **Current roadmap position:** `Week 3 PARTIAL (2026-06-14): tasks 2 (related-posts on blog/[slug]) + 4 (footer blockchain/IoT links) DONE on branch seo-brain/wk-2026-06-14-internal-links (commit 1ddbb79, awaiting review/merge). Tasks 1 (homepage block) + 3 (service-page block) DEFERRED by user pending more blog content — validated by a 15-agent research workflow (see outputs/internal-linking-research.md). Carryover open: GSC→BigQuery export (measurement, still Not started).`
+- **Current roadmap position:** `Week 3 PARTIAL (2026-06-14): tasks 2 (related-posts on blog/[slug]) + 4 (footer blockchain/IoT links) DONE & MERGED to dev (merge a856bf9; pending deploy). Tasks 1 (homepage block) + 3 (service-page block) DEFERRED by user pending more blog content — validated by a 15-agent research workflow (see outputs/internal-linking-research.md). Carryover open: GSC→BigQuery export (measurement, still Not started). Next high-leverage move: publish more cluster posts (Phase 3), then revisit tasks 1 & 3 (task 3 inventory-gated + bidirectional).`
 
 ---
 
@@ -110,8 +110,8 @@ See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema
 
 ## Week 3 status (Week of 2026-06-14 — internal linking; NOT pushed to Notion this round — interactive review)
 
-- ✅ [code] Related-posts ("Keep reading") block on `blog/[slug].jsx` by shared tags — DONE on branch `seo-brain/wk-2026-06-14-internal-links` (1ddbb79), awaiting review/merge.
-- ✅ [code] Blockchain + IoT links added to `Footer.jsx` (all 8 services) — DONE, same branch.
+- ✅ [code] Related-posts ("Keep reading") block on `blog/[slug].jsx` by shared tags — DONE & MERGED to `dev` (merge a856bf9, 2026-06-14). Build green. Pending deploy.
+- ✅ [code] Blockchain + IoT links added to `Footer.jsx` (all 8 services) — DONE & MERGED to `dev` (a856bf9).
 - ⏸️ [code] Homepage "Latest insights" block — DEFERRED by user pending more content.
 - ⏸️ [code] Service-page "From the blog" block — DEFERRED by user (only 2 posts → boilerplate risk; needs inventory-gate + bidirectional wiring when revisited).
 - ➡️ **Higher-leverage next move (per research + user decision): publish more cluster blog posts** (roadmap Phase 3 / content queue), THEN revisit tasks 1 & 3.
