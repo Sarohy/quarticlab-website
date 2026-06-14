@@ -14,7 +14,7 @@
 - **Stack:** Next.js 13.4.19 **Pages Router** (JavaScript, NOT TypeScript, NO App Router / RSC / `"use client"`). MUI + Emotion. Firestore for dynamic content. `output: "standalone"`.
 - **Stack notes for code/edit instructions:**
   - Routes live in `src/pages/*.js|jsx` — never `app/*`.
-  - Per-route metadata: the centralized `src/Components/CommonComponents/Seo/Seo.jsx` component (props: `title, description, canonical, ogImage, ogTitle, ogDescription, ogImage*, twitter*, robots, keywords, children`). **Blog pages currently bypass it** (raw `next/head`) — a known gap.
+  - Per-route metadata: the centralized `src/Components/CommonComponents/Seo/Seo.jsx` component (props: `title, description, canonical, ogImage, ogTitle, ogDescription, ogImage*, twitter*, robots, keywords, children`). **All pages including blog now route through it** (blog wired in Week 2, merged 2026-06-14).
   - JSON-LD: global Organization + (Home-only) BreadcrumbList injected in `src/pages/_app.js`. Per-page schema passes as `<Seo>` children or inline in the page's `<Head>`.
   - Fonts self-hosted via `next/font/google` in `_app.js` (Space Grotesk, Instrument Serif, IBM Plex Mono).
   - CSS Modules per component/page (`.module.css`).
@@ -83,11 +83,11 @@ SSR `/sitemap.xml` (16 static routes — **but excludes `/blog` + posts: a top-p
 | `/projects` | portfolio | ✅ | ✅ | |
 | `/contact` | utility | ✅ | ✅ | FAQPage schema |
 | `/ai-services` | landing | ❌ NOT in sitemap | ✅ | verify intent — orphan? |
-| `/blog` | hub | ❌ **excluded** | ❌ raw Head, no og:image | top-priority fix |
-| `/blog/[slug]` | posts | ❌ **excluded** | ❌ raw Head | Article schema, Organization author (should be Person) |
+| `/blog` | hub | ✅ (live) | ✅ (Wk2) | + CollectionPage + Home›Blog breadcrumb + default og:image |
+| `/blog/[slug]` | posts | ✅ (live) | ✅ (Wk2) | Article schema; og:image=hero; author still Organization (→ Person in Wk4) |
 | `/privacy` `/terms` `/cookies` | policy | ✅ | ✅ | thin, fine |
 
-> **Blog post count:** 2 published in Firestore (found 2026-06-12): `ai-mvp-cost-2026`, `how-to-hire-offshore-ai-development-team`. Both now in `sitemap.xml` as of the Week-1 fix (pending branch merge + deploy).
+> **Blog post count:** 2 published in Firestore (found 2026-06-12): `ai-mvp-cost-2026`, `how-to-hire-offshore-ai-development-team`. Both live in `sitemap.xml` (Week-1 fix, deployed & verified 2026-06-14).
 > `/ai-services` exists as a route but is NOT in the sitemap — flag for the auditor (intentional or orphan?).
 
 ---
@@ -96,7 +96,7 @@ SSR `/sitemap.xml` (16 static routes — **but excludes `/blog` + posts: a top-p
 
 See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema → content engine → steady state). The brain consumes the next un-started roadmap item each week and replaces it with GSC-driven work once data exists.
 
-- **Current roadmap position:** `Week 2 (in progress — started 2026-06-14: route blog through Seo.jsx + blog-index schema). Week 1: 4/5 Done & verified (sitemap deployed live, GSC + Bing verified, indexing requested); 1 open task (GSC→BigQuery export) rolled into Week 2.`
+- **Current roadmap position:** `Week 2 DONE (merged to dev via PR #4, commit 069a043, 2026-06-14; pending deploy + live verify). Next: Week 3 — internal linking. Carryover open: GSC→BigQuery export (measurement, still Not started).`
 
 ---
 
@@ -168,13 +168,13 @@ See `roadmap.md` for the full seeded 12-week plan (remediation → entity/schema
 - **Date:** `2026-06-14` (Week 2 — status-check + Week-2 implementation; user-directed, not the full procedure sweep).
 - **Step 0 verification (Week 1):** Live `/sitemap.xml` confirmed to include `/blog` + both posts (sitemap fix DEPLOYED). Notion Week-1 tasks: 3 Done (GSC verify, Bing, request-indexing), 1 In progress (sitemap review/merge — effect already live), 1 Not started (GSC→BigQuery export → rolled into Week 2).
 - **Procedures ran:** Step 0 (Notion + live verify), p4-optimize (4 code tasks), p7-plan (Week 2), p8-explain, p9-notion-push. (Skipped this run by user direction: p5-track, p1-audit, p2-keywords, p6-backlinks — Week 2 is a code-only roadmap week and audit/clusters are <30 days old.)
-- **Code shipped:** `src/pages/blog/[slug].jsx` + `src/pages/blog/index.js` — both routed through `Seo.jsx`; default/hero og:image; `CollectionPage` + `Home › Blog` breadcrumb on `/blog`; `og:type=article` keyed override; removed "X WORDS" byline; JSON-LD uses `SITE_URL`. Branch `seo-brain/wk-2026-06-14-blog-seo` (commit 6a85aa9), based on `dev`. `npm run build` green; **eslint could NOT run** (broken transitive dep `has` under `eslint-plugin-react` in installed node_modules — re-run once deps repaired). NOT pushed/merged.
+- **Code shipped:** `src/pages/blog/[slug].jsx` + `src/pages/blog/index.js` — both routed through `Seo.jsx`; default/hero og:image; `CollectionPage` + `Home › Blog` breadcrumb on `/blog`; `og:type=article` keyed override; removed "X WORDS" byline; JSON-LD uses `SITE_URL`. Branch `seo-brain/wk-2026-06-14-blog-seo` (commit 6a85aa9). `npm run build` green; **eslint could NOT run** (broken transitive dep `has` under `eslint-plugin-react` in installed node_modules — re-run once deps repaired). **MERGED to `dev` via PR #4 (merge commit 069a043) 2026-06-14 — verified on dev working tree. Deploy + live verification still pending.**
 - **Files produced/updated:** `outputs/weekly-plan.md`, `outputs/optimized-pages.md`, `outputs/weekly-tasks-explained.md`.
-- **Notion:** pushed 4 NEW code tasks (all Channel:code, Status:In progress) under Source `seo-brain/quarticlab/weekly`. Did NOT trash overlapping Week-1 pages (different week, meaningful statuses); did NOT duplicate the BigQuery rollover (it already exists from Week 1).
+- **Notion:** pushed 4 NEW code tasks; after merge, all 4 set to **Status: Done**. Did NOT trash overlapping Week-1 pages (different week, meaningful statuses); did NOT duplicate the BigQuery rollover (it already exists from Week 1, still Not started).
 - **Last audit:** `2026-06-12` (/blog + blog system).
 - **Keyword clusters last refreshed:** `2026-06-12`.
 
 ### Next run (Week 3) should
-- Step 0: verify the Week-2 branch was merged/deployed (Rich Results Test on `/blog` for CollectionPage+Breadcrumb; OG-preview on a post); confirm the BigQuery export got turned on; if GSC now has data, switch p5 to data mode.
-- **Reconcile the two sitemap implementations** before `dev` merges: deployed version (no changefreq/priority) vs `dev` commit `ebba44b` (re-adds them). Keep the no-changefreq/priority one per dossier.
+- Step 0: Week-2 code is MERGED to `dev` (verified). Still pending: **deploy**, then live verify (Rich Results Test on `/blog` for CollectionPage+Breadcrumb; OG-preview on a post — should show hero image, no "X WORDS"). Confirm the GSC→BigQuery export got turned on; if GSC now has data, switch p5 to data mode.
+- **Reconcile the two sitemap implementations** before `dev` deploys: live/deployed version (no changefreq/priority, per dossier) vs `dev` commit `ebba44b` (re-adds changefreq/priority). `dev` will overwrite the good live version on next deploy — strip changefreq/priority from `dev`'s `sitemap.xml.js` to match the dossier.
 - Advance roadmap Week 3 — internal linking: SSR "Latest insights" on home, "Related posts" on `blog/[slug]`, "From the blog" on `services/[slug]`, add blockchain+IoT links to `Footer.jsx`.

@@ -18,11 +18,11 @@
 - `[ ]` `[measurement/human]` Turn ON the GSC → BigQuery bulk export (NOT retroactive — every day delayed is lost history). Free within this site's volume. — **STILL OPEN** (Notion: Not started, Due 06-16). Rolled into Week 2.
 - `[x]` `[measurement/human]` Verify the domain in Bing Webmaster Tools, submit the sitemap, open the AI Performance Report as a Copilot/ChatGPT-citation baseline. — **DONE** (Notion, 2026-06-14).
 
-### [~] Week 2 — Route blog through Seo.jsx + blog-index schema  (started 2026-06-14)
-- `[fixing/code]` Replace the raw `<Head>` in `src/pages/blog/[slug].jsx` (~line 479) with `<Seo>`, passing `ogImage={post.heroImage}`; keep the Article JSON-LD as `<Seo>` children.
-- `[fixing/code]` Replace the raw `<Head>` in `src/pages/blog/index.js` (~line 225) with `<Seo>`; add a default blog og:image.
-- `[schema-aeo/code]` Add a `CollectionPage` JSON-LD + `Home › Blog` breadcrumb to `/blog`.
-- `[improve-content/code]` Remove the "X WORDS" byline render in `blog/[slug].jsx` (~line 472) so the system never optimizes for length; keep reading-time if desired.
+### [x] Week 2 — Route blog through Seo.jsx + blog-index schema  (done 2026-06-14 — merged to `dev` via PR #4, commit 069a043; pending deploy + live verify)
+- `[x]` `[fixing/code]` Replace the raw `<Head>` in `src/pages/blog/[slug].jsx` with `<Seo>`, passing `ogImage={post.heroImage}`; keep the Article JSON-LD as `<Seo>` children. — DONE & MERGED.
+- `[x]` `[fixing/code]` Replace the raw `<Head>` in `src/pages/blog/index.js` with `<Seo>`; add a default blog og:image. — DONE & MERGED.
+- `[x]` `[schema-aeo/code]` Add a `CollectionPage` JSON-LD + `Home › Blog` breadcrumb to `/blog`. — DONE & MERGED.
+- `[x]` `[improve-content/code]` Remove the "X WORDS" byline render in `blog/[slug].jsx` (reading-time kept). — DONE & MERGED.
 
 ### [ ] Week 3 — Internal linking (the other half of discoverability)
 - `[fixing/code]` Add an SSR-rendered "Latest insights" block (3–4 related posts by `tags`/`category`) to the homepage `src/pages/index.js`, output in `getServerSideProps`.
