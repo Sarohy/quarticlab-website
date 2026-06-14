@@ -1,0 +1,15 @@
+{
+  "name": "playwright-ui-test-runner",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Isolated Playwright + axe-core runner for the playwright-ui-test skill. Kept OUT of the project's package.json on purpose so the production site's dependency tree is never touched.",
+  "scripts": {
+    "probe": "node run-probe.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.60.0",
+    "@axe-core/playwright": "^4.10.0",
+    "axe-core": "^4.10.0"
+  }
+}
