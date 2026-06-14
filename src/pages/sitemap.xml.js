@@ -5,48 +5,28 @@ import { SITE_URL } from "@component/utils/siteUrl";
 // host serving the response (audit F2). The /blog index and every
 // published post are fetched from Firestore at request time (see
 // getServerSideProps) and appended to the static routes below.
+//
+// <changefreq> and <priority> are intentionally omitted — Google ignores
+// both. <lastmod> is only emitted when we have a real date (blog posts);
+// static routes carry <loc> only rather than a faked uniform timestamp.
 
 const STATIC_ROUTES = [
-  { path: "/", changefreq: "weekly", priority: "1.00" },
-  { path: "/services", changefreq: "weekly", priority: "0.90" },
-  { path: "/about", changefreq: "monthly", priority: "0.80" },
-  { path: "/projects", changefreq: "monthly", priority: "0.80" },
-  { path: "/contact", changefreq: "monthly", priority: "0.80" },
-  {
-    path: "/services/web-development",
-    changefreq: "monthly",
-    priority: "0.85",
-  },
-  {
-    path: "/services/mobile-development",
-    changefreq: "monthly",
-    priority: "0.85",
-  },
-  {
-    path: "/services/ai-ml-development",
-    changefreq: "monthly",
-    priority: "0.85",
-  },
-  {
-    path: "/services/genai-automation",
-    changefreq: "monthly",
-    priority: "0.85",
-  },
-  {
-    path: "/services/blockchain-development",
-    changefreq: "monthly",
-    priority: "0.85",
-  },
-  {
-    path: "/services/iot-development",
-    changefreq: "monthly",
-    priority: "0.85",
-  },
-  { path: "/services/devops", changefreq: "monthly", priority: "0.85" },
-  { path: "/services/ui-ux-design", changefreq: "monthly", priority: "0.85" },
-  { path: "/privacy", changefreq: "yearly", priority: "0.30" },
-  { path: "/terms", changefreq: "yearly", priority: "0.30" },
-  { path: "/cookies", changefreq: "yearly", priority: "0.30" },
+  "/",
+  "/services",
+  "/about",
+  "/projects",
+  "/contact",
+  "/services/web-development",
+  "/services/mobile-development",
+  "/services/ai-ml-development",
+  "/services/genai-automation",
+  "/services/blockchain-development",
+  "/services/iot-development",
+  "/services/devops",
+  "/services/ui-ux-design",
+  "/privacy",
+  "/terms",
+  "/cookies",
 ];
 
 // Normalize a Firestore Timestamp | ISO string | Date into YYYY-MM-DD,
@@ -90,8 +70,6 @@ function buildBlogEntries(blogs) {
 
   const postEntries = published.map(b => ({
     path: `/blog/${b.slug}`,
-    changefreq: "monthly",
-    priority: "0.70",
     lastmod:
       toDateString(b.updatedAt) ||
       toDateString(b.publishedAt) ||
@@ -105,32 +83,24 @@ function buildBlogEntries(blogs) {
     .sort()
     .pop();
 
-  return [
-    {
-      path: "/blog",
-      changefreq: "weekly",
-      priority: "0.80",
-      lastmod: indexLastmod,
-    },
-    ...postEntries,
-  ];
+  return [{ path: "/blog", lastmod: indexLastmod }, ...postEntries];
 }
 
 function buildSitemap(dynamicEntries = []) {
-  const today = new Date().toISOString().slice(0, 10);
-  const allRoutes = [...STATIC_ROUTES, ...dynamicEntries];
+  const allRoutes = [
+    ...STATIC_ROUTES.map(path => ({ path })),
+    ...dynamicEntries,
+  ];
 
   const urls = allRoutes
-    .map(({ path, changefreq, priority, lastmod }) => {
+    .map(({ path, lastmod }) => {
       const loc = path === "/" ? `${SITE_URL}/` : `${SITE_URL}${path}`;
-      return [
-        "  <url>",
-        `    <loc>${escapeXml(loc)}</loc>`,
-        `    <lastmod>${lastmod || today}</lastmod>`,
-        `    <changefreq>${changefreq}</changefreq>`,
-        `    <priority>${priority}</priority>`,
-        "  </url>",
-      ].join("\n");
+      const lines = ["  <url>", `    <loc>${escapeXml(loc)}</loc>`];
+      if (lastmod) {
+        lines.push(`    <lastmod>${lastmod}</lastmod>`);
+      }
+      lines.push("  </url>");
+      return lines.join("\n");
     })
     .join("\n");
 
