@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import Seo from "@component/Components/CommonComponents/Seo/Seo";
 import { getBlogBySlug } from "@component/firebase/firebaseRequests";
 import { SITE_URL } from "@component/utils/siteUrl";
 import styles from "./blogDetail.module.css";
@@ -459,44 +459,39 @@ const BlogDetail = ({ fetchStatus, post }) => {
     );
   }
 
-  const wordCount = countWords(post.contentHtml || "");
   const readingTime =
     post.readingTime || estimateReadTime(post.contentHtml || "");
   const canonicalUrl = `${SITE_URL}/blog/${post.slug}`;
   const authorName = post.author || "Quartic Lab";
   const authorInitial = authorName.charAt(0).toUpperCase();
   const category = post.category || post.tags?.[0] || "Engineering";
+  // Word count intentionally dropped from the byline — length is not a
+  // ranking signal and the visible "X WORDS" trained the wrong instinct.
   const bylineMeta = [
     formatDate(post.publishedDate).toUpperCase(),
     `${readingTime} MIN READ`,
-    `${wordCount.toLocaleString()} WORDS`,
   ]
     .filter(Boolean)
     .join(" · ");
 
   return (
     <div className={styles.page}>
-      <Head>
-        <title>
-          {post.title ? `${post.title} — Quartic Lab` : "Blog | Quartic Lab"}
-        </title>
-        <meta content={post.metaDescription || post.title} name="description" />
-        <link href={canonicalUrl} rel="canonical" />
-        <meta content="article" property="og:type" />
-        <meta content={canonicalUrl} property="og:url" />
-        <meta content={post.title} property="og:title" />
-        <meta
-          content={post.metaDescription || post.title}
-          property="og:description"
-        />
-        {post.heroImage && (
-          <meta content={post.heroImage} property="og:image" />
-        )}
-        <meta content="Quartic Lab" property="og:site_name" />
-        <meta content="summary_large_image" name="twitter:card" />
+      <Seo
+        canonical={canonicalUrl}
+        description={post.metaDescription || post.title}
+        ogImage={post.heroImage || undefined}
+        ogImageAlt={post.title || "Quartic Lab"}
+        ogTitle={post.title}
+        title={
+          post.title ? `${post.title} — Quartic Lab` : "Blog | Quartic Lab"
+        }
+      >
+        {/* og:type overrides the global "website" from _app.js for articles */}
+        <meta content="article" key="og:type" property="og:type" />
         {post.publishedDate && (
           <meta
             content={post.publishedDate}
+            key="article:published_time"
             property="article:published_time"
           />
         )}
@@ -508,18 +503,18 @@ const BlogDetail = ({ fetchStatus, post }) => {
               author: {
                 "@type": "Organization",
                 name: "Quartic Lab",
-                url: "https://www.quarticlab.com/",
+                url: `${SITE_URL}/`,
               },
               dateModified: post.updatedAt || post.publishedDate,
               datePublished: post.publishedDate,
               headline: post.title,
               image: post.heroImage,
-              mainEntityOfPage: `https://www.quarticlab.com/blog/${post.slug}`,
+              mainEntityOfPage: canonicalUrl,
               publisher: {
                 "@type": "Organization",
                 logo: {
                   "@type": "ImageObject",
-                  url: "https://www.quarticlab.com/mark-dark.svg",
+                  url: `${SITE_URL}/mark-dark.svg`,
                 },
                 name: "Quartic Lab",
               },
@@ -527,7 +522,7 @@ const BlogDetail = ({ fetchStatus, post }) => {
           }}
           type="application/ld+json"
         />
-      </Head>
+      </Seo>
 
       <ScrollProgress pct={pct} />
       <BackToTop pct={pct} />
